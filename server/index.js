@@ -1,8 +1,10 @@
 const { Server } = require("socket.io");
 
-const io = new Server(3000, {
+const port = process.env.PORT || 3000;
+const io = new Server(port, {
     cors: {
-        origin: "*", // Allow all connections for dev
+        origin: "*", // Allow all connections (Vercel frontend)
+        methods: ["GET", "POST"]
     },
 });
 

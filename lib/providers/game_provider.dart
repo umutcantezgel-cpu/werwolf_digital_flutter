@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:werwolf_digital_flutter/config/app_config.dart';
+import 'package:uuid/uuid.dart';
 import '../models/player.dart';
 import '../models/game_state.dart';
 import '../services/game_engine.dart';
@@ -31,7 +33,7 @@ class GameProvider extends ChangeNotifier {
     _gameState = GameState.initial();
     // Initialize NetworkService. In a real app, the URI would be dynamic.
     _networkService =
-        networkService ?? NetworkService('http://localhost:3000'); // Dummy URI
+        networkService ?? NetworkService(AppConfig.serverUrl); // Dummy URI
 
     _networkService.onConnect = (_) {
       debugPrint('GameProvider: NetworkService connected.');
