@@ -1,0 +1,12 @@
+{
+    "name": "werwolf_server",
+    "version": "1.0.0",
+    "description": "Simple Socket.IO server for Werwolf Digital",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "socket.io": "^4.7.0"
+    }
+}

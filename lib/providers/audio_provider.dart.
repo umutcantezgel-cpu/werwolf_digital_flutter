@@ -1,0 +1,14 @@
+import 'package:flutter/material.dart';
+import '../services/audio_service.dart';
+
+class AudioProvider extends ChangeNotifier {
+  final AudioService _audioService = AudioService();
+
+  AudioService get audioService => _audioService;
+
+  @override
+  void dispose() {
+    _audioService.dispose();
+    super.dispose();
+  }
+}

@@ -1,0 +1,46 @@
+name: werwolf_digital_flutter
+description: A digital moderator for the social deduction game Werewolf.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
+  provider: ^6.0.5
+  
+  # Navigation
+  go_router: ^10.0.0
+
+  # Real-time networking
+  socket_io_client: ^2.0.3+1
+
+  # Audio & TTS
+  flutter_tts: ^3.8.3
+  audioplayers: ^5.2.0
+
+  # UI & Animations
+  flutter_animate: ^4.2.0
+  confetti: ^0.7.0
+  
+  cupertino_icons: ^1.0.2
+  google_fonts: ^7.0.2
+  shared_preferences: ^2.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section below with lines specifying assets to a folder.
+  assets:
+    - assets/audio/
+    - assets/images/roles/
