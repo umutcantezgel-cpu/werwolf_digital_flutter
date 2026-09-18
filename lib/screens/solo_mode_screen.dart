@@ -140,7 +140,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
         Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: DesignColors.nightMid.withOpacity(0.5),
+            color: DesignColors.nightMid.withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: Colors.white10),
           ),
@@ -161,7 +161,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
                     padding:
                         const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: DesignColors.roleWerwolf.withOpacity(0.2),
+                      color: DesignColors.roleWerwolf.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
@@ -241,7 +241,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
             key: ValueKey(_difficulty),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.05),
+              color: Colors.white.withValues(alpha: 0.05),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Row(
@@ -282,7 +282,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         decoration: BoxDecoration(
           color: isSelected
-              ? _getDifficultyColor(level).withOpacity(0.2)
+              ? _getDifficultyColor(level).withValues(alpha: 0.2)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
@@ -346,7 +346,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: DesignColors.nightMid.withOpacity(0.3),
+        color: DesignColors.nightMid.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: Colors.white10),
       ),
@@ -404,7 +404,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 18),
                 elevation: 8,
-                shadowColor: DesignColors.roleWerwolf.withOpacity(0.5),
+                shadowColor: DesignColors.roleWerwolf.withValues(alpha: 0.5),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
@@ -434,7 +434,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
               style: OutlinedButton.styleFrom(
                 foregroundColor: DesignColors.moonPrimary,
                 side: BorderSide(
-                  color: DesignColors.moonPrimary.withOpacity(0.5),
+                  color: DesignColors.moonPrimary.withValues(alpha: 0.5),
                 ),
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(

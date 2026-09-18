@@ -125,11 +125,11 @@ class AppTheme {
 
       // Cards
       cardTheme: CardThemeData(
-        color: surfaceColor.withOpacity(isDark ? 0.8 : 0.95),
+        color: surfaceColor.withValues(alpha: isDark ? 0.8 : 0.95),
         elevation: isDark ? 12 : 4,
         shadowColor: isDark
-            ? Colors.black.withOpacity(0.5)
-            : Colors.black.withOpacity(0.1),
+            ? Colors.black.withValues(alpha: 0.5)
+            : Colors.black.withValues(alpha: 0.1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),

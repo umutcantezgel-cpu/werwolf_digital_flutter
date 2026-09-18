@@ -121,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   decoration: InputDecoration(
                     labelText: 'Dein Name',
                     labelStyle: TextStyle(
-                        color: DesignColors.moonPrimary.withOpacity(0.5)),
+                        color: DesignColors.moonPrimary.withValues(alpha: 0.5)),
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.all(DesignSpacings.s16),
                   ),
@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: InputDecoration(
                       labelText: 'Raum-Code',
                       labelStyle: TextStyle(
-                          color: DesignColors.moonPrimary.withOpacity(0.5)),
+                          color: DesignColors.moonPrimary.withValues(alpha: 0.5)),
                       border: InputBorder.none,
                       contentPadding: const EdgeInsets.all(DesignSpacings.s16),
                     ),
@@ -199,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   child: Text('SPIEL BEITRETEN',
                       style: TextStyle(
-                        color: DesignColors.moonPrimary.withOpacity(0.7),
+                        color: DesignColors.moonPrimary.withValues(alpha: 0.7),
                         letterSpacing: 1,
                       )),
                 ).animate().fadeIn(delay: 200.ms),
@@ -225,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   child: Text('ZURÜCK',
                       style: TextStyle(
-                        color: DesignColors.moonPrimary.withOpacity(0.7),
+                        color: DesignColors.moonPrimary.withValues(alpha: 0.7),
                         letterSpacing: 1,
                       )),
                 ).animate().fadeIn(delay: 100.ms),
