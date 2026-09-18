@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:werwolf_digital_flutter/config/app_config.dart';
-import 'package:uuid/uuid.dart';
 import '../models/player.dart';
 import '../models/game_state.dart';
 import '../services/game_engine.dart';

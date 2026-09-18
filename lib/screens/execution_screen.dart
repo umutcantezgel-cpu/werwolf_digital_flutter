@@ -43,7 +43,7 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Gavel / Execution Icon
-                  Icon(
+                  const Icon(
                     Icons.gavel,
                     size: 80,
                     color: DesignColors.dayWarm,
