@@ -95,7 +95,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
 
           // 2. Blood Overlay (Optional, using opacity)
           Positioned.fill(
-            child: Container(color: Colors.red.withOpacity(0.1)),
+            child: Container(color: Colors.red.withValues(alpha: 0.1)),
           ),
 
           // 3. Content
@@ -111,7 +111,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 4,
-                      color: Colors.red.withOpacity(0.8),
+                      color: Colors.red.withValues(alpha: 0.8),
                       // shadows: [ ... ]
                     ),
                   ).animate().shake(duration: 500.ms, hz: 5).scale(
@@ -126,7 +126,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 4,
-                      color: Colors.red.withOpacity(0.8),
+                      color: Colors.red.withValues(alpha: 0.8),
                     ),
                   ),
 

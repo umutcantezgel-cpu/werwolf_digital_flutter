@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (SDK >=3.0.0 <4.0.0)",
+  "language": "Dart",
+  "state_management": "Provider",
+  "routing": "go_router",
+  "linting": "flutter_lints",
+  "ui_animation": "flutter_animate",
+  "design_system": "Material Design (uses-material-design: true) + Google Fonts",
+  "icon_library": "cupertino_icons"
+}

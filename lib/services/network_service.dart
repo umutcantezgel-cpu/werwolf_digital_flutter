@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:socket_io_client/socket_io_client.dart' as io;
 import 'package:flutter/foundation.dart';
 
 // Check socket state
@@ -29,7 +29,7 @@ class SocketEvents {
 }
 
 class NetworkService {
-  late IO.Socket _socket;
+  late io.Socket _socket;
   final String _uri;
 
   // Stream controller for connection state
@@ -54,9 +54,9 @@ class NetworkService {
   void _initSocket() {
     _connectionStateController.add(ServerConnectionState.connecting);
 
-    _socket = IO.io(
+    _socket = io.io(
         _uri,
-        IO.OptionBuilder()
+        io.OptionBuilder()
             .setTransports(['websocket'])
             .disableAutoConnect() // Connect manually
             .setReconnectionDelay(1000)
