@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (Dart)",
+  "state_management": "provider",
+  "navigation": "go_router",
+  "styling_engine": "Flutter Material Design + google_fonts",
+  "icon_library": "cupertino_icons + Material Icons",
+  "animation_library": "flutter_animate",
+  "typescript_strictness": "N/A (Dart strong typing)",
+  "class_merging_utility": "N/A"
+}
