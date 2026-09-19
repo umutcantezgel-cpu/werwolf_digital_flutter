@@ -1,0 +1,19 @@
+{
+  "epoch": 1,
+  "last_stable_commit": "HEAD",
+  "active_feature_vector": "DART_ANALYZE_HEALING_PHASE_1",
+  "drift_index": 0.0,
+  "design_inconsistency_score": 0.0,
+  "resolved_issues": [
+    "Replaced deprecated .withOpacity() in lib/config/theme.dart",
+    "Removed unused uuid import in lib/providers/game_provider.dart",
+    "Added const modifier in lib/screens/execution_screen.dart",
+    "Replaced deprecated .withOpacity() in lib/screens/home_screen.dart",
+    "Renamed IO library prefix to io in lib/services/network_service.dart"
+  ],
+  "metrics": {
+    "dart_analyze_errors": 28,
+    "test_failures": 0,
+    "security_vulnerabilities": 0
+  }
+}
