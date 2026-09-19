@@ -1,0 +1,11 @@
+{
+  "framework": "Flutter (Dart)",
+  "typescript_strictness": "dart strict analysis",
+  "styling_engine": "Flutter Material Design / Custom UI",
+  "class_merging_utility": "N/A",
+  "component_style": "Flutter Widgets",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "icon_library": "cupertino_icons",
+  "animation_library": "flutter_animate"
+}
