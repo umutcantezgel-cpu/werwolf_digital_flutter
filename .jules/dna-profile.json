@@ -1,0 +1,8 @@
+{
+  "framework": "Flutter (Dart 3.x)",
+  "state_management": "provider",
+  "navigation": "go_router",
+  "styling_engine": "DesignColors / semantic tokens",
+  "icon_library": "cupertino_icons",
+  "animation_library": "flutter_animate"
+}
