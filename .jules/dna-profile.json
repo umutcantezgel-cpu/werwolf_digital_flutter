@@ -1,0 +1,6 @@
+{
+  "framework": "Flutter",
+  "language": "Dart",
+  "linting": "flutter_lints",
+  "state_management": "Provider"
+}
