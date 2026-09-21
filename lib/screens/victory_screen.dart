@@ -51,8 +51,8 @@ class _VictoryScreenState extends State<VictoryScreen> {
 
     return Scaffold(
       backgroundColor: isVillageWin
-          ? const Color(0xFF1E1E2C)
-          : Colors.black, // Dark background
+          ? DesignColors.nightMid
+          : DesignColors.nightBlack, // Dark background
       body: Stack(
         children: [
           // Background Effect
@@ -66,7 +66,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                 colors: [
                   Colors.orange.withValues(alpha: 0.3),
                   Colors.blue.withValues(alpha: 0.1),
-                  Colors.black,
+                  DesignColors.nightBlack,
                 ],
               )),
             )
@@ -87,7 +87,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                 colors: [
                   Colors.orange.withValues(alpha: 0.3),
                   Colors.blue.withValues(alpha: 0.1),
-                  Colors.black,
+                  DesignColors.nightBlack,
                 ],
               )),
             )),
@@ -99,8 +99,8 @@ class _VictoryScreenState extends State<VictoryScreen> {
                     center: Alignment(0, -0.4),
                     radius: 1.0,
                     colors: [
-                      Color(0xFF50C878), // Emerald Green
-                      Colors.black,
+                      DesignColors.villageGreen, // Emerald Green
+                      DesignColors.nightBlack,
                     ],
                     stops: [0.3, 1.0],
                   ),
@@ -118,8 +118,8 @@ class _VictoryScreenState extends State<VictoryScreen> {
                     center: Alignment(0, -0.4),
                     radius: 1.0,
                     colors: [
-                      Color(0xFF50C878), // Emerald Green
-                      Colors.black,
+                      DesignColors.villageGreen, // Emerald Green
+                      DesignColors.nightBlack,
                     ],
                     stops: [0.3, 1.0],
                   ),
@@ -210,7 +210,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                         onPressed: () {}, // No-op or navigate
                         style: ElevatedButton.styleFrom(
                           backgroundColor: primaryColor,
-                          foregroundColor: Colors.black,
+                          foregroundColor: DesignColors.nightBlack,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 40, vertical: 16),
                           textStyle: GoogleFonts.spaceGrotesk(
@@ -228,7 +228,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: primaryColor,
-                          foregroundColor: Colors.black,
+                          foregroundColor: DesignColors.nightBlack,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 40, vertical: 16),
                           textStyle: GoogleFonts.spaceGrotesk(
@@ -256,7 +256,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                         Colors.orange,
                         Colors.purple
                       ]
-                    : const [Colors.red, Colors.grey, Colors.black],
+                    : const [Colors.red, Colors.grey, DesignColors.nightBlack],
               ),
             ),
         ],

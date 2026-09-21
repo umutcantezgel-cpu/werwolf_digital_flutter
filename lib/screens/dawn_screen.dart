@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -32,9 +33,9 @@ class _DawnScreenState extends State<DawnScreen> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xFFFF8C00), // Orange sunrise
-                Color(0xFFFFD700), // Golden
-                Color(0xFF87CEEB), // Sky blue
+                DesignColors.dayWarm, // Orange sunrise
+                DesignColors.dayBright, // Golden
+                DesignColors.textDaySecondary, // Sky blue
               ],
               stops: [0.0, 0.4, 1.0],
             ),
@@ -46,10 +47,10 @@ class _DawnScreenState extends State<DawnScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Sun Icon
-                  Icon(
+                  const Icon(
                     Icons.wb_sunny,
                     size: 100,
-                    color: Colors.yellow[100],
+                    color: DesignColors.dayLighter,
                   )
                       .animate()
                       .scale(
@@ -68,11 +69,11 @@ class _DawnScreenState extends State<DawnScreen> {
                     style: GoogleFonts.spaceGrotesk(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: DesignColors.moonPrimary,
                       letterSpacing: 4.0,
                       shadows: [
                         Shadow(
-                          color: Colors.black.withValues(alpha: 0.3),
+                          color: DesignColors.nightBlack.withValues(alpha: 0.3),
                           blurRadius: 10,
                         ),
                       ],
@@ -85,7 +86,7 @@ class _DawnScreenState extends State<DawnScreen> {
                     'Runde $round',
                     style: GoogleFonts.inter(
                       fontSize: 18,
-                      color: Colors.white70,
+                      color: DesignColors.moonPrimary.withValues(alpha: 0.7),
                     ),
                   ).animate(delay: 700.ms).fadeIn(),
 
@@ -98,7 +99,7 @@ class _DawnScreenState extends State<DawnScreen> {
                       vertical: 16,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.black26,
+                      color: DesignColors.nightBlack.withValues(alpha: 0.26),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
@@ -109,7 +110,7 @@ class _DawnScreenState extends State<DawnScreen> {
                       style: GoogleFonts.inter(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
-                        color: Colors.white,
+                        color: DesignColors.moonPrimary,
                         height: 1.4,
                       ),
                     ),
@@ -123,7 +124,7 @@ class _DawnScreenState extends State<DawnScreen> {
                       'Der Tag beginnt...',
                       style: GoogleFonts.inter(
                         fontSize: 14,
-                        color: Colors.white54,
+                        color: DesignColors.moonPrimary.withValues(alpha: 0.54),
                         fontStyle: FontStyle.italic,
                       ),
                     ).animate(delay: 3.seconds).fadeIn(),

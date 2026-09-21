@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (Dart 3.x)",
+  "typescript_strictness": "strict (Dart analysis_options)",
+  "styling_engine": "Flutter Material Design + semantic tokens (DesignColors)",
+  "class_merging_utility": "N/A",
+  "component_style": "Flutter Widgets (const constructors preferred)",
+  "icon_library": "cupertino_icons / material_icons",
+  "animation_library": "flutter_animate",
+  "color_system": "DesignColors / no hardcoded HEX"
+}

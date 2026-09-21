@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:werwolf_digital_flutter/providers/game_provider.dart';
@@ -131,7 +132,7 @@ class _GameScreenState extends State<GameScreen> {
           phase: gamePhase,
           child: Scaffold(
             backgroundColor:
-                Colors.transparent, // Allow ambient background to show
+                DesignColors.nightBlack.withValues(alpha: 0), // Allow ambient background to show
             appBar: AppBar(
               title: Text(
                   'Spiel: ${widget.roomCode}'), // Use widget.roomCode for StatelessWidget properties
@@ -220,7 +221,7 @@ class _GameScreenState extends State<GameScreen> {
               CircularProgressIndicator(),
               SizedBox(height: 20),
               Text('Warte auf andere Spieler...',
-                  style: TextStyle(color: Colors.white)),
+                  style: TextStyle(color: DesignColors.moonPrimary)),
             ],
           ),
         );
