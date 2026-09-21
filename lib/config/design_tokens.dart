@@ -20,6 +20,7 @@ class DesignColors {
   static const Color moonPrimary = Color(0xFFE8E0D0); // Warm cream - moon
   static const Color moonGlow = Color(0xFFD0C8B8); // Moon reflection
   static const Color moonShadow = Color(0xFF3D4A66); // Moon shadow
+  static const Color clear = Color(0x00000000); // Fully transparent
 
   static const Color wolfRed =
       Color(0xFF8B0000); // Werewolf emphasis - dark red
@@ -41,6 +42,7 @@ class DesignColors {
   static const Color dayWarm = Color(0xFFFF9800); // Warm orange, sunrise
   static const Color dayBright = Color(0xFFFFD700); // Bright gold, high sun
   static const Color dayLighter = Color(0xFFFFEB99); // Light day, villages
+  static const Color daySky = Color(0xFF87CEEB); // Sky blue, morning sky
   static const Color dayOrange = Color(0xFFFF9800); // Action/Voting color
 
   static const Color textDayPrimary = Color(0xFF1A1A1A); // Near-black for day

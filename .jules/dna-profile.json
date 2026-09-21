@@ -1,0 +1,9 @@
+{
+    "framework": "Flutter",
+    "state_management": "Provider",
+    "navigation": "go_router",
+    "styling_engine": "Flutter Theme / DesignTokens",
+    "icon_library": "Material Icons (exclusive)",
+    "color_system": "DesignColors (no hardcoded HEX or Colors.*)",
+    "code_rules": "No deprecated withOpacity(), use const constructors, enforce strong Dart linting rules"
+}
