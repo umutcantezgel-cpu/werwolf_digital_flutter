@@ -1,0 +1,13 @@
+{
+  "epoch": 1,
+  "last_stable_commit": "HEAD",
+  "active_feature_vector": "OPTIMIZE_UI_COMPONENTS",
+  "drift_index": 0.0,
+  "design_inconsistency_score": 0.0,
+  "resolved_issues": ["dart_linter_issues", "deprecated_withOpacity", "unused_import", "missing_const"],
+  "metrics": {
+    "flutter_analyze_errors": 28,
+    "typescript_errors": 0,
+    "security_vulnerabilities": 0
+  }
+}
