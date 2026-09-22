@@ -1,0 +1,9 @@
+{
+  "framework": "Flutter (Dart)",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "styling_engine": "DesignColors semantic tokens",
+  "icon_library": "Material Icons (cupertino_icons forbidden)",
+  "animation_library": "flutter_animate",
+  "typescript_strictness": "n/a (Dart strict mode)"
+}

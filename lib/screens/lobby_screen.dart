@@ -58,7 +58,7 @@ class LobbyScreen extends StatelessWidget {
                 Text('RAUM-CODE',
                     style: TextStyle(
                       fontFamily: DesignTypography.fontBody,
-                      color: DesignColors.moonPrimary.withOpacity(0.6),
+                      color: DesignColors.moonPrimary.withValues(alpha: 0.6),
                       letterSpacing: 1,
                     )).animate().fadeIn(),
                 SelectableText(
@@ -93,7 +93,7 @@ class LobbyScreen extends StatelessWidget {
                                 BorderRadius.circular(DesignSpacings.s8),
                             border: Border.all(
                               color: player.isHost
-                                  ? DesignColors.dayBright.withOpacity(0.3)
+                                  ? DesignColors.dayBright.withValues(alpha: 0.3)
                                   : Colors.transparent,
                             )),
                         child: ListTile(
@@ -101,7 +101,7 @@ class LobbyScreen extends StatelessWidget {
                             player.isHost ? Icons.star : Icons.person,
                             color: player.isHost
                                 ? DesignColors.dayBright
-                                : DesignColors.moonPrimary.withOpacity(0.7),
+                                : DesignColors.moonPrimary.withValues(alpha: 0.7),
                           ),
                           title: Text(
                             player.name,
@@ -152,13 +152,13 @@ class LobbyScreen extends StatelessWidget {
                             child: CircularProgressIndicator(
                                 strokeWidth: 2,
                                 color:
-                                    DesignColors.moonPrimary.withOpacity(0.5))),
+                                    DesignColors.moonPrimary.withValues(alpha: 0.5))),
                         const SizedBox(width: DesignSpacings.s16),
                         Text(
                           'Warte auf Host...',
                           style: TextStyle(
                               fontStyle: FontStyle.italic,
-                              color: DesignColors.moonPrimary.withOpacity(0.7)),
+                              color: DesignColors.moonPrimary.withValues(alpha: 0.7)),
                         ),
                       ],
                     ),
