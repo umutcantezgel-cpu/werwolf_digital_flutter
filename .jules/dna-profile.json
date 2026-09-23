@@ -1,0 +1,12 @@
+{
+  "framework": "Flutter (Dart)",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "realtime": "socket_io_client",
+  "audio": "flutter_tts, audioplayers",
+  "animation_library": "flutter_animate, confetti",
+  "typography": "google_fonts",
+  "icon_library": "Material Icons (strictly no cupertino_icons)",
+  "styling_engine": "Semantic Tokens (lib/config/design_tokens.dart)",
+  "linting_rules": "strict (replace withOpacity with withValues, const constructors, lower_case_with_underscores prefixes)"
+}

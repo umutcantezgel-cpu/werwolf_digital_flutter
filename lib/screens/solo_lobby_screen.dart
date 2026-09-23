@@ -100,7 +100,7 @@ class _SoloLobbyScreenState extends State<SoloLobbyScreen> {
       decoration: BoxDecoration(
         color: DesignColors.nightMid,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: DesignColors.roleSeherin.withOpacity(0.5)),
+        border: Border.all(color: DesignColors.roleSeherin.withValues(alpha: 0.5)),
       ),
       child: const Row(
         children: [
@@ -142,7 +142,7 @@ class _SoloLobbyScreenState extends State<SoloLobbyScreen> {
       width: 150,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: DesignColors.nightMid.withOpacity(0.5),
+        color: DesignColors.nightMid.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: Colors.white10),
       ),
