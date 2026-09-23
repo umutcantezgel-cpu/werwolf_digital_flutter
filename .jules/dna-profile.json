@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (Dart 3)",
+  "state_management": "provider",
+  "navigation": "go_router",
+  "networking": "socket_io_client",
+  "audio": "flutter_tts, audioplayers",
+  "animation_library": "flutter_animate",
+  "color_system": "DesignColors from lib/config/design_tokens.dart",
+  "styling_rules": "No hardcoded HEX colors, no standard framework colors (Colors.black, etc.), strict lower_case_with_underscores for import prefixes, withOpacity() deprecated in favor of withValues(alpha: ...)"
+}

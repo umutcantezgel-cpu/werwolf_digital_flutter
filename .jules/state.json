@@ -1,0 +1,14 @@
+{
+  "epoch": 1,
+  "last_stable_commit": "HEAD",
+  "active_feature_vector": "HEAL_LINTING_PHASE",
+  "drift_index": 0.0,
+  "design_inconsistency_score": 0.0,
+  "resolved_issues": ["lib/services/network_service.dart prefix issue", "lib/providers/game_provider.dart unused import", "lib/screens/execution_screen.dart missing const"],
+  "metrics": {
+    "lighthouse_performance": 0,
+    "lighthouse_seo": 0,
+    "typescript_errors": 0,
+    "security_vulnerabilities": 0
+  }
+}
