@@ -94,7 +94,7 @@ class _DeathAnnouncementOverlayState extends State<DeathAnnouncementOverlay> {
             )
                 .animate()
                 .fadeIn()
-                .tint(color: Colors.black, duration: 300.ms), // Flash effect
+                .tint(color: DesignColors.nightBlack, duration: 300.ms), // Flash effect
             const SizedBox(height: 30),
             ...widget.deadPlayerNames.map((name) => Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),

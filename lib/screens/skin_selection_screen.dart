@@ -51,7 +51,7 @@ class _SkinSelectionScreenState extends State<SkinSelectionScreen>
           controller: _tabController,
           indicatorColor: DesignColors.dayBright,
           labelColor: DesignColors.dayBright,
-          unselectedLabelColor: DesignColors.moonPrimary.withOpacity(0.6),
+          unselectedLabelColor: DesignColors.moonPrimary.withValues(alpha: 0.6),
           tabs: const [
             Tab(text: 'KARTEN', icon: Icon(Icons.style)),
             Tab(text: 'STIMMEN', icon: Icon(Icons.record_voice_over)),
@@ -139,13 +139,13 @@ class _CardBackTile extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(DesignSpacings.s8),
           border: Border.all(
-            color: isSelected ? DesignColors.dayBright : Colors.transparent,
+            color: isSelected ? DesignColors.dayBright : const Color(0x00000000),
             width: 3,
           ),
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: DesignColors.dayBright.withOpacity(0.4),
+                    color: DesignColors.dayBright.withValues(alpha: 0.4),
                     blurRadius: 12,
                     spreadRadius: 2,
                   )
@@ -178,7 +178,7 @@ class _CardBackTile extends StatelessWidget {
                       child: Icon(
                         Icons.style,
                         size: 48,
-                        color: DesignColors.moonPrimary.withOpacity(0.5),
+                        color: DesignColors.moonPrimary.withValues(alpha: 0.5),
                       ),
                     ),
                   );
@@ -196,8 +196,8 @@ class _CardBackTile extends StatelessWidget {
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
                       colors: [
-                        Colors.black.withOpacity(0.8),
-                        Colors.transparent,
+                        DesignColors.nightBlack.withValues(alpha: 0.8),
+                        const Color(0x00000000),
                       ],
                     ),
                   ),
@@ -251,7 +251,7 @@ class _CardBackTile extends StatelessWidget {
                     child: const Icon(
                       Icons.check,
                       size: 16,
-                      color: Colors.black,
+                      color: DesignColors.nightBlack,
                     ),
                   ),
                 ),
@@ -305,7 +305,7 @@ class _VoicePackTile extends StatelessWidget {
                 Icons.record_voice_over,
                 color: isSelected
                     ? DesignColors.dayBright
-                    : DesignColors.moonPrimary.withOpacity(0.6),
+                    : DesignColors.moonPrimary.withValues(alpha: 0.6),
                 size: 28,
               ),
             ),
@@ -341,7 +341,7 @@ class _VoicePackTile extends StatelessWidget {
                             'PRO',
                             style: TextStyle(
                               fontFamily: DesignTypography.fontBody,
-                              color: Colors.black,
+                              color: DesignColors.nightBlack,
                               fontWeight: FontWeight.bold,
                               fontSize: 10,
                             ),
@@ -356,7 +356,7 @@ class _VoicePackTile extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: DesignTypography.fontBody,
                       fontSize: DesignTypography.textSm,
-                      color: DesignColors.moonPrimary.withOpacity(0.7),
+                      color: DesignColors.moonPrimary.withValues(alpha: 0.7),
                     ),
                   ),
                 ],
@@ -370,7 +370,7 @@ class _VoicePackTile extends StatelessWidget {
               },
               icon: Icon(
                 Icons.play_circle_outline,
-                color: DesignColors.moonPrimary.withOpacity(0.8),
+                color: DesignColors.moonPrimary.withValues(alpha: 0.8),
                 size: 32,
               ),
             ),

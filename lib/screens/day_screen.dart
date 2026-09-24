@@ -123,7 +123,7 @@ class _DayScreenState extends State<DayScreen> {
                             children: deadPlayers.map((player) {
                               return Chip(
                                 label: Text(player.name),
-                                backgroundColor: Colors.grey[300],
+                                backgroundColor: DesignColors.textNightSecondary,
                               );
                             }).toList(),
                           ),
@@ -154,7 +154,7 @@ class _DayScreenState extends State<DayScreen> {
               showModalBottomSheet(
                 context: context,
                 isScrollControlled: true,
-                backgroundColor: Colors.transparent,
+                backgroundColor: const Color(0x00000000),
                 builder: (context) => Padding(
                   padding: EdgeInsets.only(
                     top: MediaQuery.of(context).padding.top + 50,

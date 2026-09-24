@@ -1,3 +1,4 @@
+import '../config/design_tokens.dart';
 import 'package:flutter/material.dart';
 
 class LoadingOverlay extends StatelessWidget {
@@ -19,7 +20,7 @@ class LoadingOverlay extends StatelessWidget {
         child,
         if (isLoading)
           Container(
-            color: Colors.black45,
+            color: DesignColors.nightBlack.withValues(alpha: 0.45),
             child: Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,

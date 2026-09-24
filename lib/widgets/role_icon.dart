@@ -1,3 +1,4 @@
+import '../config/design_tokens.dart';
 import 'package:flutter/material.dart';
 import '../models/role.dart';
 
@@ -17,7 +18,7 @@ class RoleIcon extends StatelessWidget {
           PageRouteBuilder(
             opaque: false,
             barrierDismissible: true,
-            barrierColor: Colors.black54,
+            barrierColor: DesignColors.nightBlack.withValues(alpha: 0.54),
             pageBuilder: (context, _, __) => RoleDetailsModal(
               role: role,
               heroTag: heroTag,
@@ -39,7 +40,7 @@ class RoleIcon extends StatelessWidget {
                 width: 1),
             boxShadow: [
               BoxShadow(
-                color: (role.color ?? Colors.black).withValues(alpha: 0.3),
+                color: (role.color ?? DesignColors.nightBlack).withValues(alpha: 0.3),
                 blurRadius: 4,
                 offset: const Offset(0, 2),
               )

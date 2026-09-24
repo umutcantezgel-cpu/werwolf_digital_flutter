@@ -43,7 +43,7 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Gavel / Execution Icon
-                  Icon(
+                  const Icon(
                     Icons.gavel,
                     size: 80,
                     color: DesignColors.dayWarm,
@@ -78,7 +78,7 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
                       vertical: 16,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.black26,
+                      color: DesignColors.nightBlack.withValues(alpha: 0.26),
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
                         color: DesignColors.dayWarm.withValues(alpha: 0.3),

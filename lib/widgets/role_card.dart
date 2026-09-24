@@ -80,7 +80,7 @@ class RoleCard extends StatelessWidget {
             // Adding a dark overlay to ensure the text pops if it's there
             Positioned.fill(
               child: Container(
-                color: Colors.black.withValues(alpha: 0.3),
+                color: DesignColors.nightBlack.withValues(alpha: 0.3),
               ),
             ),
 
@@ -123,7 +123,7 @@ class RoleCard extends StatelessWidget {
                       const Shadow(
                           offset: Offset(0, 2),
                           blurRadius: 4,
-                          color: Colors.black),
+                          color: DesignColors.nightBlack),
                     ],
                   ),
                 ),
@@ -174,7 +174,7 @@ class RoleCard extends StatelessWidget {
                     colors: [
                       roleColor.withValues(alpha: 0.2), // Light tint top
                       Colors.transparent,
-                      Colors.black.withValues(alpha: 0.8), // Dark bottom
+                      DesignColors.nightBlack.withValues(alpha: 0.8), // Dark bottom
                     ],
                   ),
                 ),

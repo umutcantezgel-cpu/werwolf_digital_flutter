@@ -1,0 +1,9 @@
+{
+  "framework": "Flutter (Dart)",
+  "state_management": "Provider",
+  "routing": "go_router",
+  "styling_engine": "DesignColors from lib/config/design_tokens.dart",
+  "icon_library": "Material Icons (cupertino_icons forbidden)",
+  "linting": "flutter analyze",
+  "animation_library": "flutter_animate, confetti"
+}
