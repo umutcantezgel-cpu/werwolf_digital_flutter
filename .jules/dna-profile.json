@@ -1,0 +1,12 @@
+{
+  "framework": "Flutter (Dart)",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "networking": "socket_io_client",
+  "audio": "flutter_tts, audioplayers",
+  "ui_animations": "flutter_animate, confetti",
+  "typography": "google_fonts",
+  "icon_library": "Material Icons (Strictly NO cupertino_icons)",
+  "linting_rules": "strict_linting, lower_case_with_underscores_imports, prefer_const_constructors, NO_withOpacity_DEPRECATED, STRICT_DESIGN_TOKENS_ONLY",
+  "color_system": "DesignColors from lib/config/design_tokens.dart (NO hardcoded HEX, NO standard Material colors like Colors.white/black)"
+}
