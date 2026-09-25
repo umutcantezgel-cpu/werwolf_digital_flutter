@@ -22,8 +22,8 @@ class GameEndScreen extends StatelessWidget {
                   Text(
                     'Spiel vorbei!',
                     style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                      color: Theme.of(context).primaryColor,
-                    ),
+                          color: Theme.of(context).primaryColor,
+                        ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 32),
@@ -38,7 +38,8 @@ class GameEndScreen extends StatelessWidget {
                       gameProvider.resetGame(); // Reset game state
                       context.go('/'); // Go back to home screen
                     },
-                    style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 50)),
+                    style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 50)),
                     child: const Text('Neues Spiel starten'),
                   ),
                 ],

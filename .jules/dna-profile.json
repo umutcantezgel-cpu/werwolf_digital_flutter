@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (Dart 3)",
+  "state_management": "provider",
+  "routing": "go_router",
+  "networking": "socket_io_client",
+  "styling_engine": "DesignColors semantic tokens",
+  "icon_library": "Material Icons (cupertino_icons forbidden)",
+  "animation_library": "flutter_animate & confetti",
+  "typography": "google_fonts"
+}
