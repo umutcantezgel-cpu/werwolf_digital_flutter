@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter",
+  "language": "Dart",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "icon_library": "Material Icons",
+  "color_system": "DesignColors from lib/config/design_tokens.dart",
+  "styling_engine": "Flutter Material Widgets",
+  "animation_library": "flutter_animate"
+}
