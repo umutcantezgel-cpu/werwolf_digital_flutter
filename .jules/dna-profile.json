@@ -1,0 +1,12 @@
+{
+  "framework": "Flutter",
+  "language": "Dart",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "styling_engine": "DesignColors from lib/config/design_tokens.dart",
+  "icon_library": "Material Icons (no cupertino_icons)",
+  "color_system": "Semantic Tokens (no hardcoded HEX or Colors.black/white)",
+  "opacity_rule": ".withValues(alpha: ...) instead of .withOpacity()",
+  "import_prefixes": "lower_case_with_underscores",
+  "widget_constructors": "const constructors preferred"
+}
