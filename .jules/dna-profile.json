@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (Dart)",
+  "typescript_strictness": "n/a",
+  "styling_engine": "DesignColors semantic tokens",
+  "class_merging_utility": "n/a",
+  "component_style": "Flutter Widgets (prefer const constructors)",
+  "icon_library": "Material Icons exclusively",
+  "animation_library": "flutter_animate",
+  "color_system": "Semantic Tokens via lib/config/design_tokens.dart"
+}
