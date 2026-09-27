@@ -100,7 +100,7 @@ class _SoloLobbyScreenState extends State<SoloLobbyScreen> {
       decoration: BoxDecoration(
         color: DesignColors.nightMid,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: DesignColors.roleSeherin.withOpacity(0.5)),
+        border: Border.all(color: DesignColors.roleSeherin.withValues(alpha: 0.5)),
       ),
       child: const Row(
         children: [
@@ -142,9 +142,9 @@ class _SoloLobbyScreenState extends State<SoloLobbyScreen> {
       width: 150,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: DesignColors.nightMid.withOpacity(0.5),
+        color: DesignColors.nightMid.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white10),
+        border: Border.all(color: DesignColors.moonPrimary.withValues(alpha: 0.1)),
       ),
       child: Column(
         children: [
@@ -179,9 +179,9 @@ class _SoloLobbyScreenState extends State<SoloLobbyScreen> {
   Widget _buildStartButton(BuildContext context, GameProvider provider) {
     return Container(
       padding: const EdgeInsets.all(24),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: DesignColors.nightBlack,
-        border: Border(top: BorderSide(color: Colors.white10)),
+        border: Border(top: BorderSide(color: DesignColors.moonPrimary.withValues(alpha: 0.1))),
       ),
       child: ElevatedButton(
         onPressed: () {
@@ -190,7 +190,7 @@ class _SoloLobbyScreenState extends State<SoloLobbyScreen> {
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: DesignColors.roleWerwolf,
-          foregroundColor: Colors.white,
+          foregroundColor: DesignColors.moonPrimary,
           padding: const EdgeInsets.symmetric(vertical: 18),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),

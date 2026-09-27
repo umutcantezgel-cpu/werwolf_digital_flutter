@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (Dart 3.x)",
+  "typescript_strictness": "N/A (Dart strong mode)",
+  "styling_engine": "Flutter DesignTokens / Semantic Colors",
+  "class_merging_utility": "N/A",
+  "component_style": "Flutter Widgets (const constructors preferred)",
+  "icon_library": "Material Icons (cupertino_icons forbidden)",
+  "animation_library": "flutter_animate / confetti",
+  "color_system": "DesignColors semantic tokens (hardcoded framework colors forbidden)"
+}
