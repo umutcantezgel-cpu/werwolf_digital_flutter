@@ -1,0 +1,9 @@
+{
+  "framework": "Flutter (Dart)",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "styling_engine": "Semantic Tokens (DesignColors)",
+  "color_system": "DesignColors exclusively (No hardcoded HEX, no Colors.*)",
+  "icon_library": "Material Icons exclusively",
+  "animation_library": "flutter_animate, confetti"
+}
