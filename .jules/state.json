@@ -1,0 +1,19 @@
+{
+  "epoch": 1,
+  "last_stable_commit": "HEAD",
+  "active_feature_vector": "INIT",
+  "drift_index": 0.0,
+  "design_inconsistency_score": 0.0,
+  "resolved_issues": [
+    "flutter analyze deprecation warnings withOpacity -> withValues",
+    "unused import in game_provider.dart",
+    "missing const constructor in execution_screen.dart",
+    "lower_case_with_underscores identifier in network_service.dart"
+  ],
+  "metrics": {
+    "lighthouse_performance": 0,
+    "lighthouse_seo": 0,
+    "typescript_errors": 0,
+    "security_vulnerabilities": 0
+  }
+}

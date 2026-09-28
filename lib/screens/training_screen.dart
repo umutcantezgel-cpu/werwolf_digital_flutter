@@ -39,14 +39,14 @@ class _TrainingScreenContent extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(horizontal: 24),
                       padding: const EdgeInsets.all(24),
                       decoration: BoxDecoration(
-                        color: DesignColors.nightMid.withOpacity(0.9),
+                        color: DesignColors.nightMid.withValues(alpha: 0.9),
                         borderRadius: BorderRadius.circular(24),
                         border: Border.all(
-                          color: DesignColors.moonPrimary.withOpacity(0.3),
+                          color: DesignColors.moonPrimary.withValues(alpha: 0.3),
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.5),
+                            color: Colors.black.withValues(alpha: 0.5),
                             blurRadius: 20,
                             offset: const Offset(0, 10),
                           ),

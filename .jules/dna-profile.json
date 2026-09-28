@@ -1,0 +1,11 @@
+{
+  "framework": "Flutter (Dart)",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "realtime_networking": "socket_io_client",
+  "audio_tts": "flutter_tts, audioplayers",
+  "ui_animations": "flutter_animate, confetti",
+  "typography": "google_fonts",
+  "linter": "flutter analyze",
+  "test_runner": "flutter test"
+}
