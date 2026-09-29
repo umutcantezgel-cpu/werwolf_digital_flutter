@@ -1,0 +1,7 @@
+{
+  "framework": "Flutter",
+  "styling_engine": "DesignColors semantic tokens",
+  "icon_library": "Material Icons",
+  "state_management": "Provider",
+  "routing": "go_router"
+}
