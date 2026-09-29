@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (Dart 3)",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "styling_engine": "DesignColors (lib/config/design_tokens.dart)",
+  "icon_library": "Material Icons (cupertino_icons forbidden)",
+  "animation_library": "flutter_animate & confetti",
+  "networking": "socket_io_client",
+  "audio": "flutter_tts & audioplayers"
+}

@@ -1,3 +1,4 @@
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -53,7 +54,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
         : null;
 
     return Scaffold(
-      backgroundColor: Colors.black, // Fallback
+      backgroundColor: DesignColors.nightBlack, // Fallback
       body: Stack(
         children: [
           // 1. Red Pulse Background
@@ -66,7 +67,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                     radius: 1.2,
                     colors: [
                       Color(0xFF8B0000), // Dark Red
-                      Colors.black,
+                      DesignColors.nightBlack,
                     ],
                     stops: [0.2, 1.0],
                   ),
@@ -85,7 +86,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                     radius: 1.2,
                     colors: [
                       Color(0xFF8B0000), // Dark Red
-                      Colors.black,
+                      DesignColors.nightBlack,
                     ],
                     stops: [0.2, 1.0],
                   ),
@@ -95,7 +96,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
 
           // 2. Blood Overlay (Optional, using opacity)
           Positioned.fill(
-            child: Container(color: Colors.red.withOpacity(0.1)),
+            child: Container(color: DesignColors.wolfRed.withValues(alpha: 0.1)),
           ),
 
           // 3. Content
@@ -111,7 +112,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 4,
-                      color: Colors.red.withOpacity(0.8),
+                      color: DesignColors.wolfRed.withValues(alpha: 0.8),
                       // shadows: [ ... ]
                     ),
                   ).animate().shake(duration: 500.ms, hz: 5).scale(
@@ -126,7 +127,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                       fontSize: 48,
                       fontWeight: FontWeight.bold,
                       letterSpacing: 4,
-                      color: Colors.red.withOpacity(0.8),
+                      color: DesignColors.wolfRed.withValues(alpha: 0.8),
                     ),
                   ),
 
@@ -140,7 +141,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                       style: GoogleFonts.inter(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: DesignColors.textNightPrimary,
                       ),
                     ).animate().fadeIn(delay: 500.ms).slideY(begin: 0.5, end: 0)
                   else
@@ -149,7 +150,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                       style: GoogleFonts.inter(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: DesignColors.textNightPrimary,
                       ),
                     ),
 
@@ -161,7 +162,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                       style: GoogleFonts.inter(
                         fontSize: 20,
                         fontStyle: FontStyle.italic,
-                        color: Colors.white70,
+                        color: DesignColors.textNightSecondary,
                       ),
                     ).animate().fadeIn(delay: 800.ms)
                   else
@@ -170,7 +171,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                       style: GoogleFonts.inter(
                         fontSize: 20,
                         fontStyle: FontStyle.italic,
-                        color: Colors.white70,
+                        color: DesignColors.textNightSecondary,
                       ),
                     ),
 
@@ -188,7 +189,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                       "Niemand ist gestorben.",
                       style: GoogleFonts.inter(
                         fontSize: 24,
-                        color: Colors.white,
+                        color: DesignColors.textNightPrimary,
                       ),
                     ).animate().fadeIn(delay: 500.ms)
                   else
@@ -196,7 +197,7 @@ class _TragedyScreenState extends State<TragedyScreen> {
                       "Niemand ist gestorben.",
                       style: GoogleFonts.inter(
                         fontSize: 24,
-                        color: Colors.white,
+                        color: DesignColors.textNightPrimary,
                       ),
                     ),
                 ]

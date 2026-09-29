@@ -123,7 +123,7 @@ class _DayScreenState extends State<DayScreen> {
                             children: deadPlayers.map((player) {
                               return Chip(
                                 label: Text(player.name),
-                                backgroundColor: Colors.grey[300],
+                                backgroundColor: DesignColors.moonGlow,
                               );
                             }).toList(),
                           ),

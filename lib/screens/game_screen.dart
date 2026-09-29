@@ -1,3 +1,4 @@
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -217,15 +218,15 @@ class _GameScreenState extends State<GameScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CircularProgressIndicator(),
+              const CircularProgressIndicator(),
               SizedBox(height: 20),
               Text('Warte auf andere Spieler...',
-                  style: TextStyle(color: Colors.white)),
+                  style: TextStyle(color: DesignColors.textNightPrimary)),
             ],
           ),
         );
       default:
-        return const Center(child: CircularProgressIndicator());
+        return const Center(child: const CircularProgressIndicator());
     }
   }
 }
