@@ -255,7 +255,7 @@ class _NightScreenState extends State<NightScreen> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30)),
                 elevation: 10,
-                shadowColor: DesignColors.wolfRed.withOpacity(0.5),
+                shadowColor: DesignColors.wolfRed.withValues(alpha: 0.5),
               ),
               child: Text(
                 'BESTÄTIGEN',
