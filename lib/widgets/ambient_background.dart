@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 // import '../config/theme.dart'; // Unused
 import '../config/constants.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 
 class AmbientBackground extends StatefulWidget {
   final GamePhase phase;
@@ -78,17 +79,17 @@ class _AmbientBackgroundState extends State<AmbientBackground>
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF0A0E21), // Deep Navy
-              Color(0xFF1A1F3C), // Lighter Navy
-              Color(0xFF2D1B4E), // Deep Purple hint at bottom
+              DesignColors.nightDeep, // Deep Navy
+              DesignColors.nightMid, // Lighter Navy
+              DesignColors.nightSubtle, // Deep Purple hint at bottom
             ],
           )
         : const LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF87CEEB), // Sky Blue top
-              Color(0xFFFFF7E6), // Warm White bottom
+              DesignColors.moonGlow, // Sky Blue top
+              DesignColors.moonPrimary, // Warm White bottom
             ],
           );
 
@@ -167,7 +168,7 @@ class ParticlePainter extends CustomPainter {
         // Let's make them blink by using progress
         double flicker =
             sin(progress * 2 * pi * particle.speed + particle.x * 10);
-        paint.color = Colors.white.withValues(
+        paint.color = DesignColors.textNightPrimary.withValues(
             alpha: (particle.opacity + flicker * 0.1).clamp(0.0, 1.0));
       } else {
         // Day particles (dust) float up

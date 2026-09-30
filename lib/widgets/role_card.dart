@@ -40,12 +40,12 @@ class RoleCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: DesignColors.nightBlack,
         borderRadius: BorderRadius.circular(DesignSpacings.s12),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: Color(0x66000000), // Darker shadow
+            color: DesignColors.nightBlack.withValues(alpha: 0.4), // Darker shadow
             blurRadius: 20,
             spreadRadius: 2,
-            offset: Offset(0, 10),
+            offset: const Offset(0, 10),
           )
         ],
         border: Border.all(color: DesignColors.nightMid, width: 2),
@@ -80,7 +80,7 @@ class RoleCard extends StatelessWidget {
             // Adding a dark overlay to ensure the text pops if it's there
             Positioned.fill(
               child: Container(
-                color: Colors.black.withValues(alpha: 0.3),
+                color: DesignColors.nightBlack.withValues(alpha: 0.3),
               ),
             ),
 
@@ -98,7 +98,7 @@ class RoleCard extends StatelessWidget {
                             : c.repeat()) // Disable loop in test
                     .shimmer(
                         duration: 2000.ms,
-                        color: Colors.white.withValues(alpha: 0.5))
+                        color: DesignColors.textNightPrimary.withValues(alpha: 0.5))
                     .scale(
                         begin: const Offset(1, 1),
                         end: const Offset(1.1, 1.1),
@@ -123,7 +123,7 @@ class RoleCard extends StatelessWidget {
                       const Shadow(
                           offset: Offset(0, 2),
                           blurRadius: 4,
-                          color: Colors.black),
+                          color: DesignColors.nightBlack),
                     ],
                   ),
                 ),
@@ -173,8 +173,8 @@ class RoleCard extends StatelessWidget {
                     end: Alignment.bottomCenter,
                     colors: [
                       roleColor.withValues(alpha: 0.2), // Light tint top
-                      Colors.transparent,
-                      Colors.black.withValues(alpha: 0.8), // Dark bottom
+                      DesignColors.nightBlack.withValues(alpha: 0.0),
+                      DesignColors.nightBlack.withValues(alpha: 0.8), // Dark bottom
                     ],
                   ),
                 ),
@@ -328,7 +328,7 @@ class RoleCard extends StatelessWidget {
                               onPressed: onConfirm,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: roleColor,
-                                foregroundColor: Colors.white,
+                                foregroundColor: DesignColors.textNightPrimary,
                                 elevation: 0,
                                 shadowColor: roleColor.withValues(alpha: 0.5),
                                 shape: RoundedRectangleBorder(
@@ -383,9 +383,9 @@ class RoleCard extends StatelessWidget {
       case RoleType.hexe:
         return theme.roleHexe;
       case RoleType.amor:
-        return const Color(0xFFE91E63);
+        return DesignColors.roleAmor;
       case RoleType.jager:
-        return const Color(0xFF8B4513);
+        return DesignColors.roleJager;
       case RoleType.dorfbewohner:
       default:
         return theme.villageGreen;

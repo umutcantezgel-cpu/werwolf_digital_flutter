@@ -1,0 +1,15 @@
+{
+  "framework": "Flutter (Dart 3.x)",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "styling_engine": "DesignColors / Semantic Tokens (lib/config/design_tokens.dart)",
+  "component_style": "const constructors, explicit widget extraction",
+  "icon_library": "Material Icons (Strictly NO cupertino_icons)",
+  "animation_library": "flutter_animate, confetti",
+  "color_system": "Strictly Design Tokens (No hardcoded hex/Colors.*)",
+  "naming_conventions": {
+    "widgets": "PascalCase",
+    "files": "lower_case_with_underscores",
+    "imports": "lower_case_with_underscores prefix (e.g. io)"
+  }
+}

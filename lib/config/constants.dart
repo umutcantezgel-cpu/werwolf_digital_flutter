@@ -85,7 +85,7 @@ const Map<RoleType, Role> roles = {
     hasNightAction: true,
     actionType: ActionType.protect,
     icon: Icons.shield,
-    color: Color(0xFF607D8B), // Steel Blue
+    color: DesignColors.nightMid, // Steel Blue
   ),
   RoleType.burgermeister: Role(
     type: RoleType.burgermeister,
@@ -98,7 +98,7 @@ const Map<RoleType, Role> roles = {
     passiveAbility: PassiveType.doubleVote,
     triggeredAbility: TriggerType.onDeath, // Transfers title
     icon: Icons.local_police, // Badge
-    color: Color(0xFFFFD700), // Gold
+    color: DesignColors.dayBright, // Gold
   ),
   RoleType.dorftrottel: Role(
     type: RoleType.dorftrottel,
@@ -111,7 +111,7 @@ const Map<RoleType, Role> roles = {
     flavorText: '"Haha! Ihr könnt mich nicht töten..."',
     triggeredAbility: TriggerType.onExecution,
     icon: Icons.mood,
-    color: Colors.orange,
+    color: DesignColors.dayWarm,
   ),
   RoleType.madchen: Role(
     type: RoleType.madchen,
@@ -123,7 +123,7 @@ const Map<RoleType, Role> roles = {
     flavorText: '"Ich habe etwas gesehen... aber wer glaubt schon einem Kind?"',
     passiveAbility: PassiveType.peek,
     icon: Icons.face_3,
-    color: Colors.pinkAccent,
+    color: DesignColors.roleAmorAccent,
   ),
 
   // --- WEREWOLF TEAM ---
@@ -156,7 +156,7 @@ const Map<RoleType, Role> roles = {
     actionType: ActionType.killOrConvert,
     seesTeammates: true,
     icon: Icons.coronavirus,
-    color: Color(0xFF4A148C), // Deep Purple
+    color: DesignColors.roleSeherin, // Deep Purple
   ),
   RoleType.grosserBoserWolf: Role(
     type: RoleType.grosserBoserWolf,
@@ -172,7 +172,7 @@ const Map<RoleType, Role> roles = {
     actionType: ActionType.kill, // Special logic handles the "second" kill
     seesTeammates: true,
     icon: Icons.copy_all,
-    color: Color(0xFFB71C1C), // Stronger red
+    color: DesignColors.blood, // Stronger red
   ),
 
   // --- NEUTRAL / SOLO ---

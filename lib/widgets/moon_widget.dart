@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 
 class MoonWidget extends StatelessWidget {
   final double size;
@@ -20,20 +21,20 @@ class MoonWidget extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color(0xFFFDFBD3), // Pale yellow/white
-            Color(0xFFE4E4C0), // Slightly darker crater shade
+            DesignColors.moonPrimary, // Pale yellow/white
+            DesignColors.moonGlow, // Slightly darker crater shade
           ],
         ),
         boxShadow: [
           // Inner Glow
           BoxShadow(
-            color: const Color(0xFFFDFBD3).withValues(alpha: 0.8),
+            color: DesignColors.moonPrimary.withValues(alpha: 0.8),
             blurRadius: 20,
             spreadRadius: -5,
           ),
           // Outer Glow (Halo)
           BoxShadow(
-            color: const Color(0xFFFDFBD3).withValues(alpha: 0.2),
+            color: DesignColors.moonPrimary.withValues(alpha: 0.2),
             blurRadius: 40,
             spreadRadius: 10,
           ),
@@ -48,12 +49,12 @@ class MoonWidget extends StatelessWidget {
             curve: Curves.easeInOut)
         .boxShadow(
             begin: BoxShadow(
-              color: const Color(0xFFFDFBD3).withValues(alpha: 0.2),
+              color: DesignColors.moonPrimary.withValues(alpha: 0.2),
               blurRadius: 40,
               spreadRadius: 10,
             ),
             end: BoxShadow(
-              color: const Color(0xFFFDFBD3).withValues(alpha: 0.35),
+              color: DesignColors.moonPrimary.withValues(alpha: 0.35),
               blurRadius: 50,
               spreadRadius: 15,
             ),

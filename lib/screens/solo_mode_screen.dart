@@ -88,7 +88,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
       children: [
         IconButton(
           onPressed: () => context.pop(),
-          icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
+          icon: const Icon(Icons.arrow_back_ios, color: DesignColors.textNightPrimary),
         ),
         const SizedBox(width: 8),
         Expanded(
@@ -100,7 +100,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
                 style: GoogleFonts.spaceGrotesk(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: DesignColors.textNightPrimary,
                   letterSpacing: 2,
                 ),
               ).animate().fadeIn().slideX(begin: -0.2),
@@ -109,7 +109,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
                 'Spiele gegen intelligente KI-Bots',
                 style: GoogleFonts.inter(
                   fontSize: 14,
-                  color: Colors.white60,
+                  color: DesignColors.textNightSecondary,
                 ),
               ),
             ],
@@ -130,7 +130,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
           style: GoogleFonts.spaceGrotesk(
             fontSize: 12,
             fontWeight: FontWeight.bold,
-            color: Colors.white54,
+            color: DesignColors.textNightSecondary,
             letterSpacing: 2,
           ),
         ),
@@ -140,9 +140,9 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
         Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            color: DesignColors.nightMid.withOpacity(0.5),
+            color: DesignColors.nightMid.withValues(alpha: 0.5),
             borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: Colors.white10),
+            border: Border.all(color: DesignColors.textNightMuted),
           ),
           child: Column(
             children: [
@@ -154,14 +154,14 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
                     style: GoogleFonts.spaceGrotesk(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: DesignColors.textNightPrimary,
                     ),
                   ),
                   Container(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                     decoration: BoxDecoration(
-                      color: DesignColors.roleWerwolf.withOpacity(0.2),
+                      color: DesignColors.roleWerwolf.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
@@ -182,7 +182,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
                 max: 15,
                 divisions: 10,
                 activeColor: DesignColors.roleSeherin,
-                inactiveColor: Colors.white24,
+                inactiveColor: DesignColors.textNightMuted,
                 onChanged: (value) {
                   HapticFeedback.selectionClick();
                   setState(() {
@@ -195,10 +195,10 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
                 children: [
                   Text('5',
                       style: GoogleFonts.inter(
-                          color: Colors.white38, fontSize: 12)),
+                          color: DesignColors.textNightMuted, fontSize: 12)),
                   Text('15',
                       style: GoogleFonts.inter(
-                          color: Colors.white38, fontSize: 12)),
+                          color: DesignColors.textNightMuted, fontSize: 12)),
                 ],
               ),
             ],
@@ -217,7 +217,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
           style: GoogleFonts.spaceGrotesk(
             fontSize: 12,
             fontWeight: FontWeight.bold,
-            color: Colors.white54,
+            color: DesignColors.textNightSecondary,
             letterSpacing: 2,
           ),
         ),
@@ -241,7 +241,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
             key: ValueKey(_difficulty),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.05),
+              color: DesignColors.textNightPrimary.withValues(alpha: 0.05),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Row(
@@ -257,7 +257,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
                     _difficulty.description,
                     style: GoogleFonts.inter(
                       fontSize: 14,
-                      color: Colors.white70,
+                      color: DesignColors.textNightSecondary,
                     ),
                   ),
                 ),
@@ -282,11 +282,11 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         decoration: BoxDecoration(
           color: isSelected
-              ? _getDifficultyColor(level).withOpacity(0.2)
-              : Colors.transparent,
+              ? _getDifficultyColor(level).withValues(alpha: 0.2)
+              : DesignColors.nightBlack.withValues(alpha: 0.0),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected ? _getDifficultyColor(level) : Colors.white24,
+            color: isSelected ? _getDifficultyColor(level) : DesignColors.textNightMuted,
             width: isSelected ? 2 : 1,
           ),
         ),
@@ -295,7 +295,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
           style: GoogleFonts.spaceGrotesk(
             fontSize: 14,
             fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-            color: isSelected ? _getDifficultyColor(level) : Colors.white54,
+            color: isSelected ? _getDifficultyColor(level) : DesignColors.textNightSecondary,
           ),
         ),
       ),
@@ -311,7 +311,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
           style: GoogleFonts.spaceGrotesk(
             fontSize: 12,
             fontWeight: FontWeight.bold,
-            color: Colors.white54,
+            color: DesignColors.textNightSecondary,
             letterSpacing: 2,
           ),
         ),
@@ -346,9 +346,9 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: DesignColors.nightMid.withOpacity(0.3),
+        color: DesignColors.nightMid.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white10),
+        border: Border.all(color: DesignColors.textNightMuted),
       ),
       child: Row(
         children: [
@@ -361,7 +361,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
                   style: GoogleFonts.inter(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                    color: DesignColors.textNightPrimary,
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -369,7 +369,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
                   subtitle,
                   style: GoogleFonts.inter(
                     fontSize: 12,
-                    color: Colors.white54,
+                    color: DesignColors.textNightSecondary,
                   ),
                 ),
               ],
@@ -401,10 +401,10 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
               onPressed: _startSoloGame,
               style: ElevatedButton.styleFrom(
                 backgroundColor: DesignColors.roleWerwolf,
-                foregroundColor: Colors.white,
+                foregroundColor: DesignColors.textNightPrimary,
                 padding: const EdgeInsets.symmetric(vertical: 18),
                 elevation: 8,
-                shadowColor: DesignColors.roleWerwolf.withOpacity(0.5),
+                shadowColor: DesignColors.roleWerwolf.withValues(alpha: 0.5),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
@@ -434,7 +434,7 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
               style: OutlinedButton.styleFrom(
                 foregroundColor: DesignColors.moonPrimary,
                 side: BorderSide(
-                  color: DesignColors.moonPrimary.withOpacity(0.5),
+                  color: DesignColors.moonPrimary.withValues(alpha: 0.5),
                 ),
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 shape: RoundedRectangleBorder(
@@ -486,13 +486,13 @@ class _SoloModeScreenState extends State<SoloModeScreen> {
   Color _getDifficultyColor(DifficultyLevel level) {
     switch (level) {
       case DifficultyLevel.leicht:
-        return Colors.green;
+        return DesignColors.villageGreen;
       case DifficultyLevel.normal:
-        return Colors.blue;
+        return DesignColors.roleSeherin;
       case DifficultyLevel.schwer:
-        return Colors.orange;
+        return DesignColors.dayOrange;
       case DifficultyLevel.experte:
-        return Colors.red;
+        return DesignColors.blood;
     }
   }
 
