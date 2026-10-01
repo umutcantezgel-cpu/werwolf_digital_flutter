@@ -1,0 +1,8 @@
+{
+  "framework": "Flutter (Dart 3)",
+  "styling_engine": "Flutter custom theme and DesignTokens",
+  "icon_library": "material_icons",
+  "animation_library": "flutter_animate",
+  "color_system": "DesignColors / Custom Theme",
+  "linting": "Strict Dart Linting, prefer const, lowercase imports"
+}
