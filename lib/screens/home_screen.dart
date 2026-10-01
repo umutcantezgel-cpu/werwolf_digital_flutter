@@ -121,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   decoration: InputDecoration(
                     labelText: 'Dein Name',
                     labelStyle: TextStyle(
-                        color: DesignColors.moonPrimary.withOpacity(0.5)),
+                        color: DesignColors.moonPrimary.withValues(alpha: 0.5)),
                     border: InputBorder.none,
                     contentPadding: const EdgeInsets.all(DesignSpacings.s16),
                   ),
@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: InputDecoration(
                       labelText: 'Raum-Code',
                       labelStyle: TextStyle(
-                          color: DesignColors.moonPrimary.withOpacity(0.5)),
+                          color: DesignColors.moonPrimary.withValues(alpha: 0.5)),
                       border: InputBorder.none,
                       contentPadding: const EdgeInsets.all(DesignSpacings.s16),
                     ),
@@ -157,18 +157,29 @@ class _HomeScreenState extends State<HomeScreen> {
 
               // Buttons
               if (!_showJoinInput) ...[
-                ElevatedButton(
-                  onPressed: () => _createGame(gameProvider),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: DesignColors.dayWarm,
-                    foregroundColor: DesignColors.nightBlack,
-                    minimumSize: const Size(double.infinity, 50),
-                    textStyle: const TextStyle(
-                      fontFamily: DesignTypography.fontBody,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: DesignColors.dayWarm.withValues(alpha: 0.3),
+                        blurRadius: 12,
+                        spreadRadius: 2,
+                      )
+                    ]
                   ),
-                  child: const Text('NEUES SPIEL ERSTELLEN'),
+                  child: ElevatedButton(
+                    onPressed: () => _createGame(gameProvider),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: DesignColors.dayWarm,
+                      foregroundColor: DesignColors.nightBlack,
+                      minimumSize: const Size(double.infinity, 50),
+                      textStyle: const TextStyle(
+                        fontFamily: DesignTypography.fontBody,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    child: const Text('NEUES SPIEL ERSTELLEN'),
+                  ),
                 ).animate().fadeIn(delay: 100.ms).slideY(begin: 0.2),
                 const SizedBox(height: DesignSpacings.s16),
 
@@ -199,23 +210,34 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   child: Text('SPIEL BEITRETEN',
                       style: TextStyle(
-                        color: DesignColors.moonPrimary.withOpacity(0.7),
+                        color: DesignColors.moonPrimary.withValues(alpha: 0.7),
                         letterSpacing: 1,
                       )),
                 ).animate().fadeIn(delay: 200.ms),
               ] else ...[
-                ElevatedButton(
-                  onPressed: () => _joinGame(gameProvider),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: DesignColors.dayWarm,
-                    foregroundColor: DesignColors.nightBlack,
-                    minimumSize: const Size(double.infinity, 50),
-                    textStyle: const TextStyle(
-                      fontFamily: DesignTypography.fontBody,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: DesignColors.dayWarm.withValues(alpha: 0.3),
+                        blurRadius: 12,
+                        spreadRadius: 2,
+                      )
+                    ]
                   ),
-                  child: const Text('BEITRETEN'),
+                  child: ElevatedButton(
+                    onPressed: () => _joinGame(gameProvider),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: DesignColors.dayWarm,
+                      foregroundColor: DesignColors.nightBlack,
+                      minimumSize: const Size(double.infinity, 50),
+                      textStyle: const TextStyle(
+                        fontFamily: DesignTypography.fontBody,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    child: const Text('BEITRETEN'),
+                  ),
                 ).animate().fadeIn().slideY(begin: 0.2),
                 const SizedBox(height: DesignSpacings.s16),
                 TextButton(
@@ -225,7 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   },
                   child: Text('ZURÜCK',
                       style: TextStyle(
-                        color: DesignColors.moonPrimary.withOpacity(0.7),
+                        color: DesignColors.moonPrimary.withValues(alpha: 0.7),
                         letterSpacing: 1,
                       )),
                 ).animate().fadeIn(delay: 100.ms),

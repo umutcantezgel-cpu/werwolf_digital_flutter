@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (Dart)",
+  "typescript_strictness": "n/a",
+  "styling_engine": "DesignColors, DesignSpacings from lib/config/design_tokens.dart",
+  "class_merging_utility": "n/a",
+  "component_style": "Flutter Widgets",
+  "icon_library": "Material Icons (cupertino_icons forbidden)",
+  "animation_library": "flutter_animate, confetti",
+  "color_system": "DesignColors semantic tokens (Color.withValues instead of withOpacity)"
+}
