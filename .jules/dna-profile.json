@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (Dart 3.x)",
+  "typescript_strictness": "N/A (Dart strong typing)",
+  "styling_engine": "Flutter Material/Custom Design Tokens",
+  "class_merging_utility": "N/A",
+  "component_style": "Stateless/Stateful Widgets",
+  "icon_library": "Material Icons",
+  "animation_library": "flutter_animate",
+  "color_system": "Design Colors via .withValues(alpha: ...)"
+}
