@@ -31,8 +31,8 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xFF1A1A2E),
-                Color(0xFF0F0F1A),
+                DesignColors.nightMid,
+                DesignColors.nightBlack,
               ],
             ),
           ),
@@ -43,7 +43,7 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Gavel / Execution Icon
-                  Icon(
+                  const Icon(
                     Icons.gavel,
                     size: 80,
                     color: DesignColors.dayWarm,
@@ -78,22 +78,35 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
                       vertical: 16,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.black26,
-                      borderRadius: BorderRadius.circular(12),
+                      color: DesignColors.nightDeep.withValues(alpha: 0.7),
+                      borderRadius: BorderRadius.circular(16),
                       border: Border.all(
-                        color: DesignColors.dayWarm.withValues(alpha: 0.3),
+                        color: DesignColors.dayWarm.withValues(alpha: 0.5),
+                        width: 1.5,
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: DesignColors.dayWarm.withValues(alpha: 0.15),
+                          blurRadius: 20,
+                          spreadRadius: 2,
+                        ),
+                      ],
                     ),
-                    child: Text(
-                      narration.isNotEmpty
-                          ? narration
-                          : 'Das Dorf hat entschieden.',
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.inter(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                        height: 1.4,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 48), // Ensure min tap target 48x48
+                      child: Center(
+                        child: Text(
+                          narration.isNotEmpty
+                              ? narration
+                              : 'Das Dorf hat entschieden.',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.inter(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            color: DesignColors.textNightPrimary,
+                            height: 1.4,
+                          ),
+                        ),
                       ),
                     ),
                   ).animate(delay: 400.ms).fadeIn(),
@@ -106,7 +119,7 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
                       'Weiter geht\'s...',
                       style: GoogleFonts.inter(
                         fontSize: 14,
-                        color: Colors.white54,
+                        color: DesignColors.textNightSecondary,
                         fontStyle: FontStyle.italic,
                       ),
                     ).animate(delay: 2.seconds).fadeIn(),
