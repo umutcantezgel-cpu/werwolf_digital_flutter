@@ -113,7 +113,7 @@ class _VotingScreenState extends State<VotingScreen> {
                                     child: const Icon(
                                       Icons.check,
                                       size: 16,
-                                      color: Colors.white,
+                                      color: DesignColors.textNightPrimary,
                                     ),
                                   ).animate().scale(curve: Curves.elasticOut),
                                 ),
@@ -131,7 +131,7 @@ class _VotingScreenState extends State<VotingScreen> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: DesignColors.dayOrange,
-                          foregroundColor: Colors.white,
+                          foregroundColor: DesignColors.textNightPrimary,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 40, vertical: 16),
                           textStyle: GoogleFonts.spaceGrotesk(

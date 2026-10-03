@@ -128,7 +128,7 @@ class NightSkyPainter extends CustomPainter {
     canvas.drawRect(rect, bgPaint);
 
     // 2. Draw Stars
-    final Paint starPaint = Paint()..color = Colors.white;
+    final Paint starPaint = Paint()..color = DesignColors.textNightPrimary;
 
     for (var i = 0; i < stars.length; i++) {
       final star = stars[i];
@@ -162,7 +162,7 @@ class NightSkyPainter extends CustomPainter {
       final double drawX = currentX * size.width;
       final double drawY = currentY * size.height;
 
-      starPaint.color = Colors.white.withValues(alpha: opacity);
+      starPaint.color = DesignColors.textNightPrimary.withValues(alpha: opacity);
       canvas.drawCircle(Offset(drawX, drawY), star.size, starPaint);
     }
   }

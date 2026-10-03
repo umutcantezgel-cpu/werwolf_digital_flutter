@@ -111,7 +111,7 @@ const Map<RoleType, Role> roles = {
     flavorText: '"Haha! Ihr könnt mich nicht töten..."',
     triggeredAbility: TriggerType.onExecution,
     icon: Icons.mood,
-    color: Colors.orange,
+    color: DesignColors.dayOrange,
   ),
   RoleType.madchen: Role(
     type: RoleType.madchen,

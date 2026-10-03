@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 
 class LoadingOverlay extends StatelessWidget {
   final bool isLoading;
@@ -19,7 +20,7 @@ class LoadingOverlay extends StatelessWidget {
         child,
         if (isLoading)
           Container(
-            color: Colors.black45,
+            color: DesignColors.nightBlack.withValues(alpha: 0.45),
             child: Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -30,7 +31,7 @@ class LoadingOverlay extends StatelessWidget {
                     Text(
                       message!,
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: DesignColors.textNightPrimary,
                         fontSize: 16,
                         decoration: TextDecoration.none,
                       ),

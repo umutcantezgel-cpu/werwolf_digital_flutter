@@ -249,13 +249,13 @@ class _NightScreenState extends State<NightScreen> {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: DesignColors.wolfRed, // Dramatic action color
-                foregroundColor: Colors.white,
+                foregroundColor: DesignColors.textNightPrimary,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30)),
                 elevation: 10,
-                shadowColor: DesignColors.wolfRed.withOpacity(0.5),
+                shadowColor: DesignColors.wolfRed.withValues(alpha: 0.5),
               ),
               child: Text(
                 'BESTÄTIGEN',

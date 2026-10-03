@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/role.dart';
 
 import 'role_details_modal.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 
 class RoleIcon extends StatelessWidget {
   final Role role;
@@ -17,7 +18,7 @@ class RoleIcon extends StatelessWidget {
           PageRouteBuilder(
             opaque: false,
             barrierDismissible: true,
-            barrierColor: Colors.black54,
+            barrierColor: DesignColors.nightBlack.withValues(alpha: 0.54),
             pageBuilder: (context, _, __) => RoleDetailsModal(
               role: role,
               heroTag: heroTag,
@@ -35,11 +36,11 @@ class RoleIcon extends StatelessWidget {
                 role.color?.withValues(alpha: 0.2) ?? const Color(0xFF2C3E50),
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
-                color: role.color?.withValues(alpha: 0.5) ?? Colors.white24,
+                color: role.color?.withValues(alpha: 0.5) ?? DesignColors.textNightMuted,
                 width: 1),
             boxShadow: [
               BoxShadow(
-                color: (role.color ?? Colors.black).withValues(alpha: 0.3),
+                color: (role.color ?? DesignColors.nightBlack).withValues(alpha: 0.3),
                 blurRadius: 4,
                 offset: const Offset(0, 2),
               )
@@ -47,7 +48,7 @@ class RoleIcon extends StatelessWidget {
           ),
           child: Center(
             child: Icon(role.icon ?? Icons.help_outline,
-                color: role.color ?? Colors.white54, size: 24),
+                color: role.color ?? DesignColors.nightBlack.withValues(alpha: 0.54), size: 24),
           ),
         ),
       ),

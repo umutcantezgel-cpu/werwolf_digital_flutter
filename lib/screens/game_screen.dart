@@ -19,6 +19,7 @@ import '../widgets/ambient_background.dart';
 import '../widgets/phase_transition.dart';
 import '../widgets/role_icon.dart';
 import '../models/role.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 
 class GameScreen extends StatefulWidget {
   final String roomCode;
@@ -220,7 +221,7 @@ class _GameScreenState extends State<GameScreen> {
               CircularProgressIndicator(),
               SizedBox(height: 20),
               Text('Warte auf andere Spieler...',
-                  style: TextStyle(color: Colors.white)),
+                  style: TextStyle(color: DesignColors.textNightPrimary)),
             ],
           ),
         );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/role.dart';
 import 'cinematic_role_reveal.dart';
 import 'role_card.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 
 class RoleDetailsModal extends StatelessWidget {
   final Role role;
@@ -18,7 +19,7 @@ class RoleDetailsModal extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.of(context).pop(),
       child: Scaffold(
-        backgroundColor: Colors.black54, // Dimmed background
+        backgroundColor: DesignColors.nightBlack.withValues(alpha: 0.54), // Dimmed background
         body: Center(
           child: Hero(
             tag: heroTag,

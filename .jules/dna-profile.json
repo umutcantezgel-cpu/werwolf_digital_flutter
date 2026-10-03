@@ -1,0 +1,9 @@
+{
+  "framework": "Flutter (Dart)",
+  "state_management": "provider",
+  "navigation": "go_router",
+  "styling_engine": "DesignTokens (DesignColors, DesignSpacings)",
+  "icon_library": "Material Icons",
+  "animation_library": "flutter_animate",
+  "fonts": "google_fonts"
+}

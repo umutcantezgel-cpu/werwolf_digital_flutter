@@ -52,7 +52,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
     return Scaffold(
       backgroundColor: isVillageWin
           ? const Color(0xFF1E1E2C)
-          : Colors.black, // Dark background
+          : DesignColors.nightBlack, // Dark background
       body: Stack(
         children: [
           // Background Effect
@@ -64,9 +64,9 @@ class _VictoryScreenState extends State<VictoryScreen> {
                 center: const Alignment(0, -0.4),
                 radius: 1.5,
                 colors: [
-                  Colors.orange.withValues(alpha: 0.3),
-                  Colors.blue.withValues(alpha: 0.1),
-                  Colors.black,
+                  DesignColors.dayOrange.withValues(alpha: 0.3),
+                  DesignColors.roleSeherin.withValues(alpha: 0.1),
+                  DesignColors.nightBlack,
                 ],
               )),
             )
@@ -85,9 +85,9 @@ class _VictoryScreenState extends State<VictoryScreen> {
                 center: const Alignment(0, -0.4),
                 radius: 1.5,
                 colors: [
-                  Colors.orange.withValues(alpha: 0.3),
-                  Colors.blue.withValues(alpha: 0.1),
-                  Colors.black,
+                  DesignColors.dayOrange.withValues(alpha: 0.3),
+                  DesignColors.roleSeherin.withValues(alpha: 0.1),
+                  DesignColors.nightBlack,
                 ],
               )),
             )),
@@ -100,7 +100,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                     radius: 1.0,
                     colors: [
                       Color(0xFF50C878), // Emerald Green
-                      Colors.black,
+                      DesignColors.nightBlack,
                     ],
                     stops: [0.3, 1.0],
                   ),
@@ -119,7 +119,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                     radius: 1.0,
                     colors: [
                       Color(0xFF50C878), // Emerald Green
-                      Colors.black,
+                      DesignColors.nightBlack,
                     ],
                     stops: [0.3, 1.0],
                   ),
@@ -189,7 +189,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                     textAlign: TextAlign.center,
                     style: GoogleFonts.inter(
                       fontSize: 20,
-                      color: Colors.white70,
+                      color: DesignColors.textNightPrimary,
                     ),
                   ).animate().fadeIn(delay: 500.ms),
                   const SizedBox(height: 60),
@@ -200,7 +200,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                     textAlign: TextAlign.center,
                     style: GoogleFonts.inter(
                       fontSize: 20,
-                      color: Colors.white70,
+                      color: DesignColors.textNightPrimary,
                     ),
                   ),
                   const SizedBox(height: 60),
@@ -210,7 +210,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                         onPressed: () {}, // No-op or navigate
                         style: ElevatedButton.styleFrom(
                           backgroundColor: primaryColor,
-                          foregroundColor: Colors.black,
+                          foregroundColor: DesignColors.nightBlack,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 40, vertical: 16),
                           textStyle: GoogleFonts.spaceGrotesk(
@@ -228,7 +228,7 @@ class _VictoryScreenState extends State<VictoryScreen> {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: primaryColor,
-                          foregroundColor: Colors.black,
+                          foregroundColor: DesignColors.nightBlack,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 40, vertical: 16),
                           textStyle: GoogleFonts.spaceGrotesk(
@@ -250,13 +250,13 @@ class _VictoryScreenState extends State<VictoryScreen> {
                 shouldLoop: true,
                 colors: isVillageWin
                     ? const [
-                        Colors.green,
-                        Colors.blue,
-                        Colors.pink,
-                        Colors.orange,
-                        Colors.purple
+                        DesignColors.villageGreen,
+                        DesignColors.roleSeherin,
+                        DesignColors.roleAmor,
+                        DesignColors.dayOrange,
+                        DesignColors.roleSeherinAccent
                       ]
-                    : const [Colors.red, Colors.grey, Colors.black],
+                    : const [DesignColors.blood, DesignColors.textNightMuted, DesignColors.nightBlack],
               ),
             ),
         ],

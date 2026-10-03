@@ -196,7 +196,7 @@ class _CinematicRoleRevealState extends State<CinematicRoleReveal>
             end: const Offset(1.03, 1.03),
             duration: 2500.ms,
             curve: Curves.easeInOut)
-        .shimmer(duration: 3000.ms, color: Colors.white10);
+        .shimmer(duration: 3000.ms, color: DesignColors.textNightMuted);
   }
 
   Widget _buildFront() {
@@ -232,7 +232,7 @@ class _CinematicRoleRevealState extends State<CinematicRoleReveal>
             _flipController.value > 0.5 &&
             _flipController.value < 0.8)
           Positioned.fill(
-                  child: Container(color: Colors.white.withValues(alpha: 0.3)))
+                  child: Container(color: DesignColors.textNightPrimary.withValues(alpha: 0.3)))
               .animate()
               .fadeOut(duration: 200.ms)
       ],

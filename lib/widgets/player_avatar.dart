@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 
 class PlayerAvatar extends StatelessWidget {
   final String playerName;
@@ -38,10 +39,10 @@ class PlayerAvatar extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 30,
-                backgroundColor: isAlive ? Colors.blueGrey : Colors.redAccent,
+                backgroundColor: isAlive ? DesignColors.textDayMuted : DesignColors.wolfGlow,
                 child: Text(
                   playerName.substring(0, 1).toUpperCase(),
-                  style: const TextStyle(color: Colors.white, fontSize: 24),
+                  style: const TextStyle(color: DesignColors.textNightPrimary, fontSize: 24),
                 ),
               ),
               const SizedBox(height: 8),
@@ -50,7 +51,7 @@ class PlayerAvatar extends StatelessWidget {
                 style: TextStyle(
                   color: isAlive
                       ? Theme.of(context).textTheme.bodyLarge?.color
-                      : Colors.red,
+                      : DesignColors.blood,
                   decoration: isAlive
                       ? TextDecoration.none
                       : TextDecoration.lineThrough,

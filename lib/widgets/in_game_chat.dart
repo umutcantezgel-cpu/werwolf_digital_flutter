@@ -60,7 +60,7 @@ class _InGameChatState extends State<InGameChat> {
         borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.5),
+            color: DesignColors.nightBlack.withValues(alpha: 0.5),
             blurRadius: 20,
             spreadRadius: 5,
           ),

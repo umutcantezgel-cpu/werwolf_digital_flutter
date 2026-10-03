@@ -74,7 +74,7 @@ class _DeathAnnouncementOverlayState extends State<DeathAnnouncementOverlay> {
           mainAxisSize: MainAxisSize.min,
           children: [
             const Icon(Icons.gavel,
-                    size: 80, color: Colors.white) // Or Skull icon if available
+                    size: 80, color: DesignColors.textNightPrimary) // Or Skull icon if available
                 .animate()
                 .shake(duration: 500.ms)
                 .scale(
@@ -88,13 +88,13 @@ class _DeathAnnouncementOverlayState extends State<DeathAnnouncementOverlay> {
               style: GoogleFonts.spaceGrotesk(
                 fontSize: 48,
                 fontWeight: FontWeight.w900,
-                color: Colors.white,
+                color: DesignColors.textNightPrimary,
                 letterSpacing: 2,
               ),
             )
                 .animate()
                 .fadeIn()
-                .tint(color: Colors.black, duration: 300.ms), // Flash effect
+                .tint(color: DesignColors.nightBlack, duration: 300.ms), // Flash effect
             const SizedBox(height: 30),
             ...widget.deadPlayerNames.map((name) => Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -102,7 +102,7 @@ class _DeathAnnouncementOverlayState extends State<DeathAnnouncementOverlay> {
                     "$name ist tot.",
                     style: GoogleFonts.spaceGrotesk(
                       fontSize: 24,
-                      color: Colors.white,
+                      color: DesignColors.textNightPrimary,
                       decoration: TextDecoration.underline,
                     ),
                   ).animate().fadeIn(delay: 500.ms).slideX(),

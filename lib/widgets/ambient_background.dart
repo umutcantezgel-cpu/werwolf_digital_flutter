@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 // import '../config/theme.dart'; // Unused
 import '../config/constants.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 
 class AmbientBackground extends StatefulWidget {
   final GamePhase phase;
@@ -167,7 +168,7 @@ class ParticlePainter extends CustomPainter {
         // Let's make them blink by using progress
         double flicker =
             sin(progress * 2 * pi * particle.speed + particle.x * 10);
-        paint.color = Colors.white.withValues(
+        paint.color = DesignColors.textNightPrimary.withValues(
             alpha: (particle.opacity + flicker * 0.1).clamp(0.0, 1.0));
       } else {
         // Day particles (dust) float up

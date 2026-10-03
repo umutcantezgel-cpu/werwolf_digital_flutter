@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:werwolf_digital_flutter/config/design_tokens.dart';
 
 class SnackBarService {
   static final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
       GlobalKey<ScaffoldMessengerState>();
 
   static void showSuccess(String message) {
-    _showSnackBar(message, Colors.green);
+    _showSnackBar(message, DesignColors.villageGreen);
   }
 
   static void showError(String message) {
-    _showSnackBar(message, Colors.redAccent);
+    _showSnackBar(message, DesignColors.wolfGlow);
   }
 
   static void showInfo(String message) {
-    _showSnackBar(message, Colors.blueAccent);
+    _showSnackBar(message, DesignColors.roleSeherinAccent);
   }
 
   static void _showSnackBar(String message, Color backgroundColor) {
@@ -21,7 +22,7 @@ class SnackBarService {
       SnackBar(
         content: Text(
           message,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: DesignColors.textNightPrimary),
         ),
         backgroundColor: backgroundColor,
         behavior: SnackBarBehavior.floating,

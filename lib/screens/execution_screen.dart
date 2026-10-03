@@ -43,7 +43,7 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // Gavel / Execution Icon
-                  Icon(
+                  const Icon(
                     Icons.gavel,
                     size: 80,
                     color: DesignColors.dayWarm,
@@ -78,7 +78,7 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
                       vertical: 16,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.black26,
+                      color: DesignColors.nightSubtle,
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
                         color: DesignColors.dayWarm.withValues(alpha: 0.3),
@@ -92,7 +92,7 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
                       style: GoogleFonts.inter(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
-                        color: Colors.white,
+                        color: DesignColors.textNightPrimary,
                         height: 1.4,
                       ),
                     ),
@@ -106,7 +106,7 @@ class _ExecutionScreenState extends State<ExecutionScreen> {
                       'Weiter geht\'s...',
                       style: GoogleFonts.inter(
                         fontSize: 14,
-                        color: Colors.white54,
+                        color: DesignColors.textNightSecondary,
                         fontStyle: FontStyle.italic,
                       ),
                     ).animate(delay: 2.seconds).fadeIn(),
