@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter",
+  "state_management": "Provider",
+  "routing": "go_router",
+  "styling_engine": "DesignColors / DesignSpacings Semantic Tokens",
+  "icon_library": "Material Icons",
+  "animation_library": "flutter_animate",
+  "networking": "socket_io_client",
+  "linting_rules": "strict const, withValues(alpha: ...), lower_case_with_underscores prefixes"
+}
