@@ -1,0 +1,10 @@
+{
+  "framework": "Flutter (Dart)",
+  "typescript_strictness": "n/a",
+  "styling_engine": "Flutter Material / Custom Semantic Tokens",
+  "class_merging_utility": "n/a",
+  "component_style": "StatelessWidget / StatefulWidget",
+  "icon_library": "Material Icons",
+  "animation_library": "flutter_animate",
+  "color_system": "Semantic Tokens via DesignColors"
+}

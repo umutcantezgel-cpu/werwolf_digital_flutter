@@ -109,127 +109,152 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: DesignSpacings.s48),
 
-              // Input Fields
+              // Bento Grid Container
               Container(
+                padding: const EdgeInsets.all(DesignSpacings.s24),
                 decoration: BoxDecoration(
                   color: DesignColors.nightDeep,
-                  borderRadius: BorderRadius.circular(DesignSpacings.s8),
+                  borderRadius: BorderRadius.circular(DesignSpacings.s16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: DesignColors.moonPrimary.withValues(alpha: 0.15),
+                      blurRadius: 12,
+                      spreadRadius: 2,
+                    )
+                  ]
                 ),
-                child: TextField(
-                  controller: _nameController,
-                  style: const TextStyle(color: DesignColors.moonPrimary),
-                  decoration: InputDecoration(
-                    labelText: 'Dein Name',
-                    labelStyle: TextStyle(
-                        color: DesignColors.moonPrimary.withOpacity(0.5)),
-                    border: InputBorder.none,
-                    contentPadding: const EdgeInsets.all(DesignSpacings.s16),
-                  ),
-                ),
+                child: Column(
+                  children: [
+                    // Input Fields
+                    Container(
+                      decoration: BoxDecoration(
+                        color: DesignColors.nightBlack,
+                        borderRadius: BorderRadius.circular(DesignSpacings.s8),
+                      ),
+                      child: TextField(
+                        controller: _nameController,
+                        style: const TextStyle(color: DesignColors.moonPrimary),
+                        decoration: InputDecoration(
+                          labelText: 'Dein Name',
+                          labelStyle: TextStyle(
+                              color: DesignColors.moonPrimary.withValues(alpha: 0.5)),
+                          border: InputBorder.none,
+                          contentPadding: const EdgeInsets.all(DesignSpacings.s16),
+                        ),
+                      ),
+                    )
+                        .animate()
+                        .fadeIn(duration: DesignDurations.normal)
+                        .slideY(begin: 0.2),
+
+                    const SizedBox(height: DesignSpacings.s16),
+
+                    if (_showJoinInput)
+                      Container(
+                        decoration: BoxDecoration(
+                          color: DesignColors.nightBlack,
+                          borderRadius: BorderRadius.circular(DesignSpacings.s8),
+                        ),
+                        child: TextField(
+                          controller: _roomCodeController,
+                          textCapitalization: TextCapitalization.characters,
+                          style: const TextStyle(color: DesignColors.moonPrimary),
+                          decoration: InputDecoration(
+                            labelText: 'Raum-Code',
+                            labelStyle: TextStyle(
+                                color: DesignColors.moonPrimary.withValues(alpha: 0.5)),
+                            border: InputBorder.none,
+                            contentPadding: const EdgeInsets.all(DesignSpacings.s16),
+                          ),
+                        ),
+                      ).animate().fadeIn().slideY(begin: 0.2),
+
+                    const SizedBox(height: DesignSpacings.s32),
+
+                    // Buttons
+                    if (!_showJoinInput) ...[
+                      ElevatedButton(
+                        onPressed: () => _createGame(gameProvider),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: DesignColors.dayWarm,
+                          foregroundColor: DesignColors.nightBlack,
+                          minimumSize: const Size(double.infinity, 50),
+                          textStyle: const TextStyle(
+                            fontFamily: DesignTypography.fontBody,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        child: const Text('NEUES SPIEL ERSTELLEN'),
+                      ).animate().fadeIn(delay: 100.ms).slideY(begin: 0.2),
+                      const SizedBox(height: DesignSpacings.s16),
+
+                      // Solo Mode Button
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          HapticManager().impactLight();
+                          context.go('/solo');
+                        },
+                        icon: const Icon(Icons.smart_toy_outlined),
+                        label: const Text('SOLO MODUS'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: DesignColors.roleSeherin,
+                          foregroundColor: Colors.white,
+                          minimumSize: const Size(double.infinity, 50),
+                          textStyle: const TextStyle(
+                            fontFamily: DesignTypography.fontBody,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ).animate().fadeIn(delay: 150.ms).slideY(begin: 0.2),
+                      const SizedBox(height: DesignSpacings.s16),
+
+                      TextButton(
+                        onPressed: () {
+                          HapticManager().selection();
+                          setState(() => _showJoinInput = true);
+                        },
+                        style: TextButton.styleFrom(
+                           minimumSize: const Size(double.infinity, 50),
+                        ),
+                        child: Text('SPIEL BEITRETEN',
+                            style: TextStyle(
+                              color: DesignColors.moonPrimary.withValues(alpha: 0.7),
+                              letterSpacing: 1,
+                            )),
+                      ).animate().fadeIn(delay: 200.ms),
+                    ] else ...[
+                      ElevatedButton(
+                        onPressed: () => _joinGame(gameProvider),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: DesignColors.dayWarm,
+                          foregroundColor: DesignColors.nightBlack,
+                          minimumSize: const Size(double.infinity, 50),
+                          textStyle: const TextStyle(
+                            fontFamily: DesignTypography.fontBody,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        child: const Text('BEITRETEN'),
+                      ).animate().fadeIn().slideY(begin: 0.2),
+                      const SizedBox(height: DesignSpacings.s16),
+                      TextButton(
+                        onPressed: () {
+                          HapticManager().selection();
+                          setState(() => _showJoinInput = false);
+                        },
+                        style: TextButton.styleFrom(
+                           minimumSize: const Size(double.infinity, 50),
+                        ),
+                        child: Text('ZURÜCK',
+                            style: TextStyle(
+                              color: DesignColors.moonPrimary.withValues(alpha: 0.7),
+                              letterSpacing: 1,
+                            )),
+                      ).animate().fadeIn(delay: 100.ms),
+                    ]
+                  ],
+                )
               )
-                  .animate()
-                  .fadeIn(duration: DesignDurations.normal)
-                  .slideY(begin: 0.2),
-
-              const SizedBox(height: DesignSpacings.s16),
-
-              if (_showJoinInput)
-                Container(
-                  decoration: BoxDecoration(
-                    color: DesignColors.nightDeep,
-                    borderRadius: BorderRadius.circular(DesignSpacings.s8),
-                  ),
-                  child: TextField(
-                    controller: _roomCodeController,
-                    textCapitalization: TextCapitalization.characters,
-                    style: const TextStyle(color: DesignColors.moonPrimary),
-                    decoration: InputDecoration(
-                      labelText: 'Raum-Code',
-                      labelStyle: TextStyle(
-                          color: DesignColors.moonPrimary.withOpacity(0.5)),
-                      border: InputBorder.none,
-                      contentPadding: const EdgeInsets.all(DesignSpacings.s16),
-                    ),
-                  ),
-                ).animate().fadeIn().slideY(begin: 0.2),
-
-              const SizedBox(height: DesignSpacings.s32),
-
-              // Buttons
-              if (!_showJoinInput) ...[
-                ElevatedButton(
-                  onPressed: () => _createGame(gameProvider),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: DesignColors.dayWarm,
-                    foregroundColor: DesignColors.nightBlack,
-                    minimumSize: const Size(double.infinity, 50),
-                    textStyle: const TextStyle(
-                      fontFamily: DesignTypography.fontBody,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  child: const Text('NEUES SPIEL ERSTELLEN'),
-                ).animate().fadeIn(delay: 100.ms).slideY(begin: 0.2),
-                const SizedBox(height: DesignSpacings.s16),
-
-                // Solo Mode Button
-                ElevatedButton.icon(
-                  onPressed: () {
-                    HapticManager().impactLight();
-                    context.go('/solo');
-                  },
-                  icon: const Icon(Icons.smart_toy_outlined),
-                  label: const Text('SOLO MODUS'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: DesignColors.roleSeherin,
-                    foregroundColor: Colors.white,
-                    minimumSize: const Size(double.infinity, 50),
-                    textStyle: const TextStyle(
-                      fontFamily: DesignTypography.fontBody,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ).animate().fadeIn(delay: 150.ms).slideY(begin: 0.2),
-                const SizedBox(height: DesignSpacings.s16),
-
-                TextButton(
-                  onPressed: () {
-                    HapticManager().selection();
-                    setState(() => _showJoinInput = true);
-                  },
-                  child: Text('SPIEL BEITRETEN',
-                      style: TextStyle(
-                        color: DesignColors.moonPrimary.withOpacity(0.7),
-                        letterSpacing: 1,
-                      )),
-                ).animate().fadeIn(delay: 200.ms),
-              ] else ...[
-                ElevatedButton(
-                  onPressed: () => _joinGame(gameProvider),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: DesignColors.dayWarm,
-                    foregroundColor: DesignColors.nightBlack,
-                    minimumSize: const Size(double.infinity, 50),
-                    textStyle: const TextStyle(
-                      fontFamily: DesignTypography.fontBody,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  child: const Text('BEITRETEN'),
-                ).animate().fadeIn().slideY(begin: 0.2),
-                const SizedBox(height: DesignSpacings.s16),
-                TextButton(
-                  onPressed: () {
-                    HapticManager().selection();
-                    setState(() => _showJoinInput = false);
-                  },
-                  child: Text('ZURÜCK',
-                      style: TextStyle(
-                        color: DesignColors.moonPrimary.withOpacity(0.7),
-                        letterSpacing: 1,
-                      )),
-                ).animate().fadeIn(delay: 100.ms),
-              ]
             ],
           ),
         ),
