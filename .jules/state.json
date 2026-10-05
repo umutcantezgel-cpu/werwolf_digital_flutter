@@ -1,0 +1,16 @@
+{
+  "epoch": 1,
+  "last_stable_commit": "HEAD",
+  "active_feature_vector": "INIT",
+  "drift_index": 0.0,
+  "design_inconsistency_score": 0.0,
+  "resolved_issues": [
+    "Fixed all flutter analyzer warnings (withOpacity -> withValues, IO prefix, const constructors, unused imports)."
+  ],
+  "metrics": {
+    "lighthouse_performance": 0,
+    "lighthouse_seo": 0,
+    "dart_analyzer_errors": 0,
+    "security_vulnerabilities": 0
+  }
+}
