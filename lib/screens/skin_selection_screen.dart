@@ -51,7 +51,7 @@ class _SkinSelectionScreenState extends State<SkinSelectionScreen>
           controller: _tabController,
           indicatorColor: DesignColors.dayBright,
           labelColor: DesignColors.dayBright,
-          unselectedLabelColor: DesignColors.moonPrimary.withOpacity(0.6),
+          unselectedLabelColor: DesignColors.moonPrimary.withValues(alpha: 0.6),
           tabs: const [
             Tab(text: 'KARTEN', icon: Icon(Icons.style)),
             Tab(text: 'STIMMEN', icon: Icon(Icons.record_voice_over)),
@@ -145,7 +145,7 @@ class _CardBackTile extends StatelessWidget {
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: DesignColors.dayBright.withOpacity(0.4),
+                    color: DesignColors.dayBright.withValues(alpha: 0.4),
                     blurRadius: 12,
                     spreadRadius: 2,
                   )
@@ -178,7 +178,7 @@ class _CardBackTile extends StatelessWidget {
                       child: Icon(
                         Icons.style,
                         size: 48,
-                        color: DesignColors.moonPrimary.withOpacity(0.5),
+                        color: DesignColors.moonPrimary.withValues(alpha: 0.5),
                       ),
                     ),
                   );
@@ -196,7 +196,7 @@ class _CardBackTile extends StatelessWidget {
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
                       colors: [
-                        Colors.black.withOpacity(0.8),
+                        Colors.black.withValues(alpha: 0.8),
                         Colors.transparent,
                       ],
                     ),
@@ -305,7 +305,7 @@ class _VoicePackTile extends StatelessWidget {
                 Icons.record_voice_over,
                 color: isSelected
                     ? DesignColors.dayBright
-                    : DesignColors.moonPrimary.withOpacity(0.6),
+                    : DesignColors.moonPrimary.withValues(alpha: 0.6),
                 size: 28,
               ),
             ),
@@ -356,7 +356,7 @@ class _VoicePackTile extends StatelessWidget {
                     style: TextStyle(
                       fontFamily: DesignTypography.fontBody,
                       fontSize: DesignTypography.textSm,
-                      color: DesignColors.moonPrimary.withOpacity(0.7),
+                      color: DesignColors.moonPrimary.withValues(alpha: 0.7),
                     ),
                   ),
                 ],
@@ -370,7 +370,7 @@ class _VoicePackTile extends StatelessWidget {
               },
               icon: Icon(
                 Icons.play_circle_outline,
-                color: DesignColors.moonPrimary.withOpacity(0.8),
+                color: DesignColors.moonPrimary.withValues(alpha: 0.8),
                 size: 32,
               ),
             ),
