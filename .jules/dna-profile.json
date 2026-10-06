@@ -1,0 +1,11 @@
+{
+  "framework": "Flutter (>=3.0.0 <4.0.0)",
+  "state_management": "provider",
+  "navigation": "go_router",
+  "styling_engine": "Flutter Material Design, google_fonts",
+  "icon_library": "Material Icons (cupertino_icons forbidden)",
+  "animation_library": "flutter_animate, confetti",
+  "realtime_networking": "socket_io_client",
+  "audio": "flutter_tts, audioplayers",
+  "linting_rules": "flutter_lints, prefer const constructors, lower_case_with_underscores for import prefixes"
+}
