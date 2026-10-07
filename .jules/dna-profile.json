@@ -1,0 +1,9 @@
+{
+  "framework": "Flutter (Dart 3.x)",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "styling_engine": "Semantic Design Tokens (DesignColors, DesignSpacings)",
+  "icon_library": "Material Icons (No cupertino_icons)",
+  "animation_library": "flutter_animate, confetti",
+  "color_system": "DesignColors with .withValues(alpha: ...)"
+}
