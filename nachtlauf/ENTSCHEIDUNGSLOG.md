@@ -83,3 +83,9 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 ## E9a · 09.10. 00:16 · Abhängigkeit audioplayers (MIT)
 - Zweck: Klänge und Musik (eigene, prozedural erzeugte WAVs in `assets/burgstadt/ton/`, Werkzeug `tool/ton/`). Verbreitet, gepflegt, MIT-Lizenz, unterstützt Android, iOS, Web und Desktop. Keine Netzabrufe (nur gebündelte Dateien).
 - Im Spiel abstrakt (`Tonausgabe`), headless/Test über `MerkendeTonausgabe`.
+
+## E5a · 09.10. 00:45 · Figuren: Gliederpuppe aus Grundkörpern, Strahlwurf-Brenner
+- Ziel: 20 Rollen + Burgwart + ≥40 Bewohner mit 8 Richtungen und allen Animationen, einheitlicher Pixeldichte, Kontur und lesbaren Silhouetten – über Nacht und reproduzierbar.
+- Wege: (a) handgepixelte Raster je Richtung und Bild (≈100 Bilder je Figur – nicht machbar, uneinheitlich), (b) 2D-Teile mit Spiegeln (Licht/Details falsch, Plan E5 ursprünglich), (c) 3D-Gliederpuppe aus analytischen Grundkörpern (Ellipsoid, Quader, Zylinder), per Strahlwurf orthografisch gebrannt, Schattierung in der Materialrampe, automatische Kontur und Innenlinien.
+- Gewählt: (c). 104 Bilder je Figur in ~0,1 s (Dart-VM) – Brennen zur Laufzeit beim Laden möglich, keine Asset-Last. Stilisierung (Kopf ×1,24, Glieder ×1,3) für Lesbarkeit bei ~56 px. Bodenkontakt automatisch. Augen nur auf sichtbarer Gesichtshaut.
+- Umkehrprobe: falsch, wenn die Figuren „klumpig“ wirken → Teile feiner (mehr Grundkörper), Kontur-Regeln anpassen; Porträts (64×64) bekommen eigenes, höher aufgelöstes Brennen mit Ausdrücken.
