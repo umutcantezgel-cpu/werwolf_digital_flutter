@@ -90,6 +90,21 @@ class DetectiveAvatar extends StatelessWidget {
   }
 }
 
+/// Zeichenfarben der Figuren (Standardwerte und Details).
+abstract final class _Fig {
+  static const coat = Color(0xFF3A3A44);
+  static const skin = Color(0xFFE0B89A);
+  static const hair = Color(0xFF3B2A20);
+  static const hatBlack = Color(0xFF0E0C0B);
+  static const backdrop = Color(0xFF07080E);
+  static const shirt = Color(0xFFE9E2D2);
+  static const tie = Color(0xFF6E1414);
+  static const eye = Color(0xFF1A1412);
+  static const lips = Color(0xFF5A1E1E);
+  static const black = Color(0xFF000000);
+  static const brooch = Color(0xFFB8963A);
+}
+
 class PortraitPainter extends CustomPainter {
   PortraitPainter({required this.look, this.background = true, this.accent = Noir.brass});
 
@@ -102,10 +117,10 @@ class PortraitPainter extends CustomPainter {
     final w = size.width;
     final h = size.height;
     final cx = w / 2;
-    final coat = hexColor(look.coat, fallback: const Color(0xFF3A3A44));
-    final skin = hexColor(look.skin, fallback: const Color(0xFFE0B89A));
-    final hair = hexColor(look.hair, fallback: const Color(0xFF3B2A20));
-    final hatColor = Color.lerp(coat, const Color(0xFF0E0C0B), 0.62)!;
+    final coat = hexColor(look.coat, fallback: _Fig.coat);
+    final skin = hexColor(look.skin, fallback: _Fig.skin);
+    final hair = hexColor(look.hair, fallback: _Fig.hair);
+    final hatColor = Color.lerp(coat, _Fig.hatBlack, 0.62)!;
 
     if (background) {
       canvas.drawRect(
@@ -114,7 +129,7 @@ class PortraitPainter extends CustomPainter {
           ..shader = RadialGradient(
             center: const Alignment(-0.3, -0.4),
             radius: 0.95,
-            colors: [Color.lerp(accent, Noir.night3, 0.72)!, Noir.night2, const Color(0xFF07080E)],
+            colors: [Color.lerp(accent, Noir.night3, 0.72)!, Noir.night2, _Fig.backdrop],
             stops: const [0, 0.6, 1],
           ).createShader(Offset.zero & size),
       );
@@ -193,7 +208,7 @@ class PortraitPainter extends CustomPainter {
       ..lineTo(cx + hw * 0.26, vTop)
       ..lineTo(cx, h * 0.93)
       ..close();
-    canvas.drawPath(shirt, lit..color = const Color(0xFFE9E2D2));
+    canvas.drawPath(shirt, lit..color = _Fig.shirt);
     final tie = Path()
       ..moveTo(cx - hw * 0.06, vTop + h * 0.015)
       ..lineTo(cx + hw * 0.06, vTop + h * 0.015)
@@ -201,7 +216,7 @@ class PortraitPainter extends CustomPainter {
       ..lineTo(cx, h * 0.93)
       ..lineTo(cx - hw * 0.08, h * 0.88)
       ..close();
-    canvas.drawPath(tie, lit..color = Color.lerp(coat, const Color(0xFF6E1414), 0.6)!);
+    canvas.drawPath(tie, lit..color = Color.lerp(coat, _Fig.tie, 0.6)!);
 
     // Revers
     final lapelColor = Color.lerp(coat, Colors.black, 0.3)!;
@@ -275,7 +290,7 @@ class PortraitPainter extends CustomPainter {
 
     // Gesicht
     final eyeY = headCy + hh * 0.02;
-    final eye = Paint()..color = const Color(0xFF1A1412);
+    final eye = Paint()..color = _Fig.eye;
     canvas.drawOval(Rect.fromCenter(center: Offset(cx - hw * 0.18, eyeY), width: hw * 0.1, height: hh * 0.045), eye);
     canvas.drawOval(Rect.fromCenter(center: Offset(cx + hw * 0.18, eyeY), width: hw * 0.1, height: hh * 0.045), eye);
     final brow = Paint()
@@ -292,7 +307,7 @@ class PortraitPainter extends CustomPainter {
     canvas.drawLine(
       Offset(cx - hw * 0.1, eyeY + hh * 0.26),
       Offset(cx + hw * 0.1, eyeY + hh * 0.25),
-      shade..color = Color.lerp(skin, const Color(0xFF5A1E1E), 0.55)!,
+      shade..color = Color.lerp(skin, _Fig.lips, 0.55)!,
     );
 
     // Hut
@@ -306,7 +321,7 @@ class PortraitPainter extends CustomPainter {
         Offset.zero & size,
         Paint()
           ..shader = const LinearGradient(
-            colors: [Color(0x00000000), Color(0x00000000), Color(0x66000000)],
+            colors: [Noir.clear, Noir.clear, Noir.shadow],
             stops: [0, 0.55, 1],
           ).createShader(Offset.zero & size),
       );
@@ -316,7 +331,7 @@ class PortraitPainter extends CustomPainter {
   void _hat(Canvas canvas, String hat, double cx, double top, double hw, double hh, Color color) {
     final p = Paint()..color = color;
     final hi = Paint()..color = Color.lerp(color, Colors.white, 0.14)!;
-    final band = Paint()..color = Color.lerp(color, const Color(0xFF000000), 0.55)!;
+    final band = Paint()..color = Color.lerp(color, _Fig.black, 0.55)!;
     switch (hat) {
       case 'fedora':
         final brimY = top + hh * 0.17;
@@ -395,7 +410,7 @@ class PortraitPainter extends CustomPainter {
             ..close(),
           band,
         );
-        canvas.drawCircle(Offset(cx + hw * 0.35, top + hh * 0.16), hw * 0.07, Paint()..color = const Color(0xFFB8963A));
+        canvas.drawCircle(Offset(cx + hw * 0.35, top + hh * 0.16), hw * 0.07, Paint()..color = _Fig.brooch);
     }
   }
 

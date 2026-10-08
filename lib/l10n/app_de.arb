@@ -931,5 +931,13 @@
         "type": "int"
       }
     }
+  },
+  "hub_streak_label": "{days, plural, =0{Keine Serie} =1{Tag in Folge} other{Tage in Folge}}",
+  "@hub_streak_label": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
   }
 }

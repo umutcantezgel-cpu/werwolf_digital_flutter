@@ -29,11 +29,11 @@ class CouncilPanel extends StatelessWidget {
             gradient: const LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(0xF2131626), Color(0xFA0A0B14)],
+              colors: [Noir.sheetTop, Noir.sheetBottom],
             ),
             borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
             border: Border(top: BorderSide(color: g.accent.withValues(alpha: 0.7), width: 2)),
-            boxShadow: const [BoxShadow(color: Color(0xCC000000), blurRadius: 30)],
+            boxShadow: const [BoxShadow(color: Noir.scrim, blurRadius: 30)],
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -140,7 +140,7 @@ class _LeadCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
             border: Border.all(color: mine ? g.accent : Colors.transparent, width: 3),
             boxShadow: [
-              const BoxShadow(color: Color(0x99000000), blurRadius: 10, offset: Offset(0, 4)),
+              const BoxShadow(color: Noir.shadowStrong, blurRadius: 10, offset: Offset(0, 4)),
               if (mine) BoxShadow(color: g.accent.withValues(alpha: 0.35), blurRadius: 16),
             ],
           ),
@@ -250,7 +250,7 @@ class _Chosen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(3),
-                border: Border.all(color: const Color(0x44E8E0D0)),
+                border: Border.all(color: Noir.lineStrong),
               ),
               child: Text(g.leadName(id), style: Noir.text(11.5, color: Noir.smoke)),
             ),

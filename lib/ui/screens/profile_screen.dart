@@ -149,10 +149,10 @@ class ProfileScreen extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: coatColor(i).withValues(alpha: meta.rank < coatRank(i) ? 0.35 : 1),
-                                      border: Border.all(color: const Color(0x44E8E0D0)),
+                                      border: Border.all(color: Noir.lineStrong),
                                     ),
                                     child: meta.rank < coatRank(i)
-                                        ? const Icon(Icons.lock_rounded, size: 16, color: Color(0xCCFFFFFF))
+                                        ? const Icon(Icons.lock_rounded, size: 16, color: Noir.whiteSoft)
                                         : null,
                                   ),
                                 ),
@@ -240,9 +240,9 @@ class _ClassRow extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: const Color(0x99151829),
+        color: Noir.panel,
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: const Color(0x22E8E0D0)),
+        border: Border.all(color: Noir.lineSoft),
       ),
       child: Opacity(
         opacity: locked ? 0.55 : 1,
@@ -252,7 +252,7 @@ class _ClassRow extends StatelessWidget {
             Container(
               width: 38,
               height: 38,
-              decoration: BoxDecoration(shape: BoxShape.circle, color: locked ? const Color(0x22E8E0D0) : Noir.brass),
+              decoration: BoxDecoration(shape: BoxShape.circle, color: locked ? Noir.lineSoft : Noir.brass),
               child: Icon(
                 locked ? Icons.lock_rounded : GameIcons.cls(cls.id),
                 size: 20,
@@ -303,7 +303,7 @@ class _Unlockable extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6),
-            border: Border.all(color: const Color(0x33E8E0D0)),
+            border: Border.all(color: Noir.line),
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(5),

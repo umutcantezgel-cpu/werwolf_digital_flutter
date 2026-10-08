@@ -18,8 +18,8 @@ import 'game_context.dart';
 
 Color verdictColor(String v) => switch (v) {
   'perfect' => Noir.brassLight,
-  'solid' => const Color(0xFF7CC47F),
-  'partial' => const Color(0xFFE0A050),
+  'solid' => Noir.buff,
+  'partial' => Noir.warning,
   'wrong' => Noir.bloodBright,
   _ => Noir.smoke,
 };
@@ -139,7 +139,7 @@ class EndingOverlay extends StatelessWidget {
                       Container(
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF1A1508),
+                              color: Noir.secretBg,
                               borderRadius: BorderRadius.circular(6),
                               border: Border.all(color: Noir.brassLight, width: 1.5),
                               boxShadow: [BoxShadow(color: Noir.brass.withValues(alpha: 0.35), blurRadius: 20)],
@@ -270,9 +270,9 @@ class _Resolution extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.fromLTRB(14, 6, 14, 6),
       decoration: BoxDecoration(
-        color: const Color(0xCC0E101C),
+        color: Noir.glass,
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: const Color(0x2EE8E0D0)),
+        border: Border.all(color: Noir.lineSoft),
       ),
       child: Table(
         columnWidths: const {0: IntrinsicColumnWidth(), 1: FlexColumnWidth(), 2: FlexColumnWidth()},
@@ -280,7 +280,7 @@ class _Resolution extends StatelessWidget {
         children: [
           TableRow(
             decoration: const BoxDecoration(
-              border: Border(bottom: BorderSide(color: Color(0x22E8E0D0))),
+              border: Border(bottom: BorderSide(color: Noir.lineSoft)),
             ),
             children: [
               const SizedBox(),
@@ -322,9 +322,9 @@ class _Awards extends StatelessWidget {
             margin: const EdgeInsets.only(bottom: 8),
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
-              color: e.key == g.me ? const Color(0x22C9A227) : const Color(0xCC0E101C),
+              color: e.key == g.me ? Noir.brassWash : Noir.glass,
               borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: e.key == g.me ? Noir.brass.withValues(alpha: 0.6) : const Color(0x22E8E0D0)),
+              border: Border.all(color: e.key == g.me ? Noir.brass.withValues(alpha: 0.6) : Noir.lineSoft),
             ),
             child: Row(
               children: [
@@ -346,7 +346,7 @@ class _Awards extends StatelessWidget {
                               child: Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                                 decoration: BoxDecoration(
-                                  gradient: const LinearGradient(colors: [Color(0xFFE6C766), Noir.brass]),
+                                  gradient: const LinearGradient(colors: [Noir.brassLight, Noir.brass]),
                                   borderRadius: BorderRadius.circular(12),
                                 ),
                                 child: Row(
@@ -389,7 +389,7 @@ class _XpSection extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: const Color(0xCC0E101C),
+        color: Noir.glass,
         borderRadius: BorderRadius.circular(6),
         border: Border.all(color: Noir.brass.withValues(alpha: 0.45)),
       ),
@@ -432,7 +432,7 @@ class _XpSection extends StatelessWidget {
                     child: LinearProgressIndicator(
                       value: rankProgress(xp),
                       minHeight: 9,
-                      backgroundColor: const Color(0x33E8E0D0),
+                      backgroundColor: Noir.line,
                       color: Noir.brass,
                     ),
                   ),
@@ -458,7 +458,7 @@ class _XpSection extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                gradient: const LinearGradient(colors: [Color(0xFFE6C766), Noir.brass]),
+                gradient: const LinearGradient(colors: [Noir.brassLight, Noir.brass]),
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Row(

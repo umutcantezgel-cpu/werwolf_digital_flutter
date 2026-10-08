@@ -90,11 +90,11 @@ class _Toast extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.fromLTRB(10, 8, 14, 8),
         decoration: BoxDecoration(
-          color: const Color(0xEE0E101C),
+          color: Noir.glassStrong,
           borderRadius: BorderRadius.circular(22),
           border: Border.all(color: t.color.withValues(alpha: 0.55)),
           boxShadow: [
-            const BoxShadow(color: Color(0x99000000), blurRadius: 12, offset: Offset(0, 4)),
+            const BoxShadow(color: Noir.shadowStrong, blurRadius: 12, offset: Offset(0, 4)),
             BoxShadow(color: t.color.withValues(alpha: 0.18), blurRadius: 16),
           ],
         ),

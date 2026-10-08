@@ -38,12 +38,12 @@ class MordakteLogo extends StatelessWidget {
               shaderCallback: (r) => const LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Noir.cream, Color(0xFFCFC4AE)],
+                colors: [Noir.cream, Noir.creamShade],
               ).createShader(r),
               child: Text(
                 'MORDAKTE',
                 style: Noir.title(size, color: Colors.white, spacing: size * 0.16).copyWith(
-                  shadows: const [Shadow(color: Color(0xCC000000), blurRadius: 18, offset: Offset(0, 4))],
+                  shadows: const [Shadow(color: Noir.scrim, blurRadius: 18, offset: Offset(0, 4))],
                 ),
               ),
             ),

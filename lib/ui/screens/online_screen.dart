@@ -155,7 +155,7 @@ class _OnlineScreenState extends State<OnlineScreen> {
                           Container(
                             padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
-                              color: const Color(0x338B0000),
+                              color: Noir.bloodWash,
                               borderRadius: BorderRadius.circular(4),
                               border: Border.all(color: Noir.bloodBright.withValues(alpha: 0.6)),
                             ),
@@ -232,7 +232,7 @@ class _CodeField extends StatelessWidget {
                   color: Noir.paper,
                   borderRadius: BorderRadius.circular(3),
                   border: Border.all(color: i == text.length ? Noir.brass : Colors.transparent, width: 2),
-                  boxShadow: const [BoxShadow(color: Color(0x88000000), blurRadius: 6, offset: Offset(0, 3))],
+                  boxShadow: const [BoxShadow(color: Noir.shadow, blurRadius: 6, offset: Offset(0, 3))],
                 ),
                 child: Text(i < text.length ? text[i] : '', style: Noir.title(32, color: Noir.ink)),
               ),

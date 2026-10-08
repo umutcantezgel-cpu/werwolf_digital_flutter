@@ -29,19 +29,19 @@ class NightBanner extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
-              colors: [Color(0x00060814), Color(0xE6060814), Color(0xE6060814), Color(0x00060814)],
+              colors: [Noir.nightBandClear, Noir.nightBand, Noir.nightBand, Noir.nightBandClear],
               stops: [0, 0.18, 0.82, 1],
             ),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(Icons.nightlight_round, color: Color(0xFF8FA8FF), size: 26),
+              const Icon(Icons.nightlight_round, color: Noir.moon, size: 26),
               const SizedBox(height: 8),
               Text(
                 title.toUpperCase(),
                 textAlign: TextAlign.center,
-                style: Noir.title(22, color: const Color(0xFFBFD0FF), spacing: 3),
+                style: Noir.title(22, color: Noir.moonLight, spacing: 3),
               ),
               const SizedBox(height: 10),
               if (text.isNotEmpty)
@@ -56,7 +56,7 @@ class NightBanner extends StatelessWidget {
                   ),
                 ),
               const SizedBox(height: 10),
-              Text(hint, style: Noir.label(11.5, color: const Color(0xFF8FA8FF), spacing: 1.2)),
+              Text(hint, style: Noir.label(11.5, color: Noir.moon, spacing: 1.2)),
             ],
           ),
         ),
@@ -75,7 +75,7 @@ class NightVignette extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: RadialGradient(
           radius: 0.95,
-          colors: [Color(0x00000000), Color(0x55050818), Color(0xCC02030A)],
+          colors: [Noir.clear, Noir.nightEdge, Noir.nightEdgeDeep],
           stops: [0.5, 0.78, 1],
         ),
       ),
@@ -136,7 +136,7 @@ class _HeartbeatVignetteState extends State<HeartbeatVignette> with SingleTicker
               gradient: RadialGradient(
                 radius: 0.9,
                 colors: [
-                  const Color(0x00000000),
+                  Noir.clear,
                   Noir.blood.withValues(alpha: 0.55 * beat),
                 ],
                 stops: const [0.55, 1],
@@ -202,7 +202,7 @@ class DownedOverlay extends StatelessWidget {
               decoration: BoxDecoration(
                 gradient: RadialGradient(
                   radius: 0.85,
-                  colors: [Color(0x22000000), Color(0x998B0000), Color(0xEE300000)],
+                  colors: [Noir.shadeFaint, Noir.bloodVeil, Noir.bloodDeep],
                   stops: [0.3, 0.75, 1],
                 ),
               ),
@@ -224,7 +224,7 @@ class DownedOverlay extends StatelessWidget {
                       value: frac,
                       strokeWidth: 6,
                       color: Noir.bloodBright,
-                      backgroundColor: const Color(0x33000000),
+                      backgroundColor: Noir.shade,
                     ),
                     Center(child: Text(l.downed_seconds((leftMs / 1000).ceil()), style: Noir.title(30))),
                   ],
@@ -280,23 +280,23 @@ class GhostBanner extends StatelessWidget {
             child: Container(
               padding: const EdgeInsets.fromLTRB(14, 10, 14, 12),
               decoration: BoxDecoration(
-                color: const Color(0xCC1A2030),
+                color: Noir.ghostGlass,
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: const Color(0x88A9C8E8)),
-                boxShadow: const [BoxShadow(color: Color(0x5590B8E0), blurRadius: 24)],
+                border: Border.all(color: Noir.ghostLine),
+                boxShadow: const [BoxShadow(color: Noir.ghostGlow, blurRadius: 24)],
               ),
               child: Row(
                 children: [
-                  const Icon(Icons.blur_circular_rounded, color: Color(0xFFA9C8E8), size: 30),
+                  const Icon(Icons.blur_circular_rounded, color: Noir.ghost, size: 30),
                   const SizedBox(width: 12),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(l.ghost_title, style: Noir.title(17, color: const Color(0xFFD5E6F5))),
+                        Text(l.ghost_title, style: Noir.title(17, color: Noir.ghostLight)),
                         const SizedBox(height: 3),
-                        Text(l.ghost_text, style: Noir.text(12, color: const Color(0xFFB8C8D8), height: 1.3)),
+                        Text(l.ghost_text, style: Noir.text(12, color: Noir.ghostDim, height: 1.3)),
                       ],
                     ),
                   ),

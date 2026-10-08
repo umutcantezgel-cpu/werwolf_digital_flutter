@@ -62,7 +62,7 @@ class _NoirButtonState extends State<NoirButton> {
         const LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Color(0xFFA51C1C), Noir.blood, Color(0xFF5A0000)],
+          colors: [Noir.bloodLight, Noir.blood, Noir.bloodDark],
         ),
       ),
       NoirButtonStyle.secondary => (Noir.night2.withValues(alpha: 0.75), Noir.cream, Noir.line, null),
@@ -122,7 +122,7 @@ class _NoirButtonState extends State<NoirButton> {
             border: Border.all(color: border, width: 1),
             boxShadow: widget.style == NoirButtonStyle.ghost
                 ? null
-                : const [BoxShadow(color: Color(0x88000000), blurRadius: 10, offset: Offset(0, 4))],
+                : const [BoxShadow(color: Noir.shadow, blurRadius: 10, offset: Offset(0, 4))],
           ),
           child: Material(
             type: MaterialType.transparency,
@@ -180,9 +180,9 @@ class RoundIconButton extends StatelessWidget {
           height: size,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: active ? accent.withValues(alpha: 0.9) : const Color(0xCC10121F),
-            border: Border.all(color: active ? accent : const Color(0x55E8E0D0), width: 1.2),
-            boxShadow: const [BoxShadow(color: Color(0x88000000), blurRadius: 8, offset: Offset(0, 3))],
+            color: active ? accent.withValues(alpha: 0.9) : Noir.glass,
+            border: Border.all(color: active ? accent : Noir.lineStrong, width: 1.2),
+            boxShadow: const [BoxShadow(color: Noir.shadow, blurRadius: 8, offset: Offset(0, 3))],
           ),
           child: Material(
             type: MaterialType.transparency,

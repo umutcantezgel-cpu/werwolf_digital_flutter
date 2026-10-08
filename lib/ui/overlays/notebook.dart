@@ -57,7 +57,7 @@ class _NotebookSheetState extends State<NotebookSheet> {
         Positioned.fill(
           child: GestureDetector(
             onTap: widget.onClose,
-            child: const ColoredBox(color: Color(0x99000000)),
+            child: const ColoredBox(color: Noir.shadowStrong),
           ),
         ),
         Positioned(
@@ -70,9 +70,9 @@ class _NotebookSheetState extends State<NotebookSheet> {
               constraints: const BoxConstraints(maxWidth: 640),
               child: Container(
                 decoration: const BoxDecoration(
-                  color: Color(0xFF221812),
+                  color: Noir.leather,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(14)),
-                  boxShadow: [BoxShadow(color: Color(0xCC000000), blurRadius: 30)],
+                  boxShadow: [BoxShadow(color: Noir.scrim, blurRadius: 30)],
                 ),
                 child: ClipRRect(
                   borderRadius: const BorderRadius.vertical(top: Radius.circular(14)),
@@ -126,7 +126,7 @@ class _NotebookSheetState extends State<NotebookSheet> {
                 decoration: BoxDecoration(
                   color: Noir.blood,
                   borderRadius: BorderRadius.circular(24),
-                  boxShadow: const [BoxShadow(color: Color(0xAA000000), blurRadius: 12)],
+                  boxShadow: const [BoxShadow(color: Noir.shadowStrong, blurRadius: 12)],
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -193,10 +193,7 @@ class _Header extends StatelessWidget {
                 const SizedBox(width: 6),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-                  decoration: BoxDecoration(
-                    color: sel ? accent : const Color(0x33E8E0D0),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
+                  decoration: BoxDecoration(color: sel ? accent : Noir.line, borderRadius: BorderRadius.circular(8)),
                   child: Text('$count', style: Noir.label(11, color: sel ? Noir.night : Noir.smoke, spacing: 0)),
                 ),
               ],
@@ -208,8 +205,8 @@ class _Header extends StatelessWidget {
 
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(colors: [Color(0xFF3A271C), Color(0xFF2A1C15)]),
-        border: Border(bottom: BorderSide(color: Color(0x33000000))),
+        gradient: LinearGradient(colors: [Noir.leatherLight, Noir.leatherMid]),
+        border: Border(bottom: BorderSide(color: Noir.shade)),
       ),
       child: Column(
         children: [
@@ -217,7 +214,7 @@ class _Header extends StatelessWidget {
           Container(
             width: 42,
             height: 4,
-            decoration: BoxDecoration(color: const Color(0x55E8E0D0), borderRadius: BorderRadius.circular(2)),
+            decoration: BoxDecoration(color: Noir.lineStrong, borderRadius: BorderRadius.circular(2)),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(18, 6, 6, 0),
@@ -260,10 +257,10 @@ class _MineTab extends StatelessWidget {
       children: [
         Row(
           children: [
-            const Icon(Icons.warning_amber_rounded, size: 16, color: Color(0xFFE0A050)),
+            const Icon(Icons.warning_amber_rounded, size: 16, color: Noir.warning),
             const SizedBox(width: 6),
             Expanded(
-              child: Text(l.notebook_share_hint, style: Noir.text(12.5, color: const Color(0xFFE0A050))),
+              child: Text(l.notebook_share_hint, style: Noir.text(12.5, color: Noir.warning)),
             ),
           ],
         ),
@@ -300,7 +297,7 @@ class _NoteCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Noir.paper,
         borderRadius: BorderRadius.circular(3),
-        boxShadow: const [BoxShadow(color: Color(0x99000000), blurRadius: 10, offset: Offset(0, 4))],
+        boxShadow: const [BoxShadow(color: Noir.shadowStrong, blurRadius: 10, offset: Offset(0, 4))],
       ),
       child: CustomPaint(
         painter: _RuledPainter(),
@@ -350,7 +347,7 @@ class _RuledPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final line = Paint()
-      ..color = const Color(0x262D5A8A)
+      ..color = Noir.ruleBlue
       ..strokeWidth = 1;
     for (var y = 34.0; y < size.height - 4; y += 21) {
       canvas.drawLine(Offset(0, y), Offset(size.width, y), line);
@@ -359,12 +356,12 @@ class _RuledPainter extends CustomPainter {
       const Offset(24, 0),
       Offset(24, size.height),
       Paint()
-        ..color = const Color(0x66B23A3A)
+        ..color = Noir.ruleRed
         ..strokeWidth = 1.2,
     );
     // Lochung
     for (var y = 22.0; y < size.height; y += 40) {
-      canvas.drawCircle(Offset(11, y), 4, Paint()..color = const Color(0xFF221812));
+      canvas.drawCircle(Offset(11, y), 4, Paint()..color = Noir.leather);
     }
   }
 
@@ -402,16 +399,16 @@ class _PendingChip extends StatelessWidget {
   Widget build(BuildContext context) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
     decoration: BoxDecoration(
-      color: const Color(0x1A2D5A8A),
+      color: Noir.inkBlueWash,
       borderRadius: BorderRadius.circular(3),
-      border: Border.all(color: const Color(0x662D5A8A)),
+      border: Border.all(color: Noir.inkBlueLine),
     ),
     child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(lab ? Icons.science_rounded : Icons.hourglass_bottom_rounded, size: 12, color: const Color(0xFF2D5A8A)),
+        Icon(lab ? Icons.science_rounded : Icons.hourglass_bottom_rounded, size: 12, color: Noir.inkBlue),
         const SizedBox(width: 4),
-        Text(text, style: Noir.label(10.5, color: const Color(0xFF2D5A8A), spacing: 0.2)),
+        Text(text, style: Noir.label(10.5, color: Noir.inkBlue, spacing: 0.2)),
       ],
     ),
   );
@@ -448,9 +445,9 @@ class _BoardTab extends StatelessWidget {
             Container(
               padding: const EdgeInsets.fromLTRB(14, 10, 14, 12),
               decoration: BoxDecoration(
-                color: const Color(0xE60E101C),
+                color: Noir.glassStrong,
                 borderRadius: BorderRadius.circular(6),
-                border: Border.all(color: const Color(0x33E8E0D0)),
+                border: Border.all(color: Noir.line),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -597,13 +594,13 @@ class _PinnedCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.fromLTRB(11, 16, 11, 10),
                 decoration: BoxDecoration(
-                  color: clue.kind == 'sighting' ? const Color(0xFFE9E2C2) : Noir.paper,
+                  color: clue.kind == 'sighting' ? Noir.paperYellow : Noir.paper,
                   borderRadius: BorderRadius.circular(2),
                   border: Border.all(
-                    color: selected ? Noir.bloodBright : (selectable ? const Color(0x99C9A227) : Colors.transparent),
+                    color: selected ? Noir.bloodBright : (selectable ? Noir.brassLine : Colors.transparent),
                     width: selected ? 3 : 1.5,
                   ),
-                  boxShadow: const [BoxShadow(color: Color(0xAA000000), blurRadius: 8, offset: Offset(2, 5))],
+                  boxShadow: const [BoxShadow(color: Noir.shadowStrong, blurRadius: 8, offset: Offset(2, 5))],
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -637,9 +634,9 @@ class _PinnedCard extends StatelessWidget {
                       shape: BoxShape.circle,
                       gradient: RadialGradient(
                         center: const Alignment(-0.4, -0.4),
-                        colors: [selected ? const Color(0xFFFF8A80) : const Color(0xFFE55A50), Noir.blood],
+                        colors: [selected ? Noir.pinLight : Noir.pin, Noir.blood],
                       ),
-                      boxShadow: const [BoxShadow(color: Color(0x99000000), blurRadius: 3, offset: Offset(1, 2))],
+                      boxShadow: const [BoxShadow(color: Noir.shadowStrong, blurRadius: 3, offset: Offset(1, 2))],
                     ),
                   ),
                 ),
@@ -665,10 +662,10 @@ class _DeductionCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
       decoration: BoxDecoration(
-        color: const Color(0xFFF1EBDF),
+        color: Noir.paperLight,
         borderRadius: BorderRadius.circular(2),
         border: const Border(left: BorderSide(color: Noir.blood, width: 4)),
-        boxShadow: const [BoxShadow(color: Color(0x99000000), blurRadius: 8, offset: Offset(0, 4))],
+        boxShadow: const [BoxShadow(color: Noir.shadowStrong, blurRadius: 8, offset: Offset(0, 4))],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -698,7 +695,7 @@ class _Cork extends StatelessWidget {
     decoration: BoxDecoration(
       gradient: RadialGradient(
         radius: 1.2,
-        colors: [Color(0xFF6E4B2F), Color(0xFF4A321F), Color(0xFF2E1F14)],
+        colors: [Noir.corkLight, Noir.corkDark, Noir.corkDeep],
         stops: [0, 0.65, 1],
       ),
     ),
@@ -720,7 +717,7 @@ class _Empty extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 40, color: light ? const Color(0x99E8E0D0) : Noir.smokeDim),
+          Icon(icon, size: 40, color: light ? Noir.paperFaded : Noir.smokeDim),
           const SizedBox(height: 12),
           Text(
             text,

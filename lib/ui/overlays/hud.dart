@@ -58,7 +58,7 @@ class GameHud extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Color(0xAA000000), Color(0x00000000)],
+                  colors: [Noir.shadowStrong, Noir.clear],
                 ),
               ),
             ),
@@ -156,14 +156,14 @@ class _StatusCard extends StatelessWidget {
     final hp = d?.hp ?? 0;
     final maxHp = d?.maxHp ?? 3;
     final nerves = (d?.nerves ?? 100).clamp(0, 100);
-    final nerveColor = Color.lerp(Noir.debuff, const Color(0xFF7FB2E5), nerves / 100)!;
+    final nerveColor = Color.lerp(Noir.debuff, Noir.lab, nerves / 100)!;
     return Container(
       width: 136,
       padding: const EdgeInsets.fromLTRB(10, 8, 10, 9),
       decoration: BoxDecoration(
-        color: const Color(0xCC0E101C),
+        color: Noir.glass,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: const Color(0x33E8E0D0)),
+        border: Border.all(color: Noir.line),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,7 +177,7 @@ class _StatusCard extends StatelessWidget {
                   child: Icon(
                     i < hp ? Icons.favorite_rounded : Icons.favorite_border_rounded,
                     size: 19,
-                    color: i < hp ? Noir.bloodBright : const Color(0x66E8E0D0),
+                    color: i < hp ? Noir.bloodBright : Noir.lineStrong,
                   ),
                 ),
             ],
@@ -197,7 +197,7 @@ class _StatusCard extends StatelessWidget {
                       child: Stack(
                         fit: StackFit.expand,
                         children: [
-                          const ColoredBox(color: Color(0x33E8E0D0)),
+                          const ColoredBox(color: Noir.line),
                           FractionallySizedBox(
                             alignment: Alignment.centerLeft,
                             widthFactor: nerves / 100,
@@ -285,7 +285,7 @@ class _PhaseTimerState extends State<_PhaseTimer> {
     final tot = math.max(1, w?.phaseTotalMs ?? 1);
     final urgent = rem > 0 && rem <= 30000;
     final night = widget.phase == Phase.night;
-    final base = night ? const Color(0xFF8FA8FF) : Noir.brass;
+    final base = night ? Noir.moon : Noir.brass;
     final color = urgent ? Noir.bloodBright : base;
     final frac = (rem / tot).clamp(0.0, 1.0);
     final sec = (rem / 1000).ceil();
@@ -294,7 +294,7 @@ class _PhaseTimerState extends State<_PhaseTimer> {
       width: 112,
       padding: const EdgeInsets.fromLTRB(10, 6, 10, 7),
       decoration: BoxDecoration(
-        color: const Color(0xCC0E101C),
+        color: Noir.glass,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: color.withValues(alpha: urgent ? 0.9 : 0.4)),
         boxShadow: urgent ? [BoxShadow(color: Noir.bloodBright.withValues(alpha: 0.35), blurRadius: 14)] : null,
@@ -321,7 +321,7 @@ class _PhaseTimerState extends State<_PhaseTimer> {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  const ColoredBox(color: Color(0x22E8E0D0)),
+                  const ColoredBox(color: Noir.lineSoft),
                   FractionallySizedBox(
                     alignment: Alignment.centerLeft,
                     widthFactor: frac,
@@ -439,7 +439,7 @@ class _CooldownPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final c = size.center(Offset.zero);
     final r = size.width / 2;
-    canvas.drawCircle(c, r + 2, Paint()..color = const Color(0x66000000));
+    canvas.drawCircle(c, r + 2, Paint()..color = Noir.shadow);
     canvas.drawCircle(
       c,
       r,
@@ -448,7 +448,7 @@ class _CooldownPainter extends CustomPainter {
           center: const Alignment(-0.3, -0.4),
           colors: ready
               ? [Color.lerp(accent, Colors.white, 0.35)!, accent, Color.lerp(accent, Colors.black, 0.4)!]
-              : [const Color(0xFF2A2E48), const Color(0xFF181B2E), const Color(0xFF0E101C)],
+              : [Noir.night4, Noir.night2, Noir.night1],
         ).createShader(Rect.fromCircle(center: c, radius: r)),
     );
     canvas.drawCircle(
@@ -457,7 +457,7 @@ class _CooldownPainter extends CustomPainter {
       Paint()
         ..style = PaintingStyle.stroke
         ..strokeWidth = 1.5
-        ..color = ready ? Color.lerp(accent, Colors.white, 0.5)! : const Color(0x55E8E0D0),
+        ..color = ready ? Color.lerp(accent, Colors.white, 0.5)! : Noir.lineStrong,
     );
     if (fraction > 0) {
       canvas.drawArc(
@@ -516,16 +516,13 @@ class _Slot extends StatelessWidget {
       width: 48,
       height: 48,
       decoration: BoxDecoration(
-        color: t == null ? const Color(0x880E101C) : const Color(0xDD0E101C),
+        color: t == null ? Noir.glassFaint : Noir.glassStrong,
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: t == null ? const Color(0x33E8E0D0) : accent.withValues(alpha: 0.8),
-          width: t == null ? 1 : 1.5,
-        ),
+        border: Border.all(color: t == null ? Noir.line : accent.withValues(alpha: 0.8), width: t == null ? 1 : 1.5),
         boxShadow: t == null ? null : [BoxShadow(color: accent.withValues(alpha: 0.2), blurRadius: 8)],
       ),
       child: t == null
-          ? const Icon(Icons.add_rounded, size: 16, color: Color(0x33E8E0D0))
+          ? const Icon(Icons.add_rounded, size: 16, color: Noir.line)
           : Icon(GameIcons.item(t), size: 24, color: Noir.cream),
     );
     if (t == null) return body;

@@ -123,7 +123,7 @@ class LightingRenderer {
     }
     _glows(c, glows, mode == LightMode.night ? 1.0 : 0.7);
     if (mode == LightMode.council) {
-      c.drawRect(view, Paint()..color = withAlpha(pal.light, 0.05));
+      c.drawRect(view, Paint()..color = withAlpha(pal.light, 0.07));
     }
   }
 

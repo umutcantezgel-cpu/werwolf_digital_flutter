@@ -41,7 +41,7 @@ class _NoirBackdropState extends State<NoirBackdrop> with SingleTickerProviderSt
             gradient: RadialGradient(
               center: Alignment(0, -1.1),
               radius: 1.5,
-              colors: [Color(0xFF262B4A), Noir.night, Color(0xFF06070D)],
+              colors: [Noir.dusk, Noir.night, Noir.deepest],
               stops: [0, 0.55, 1],
             ),
           ),
@@ -59,7 +59,7 @@ class _NoirBackdropState extends State<NoirBackdrop> with SingleTickerProviderSt
         const RepaintBoundary(child: CustomPaint(painter: GrainPainter())),
         const DecoratedBox(
           decoration: BoxDecoration(
-            gradient: RadialGradient(radius: 1.05, colors: [Color(0x00000000), Color(0x99000000)], stops: [0.55, 1]),
+            gradient: RadialGradient(radius: 1.05, colors: [Noir.clear, Noir.shadowStrong], stops: [0.55, 1]),
           ),
         ),
         widget.child,

@@ -92,14 +92,14 @@ class IntroOverlay extends StatelessWidget {
                   return LinearProgressIndicator(
                     value: (rem / tot).clamp(0.0, 1.0),
                     minHeight: 2,
-                    backgroundColor: const Color(0x22E8E0D0),
+                    backgroundColor: Noir.lineSoft,
                     color: g.accent,
                   );
                 },
               ),
               Container(
                 padding: const EdgeInsets.fromLTRB(20, 14, 20, 16),
-                color: const Color(0xCC07080F),
+                color: Noir.barSoft,
                 child: Center(
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(maxWidth: 560),
@@ -157,7 +157,7 @@ class _VictimCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: const Color(0xCC0E101C),
+        color: Noir.glass,
         borderRadius: BorderRadius.circular(6),
         border: Border.all(color: Noir.blood.withValues(alpha: 0.7)),
       ),

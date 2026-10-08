@@ -311,8 +311,14 @@ class MarkerPainter {
         ..strokeWidth = 2.2;
       c.drawPath(path, p);
     }
+  }
+
+  /// Rotes Glimmen der Spur (über der Dunkelheit).
+  void traceGlow(Canvas c, double wx, double wy, double t, int seed) {
+    final o = Iso.toScreen(wx, wy);
     final glow = 0.5 + 0.5 * math.sin(t * 2 + seed);
-    c.drawCircle(o, 3 + glow, Paint()..color = withAlpha(const Color(0xFFFF2A2A), 0.25 + 0.2 * glow));
+    c.drawCircle(o, 9, Paint()..shader = Gradient.radial(o, 9, [withAlpha(const Color(0xFFFF2A2A), 0.3 * glow + 0.1), withAlpha(const Color(0xFFFF2A2A), 0)]));
+    c.drawCircle(o, 1.6, Paint()..color = withAlpha(const Color(0xFFFF6A50), 0.5 + 0.4 * glow));
   }
 
   /// Ping am Boden: pulsierende Ringe. [age] in Sekunden, [life] Gesamtdauer.

@@ -53,9 +53,9 @@ class _Bar extends StatelessWidget {
     return Container(
       height: height,
       decoration: BoxDecoration(
-        color: const Color(0x33000000),
+        color: Noir.shade,
         borderRadius: BorderRadius.circular(height),
-        border: Border.all(color: const Color(0x22E8E0D0)),
+        border: Border.all(color: Noir.lineSoft),
       ),
       child: Align(
         alignment: Alignment.centerLeft,
@@ -99,7 +99,7 @@ class _RankPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final c = size.center(Offset.zero);
     final r = size.width / 2;
-    final metal = rank >= 5 ? const Color(0xFFE6C766) : (rank >= 3 ? Noir.brass : const Color(0xFFB08D57));
+    final metal = rank >= 5 ? Noir.brassLight : (rank >= 3 ? Noir.brass : Noir.bronze);
     canvas.drawCircle(
       c,
       r,
@@ -174,8 +174,8 @@ class StrengthMeter extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(2),
                 color: i <= value
-                    ? (i >= perfect ? Noir.brass : (i >= solid ? Noir.buff : const Color(0xFFD08A3A)))
-                    : (dark ? const Color(0x22000000) : const Color(0x22E8E0D0)),
+                    ? (i >= perfect ? Noir.brass : (i >= solid ? Noir.buff : Noir.warning))
+                    : (dark ? Noir.shadeFaint : Noir.lineSoft),
                 border: Border.all(
                   color: i == solid || i == perfect
                       ? (dark ? Noir.inkSoft : Noir.smoke).withValues(alpha: 0.7)

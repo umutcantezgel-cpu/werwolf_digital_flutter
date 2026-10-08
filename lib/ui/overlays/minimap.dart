@@ -28,10 +28,10 @@ class MiniMap extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-        color: const Color(0xE60B0D18),
+        color: Noir.bar,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: g.accent.withValues(alpha: 0.45)),
-        boxShadow: const [BoxShadow(color: Color(0x99000000), blurRadius: 12)],
+        boxShadow: const [BoxShadow(color: Noir.shadowStrong, blurRadius: 12)],
       ),
       child: GestureDetector(
         onTapUp: interactive
@@ -73,11 +73,11 @@ class _MapPainter extends CustomPainter {
       for (final d in cv.openDoors)
         if (d.length == 2) '${d[0]},${d[1]}',
     };
-    final wall = Paint()..color = const Color(0xFF3A3F5C);
-    final floor = Paint()..color = const Color(0xFF1C2034);
-    final lit = Paint()..color = const Color(0xFF3A3220);
-    final outdoor = Paint()..color = const Color(0xFF16261C);
-    final door = Paint()..color = const Color(0xFF7A6A44);
+    final wall = Paint()..color = Noir.mapWall;
+    final floor = Paint()..color = Noir.mapFloor;
+    final lit = Paint()..color = Noir.mapLit;
+    final outdoor = Paint()..color = Noir.mapOutdoor;
+    final door = Paint()..color = Noir.mapDoor;
     final locked = Paint()..color = Noir.bloodBright;
     for (var y = 0; y < map.height; y++) {
       for (var x = 0; x < map.width; x++) {
@@ -130,7 +130,7 @@ class _MapPainter extends CustomPainter {
     for (final n in w.npcs) {
       final o = Offset(n.x * cell, n.y * cell);
       if (n.alive) {
-        canvas.drawCircle(o, math.max(1.8, cell * 0.3), Paint()..color = const Color(0xFFB5B0A6));
+        canvas.drawCircle(o, math.max(1.8, cell * 0.3), Paint()..color = Noir.mapNpc);
       } else {
         final p = Paint()
           ..color = Noir.bloodBright

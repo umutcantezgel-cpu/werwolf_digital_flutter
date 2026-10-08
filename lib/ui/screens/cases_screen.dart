@@ -209,7 +209,7 @@ class _CaseFile extends StatelessWidget {
                               ],
                             ),
                             if (storySolved)
-                              TagChip(l.case_story_solved, color: const Color(0xFF3F7D45), icon: Icons.check_rounded),
+                              TagChip(l.case_story_solved, color: Noir.success, icon: Icons.check_rounded),
                           ],
                         ),
                         const SizedBox(height: 16),
@@ -297,9 +297,9 @@ class _ModePicker extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
-        color: const Color(0x14000000),
+        color: Noir.shadeFaint,
         borderRadius: BorderRadius.circular(5),
-        border: Border.all(color: const Color(0x33000000)),
+        border: Border.all(color: Noir.shade),
       ),
       child: Row(
         children: [

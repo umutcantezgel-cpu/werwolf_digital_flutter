@@ -1548,4 +1548,16 @@ class LDe extends L {
   String lobby_bot_slot(int n) {
     return 'KI-Partner $n';
   }
+
+  @override
+  String hub_streak_label(int days) {
+    String _temp0 = intl.Intl.pluralLogic(
+      days,
+      locale: localeName,
+      other: 'Tage in Folge',
+      one: 'Tag in Folge',
+      zero: 'Keine Serie',
+    );
+    return '$_temp0';
+  }
 }

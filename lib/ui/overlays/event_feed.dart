@@ -55,7 +55,7 @@ void showEventToast(GameEvent e, GameCtx g, ToastController toasts) {
         t(l.toast_clue_shared(g.nameOf(by), g.clueName(e.str('clue'))), Icons.push_pin_rounded, Noir.brass);
       }
     case Ev.clueEvolved:
-      t(l.toast_clue_evolved(g.clueName(e.str('clue'))), Icons.science_rounded, const Color(0xFF7FB2E5), Haptic.medium);
+      t(l.toast_clue_evolved(g.clueName(e.str('clue'))), Icons.science_rounded, Noir.lab, Haptic.medium);
     case Ev.clueLost:
       t(l.toast_clue_lost(g.clueName(e.str('clue'))), Icons.local_fire_department_rounded, Noir.debuff, Haptic.heavy);
     case Ev.cluesFaded:
@@ -100,7 +100,7 @@ void showEventToast(GameEvent e, GameCtx g, ToastController toasts) {
         t(
           player == me ? l.toast_revived_dawn_me : l.toast_revived_dawn(g.nameOf(player)),
           Icons.wb_twilight_rounded,
-          const Color(0xFFF0B070),
+          Noir.dawn,
           Haptic.medium,
         );
       } else if (player == me) {
@@ -110,7 +110,7 @@ void showEventToast(GameEvent e, GameCtx g, ToastController toasts) {
       }
     case Ev.died:
       if (player == me) {
-        t(l.toast_died_me, Icons.blur_circular_rounded, const Color(0xFFA9C8E8), Haptic.heavy);
+        t(l.toast_died_me, Icons.blur_circular_rounded, Noir.ghost, Haptic.heavy);
       } else {
         t(l.toast_died(g.nameOf(player, youForMe: false)), Icons.dangerous_rounded, Noir.bloodBright, Haptic.heavy);
       }
@@ -144,7 +144,7 @@ void showEventToast(GameEvent e, GameCtx g, ToastController toasts) {
     case Ev.itemPicked:
       final type = e.str('type') ?? '';
       if (type == ItemType.trace) {
-        if (by == me) t(l.toast_trace_search, Icons.blur_on_rounded, const Color(0xFF9A8CC8), Haptic.medium);
+        if (by == me) t(l.toast_trace_search, Icons.blur_on_rounded, Noir.trace, Haptic.medium);
       } else if (by == me) {
         t(l.toast_item_picked(l.itemName(type)), GameIcons.item(type), Noir.brass, Haptic.selection);
       }
@@ -165,7 +165,7 @@ void showEventToast(GameEvent e, GameCtx g, ToastController toasts) {
     case Ev.sources:
       t(l.toast_sources(g.hotspotName(e.str('hotspot'))), Icons.travel_explore_rounded, g.accent, Haptic.medium);
     case Ev.labDone:
-      t(l.toast_lab_done(e.integer('count') ?? 0), Icons.science_rounded, const Color(0xFF7FB2E5), Haptic.medium);
+      t(l.toast_lab_done(e.integer('count') ?? 0), Icons.science_rounded, Noir.lab, Haptic.medium);
     case Ev.hide:
       if (player != me) return;
       t(e.flag('hidden') ? l.toast_hidden : l.toast_unhidden, Icons.door_sliding_rounded, Noir.smoke, Haptic.selection);

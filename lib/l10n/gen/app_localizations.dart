@@ -2756,6 +2756,12 @@ abstract class L {
   /// In de, this message translates to:
   /// **'KI-Partner {n}'**
   String lobby_bot_slot(int n);
+
+  /// No description provided for @hub_streak_label.
+  ///
+  /// In de, this message translates to:
+  /// **'{days, plural, =0{Keine Serie} =1{Tag in Folge} other{Tage in Folge}}'**
+  String hub_streak_label(int days);
 }
 
 class _LDelegate extends LocalizationsDelegate<L> {

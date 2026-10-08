@@ -174,7 +174,7 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
                 gradient: RadialGradient(
                   center: const Alignment(-0.5, -0.85),
                   radius: 1.3,
-                  colors: [Color.lerp(g.accent, Noir.night, 0.82)!, const Color(0xFF0B0C16), const Color(0xFF05060B)],
+                  colors: [Color.lerp(g.accent, Noir.night, 0.82)!, Noir.deep, Noir.deepest],
                   stops: const [0, 0.5, 1],
                 ),
               ),
@@ -203,7 +203,7 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
                                 decoration: const BoxDecoration(
                                   color: Noir.paper,
                                   boxShadow: [
-                                    BoxShadow(color: Color(0xAA000000), blurRadius: 12, offset: Offset(0, 5)),
+                                    BoxShadow(color: Noir.shadowStrong, blurRadius: 12, offset: Offset(0, 5)),
                                   ],
                                 ),
                                 child: def == null
@@ -242,7 +242,7 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
                       ),
                       const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        child: Divider(height: 1, color: Color(0x22E8E0D0)),
+                        child: Divider(height: 1, color: Noir.lineSoft),
                       ),
                       // Protokoll
                       Expanded(
@@ -268,8 +268,8 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
                       Container(
                         padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
                         decoration: const BoxDecoration(
-                          color: Color(0xF00B0D18),
-                          border: Border(top: BorderSide(color: Color(0x22E8E0D0))),
+                          color: Noir.bar,
+                          border: Border(top: BorderSide(color: Noir.lineSoft)),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -356,9 +356,9 @@ class _TraitStrip extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
-                          color: const Color(0x1AE8E0D0),
+                          color: Noir.lineFaint,
                           borderRadius: BorderRadius.circular(3),
-                          border: Border.all(color: const Color(0x33E8E0D0)),
+                          border: Border.all(color: Noir.line),
                         ),
                         child: Text.rich(
                           TextSpan(
@@ -466,7 +466,7 @@ class _EntryView extends StatelessWidget {
     final reaction = entry.reaction;
     if (reaction != null) {
       final (color, text) = switch (reaction) {
-        'nervous' => (const Color(0xFFE0A050), l.dialogue_reaction_nervous),
+        'nervous' => (Noir.warning, l.dialogue_reaction_nervous),
         'annoyed' => (Noir.debuff, l.dialogue_reaction_annoyed),
         _ => (Noir.smoke, l.dialogue_reaction_neutral),
       };
@@ -540,7 +540,7 @@ class _TopicButton extends StatelessWidget {
     return Opacity(
       opacity: enabled ? 1 : 0.4,
       child: Material(
-        color: heard ? const Color(0x14E8E0D0) : const Color(0xFF1D2138),
+        color: heard ? Noir.lineFaint : Noir.night3,
         borderRadius: BorderRadius.circular(6),
         child: InkWell(
           borderRadius: BorderRadius.circular(6),
@@ -549,7 +549,7 @@ class _TopicButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6),
-              border: Border.all(color: heard ? const Color(0x22E8E0D0) : accent.withValues(alpha: 0.6)),
+              border: Border.all(color: heard ? Noir.lineSoft : accent.withValues(alpha: 0.6)),
             ),
             child: Row(
               children: [
@@ -591,7 +591,7 @@ class _EvidencePicker extends StatelessWidget {
     return GestureDetector(
       onTap: onClose,
       child: ColoredBox(
-        color: const Color(0xCC000000),
+        color: Noir.scrim,
         child: SafeArea(
           child: Align(
             alignment: Alignment.bottomCenter,
@@ -603,9 +603,9 @@ class _EvidencePicker extends StatelessWidget {
                   margin: const EdgeInsets.all(12),
                   padding: const EdgeInsets.fromLTRB(14, 14, 14, 10),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF221812),
+                    color: Noir.leather,
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: const Color(0x33E8E0D0)),
+                    border: Border.all(color: Noir.line),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

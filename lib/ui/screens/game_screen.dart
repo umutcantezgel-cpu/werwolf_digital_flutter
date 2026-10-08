@@ -258,7 +258,7 @@ class _GameScreenState extends State<GameScreen> {
     final l = L.of(context);
     final ok = await showDialog<bool>(
       context: context,
-      barrierColor: const Color(0xCC000000),
+      barrierColor: Noir.scrim,
       builder: (c) => Dialog(
         backgroundColor: Colors.transparent,
         child: ConstrainedBox(
@@ -463,7 +463,7 @@ class _GameScreenState extends State<GameScreen> {
     return GestureDetector(
       onTap: () => setState(() => _mapBig = false),
       child: ColoredBox(
-        color: const Color(0xCC000000),
+        color: Noir.scrim,
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,

@@ -23,7 +23,7 @@ class SignalWheel extends StatelessWidget {
     return GestureDetector(
       onTap: onClose,
       child: ColoredBox(
-        color: const Color(0xB3000000),
+        color: Noir.scrimSoft,
         child: LayoutBuilder(
           builder: (context, box) {
             final c = Offset(box.maxWidth / 2, box.maxHeight / 2);
@@ -41,7 +41,7 @@ class SignalWheel extends StatelessWidget {
                     height: (outer + 50) * 2,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      gradient: RadialGradient(colors: [accent.withValues(alpha: 0.12), const Color(0x00000000)]),
+                      gradient: RadialGradient(colors: [accent.withValues(alpha: 0.12), Noir.clear]),
                     ),
                   ),
                 ),
@@ -95,7 +95,7 @@ class SignalWheel extends StatelessWidget {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Noir.night,
-                      border: Border.all(color: const Color(0x55E8E0D0)),
+                      border: Border.all(color: Noir.lineStrong),
                     ),
                     child: const Icon(Icons.close_rounded, color: Noir.smoke),
                   ),
@@ -145,9 +145,9 @@ class _EmoteButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          color: const Color(0xEE1D2138),
+          color: Noir.night3Glass,
           border: Border.all(color: accent.withValues(alpha: 0.7), width: 1.5),
-          boxShadow: const [BoxShadow(color: Color(0x88000000), blurRadius: 8)],
+          boxShadow: const [BoxShadow(color: Noir.shadow, blurRadius: 8)],
         ),
         child: Icon(icon, color: Noir.cream, size: 24),
       ),
@@ -174,10 +174,10 @@ class _QuickPill extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         decoration: BoxDecoration(
-          color: danger ? const Color(0xEE3A0E10) : const Color(0xEEE8E0D0),
+          color: danger ? Noir.dangerGlass : Noir.paperGlass,
           borderRadius: BorderRadius.circular(24),
           border: Border.all(color: c.withValues(alpha: 0.8)),
-          boxShadow: const [BoxShadow(color: Color(0x88000000), blurRadius: 8, offset: Offset(0, 3))],
+          boxShadow: const [BoxShadow(color: Noir.shadow, blurRadius: 8, offset: Offset(0, 3))],
         ),
         child: Row(
           children: [

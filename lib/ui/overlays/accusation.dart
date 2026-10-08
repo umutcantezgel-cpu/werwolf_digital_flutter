@@ -171,8 +171,8 @@ class _AccusationOverlayState extends State<AccusationOverlay> {
             Container(
               padding: const EdgeInsets.fromLTRB(18, 12, 18, 14),
               decoration: const BoxDecoration(
-                color: Color(0xF00B0D18),
-                border: Border(top: BorderSide(color: Color(0x22E8E0D0))),
+                color: Noir.bar,
+                border: Border(top: BorderSide(color: Noir.lineSoft)),
               ),
               child: Center(
                 child: ConstrainedBox(
@@ -260,7 +260,7 @@ class _SuspectCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(3),
               border: Border.all(color: selected ? Noir.bloodBright : Colors.transparent, width: 3),
               boxShadow: [
-                const BoxShadow(color: Color(0x99000000), blurRadius: 10, offset: Offset(0, 4)),
+                const BoxShadow(color: Noir.shadowStrong, blurRadius: 10, offset: Offset(0, 4)),
                 if (selected) BoxShadow(color: Noir.bloodBright.withValues(alpha: 0.4), blurRadius: 18),
               ],
             ),
@@ -389,9 +389,9 @@ class _ChoiceWrap extends StatelessWidget {
               duration: const Duration(milliseconds: 160),
               padding: const EdgeInsets.fromLTRB(12, 9, 10, 9),
               decoration: BoxDecoration(
-                color: selected == id ? Noir.blood : const Color(0xCC151829),
+                color: selected == id ? Noir.blood : Noir.panelStrong,
                 borderRadius: BorderRadius.circular(4),
-                border: Border.all(color: selected == id ? Noir.bloodBright : const Color(0x33E8E0D0)),
+                border: Border.all(color: selected == id ? Noir.bloodBright : Noir.line),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -401,7 +401,7 @@ class _ChoiceWrap extends StatelessWidget {
                     const SizedBox(width: 8),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-                      decoration: BoxDecoration(color: const Color(0x33E8E0D0), borderRadius: BorderRadius.circular(8)),
+                      decoration: BoxDecoration(color: Noir.line, borderRadius: BorderRadius.circular(8)),
                       child: Text('${votes(id).length}', style: Noir.label(11, color: Noir.cream, spacing: 0)),
                     ),
                   ],

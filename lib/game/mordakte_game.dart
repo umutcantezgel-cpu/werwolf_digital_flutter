@@ -164,6 +164,7 @@ class MordakteGame extends Game with KeyboardEvents {
   // --- Szene ---
   StaticScene? _scene;
   String? _scenarioId;
+  bool _buildFailed = false;
   TileGrid? _grid;
   ScenePalette _pal = ScenePalette.fallback;
   final FigurePainter _fig = FigurePainter();
@@ -310,14 +311,16 @@ class MordakteGame extends Game with KeyboardEvents {
   void _syncScenario() {
     final s = session.scenario;
     if (s == null) return;
-    if (s.id == _scenarioId && _scene != null) return;
+    if (s.id == _scenarioId && (_scene != null || _buildFailed)) return;
     _scene?.dispose();
+    _buildFailed = false;
     try {
       _scene = StaticScene.build(s);
     } catch (e, st) {
       debugPrint('Mordakte: Szene konnte nicht gebaut werden: $e\n$st');
       _scene = null;
       _scenarioId = s.id;
+      _buildFailed = true;
       return;
     }
     _scenarioId = s.id;
@@ -376,6 +379,8 @@ class MordakteGame extends Game with KeyboardEvents {
     if (w.correctX != null && w.correctY != null) {
       _px = w.correctX!;
       _py = w.correctY!;
+      _sentX = _px;
+      _sentY = _py;
       _hasPos = true;
     }
   }
@@ -791,7 +796,7 @@ class MordakteGame extends Game with KeyboardEvents {
       canvas,
       view.inflate(4),
       mode: lightMode,
-      darkness: lightMode == LightMode.night ? (1 - s.theme.nightAmbient * 0.7).clamp(0.3, 0.97) : 0.42,
+      darkness: lightMode == LightMode.night ? (1 - s.theme.nightAmbient).clamp(0.3, 0.97) : 0.42,
       lights: _lights(lightMode),
       litRooms: lightMode == LightMode.day ? const [] : [for (final r in s.map.rooms) if (r.lit) r],
       glows: _glows(scene, cull, t),
@@ -922,9 +927,14 @@ class MordakteGame extends Game with KeyboardEvents {
       final seed = h.id.hashCode % 13;
       items.add((h.x + h.y + 1.0 + (prop != null ? 0.01 : 0), 1, () => _markers!.hotspot(c, o, e.value, h.kind, _time, seed)));
     }
-    // Items
+    // Items (Spuren: nur der Rauchfaden steht im Raum)
     for (final it in cv?.items ?? const <ItemView>[]) {
-      if (it.type == 'trace') continue;
+      if (it.type == 'trace') {
+        if (cull.contains(Iso.toScreen(it.x, it.y))) {
+          items.add((it.x + it.y, 1, () => _markers!.traceSmoke(c, it.x, it.y, _time, it.id.hashCode % 7)));
+        }
+        continue;
+      }
       final o = Iso.toScreen(it.x, it.y);
       if (!cull.contains(o)) continue;
       final seed = it.id.hashCode % 11;
@@ -1114,16 +1124,19 @@ class MordakteGame extends Game with KeyboardEvents {
     final st = _tracks['shadow'];
     if (sh != null && st != null) {
       final o = Iso.toScreen(st.x, st.y);
-      if (cull.contains(o)) {
+      if (cull.contains(o) && !_occluded(scene, Rect.fromCenter(center: o.translate(0, -51), width: 10, height: 6), st.x + st.y)) {
         final alpha = sh.mode == 'flee' ? 0.35 : 1.0;
         _fig.shadowEyes(c, o, _time, facing: st.facing, mode: sh.mode, alpha: alpha);
       }
     }
-    // Spuren-Rauch
-    for (final it in cv?.items ?? const <ItemView>[]) {
-      if (it.type != 'trace') continue;
-      if (!cull.contains(Iso.toScreen(it.x, it.y))) continue;
-      _markers!.traceSmoke(c, it.x, it.y, _time, it.id.hashCode % 7);
+    // Glimmen der Spuren (nachts, wenn nicht verdeckt)
+    if (_phase == Phase.night) {
+      for (final it in cv?.items ?? const <ItemView>[]) {
+        if (it.type != 'trace') continue;
+        final o = Iso.toScreen(it.x, it.y);
+        if (!cull.contains(o) || _occluded(scene, Rect.fromCenter(center: o, width: 8, height: 6), it.x + it.y)) continue;
+        _markers!.traceGlow(c, it.x, it.y, _time, it.id.hashCode % 7);
+      }
     }
     // Niedergeschlagene: roter Puls, auch im Dunkeln sichtbar
     for (final d in w?.detectives ?? const <DetectiveView>[]) {
@@ -1166,6 +1179,15 @@ class MordakteGame extends Game with KeyboardEvents {
         ..strokeWidth = 0.06);
       c.restore();
     }
+  }
+
+  /// Wird [r] (Bildschirm) von einem hohen statischen Objekt vor [depth] verdeckt?
+  bool _occluded(StaticScene scene, Rect r, double depth) {
+    for (final d in scene.drawables) {
+      if (!d.tall || d.cut > 0.5 || d.depth <= depth + 0.05) continue;
+      if (d.occludes(r)) return true;
+    }
+    return false;
   }
 
   Color? _coatOf(String id) {
@@ -1226,16 +1248,24 @@ class MordakteGame extends Game with KeyboardEvents {
       final age = sg.ageMs / 1000 + recvAge;
       const life = Tuning.signalLifetimeMs / 1000;
       if (age > life) continue;
-      final anchor = stackTop[sg.by];
-      if (anchor == null) continue;
+      final top = stackTop[sg.by];
+      if (top == null) continue;
+      var anchor = top.translate(0, -2);
+      for (var guard = 0; guard < 4; guard++) {
+        final r = Rect.fromLTRB(anchor.dx - 18, anchor.dy - 36, anchor.dx + 18, anchor.dy);
+        final hit = placed.where((p) => p.overlaps(r)).toList();
+        if (hit.isEmpty) break;
+        anchor = Offset(anchor.dx, hit.map((h) => h.top).reduce(math.min) - 2);
+      }
+      placed.add(Rect.fromLTRB(anchor.dx - 18, anchor.dy - 36, anchor.dx + 18, anchor.dy));
       final alpha = (life - age).clamp(0.0, 1.0);
       final pop = age < 0.25 ? _easeOutBack(age / 0.25) : 1.0;
-      m.bubble(c, anchor.translate(0, -2), sg.kind, sg.value, alpha, pop);
+      m.bubble(c, anchor, sg.kind, sg.value, alpha, pop);
     }
     // Zielbeschriftung
     final tg = target.value;
     final tp = _targetPos;
-    if (tg != null && tp != null && !tg.isCancel && tg.name.isNotEmpty) {
+    if (tg != null && tp != null && !tg.isCancel && tg.kind != 'revive' && tg.name.isNotEmpty) {
       final z = tg.kind == 'npc' ? 0.0 : tg.z;
       var anchor = _toView(Iso.toScreen(tp.dx, tp.dy, z));
       anchor = anchor.translate(0, tg.kind == 'npc' ? -headPx - 10 : -18 * _zoom - 10);

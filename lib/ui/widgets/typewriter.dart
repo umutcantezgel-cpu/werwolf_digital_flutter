@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../app/theme.dart';
+
 /// Text mit Schreibmaschinen-Effekt. Antippen zeigt sofort alles.
 class TypewriterText extends StatefulWidget {
   const TypewriterText(
@@ -100,7 +102,7 @@ class TypewriterTextState extends State<TypewriterText> {
             // Unsichtbarer Rest hält das Layout stabil.
             TextSpan(
               text: rest,
-              style: const TextStyle(color: Color(0x00000000)),
+              style: const TextStyle(color: Noir.clear),
             ),
           ],
         ),

@@ -270,7 +270,7 @@ class _CaseBanner extends StatelessWidget {
         borderRadius: BorderRadius.circular(6),
         gradient: LinearGradient(colors: [Color.lerp(bg, accent, 0.22)!, bg]),
         border: Border.all(color: accent.withValues(alpha: 0.6)),
-        boxShadow: const [BoxShadow(color: Color(0x88000000), blurRadius: 14, offset: Offset(0, 6))],
+        boxShadow: const [BoxShadow(color: Noir.shadow, blurRadius: 14, offset: Offset(0, 6))],
       ),
       child: Row(
         children: [
@@ -306,9 +306,9 @@ class _PlayerRow extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
-        color: me ? const Color(0x22C9A227) : const Color(0x99151829),
+        color: me ? Noir.brassWash : Noir.panel,
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: me ? Noir.brass.withValues(alpha: 0.5) : const Color(0x22E8E0D0)),
+        border: Border.all(color: me ? Noir.brass.withValues(alpha: 0.5) : Noir.lineSoft),
       ),
       child: Row(
         children: [
@@ -347,7 +347,7 @@ class _PlayerRow extends StatelessWidget {
                     Icon(GameIcons.cls(player.cls), size: 14, color: Noir.smoke),
                     const SizedBox(width: 4),
                     Text(l.className(player.cls), style: Noir.text(12.5, color: Noir.smoke)),
-                    if (player.bot) ...[const SizedBox(width: 8), TagChip(l.lobby_bot, color: const Color(0xFF6FA8DC))],
+                    if (player.bot) ...[const SizedBox(width: 8), TagChip(l.lobby_bot, color: Noir.bot)],
                   ],
                 ),
               ],
@@ -394,8 +394,8 @@ class _BotSlot extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: const Color(0x22E8E0D0)),
-        color: const Color(0x44151829),
+        border: Border.all(color: Noir.lineSoft),
+        color: Noir.panelFaint,
       ),
       child: Row(
         children: [
@@ -404,15 +404,15 @@ class _BotSlot extends StatelessWidget {
             height: 44,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(color: const Color(0x446FA8DC), width: 1.5),
+              border: Border.all(color: Noir.botLine, width: 1.5),
             ),
-            child: const Icon(Icons.smart_toy_rounded, color: Color(0xAA6FA8DC), size: 22),
+            child: const Icon(Icons.smart_toy_rounded, color: Noir.botDim, size: 22),
           ),
           const SizedBox(width: 12),
           Expanded(
             child: Text(l.lobby_bot_slot(index), style: Noir.text(14.5, color: Noir.smoke)),
           ),
-          TagChip(l.lobby_bot, color: const Color(0xFF6FA8DC)),
+          TagChip(l.lobby_bot, color: Noir.bot),
         ],
       ),
     ).animate().fadeIn(duration: 250.ms).slideX(begin: 0.05);
@@ -448,9 +448,9 @@ class _ClassPicker extends StatelessWidget {
               width: 178,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: sel ? Color.lerp(Noir.night3, accent, 0.16) : const Color(0xCC151829),
+                color: sel ? Color.lerp(Noir.night3, accent, 0.16) : Noir.panelStrong,
                 borderRadius: BorderRadius.circular(6),
-                border: Border.all(color: sel ? accent : const Color(0x26E8E0D0), width: sel ? 2 : 1),
+                border: Border.all(color: sel ? accent : Noir.lineSoft, width: sel ? 2 : 1),
                 boxShadow: sel ? [BoxShadow(color: accent.withValues(alpha: 0.25), blurRadius: 14)] : null,
               ),
               child: Opacity(
@@ -463,10 +463,7 @@ class _ClassPicker extends StatelessWidget {
                         Container(
                           width: 34,
                           height: 34,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: sel ? accent : const Color(0x22E8E0D0),
-                          ),
+                          decoration: BoxDecoration(shape: BoxShape.circle, color: sel ? accent : Noir.lineSoft),
                           child: Icon(GameIcons.cls(c.id), size: 19, color: sel ? Noir.night : Noir.cream),
                         ),
                         const SizedBox(width: 8),
@@ -546,16 +543,13 @@ class _CoatPicker extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: coatColor(i),
-                  border: Border.all(
-                    color: i == selected ? Noir.cream : const Color(0x44000000),
-                    width: i == selected ? 3 : 1,
-                  ),
+                  border: Border.all(color: i == selected ? Noir.cream : Noir.shade, width: i == selected ? 3 : 1),
                   boxShadow: i == selected
                       ? [BoxShadow(color: coatColor(i).withValues(alpha: 0.6), blurRadius: 10)]
                       : null,
                 ),
                 child: rank < coatRank(i)
-                    ? const Icon(Icons.lock_rounded, size: 16, color: Color(0xCCFFFFFF))
+                    ? const Icon(Icons.lock_rounded, size: 16, color: Noir.whiteSoft)
                     : (i == selected ? const Icon(Icons.check_rounded, size: 18, color: Colors.white) : null),
               ),
             ),
@@ -603,7 +597,7 @@ class _HatPicker extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
                     color: Noir.night3,
-                    border: Border.all(color: sel ? accent : const Color(0x26E8E0D0), width: sel ? 2 : 1),
+                    border: Border.all(color: sel ? accent : Noir.lineSoft, width: sel ? 2 : 1),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(5),
@@ -769,8 +763,8 @@ class _BottomBar extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.fromLTRB(18, 12, 18, 14),
       decoration: const BoxDecoration(
-        color: Color(0xF00B0D18),
-        border: Border(top: BorderSide(color: Color(0x22E8E0D0))),
+        color: Noir.bar,
+        border: Border(top: BorderSide(color: Noir.lineSoft)),
       ),
       child: ContentWidth(
         child: Row(

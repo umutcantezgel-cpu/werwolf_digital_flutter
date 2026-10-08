@@ -28,8 +28,8 @@ class GlassPanel extends StatelessWidget {
       decoration: BoxDecoration(
         color: Noir.night2.withValues(alpha: opacity),
         borderRadius: BorderRadius.circular(radius),
-        border: Border.all(color: accent?.withValues(alpha: 0.55) ?? const Color(0x2EE8E0D0)),
-        boxShadow: const [BoxShadow(color: Color(0x66000000), blurRadius: 16, offset: Offset(0, 6))],
+        border: Border.all(color: accent?.withValues(alpha: 0.55) ?? Noir.lineSoft),
+        boxShadow: const [BoxShadow(color: Noir.shadow, blurRadius: 16, offset: Offset(0, 6))],
       ),
       child: child,
     );

@@ -44,8 +44,8 @@ class PaperCard extends StatelessWidget {
           stops: const [0, 0.55, 1],
         ),
         boxShadow: const [
-          BoxShadow(color: Color(0x99000000), blurRadius: 14, offset: Offset(0, 6)),
-          BoxShadow(color: Color(0x44000000), blurRadius: 2, offset: Offset(0, 1)),
+          BoxShadow(color: Noir.shadowStrong, blurRadius: 14, offset: Offset(0, 6)),
+          BoxShadow(color: Noir.shade, blurRadius: 2, offset: Offset(0, 1)),
         ],
       ),
       child: CustomPaint(
@@ -76,8 +76,8 @@ class PaperCard extends StatelessWidget {
                     width: 74,
                     height: 20,
                     decoration: BoxDecoration(
-                      color: const Color(0x99E9DFB8),
-                      border: Border.all(color: const Color(0x33FFFFFF)),
+                      color: Noir.tape,
+                      border: Border.all(color: Noir.tapeEdge),
                     ),
                   ),
                 ),
@@ -100,13 +100,13 @@ class _PaperPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final r = math.Random(size.width.toInt() * 31 + size.height.toInt());
-    final speck = Paint()..color = const Color(0x14000000);
+    final speck = Paint()..color = Noir.shadeFaint;
     for (var i = 0; i < (size.width * size.height / 900).clamp(0, 400); i++) {
       canvas.drawCircle(Offset(r.nextDouble() * size.width, r.nextDouble() * size.height), r.nextDouble() * 0.8, speck);
     }
     if (ruled) {
       final line = Paint()
-        ..color = const Color(0x2A2D5A8A)
+        ..color = Noir.ruleBlue
         ..strokeWidth = 1;
       for (var y = 30.0; y < size.height - 6; y += 22) {
         canvas.drawLine(Offset(0, y), Offset(size.width, y), line);
@@ -115,7 +115,7 @@ class _PaperPainter extends CustomPainter {
         const Offset(26, 0),
         Offset(26, size.height),
         Paint()
-          ..color = const Color(0x55B23A3A)
+          ..color = Noir.ruleRed
           ..strokeWidth = 1,
       );
     }
@@ -127,7 +127,7 @@ class _PaperPainter extends CustomPainter {
 
 /// Gezeichnete Büroklammer.
 class PaperClip extends StatelessWidget {
-  const PaperClip({super.key, this.color = const Color(0xFFB8BCC6)});
+  const PaperClip({super.key, this.color = Noir.steel});
 
   final Color color;
 

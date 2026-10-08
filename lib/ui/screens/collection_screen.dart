@@ -91,9 +91,9 @@ class _Tabs extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
-        color: const Color(0x99151829),
+        color: Noir.panel,
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: const Color(0x22E8E0D0)),
+        border: Border.all(color: Noir.lineSoft),
       ),
       child: Row(
         children: [
@@ -225,9 +225,9 @@ class _Grid extends StatelessWidget {
                       height: 18,
                       margin: const EdgeInsets.symmetric(horizontal: 2),
                       decoration: BoxDecoration(
-                        color: combos.contains('$v.$t') ? verdictColor(v) : const Color(0x14E8E0D0),
+                        color: combos.contains('$v.$t') ? verdictColor(v) : Noir.lineFaint,
                         borderRadius: BorderRadius.circular(3),
-                        border: Border.all(color: const Color(0x22E8E0D0)),
+                        border: Border.all(color: Noir.lineSoft),
                       ),
                       child: combos.contains('$v.$t')
                           ? const Icon(Icons.check_rounded, size: 12, color: Noir.night)
@@ -302,11 +302,9 @@ class AchievementList extends StatelessWidget {
             margin: const EdgeInsets.only(bottom: 8),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: done.contains(id) ? const Color(0x22C9A227) : const Color(0x99151829),
+              color: done.contains(id) ? Noir.brassWash : Noir.panel,
               borderRadius: BorderRadius.circular(6),
-              border: Border.all(
-                color: done.contains(id) ? Noir.brass.withValues(alpha: 0.6) : const Color(0x22E8E0D0),
-              ),
+              border: Border.all(color: done.contains(id) ? Noir.brass.withValues(alpha: 0.6) : Noir.lineSoft),
             ),
             child: Row(
               children: [
@@ -318,7 +316,7 @@ class AchievementList extends StatelessWidget {
                     gradient: done.contains(id)
                         ? const RadialGradient(colors: [Noir.brassLight, Noir.brass, Noir.brassDim])
                         : null,
-                    color: done.contains(id) ? null : const Color(0x22E8E0D0),
+                    color: done.contains(id) ? null : Noir.lineSoft,
                   ),
                   child: Icon(
                     done.contains(id) ? GameIcons.achievement(id) : Icons.lock_rounded,
