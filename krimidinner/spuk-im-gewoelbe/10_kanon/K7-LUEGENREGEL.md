@@ -1,0 +1,10 @@
+# K7 · LÜGENREGEL · Kanon v0.9
+Die Regeln LR-1 bis LR-6 sind öffentlich (Regelblatt) und für alle Rollen gleich formuliert. Welche Rolle zu welchem Thema lügen darf, steht auf ihren Karten und im Datensatz LÜGE der Rolle (K2).
+
+@LR-1 [O] | Regel: Jede Rolle darf schweigen oder ausweichen, wenn es um ihr eigenes Geheimnis geht. Ausweichen heißt: etwas Wahres, aber Unvollständiges sagen („Ich war draußen.“).
+@LR-2 [O] | Regel: Aktiv lügen, also etwas Falsches als Tatsache behaupten, darf eine Rolle nur zu Themen, die auf ihrer Karte mit „Du darfst hier lügen“ markiert sind.
+@LR-3 [O] | Regel: Bei jeder erlaubten Lüge steht auf der Karte ein Gegenbeweis. Wird dir dieser Gegenbeweis vorgelegt, gibst du zu, was er zeigt. Danach darfst du ihn nur noch anders deuten.
+@LR-4 [O] | Regel: Was eine vorgelegte Hinweiskarte oder ein Beweisstück zeigt, bestreitet niemand.
+@LR-5 [O] | Regel: Wer mit der Bedingung auf seiner Karte angesprochen wird (bestimmte Karte gezeigt, bestimmte Frage gestellt, Codewort genannt), spielt das Spiegelstück so aus, wie es auf der Karte steht.
+@LR-6 [O] | Regel: Fragt der Detektiv eine Rolle direkt, antwortet sie nach ihren Karten. Steht dort nichts zur Frage, sagt sie wahrheitsgemäß: „Dazu weiß ich nichts.“ Erweiterungsrollen (ab Rolle 5) lügen nie; sie dürfen über ihr eigenes Geheimnis schweigen.
+@LR-7 [L] | Regel: Erlaubte Lügen in dieser Geschichte. R01: ob er den Code weitergegeben hat (Gegenbeweis: Vorderseite des Code-Zettels). R02: wer den Hebel gezogen hat und ob es einen Streich gab (Gegenbeweis: Rückseite des Code-Zettels oder Track-Karte). R04: sein Aufenthaltsort 23:53–00:01 („im Hof“) und sein Job (Gegenbeweis: Raureif-Karte oder Box-Meldung „Verbindung getrennt“). R03: ihr Weg 23:54–23:59:40, ob sie das Gespenst oder in der Speisekammer war, Taler, Bund, Laken (Gegenbeweise: Sohlenkarte mit Wachsabdruck, Laken, Track-Karte mit Zettel-Rückseite, Sofortbild). Damit haben alle vier Kernrollen erlaubte Lügen, und niemand ist allein dadurch verdächtig.

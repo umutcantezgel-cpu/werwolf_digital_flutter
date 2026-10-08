@@ -119,8 +119,9 @@ def probe_ersatz(recs):
         if not braucht and ers is not None:
             f.append(f"ERSATZ {g.id}: Ersatz angegeben, obwohl Ziel sicher anwesend ist")
         if braucht:
-            if not g.get("Ersatz-Antwort") or g.get("Ersatz-Antwort") in ("–", "-"):
-                f.append(f"SPIEGEL {g.id}: Ersatz-Antwort fehlt")
+            for feld in ("Ersatz-Bedingung", "Ersatz-Frage", "Ersatz-Antwort", "Ersatz-Antwortart"):
+                if not g.get(feld) or g.get(feld) in ("–", "-"):
+                    f.append(f"SPIEGEL {g.id}: {feld} fehlt")
             if not g.get("Ersatz gibt heraus"):
                 f.append(f"SPIEGEL {g.id}: Feld 'Ersatz gibt heraus' fehlt")
         mn = g.get("Min")
@@ -189,7 +190,11 @@ def probe_absicherung(recs, ausgabe=False):
     for s in schluesse:
         if s.get("Notwendig").lower() != "ja":
             continue
-        hs = [recs[x] for x in re.findall(r"H-\d+", s.get("Hinweise")) if x in recs]
+        ids = set(re.findall(r"H-\d+", s.get("Hinweise")))
+        for hw in recs.values():
+            if hw.id.startswith("HW-") and re.search(r"\b" + re.escape(s.id) + r"\b", hw.get("Stützt")):
+                ids.add("H-" + hw.id[3:])
+        hs = [recs[x] for x in sorted(ids) if x in recs]
         unblock = [h for h in hs if ("HW-" + h.id[2:]) in recs and recs["HW-" + h.id[2:]].get("Blockierbar durch").lower().startswith("nein")]
         if not unblock:
             f.append(f"ABSICHERUNG {s.id}: kein unblockierbarer Hinweis")
@@ -223,8 +228,10 @@ def probe_zeit(recs):
         if not z.id.startswith("Z-"):
             continue
         t = z.get("Zeit")
-        if not re.match(r"^\d\d:\d\d$", t):
+        if not re.match(r"^\d\d:\d\d(:\d\d)?$", t):
             continue
+        if len(t) == 5:
+            t += ":00"
         for wer in re.findall(r"\b(R\d\d|DET|BW)\b", z.get("Wer")):
             ort = z.get("Ort")
             if t in belegt[wer] and belegt[wer][t][0] != ort:

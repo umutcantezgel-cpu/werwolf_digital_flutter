@@ -41,11 +41,11 @@ Zusätzlich `@DET-… ` (Detektiv, alles [O] oder [G] für das Geburtstagskind) 
 - `@S-1 [L] | Schlussfolgerung: … | Notwendig: ja/nein | Hinweise: H-03, H-14, …`
 
 ## K4 Gesprächsgraph (`10_kanon/K4-GESPRAECHE.md`)
-- `@G2-07 [G] | Von: R07 | Ziel: R11 | Ersatz: R03 | Min: 11 | Bedingung: … | Frage: „…“ | Antwort: „…“ | Antwortart: wahr/gelogen/ausweichend | Gibt heraus: H-22 / nichts | Ersatz-Antwort: „…“ / – | Ersatz gibt heraus: H-31 / nichts / – | Zusammenfall: G2-03 / nein`
+- `@G2-07 [G] | Von: R07 | Ziel: R11 | Ersatz: R03 | Min: 11 | Bedingung: … | Frage: „…“ | Antwort: „…“ | Antwortart: wahr/gelogen/ausweichend | Gibt heraus: H-22 / nichts | Ersatz-Bedingung: … / – | Ersatz-Frage: „…“ / – | Ersatz-Antwort: „…“ / – | Ersatz-Antwortart: wahr/gelogen/ausweichend / – | Ersatz gibt heraus: H-31 / nichts / – | Zusammenfall: G2-03 / nein`
   - `Min` = Mindestbesetzung, ab der das reguläre Ziel anwesend ist (= höhere der beiden Rollennummern).
   - `Ersatz` nur, wenn das Ziel außerhalb 1–4 liegt und eine höhere Nummer hat als `Von`; sonst `Ersatz: –`. Bei Ersatz gilt der Kern mit Ersatzziel, solange N < Min.
   - `Bedingung` ist am Tisch überprüfbar (Karte zeigen, bestimmte Frage stellen, Codewort nennen).
-  - `Ersatz-Antwort` und `Ersatz gibt heraus` beschreiben das Spiegelstück des Ersatzziels (Besetzungsbedingung: nur wenn das reguläre Ziel nicht besetzt ist). Das Ersatzziel gibt nur heraus, was es selbst wissen kann.
+  - `Ersatz-Bedingung`, `Ersatz-Frage`, `Ersatz-Antwort`, `Ersatz-Antwortart` und `Ersatz gibt heraus` beschreiben den Ersatzfall: was der Auftraggeber das Ersatzziel fragt und was dieses antwortet (Besetzungsbedingung: nur wenn das reguläre Ziel nicht besetzt ist). Das Ersatzziel gibt nur heraus, was es selbst wissen kann.
   - `Antwortart` sieht nur das Ziel (und Lösungspakete); der Auftraggeber bekommt Frage, Bedingung und was er erfährt.
 - `@LAST-P2 [L] | …` – Lastprobe (wird vom Werkzeug geprüft).
 
@@ -65,3 +65,9 @@ Zusätzlich `@DET-… ` (Detektiv, alles [O] oder [G] für das Geburtstagskind) 
 
 ## K8 Stilblatt und K9 Look-Bibel
 Fließtext mit festen Abschnitten (`10_kanon/K8-STILBLATT.md`, `10_kanon/K9-LOOKBIBEL.md`). Glossar-Einträge als `@GL-xx [O] | Begriff: … | Schreibweise: … | Aussprache: …`.
+
+## Kennungsbereiche für Hinweise aus Gesprächen
+- Phase 1: Kernrollen-Gespräche H-101 bis H-119, Erweiterungsrollen H-121 bis H-199
+- Phase 2: H-201 bis H-219 und H-221 bis H-299
+- Phase 3: H-301 bis H-319 und H-321 bis H-399
+Jeder Hinweis hat einen Wahrheitsdatensatz HW mit derselben Nummer.
