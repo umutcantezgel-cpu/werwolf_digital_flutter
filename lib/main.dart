@@ -1,32 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'app.dart';
-import 'providers/audio_provider.dart';
-import 'providers/game_provider.dart';
-import 'providers/theme_provider.dart';
-import 'providers/tts_provider.dart';
-import 'providers/skin_provider.dart';
-import 'utils/performance_monitor.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+import 'game/game_view.dart';
+import 'session/session_factory.dart';
 
-  // Initialize SkinProvider from SharedPreferences
-  final skinProvider = SkinProvider();
-  await skinProvider.init();
-
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => GameProvider()),
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider(create: (_) => AudioProvider()),
-        ChangeNotifierProvider(create: (_) => TtsProvider()),
-        ChangeNotifierProvider.value(value: skinProvider),
-      ],
-      child: const PerformanceMonitor(
-        child: WerwolfApp(),
-      ),
-    ),
-  );
+void main() {
+  runApp(MaterialApp(
+    title: 'Mordakte',
+    debugShowCheckedModeBanner: false,
+    home: Scaffold(body: GameView(session: SessionFactory.fake())),
+  ));
 }

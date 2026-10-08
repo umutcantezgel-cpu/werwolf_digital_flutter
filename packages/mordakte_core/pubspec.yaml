@@ -1,0 +1,10 @@
+name: mordakte_core
+description: Reine Dart-Spiellogik für Mordakte (App, Server und Offline-Modus teilen sich diesen Code).
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.0
+
+dev_dependencies:
+  lints: ^6.0.0
