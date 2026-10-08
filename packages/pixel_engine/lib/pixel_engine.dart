@@ -14,3 +14,5 @@ export 'src/raster/texture.dart';
 export 'src/demo/demo_scene.dart';
 export 'src/demo/benchmark.dart';
 export 'src/pruef.dart';
+export 'src/font/bitmap_font.dart';
+export 'src/font/schrift_normal.dart';
