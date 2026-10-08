@@ -8,6 +8,7 @@ import '../../app/router.dart';
 import '../../app/theme.dart';
 import '../../l10n/lookup.dart';
 import '../../meta/meta_store.dart';
+import '../../session/online_session.dart';
 import '../../session/session_factory.dart';
 import '../widgets/buttons.dart';
 import '../widgets/noir_backdrop.dart';
@@ -15,6 +16,7 @@ import '../widgets/panels.dart';
 
 /// Fehler-Schlüssel aus einer Exception der Online-Session ableiten.
 String onlineErrorKey(Object e) {
+  if (e is OnlineSessionException) return e.key;
   if (e is UnimplementedError) return 'unavailable';
   final s = e.toString();
   for (final k in const ['room_not_found', 'room_full', 'game_running', 'not_host', 'invalid']) {

@@ -8,6 +8,7 @@ import '../meta/meta_store.dart';
 import '../meta/progression.dart';
 import '../session/fake_session.dart';
 import '../session/game_session.dart';
+import '../session/online_session.dart';
 import '../session/session_factory.dart';
 
 /// Einstellungen aus dem Entwickler-Einstieg (`?fake=…&open=…`).
@@ -38,6 +39,9 @@ class AppState extends ChangeNotifier {
 
   /// Ergebnis des zuletzt verbuchten Spiels (End-Bildschirm).
   GameResult? lastResult;
+
+  /// Fehler-Schlüssel, wenn ein Online-Raum endgültig verloren ging (Hub zeigt ihn einmal an).
+  String? lostKey;
 
   GameTally _tally = GameTally();
   bool _recorded = false;
@@ -151,7 +155,13 @@ class AppState extends ChangeNotifier {
   // --- Ergebnis verbuchen ----------------------------------------------------------
 
   void _onEvent(GameEvent e) {
-    final me = _session?.playerId;
+    final s = _session;
+    final me = s?.playerId;
+    if (e.type == Ev.error && s is OnlineSession && s.lostReason != null) {
+      lostKey = s.lostReason;
+      leaveSession();
+      return;
+    }
     switch (e.type) {
       case Ev.combo when e.str('by') == me:
         _tally.combos++;

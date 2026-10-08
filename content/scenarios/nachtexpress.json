@@ -1,0 +1,503 @@
+{
+  "id": "nachtexpress",
+  "title": {"de": "Nachtexpress 1931"},
+  "tagline": {"de": "Ein Toter im Schlafwagen. Ein Zug, den niemand verlassen kann."},
+  "synopsis": {"de": "Winter 1931. Der Nachtexpress Wien–Paris steckt im Schneesturm hoch in den Alpen fest. In Abteil 7 liegt der Stahlmagnat Viktor Lindqvist tot – und keiner der Fahrgäste kann den Zug verlassen. Fünf Menschen hatten in dieser Nacht einen Grund, wach zu sein."},
+  "difficulty": 2,
+  "minutes": 30,
+  "theme": {
+    "palette": {
+      "background": "#070b16", "floor": "#5a2e22", "floorAlt": "#47231a",
+      "wall": "#1b2440", "wallTop": "#2e3d66", "trim": "#a8873a",
+      "accent": "#c8a24a", "light": "#ffd98a", "danger": "#b3263a",
+      "text": "#f1ede4", "fog": "#121a2e"
+    },
+    "weather": "snow",
+    "lightning": false,
+    "dayAmbient": 0.78,
+    "nightAmbient": 0.06
+  },
+  "map": {
+    "rows": [
+      "###W#W#####W###W####W#W#W#W###",
+      "#.......#.........#..........#",
+      "#.......L.........+..........#",
+      "#.......#.........#..........#",
+      "#.......#.........#..........#",
+      "####W########W#######W#W#W#+##",
+      "                          #.# ",
+      "                          #.# ",
+      "######W#W#W#W####W#W###W#W#+##",
+      "#...+........+.......#.......#",
+      "#...###+###+##.......+.......#",
+      "#...#....#...#.......#.......#",
+      "#...#....#...#.......#.......#",
+      "#######W###W####W##W####W#W###"
+    ],
+    "rooms": [
+      {"id": "post", "name": {"de": "Postwagen"}, "x": 1, "y": 1, "w": 7, "h": 4, "floor": "planks"},
+      {"id": "baggage", "name": {"de": "Gepäckwagen"}, "x": 9, "y": 1, "w": 9, "h": 4, "floor": "metal"},
+      {"id": "sleeper2", "name": {"de": "Schlafwagen II"}, "x": 19, "y": 1, "w": 10, "h": 4, "floor": "carpet"},
+      {"id": "gangway", "name": {"de": "Übergang"}, "x": 27, "y": 6, "w": 1, "h": 2, "floor": "metal"},
+      {"id": "dining", "name": {"de": "Speisewagen"}, "x": 22, "y": 9, "w": 7, "h": 4, "floor": "parquet", "lit": true},
+      {"id": "salon", "name": {"de": "Salonwagen"}, "x": 14, "y": 9, "w": 7, "h": 4, "floor": "carpet"},
+      {"id": "corridor", "name": {"de": "Schlafwagen I – Gang"}, "x": 5, "y": 9, "w": 8, "h": 1, "floor": "parquet"},
+      {"id": "cabin7", "name": {"de": "Abteil 7"}, "x": 5, "y": 11, "w": 4, "h": 2, "floor": "carpet"},
+      {"id": "cabin8", "name": {"de": "Abteil 8"}, "x": 10, "y": 11, "w": 3, "h": 2, "floor": "carpet"},
+      {"id": "platform", "name": {"de": "Aussichtsplattform"}, "x": 1, "y": 9, "w": 3, "h": 4, "floor": "snow", "outdoor": true}
+    ],
+    "props": [
+      {"type": "cabinet", "x": 1, "y": 1, "color": "#5a3a22"},
+      {"type": "cabinet", "x": 2, "y": 1, "color": "#5a3a22"},
+      {"type": "cabinet", "x": 3, "y": 1, "color": "#5a3a22"},
+      {"type": "desk", "x": 5, "y": 1, "color": "#6b3326"},
+      {"type": "lamp", "x": 7, "y": 1, "color": "#c8a24a"},
+      {"type": "papers", "x": 4, "y": 2},
+      {"type": "luggage", "x": 1, "y": 4, "color": "#8a7a5a"},
+      {"type": "luggage", "x": 2, "y": 4, "color": "#8a7a5a"},
+      {"type": "crate", "x": 3, "y": 4},
+      {"type": "crate", "x": 6, "y": 4},
+
+      {"type": "wardrobe", "x": 9, "y": 1, "color": "#4a2a1c"},
+      {"type": "crate", "x": 10, "y": 1},
+      {"type": "crate", "x": 11, "y": 1},
+      {"type": "counter", "x": 13, "y": 1, "color": "#3a2a24"},
+      {"type": "lamp", "x": 14, "y": 1, "color": "#b3263a"},
+      {"type": "crate", "x": 16, "y": 1},
+      {"type": "crate", "x": 17, "y": 1},
+      {"type": "luggage", "x": 9, "y": 4, "color": "#6b4a2a"},
+      {"type": "luggage", "x": 10, "y": 4, "color": "#2b3a6b"},
+      {"type": "crate", "x": 12, "y": 4},
+      {"type": "luggage", "x": 13, "y": 4, "color": "#7a2a2a"},
+      {"type": "barrel", "x": 15, "y": 4},
+      {"type": "crate", "x": 16, "y": 4},
+      {"type": "crate", "x": 17, "y": 4},
+
+      {"type": "lamp", "x": 19, "y": 1, "color": "#c8a24a"},
+      {"type": "bed", "x": 20, "y": 1, "color": "#2b3a6b"},
+      {"type": "bed", "x": 21, "y": 1, "color": "#2b3a6b"},
+      {"type": "wardrobe", "x": 22, "y": 1, "color": "#5a2e22"},
+      {"type": "bed", "x": 23, "y": 1, "color": "#2b3a6b"},
+      {"type": "bed", "x": 24, "y": 1, "color": "#2b3a6b"},
+      {"type": "wardrobe", "x": 25, "y": 1, "color": "#5a2e22"},
+      {"type": "bed", "x": 26, "y": 1, "color": "#2b3a6b"},
+      {"type": "bed", "x": 27, "y": 1, "color": "#2b3a6b"},
+      {"type": "cabinet", "x": 28, "y": 1, "color": "#5a2e22"},
+      {"type": "table", "x": 28, "y": 2, "color": "#6b3326"},
+      {"type": "luggage", "x": 20, "y": 4, "color": "#6b4a2a"},
+      {"type": "seat", "x": 22, "y": 4, "color": "#2b3a6b"},
+      {"type": "seat", "x": 23, "y": 4, "color": "#2b3a6b"},
+      {"type": "luggage", "x": 25, "y": 4, "color": "#3a4a3a"},
+
+      {"type": "seat", "x": 22, "y": 9, "color": "#6b1f2a"},
+      {"type": "table", "x": 23, "y": 9, "color": "#f1ede4"},
+      {"type": "seat", "x": 24, "y": 9, "color": "#6b1f2a"},
+      {"type": "seat", "x": 25, "y": 9, "color": "#6b1f2a"},
+      {"type": "table", "x": 26, "y": 9, "color": "#f1ede4"},
+      {"type": "stove", "x": 28, "y": 9},
+      {"type": "counter", "x": 28, "y": 10, "color": "#a8873a"},
+      {"type": "sink", "x": 28, "y": 11},
+      {"type": "counter", "x": 28, "y": 12, "color": "#a8873a"},
+      {"type": "seat", "x": 22, "y": 12, "color": "#6b1f2a"},
+      {"type": "table", "x": 23, "y": 12, "color": "#f1ede4"},
+      {"type": "seat", "x": 24, "y": 12, "color": "#6b1f2a"},
+      {"type": "seat", "x": 25, "y": 12, "color": "#6b1f2a"},
+      {"type": "table", "x": 26, "y": 12, "color": "#f1ede4"},
+      {"type": "seat", "x": 27, "y": 12, "color": "#6b1f2a"},
+
+      {"type": "lamp", "x": 15, "y": 9, "color": "#c8a24a"},
+      {"type": "piano", "x": 16, "y": 9, "color": "#2a1410"},
+      {"type": "counter", "x": 18, "y": 9, "color": "#5a2e22"},
+      {"type": "counter", "x": 19, "y": 9, "color": "#5a2e22"},
+      {"type": "cabinet", "x": 20, "y": 9, "color": "#5a2e22"},
+      {"type": "bar_stool", "x": 18, "y": 10, "color": "#c8a24a"},
+      {"type": "bar_stool", "x": 19, "y": 10, "color": "#c8a24a"},
+      {"type": "fireplace", "x": 14, "y": 11},
+      {"type": "armchair", "x": 14, "y": 12, "color": "#2b3a6b"},
+      {"type": "armchair", "x": 15, "y": 12, "color": "#2b3a6b"},
+      {"type": "table", "x": 16, "y": 12, "color": "#6b3326"},
+      {"type": "armchair", "x": 17, "y": 12, "color": "#2b3a6b"},
+      {"type": "plant", "x": 18, "y": 12},
+      {"type": "sofa", "x": 19, "y": 12, "color": "#6b1f2a"},
+      {"type": "sofa", "x": 20, "y": 12, "color": "#6b1f2a"},
+      {"type": "rug", "x": 17, "y": 11, "color": "#6b1f2a"},
+      {"type": "rug", "x": 18, "y": 11, "color": "#6b1f2a"},
+
+      {"type": "rug", "x": 5, "y": 9, "color": "#6b1f2a"},
+      {"type": "rug", "x": 6, "y": 9, "color": "#6b1f2a"},
+      {"type": "rug", "x": 7, "y": 9, "color": "#6b1f2a"},
+      {"type": "rug", "x": 8, "y": 9, "color": "#6b1f2a"},
+      {"type": "rug", "x": 9, "y": 9, "color": "#6b1f2a"},
+      {"type": "rug", "x": 10, "y": 9, "color": "#6b1f2a"},
+      {"type": "rug", "x": 11, "y": 9, "color": "#6b1f2a"},
+      {"type": "rug", "x": 12, "y": 9, "color": "#6b1f2a"},
+
+      {"type": "bed", "x": 5, "y": 11, "color": "#6b1f2a"},
+      {"type": "bed", "x": 5, "y": 12, "color": "#6b1f2a"},
+      {"type": "sink", "x": 8, "y": 11, "color": "#c8a24a"},
+      {"type": "table", "x": 8, "y": 12, "color": "#6b3326"},
+      {"type": "papers", "x": 7, "y": 11},
+
+      {"type": "wardrobe", "x": 10, "y": 11, "color": "#5a2e22"},
+      {"type": "bed", "x": 12, "y": 11, "color": "#5b1f3a"},
+      {"type": "bed", "x": 12, "y": 12, "color": "#5b1f3a"},
+      {"type": "candles", "x": 10, "y": 12},
+
+      {"type": "lamp", "x": 1, "y": 9, "color": "#b3263a"}
+    ],
+    "spawn": [[24, 10], [25, 10], [26, 10], [24, 11], [25, 11], [26, 11]],
+    "councilRoom": "dining"
+  },
+  "hotspots": [
+    {"id": "h_body", "name": {"de": "Viktor Lindqvist"}, "x": 6, "y": 12, "kind": "body", "searchMs": 3000},
+    {"id": "h_berth", "name": {"de": "Lindqvists Bett"}, "x": 5, "y": 11, "kind": "search"},
+    {"id": "h_ashtray", "name": {"de": "Klapptisch mit Aschenbecher"}, "x": 8, "y": 12, "kind": "search"},
+    {"id": "h_window7", "name": {"de": "Abteilfenster"}, "x": 7, "y": 12, "kind": "search"},
+    {"id": "h_blood", "name": {"de": "Zersprungener Wandleuchter"}, "x": 9, "y": 9, "kind": "blood"},
+    {"id": "h_hide_cabin", "name": {"de": "Kleiderschrank der Gräfin"}, "x": 10, "y": 11, "kind": "hide"},
+    {"id": "h_rail", "name": {"de": "Geländer der Plattform"}, "x": 1, "y": 11, "kind": "search"},
+    {"id": "h_snow", "name": {"de": "Verschneite Plattform"}, "x": 3, "y": 12, "kind": "search"},
+    {"id": "h_piano", "name": {"de": "Klavier"}, "x": 16, "y": 9, "kind": "search", "fromChapter": 2},
+    {"id": "h_briefcase", "name": {"de": "Lindqvists Stammplatz"}, "x": 16, "y": 12, "kind": "search"},
+    {"id": "h_stove", "name": {"de": "Salonofen"}, "x": 14, "y": 11, "kind": "search", "searchMs": 3500, "requires": {"lead": "l_stove"}},
+    {"id": "h_typewriter", "name": {"de": "Reiseschreibmaschine"}, "x": 23, "y": 12, "kind": "search", "fromChapter": 2},
+    {"id": "h_sink", "name": {"de": "Spüle der Bordküche"}, "x": 28, "y": 11, "kind": "search", "fromChapter": 2},
+    {"id": "h_watchbench", "name": {"de": "Brändlis Klapptisch"}, "x": 28, "y": 2, "kind": "search", "fromChapter": 2},
+    {"id": "h_hide_sleeper", "name": {"de": "Kleiderschrank im Schlafwagen"}, "x": 22, "y": 1, "kind": "hide"},
+    {"id": "h_lab", "name": {"de": "Dunkelkammer des Postbeamten"}, "x": 13, "y": 1, "kind": "lab"},
+    {"id": "h_trunk", "name": {"de": "Herrenloser Überseekoffer"}, "x": 13, "y": 4, "kind": "search", "searchMs": 3500, "requires": {"lead": "l_baggage"}},
+    {"id": "h_hide_baggage", "name": {"de": "Schrankkoffer"}, "x": 9, "y": 1, "kind": "hide"},
+    {"id": "h_mailbag", "name": {"de": "Postsäcke"}, "x": 2, "y": 4, "kind": "search", "searchMs": 4000, "requires": {"lead": "l_mail"}},
+    {"id": "h_ghost", "name": {"de": "Eisiger Hauch im Faltenbalg"}, "x": 27, "y": 6, "kind": "search", "ghost": true}
+  ],
+  "items": [
+    {"id": "i_coffee", "type": "coffee", "x": 27, "y": 10, "chapter": 1},
+    {"id": "i_battery", "type": "battery", "x": 12, "y": 1, "chapter": 1},
+    {"id": "i_salts", "type": "salts", "x": 21, "y": 3, "chapter": 1},
+    {"id": "i_medkit", "type": "medkit", "x": 16, "y": 11, "chapter": 2},
+    {"id": "i_flare", "type": "flare", "x": 2, "y": 10, "chapter": 2},
+    {"id": "i_coffee2", "type": "coffee", "x": 24, "y": 2, "chapter": 2},
+    {"id": "i_antidote", "type": "antidote", "x": 4, "y": 3, "chapter": 2}
+  ],
+  "victim": {
+    "name": {"de": "Viktor Lindqvist"},
+    "text": {"de": "Viktor Lindqvist, 61, Stahlmagnat aus Göteborg. Er liegt zwischen Bett und Fenster seines Abteils, die rechte Faust fest geschlossen."},
+    "hotspot": "h_body",
+    "look": {"coat": "#2a2233", "skin": "#e8c4a8", "hair": "#d8d8d8", "hat": "none", "build": "broad"}
+  },
+  "traits": {
+    "gloves": {
+      "label": {"de": "Handschuhe"},
+      "values": {
+        "kid": {"de": "Glacéhandschuhe"},
+        "leather": {"de": "Lederhandschuhe"},
+        "wool": {"de": "Wollhandschuhe"}
+      }
+    },
+    "smoke": {
+      "label": {"de": "Tabak"},
+      "values": {
+        "papirossi": {"de": "Papirossi"},
+        "turkish": {"de": "Orientzigaretten"},
+        "pipe": {"de": "Pfeifentabak"}
+      }
+    },
+    "ticket": {
+      "label": {"de": "Zustiegsbahnhof"},
+      "values": {
+        "wien": {"de": "Wien"},
+        "salzburg": {"de": "Salzburg"}
+      }
+    }
+  },
+  "suspects": [
+    {
+      "id": "countess", "name": {"de": "Gräfin Natalja Orlowa"}, "role": {"de": "Russische Gräfin im Exil"},
+      "bio": {"de": "Floh 1920 aus Petrograd, mit einem Koffer voller Juwelen. Geblieben sind der Koffer, der Titel und eine Schachtel Papirossi."},
+      "look": {"coat": "#5b1f3a", "skin": "#efd3c0", "hair": "#d9d4c7", "hat": "bun", "build": "tall"},
+      "x": 15, "y": 11,
+      "traits": {"gloves": "kid", "smoke": "papirossi", "ticket": "wien"},
+      "candidate": true, "motives": ["blackmail", "greed"], "witness": true,
+      "lines": {
+        "greet": {"de": "Man sagt mir, Sie seien Detektive. In Petrograd hätte man Sie nicht einmal in die Küche gelassen."},
+        "alibi": {"de": "Ich habe in meinem Abteil Briefe geschrieben, bei Kerzenlicht. Ihr Zug kann ja nicht einmal das Licht halten."},
+        "alibiLie": {"de": "Briefe. In meinem Abteil. Eine Orlowa muss niemandem erklären, an wen sie schreibt."},
+        "victim": {"de": "Lindqvist kaufte Dinge, die nicht zu verkaufen waren. Menschen auch, wenn sie billig genug waren."},
+        "observation": {"de": "Der Schweizer schleicht nachts durch den Zug. Uhrmacher? Er hat die Hände eines Mannes, der Schlösser öffnet."},
+        "rumor": {"de": "Im Speisewagen flüstert man, die Gräfin habe ihre letzten Juwelen längst versetzt – ausgerechnet an Lindqvist."},
+        "nervous": {"de": "Das ist … eine Unterstellung. Reichen Sie mir eine Papirossa. Sofort."},
+        "annoyed": {"de": "Ich habe eine Revolution überlebt, junger Mensch. Ihre Fragen überlebe ich auch."}
+      }
+    },
+    {
+      "id": "conductor", "name": {"de": "Anton Huber"}, "role": {"de": "Schlafwagenschaffner"},
+      "bio": {"de": "Seit 25 Jahren Schaffner auf der Strecke Wien–Paris. Kennt jede Fahrkarte, jedes Trinkgeld und jedes Knarren dieses Zuges."},
+      "look": {"coat": "#1f2a4d", "skin": "#e3b896", "hair": "#8a8a8a", "hat": "cap", "build": "broad"},
+      "x": 15, "y": 3,
+      "traits": {"gloves": "wool", "smoke": "pipe", "ticket": "wien"},
+      "candidate": false, "motives": [], "witness": true,
+      "lines": {
+        "greet": {"de": "Huber, Schaffner. Fünfundzwanzig Jahre ohne Zwischenfall auf dieser Strecke. Und jetzt das, mitten im Schnee."},
+        "alibi": {"de": "Ich war im Dienstabteil am Ende vom Gang, die ganze Nacht. Das Licht war aus – aber riechen kann man auch im Dunkeln."},
+        "alibiLie": {"de": "Im Dienstabteil, wie jede Nacht. Wo soll ein Schaffner denn sonst sein?"},
+        "victim": {"de": "Herr Lindqvist? Großzügig mit dem Trinkgeld, geizig mit dem Gruß. Und gegen Mitternacht … nein. Nichts."},
+        "observation": {"de": "Fahrkarten merk ich mir an der Farbe, nicht am Gesicht. Fünfundzwanzig Jahre, da wird man so."},
+        "rumor": {"de": "Man sagt, der Huber lässt für ein gutes Trinkgeld jede Tür offen. Auch die falsche."},
+        "nervous": {"de": "Ich hab nix Unrechtes getan. Ich hab nur … ich hab nur nix gesagt."},
+        "annoyed": {"de": "Ich bin Beamter der Schlafwagengesellschaft, nicht Ihr Laufbursche."}
+      }
+    },
+    {
+      "id": "singer", "name": {"de": "Ruby Lafleur"}, "role": {"de": "Jazzsängerin"},
+      "bio": {"de": "Aus New Orleans, auf dem Weg zu ihrem ersten großen Engagement in Paris. Lacht laut, schläft nie, vergisst kein Gesicht."},
+      "look": {"coat": "#1f6b52", "skin": "#9a6544", "hair": "#1a1210", "hat": "cloche", "build": "slim"},
+      "x": 17, "y": 9,
+      "traits": {"gloves": "kid", "smoke": "turkish", "ticket": "salzburg"},
+      "candidate": true, "motives": ["blackmail", "revenge"], "witness": true,
+      "lines": {
+        "greet": {"de": "Na, Detektive! Endlich mal was los in diesem rollenden Eiskeller."},
+        "alibi": {"de": "Ich hab im Salon Klavier gespielt, bis nach eins. Als das Licht ausging, eben bei Kerzenschein."},
+        "alibiLie": {"de": "Klavier, Honey. Im Salon. Wenn ich nicht schlafen kann, spiel ich – und wer schläft schon in so einer Nacht?"},
+        "victim": {"de": "Lindqvist hat mir in Salzburg Rosen in die Garderobe geschickt. Ich hab sie zurückgeschickt. So was mag so einer nicht."},
+        "observation": {"de": "Wer heut Nacht wach war? Fragen Sie mich nach der Gräfin, Darling. Ich hab bei ihr angeklopft."},
+        "rumor": {"de": "Ruby Lafleur, heißt es, hieß nicht immer so – und in Chicago sucht jemand noch immer nach ihr."},
+        "nervous": {"de": "Okay. Okay. Geben Sie mir 'ne Sekunde. Und 'ne Zigarette."},
+        "annoyed": {"de": "Ich hab vor Gangstern gesungen, Mister. Sie machen mir keine Angst."}
+      }
+    },
+    {
+      "id": "watchmaker", "name": {"de": "Emil Brändli"}, "role": {"de": "Uhrmacher aus Biel"},
+      "bio": {"de": "Reist mit einem Musterkoffer voller Taschenuhren. Spricht fünf Sprachen – die meisten nur, wenn er glaubt, dass keiner zuhört."},
+      "look": {"coat": "#7a6a55", "skin": "#e6c3a5", "hair": "#b88a4a", "hat": "bowler", "build": "small"},
+      "x": 27, "y": 2,
+      "traits": {"gloves": "leather", "smoke": "papirossi", "ticket": "salzburg"},
+      "candidate": true, "motives": ["greed", "blackmail"], "witness": true,
+      "lines": {
+        "greet": {"de": "Brändli, Uhrmacher aus Biel. Grüezi. Eine Tragödie – und so schlecht getaktet, mitten im Schnee."},
+        "alibi": {"de": "Ich habe die Taschenuhr des Schaffners repariert. Feinarbeit bei Kerzenlicht, bis weit nach eins."},
+        "alibiLie": {"de": "Ich habe gearbeitet, an einer Taschenuhr. Uhrmacher schlafen wenig – die Zeit lässt uns nicht."},
+        "victim": {"de": "Herr Lindqvist liebte Präzision. Kugellager, Zahnräder … und Menschen, die ihm fremde Pläne verkauften."},
+        "observation": {"de": "Im Speisewagen klapperte bis spät die Schreibmaschine. Oder war es der Zug? Bei Kälte klingt alles wie Mechanik."},
+        "rumor": {"de": "Man munkelt, Brändlis Musterkoffer habe einen doppelten Boden – und darin seien keine Uhren."},
+        "nervous": {"de": "Ein Missverständnis. Ich bin Uhrmacher. Nur Uhrmacher. Wirklich."},
+        "annoyed": {"de": "Die Schweiz ist neutral, Herr Inspektor. Ich bin es auch."}
+      }
+    },
+    {
+      "id": "secretary", "name": {"de": "Greta Falk"}, "role": {"de": "Sekretärin des Toten"},
+      "bio": {"de": "Seit neun Jahren Lindqvists rechte Hand: tippt seine Briefe, kennt seine Termine, erträgt seine Launen. Spricht leise und sieht alles."},
+      "look": {"coat": "#3d4b5c", "skin": "#f0d2bd", "hair": "#8a4b2a", "hat": "beret", "build": "normal"},
+      "x": 22, "y": 11,
+      "traits": {"gloves": "leather", "smoke": "turkish", "ticket": "wien"},
+      "candidate": true, "motives": ["revenge", "greed"], "witness": true,
+      "lines": {
+        "greet": {"de": "Greta Falk. Ich war seine Sekretärin. Verzeihen Sie – ich muss mich erst sammeln."},
+        "alibi": {"de": "Ich habe im Speisewagen seine Diktate abgetippt, bis halb zwei. Er wollte die Briefe in Paris unterschreiben."},
+        "alibiLie": {"de": "Ich habe getippt, die halbe Nacht. Man hört die Maschine durch den ganzen Zug – fragen Sie, wen Sie wollen."},
+        "victim": {"de": "Er war kein guter Mensch. Aber er war pünktlich und hat immer bezahlt. Das ist mehr, als man von vielen sagen kann."},
+        "observation": {"de": "Die Gräfin hat Herrn Lindqvist in Wien auf dem Bahnsteig angeschrien. Auf Russisch. Er hat nur gelächelt."},
+        "rumor": {"de": "Im Göteborger Büro hieß es, Fräulein Falk habe sich damals unter falschem Namen beworben."},
+        "nervous": {"de": "Ich … ich weiß nicht, wie das dorthin kommt. Wirklich nicht."},
+        "annoyed": {"de": "Neun Jahre habe ich für diesen Mann gearbeitet. Ich lasse mich nicht wie eine Diebin behandeln."}
+      }
+    }
+  ],
+  "motives": [
+    {"id": "revenge", "name": {"de": "Rache"}, "reveal": {"de": "Es ging um eine alte Schuld: Lindqvists Geschäfte haben vor Jahren ein Leben zerstört. Jemand im Zug hat ihm das nie verziehen."}},
+    {"id": "blackmail", "name": {"de": "Erpressung"}, "reveal": {"de": "Lindqvist besaß Briefe, die jemanden im Zug ruiniert hätten, und ließ sich sein Schweigen teuer bezahlen. Der Täter wollte endlich frei sein."}},
+    {"id": "greed", "name": {"de": "Habgier"}, "reveal": {"de": "Es ging ums Geld: Lindqvist reiste mit Inhaberobligationen über ein Vermögen – und die sind verschwunden. Der Täter wollte nie wieder arm sein."}}
+  ],
+  "weapons": [
+    {"id": "veronal", "name": {"de": "Veronal"}, "reveal": {"de": "In Lindqvists Nachttrunk war Veronal – genug für drei Männer. Er ist eingeschlafen und nicht mehr aufgewacht."}},
+    {"id": "scarf", "name": {"de": "Seidenschal"}, "reveal": {"de": "Druckmale am Hals, feine Seidenfasern am Kragen: Lindqvist wurde mit einem Schal erdrosselt."}},
+    {"id": "candlestick", "name": {"de": "Messingleuchter"}, "reveal": {"de": "Ein einziger Schlag gegen die Schläfe, Messingabrieb im Haar: Die Waffe war ein schwerer Leuchter aus dem Zug."}}
+  ],
+  "story": {"culprit": "secretary", "motive": "revenge", "weapon": "veronal"},
+  "clues": [
+    {"id": "c_body", "kind": "weapon", "name": {"de": "Der Tote in Abteil 7"},
+     "found": {"de": "Lindqvist liegt zwischen Bett und Fenster, die Faust um einen kleinen plombierten Schlüssel geschlossen. Die Todesursache ist noch unklar."},
+     "evolve": "time", "chapters": 1, "source": {"hotspot": "h_body"}, "chapter": 1},
+
+    {"id": "c_latch", "kind": "trait", "trait": "gloves", "name": {"de": "Fasern am Fensterriegel"},
+     "found": {"de": "Das Abteilfenster wurde in der Nacht geöffnet. Am vereisten Riegel kleben feine Fasern."},
+     "reveal": {"de": "Unter dem Mikroskop eindeutig: {value}."},
+     "evolve": "lab", "source": {"hotspot": "h_window7"}, "chapter": 1},
+
+    {"id": "c_ash", "kind": "trait", "trait": "smoke", "name": {"de": "Fremde Asche"},
+     "found": {"de": "Im Aschenbecher auf dem Klapptisch liegt Asche, die nicht von Lindqvists Zigarren stammt."},
+     "reveal": {"de": "Die Analyse der Asche ergibt: {value}."},
+     "evolve": "lab", "source": {"hotspot": "h_ashtray"}, "chapter": 1},
+
+    {"id": "c_bedcard", "kind": "trait", "trait": "ticket", "name": {"de": "Eine fremde Platzkarte"},
+     "found": {"de": "Unter dem Bett, aufgeweicht vom Schmelzwasser: eine Platzkarte, die nicht Lindqvist gehört. Der Stempel ist verlaufen."},
+     "reveal": {"de": "Getrocknet ist der Stempel wieder lesbar: Zustieg {value}."},
+     "evolve": "time", "chapters": 1, "source": {"hotspot": "h_berth"}, "chapter": 1},
+
+    {"id": "c_snow_butt", "kind": "trait", "trait": "smoke", "name": {"de": "Stummel im Schnee"},
+     "found": {"de": "Auf der Aussichtsplattform, halb zugeschneit: ein frisch ausgetretener Zigarettenstummel."},
+     "reveal": {"de": "Am Mundstück klar zu erkennen: {value}."},
+     "evolve": "none", "source": {"hotspot": "h_snow"}, "chapter": 1, "expires": 1},
+
+    {"id": "c_rail_print", "kind": "trait", "trait": "gloves", "name": {"de": "Abdruck am Geländer"},
+     "found": {"de": "Im Neuschnee auf dem Geländer: der Abdruck einer Hand, die sich hier festgehalten hat. Es schneit weiter."},
+     "reveal": {"de": "Nähte und Gewebe zeichnen sich deutlich ab: {value}."},
+     "evolve": "none", "source": {"hotspot": "h_rail"}, "chapter": 1, "expires": 1},
+
+    {"id": "c_blood_fabric", "kind": "trait", "trait": "gloves", "name": {"de": "Blutstropfen im Gang"},
+     "found": {"de": "Unter dem zersprungenen Wandleuchter: drei Tropfen Blut. Jemand hat sich im Dunkeln an den Scherben geschnitten."},
+     "reveal": {"de": "Im Blut klebt ein Stofffetzen. Das Gewebe verrät: {value}."},
+     "evolve": "lab", "source": {"hotspot": "h_blood"}, "chapter": 1},
+
+    {"id": "c_conductor_smoke", "kind": "trait", "trait": "smoke", "name": {"de": "Huber im Dunkeln"},
+     "found": {"de": "Gegen eins kam jemand ohne Licht an Hubers Dienstabteil vorbei, Richtung Abteil 7. Das Gesicht sah er nicht – aber er roch etwas."},
+     "reveal": {"de": "Huber ist sich sicher: Es roch nach {value}."},
+     "evolve": "none", "source": {"npc": "conductor", "topic": "alibi"}, "chapter": 1},
+
+    {"id": "c_conductor_card", "kind": "trait", "trait": "ticket", "name": {"de": "Die Farbe der Fahrkarte"},
+     "found": {"de": "Huber erinnert sich: Als er die Laterne hob, hielt ihm die Gestalt wortlos die Fahrkarte vors Licht – nicht das Gesicht."},
+     "reveal": {"de": "Die Farbe hat er sich gemerkt – eine Fahrkarte ab {value}."},
+     "evolve": "none", "source": {"npc": "conductor", "topic": "observation"}, "chapter": 2},
+
+    {"id": "c_trunk_glove", "kind": "trait", "trait": "gloves", "name": {"de": "Der gefrorene Handschuh"},
+     "found": {"de": "Ein Überseekoffer ohne Namensschild, das Schloss frisch aufgebrochen. Ganz unten: ein einzelner Handschuh, steif gefroren."},
+     "reveal": {"de": "Aufgetaut lässt sich der Handschuh bestimmen: {value}."},
+     "evolve": "lab", "source": {"hotspot": "h_trunk"}, "chapter": 1},
+
+    {"id": "c_quarrel", "kind": "motive", "name": {"de": "Was Huber verschweigt"},
+     "found": {"de": "Huber weicht aus, sobald es um Lindqvist geht. Gegen Mitternacht hörte er hinter der Tür von Abteil 7 einen Streit – und schwieg bisher."},
+     "evolve": "none", "source": {"npc": "conductor", "topic": "victim"}, "chapter": 1,
+     "requires": {"class": "profiler"}},
+
+    {"id": "c_briefcase", "kind": "motive", "name": {"de": "Lindqvists Aktenmappe"},
+     "found": {"de": "Lindqvists Mappe am Salontisch, durchwühlt. Obenauf ein Einlieferungsschein der Bahnpost. Was fehlt, zeigt sich erst noch."},
+     "evolve": "time", "chapters": 1, "source": {"hotspot": "h_briefcase"}, "chapter": 1},
+
+    {"id": "c_stove", "kind": "motive", "name": {"de": "Verkohlte Briefe"},
+     "found": {"de": "Im Salonofen, zwischen Schlacke und Asche: verkohlte Briefbogen. Ein paar Zeilen sind noch zu erahnen."},
+     "evolve": "lab", "source": {"hotspot": "h_stove"}, "chapter": 1},
+
+    {"id": "c_sink", "kind": "weapon", "name": {"de": "Trübes Wasser"},
+     "found": {"de": "In der Spüle der Bordküche steht trübes Wasser. Jemand hat hier nachts etwas gründlich abgewaschen. Erst muss sich der Bodensatz setzen."},
+     "evolve": "time", "chapters": 1, "source": {"hotspot": "h_sink"}, "chapter": 2},
+
+    {"id": "c_alibi_countess", "kind": "alibi", "subject": "countess", "name": {"de": "Licht unter der Tür"},
+     "found": {"de": "Ruby Lafleur hat in der Nacht beim Abteil der Gräfin angeklopft – sie brauchte Streichhölzer für ihre Kerzen."},
+     "reveal": {"de": "Die Gräfin öffnete um Viertel vor eins, die Feder noch in der Hand, und gab ihr die Streichhölzer. Ihr Alibi hält."},
+     "revealFalse": {"de": "Um Viertel vor eins öffnete niemand. Unter der Tür der Gräfin: kein Licht, kein Laut. Ihr Alibi ist gelogen."},
+     "evolve": "none", "source": {"npc": "singer", "topic": "observation"}, "chapter": 1},
+
+    {"id": "c_alibi_singer", "kind": "alibi", "subject": "singer", "name": {"de": "Staub auf dem Klavier"},
+     "found": {"de": "Der Deckel des Klaviers steht offen. Auf dem Notenpult liegt ein Blatt, auf dem keine einzige Note steht."},
+     "reveal": {"de": "Staub auf dem Deckel, aber keiner auf den Tasten: Hier wurde bis tief in die Nacht gespielt. Rubys Alibi hält."},
+     "revealFalse": {"de": "Auf den Tasten liegt eine feine, unberührte Staubschicht. Heute Nacht hat hier niemand gespielt. Rubys Alibi ist gelogen."},
+     "evolve": "lab", "source": {"hotspot": "h_piano"}, "chapter": 2},
+
+    {"id": "c_alibi_watchmaker", "kind": "alibi", "subject": "watchmaker", "name": {"de": "Hubers Taschenuhr"},
+     "found": {"de": "Auf Brändlis Klapptisch: Hubers Taschenuhr mit dem Monogramm A. H., daneben Pinzetten und Uhrmacheröl. Ob sie läuft, zeigt die Zeit."},
+     "reveal": {"de": "Hubers Uhr geht seit einem Tag auf die Sekunde genau. Brändli hat in der Nacht wirklich an ihr gearbeitet."},
+     "revealFalse": {"de": "Hubers Uhr ist über Nacht stehengeblieben, das Werk verstaubt – niemand hat es angerührt. Brändlis Alibi ist erfunden."},
+     "evolve": "time", "chapters": 1, "source": {"hotspot": "h_watchbench"}, "chapter": 2},
+
+    {"id": "c_alibi_secretary", "kind": "alibi", "subject": "secretary", "name": {"de": "Getippte Seiten"},
+     "found": {"de": "Greta Falks Reiseschreibmaschine, daneben ein ordentlicher Stapel getippter Briefe mit Durchschlägen."},
+     "reveal": {"de": "Das Farbband zeigt Hunderte frische Anschläge, die letzte Seite ist auf 1:20 Uhr datiert. Greta hat wirklich getippt."},
+     "revealFalse": {"de": "Die Seiten sind Durchschläge von gestern, das Farbband zeigt keinen neuen Anschlag. Gretas Alibi ist gelogen."},
+     "evolve": "lab", "source": {"hotspot": "h_typewriter"}, "chapter": 2},
+
+    {"id": "c_ghost", "kind": "story", "name": {"de": "Stimme im Wind"},
+     "found": {"de": "Zwischen den Waggons heult der Wind – und darin eine Stimme: „Der Brief … er muss nach Paris … der Postwagen …“"},
+     "evolve": "none", "source": {"hotspot": "h_ghost"}, "chapter": 1, "ghost": true},
+
+    {"id": "c_secret", "kind": "story", "name": {"de": "Ein Einschreiben nach Paris"},
+     "found": {"de": "Ein Einschreiben an die Staatsanwaltschaft Paris, Absender V. Lindqvist. Darin, in seiner Handschrift, ein Geständnis – und der Satz: „Ich stelle mich in Paris.“"},
+     "evolve": "none", "source": {"hotspot": "h_mailbag"}, "chapter": 1, "secret": true}
+  ],
+  "combos": [
+    {"id": "k_gloves", "a": "c_latch", "b": "c_trunk_glove",
+     "name": {"de": "Riegel und Handschuh"},
+     "text": {"de": "Die Fasern vom Fensterriegel stammen von dem gefrorenen Handschuh. Wer das Fenster öffnete, hat danach seine Spuren im Gepäckwagen versteckt."},
+     "reveals": ["c_latch", "c_trunk_glove"]},
+    {"id": "k_smoke", "a": "c_ash", "b": "c_snow_butt",
+     "name": {"de": "Derselbe Tabak"},
+     "text": {"de": "Die fremde Asche in Abteil 7 und der Stummel auf der Plattform: derselbe Tabak. Nach der Tat ging der Täter hinaus in den Schnee."},
+     "reveals": ["c_ash", "c_snow_butt"]},
+    {"id": "k_mailkey", "a": "c_body", "b": "c_briefcase",
+     "name": {"de": "Schlüssel und Einlieferungsschein"},
+     "text": {"de": "Der plombierte Schlüssel aus Lindqvists Faust gehört der Bahnpost, und in seiner Mappe liegt der Schein für ein Einschreiben. Was er verschickt hat, liegt im Postwagen."},
+     "lead": "l_mail"}
+  ],
+  "chapters": [
+    {
+      "title": {"de": "Kapitel 1 – Halt auf freier Strecke"},
+      "intro": {"de": "Kurz vor Mitternacht blieb der Nachtexpress Wien–Paris in einer Schneewehe stecken, irgendwo hoch in den Alpen. Am Morgen fand man Viktor Lindqvist tot in Abteil 7. Bis die Strecke frei ist, verlässt niemand den Zug – auch nicht der Mörder."},
+      "night": {"de": "Die Kohlen glühen nur noch. Waggon um Waggon flackert das Licht und erlischt, der Zug ächzt unter der Schneelast. Irgendwo im Gang klickt leise ein Türriegel."},
+      "leads": [
+        {"id": "l_baggage", "name": {"de": "Den Gepäckwagen durchsuchen"},
+         "text": {"de": "Huber sperrt die Gepäcknetze auf. Ganz hinten steht ein Überseekoffer, den niemand vermisst."},
+         "unlock": {"hotspots": ["h_trunk"]}},
+        {"id": "l_stove", "name": {"de": "Den Salonofen ausräumen"},
+         "text": {"de": "Der Kanonenofen im Salonwagen ist erkaltet. Jemand muss mit bloßen Händen in Asche und Schlacke wühlen."},
+         "unlock": {"hotspots": ["h_stove"]}},
+        {"id": "l_mail", "name": {"de": "Den Postwagen aufschließen"},
+         "text": {"de": "Lindqvists plombierter Schlüssel passt ins Schloss des Postwagens. Drinnen: Postsäcke, Sortierfächer, eisige Stille."},
+         "unlock": {"hotspots": ["h_mailbag"], "doors": [[8, 2]], "items": ["i_antidote"]}, "hidden": true}
+      ]
+    },
+    {
+      "title": {"de": "Kapitel 2 – Eis an den Fenstern"},
+      "intro": {"de": "Der zweite Morgen. Der Schnee reicht bis an die Fenster, die Heizung röchelt nur noch. Erste Befunde liegen vor – und in der Nacht hat jemand versucht, Spuren zu verwischen."},
+      "night": {"de": "Der Sturm rüttelt an den Waggons. Zwischen den Wagen schlägt Metall auf Metall, langsam wie ein Herzschlag. Bleiben Sie im Licht des Speisewagens."},
+      "leads": [
+        {"id": "l_baggage2", "name": {"de": "Den Gepäckwagen durchsuchen"},
+         "text": {"de": "Huber sperrt die Gepäcknetze auf. Ganz hinten steht ein Überseekoffer, den niemand vermisst."},
+         "unlock": {"hotspots": ["h_trunk"]}},
+        {"id": "l_stove2", "name": {"de": "Den Salonofen ausräumen"},
+         "text": {"de": "Der Kanonenofen im Salonwagen ist erkaltet. Jemand muss mit bloßen Händen in Asche und Schlacke wühlen."},
+         "unlock": {"hotspots": ["h_stove"]}},
+        {"id": "l_mail2", "name": {"de": "Den Postwagen aufbrechen"},
+         "text": {"de": "Der Postbeamte ist kurz nach dem Halt auf Skiern ins Tal aufgebrochen, um Hilfe zu holen. Mit Hubers Brecheisen springt seine Tür auf."},
+         "unlock": {"hotspots": ["h_mailbag"], "doors": [[8, 2]], "items": ["i_antidote"]}}
+      ]
+    },
+    {
+      "title": {"de": "Kapitel 3 – Die Schneefräse"},
+      "intro": {"de": "Im Morgengrauen dröhnt aus dem Tal eine Schneefräse heran. In einer Stunde steht die Gendarmerie im Speisewagen. Bis dahin muss feststehen, wen sie mitnimmt."},
+      "night": {"de": ""},
+      "leads": []
+    }
+  ],
+  "endings": {
+    "verdict": {
+      "perfect": {"title": {"de": "Endstation Wahrheit"}, "text": {"de": "Täter, Motiv und Waffe – lückenlos bewiesen. Als die Gendarmerie den Zug betritt, liegt das Geständnis schon unterschrieben im Speisewagen."}},
+      "solid": {"title": {"de": "Überführt"}, "text": {"de": "Die Beweise reichen, auch wenn ein, zwei Fragen offen bleiben. Der Täter verlässt den Zug in Handschellen."}},
+      "partial": {"title": {"de": "Mit knapper Not"}, "text": {"de": "Der richtige Name, aber eine dünne Akte. Ein guter Pariser Anwalt wird daraus ein Kunststück machen."}},
+      "wrong": {"title": {"de": "Falscher Bahnsteig"}, "text": {"de": "Ein Unschuldiger wird in Handschellen durch den Schnee geführt. Der wahre Täter steigt in Paris aus und verschwindet im Morgennebel."}},
+      "unsolved": {"title": {"de": "Akte ungelöst"}, "text": {"de": "Niemand wird angeklagt. Der Nachtexpress rollt weiter nach Paris – und mit ihm ein Mörder."}}
+    },
+    "team": {
+      "all": {"de": "Alle Ermittler haben die Nächte im Schnee überstanden. Im Speisewagen wird zum ersten Mal wieder gelacht."},
+      "some": {"de": "Nicht alle Ermittler erreichen Paris. Ihre Plätze im Speisewagen bleiben leer, ihre Notizen nicht."},
+      "lone": {"de": "Nur einer von Ihnen steigt in Paris aus. Den langen Bahnsteig entlang geht er sehr langsam."},
+      "none": {"de": "Keiner der Ermittler hat die Fahrt überlebt. Der Schaffner trägt ihre Akten selbst zur Polizei."}
+    },
+    "culprit": {
+      "countess": {
+        "caught": {"de": "Gräfin Orlowa lässt sich die Handschellen anlegen wie ein Armband. „Ich habe schon einmal alles verloren“, sagt sie. „Ich weiß, wie das geht.“"},
+        "escaped": {"de": "In Paris verkauft die Gräfin ihren letzten Ring und nimmt den Zug nach Nizza. Ihr Lachen hört man bis über den Bahnsteig."}
+      },
+      "singer": {
+        "caught": {"de": "Ruby Lafleur summt leise, als man sie abführt. Das Varieté in Paris wartet vergeblich auf seinen neuen Star."},
+        "escaped": {"de": "Eine Woche später singt Ruby Lafleur im großen Varieté. Ihr letztes Lied widmet sie „einem Mann im Schnee“."}
+      },
+      "watchmaker": {
+        "caught": {"de": "Brändli nimmt die Brille ab und lächelt dünn. In seinem Musterkoffer findet die Gendarmerie Dinge, die keine Uhren sind."},
+        "escaped": {"de": "Emil Brändli steigt in Zürich aus und wird nie wieder gesehen. Zurück bleibt eine Taschenuhr, die auf die Sekunde genau geht."}
+      },
+      "secretary": {
+        "caught": {"de": "Greta Falk faltet die Hände im Schoß. „Neun Jahre habe ich seine Briefe getippt“, sagt sie. Mehr sagt sie nicht."},
+        "escaped": {"de": "In Paris kündigt Greta Falk per Telegramm. Im Speisewagen bleibt ihre Schreibmaschine zurück, ein leeres Blatt eingespannt."}
+      }
+    },
+    "secret": {"de": "Das Einschreiben aus dem Postwagen erreicht Paris doch noch: Lindqvists Geständnis, Seite um Seite, und die Bitte, sein Vermögen jenen zu geben, die er ruiniert hat. Er wollte sich stellen. Sein Mörder kam ihm um einen einzigen Tag zuvor."}
+  }
+}

@@ -32,6 +32,14 @@ class _HubScreenState extends State<HubScreen> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
+      final app = context.read<AppState>();
+      final lost = app.lostKey;
+      if (lost != null) {
+        app.lostKey = null;
+        final l = L.of(context);
+        showNoirSnack(context, '${l.error_room_lost} ${l.errorText(lost)}',
+            icon: Icons.wifi_off_rounded, color: Noir.bloodBright);
+      }
       if (!context.read<MetaStore>().hasName) showNameDialog(context, first: true);
     });
   }

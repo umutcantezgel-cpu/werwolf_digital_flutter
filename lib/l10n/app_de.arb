@@ -913,5 +913,14 @@
     }
   },
   "dialogue_not_questioned": "Noch nicht befragt",
-  "dialogue_traits_hint": "Merkmale – vergleiche sie mit deinen Hinweisen."
+  "dialogue_traits_hint": "Merkmale – vergleiche sie mit deinen Hinweisen.",
+  "error_server_error": "Der Server hat ein Problem. Versuch es gleich noch einmal.",
+  "error_server_full": "Der Server ist gerade voll. Versuch es später erneut.",
+  "error_timeout": "Der Server antwortet nicht.",
+  "error_unreachable": "Der Server ist nicht erreichbar. Prüfe deine Verbindung.",
+  "error_replaced": "Du hast diesen Raum auf einem anderen Gerät betreten.",
+  "error_bad_message": "Verbindungsfehler (ungültige Nachricht).",
+  "error_not_in_room": "Du bist nicht mehr in diesem Raum.",
+  "error_protocol": "Diese App-Version passt nicht zum Server.",
+  "error_room_lost": "Der Raum ist verloren gegangen."
 }

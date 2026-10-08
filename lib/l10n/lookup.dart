@@ -151,6 +151,14 @@ extension LLookup on L {
         'not_needed' => error_not_needed,
         'no_pings' => error_no_pings,
         'not_on_board' => error_not_on_board,
+        'server_error' => error_server_error,
+        'server_full' => error_server_full,
+        'timeout' => error_timeout,
+        'unreachable' => error_unreachable,
+        'replaced' => error_replaced,
+        'bad_message' => error_bad_message,
+        'not_in_room' => error_not_in_room,
+        'protocol' => error_protocol,
         _ => error_unknown,
       };
 
