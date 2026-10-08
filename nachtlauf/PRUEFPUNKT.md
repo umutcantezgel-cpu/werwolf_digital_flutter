@@ -1,5 +1,12 @@
-# PRÜFPUNKT (für die Fortsetzung nach Unterbrechung zuerst lesen)
-- Branch: `nachtlauf/burgstadt` (Push nur dorthin, Nutzerentscheidung N-00).
-- Plan: `/root/.claude/plans/k-nnen-wir-dieses-bestehende-tender-candy.md` und `nachtlauf/PLAN.md`.
-- Zuletzt erledigt: Phase 0 – Ausgangstests grün, Bestandsfotos, Entscheidungslog, ABNAHME.
-- Nächster Schritt: KANON.md + Overlay, PLAN.md, tool/alle_tests.sh, dann Phase 1 (pixel_engine, Go/No-Go-Benchmark).
+# PRÜFPUNKT (für die Fortsetzung nach Unterbrechung zuerst lesen) · Stand 09.10. 00:29
+- Branch: `nachtlauf/burgstadt` (Push nur dorthin, Nutzerentscheidung N-00). Gesamttest: `bash tool/alle_tests.sh schnell` (voll ohne „schnell“: + Server, Web-Build, Playwright).
+- Plan: `nachtlauf/PLAN.md`, Entscheidungen `nachtlauf/ENTSCHEIDUNGSLOG.md` (E1–E14, E5a, E9a).
+- **Phase 1 abgeschlossen:**
+  - `packages/pixel_engine`: Palette/Licht, Rasterer, Sprites, Schrift (141 Zeichen), Pixel-UI, Texturen (36), Figuren-Brenner (Gliederpuppe, 8 Richtungen, 6 Animationen), Prüfwerkzeuge (Palette, Block, Sprite, PNG-Prüfer `bin/pixel_pruef.dart`).
+  - `packages/burgstadt_spiel`: Spiel, Skalierung, Hauptmenü, Optionen, Erkundung (Prüfszene), Steuerung, Ton.
+  - `packages/burgstadt_core`: Kanon-Parser + Overlay + Proben (= kanon.py), Leitplanken-Scanner, Stadtdaten (160 Häuser, 44 Bewohner).
+  - App: Route `/burgstadt` ist Start, `lib/burgstadt/` (FrameSink, Eingabe Touch/Maus/Tastatur/Gamepad, Ton über audioplayers).
+  - `tool/browser/geraete.js`: 3 Geräteprofile, Gamepad-Simulation, keine Konsolenfehler, keine fremden Abrufe.
+- **Laufende Haiku-Aufträge:** A-702a (Klassische Fälle leitplankenkonform), A-601a (Aussehen-Steckbriefe → `packages/pixel_engine/data/figuren/rollen.json`), A-108a/b (Figurenteile → `data/figuren/teile_*.json`). Ergebnisse liegen in `.claude/worktrees/agent-*` (unkommittiert) und werden von Opus kopiert, geprüft, committet.
+- **Nächster Schritt:** Phase 2 Durchstich – Weltmodell (Bereiche als Kachelraster 0,5 m mit Höhe, Portale), Burg-Komplex nach Kanon, Marktplatz + 3 Häuser, KanonRuntime Phase 1, Detektivblick, 2 Rollen, Fallakte, Bots.
+- Offen/beobachten: Bildzeit im Browser (SwiftShader + Agentenlast) 11–18 ms je Bild statt 4 ms im Benchmark → nach Abschluss der Agenten neu messen.

@@ -58,6 +58,7 @@ async function wischen(cdp, x0, y0, x1, y1, schritte, haltenMs) {
   const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const bericht = [];
   let fehlerGesamt = 0;
+  let gamepadOk = false;
   for (const p of profile) {
     const ctx = await browser.newContext({ viewport: p.viewport, deviceScaleFactor: p.deviceScaleFactor, isMobile: p.isMobile, hasTouch: p.hasTouch, locale: 'de-DE' });
     const page = await ctx.newPage();
@@ -84,6 +85,27 @@ async function wischen(cdp, x0, y0, x1, y1, schritte, haltenMs) {
       await page.keyboard.down('KeyW'); await warte(1500); await page.keyboard.up('KeyW');
       await page.keyboard.down('ArrowRight'); await warte(400); await page.keyboard.up('ArrowRight');
       await page.mouse.move(800, 300); await page.mouse.down(); await page.mouse.move(700, 320, { steps: 10 }); await page.mouse.up();
+      // Gamepad-Simulation: navigator.getGamepads überschreiben, Verbindung melden, Stick vor + rechts
+      await warte(300);
+      const vorher = await page.screenshot();
+      await page.evaluate(() => {
+        const knopf = () => ({ pressed: false, touched: false, value: 0 });
+        window.__pad = { id: 'Simuliertes Gamepad', index: 0, connected: true, mapping: 'standard', timestamp: 0,
+          axes: [0, 0, 0, 0], buttons: Array.from({ length: 17 }, knopf) };
+        navigator.getGamepads = () => [window.__pad];
+        const ev = new Event('gamepadconnected');
+        Object.defineProperty(ev, 'gamepad', { value: window.__pad });
+        window.dispatchEvent(ev);
+      });
+      await warte(300);
+      await page.evaluate(() => { window.__pad.axes = [0, -1, 0.7, 0]; window.__pad.timestamp++; });
+      await warte(1500);
+      await page.evaluate(() => { window.__pad.axes = [0, 0, 0, 0]; window.__pad.buttons[2] = { pressed: true, touched: true, value: 1 }; window.__pad.timestamp++; });
+      await warte(200);
+      await page.evaluate(() => { window.__pad.buttons[2] = { pressed: false, touched: false, value: 0 }; window.__pad.timestamp++; });
+      await warte(400);
+      const nachher = await page.screenshot();
+      gamepadOk = Buffer.compare(vorher, nachher) !== 0;
     } else {
       // Touch: Joystick links nach oben ziehen und halten, rechts wischen zum Umsehen
       const w = p.viewport.width, h = p.viewport.height;
@@ -93,7 +115,8 @@ async function wischen(cdp, x0, y0, x1, y1, schritte, haltenMs) {
     await warte(600);
     const fps1 = await bildrate(page, 3000);
     await page.screenshot({ path: path.join(out, `${p.name}_spiel.png`) });
-    const zeile = `${p.name} · ${p.viewport.width}x${p.viewport.height} @${p.deviceScaleFactor} · Drosselung ${drossel}× · Bildrate Start ${fps0.toFixed(1)} / Spiel ${fps1.toFixed(1)} · Konsole ${konsole.length} · fremde Abrufe ${fremd.length}`;
+    const zeile = `${p.name} · ${p.viewport.width}x${p.viewport.height} @${p.deviceScaleFactor} · Drosselung ${drossel}× · Bildrate Start ${fps0.toFixed(1)} / Spiel ${fps1.toFixed(1)} · Konsole ${konsole.length} · fremde Abrufe ${fremd.length}` + (p.name === 'desktop' ? ` · Gamepad ${gamepadOk ? 'wirkt' : 'OHNE WIRKUNG'}` : '');
+    if (p.name === 'desktop' && !gamepadOk) fehlerGesamt++;
     bericht.push(zeile);
     if (mess.length) bericht.push('  ' + mess[mess.length - 1]);
     for (const k of konsole.slice(0, 5)) bericht.push('  ' + k);

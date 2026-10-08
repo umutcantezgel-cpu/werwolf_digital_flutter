@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
 import 'frame_sink.dart';
+import 'gamepad_eingabe.dart';
 import 'tasten.dart';
 import 'ton_audioplayers.dart';
 
@@ -28,6 +29,7 @@ class BurgstadtAnsicht extends StatefulWidget {
 class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerProviderStateMixin {
   final Spiel spiel = Spiel();
   final AudioplayersTon _ton = AudioplayersTon();
+  final GamepadEingabe _gamepad = GamepadEingabe()..starte();
   final Eingabe eingabe = Eingabe();
   final FrameSink _welt = FrameSink(), _ui = FrameSink();
   final FocusNode _fokus = FocusNode(debugLabel: 'burgstadt');
@@ -64,6 +66,7 @@ class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerPr
   void dispose() {
     _ticker.dispose();
     _ton.dispose();
+    _gamepad.dispose();
     _welt.dispose();
     _ui.dispose();
     _fokus.dispose();
@@ -77,6 +80,7 @@ class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerPr
     // Physische Größe wie die Engine sie nutzt (bei gebrochenem Pixelverhältnis gerundet).
     final pw = (_logisch.width * _dpr).round(), ph = (_logisch.height * _dpr).round();
     spiel.groesse(pw, ph);
+    _gamepad.anwenden(eingabe, dt);
     final t0 = _uhr.elapsedMicroseconds;
     spiel.tick(dt, eingabe);
     final t1 = _uhr.elapsedMicroseconds;
