@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:pixel_engine/pixel_engine.dart';
-import 'package:pixel_engine/src/kit/texturen.dart';
 
 /// Kontaktbogen aller Texturen als PNG (×2): `dart run bin/texturprobe.dart datei.png`
 /// Je Textur 2×2 gekachelt, Name darunter (BitmapFont), Hintergrund Pal.nightBlue.
