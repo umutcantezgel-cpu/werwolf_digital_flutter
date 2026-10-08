@@ -1,3 +1,4 @@
+import 'dart:typed_data';
 import 'dart:ui';
 
 import '../iso_math.dart';
@@ -24,6 +25,40 @@ class IsoPen {
 
   /// Lokaler Punkt → Bildschirm.
   Offset p(double u, double v, double z) => Iso.toScreen(ox + lx(u, v), oy + ly(u, v), z);
+
+  /// Tiefe eines lokalen Punkts (für die Reihenfolge von Teilen).
+  double depth(double u, double v) => lx(u, v) + ly(u, v);
+
+  /// Die sichtbare Seitenfläche liegt bei u1 (Süd-Orientierung) bzw. u0 (Ost).
+  double sideU(double u0, double u1) => east ? u0 : u1;
+
+  /// Zeichnet in der Ebene der Vorderseite bei Tiefe [v]: lokale Canvas-
+  /// Koordinaten (u, z), z zeigt nach oben. Kreise werden zu Ellipsen in der Ebene.
+  void onFront(double v, void Function() draw) => _onPlane(p(0, v, 0), p(1, v, 0), p(0, v, 1), draw);
+
+  /// Wie [onFront], aber auf der sichtbaren Seitenfläche bei [u]: (v, z).
+  void onSide(double u, void Function() draw) => _onPlane(p(u, 0, 0), p(u, 1, 0), p(u, 0, 1), draw);
+
+  void _onPlane(Offset o, Offset ua, Offset za, void Function() draw) {
+    final u = ua - o, z = za - o;
+    c.save();
+    c.transform(Float64List.fromList([u.dx, u.dy, 0, 0, z.dx, z.dy, 0, 0, 0, 0, 1, 0, o.dx, o.dy, 0, 1]));
+    draw();
+    c.restore();
+  }
+
+  /// Sammelt Teile und zeichnet sie von hinten nach vorne.
+  final List<(double, void Function())> _parts = [];
+
+  void part(double u, double v, void Function() draw) => _parts.add((depth(u, v), draw));
+
+  void flush() {
+    _parts.sort((a, b) => a.$1.compareTo(b.$1));
+    for (final p in _parts) {
+      p.$2();
+    }
+    _parts.clear();
+  }
 
   /// Welt-lokaler Punkt (ohne Orientierung) → Bildschirm.
   Offset w(double x, double y, double z) => Iso.toScreen(ox + x, oy + y, z);

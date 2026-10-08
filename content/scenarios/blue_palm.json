@@ -1,0 +1,539 @@
+{
+  "id": "blue_palm",
+  "title": {"de": "Blue Palm Motel"},
+  "tagline": {"de": "Neonlicht, Hurrikan-Warnung und ein Toter in Zimmer 7."},
+  "synopsis": {"de": "Juli 1986, Golfküste Floridas. Hurrikan Delia zieht heran, die Brücke zum Festland ist gesperrt. Motelbesitzer Ray „Lucky“ Delgado liegt tot in Zimmer 7 seines Blue Palm Motel – und fünf Menschen hatten in dieser Nacht einen Grund, an seine Tür zu klopfen."},
+  "difficulty": 2,
+  "minutes": 30,
+  "theme": {
+    "palette": {
+      "background": "#0a0612",
+      "floor": "#1d3a44",
+      "floorAlt": "#16303a",
+      "wall": "#2b1740",
+      "wallTop": "#6a2c86",
+      "trim": "#2ee6e6",
+      "accent": "#ff3fa4",
+      "light": "#9ff3ff",
+      "danger": "#ff2a55",
+      "text": "#f7ecff",
+      "fog": "#1b0f30"
+    },
+    "weather": "neon",
+    "lightning": true,
+    "dayAmbient": 0.72,
+    "nightAmbient": 0.06
+  },
+  "map": {
+    "rows": [
+      "###W######W######W#######W####",
+      "#......#......#......#.......#",
+      "#......#......#......#.......#",
+      "W......#......#......#.......W",
+      "#......#......#......#.......#",
+      "#......#......#......#.......#",
+      "###L#####W#+####W#+######+####",
+      "#.......#............#.......#",
+      "#.......#............#.......#",
+      "#.......#............#.......#",
+      "W.......+............+.......W",
+      "#.......#............#.......#",
+      "W.......W............W.......W",
+      "#.......#............#.......#",
+      "#.......#............#.......#",
+      "##W#+#W#######++#######W#+#W##",
+      "#............................#",
+      "#............................#",
+      "#............................#",
+      "#............................#",
+      "#............................#",
+      "##############################"
+    ],
+    "rooms": [
+      {"id": "office", "name": {"de": "Luckys Büro"}, "x": 1, "y": 1, "w": 6, "h": 5, "floor": "parquet"},
+      {"id": "room6", "name": {"de": "Zimmer 6"}, "x": 8, "y": 1, "w": 6, "h": 5, "floor": "carpet"},
+      {"id": "room7", "name": {"de": "Zimmer 7"}, "x": 15, "y": 1, "w": 6, "h": 5, "floor": "carpet"},
+      {"id": "laundry", "name": {"de": "Waschküche"}, "x": 22, "y": 1, "w": 7, "h": 5, "floor": "linoleum"},
+      {"id": "lobby", "name": {"de": "Rezeption"}, "x": 1, "y": 7, "w": 7, "h": 8, "floor": "stone", "lit": true},
+      {"id": "pool", "name": {"de": "Pooldeck"}, "x": 9, "y": 7, "w": 12, "h": 8, "floor": "tiles", "outdoor": true},
+      {"id": "diner", "name": {"de": "Diner & Lounge"}, "x": 22, "y": 7, "w": 7, "h": 8, "floor": "checker"},
+      {"id": "parking", "name": {"de": "Parkplatz"}, "x": 1, "y": 16, "w": 28, "h": 5, "floor": "asphalt", "outdoor": true}
+    ],
+    "props": [
+      {"type": "cabinet", "x": 1, "y": 1},
+      {"type": "clock", "x": 5, "y": 1},
+      {"type": "cabinet", "x": 6, "y": 1, "color": "#5c6370"},
+      {"type": "chair", "x": 4, "y": 2},
+      {"type": "desk", "x": 3, "y": 3},
+      {"type": "desk", "x": 4, "y": 3},
+      {"type": "lamp", "x": 1, "y": 3},
+      {"type": "tv", "x": 6, "y": 3},
+      {"type": "papers", "x": 2, "y": 4},
+      {"type": "plant", "x": 6, "y": 5},
+
+      {"type": "bathtub", "x": 8, "y": 1},
+      {"type": "toilet", "x": 9, "y": 1},
+      {"type": "sink", "x": 10, "y": 1},
+      {"type": "wardrobe", "x": 13, "y": 1},
+      {"type": "tv", "x": 8, "y": 3},
+      {"type": "bed", "x": 12, "y": 3, "color": "#2a9d8f"},
+      {"type": "table", "x": 13, "y": 3},
+      {"type": "armchair", "x": 10, "y": 4, "color": "#c2185b"},
+      {"type": "lamp", "x": 8, "y": 5},
+      {"type": "luggage", "x": 13, "y": 5},
+
+      {"type": "wardrobe", "x": 15, "y": 1},
+      {"type": "sink", "x": 18, "y": 1},
+      {"type": "toilet", "x": 19, "y": 1},
+      {"type": "bathtub", "x": 20, "y": 1},
+      {"type": "table", "x": 15, "y": 3},
+      {"type": "bed", "x": 16, "y": 3, "color": "#7b2ff7"},
+      {"type": "tv", "x": 20, "y": 3},
+      {"type": "lamp", "x": 15, "y": 5},
+      {"type": "puddle", "x": 16, "y": 5},
+      {"type": "luggage", "x": 20, "y": 5, "color": "#ff6fb5"},
+
+      {"type": "cabinet", "x": 22, "y": 1},
+      {"type": "fridge", "x": 23, "y": 1, "color": "#dfe3ea"},
+      {"type": "fridge", "x": 24, "y": 1, "color": "#dfe3ea"},
+      {"type": "counter", "x": 25, "y": 1, "color": "#e9eef2"},
+      {"type": "counter", "x": 26, "y": 1, "color": "#e9eef2"},
+      {"type": "sink", "x": 27, "y": 1},
+      {"type": "lamp", "x": 28, "y": 1, "color": "#9b5cff"},
+      {"type": "table", "x": 27, "y": 3},
+      {"type": "crate", "x": 22, "y": 4},
+      {"type": "crate", "x": 22, "y": 5},
+      {"type": "barrel", "x": 28, "y": 5, "color": "#2ee6e6"},
+
+      {"type": "vending", "x": 1, "y": 7, "color": "#e83f6f"},
+      {"type": "neon_sign", "x": 2, "y": 7, "color": "#ff3fa4"},
+      {"type": "cabinet", "x": 6, "y": 7},
+      {"type": "plant", "x": 7, "y": 7},
+      {"type": "counter", "x": 4, "y": 9},
+      {"type": "counter", "x": 5, "y": 9},
+      {"type": "counter", "x": 6, "y": 9},
+      {"type": "lamp", "x": 1, "y": 10},
+      {"type": "sofa", "x": 1, "y": 12, "color": "#2ee6e6"},
+      {"type": "sofa", "x": 1, "y": 13, "color": "#2ee6e6"},
+      {"type": "table", "x": 2, "y": 13},
+      {"type": "plant", "x": 7, "y": 14},
+
+      {"type": "tree", "x": 9, "y": 7},
+      {"type": "plant", "x": 13, "y": 7},
+      {"type": "tree", "x": 20, "y": 7},
+      {"type": "puddle", "x": 12, "y": 9, "color": "#27c6d9"},
+      {"type": "puddle", "x": 13, "y": 9, "color": "#27c6d9"},
+      {"type": "puddle", "x": 14, "y": 9, "color": "#27c6d9"},
+      {"type": "puddle", "x": 15, "y": 9, "color": "#27c6d9"},
+      {"type": "puddle", "x": 16, "y": 9, "color": "#27c6d9"},
+      {"type": "puddle", "x": 17, "y": 9, "color": "#27c6d9"},
+      {"type": "puddle", "x": 12, "y": 10, "color": "#27c6d9"},
+      {"type": "puddle", "x": 13, "y": 10, "color": "#27c6d9"},
+      {"type": "puddle", "x": 14, "y": 10, "color": "#27c6d9"},
+      {"type": "puddle", "x": 15, "y": 10, "color": "#27c6d9"},
+      {"type": "puddle", "x": 16, "y": 10, "color": "#27c6d9"},
+      {"type": "puddle", "x": 17, "y": 10, "color": "#27c6d9"},
+      {"type": "puddle", "x": 12, "y": 11, "color": "#27c6d9"},
+      {"type": "puddle", "x": 13, "y": 11, "color": "#27c6d9"},
+      {"type": "puddle", "x": 14, "y": 11, "color": "#27c6d9"},
+      {"type": "puddle", "x": 15, "y": 11, "color": "#27c6d9"},
+      {"type": "puddle", "x": 16, "y": 11, "color": "#27c6d9"},
+      {"type": "puddle", "x": 17, "y": 11, "color": "#27c6d9"},
+      {"type": "seat", "x": 19, "y": 9, "color": "#f2f2f2"},
+      {"type": "seat", "x": 19, "y": 12, "color": "#f2f2f2"},
+      {"type": "seat", "x": 10, "y": 12, "color": "#f2f2f2"},
+      {"type": "table", "x": 11, "y": 13},
+      {"type": "tree", "x": 9, "y": 14},
+      {"type": "plant", "x": 20, "y": 14},
+
+      {"type": "fridge", "x": 22, "y": 7},
+      {"type": "stove", "x": 23, "y": 7},
+      {"type": "neon_sign", "x": 27, "y": 7, "color": "#2ee6e6"},
+      {"type": "cabinet", "x": 28, "y": 7},
+      {"type": "counter", "x": 23, "y": 9},
+      {"type": "counter", "x": 24, "y": 9},
+      {"type": "counter", "x": 25, "y": 9},
+      {"type": "counter", "x": 26, "y": 9},
+      {"type": "bar_stool", "x": 23, "y": 10},
+      {"type": "bar_stool", "x": 24, "y": 10},
+      {"type": "bar_stool", "x": 25, "y": 10},
+      {"type": "bar_stool", "x": 26, "y": 10},
+      {"type": "vending", "x": 22, "y": 12, "color": "#ff3fa4"},
+      {"type": "table", "x": 24, "y": 12},
+      {"type": "seat", "x": 24, "y": 13, "color": "#c2185b"},
+      {"type": "piano", "x": 27, "y": 12},
+      {"type": "plant", "x": 28, "y": 14},
+
+      {"type": "tree", "x": 1, "y": 16},
+      {"type": "neon_sign", "x": 7, "y": 16, "color": "#ff3fa4"},
+      {"type": "cabinet", "x": 11, "y": 16, "color": "#2fb7c9"},
+      {"type": "vending", "x": 17, "y": 16, "color": "#bfefff"},
+      {"type": "neon_sign", "x": 21, "y": 16, "color": "#2ee6e6"},
+      {"type": "tree", "x": 28, "y": 16},
+      {"type": "puddle", "x": 6, "y": 17},
+      {"type": "car", "x": 3, "y": 18, "color": "#f5d547"},
+      {"type": "car", "x": 9, "y": 19, "color": "#e8e8e8"},
+      {"type": "puddle", "x": 16, "y": 19},
+      {"type": "car", "x": 19, "y": 19, "color": "#2b2d42"},
+      {"type": "car", "x": 24, "y": 18, "color": "#ff6fb5"},
+      {"type": "puddle", "x": 25, "y": 18, "color": "#141018"},
+      {"type": "bush", "x": 11, "y": 20},
+      {"type": "bush", "x": 16, "y": 20},
+      {"type": "puddle", "x": 22, "y": 20},
+      {"type": "barrel", "x": 1, "y": 20},
+      {"type": "barrel", "x": 2, "y": 20},
+      {"type": "crate", "x": 28, "y": 20, "color": "#2e6b4f"}
+    ],
+    "spawn": [[3, 11], [4, 11], [5, 11], [3, 12], [4, 12], [5, 12]],
+    "councilRoom": "lobby"
+  },
+  "hotspots": [
+    {"id": "h_body", "name": {"de": "Der Tote"}, "x": 17, "y": 4, "kind": "body", "searchMs": 3000},
+    {"id": "h_blood7", "name": {"de": "Fleck neben dem Bett"}, "x": 16, "y": 4, "kind": "blood"},
+    {"id": "h_bath7", "name": {"de": "Badewanne"}, "x": 20, "y": 1, "kind": "search"},
+    {"id": "h_nightstand7", "name": {"de": "Nachttisch"}, "x": 15, "y": 3, "kind": "search"},
+    {"id": "h_sill7", "name": {"de": "Unter dem Fenster von Zimmer 7"}, "x": 16, "y": 7, "kind": "search"},
+    {"id": "h_poolsteps", "name": {"de": "Beckenrand"}, "x": 18, "y": 8, "kind": "search"},
+    {"id": "h_lounger", "name": {"de": "Sonnenliege"}, "x": 19, "y": 9, "kind": "search"},
+    {"id": "h_skimmer", "name": {"de": "Skimmer"}, "x": 14, "y": 12, "kind": "search", "searchMs": 3500, "requires": {"lead": "l_skimmer"}, "fromChapter": 2},
+    {"id": "h_jukebox", "name": {"de": "Jukebox"}, "x": 22, "y": 12, "kind": "search", "ghost": true},
+    {"id": "h_recorder", "name": {"de": "Klavier mit Kassettenrekorder"}, "x": 27, "y": 12, "kind": "search"},
+    {"id": "h_dryer", "name": {"de": "Trockner"}, "x": 23, "y": 1, "kind": "search"},
+    {"id": "h_lab", "name": {"de": "Bügeltisch (Schwarzlicht-Labor)"}, "x": 27, "y": 3, "kind": "lab"},
+    {"id": "h_linen", "name": {"de": "Wäscheschrank"}, "x": 22, "y": 1, "kind": "hide"},
+    {"id": "h_wardrobe6", "name": {"de": "Kleiderschrank"}, "x": 13, "y": 1, "kind": "hide"},
+    {"id": "h_booth", "name": {"de": "Telefonzelle"}, "x": 11, "y": 16, "kind": "hide"},
+    {"id": "h_fax", "name": {"de": "Faxgerät an der Rezeption"}, "x": 6, "y": 9, "kind": "search"},
+    {"id": "h_desk", "name": {"de": "Luckys Schreibtisch"}, "x": 3, "y": 3, "kind": "search", "requires": {"lead": "l_office"}},
+    {"id": "h_safe", "name": {"de": "Wandtresor"}, "x": 6, "y": 1, "kind": "search", "searchMs": 4500, "requires": {"lead": "l_safe"}, "fromChapter": 2},
+    {"id": "h_dumpster", "name": {"de": "Müllcontainer"}, "x": 28, "y": 20, "kind": "search", "searchMs": 3500},
+    {"id": "h_oil", "name": {"de": "Öllache"}, "x": 25, "y": 18, "kind": "search", "fromChapter": 2},
+    {"id": "h_franks_car", "name": {"de": "Franks Wagen"}, "x": 19, "y": 19, "kind": "search"}
+  ],
+  "items": [
+    {"id": "i_coffee1", "type": "coffee", "x": 6, "y": 13, "chapter": 1},
+    {"id": "i_coffee2", "type": "coffee", "x": 27, "y": 9, "chapter": 1},
+    {"id": "i_battery1", "type": "battery", "x": 24, "y": 4, "chapter": 1},
+    {"id": "i_salts", "type": "salts", "x": 11, "y": 2, "chapter": 1},
+    {"id": "i_medkit", "type": "medkit", "x": 2, "y": 8, "chapter": 2},
+    {"id": "i_antidote", "type": "antidote", "x": 17, "y": 13, "chapter": 2},
+    {"id": "i_flare", "type": "flare", "x": 14, "y": 18, "chapter": 2},
+    {"id": "i_battery2", "type": "battery", "x": 5, "y": 18, "chapter": 2}
+  ],
+  "victim": {
+    "name": {"de": "Ray „Lucky“ Delgado"},
+    "text": {"de": "Ray „Lucky“ Delgado, 54, Besitzer des Blue Palm. Liegt auf dem Teppich von Zimmer 7, der Fernseher zeigt nur noch Rauschen."},
+    "hotspot": "h_body",
+    "look": {"coat": "#f2eee4", "skin": "#c8956b", "hair": "#2b2222", "hat": "fedora", "build": "broad"}
+  },
+  "traits": {
+    "shoe": {
+      "label": {"de": "Schuhwerk"},
+      "values": {
+        "heels": {"de": "Pumps"},
+        "boots": {"de": "Cowboystiefel"},
+        "sneaker": {"de": "Turnschuhe"}
+      }
+    },
+    "habit": {
+      "label": {"de": "Laster"},
+      "values": {
+        "menthol": {"de": "Mentholzigaretten"},
+        "gum": {"de": "Kaugummi"},
+        "cigar": {"de": "Zigarillos"}
+      }
+    },
+    "mark": {
+      "label": {"de": "Kennzeichen"},
+      "values": {
+        "ring": {"de": "Goldring"},
+        "tattoo": {"de": "Tattoo"},
+        "watch": {"de": "Digitaluhr"}
+      }
+    }
+  },
+  "suspects": [
+    {
+      "id": "viv", "name": {"de": "Vivian „Viv“ LaRue"}, "role": {"de": "Lounge-Sängerin"},
+      "bio": {"de": "Hatte 1979 einen Hit, der im Radio noch manchmal läuft. Singt freitags in Luckys Lounge – für Zimmer, Gin und Trinkgeld."},
+      "look": {"coat": "#e0218a", "skin": "#f2cdb5", "hair": "#f6d36b", "hat": "none", "build": "slim"},
+      "x": 26, "y": 12,
+      "traits": {"shoe": "heels", "habit": "menthol", "mark": "ring"},
+      "candidate": true, "motives": ["blackmail", "betrayal"], "witness": true,
+      "lines": {
+        "greet": {"de": "Autogramme später, Schätzchen. Heute Nacht bin ich nicht in Stimmung."},
+        "alibi": {"de": "Ich stand bis kurz vor eins auf der Bühne. Drei Zuhörer, ein Barhocker zu viel. Ich habe trotzdem gesungen."},
+        "alibiLie": {"de": "Ich war auf der Bühne, wie jeden Freitag. Ich lasse jeden Auftritt mitschneiden – hören Sie sich das Band an."},
+        "victim": {"de": "Lucky gab mir eine Bühne, als mich keiner mehr wollte. Und er ließ mich nie vergessen, wem ich sie verdanke."},
+        "observation": {"de": "Von der Bühne sieht man den Parkplatz. In Franks Wagen brannte die ganze Nacht Licht. Wie in einem Aquarium."},
+        "rumor": {"de": "Man munkelt, Vivs Hit von '79 hat gar nicht sie gesungen. Und Lucky soll die alten Bänder besessen haben."},
+        "nervous": {"de": "Das … das ist nicht, wonach es aussieht. Hat jemand eine Zigarette?"},
+        "annoyed": {"de": "Ich habe vor zehntausend Leuten gesungen. Ich lasse mich nicht von Amateuren ausfragen."}
+      }
+    },
+    {
+      "id": "dale", "name": {"de": "Dale Whitmore"}, "role": {"de": "Versicherungsvertreter"},
+      "bio": {"de": "Pastellanzug, Cowboystiefel, ein Lächeln wie ein Gebrauchtwagenhändler. Hat Lucky vor drei Wochen eine Police verkauft."},
+      "look": {"coat": "#a8e6cf", "skin": "#f0b48e", "hair": "#c0712f", "hat": "none", "build": "broad"},
+      "x": 11, "y": 11,
+      "traits": {"shoe": "boots", "habit": "menthol", "mark": "tattoo"},
+      "candidate": true, "motives": ["insurance", "blackmail"], "witness": true,
+      "lines": {
+        "greet": {"de": "Dale Whitmore, Gulf Coast Mutual. Furchtbare Sache. Sagen Sie, sind Sie eigentlich ausreichend versichert?"},
+        "alibi": {"de": "Ich hab aus Zimmer 3 mit Houston telefoniert, fast eine Stunde. Der Junge an der Vermittlung hat mich durchgestellt."},
+        "alibiLie": {"de": "Ferngespräch nach Houston. Lang und teuer, mein Chef redet gern. Fragen Sie den Jungen, der hat gestöpselt."},
+        "victim": {"de": "Lucky war ein Spieler. Spieler versichern alles – nur nicht sich selbst gegen sich selbst."},
+        "observation": {"de": "Die Barfrau war die halbe Nacht draußen am Pool, mit Hammer und Nägeln. Ich sag ja nur."},
+        "rumor": {"de": "Es heißt, zwei von Dales Kunden starben kurz nach Vertragsabschluss. Zufälle, sagt seine Firma."},
+        "nervous": {"de": "Moment, Moment. Das ist aus dem Zusammenhang gerissen. Ich rufe meinen Anwalt an – sobald die Leitung geht."},
+        "annoyed": {"de": "Hören Sie, Freund, ich verkaufe Sicherheit. Ich bin nicht der, der sie gefährdet."}
+      }
+    },
+    {
+      "id": "sol", "name": {"de": "Marisol „Sol“ Vega"}, "role": {"de": "Barkeeperin"},
+      "bio": {"de": "Steht seit zehn Jahren hinter Luckys Theke. Kennt jedes Getränk, jeden Gast und jede Lüge, die hier erzählt wurde."},
+      "look": {"coat": "#7b2ff7", "skin": "#b07a52", "hair": "#1a1010", "hat": "bun", "build": "normal"},
+      "x": 24, "y": 8,
+      "traits": {"shoe": "heels", "habit": "gum", "mark": "tattoo"},
+      "candidate": true, "motives": ["betrayal", "insurance"], "witness": true,
+      "lines": {
+        "greet": {"de": "Die Bar ist zu, Cariño. Für Sie mach ich 'ne Ausnahme: Kaffee, schwarz wie die Nacht da draußen."},
+        "alibi": {"de": "Ab Mitternacht hab ich an der Poolseite die Läden vernagelt. Lucky wollte es so. Das Hämmern hörte man bis Key West."},
+        "alibiLie": {"de": "Ich war draußen und hab Bretter vor die Fenster genagelt. Hurrikan, schon vergessen? Irgendwer muss es ja tun."},
+        "victim": {"de": "Lucky hat mir mal versprochen, das hier wird eines Tages auch mein Laden. Lucky hat vielen vieles versprochen."},
+        "observation": {"de": "Viv war heute nicht gut. Zu viel Gin, zu wenig Publikum. Und Dale hat zweimal nach Luckys Zimmernummer gefragt."},
+        "rumor": {"de": "Es heißt, Sol hat ihre Ersparnisse ins Motel gesteckt. Ohne Vertrag, nur mit Luckys Handschlag."},
+        "nervous": {"de": "Ich … ich brauch 'ne Minute. Nur 'ne Minute, okay?"},
+        "annoyed": {"de": "Zehn Jahre schmeiß ich hier den Laden. Und jetzt zeigen Sie mit dem Finger auf mich?"}
+      }
+    },
+    {
+      "id": "frank", "name": {"de": "Frank Kowalski"}, "role": {"de": "Cop außer Dienst"},
+      "bio": {"de": "Sittenpolizei Miami, derzeit suspendiert. Kaut Nikotinkaugummi und trägt den Ehering einer Ehe, die es nicht mehr gibt."},
+      "look": {"coat": "#c2a878", "skin": "#e2ae88", "hair": "#5b4a3c", "hat": "none", "build": "tall"},
+      "x": 18, "y": 18,
+      "traits": {"shoe": "boots", "habit": "gum", "mark": "ring"},
+      "candidate": true, "motives": ["blackmail", "betrayal"], "witness": true,
+      "lines": {
+        "greet": {"de": "Kowalski. Sitte. War Sitte. Sparen Sie sich die Marke, ich seh an Ihren Schuhen, dass Sie ermitteln."},
+        "alibi": {"de": "Ich saß im Wagen und hab den Polizeifunk mitgeschrieben. Sturmwarnungen, Unfälle. Alte Gewohnheit."},
+        "alibiLie": {"de": "Ich war im Wagen. Funk gehört, Notizen gemacht. Liegen noch auf dem Beifahrersitz, wenn Sie's genau wissen wollen."},
+        "victim": {"de": "Lucky hatte für jeden Cop im County einen Umschlag. Auch für mich. Ich war dumm genug, ihn zu nehmen."},
+        "observation": {"de": "Vom Wagen aus hört man die Poolseite. Ab Mitternacht hat da jemand Bretter angenagelt. Die Barfrau, nehm ich an."},
+        "rumor": {"de": "Man hört, die Dienstaufsicht wollte Frank nächste Woche drankriegen – mit einer Aussage von Lucky."},
+        "nervous": {"de": "Okay. Ich weiß, wie das aussieht. Ich hab früher selbst so geguckt."},
+        "annoyed": {"de": "Zwölf Jahre Polizei. Erzählen Sie mir nicht, wie man ein Verhör führt."}
+      }
+    },
+    {
+      "id": "toby", "name": {"de": "Toby Reyes"}, "role": {"de": "Nachtportier"},
+      "bio": {"de": "Neunzehn, Walkman, Digitaluhr. Macht die Nachtschicht an der Rezeption, tagsüber übt er Gitarre. Luckys Neffe – irgendwie."},
+      "look": {"coat": "#00c2d1", "skin": "#a86f48", "hair": "#121212", "hat": "cap", "build": "small"},
+      "x": 5, "y": 8,
+      "traits": {"shoe": "sneaker", "habit": "cigar", "mark": "watch"},
+      "candidate": false, "motives": [], "witness": true,
+      "lines": {
+        "greet": {"de": "Äh, hi. Das Telefon ist tot, der Strom flackert, und Onkel Ray … Ich kann das noch gar nicht glauben."},
+        "alibi": {"de": "Ich war die ganze Nacht hier am Tresen, an der Vermittlung. Dale wollte nach Houston, ich hab ihn durchgestellt."},
+        "alibiLie": {"de": "Ich hab den Tresen nicht verlassen. Keine Sekunde. Auf der Karte der Vermittlung steht jede Minute."},
+        "victim": {"de": "Onkel Ray sagte immer: Das Haus gewinnt. Er hat nie gesagt, was passiert, wenn man selbst das Haus ist."},
+        "observation": {"de": "Kurz nach Mitternacht kam jemand durch die Lobby, Kapuze auf, klatschnass. Nahm sich ein Handtuch. Die Hand hab ich gesehen."},
+        "rumor": {"de": "Angeblich hat Toby gestern mit Lucky gestritten. Es ging um Geld für einen Bus nach Nashville."},
+        "nervous": {"de": "Ich hab nichts gemacht! Ich bin nur der Typ, der die Schlüssel ausgibt!"},
+        "annoyed": {"de": "Ich hab Nachtschicht, Mann. Ich will nur, dass dieser Sturm vorbeigeht."}
+      }
+    }
+  ],
+  "motives": [
+    {"id": "blackmail", "name": {"de": "Erpressung"}, "reveal": {"de": "Es geht um Erpressung: Lucky hatte seit Jahren etwas gegen den Täter in der Hand – und wollte den Preis erhöhen."}},
+    {"id": "betrayal", "name": {"de": "Verrat"}, "reveal": {"de": "Es geht um Verrat: Lucky wollte das Blue Palm am Montag verkaufen und damit ein Versprechen brechen, das er dem Täter gegeben hatte."}},
+    {"id": "insurance", "name": {"de": "Die Police"}, "reveal": {"de": "Es geht um eine Lebensversicherung: 250.000 Dollar, doppelt bei Unfalltod, vor drei Wochen abgeschlossen. Der Täter hätte davon profitiert."}}
+  ],
+  "weapons": [
+    {"id": "cable", "name": {"de": "Abisoliertes Kabel"}, "reveal": {"de": "Die Tatwaffe: ein abisoliertes Verlängerungskabel. Auf dem nassen Teppich genügte ein einziger Stromschlag."}},
+    {"id": "flamingo", "name": {"de": "Messingflamingo"}, "reveal": {"de": "Die Tatwaffe: ein schwerer Messingflamingo aus der Lobby-Deko. Ein einziger Schlag, rosa Lackspuren an der Schläfe."}},
+    {"id": "drink", "name": {"de": "Präparierter Drink"}, "reveal": {"de": "Die Tatwaffe: ein präparierter Drink. Ein Schlafmittel in tödlicher Dosis – Lucky hat das Glas selbst geleert."}}
+  ],
+  "story": {"culprit": "viv", "motive": "blackmail", "weapon": "cable"},
+  "clues": [
+    {"id": "c_body", "kind": "weapon", "name": {"de": "Befund am Toten"},
+     "found": {"de": "Keine sichtbare Ursache auf den ersten Blick. Die Rechtsmedizin in Miami bekommt die Fotos per Funk – die Antwort dauert."},
+     "evolve": "time", "chapters": 1, "source": {"hotspot": "h_body"}, "chapter": 1},
+
+    {"id": "c_smear", "kind": "trait", "trait": "shoe", "name": {"de": "Halber Abdruck"},
+     "found": {"de": "Neben dem Bett ein verwischter Fleck. Am Rand zeichnet sich ein halber Schuhabdruck ab."},
+     "reveal": {"de": "Unter Schwarzlicht ergänzt sich das Profil. Es passt zu: {value}."},
+     "evolve": "lab", "source": {"hotspot": "h_blood7"}, "chapter": 1, "requires": {"class": "forensic"}},
+
+    {"id": "c_talc", "kind": "trait", "trait": "shoe", "name": {"de": "Puder auf den Fliesen"},
+     "found": {"de": "Vor der Badewanne liegt verschüttetes Körperpuder. Jemand ist hineingetreten."},
+     "reveal": {"de": "Im Puder ist das Sohlenprofil vollständig erhalten: {value}."},
+     "evolve": "lab", "source": {"hotspot": "h_bath7"}, "chapter": 1},
+
+    {"id": "c_ashtray", "kind": "trait", "trait": "habit", "name": {"de": "Aschenbecher am Bett"},
+     "found": {"de": "Im Aschenbecher: Luckys Zigarrenstummel – und ein zweiter Rest, der nicht von ihm stammt."},
+     "reveal": {"de": "Das Labor ist sicher. Der fremde Rest stammt von: {value}."},
+     "evolve": "lab", "source": {"hotspot": "h_nightstand7"}, "chapter": 1},
+
+    {"id": "c_wetprints", "kind": "trait", "trait": "shoe", "name": {"de": "Nasse Spuren am Becken"},
+     "found": {"de": "Nasse Abdrücke führen vom Beckenrand zur Tür von Zimmer 7. Der Regen wischt sie schon weg."},
+     "reveal": {"de": "Noch ist das Profil zu erkennen: {value}."},
+     "evolve": "none", "source": {"hotspot": "h_poolsteps"}, "chapter": 1, "expires": 1},
+
+    {"id": "c_polaroid", "kind": "trait", "trait": "mark", "name": {"de": "Verlorenes Polaroid"},
+     "found": {"de": "Unter der Sonnenliege klebt ein nasses Polaroid: das Fenster von Zimmer 7, davor eine verschwommene Hand."},
+     "reveal": {"de": "Getrocknet ist das Bild klarer. An der Hand am Fensterrahmen deutlich zu sehen: {value}."},
+     "evolve": "time", "chapters": 1, "source": {"hotspot": "h_lounger"}, "chapter": 1},
+
+    {"id": "c_toby_hand", "kind": "trait", "trait": "mark", "name": {"de": "Die Hand auf dem Tresen"},
+     "found": {"de": "Toby hat kurz nach Mitternacht eine nasse Gestalt in der Lobby gesehen. Das Gesicht nicht – aber die Hand."},
+     "reveal": {"de": "Toby ist sich sicher, was er an der Hand auf dem Tresen gesehen hat: {value}."},
+     "evolve": "none", "source": {"npc": "toby", "topic": "observation"}, "chapter": 1},
+
+    {"id": "c_sill", "kind": "trait", "trait": "habit", "name": {"de": "Rest auf dem Fenstersims"},
+     "found": {"de": "Unter dem Fenster von Zimmer 7 hat jemand gewartet. Auf dem Sims klebt ein aufgeweichter Rest."},
+     "reveal": {"de": "Getrocknet lässt sich der Rest bestimmen: {value}."},
+     "evolve": "time", "chapters": 1, "source": {"hotspot": "h_sill7"}, "chapter": 1},
+
+    {"id": "c_oilprint", "kind": "trait", "trait": "shoe", "name": {"de": "Spur in der Öllache"},
+     "found": {"de": "Neben dem Cadillac eine Öllache, darin ein frischer Abdruck. Er zeigt Richtung Müllcontainer."},
+     "reveal": {"de": "Das Öl hat das Profil konserviert: {value}."},
+     "evolve": "none", "source": {"hotspot": "h_oil"}, "chapter": 2},
+
+    {"id": "c_dryer", "kind": "motive", "name": {"de": "Papier im Trockner"},
+     "found": {"de": "In der Trommel kleben Papierfetzen. Jemand hat heute Nacht Kleidung gewaschen – samt dem, was in der Tasche steckte."},
+     "evolve": "time", "chapters": 1, "source": {"hotspot": "h_dryer"}, "chapter": 1},
+
+    {"id": "c_fax", "kind": "motive", "name": {"de": "Fax auf Thermopapier"},
+     "found": {"de": "Ein Fax an Lucky, eingegangen um 23:52. Thermopapier – die Schrift verblasst schon."},
+     "evolve": "none", "source": {"hotspot": "h_fax"}, "chapter": 1, "expires": 1},
+
+    {"id": "c_tape", "kind": "motive", "name": {"de": "Band aus dem Anrufbeantworter"},
+     "found": {"de": "Im Anrufbeantworter steckt eine Mikrokassette: Luckys Stimme, Sturmrauschen, dann ein Klicken."},
+     "evolve": "lab", "source": {"hotspot": "h_desk"}, "chapter": 1},
+
+    {"id": "c_dumpster", "kind": "weapon", "name": {"de": "Bündel im Container"},
+     "found": {"de": "Zwischen den Müllsäcken: etwas, hastig in ein Motel-Handtuch gewickelt."},
+     "evolve": "lab", "source": {"hotspot": "h_dumpster"}, "chapter": 1},
+
+    {"id": "c_skimmer", "kind": "weapon", "name": {"de": "Fund im Skimmer"},
+     "found": {"de": "Im Skimmer des Beckens haben sich Splitter und Fasern verfangen. Jemand hat hier etwas abgespült."},
+     "evolve": "lab", "source": {"hotspot": "h_skimmer"}, "chapter": 2},
+
+    {"id": "c_alibi_viv", "kind": "alibi", "subject": "viv", "name": {"de": "Mitschnitt vom Auftritt"},
+     "found": {"de": "Auf dem Klavier steht Vivs Kassettenrekorder. Das Band von heute Nacht steckt noch drin."},
+     "reveal": {"de": "Der Mitschnitt läuft ohne Pause bis 0:40 – Ansagen, Applaus, Gläserklirren. Viv stand die ganze Zeit auf der Bühne."},
+     "revealFalse": {"de": "Ab 23:55 läuft ein altes Band vom Vorjahr – gleiche Lieder, anderes Publikum. Viv war nicht auf der Bühne."},
+     "evolve": "lab", "source": {"hotspot": "h_recorder"}, "chapter": 1},
+
+    {"id": "c_alibi_dale", "kind": "alibi", "subject": "dale", "name": {"de": "Karte der Vermittlung"},
+     "found": {"de": "Toby reicht Ihnen die Gesprächskarte der Telefonvermittlung. Jede Verbindung ist darauf gestempelt."},
+     "reveal": {"de": "Zimmer 3 nach Houston, 23:41 bis 0:33, ohne Unterbrechung. Dale war die ganze Zeit am Apparat."},
+     "revealFalse": {"de": "Zimmer 3 nach Houston – aber nach zwei Minuten wurde aufgelegt. Für den Rest der Stunde hat Dale kein Alibi."},
+     "evolve": "lab", "source": {"npc": "toby", "topic": "alibi"}, "chapter": 1},
+
+    {"id": "c_alibi_sol", "kind": "alibi", "subject": "sol", "name": {"de": "Hämmern an der Poolseite"},
+     "found": {"de": "Frank hat das Hämmern vom Wagen aus gehört. Er rechnet die Zeiten nach."},
+     "reveal": {"de": "Frank ist sicher: Das Hämmern lief ohne Pause von Mitternacht bis halb eins. Sol war die ganze Zeit an den Läden."},
+     "revealFalse": {"de": "Frank erinnert sich genau: Nach zehn Minuten war Stille – bis kurz vor halb eins. Sols Alibi hat ein Loch."},
+     "evolve": "none", "source": {"npc": "frank", "topic": "observation"}, "chapter": 1},
+
+    {"id": "c_alibi_frank", "kind": "alibi", "subject": "frank", "name": {"de": "Funkmitschriften"},
+     "found": {"de": "Auf dem Beifahrersitz liegt ein Block mit hastigen Funknotizen. Der Abgleich mit der Leitstelle dauert."},
+     "reveal": {"de": "Die Mitschriften sind lückenlos, jede Durchsage mit Uhrzeit. Frank saß wirklich die ganze Zeit im Wagen."},
+     "revealFalse": {"de": "Zwischen Mitternacht und halb eins: keine einzige Notiz. Danach geht es in anderer Tinte weiter. Franks Alibi hat ein Loch."},
+     "evolve": "time", "chapters": 1, "source": {"hotspot": "h_franks_car"}, "chapter": 1},
+
+    {"id": "c_secret", "kind": "story", "name": {"de": "Inhalt des Tresors"},
+     "found": {"de": "Ein Pass auf den Namen Raymond Lucero, ein Bootsticket nach Nassau für Sonntag und eine Karte mit dem Hurrikan-Pfad, rot umkringelt."},
+     "evolve": "none", "source": {"hotspot": "h_safe"}, "chapter": 2, "secret": true},
+
+    {"id": "c_ghost", "kind": "story", "name": {"de": "Stimme aus der Jukebox"},
+     "found": {"de": "Die Jukebox springt an, ohne Strom. Zwischen zwei Takten eine heisere Stimme: „Immer auf die Sieben gesetzt … diesmal hat das Haus gewonnen.“"},
+     "evolve": "none", "source": {"hotspot": "h_jukebox"}, "chapter": 1, "ghost": true}
+  ],
+  "combos": [
+    {"id": "k_steps", "a": "c_wetprints", "b": "c_talc",
+     "name": {"de": "Vom Becken ins Bad"},
+     "text": {"de": "Die nassen Spuren vom Pool und der Abdruck im Puder stammen vom selben Schuh. Der Täter kam übers Pooldeck – und ging direkt ins Bad."},
+     "reveals": ["c_talc"]},
+    {"id": "k_window", "a": "c_polaroid", "b": "c_sill",
+     "name": {"de": "Blick durchs Fenster"},
+     "text": {"de": "Das Polaroid zeigt genau das Fenster, unter dem jemand gewartet hat. Lucky hat seinen Besucher fotografiert – und der hat das Bild auf der Flucht verloren."},
+     "reveals": ["c_polaroid", "c_sill"]},
+    {"id": "k_towel", "a": "c_toby_hand", "b": "c_dumpster",
+     "name": {"de": "Das Handtuch vom Tresen"},
+     "text": {"de": "Das Handtuch im Container stammt vom Stapel an der Rezeption. Die nasse Gestalt, die Toby sah, hat darin die Tatwaffe verschwinden lassen."},
+     "reveals": ["c_dumpster"]},
+    {"id": "k_safe", "a": "c_dryer", "b": "c_tape",
+     "name": {"de": "Zahlen im Trockner"},
+     "text": {"de": "Auf den getrockneten Schnipseln steht eine Zahlenfolge. Auf dem Band nennt Lucky dieselben Ziffern – „falls mir was passiert“. Die Kombination des Tresors."},
+     "reveals": ["c_dryer"], "lead": "l_safe"}
+  ],
+  "chapters": [
+    {
+      "title": {"de": "Kapitel 1 – Zimmer 7"},
+      "intro": {"de": "Florida, Juli 1986. Hurrikan Delia dreht auf die Küste zu, die Brücke zum Festland ist gesperrt. Im Blue Palm summt das Neon – und in Zimmer 7 liegt Ray „Lucky“ Delgado. Heute Nacht fährt hier niemand weg."},
+      "night": {"de": "Gegen zwei reißt der Sturm die Leitung herunter. Die Neonröhren zucken ein letztes Mal, dann brummt nur noch der Generator in der Lobby. Zwischen den Palmen bewegt sich ein Schatten."},
+      "leads": [
+        {"id": "l_office", "name": {"de": "Luckys Büro öffnen"}, "text": {"de": "Toby rückt den Generalschlüssel heraus. Die Tür hinter der Rezeption springt auf."},
+         "unlock": {"hotspots": ["h_desk"], "doors": [[3, 6]]}},
+        {"id": "l_skimmer", "name": {"de": "Das Becken absuchen"}, "text": {"de": "Taschenlampen ins abgelassene Becken, der Skimmer wird aufgeschraubt."},
+         "unlock": {"hotspots": ["h_skimmer"]}}
+      ]
+    },
+    {
+      "title": {"de": "Kapitel 2 – Im Auge des Sturms"},
+      "intro": {"de": "Ein grauer, kurzer Morgen. Das Auge des Hurrikans steht über dem Motel, die Luft ist still wie Glas. Eine Neonröhre nach der anderen springt wieder an – und jemand war in der Nacht unterwegs."},
+      "night": {"de": "Die zweite Hälfte des Sturms kommt mit voller Wucht. Wetterleuchten färbt das leere Becken violett, irgendwo schlägt eine Tür im Takt. Der Schatten ist wieder da."},
+      "leads": [
+        {"id": "l_office2", "name": {"de": "Luckys Büro öffnen"}, "text": {"de": "Toby rückt den Generalschlüssel heraus. Die Tür hinter der Rezeption springt auf."},
+         "unlock": {"hotspots": ["h_desk"], "doors": [[3, 6]]}},
+        {"id": "l_skimmer2", "name": {"de": "Das Becken absuchen"}, "text": {"de": "Taschenlampen ins abgelassene Becken, der Skimmer wird aufgeschraubt."},
+         "unlock": {"hotspots": ["h_skimmer"]}},
+        {"id": "l_safe", "name": {"de": "Den Wandtresor knacken"}, "text": {"de": "Mit der Zahlenfolge aus Luckys Papieren lässt sich der Tresor im Büro öffnen."},
+         "unlock": {"hotspots": ["h_safe"], "doors": [[3, 6]]}, "hidden": true}
+      ]
+    },
+    {
+      "title": {"de": "Kapitel 3 – Letzte Runde"},
+      "intro": {"de": "Morgengrauen über einem verwüsteten Parkplatz. In einer Stunde öffnet die Brücke – und dann ist der Täter fort. Letzte Runde im Blue Palm."},
+      "night": {"de": ""},
+      "leads": []
+    }
+  ],
+  "endings": {
+    "verdict": {
+      "perfect": {"title": {"de": "Jackpot"}, "text": {"de": "Täter, Motiv, Waffe – lückenlos. Als die Brücke aufgeht, wartet die Staatspolizei schon mit Blaulicht im Morgendunst."}},
+      "solid": {"title": {"de": "Überführt"}, "text": {"de": "Die Beweise tragen. Ein paar Lücken bleiben, aber in Florida hat man schon für weniger gesessen."}},
+      "partial": {"title": {"de": "Glück gehabt"}, "text": {"de": "Der richtige Name, aber dünne Beweise. Ein Anwalt aus Miami wird sich die Hände reiben."}},
+      "wrong": {"title": {"de": "Falsches Pferd"}, "text": {"de": "Die Handschellen klicken am falschen Handgelenk. Irgendwo auf dem Highway nach Süden dreht jemand das Radio lauter."}},
+      "unsolved": {"title": {"de": "Akte geschlossen"}, "text": {"de": "Keine Anklage. Der Sturm zieht ab, die Gäste fahren, und das Blue Palm schweigt wie ein leerer Pool."}}
+    },
+    "team": {
+      "all": {"de": "Alle Ermittler haben den Hurrikan überstanden – nass, müde, aber am Leben."},
+      "some": {"de": "Nicht alle Ermittler haben die Nacht im Blue Palm überlebt. Ihre Plätze an der Theke bleiben leer."},
+      "lone": {"de": "Nur einer von Ihnen tritt in den Morgen hinaus. Das Neonschild summt, als wäre nichts gewesen."},
+      "none": {"de": "Als die Polizei eintrifft, findet sie nur leere Zimmer und eine Jukebox, die von allein spielt."}
+    },
+    "culprit": {
+      "viv": {
+        "caught": {"de": "Viv summt leise, als man sie zum Wagen führt. Ihr letzter Auftritt – und diesmal hört ganz Florida zu."},
+        "escaped": {"de": "Ein Jahr später singt eine Frau mit Goldring in einer Hotelbar in Nassau. Niemand fragt nach ihrem Namen."}
+      },
+      "dale": {
+        "caught": {"de": "Dale verhandelt noch in Handschellen – über Kaution, Strafmaß und eine Police für seinen Zellengenossen."},
+        "escaped": {"de": "Dale fährt mit dem Mietwagen nach Westen. In Houston wartet schon der nächste Kunde mit einer frischen Police."}
+      },
+      "sol": {
+        "caught": {"de": "Sol poliert ein letztes Glas, stellt es auf die Theke und legt die Hände daneben. „Okay“, sagt sie nur."},
+        "escaped": {"de": "Sol zapft weiter Bier im Blue Palm. Der neue Besitzer ahnt nicht, wem er den Laden zu verdanken hat."}
+      },
+      "frank": {
+        "caught": {"de": "Frank hat keine Marke mehr, die er abgeben könnte. Er hält einfach die Hände hin, wie er es bei anderen so oft gesehen hat."},
+        "escaped": {"de": "Frank wird rehabilitiert und kehrt zur Sitte zurück. Manchmal, nachts, fährt er noch am Blue Palm vorbei."}
+      }
+    },
+    "secret": {"de": "Der Tresor verrät Luckys letzten Einsatz: Er wollte im Sturm seinen eigenen Tod inszenieren, die Police kassieren und als Raymond Lucero nach Nassau verschwinden. Jemand hat ihm die Inszenierung abgenommen."}
+  }
+}
