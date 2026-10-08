@@ -5,7 +5,7 @@ Schreibe für Phase {{PHASE}} den Phasenstart, das Zwischenresümee am Ende der 
 
 ## STIL
 - Erzählerstimme nach Stilblatt; die Runde wird mit „ihr“ angesprochen, das Geburtstagskind mit „du“.
-- Phasenstart (200–300 Wörter): leitet den Gang ein (Phase 1 Vorspeise, Phase 2 Hauptgang, Phase 3 Nachtisch). Er enthält die Aussage des Burgwarts dieser Phase (Datensatz BW-AUSSAGE-{{PHASE}}) wörtlich und erklärt kurz den Ablauf der Phase: Gespräche, Lagerunde mit Meldekarten, Entscheidungen.
+- Phasenstart (200–300 Wörter): leitet den Gang ein (Phase 1 Vorspeise, Phase 2 Hauptgang, Phase 3 Nachtisch). Er enthält die Aussage des Burgwarts dieser Phase (Datensatz BW-AUSSAGE-{{PHASE}}) wörtlich und erklärt kurz den Ablauf der Phase: Gespräche, Rollen-Entscheidungen, Lagerunde mit Meldekarten, Entscheidungen des Detektivs.
 - Zwischenresümee (220–320 Wörter): pfadneutral. Es nennt nur öffentliche Tatsachen (was an den Stationen liegt, was der Burgwart gesagt hat) und keine Ergebnisse von Gesprächen oder Entscheidungen. Es endet mit dem Übergang zum nächsten Gang bzw. zur Auflösung.
 - Einwürfe (je 40–80 Wörter): kurze Grusel- oder Comedy-Momente aus dem Katalog unten, ohne neue Tatsachen.
 Katalog der erlaubten Momente:

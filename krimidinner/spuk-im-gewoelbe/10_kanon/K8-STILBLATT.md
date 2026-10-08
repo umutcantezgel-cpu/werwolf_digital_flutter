@@ -122,6 +122,7 @@ Diese Schreibweisen gelten überall. Aussprachehilfen stehen nur im Feld „Auss
 @GL-18 [O] | Begriff: Erzähler | Schreibweise: der Erzähler | Aussprache: –
 @GL-19 [O] | Begriff: Lampe | Schreibweise: die Stablampe „HODŽIĆ VT · 3“ | Aussprache: HOD-schitsch fau-te drei
 @GL-20 [O] | Begriff: Wäschezeichen | Schreibweise: „Schartenfels 7“ | Aussprache: SCHAR-ten-fels sie-ben
+@GL-21 [O] | Begriff: Codewörter in Gesprächsbedingungen | Schreibweise: „Brockengespenst“ und „Daumen hoch“ (Rojda zu Merle), „Zuckerguss“ (Tomasz zu Annika); Codewörter stehen auf den Karten in Anführungszeichen | Aussprache: –
 Namen der Rollen mit Aussprache: siehe K2, Datensätze R01-STAMM bis R20-STAMM (Feld Aussprache); sie gelten als Glossar.
 
 ## 10. Das Spiel in fünf Sätzen (Standardtext, in jedem Paket wortgleich)

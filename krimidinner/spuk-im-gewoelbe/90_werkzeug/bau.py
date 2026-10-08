@@ -7,6 +7,7 @@ Aufruf:
   python3 90_werkzeug/bau.py --tag 3               # alle Pakete von Tag 3 (Charge a)
   python3 90_werkzeug/bau.py --tag 3 --charge b
   python3 90_werkzeug/bau.py --test                # baut je Vorlage ein Paket nach 30_pakete/_test/
+  python3 90_werkzeug/bau.py --durchspiel 8 BEST    # druckt den Durchspiel-Auszug für 8 Rollen
 Regeln: Pakete mit „Lösung: nein“ bekommen nie einen [L]-Datensatz; sonst bricht der Bau ab.
 """
 import os
@@ -575,6 +576,168 @@ def ax_pruef(a, prm, plan_rec):
     return werte
 
 
+# ---------------------------------------------------------------- Probelauf, Montage, Lektorat
+def kurz(txt, n=40):
+    w = (txt or "").split()
+    return " ".join(w[:n]) + (" …" if len(w) > n else "")
+
+
+def durchspiel(recs, n, pfad):
+    """Verdichteter Durchspiel-Auszug für Besetzung n (deterministisch aus dem Kanon)."""
+    hs = {r.id: r for r in recs.values() if re.match(r"^H-\d+$", r.id)}
+    out = [f"Besetzung: Rollen R01 bis R{n:02d} sind besetzt (dazu das Geburtstagskind als Detektiv). Pfad: {pfad}.",
+           "Besetzte Rollen: " + "; ".join(f"R{i:02d} {recs[f'R{i:02d}-STAMM'].get('Name')}" for i in range(1, n + 1) if f"R{i:02d}-STAMM" in recs)]
+    for ph in (1, 2, 3):
+        out += ["", f"### Phase {ph}"]
+        bw = recs.get(f"BW-AUSSAGE-{ph}")
+        if bw:
+            out.append(f"Erzähler, Phasenstart (Aussage des Burgwarts): {bw.get('Aussage')}")
+        out.append("Ohne Gespräch erreichbar (Station, Beweisstück, Erzähler, Meldekarte):")
+        for h in hs.values():
+            if "G" in h.get("Quelle") and re.search(r"\bG\d-\d+\b", h.get("Quelle")):
+                continue
+            if h.get("Phase") == str(ph) and kanon.verfuegbar(recs, h, n):
+                out.append(f"- {h.id} ({h.get('Form')}; {h.get('Quelle')}): {h.get('Inhalt')}")
+        out.append("Gespräche, die stattfinden (Antwortart in Klammern):")
+        for von, an, g, art in sorted(kanon.tatsaechliche(recs, ph, n), key=lambda x: (x[0], x[2].id)):
+            if art == "FEHLT":
+                out.append(f"- {g.id} R{von:02d} → niemand: ZIEL UND ERSATZ FEHLEN")
+                continue
+            ersatz = art == "ersatz"
+            bed = g.get("Ersatz-Bedingung" if ersatz else "Bedingung")
+            aa = g.get("Ersatz-Antwortart" if ersatz else "Antwortart")
+            gh = re.findall(r"H-\d+", g.get("Ersatz gibt heraus" if ersatz else "Gibt heraus"))
+            inhalt = " / ".join(f"{h}: {hs[h].get('Inhalt')}" if h in hs else f"{h}: FEHLT IM KANON" for h in gh)
+            out.append(f"- {g.id} R{von:02d} → R{an:02d}{' (Ersatzfall)' if ersatz else ''}; Bedingung: {kurz(bed, 30)} ({aa}) ⇒ {inhalt or 'kein Hinweis'}")
+        for e in sorted((r for r in recs.values() if re.match(rf"^E{ph}-\d\d$", r.id) and int(r.id[-2:]) <= n), key=lambda r: r.id):
+            opts = " · ".join(f"{k}: {v}" for k, v in e.f.items() if k.startswith("Option"))
+            out.append(f"- Rollen-Entscheidung {e.id} (R{e.id[-2:]}): {kurz(e.get('Lage'), 25)} · {opts}")
+        for i in range(1, min(n, 4) + 1):
+            mk = recs.get(f"MK{ph}-R{i:02d}")
+            if mk:
+                out.append(f"- Meldekarte {mk.id} (Lagerunde, Pflicht): {mk.get('Text')}")
+        for i in (1, 2, 3):
+            d, dw = recs.get(f"D{ph}-{i}"), recs.get(f"DW{ph}-{i}")
+            if d and dw:
+                out.append(f"- Detektiv-Entscheidung {d.id}: {d.get('Frage')} A: {d.get('Option A')} · B: {d.get('Option B')} · C: {d.get('Option C')} · "
+                           f"richtig: {dw.get('Echte Spur')} · begründbar durch: {d.get('Begründbar durch')}")
+    out += ["", "### Absicherung bei dieser Besetzung (Schlussfolgerung: unabhängige Quellen)"]
+    for s in sorted((r for r in recs.values() if re.match(r"^S-\d+$", r.id)), key=lambda r: int(r.id[2:])):
+        ids = set(re.findall(r"H-\d+", s.get("Hinweise")))
+        for hw in recs.values():
+            if hw.id.startswith("HW-") and re.search(r"\b" + re.escape(s.id) + r"\b", hw.get("Stützt")):
+                ids.add("H-" + hw.id[3:])
+        da = sorted(x for x in ids if x in hs and kanon.verfuegbar(recs, hs[x], n))
+        out.append(f"- {s.id} ({'notwendig' if s.get('Notwendig').lower() == 'ja' else 'Gegenprobe'}): {s.get('Schlussfolgerung')} ⇒ erreichbar: {', '.join(da) or 'KEINER'}")
+    return "\n".join(out)
+
+
+def ax_lauf(a, prm, plan_rec):
+    n, pfad = int(prm["N"]), prm["PFAD"]
+    for pre in ("S-", "AB-", "AK-", "EM-", "LR-"):
+        a.add_prefix(pre)
+    a.add("VK-1")
+    a.add("K-090")
+    for p in (1, 2, 3):
+        for i in (1, 2, 3):
+            a.add(f"DW{p}-{i}")
+    return {"N": str(n), "PFAD": pfad, "ZUSATZ_TITEL": f"Durchspiel-Auszug für {n} Rollen",
+            "ZUSATZ": durchspiel(a.recs, n, pfad)}
+
+
+def freigaben(praefixe):
+    if not os.path.isdir(FREI):
+        return []
+    return sorted(f[:-3] for f in os.listdir(FREI) if f.endswith(".md") and f.startswith(tuple(praefixe)))
+
+
+def mappen_inhalt(recs, R):
+    zeilen = [f"MAPPE {R} · {recs[f'{R}-STAMM'].get('Name')} (Aussprache: {recs[f'{R}-STAMM'].get('Aussprache')})",
+              f"- PROFIL-{R}: Steckbrief, Dossier, Kleidungshinweis"]
+    for ph in (1, 2, 3):
+        auf = [g.id for _, g in kanon.gespraeche(recs, ph) if g.get("Von") == R]
+        sp = [g.id for _, g in kanon.gespraeche(recs, ph) if g.get("Ziel") == R]
+        se = [g.id for _, g in kanon.gespraeche(recs, ph) if g.get("Ersatz") == R]
+        karten = [f"Aufträge {', '.join(auf)}", f"Spiegelstücke {', '.join(sp) or '–'}"]
+        if se:
+            karten.append(f"Ersatz-Spiegelstücke {', '.join(se)}")
+        karten.append(f"Entscheidungskarte E{ph}-{R[1:]}")
+        if int(R[1:]) <= 4:
+            karten.append(f"Meldekarte MK{ph}-{R}")
+        zeilen.append(f"- P{ph}-{R}: " + " · ".join(karten))
+    return "\n".join(zeilen)
+
+
+def ax_mont_mappen(a, prm, plan_rec):
+    rollen = bereich(prm["ROLLEN"])
+    for R in rollen:
+        a.add(f"{R}-STAMM", strip=("Familie", "Werdegang", "Wohnort", "Wurzeln"))
+    vorlage = "\n\n".join(mappen_inhalt(a.recs, R) for R in rollen)
+    return {"ROLLEN": prm["ROLLEN"], "ZUSATZ_TITEL": "Montagevorlage (Teile und Kartenkennungen je Mappe)", "ZUSATZ": vorlage}
+
+
+PRODUKTE = {
+    "Erzähler-Skriptbuch": ("ERZ-",),
+    "Spielleiter-Handbuch": ("SL-", "REGELBLATT", "REQ-"),
+    "Design-Paket": ("BILD-",),
+    "Qualitätsbericht": ("PRUEF-", "PRÜF-", "LAUF-"),
+}
+LEKT_TEXTE = {
+    "Steckbriefe und Dossiers": ("PROFIL-",),
+    "Phase 1": ("P1-",), "Phase 2": ("P2-",), "Phase 3": ("P3-",),
+    "Erzähler-Skriptbuch": ("ERZ-",),
+    "Spielleiter-Handbuch": ("SL-", "REGELBLATT", "REQ-"),
+    "Detektiv-Mappe und Hinweisset": ("DET-", "HINW-"),
+}
+
+
+def gliederung(kennung):
+    """Überschriften und Feldnamen eines freigegebenen Texts (für Inhaltsverzeichnis und Cue-Index)."""
+    z = []
+    for line in open(os.path.join(FREI, f"{kennung}.md"), encoding="utf-8"):
+        s = line.strip()
+        if re.match(r"^(#+ |[A-ZÄÖÜ][A-ZÄÖÜ0-9 ·\-/]{2,}:|\[NUR WENN|=== )", s):
+            z.append("   " + kurz(s, 16))
+    return z
+
+
+def ax_mont_produkt(a, prm, plan_rec):
+    prod = prm["PRODUKT"]
+    ids = freigaben(PRODUKTE[prod])
+    if not ids:
+        raise BauFehler(f"{prod}: noch keine freigegebenen Teile vorhanden")
+    a.add("ZM-3")
+    a.add("ZM-5")
+    if prod == "Spielleiter-Handbuch":
+        a.add_prefix("IF-")
+    if prod == "Design-Paket":
+        a.add_prefix("LA-")
+    vorlage = []
+    for i in ids:
+        p = plan().get(i)
+        vorlage.append(f"- {i} · {p.get('Typ') if p else 'Reparatur'}")
+        vorlage += gliederung(i)
+    return {"PRODUKT": prod, "ZUSATZ_TITEL": f"Montagevorlage {prod} (Reihenfolge, Teile, Gliederung)", "ZUSATZ": "\n".join(vorlage)}
+
+
+def ax_lektorat(a, prm, plan_rec):
+    texte = prm["TEXTE"]
+    ids = freigaben(LEKT_TEXTE[texte])
+    if not ids:
+        raise BauFehler(f"Lektorat {texte}: noch keine freigegebenen Texte vorhanden")
+    a.add_prefix("GL-")
+    for i in range(1, 21):
+        a.add(f"R{i:02d}-STAMM", strip=("Familie", "Werdegang", "Wohnort", "Wurzeln"), pflicht=False)
+    a.add("BW-STAMM")
+    a.add("DET-STAMM")
+    return {"TEXTE": texte, "MATERIAL": material(ids)}
+
+
+AUSZUG.update({
+    "LAUF": ax_lauf, "MONT-MAPPEN": ax_mont_mappen, "MONT-PRODUKT": ax_mont_produkt, "LEKTORAT": ax_lektorat,
+})
+
+
 AUSZUG.update({
     "ERZ-ANSAGEN": ax_erz_ansagen, "ERZ-EINGRENZ": ax_erz_eingrenz, "ERZ-ANKLAGE": ax_erz_anklage, "ERZ-ENDEN": ax_erz_enden,
     "ERZ-GEST": ax_erz_gest, "DET-MAPPE": ax_det_mappe, "SL": ax_sl, "REGELBLATT": ax_regelblatt,
@@ -627,6 +790,8 @@ def baue(kennung, runde=0, zielordner=PAKETE):
     teile.append("\n## 3. Kanon-Auszug (unveränderlich; nichts davon ändern, nichts Lösungsrelevantes hinzuerfinden)\n" + a.text())
     if werte.get("MATERIAL"):
         teile.append("\n## 3b. Prüfmaterial (zu prüfende Texte, unverändert)\n" + werte["MATERIAL"])
+    if werte.get("ZUSATZ"):
+        teile.append(f"\n## 3c. {werte['ZUSATZ_TITEL']} (aus dem Kanon erzeugt, unveränderlich)\n" + werte["ZUSATZ"])
     teile.append("\n## 4. Stil und Ton\n" + fuelle(v.get("STIL", ""), werte) + "\n\nAllgemeine Regeln aus dem Stilblatt:\n" + stil_basis)
     teile.append("\n## 5. Verbote\n" + verbote_basis + ("\n" + fuelle(v["VERBOTE"], werte) if v.get("VERBOTE") else ""))
     teile.append("\n## 6. Arbeitsschritte\n" + fuelle(v["SCHRITTE"], werte))
@@ -647,6 +812,11 @@ def baue(kennung, runde=0, zielordner=PAKETE):
 
 
 def main(argv):
+    if "--durchspiel" in argv:
+        i = argv.index("--durchspiel")
+        recs, _ = kanon.lade()
+        print(durchspiel(recs, int(argv[i + 1]), argv[i + 2] if len(argv) > i + 2 else "alle Pfade"))
+        return 0
     if "--test" in argv:
         pl = plan()
         gesehen, ok = set(), 0
