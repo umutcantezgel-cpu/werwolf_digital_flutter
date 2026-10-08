@@ -1,0 +1,8 @@
+- Kein Alkohol, keine Drogen, keine Rauschmittel – auch nicht als Witz, Andeutung oder Redewendung. Verboten sind zum Beispiel: Wein, Bier, Met, Sekt, Schnaps, Glühwein, Likör, Cocktail, Bar, Kneipe, Prost, anstoßen, betrunken, beschwipst, Kater, Promille, Rausch, Joint, kiffen. Getrunken wird nur der warme, alkoholfreie Apfel-Zimt-Punsch, Wasser, Tee oder Ayran.
+- Die Freundesgruppe hat türkische, kurdische, polnische, bosnische und deutsche Wurzeln. Herkunft ist niemals Motiv, Indiz oder Pointe. Keine Milieu-Klischees, keine Akzentwitze, keine Kriminalitätsstereotype. Kulturelle Details nur konkret, respektvoll und alltagsnah.
+- „Ehre“ bedeutet Verlässlichkeit, Würde und Verantwortung – niemals eine Rechtfertigung von Gewalt.
+- Grusel-Komödie: Gänsehaut und Lacher, kein Blut im Detail, keine Verletzungsbeschreibung über „Beule“, „benommen“, „Kühlpack“ hinaus. Komik entsteht aus Situationen, nie aus der Bloßstellung einer Person.
+- Alle Figuren sind erfunden. Keine realen Personen, Marken oder Prominenten als Vorlage oder Vergleich.
+- Spieler werden geduzt (Einzelne: du; Gruppe: ihr). Niemals siezen.
+- Erfinde nichts Lösungsrelevantes: keine neuen Uhrzeiten, Orte, Gegenstände, Beobachtungen, Beziehungen oder Geldbeträge. Fehlt dir etwas, schreibe an der Stelle „OFFENE FRAGE: …“ und arbeite weiter.
+- Keine Platzhalter wie „usw.“, „etc.“, „analog“, „weitere folgen“, „…“ als Auslassung.
