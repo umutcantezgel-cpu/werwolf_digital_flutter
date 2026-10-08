@@ -80,6 +80,6 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - Ausnahmen nur für Regelzitate/Negativ-Anweisungen in K8/K9 und den Kater als Tier (`nachtlauf/kanon/LEITPLANKEN-AUSNAHMEN.md`).
 - Bestand „Klassische Fälle“ (`content/`): 28 Fehler (Wein, Portwein, Brandy, Gin, Bar, Bier, Blut-Details). §3 gilt für das ausgelieferte Spiel → Auftrag A-702a: Texte leitplankenkonform umschreiben (Vorratskeller statt Weinkeller, Tee/Kakao/Limonade statt Alkohol, Diner-Theke statt Bar, keine Blutdetails), Mordfälle bleiben Mordfälle (Bestand), `validate`/`simulate` bleiben grün. Begründete Ersetzung im Sinne von §3 „Bestand schützen“.
 
-## E9a · 09.10. 00:25 · Abhängigkeit audioplayers (MIT)
+## E9a · 09.10. 00:16 · Abhängigkeit audioplayers (MIT)
 - Zweck: Klänge und Musik (eigene, prozedural erzeugte WAVs in `assets/burgstadt/ton/`, Werkzeug `tool/ton/`). Verbreitet, gepflegt, MIT-Lizenz, unterstützt Android, iOS, Web und Desktop. Keine Netzabrufe (nur gebündelte Dateien).
 - Im Spiel abstrakt (`Tonausgabe`), headless/Test über `MerkendeTonausgabe`.

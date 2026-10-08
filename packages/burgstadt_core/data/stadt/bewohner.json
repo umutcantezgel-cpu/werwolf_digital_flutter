@@ -1,0 +1,2703 @@
+{
+  "version": 1,
+  "bewohner": [
+    {
+      "id": "B01",
+      "name": "Gerlinde Thal",
+      "alter": 66,
+      "geschlecht": "w",
+      "beruf": "Pensionswirtin",
+      "wohnhaus": "H-028",
+      "arbeitshaus": "H-028",
+      "wesen": "Streng im Ton und weich im Herzen, sie begrüßt jeden Menschen mit Namen und kann Unordnung im Flur nicht ausstehen.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "dutt",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Kleid",
+            "rampe": "blau",
+            "stufe": 2
+          },
+          {
+            "teil": "Schürze",
+            "rampe": "neutral",
+            "stufe": 5
+          }
+        ],
+        "zubehoer": [
+          "Notizbuch"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:15",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Sie prüft den Riegel der Haustür, obwohl der Flur ohnehin dunkel ist, und lauscht auf den Uhrturm."
+        },
+        {
+          "von": "02:15",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie hat sich in der Kammer neben der Küche hingelegt, die Tür einen Spalt offen für den Flur."
+        }
+      ],
+      "saetze": [
+        "Du willst wissen, wie es hier aussah? Dunkel wie im Schrank, und der Uhrturm schlug, als wäre nichts gewesen.",
+        "Eine Laterne steht im Flur, nimm sie mit, die Stufen auf der Treppe sind glatt.",
+        "Frag den Uhrmacher nebenan, der kennt den Turm besser als jeder Pfarrer seine Predigt."
+      ],
+      "gerede": "Man flüstert, der Nebelriese stelle die Turmuhr vor, wenn niemand hinsieht, aber das ist Quatsch und ich habe nie daran gedreht."
+    },
+    {
+      "id": "B02",
+      "name": "Ernst Binder",
+      "alter": 63,
+      "geschlecht": "m",
+      "beruf": "Uhrmacher und Turmwärter",
+      "wohnhaus": "H-026",
+      "arbeitshaus": "H-026",
+      "wesen": "Pünktlich wie sein Turm und humorvoll auch im Dunkeln, er glaubt fest, dass Zeit nur eine Frage sauber geölter Zahnräder ist.",
+      "aussehen": {
+        "haar": "weiß",
+        "frisur": "kurz",
+        "kopf": "mütze",
+        "kleidung": [
+          {
+            "teil": "Weste",
+            "rampe": "holz",
+            "stufe": 3
+          },
+          {
+            "teil": "Hemd",
+            "rampe": "neutral",
+            "stufe": 6
+          }
+        ],
+        "zubehoer": [
+          "Taschenuhr",
+          "Ölkanne"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:00",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er sitzt am Küchentisch, zählt die Minuten bis zum nächsten Schlag und hört das Uhrwerk ticken."
+        },
+        {
+          "von": "02:00",
+          "bis": "03:00",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er steigt die Wendeltreppe hinauf und zieht die Gewichte auf, damit die Zeiger weiterlaufen."
+        },
+        {
+          "von": "03:00",
+          "bis": "04:30",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er bleibt am Uhrwerk, horcht auf das Ticken und notiert jeden Schlag in sein Heft."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er legt sich eine Stunde auf das Sofa, die Taschenuhr auf dem Bauch."
+        }
+      ],
+      "saetze": [
+        "Du willst die Zeit wissen? Die habe ich, nur die Stunde des Knalls kann mir keiner zurückgeben.",
+        "Der Turm läuft ohne Strom, weil er auf Gewichten steht und nicht auf Drähten. Das merkt die Stadt selten.",
+        "Wenn du hinaufsteigst, nimm die Laterne mit. Die Luken pfeifen, und die Stufen sind kalt.",
+        "Hier wird nichts vorgezogen, nur aufgezogen, sagt mein Vater immer."
+      ],
+      "gerede": "Man munkelt, der Nebelriese wohne im Turm und stelle die Uhr vor, aber ich habe nie einen Zeiger angefasst, der nicht musste."
+    },
+    {
+      "id": "B03",
+      "name": "Hanne Lorenz",
+      "alter": 51,
+      "geschlecht": "w",
+      "beruf": "Bäckerin",
+      "wohnhaus": "H-137",
+      "arbeitshaus": "H-137",
+      "wesen": "Warmherzig und resolut, sie duzt jeden Kunden und vergisst nie, wer sein Brot am liebsten mit Butter isst.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "zopf",
+        "kopf": "haube",
+        "kleidung": [
+          {
+            "teil": "Kittel",
+            "rampe": "neutral",
+            "stufe": 7
+          },
+          {
+            "teil": "Schürze",
+            "rampe": "rot",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Mehlsieb"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:40",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft im Obergeschoss über dem Laden, den Wecker auf halb drei gestellt."
+        },
+        {
+          "von": "02:40",
+          "bis": "03:00",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie steht auf, wäscht sich kalt und zieht die Schürze über, bevor sie hinuntergeht."
+        },
+        {
+          "von": "03:00",
+          "bis": "05:30",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Sie heizt den Ofen an, knetet den Teig und hört den Uhrturm drei Uhr schlagen."
+        }
+      ],
+      "saetze": [
+        "Du bist früh dran oder spät, je nachdem, wie man es sieht. Bei mir ist um drei schon Morgen.",
+        "Iss ein Brötchen, dann redest du besser. Das Mehl haben wir noch, auch ohne Strom.",
+        "Wenn du etwas über die Nacht wissen willst, frag den Uhrmacher, der hat den besseren Überblick.",
+        "Die Hoftür klemmt bei Frost, aber der Ofen hält die Küche warm, und das ist die Hauptsache."
+      ],
+      "gerede": "Man sagt, der Nebelriese habe sich vor der Backstube gezeigt, aber wahrscheinlich wollte nur der Nebel ein Brötchen."
+    },
+    {
+      "id": "B04",
+      "name": "Konrad Haas",
+      "alter": 58,
+      "geschlecht": "m",
+      "beruf": "Apotheker",
+      "wohnhaus": "H-115",
+      "arbeitshaus": "H-138",
+      "wesen": "Ruhig, genau und ein wenig steif, aber jeder Kunde bekommt von ihm die ehrliche Antwort, auch um Mitternacht.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "kurz",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Mantel",
+            "rampe": "stein",
+            "stufe": 3
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Brille",
+          "Notizbuch"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:30",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er sitzt hinter dem Tresen im Notdienst, die Liste der Nummern vor sich, und wartet auf das Telefon."
+        },
+        {
+          "von": "02:30",
+          "bis": "04:30",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er mischt in Ruhe ein Pulver im Mörser, weil die Nachfrage nach Hustensaft gestiegen ist."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Er steht am Fenster seiner Wohnung, sieht die dunkle Gasse und schreibt Notizen für den Morgen."
+        }
+      ],
+      "saetze": [
+        "Du fragst nach der Nacht? Ich zähle Tabletten und die Minuten, bis das Telefon wieder klingelt.",
+        "Kühlpacks habe ich genug, falls du dir an der Tür den Kopf stößt. Die liegen vorn im Regal.",
+        "Hier ist die Apotheke, kein Laden für Neugierige. Ich rate dir, nicht zu drängeln.",
+        "Was ich gehört habe? Wind, Holz und einen Knall. Mehr sage ich nicht, und das nur einmal."
+      ],
+      "gerede": "Angeblich hat der Nebelriese neulich eine Apotheke ausgeräumt, aber die Zahlen stimmen nicht, und ich hätte es gemerkt."
+    },
+    {
+      "id": "B05",
+      "name": "Waltraud Schuller",
+      "alter": 74,
+      "geschlecht": "w",
+      "beruf": "Ruhestandslehrerin",
+      "wohnhaus": "H-091",
+      "arbeitshaus": null,
+      "wesen": "Eine Frau mit Kreide im Ärmel und einem scharfen Blick für Ausreden, sie weiß alles besser und meint es trotzdem gut.",
+      "aussehen": {
+        "haar": "weiß",
+        "frisur": "dutt",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Pullover",
+            "rampe": "rot",
+            "stufe": 3
+          },
+          {
+            "teil": "Rock",
+            "rampe": "holz",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Fernglas"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:00",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie sitzt am Fenster mit dem Fernglas und sucht den Nebel nach einer Bewegung ab."
+        },
+        {
+          "von": "02:00",
+          "bis": "04:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie legt sich ins Bett, das Fernglas unter das Kissen, weil sie es nicht weglegen mag."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie ist wieder am Fenster, weil die Glocke der Schule nicht geschlagen hat, was sie beunruhigt."
+        }
+      ],
+      "saetze": [
+        "Du bist also ein Ermittler? Dann setz dich hin und lass dich nicht ablenken, die Stadt hat genug Unruhe.",
+        "Den Nebelriesen habe ich einmal in einen Aufsatz geschrieben, und niemand hat ihn richtig gelesen.",
+        "Die Glocke der Schule schweigt seit dem Brand, und ich vermisse ihre Pausen mehr, als ich sagen will.",
+        "Wenn du etwas wissen willst, frag laut und deutlich. Ich höre nur noch, was man mir ins Gesicht sagt."
+      ],
+      "gerede": "Man erzählt, der Nebelriese habe in der alten Schule Hausaufgaben gemacht, aber die Kinder erfinden alles, sobald es dunkel wird."
+    },
+    {
+      "id": "B06",
+      "name": "Jürgen Hahn",
+      "alter": 46,
+      "geschlecht": "m",
+      "beruf": "Wärter im Stromhaus",
+      "wohnhaus": "H-078",
+      "arbeitshaus": "H-084",
+      "wesen": "Wortkarg und pflichtbewusst, er hält sich an Vorschriften und flucht nur leise, wenn der Plan nicht zu den Leitungen passt.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "kurz",
+        "kopf": "mütze",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "blau",
+            "stufe": 2
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 1
+          }
+        ],
+        "zubehoer": [
+          "Zange",
+          "Notizbuch"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:00",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er steht im Schaltraum vor dem Plan und prüft jede Sicherung, die er erreichen kann."
+        },
+        {
+          "von": "02:00",
+          "bis": "03:00",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er schreibt Zahlen in sein Heft, weil sich das Stadtwerk aus Silberhau noch nicht gemeldet hat."
+        },
+        {
+          "von": "03:00",
+          "bis": "04:30",
+          "wo": "gasse:Mauerviertel",
+          "zustand": "unterwegs",
+          "tut": "Er geht mit der Laterne die Mauer entlang bis zum Obertor und prüft die Leitungen an den Pfosten."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er ist zurück im Schaltraum und sieht auf einen Plan, der nicht mehr stimmt."
+        }
+      ],
+      "saetze": [
+        "Du willst den Strom wissen? Der hängt weit unten am Turm, dort laufen alle Leitungen zusammen.",
+        "Die Ersatzsicherungen aus dem Torhaus passen nicht, das habe ich selbst probiert. Der Strom kommt am Morgen.",
+        "Mein Plan hängt im Schaltraum. Schau ihn dir an, wenn du willst, aber fass ihn nicht mit fettigen Händen an.",
+        "Geh nicht allein die Mauer entlang, nicht bei Eisnebel. Der Weg ist glatt, und die Pforten sind zu."
+      ],
+      "gerede": "Man sagt, der Nebelriese laufe nachts die Mauer entlang, aber wer nachschaut, findet nur Eis und Rost auf den Steinen."
+    },
+    {
+      "id": "B07",
+      "name": "Monika Reich",
+      "alter": 54,
+      "geschlecht": "w",
+      "beruf": "Wirtin der Teestube",
+      "wohnhaus": "H-005",
+      "arbeitshaus": "H-029",
+      "wesen": "Herzlich und geduldig, mit einem Ohr für jede Geschichte, sie hört lieber zu, als selbst zu reden.",
+      "aussehen": {
+        "haar": "rot",
+        "frisur": "locken",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Bluse",
+            "rampe": "bernstein",
+            "stufe": 4
+          },
+          {
+            "teil": "Rock",
+            "rampe": "holz",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Thermoskanne"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie steht am Fenster ihrer Wohnung und zählt, wie viele Lichter in der Gasse erloschen sind."
+        },
+        {
+          "von": "01:30",
+          "bis": "04:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie legt sich mit dem Mantel über dem Bett hin, die Thermoskanne neben dem Kopfkissen."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie steht auf, heizt den Ofen an und wartet, bis die Gasse wieder Leben zeigt."
+        }
+      ],
+      "saetze": [
+        "Du bist durchgefroren, setz dich hin. Dann erzähle ich dir alles, was ich in der Teestube gehört habe.",
+        "Tee gibt es hier, mehr nicht. Trinken darfst du, solange dir der Hals nicht zu rau wird.",
+        "Viele kommen zum Reden, und keiner will über den Knall reden. Dann rede ich eben, du hörst zu.",
+        "Die Laterne über der Theke hat seit dem Ausfall niemand mehr angezündet. Das ist ein schlechtes Zeichen."
+      ],
+      "gerede": "Im Viertel heißt es, der Nebelriese sitze nachts am Fenster der Teestuben, aber dort sitzt man eben nur mit dem Tee."
+    },
+    {
+      "id": "B08",
+      "name": "Otto Stern",
+      "alter": 81,
+      "geschlecht": "m",
+      "beruf": "Rentner, früher Hauer",
+      "wohnhaus": "H-139",
+      "arbeitshaus": null,
+      "wesen": "Brummig und treu, er redet nur über den Berg und die alten Zeiten, zieht aber vor jedem Fremden den Hut.",
+      "aussehen": {
+        "haar": "weiß",
+        "frisur": "glatze",
+        "kopf": "hut",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "neutral",
+            "stufe": 3
+          },
+          {
+            "teil": "Hose",
+            "rampe": "holz",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Gehstock"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "03:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft im Sessel der Stube, das Fenster zum Berg einen Spalt offen."
+        },
+        {
+          "von": "03:30",
+          "bis": "05:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Er wacht auf, geht zum Fenster, und der Nebel ist so dicht, dass er nur die Lampe des Nachbarn sieht."
+        }
+      ],
+      "saetze": [
+        "Du willst vom Berg wissen? Dreißig Jahre habe ich darunter gearbeitet, und ich rede nicht gern über Gruben.",
+        "Die Lampe am Berg war einmal die letzte, die nachts brannte. Jetzt ist es dort so still wie in einer Kirche.",
+        "Wer den Nebelriesen sieht, dem sage ich: Bleib stehen, dann bleibt er auch stehen. So war es immer.",
+        "Setz dich hin und nimm den Hut ab, so haben wir es im Berg immer gehalten."
+      ],
+      "gerede": "Im Viertel erzählt man, der Nebelriese sei den alten Stollen entlanggelaufen, aber keiner war dabei, und die Stollen sind längst zu."
+    },
+    {
+      "id": "B09",
+      "name": "Dörte Wagner",
+      "alter": 44,
+      "geschlecht": "w",
+      "beruf": "Tierärztin",
+      "wohnhaus": "H-010",
+      "arbeitshaus": null,
+      "wesen": "Ruhig und unerschrocken, sie spricht mit Tieren wie mit Menschen und mit Menschen oft wie mit Tieren, je nach Bedarf.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "zopf",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Overall",
+            "rampe": "neutral",
+            "stufe": 3
+          },
+          {
+            "teil": "Jacke",
+            "rampe": "blau",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Arzttasche"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:10",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie sitzt am Fenster, die Tasche gepackt, und hört im Nebel ein Bellen aus der Untertorgasse."
+        },
+        {
+          "von": "01:10",
+          "bis": "02:20",
+          "wo": "gasse:Untere Stadt",
+          "zustand": "unterwegs",
+          "tut": "Sie geht mit der Laterne zu einem kranken Hund, dessen Besitzerin nicht weiß, wohin sie sich wenden soll."
+        },
+        {
+          "von": "02:20",
+          "bis": "03:00",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie kehrt heim, wäscht sich die Hände und sitzt noch lange am Küchentisch, bis der Puls sich beruhigt."
+        },
+        {
+          "von": "03:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft im Sessel, die Arzttasche neben sich, bereit für den nächsten Anruf."
+        }
+      ],
+      "saetze": [
+        "Du fragst nach der Nacht? Ich war bei einem kranken Hund, und der war ehrlicher als mancher Mensch.",
+        "Tiere sind offener als Menschen, sagt mein Vater. Der Hund hatte nur Angst vor dem Dunkel.",
+        "Wenn du mich brauchst, frag in der Apotheke nach, die kennt meine Nummer. Das Telefon geht nur sporadisch.",
+        "Der Hund ist jetzt ruhig, die Besitzerin auch. Mehr kann man um diese Zeit nicht verlangen."
+      ],
+      "gerede": "Man sagt, seit der Nebelriese durch die Gassen schleicht, bellen die Hunde im ganzen Viertel, und das liege an der Tierärztin."
+    },
+    {
+      "id": "B10",
+      "name": "Friedrich Wolff",
+      "alter": 52,
+      "geschlecht": "m",
+      "beruf": "Schreinermeister",
+      "wohnhaus": "H-037",
+      "arbeitshaus": "H-058",
+      "wesen": "Bedächtig und verlässlich, er misst dreimal, schneidet einmal und redet wenig, außer er ist sich seiner Sache sicher.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "kurz",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Schürze",
+            "rampe": "holz",
+            "stufe": 2
+          },
+          {
+            "teil": "Hemd",
+            "rampe": "neutral",
+            "stufe": 5
+          }
+        ],
+        "zubehoer": [
+          "Zollstock"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "03:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er liegt im Bett und rechnet im Kopf die Maße für eine Tür durch, die er bauen soll."
+        },
+        {
+          "von": "03:00",
+          "bis": "04:15",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er ist wach, weil die Stille seltsam ist, und geht in die Küche, um Wasser zu trinken."
+        },
+        {
+          "von": "04:15",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft wieder ein, den Zollstock auf dem Nachttisch."
+        }
+      ],
+      "saetze": [
+        "Du willst wissen, was ich nachts tue? Ich schlafe, wie jeder anständige Mensch in dieser Stadt.",
+        "Einen Kostenvoranschlag schreibe ich nur, wenn ich das Holz vorher gesehen habe. Alles andere ist Gerede.",
+        "Die Mauergasse ist kalt, nimm den Mantel mit. Das Holz der Werkbank zieht sich bei Frost zusammen.",
+        "Wenn der Strom wieder geht, läuft auch das Radio. Bis dahin höre ich nur die Sägen, die schweigen."
+      ],
+      "gerede": "Man sagt, der Schreiner schnitzt nachts Holzvögel für die Kinder, aber das stimmt nur, wenn er keine Rechnungen schreibt."
+    },
+    {
+      "id": "B11",
+      "name": "Lotte Hermann",
+      "alter": 43,
+      "geschlecht": "w",
+      "beruf": "Buchbinderin",
+      "wohnhaus": "H-035",
+      "arbeitshaus": null,
+      "wesen": "Zierlich und hartnäckig, sie klebt Bücher zusammen, wie andere Leute Freundschaften kitten, und vergisst keine Seite.",
+      "aussehen": {
+        "haar": "blond",
+        "frisur": "zopf",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Weste",
+            "rampe": "bernstein",
+            "stufe": 3
+          },
+          {
+            "teil": "Rock",
+            "rampe": "holz",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Falzbein"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "05:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft in der Dachkammer, das Fenster zur Gasse angelehnt, weil der Leim sonst nicht trocknet."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie steht auf und presst schon die ersten Bogen, obwohl es draußen noch dunkel ist."
+        }
+      ],
+      "saetze": [
+        "Du willst wissen, was ich nachts mache? Bücher binden, weil die Stille lauter ist, als man denkt.",
+        "Manche alten Bände kommen aus dem Archiv zu mir, zum Ausbessern. Die stinken nach Staub und Geschichte.",
+        "Wenn du ein Buch verlierst, bring es hierher. Dann ist es hinterher schöner als vorher.",
+        "Nicht jede Geschichte gehört in einen Band, und die über den Nebelriesen schon gar nicht."
+      ],
+      "gerede": "Man munkelt, der Nebelriese sei ein Leser, weil er die alten Bände aus dem Archiv holt, aber das hat die Bibliothekarin nur erfunden."
+    },
+    {
+      "id": "B12",
+      "name": "Martin Auer",
+      "alter": 37,
+      "geschlecht": "m",
+      "beruf": "Glaser",
+      "wohnhaus": "H-036",
+      "arbeitshaus": "H-036",
+      "wesen": "Er lacht viel und stellt Fragen, die andere lieber nicht stellen, und er flickt jedes Fenster, bevor es zerbricht.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "kurz",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Hemd",
+            "rampe": "blau",
+            "stufe": 3
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 1
+          }
+        ],
+        "zubehoer": [
+          "Glasschneider"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er liegt im Bett, horcht auf den Wind an den Scheiben und überlegt, welche Fenster halten."
+        },
+        {
+          "von": "01:30",
+          "bis": "04:00",
+          "wo": "gasse:Handwerkergasse",
+          "zustand": "unterwegs",
+          "tut": "Er geht mit der Laterne die Gasse ab und sieht nach, ob die Schaufenster heil sind."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:00",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er steht in der Werkstatt und schneidet Glas für ein Fenster, das beim Knall gesprungen ist."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er legt sich für eine Stunde hin, das Glasmaß noch in der Schürze."
+        }
+      ],
+      "saetze": [
+        "Du hast das Gesicht von jemandem, der nachts zu viel nachdenkt. Setz dich, ich rede gern, wenn ich schneide.",
+        "Glas ist ehrlich: Es zeigt dir, was dahinter ist, bis es zerspringt.",
+        "Die Scheibe in der Mauergasse ist beim Knall gesprungen. Ich habe sie geflickt, aber der Riss bleibt.",
+        "Wenn du etwas über Fenster wissen willst: Nachts sieht man im Glas immer nur sich selbst."
+      ],
+      "gerede": "Man sagt, der Nebelriese habe an der Glaserei gelehnt, aber das Glas war danach nur beschlagen, nicht zerbrochen."
+    },
+    {
+      "id": "B13",
+      "name": "Rosa Teutsch",
+      "alter": 88,
+      "geschlecht": "w",
+      "beruf": "Rentnerin, früher Weberin",
+      "wohnhaus": "H-102",
+      "arbeitshaus": null,
+      "wesen": "Klein, zäh und ein wenig eigensinnig, sie erinnert sich an jede Hochzeit der Gasse und an fast jeden Streit.",
+      "aussehen": {
+        "haar": "weiß",
+        "frisur": "dutt",
+        "kopf": "haube",
+        "kleidung": [
+          {
+            "teil": "Kleid",
+            "rampe": "holz",
+            "stufe": 2
+          },
+          {
+            "teil": "Umhang",
+            "rampe": "neutral",
+            "stufe": 4
+          }
+        ],
+        "zubehoer": [
+          "Strickzeug"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:15",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie sitzt am Fenster, weil sie nicht schlafen kann, und zählt die Sterne, die keiner sieht."
+        },
+        {
+          "von": "02:15",
+          "bis": "04:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft im Lehnstuhl ein, den Umhang über den Knien."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie ist wieder wach und erzählt sich leise die Geschichte von der alten Kirchweih."
+        }
+      ],
+      "saetze": [
+        "Du fragst, ob ich etwas gesehen habe? Ich bin achtundachtzig, junger Mann. Ich sehe nur Nebel und Erinnerungen.",
+        "Früher klapperten in der Gasse die Webstühle. Heute klappert nichts außer den Fensterläden bei Wind.",
+        "Der Nebelriese, sagt meine Mutter, bleibt stehen, wenn du stehen bleibst. Ich habe es nie probiert.",
+        "Setz dich hin, du wirkst müde. Die Jugend rennt heute, als hätte sie Eile, und keiner weiß wohin."
+      ],
+      "gerede": "Man erzählt, die alte Rosa habe den Nebelriesen am Fenster gezählt, aber sie zählt auch die Tauben, und die kommen immer zu spät."
+    },
+    {
+      "id": "B14",
+      "name": "Oskar Pohl",
+      "alter": 70,
+      "geschlecht": "m",
+      "beruf": "Drechsler im Ruhestand",
+      "wohnhaus": "H-041",
+      "arbeitshaus": "H-041",
+      "wesen": "Brummelig und gutmütig, er dreht für jedes Kind der Gasse einen Kreisel und vergisst keinen Geburtstag.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "glatze",
+        "kopf": "mütze",
+        "kleidung": [
+          {
+            "teil": "Weste",
+            "rampe": "holz",
+            "stufe": 3
+          },
+          {
+            "teil": "Hemd",
+            "rampe": "neutral",
+            "stufe": 5
+          }
+        ],
+        "zubehoer": [
+          "Drechseleisen"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "04:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft in der Stube neben dem Ofen, die Mütze auf dem Stuhl."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:00",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er ist in der Werkstatt und dreht einen Kreisel aus Buche, weil der Schlaf nicht kommen will."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er schleift den Kreisel glatt und sieht zu, wie draußen der Morgen dämmert."
+        }
+      ],
+      "saetze": [
+        "Du willst einen Kreisel? Die kosten nichts, wenn du mir sagst, was du in der Nacht gesehen hast.",
+        "Holz hört zu, wenn man es dreht. Es merkt sofort, wenn man zu schnell dreht, und das gilt auch für Menschen.",
+        "Am Brunnen friert das Wasser nur am Rand. Das ist das ehrliche Zeichen für Frost.",
+        "Ich habe den Kindern versprochen, dass die Kreisel bis zum Frühling fertig sind. Das halte ich."
+      ],
+      "gerede": "Man erzählt sich, der Nebelriese habe bei Oskar einen Kreisel bestellt, aber bezahlen würde er damit nicht."
+    },
+    {
+      "id": "B15",
+      "name": "Vera Kessler",
+      "alter": 29,
+      "geschlecht": "w",
+      "beruf": "Pflegekraft",
+      "wohnhaus": "H-025",
+      "arbeitshaus": "H-019",
+      "wesen": "Zupackend und geduldig, sie kennt die Namen aller Alten im Haus und hat für jeden einen Spruch auf Lager.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "zopf",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Kittel",
+            "rampe": "blau",
+            "stufe": 5
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Laterne"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:00",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Sie geht zwischen den Zimmern hin und her, leuchtet in jede Tür und hört auf jeden Atem."
+        },
+        {
+          "von": "02:00",
+          "bis": "04:30",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Sie sitzt im Flur, trinkt Wasser und notiert die Schlafzeiten der Alten."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:00",
+          "wo": "gasse:Marktviertel",
+          "zustand": "unterwegs",
+          "tut": "Sie geht mit der Laterne nach Hause über den Markt, und der Uhrturm klingt stiller als sonst."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie fällt aufs Bett, die Schuhe noch an den Füßen."
+        }
+      ],
+      "saetze": [
+        "Du sprichst hier mit einer Pflegekraft. Heute Nacht war es ruhiger, als die Alten Angst hatten.",
+        "Meine Schützlinge schlafen wie Kinder, wenn man sie lässt. Heute haben sie es zum Glück gelassen.",
+        "Wenn du mit einer Alten sprichst, sprich langsam und laut. Die Ohren sind alt, das Gedächtnis manchmal jung.",
+        "Der Strom ist aus, aber die Nachtliste habe ich noch auf Papier. Das ist mein Trost."
+      ],
+      "gerede": "Im Viertel heißt es, der Nebelriese klopfe nachts an die Heimtür vom Lindenbaum, aber dort öffnet niemand, weil alle schlafen."
+    },
+    {
+      "id": "B16",
+      "name": "Irmgard Roth",
+      "alter": 77,
+      "geschlecht": "w",
+      "beruf": "Witwe und Nachbarin",
+      "wohnhaus": "H-023",
+      "arbeitshaus": null,
+      "wesen": "Neugierig und ein wenig laut, sie kennt jede Familie der Gasse und weiß zu jeder Hochzeit das Datum.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "locken",
+        "kopf": "hut",
+        "kleidung": [
+          {
+            "teil": "Mantel",
+            "rampe": "rot",
+            "stufe": 4
+          },
+          {
+            "teil": "Rock",
+            "rampe": "neutral",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Regenschirm"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft im Lehnstuhl, weil das Bett in dieser Kälte zu weit wirkt."
+        },
+        {
+          "von": "01:00",
+          "bis": "03:00",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie steht am Fenster und zählt die Schritte, die sie unten in der Gasse hört."
+        },
+        {
+          "von": "03:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft in der Küche bis zum Morgen, den Regenschirm im Ständer."
+        }
+      ],
+      "saetze": [
+        "Ich weiß nicht, was du willst, aber ich weiß, wer hier wann geheiratet hat. Das ist mehr wert als ein Zeugnis.",
+        "Der Nebelriese! Mein Mann hat ihn einmal am Fuß der Mauer gesehen, und seither geht er nachts nicht mehr allein.",
+        "Die Schritte unten waren schnell, wie von jemandem, der nicht bleiben will. Mehr kann ich dir nicht sagen.",
+        "Setz dich hin und trink einen Tee, Junge. Die Tassen im Schrank sind noch vom Hochzeitstag meiner Schwester."
+      ],
+      "gerede": "Man erzählt, die alte Irmgard habe den Nebelriesen gerufen, aber sie ruft jeden, der nicht pünktlich zum Kaffee kommt."
+    },
+    {
+      "id": "B17",
+      "name": "Reinhold Maier",
+      "alter": 60,
+      "geschlecht": "m",
+      "beruf": "Schornsteinfeger",
+      "wohnhaus": "H-024",
+      "arbeitshaus": null,
+      "wesen": "Gewissenhaft und trocken im Humor, er kennt jeden Kamin der Stadt und riecht den Rauch, bevor er ihn sieht.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "kurz",
+        "kopf": "mütze",
+        "kleidung": [
+          {
+            "teil": "Overall",
+            "rampe": "neutral",
+            "stufe": 2
+          },
+          {
+            "teil": "Jacke",
+            "rampe": "holz",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Kehrbesen"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er sitzt in der Küche und riecht, dass irgendwo im Viertel ein Ofen zu heiß brennt."
+        },
+        {
+          "von": "01:30",
+          "bis": "02:30",
+          "wo": "gasse:Mauerviertel",
+          "zustand": "unterwegs",
+          "tut": "Er geht mit dem Besen die Gasse hinauf, weil ein Kamin dort seit dem Knall nicht mehr zieht."
+        },
+        {
+          "von": "02:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft erschöpft im Stuhl, den Besen an der Wand."
+        }
+      ],
+      "saetze": [
+        "Du willst wissen, ob ein Schornstein raucht? Heute Nacht keiner, und genau das ist beunruhigend.",
+        "Ein Kamin, der nicht zieht, sagt viel über das Haus. Ein Haus, das dunkel ist, sagt noch mehr.",
+        "Rauch steigt immer nach oben, egal wie dunkel es ist. Das ist die einzige Regel, an die ich glaube.",
+        "Den Nebelriesen kenne ich vom Dach. Wenn er auf dem Firstband steht, dann nur, weil er Ruhe sucht."
+      ],
+      "gerede": "Man sagt, der Nebelriese sei durch einen Kamin gekrochen, aber durch einen Kamin passt höchstens ein Schornsteinfeger, und der ist ja hier."
+    },
+    {
+      "id": "B18",
+      "name": "Gottfried Lenz",
+      "alter": 66,
+      "geschlecht": "m",
+      "beruf": "Kürschner",
+      "wohnhaus": "H-004",
+      "arbeitshaus": null,
+      "wesen": "Schweigsam und pedantisch, er näht Mäntel aus Wolle und Filz, weil er nichts Fellartiges mehr in der Stube will.",
+      "aussehen": {
+        "haar": "keins",
+        "frisur": "glatze",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Mantel",
+            "rampe": "stein",
+            "stufe": 4
+          },
+          {
+            "teil": "Hemd",
+            "rampe": "neutral",
+            "stufe": 6
+          }
+        ],
+        "zubehoer": [
+          "Nähkorb"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "05:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft tief, die Nähmaschine ist abgedeckt, damit sie nicht staubt."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er wacht früh auf und schaut in den Hof, wo der Nebel steht wie eine Wand."
+        }
+      ],
+      "saetze": [
+        "Du bist mein Gast, also rede leise. Ich schlafe nur, wenn der Hof still ist, und der war heute still.",
+        "Mäntel nähe ich für Leute, die nicht frieren wollen. Das ist ehrliche Arbeit, und sie hält.",
+        "Die Eule über der Tür ist aus Holz, aber sie schaut so klug, dass ich ihr manchmal Fragen stelle.",
+        "Was ich gesehen habe? Nichts. Ich habe mich nicht einmal umgedreht, weil das Bett zu warm war."
+      ],
+      "gerede": "Man erzählt, der alte Lenz habe den Nebelriesen zu einem Mantel eingeladen, aber der Riese sei für jeden Stoff zu groß."
+    },
+    {
+      "id": "B19",
+      "name": "Antje Brandt",
+      "alter": 39,
+      "geschlecht": "w",
+      "beruf": "Musiklehrerin",
+      "wohnhaus": "H-015",
+      "arbeitshaus": null,
+      "wesen": "Lebhaft und charmant, sie summt beim Kochen und bringt Kindern das Atmen bei, bevor sie ihnen Noten zeigt.",
+      "aussehen": {
+        "haar": "rot",
+        "frisur": "lang",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Kleid",
+            "rampe": "rot",
+            "stufe": 5
+          },
+          {
+            "teil": "Schal",
+            "rampe": "bernstein",
+            "stufe": 4
+          }
+        ],
+        "zubehoer": [
+          "Notenmappe"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie sitzt am Fenster und summt eine Melodie, die sie nicht ganz im Kopf hat."
+        },
+        {
+          "von": "01:30",
+          "bis": "04:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie legt sich hin, die Notenmappe unter dem Kissen, sonst vergisst sie die Melodie."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:00",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie steht auf und schreibt die Melodie auf, bevor der Morgen sie wegwischt."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft noch ein wenig, das Notenblatt in der Hand."
+        }
+      ],
+      "saetze": [
+        "Du willst Musik hören? Heute gibt es keine, nur das Summen meiner Gedanken, und das ist kein Konzert.",
+        "Die Harfe im Laden unten war mein erstes Instrument. Spielen durfte ich sie nie, die Nachbarn klagten.",
+        "Ein Lied verrät einen Menschen mehr als manche Befragung. Wenn du zuhörst, merkst du, wie jemand fühlt.",
+        "Der Nebelriese, sagt man, mag Lieder. Ich habe ihm einmal eines gesungen, und er ist weitergegangen."
+      ],
+      "gerede": "Im Chor heißt es, der Nebelriese komme nur zu Liedern in Moll, und das sei der Grund für die kalte Nacht."
+    },
+    {
+      "id": "B20",
+      "name": "Kurt Hollmann",
+      "alter": 58,
+      "geschlecht": "m",
+      "beruf": "Nachtpförtner im Rathaus",
+      "wohnhaus": "H-018",
+      "arbeitshaus": "H-030",
+      "wesen": "Gleichmütig und gründlich, er hat schon viele Nächte am Pult verbracht und keine davon langweilig gefunden.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "kurz",
+        "kopf": "mütze",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "neutral",
+            "stufe": 3
+          },
+          {
+            "teil": "Hemd",
+            "rampe": "blau",
+            "stufe": 5
+          }
+        ],
+        "zubehoer": [
+          "Klemmbrett"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:00",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er sitzt am Pult im Rathausflur, die Liste der Türen vor sich, und verriegelt jede einzeln."
+        },
+        {
+          "von": "02:00",
+          "bis": "04:00",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er geht den Flur auf und ab, prüft Fenster und Riegel und horcht auf die Stille."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:00",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er schreibt den Bericht für den Morgen, Zeile für Zeile, nur mit der Laterne als Licht."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er wartet auf den Morgen und trinkt Wasser aus dem Krug."
+        }
+      ],
+      "saetze": [
+        "Du willst ins Rathaus? Gut, aber die Türen sind verriegelt, und ich öffne nur auf Vorlage, auch dir.",
+        "Seit dem Knall habe ich jede Tür zweimal geprüft. Zu viel Vertrauen ist nie gesund, sagt der Bürgermeister.",
+        "Ein Bericht muss stimmen, Zeile für Zeile. Wenn du etwas gesehen hast, schreib es auf, bevor es verblasst.",
+        "Die Glocke am Rathaus hat heute nicht geläutet. Das wundert mich mehr als der ganze Strom."
+      ],
+      "gerede": "Man munkelt, der Nachtpförtner schlafe im Rathaus, aber ich schlafe nur, wenn der Bürgermeister es mir erlaubt."
+    },
+    {
+      "id": "B21",
+      "name": "Dagmar Krauß",
+      "alter": 49,
+      "geschlecht": "w",
+      "beruf": "Friseurin",
+      "wohnhaus": "H-007",
+      "arbeitshaus": null,
+      "wesen": "Schnell im Mund und schnell mit der Schere, sie sieht den Leuten an, was sie bedrückt, und sagt es selten.",
+      "aussehen": {
+        "haar": "blond",
+        "frisur": "kraus",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Bluse",
+            "rampe": "rot",
+            "stufe": 3
+          },
+          {
+            "teil": "Rock",
+            "rampe": "neutral",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Kamm"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "03:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft seit elf im Bett, die Wicklerrolle auf dem Nachttisch."
+        },
+        {
+          "von": "03:30",
+          "bis": "04:00",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie steht auf, weil es an der Tür klopft, aber als sie öffnet, steht niemand auf der Schwelle."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie legt sich wieder hin und zieht die Decke über den Kopf."
+        }
+      ],
+      "saetze": [
+        "Setz dich auf den Stuhl, ich mache dir die Haare, während du erzählst. Das beruhigt die Leute immer.",
+        "Ich frisiere die halbe Stadt, und heute Nacht hat niemand bei mir geklopft, der mir etwas Gutes wollte.",
+        "Wer Angst hat, wackelt beim Schneiden. Du hast ein ruhiges Händchen, das merke ich dir an.",
+        "Klopfen an der Tür? Das war vielleicht der Wind. Oder jemand, der sich verlaufen hat."
+      ],
+      "gerede": "Man sagt, der Nebelriese sei unter der Dachrinne vorbeigezogen und habe die Locken von der Wäscheleine geholt, aber das ist Unsinn."
+    },
+    {
+      "id": "B22",
+      "name": "Ludwig Rieder",
+      "alter": 71,
+      "geschlecht": "m",
+      "beruf": "Hutmacher im Ruhestand",
+      "wohnhaus": "H-003",
+      "arbeitshaus": "H-003",
+      "wesen": "Eitel mit einem freundlichen Lächeln, er trägt immer einen Hut und hält jeden Hut der Stadt für eine eigene Geschichte.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "kurz",
+        "kopf": "hut",
+        "kleidung": [
+          {
+            "teil": "Mantel",
+            "rampe": "blau",
+            "stufe": 2
+          },
+          {
+            "teil": "Hose",
+            "rampe": "holz",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Hutschachtel"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "04:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft im Lehnstuhl, den Hut auf dem Knie wie eine Katze."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:00",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er steht in der Werkstatt und rückt die Hüte im Schaufenster zurecht, obwohl niemand sie sieht."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er legt sich hin, den Hut noch auf dem Kopf."
+        }
+      ],
+      "saetze": [
+        "Du trägst keinen Hut? Dann siehst du aus wie jemand, der seine Gedanken nicht schützt. Setz dir einen auf!",
+        "Jeder Hut erzählt, wer ihn gekauft hat. Dein Hut würde mir verraten, dass du es eilig hast.",
+        "Im Schaufenster stehen Hüte, die nie jemand kaufen wird. Die sind meine liebsten Geschichten.",
+        "Der Hut des Nebelriesen? Wenn es einen gibt, wäre es eine echte Filzkrone, groß und grau."
+      ],
+      "gerede": "Man erzählt, der Nebelriese trage einen Hut aus dem Goldenen Hut, aber der Riese sei zu groß für jeden Laden in der Stadt."
+    },
+    {
+      "id": "B23",
+      "name": "Brigitte Hoff",
+      "alter": 62,
+      "geschlecht": "w",
+      "beruf": "Museumskustodin",
+      "wohnhaus": "H-009",
+      "arbeitshaus": "H-027",
+      "wesen": "Gelehrt und streng mit Staub und Fingern, aber herzlich zu Kindern, die sich vor alten Gegenständen nicht fürchten.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "kurz",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "bernstein",
+            "stufe": 3
+          },
+          {
+            "teil": "Rock",
+            "rampe": "holz",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Lupe"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "05:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft im Dachgeschoss, das Fenster zur Stadt einen Spalt offen."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie steht am Fenster und sieht über die dunklen Dächer, bevor der Morgen den Schleier hebt."
+        }
+      ],
+      "saetze": [
+        "Willst du ins Museum? Heute bleibt es zu, wie fast alles in der Stadt, aber die Vitrinen stehen noch.",
+        "Auf einer Karte bei uns steht jede Leihgabe. Eine davon ging an die Burg, mehr sage ich nicht.",
+        "Lupe und Pinzette, mehr brauche ich nicht. Mit dem Strom kommt hoffentlich auch das Licht zurück.",
+        "Der Nebelriese ist in unseren Büchern als Zeichnung drin, mit krummem Rücken und ohne Schatten."
+      ],
+      "gerede": "Im Museum munkelt man, der Nebelriese habe eine Vitrine besucht, aber alle Vitrinen sind verschlossen, und die Kustodin hat den Überblick."
+    },
+    {
+      "id": "B24",
+      "name": "Dieter Krämer",
+      "alter": 55,
+      "geschlecht": "m",
+      "beruf": "Ratsdiener",
+      "wohnhaus": "H-011",
+      "arbeitshaus": null,
+      "wesen": "Gemütlich und redselig, er kennt jeden Weg in der Stadt und behauptet, er habe alle Abkürzungen im Kopf.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "kurz",
+        "kopf": "mütze",
+        "kleidung": [
+          {
+            "teil": "Mantel",
+            "rampe": "neutral",
+            "stufe": 3
+          },
+          {
+            "teil": "Hose",
+            "rampe": "holz",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Aktenmappe"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft in seiner Stube, die Schuhe ordentlich vor dem Bett bereitgestellt."
+        },
+        {
+          "von": "01:30",
+          "bis": "02:30",
+          "wo": "gasse:Marktviertel",
+          "zustand": "unterwegs",
+          "tut": "Im Auftrag des Rathauses trägt er Bekanntmachungen zum Brunnen, damit morgens niemand fragt."
+        },
+        {
+          "von": "02:30",
+          "bis": "03:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er ist zurück, die Lampe brennt, und er geht im Kopf die Häuser durch, die er gewarnt hat."
+        },
+        {
+          "von": "03:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft bis zum Morgen, die Mappe unter dem Arm."
+        }
+      ],
+      "saetze": [
+        "Du willst zum Rathaus? Nimm den Pfad hinter dem Brunnen, da sind weniger Pfützen als auf der Hauptgasse.",
+        "Ich habe heute Nacht Bekanntmachungen verteilt: Die Tore bleiben zu, und der Strom kommt erst am Morgen.",
+        "Die Abkürzung über den Kirchhügel kenne ich blind. Über die Mauer kommt man trotzdem nicht, nicht mal als Bote.",
+        "Wer mich fragt, bekommt eine ehrliche Antwort, aber nur die, die ich selbst auch weiß."
+      ],
+      "gerede": "Man sagt, der Ratsdiener sei am Brunnen dem Nebelriesen begegnet, aber der Diener hat nur seine Brille verloren."
+    },
+    {
+      "id": "B25",
+      "name": "Sabine Roth",
+      "alter": 36,
+      "geschlecht": "w",
+      "beruf": "Verkäuferin",
+      "wohnhaus": "H-022",
+      "arbeitshaus": "H-022",
+      "wesen": "Freundlich und aufmerksam, sie verkauft Bernstein wie Geschichten und merkt sich jeden Kunden mit seiner Lieblingsfarbe.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "zopf",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Bluse",
+            "rampe": "bernstein",
+            "stufe": 4
+          },
+          {
+            "teil": "Rock",
+            "rampe": "neutral",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Samtbeutel"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft in der kleinen Kammer über dem Laden, die Vorhänge fest zugezogen."
+        },
+        {
+          "von": "02:30",
+          "bis": "03:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie steht auf, weil ein Ast gegen die Scheibe schlägt, und sieht hinunter in den dunklen Laden."
+        },
+        {
+          "von": "03:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie legt sich wieder hin und zieht die Decke bis zum Kinn."
+        }
+      ],
+      "saetze": [
+        "Du willst Bernstein sehen? Den im Schaufenster, nicht den im Gespräch. Der Stein erzählt nichts, er hält nur fest.",
+        "Eine Fliege im Bernstein ist vor Millionen Jahren eingeschlossen worden. Das ist die beste Geschichte im Laden.",
+        "Seit dem Knall ist der Laden so dunkel, dass ich den Bernstein nur noch am Warmwerden erkenne.",
+        "Schreib dir den Namen des Ladens auf, falls du wiederkommst. Ich merke mir Leute, die Bernstein mögen."
+      ],
+      "gerede": "Im Laden munkelt man, der Nebelriese habe einen Bernstein gestohlen, aber der liegt noch im Fenster und kann nicht weglaufen."
+    },
+    {
+      "id": "B26",
+      "name": "Heinz Lehmann",
+      "alter": 68,
+      "geschlecht": "m",
+      "beruf": "Briefträger im Ruhestand",
+      "wohnhaus": "H-008",
+      "arbeitshaus": null,
+      "wesen": "Gemächlich und höflich, er kennt die Adressen der Stadt auswendig und lässt sich nie hetzen.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "kurz",
+        "kopf": "hut",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "blau",
+            "stufe": 3
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Umhängetasche"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "04:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft im Bett, die Tasche mit den alten Umschlägen neben dem Stuhl."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Er steht am Fenster und sieht die Straße hinauf, wo früher die Post kam, bevor der Strom ging."
+        }
+      ],
+      "saetze": [
+        "Du hast keine Post, oder? Das sehe ich. Post kommt zu denen, die warten, und du wirkst wie jemand, der sucht.",
+        "Ich kenne jedes Haus der Oberstadt beim Namen. Am Schiefen Eck habe ich dreißig Jahre lang geklingelt.",
+        "Briefe nach Silberhau gehen jetzt nur noch zu Fuß, falls die Serpentinen frei sind. Das weiß die Post nicht mehr.",
+        "Heute Nacht habe ich nichts ausgetragen, zum ersten Mal seit dreißig Jahren. Das macht mich unruhig."
+      ],
+      "gerede": "Man sagt, der Briefträger kenne den Nebelriesen, weil der keinen Absender hat, aber das ist eine böse Erfindung der Nachbarn."
+    },
+    {
+      "id": "B27",
+      "name": "Anja Wenzel",
+      "alter": 31,
+      "geschlecht": "w",
+      "beruf": "Grafikerin",
+      "wohnhaus": "H-046",
+      "arbeitshaus": null,
+      "wesen": "Ironisch und genau, sie zeichnet jede Gasse der Oberstadt und vergisst dabei die Zeit, bis der Kaffee kalt ist.",
+      "aussehen": {
+        "haar": "schwarz",
+        "frisur": "lang",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Pullover",
+            "rampe": "blau",
+            "stufe": 4
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Skizzenbuch"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:00",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie sitzt am Tisch und zeichnet die Dächer, die im Nebel verschwimmen."
+        },
+        {
+          "von": "02:00",
+          "bis": "03:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie malt weiter, eine Laterne neben dem Block, und lässt das Gesicht des Nebelriesen aus."
+        },
+        {
+          "von": "03:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft am Tisch ein, den Stift noch in der Hand."
+        }
+      ],
+      "saetze": [
+        "Du willst gezeichnet werden? Nein? Gut, dann sitz still, ich brauche die Schatten an deiner Schulter.",
+        "Eine Gasse im Nebel sieht aus wie ein schlechter Traum. Ich liebe sie dafür, und du wirst sie nicht vergessen.",
+        "Mein Vater hat gesagt, man muss die Dinge so zeichnen, wie sie sind, nicht wie man sie gern hätte.",
+        "Das Bild hier zeigt den Uhrturm ohne Licht, mit Schatten um die Zeiger. Mehr kann ich nicht erklären."
+      ],
+      "gerede": "Im Viertel heißt es, die Grafikerin habe den Nebelriesen gezeichnet, aber auf dem Bild sieht er aus wie ein Schrank mit Beinen."
+    },
+    {
+      "id": "B28",
+      "name": "Egon Thalheim",
+      "alter": 84,
+      "geschlecht": "m",
+      "beruf": "Rentner, früher Gießer",
+      "wohnhaus": "H-047",
+      "arbeitshaus": null,
+      "wesen": "Grummelig und stolz auf seine alten Hände, er kennt den Klang jeder Glocke, die je in dieser Stadt gegossen wurde.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "glatze",
+        "kopf": "mütze",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "holz",
+            "stufe": 2
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Hörrohr"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "03:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft unruhig, die Decke bis ans Kinn gezogen, weil es in der Stube kalt wird."
+        },
+        {
+          "von": "03:00",
+          "bis": "04:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Er wacht auf und horcht, ob die Glocke im Hof sich regt, aber der Wind bläst nur."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft bis zum Morgen, das Hörrohr auf dem Nachttisch."
+        }
+      ],
+      "saetze": [
+        "Du willst die Glocken hören? Die sind alle stumm, seit der Strom weg ist. Heute klingt nichts in dieser Stadt.",
+        "Eine Glocke braucht Erz, Feuer und Geduld. Was zu schnell fertig wird, klingt später falsch.",
+        "Ich habe den Guss der großen Glocke erlebt, damals gab es keinen Nebelriesen, den man fürchten musste.",
+        "Hast du die Glockenhalle gesehen? Dann weißt du, wie leise eine Stadt werden kann, wenn sie Angst hat."
+      ],
+      "gerede": "Man erzählt, der alte Thalheim habe in der Gießerei einen Riesen geformt, aber das war nur ein Haufen Lehm mit Ohren."
+    },
+    {
+      "id": "B29",
+      "name": "Greta Bauer",
+      "alter": 19,
+      "geschlecht": "w",
+      "beruf": "Auszubildende im Krämerladen",
+      "wohnhaus": "H-045",
+      "arbeitshaus": "H-108",
+      "wesen": "Frech und neugierig, sie will die Welt verstehen, bevor sie die Lehre beendet, und lässt sich nichts vormachen.",
+      "aussehen": {
+        "haar": "blond",
+        "frisur": "zopf",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Schürze",
+            "rampe": "rot",
+            "stufe": 3
+          },
+          {
+            "teil": "Jacke",
+            "rampe": "neutral",
+            "stufe": 4
+          }
+        ],
+        "zubehoer": [
+          "Kassenbuch"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:00",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie sitzt am Fenster im Dachkämmerchen und hört eine Tür im Hof klappen."
+        },
+        {
+          "von": "01:00",
+          "bis": "05:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft, die Lehrbücher am Bett aufgestapelt wie einen kleinen Turm."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Sie steht auf und räumt im Laden schon die Regale ein, bevor der Morgen kommt."
+        }
+      ],
+      "saetze": [
+        "Du bist also der Detektiv? Ich dachte, du wärst älter, aber die Nacht macht alle älter, sagt meine Chefin.",
+        "Im Krämerladen gibt es alles, außer Antworten. Die musst du dir selbst kaufen, im Schaufenster liegen sie nicht.",
+        "Wenn du etwas über den Knall wissen willst, frag die Alten. Ich war um Mitternacht im Bett, das ist die Wahrheit.",
+        "Mein Chef sagt, der Nebelriese ist ein Märchen. Meine Chefin sagt, er ist der Preis für das Dunkel."
+      ],
+      "gerede": "Im Laden flüstert man, der Nebelriese kaufe nur Knöpfe, und die Krämerin hat ihm gerade drei geschenkt."
+    },
+    {
+      "id": "B30",
+      "name": "Fritz Dietrich",
+      "alter": 56,
+      "geschlecht": "m",
+      "beruf": "Zimmermann",
+      "wohnhaus": "H-048",
+      "arbeitshaus": null,
+      "wesen": "Bodenständig und handfest, er hasst Pfusch mehr als Regen und findet, dass Balken nie täuschen.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "kurz",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "holz",
+            "stufe": 4
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Winkelmaß"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:45",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft fest, weil der Dachstuhl über dem Bett ruhig steht."
+        },
+        {
+          "von": "02:45",
+          "bis": "03:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er wacht auf, weil es im Dachstuhl knackt, und legt die Hand an den Balken."
+        },
+        {
+          "von": "03:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft wieder ein, die Hand noch am warmen Holz."
+        }
+      ],
+      "saetze": [
+        "Du willst wissen, ob ein Dach hält? Dann komm mit nach oben, dort sieht man, was echte Arbeit ist.",
+        "Ein Zapfen, der sitzt, hält hundert Jahre. Einer, der wackelt, verrät dich nach dem ersten Winter.",
+        "Wenn eine Tür klemmt, liegt es selten am Holz. Meistens ist der Rahmen krumm, nicht das Holz.",
+        "Der Nebelriese, sagt man, hockt auf dem Firstbalken. Dann soll er die Last tragen, die er wiegt."
+      ],
+      "gerede": "Man sagt, der Zimmermann habe einen Balken zu viel gesetzt und deshalb knackt das Haus, aber die Rechnung hat er schon bezahlt."
+    },
+    {
+      "id": "B31",
+      "name": "Ruth Köhler",
+      "alter": 64,
+      "geschlecht": "w",
+      "beruf": "Gärtnerin",
+      "wohnhaus": "H-111",
+      "arbeitshaus": null,
+      "wesen": "Erdig und geduldig, sie spricht mit Pflanzen so ausführlich wie mit Nachbarn und hat immer ein Körbchen Kräuter dabei.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "zopf",
+        "kopf": "hut",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "holz",
+            "stufe": 3
+          },
+          {
+            "teil": "Rock",
+            "rampe": "neutral",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Gießkanne"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft im Erkerzimmer, das Fenster zum Garten halb offen."
+        },
+        {
+          "von": "01:00",
+          "bis": "03:00",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie steht am Fenster, weil die Weide im Wind wispert, und lauscht auf jedes Knacken im Garten."
+        },
+        {
+          "von": "03:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft wieder, die Gießkanne neben dem Bett."
+        }
+      ],
+      "saetze": [
+        "Pflanzen spüren Nebel, sie merken es schneller als Menschen. Die Weide dort drüben hat heute Nacht gezittert.",
+        "Du willst Kräuter? Nimm Melisse, die beruhigt. Die Nerven der Stadt sind heute nicht die besten.",
+        "Die Weide am Haus ist so alt wie der Brunnen. Sie hat viel gehört und wenig gesagt, genau wie ich.",
+        "Wenn der Nebelriese durch den Garten käme, zertrampelte er die Beete. Bisher ist nur mein Geduldsfaden zertreten."
+      ],
+      "gerede": "Man erzählt, die Gärtnerin rede nachts mit dem Nebelriesen, weil er die Beete nicht betritt, aber das ist nur Geschwätz vom Zaun."
+    },
+    {
+      "id": "B32",
+      "name": "Matthias Gerlach",
+      "alter": 42,
+      "geschlecht": "m",
+      "beruf": "Schuhmacher",
+      "wohnhaus": "H-032",
+      "arbeitshaus": "H-032",
+      "wesen": "Stolz auf jede Naht und ruhig im Umgang, er repariert Schuhe, die andere längst wegwerfen wollten.",
+      "aussehen": {
+        "haar": "schwarz",
+        "frisur": "kurz",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Schürze",
+            "rampe": "holz",
+            "stufe": 2
+          },
+          {
+            "teil": "Hemd",
+            "rampe": "blau",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Ahle"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "03:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft im Hinterzimmer, neben sich die Schuhe, die morgen fertig sein sollen."
+        },
+        {
+          "von": "03:00",
+          "bis": "04:30",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er sitzt an der Werkbank, weil eine Sohle ihm keine Ruhe lässt."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er klebt die Sohle fest und lauscht, ob der Wind die Gasse entlangschiebt."
+        }
+      ],
+      "saetze": [
+        "Du willst einen Schuh reparieren? Dann gib her, aber sag mir, wo du gewesen bist. Schuhe erzählen das auch.",
+        "Die Sohle, die ich heute Nacht klebe, gehört einer Frau, die viel zu früh loslaufen wollte.",
+        "Mit Leder baut man keine Mauern, aber man hält die Füße trocken. Das reicht für einen Schuster.",
+        "Den Nebelriesen würde meine Frau sagen: Der findet bei dir keine Größe. Und das stimmt."
+      ],
+      "gerede": "Im Viertel flüstert man, der Schuhmacher habe dem Nebelriesen Schuhe gemacht, aber der Riese geht durch den Nebel, als bräuchte er keine."
+    },
+    {
+      "id": "B33",
+      "name": "Elfriede Ahrens",
+      "alter": 79,
+      "geschlecht": "w",
+      "beruf": "Witwe",
+      "wohnhaus": "H-040",
+      "arbeitshaus": null,
+      "wesen": "Freundlich und langsam, sie hat eine Stimme wie Honig und ein Gedächtnis wie ein gut sortiertes Archiv.",
+      "aussehen": {
+        "haar": "weiß",
+        "frisur": "dutt",
+        "kopf": "haube",
+        "kleidung": [
+          {
+            "teil": "Kleid",
+            "rampe": "blau",
+            "stufe": 3
+          },
+          {
+            "teil": "Schal",
+            "rampe": "rot",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Häkelbeutel"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "04:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft im Ohrensessel, die Decke mit den Häkelkanten über den Beinen."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:00",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie wacht auf, weil ihr das Kirchengeläut fehlt, und sitzt still am Fenster."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft wieder ein, bis der Morgen kommt."
+        }
+      ],
+      "saetze": [
+        "Du bist so ein junger Mann, der Fragen stellt. Setz dich, und ich erzähle dir, was ich hier gesehen habe.",
+        "Der Webstuhl im Obergeschoss steht seit dem Hochwasser still. Er vermisst den Schuss, genau wie ich den Mann.",
+        "Im Winter liegt die Oberstadt still wie ein Kuchen unter Schnee. Heute Nacht war er ohne Zucker.",
+        "Wenn du Trost willst, nimm den Tee. Wenn du Wahrheit willst, nimm den Nebel. Beides gibt's hier umsonst."
+      ],
+      "gerede": "Man erzählt, die alte Ahrens habe den Nebelriesen zum Kaffee eingeladen, aber sie hat nur die Nachbarn zur Kuchenrunde gerufen."
+    },
+    {
+      "id": "B34",
+      "name": "Tobias Renner",
+      "alter": 27,
+      "geschlecht": "m",
+      "beruf": "Lagerarbeiter",
+      "wohnhaus": "H-049",
+      "arbeitshaus": "H-006",
+      "wesen": "Kumpelhaft und wortkarg, er trägt Säcke, die zu schwer sind, und lacht, wenn man ihn fragt, warum.",
+      "aussehen": {
+        "haar": "blond",
+        "frisur": "kurz",
+        "kopf": "mütze",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "neutral",
+            "stufe": 4
+          },
+          {
+            "teil": "Hose",
+            "rampe": "holz",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Handschuhe"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:00",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er zählt im Speicher die Säcke durch, weil das Lager für den Winter voll sein soll."
+        },
+        {
+          "von": "02:00",
+          "bis": "04:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er fällt auf die Matratze, die Handschuhe noch an den Händen."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er ist wach, weil der Magen knurrt, und horcht auf die Stille in der Gasse."
+        }
+      ],
+      "saetze": [
+        "Du willst wissen, was ich nachts mache? Säcke zählen. Das versteht keiner, der nur Papier liest.",
+        "Der Speicher ist bis unters Dach voll, und der Ofen ist aus. Zum Glück ist es draußen kalt genug.",
+        "Wenn du mithilfst, kriegst du ein Brot. Die Bäckerin am Untertor backt früh, das weiß hier jeder.",
+        "Den Nebelriesen hab ich nie gesehen. Nur die Kälte, die kommt, wenn er vorbeigeht, die hab ich gespürt."
+      ],
+      "gerede": "Man sagt, der Nebelriese habe im Kornspeicher Säcke geklaut, aber die waren so schwer, dass er sie nicht mal angehoben hat."
+    },
+    {
+      "id": "B35",
+      "name": "Anneliese Gruber",
+      "alter": 58,
+      "geschlecht": "w",
+      "beruf": "Reinigungskraft im Rathaus",
+      "wohnhaus": "H-125",
+      "arbeitshaus": null,
+      "wesen": "Fleißig und verschwiegen, sie putzt jeden Flur so gründlich, dass sie hinterher jeden Winkel kennt.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "dutt",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Kittel",
+            "rampe": "blau",
+            "stufe": 3
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Eimer"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "03:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft in ihrem Bett, die Schürze am Haken, weil sie morgens um sieben im Rathaus sein muss."
+        },
+        {
+          "von": "03:00",
+          "bis": "04:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie wacht auf, weil der Hund des Nachbarn bellt, und schaut hinaus, bis das Bellen aufhört."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft wieder ein, bis der Morgen kommt."
+        }
+      ],
+      "saetze": [
+        "Du willst im Rathaus etwas erfahren? Ich bin nur die, die hinterher sauber macht. Die Arbeit sieht keiner.",
+        "Der Nachtpförtner hat mir gesagt, ich soll die Türen nicht anfassen, bis er sie verriegelt hat. Das mache ich gern.",
+        "Der Eimer steht noch im Flur, weil nach dem Knall niemand Lust hatte zu wischen. Das verstehst du?",
+        "Ich kann nicht viel sagen, ich habe immer nur geputzt. Den Staub erzählt man nicht, der erzählt sich selbst."
+      ],
+      "gerede": "Im Rathaus flüstert man, die Putzfrau habe den Nebelriesen beim Wischen gesehen, aber sie hat nur gelacht und weitergewischt."
+    },
+    {
+      "id": "B36",
+      "name": "Felix Brenner",
+      "alter": 33,
+      "geschlecht": "m",
+      "beruf": "Stromleitungsmonteur",
+      "wohnhaus": "H-120",
+      "arbeitshaus": null,
+      "wesen": "Pragmatisch und schnell im Kopf, er redet mit Kabeln wie mit Freunden und mag die Stille nicht, die der Strom hinterlässt.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "kurz",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "blau",
+            "stufe": 3
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Abisolierzange"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er sitzt am Küchentisch, die Pläne der Leitungen ausgebreitet, und zeichnet die Wege mit dem Finger nach."
+        },
+        {
+          "von": "01:30",
+          "bis": "03:00",
+          "wo": "gasse:Mauerviertel",
+          "zustand": "unterwegs",
+          "tut": "Er geht mit der Laterne zu den Masten entlang der Mauer und prüft die Verbindungen, bis die Finger kalt werden."
+        },
+        {
+          "von": "03:00",
+          "bis": "04:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er ist zurück und schreibt die Ergebnisse in ein Heft, Zeile für Zeile."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft in der Stube, das Heft unter der Hand."
+        }
+      ],
+      "saetze": [
+        "Du willst wissen, wie der Strom in die Stadt kommt? Am besten gar nicht, bis jemand den Fehler findet.",
+        "Die Leitungen laufen wie Adern durch die Gassen. Eine verkehrte Verbindung, und das ganze Viertel ist still.",
+        "Ich bin nur der Monteur. Die Schaltpläne macht ein anderer, aber ich lese sie besser als er.",
+        "Den Nebelriesen würde ich gern mal messen. Aber wer misst schon einen Schatten?"
+      ],
+      "gerede": "Man sagt, der Nebelriese fresse Kabel, aber das hat der Monteur selbst erfunden, um früher Feierabend zu bekommen."
+    },
+    {
+      "id": "B37",
+      "name": "Wolfgang Stiehl",
+      "alter": 61,
+      "geschlecht": "m",
+      "beruf": "Organist",
+      "wohnhaus": "H-089",
+      "arbeitshaus": "H-106",
+      "wesen": "Feinsinnig und ein wenig zerstreut, er spielt jeden Abend, auch wenn kein Mensch zuhört, und hat für die Stille eine eigene Melodie.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "lang",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Mantel",
+            "rampe": "neutral",
+            "stufe": 4
+          },
+          {
+            "teil": "Hemd",
+            "rampe": "blau",
+            "stufe": 5
+          }
+        ],
+        "zubehoer": [
+          "Stimmgabel"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:00",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Er sitzt am Fenster mit der Stimmgabel in der Hand und summt die Tonart, in der die Stadt heute klingt."
+        },
+        {
+          "von": "02:00",
+          "bis": "03:30",
+          "wo": "gasse:Kirchhügel",
+          "zustand": "unterwegs",
+          "tut": "Er geht zur Kirchenburg, weil die Orgel nicht verstummen darf, und prüft das Gebläse."
+        },
+        {
+          "von": "03:30",
+          "bis": "05:00",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er sitzt auf der Orgelbank, die Hände auf den Tasten, ohne zu spielen."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er legt sich hin, die Stimmgabel auf dem Nachttisch."
+        }
+      ],
+      "saetze": [
+        "Du willst Musik hören? Das Gebläse braucht Strom, also tritt man den Blasebalg selbst, bis die Füße wehtun.",
+        "Die Kirchenburg hat dicke Mauern und einen Wehrgang, deshalb klingt die Orgel dort wie in einer Höhle.",
+        "Wer nachts Orgel hört, bleibt stehen, sagt man. Vielleicht ist es die Stille, die den Nebelriesen anlockt.",
+        "Hör zu, wie der Nebel das Glockenspiel verschluckt. Das ist die Melodie der heutigen Nacht."
+      ],
+      "gerede": "Man erzählt, der Organist habe den Nebelriesen mit der Orgel aufgeweckt, aber der Riese mag nur tiefe Töne, und die gibt es hier nicht."
+    },
+    {
+      "id": "B38",
+      "name": "Hildegard Mosch",
+      "alter": 73,
+      "geschlecht": "w",
+      "beruf": "Schneiderin",
+      "wohnhaus": "H-101",
+      "arbeitshaus": null,
+      "wesen": "Spitzzüngig und gutmütig, sie näht Hochzeitskleider und kritisiert jede Naht, die sie nicht selbst gesetzt hat.",
+      "aussehen": {
+        "haar": "weiß",
+        "frisur": "dutt",
+        "kopf": "haube",
+        "kleidung": [
+          {
+            "teil": "Kleid",
+            "rampe": "bernstein",
+            "stufe": 3
+          },
+          {
+            "teil": "Schürze",
+            "rampe": "neutral",
+            "stufe": 6
+          }
+        ],
+        "zubehoer": [
+          "Maßband"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "04:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft in der Kammer unter dem Dach, wo früher die Pilger schliefen, und träumt von Stoffen."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:00",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie steht auf und näht im Halbdunkel einen Saum, weil der Gedanke an eine Hochzeit sie nicht loslässt."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie legt sich noch einmal hin, die Nadel im Kissen."
+        }
+      ],
+      "saetze": [
+        "Du bist zu zerzaust für einen Anzug. Setz dich hin, ich messe dich, dann redest du besser.",
+        "Hochzeitskleider nähe ich seit vierzig Jahren. Die halten, wenn die Naht richtig sitzt, sonst nicht.",
+        "Den Saum habe ich heute Nacht zweimal aufgetrennt, weil die Hand nicht ruhig war. Das passiert, wenn man Angst hat.",
+        "Der Nebelriese, sagt man, hat keine Schneiderin. Deshalb läuft er zerlumpt durch die Gassen. Da hast du's."
+      ],
+      "gerede": "Im Viertel flüstert man, die Schneiderin habe dem Nebelriesen einen Mantel geschneidert, aber sie hat ihn nie gesehen, nur das Maß genommen."
+    },
+    {
+      "id": "B39",
+      "name": "Leopold Engel",
+      "alter": 46,
+      "geschlecht": "m",
+      "beruf": "Fuhrunternehmer",
+      "wohnhaus": "H-056",
+      "arbeitshaus": "H-056",
+      "wesen": "Laut und großzügig, er schleppt jede Kiste umsonst, wenn der Nachbar Hilfe braucht, und flucht danach über die Kosten.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "kraus",
+        "kopf": "mütze",
+        "kleidung": [
+          {
+            "teil": "Weste",
+            "rampe": "rot",
+            "stufe": 3
+          },
+          {
+            "teil": "Hose",
+            "rampe": "holz",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Ladeliste"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:00",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Er steht am Fenster und zählt die Karren im Hof, die er morgen beladen muss."
+        },
+        {
+          "von": "01:00",
+          "bis": "04:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft in seinem Zimmer neben dem Hof, weil ihm der Schlaf zufällt, bevor er zu Ende zählen kann."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:00",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er spannt das Pferd ein, bereit für die erste Lieferung, sobald die Straße frei ist."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er belädt den Wagen mit Kisten und wartet, bis es hell genug zum Fahren ist."
+        }
+      ],
+      "saetze": [
+        "Du willst mit dem Wagen fahren? Nicht bei diesem Nebel, der frisst dir die Räder vom Karren. Setz dich, warte.",
+        "Ich fahre Holz, Kohle und Kisten bis nach Silberhau, wenn die Straße frei ist. Die ist es jetzt nicht.",
+        "Die Pferde sind unruhig heute Nacht. Sie riechen etwas, das wir nicht riechen. Das kann Nebel sein.",
+        "Schreib dir meine Nummer auf, aber nicht den Preis. Der ändert sich mit dem Wetter und dem Humor."
+      ],
+      "gerede": "Man sagt, der Fuhrmann habe den Nebelriesen auf dem Wagen mitgenommen, aber der Wagen war danach schwerer, nicht voller."
+    },
+    {
+      "id": "B40",
+      "name": "Walter Dorn",
+      "alter": 68,
+      "geschlecht": "m",
+      "beruf": "Friedhofsgärtner",
+      "wohnhaus": "H-090",
+      "arbeitshaus": "H-106",
+      "wesen": "Ruhig wie die Gräber, die er pflegt, und ein wenig schwermütig, aber er lacht über jeden Witz, der auf dem Friedhof gemacht wird.",
+      "aussehen": {
+        "haar": "keins",
+        "frisur": "glatze",
+        "kopf": "hut",
+        "kleidung": [
+          {
+            "teil": "Mantel",
+            "rampe": "stein",
+            "stufe": 4
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Schaufel"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft neben dem Ölbaum im Haus, die Schuhe griffbereit vor dem Bett."
+        },
+        {
+          "von": "02:00",
+          "bis": "03:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Er steht am Fenster und sieht den Friedhof im Nebel, die Kreuze wie kleine Wächter."
+        },
+        {
+          "von": "03:30",
+          "bis": "05:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft bis zum Morgen, die Hände im Schoß."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er wacht auf, zieht den Mantel an und denkt schon an die Kerzen auf den Gräbern."
+        }
+      ],
+      "saetze": [
+        "Du fragst nach der Nacht auf dem Friedhof? Ruhig war sie. Die Toten machen keinen Lärm, nur die Lebenden.",
+        "Die Holztreppe zur Kirche ist glatt bei Eisnebel. Halt dich am Geländer fest, bevor du stürzt.",
+        "Ich pflege die Gräber seit dreißig Jahren. Auf einem steht ein Name aus dem Bergland, mehr sage ich nicht.",
+        "Wenn der Nebelriese auf dem Friedhof stünde, würde er den Kies nicht knirschen hören. Das ist seine Stärke."
+      ],
+      "gerede": "Man erzählt, der Friedhofsgärtner habe den Nebelriesen zwischen den Kreuzen gesehen, aber er hat nur den eigenen Schatten erschreckt."
+    },
+    {
+      "id": "B41",
+      "name": "Nora Stahl",
+      "alter": 24,
+      "geschlecht": "w",
+      "beruf": "Bedienung in der Teestube",
+      "wohnhaus": "H-122",
+      "arbeitshaus": "H-029",
+      "wesen": "Quirlig und schlagfertig, sie erinnert sich an jede Bestellung und erkennt drei Teesorten am Geruch.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "zopf",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Bluse",
+            "rampe": "neutral",
+            "stufe": 6
+          },
+          {
+            "teil": "Schürze",
+            "rampe": "blau",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Teesieb"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:30",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie sitzt im Dachzimmer und riecht im Nebel den Rauch vom Ofen der Teestube."
+        },
+        {
+          "von": "01:30",
+          "bis": "04:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft, das Teesieb neben dem Bett wie eine Erinnerung."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:00",
+          "wo": "gasse:Marktviertel",
+          "zustand": "unterwegs",
+          "tut": "Sie geht zur Teestube hinunter, um den Ofen anzuheizen, die Laterne voraus."
+        },
+        {
+          "von": "05:00",
+          "bis": "05:30",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Sie stellt die Tassen auf den Tresen, obwohl noch niemand kommt."
+        }
+      ],
+      "saetze": [
+        "Du willst Tee? Ich koche dir einen, aber nur, wenn du nicht über den Knall redest. Das macht die Tassen bitter.",
+        "Der Tee im Regal ist grün, der im Glas schwarz. Die Mischung kennt nur die Chefin, und die verrät nichts.",
+        "Wenn der Nebel kommt, bleiben alle länger sitzen. Heute war es das erste Mal, dass keiner gegangen ist.",
+        "Die Laterne über der Theke ist meine Lieblingslampe. Heute Nacht habe ich sie nicht angezündet, weil ich Angst hatte."
+      ],
+      "gerede": "Im Viertel heißt es, die Bedienung kenne den Nebelriesen vom Teetrinken, aber der Riese bestellt nur Schweigen."
+    },
+    {
+      "id": "B42",
+      "name": "Stefan Kolb",
+      "alter": 50,
+      "geschlecht": "m",
+      "beruf": "Verwaltungsangestellter im Rathaus",
+      "wohnhaus": "H-054",
+      "arbeitshaus": "H-030",
+      "wesen": "Korrekt und unauffällig, er führt Listen über alles, auch über Dinge, die niemand wissen will, und merkt sich jede Zahl.",
+      "aussehen": {
+        "haar": "braun",
+        "frisur": "kurz",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Jacke",
+            "rampe": "neutral",
+            "stufe": 4
+          },
+          {
+            "teil": "Hemd",
+            "rampe": "blau",
+            "stufe": 6
+          }
+        ],
+        "zubehoer": [
+          "Aktenordner"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "03:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft mit einem Ohr zum Fenster, weil ein Kollege ihn gewarnt hat, dass die Nächte unruhig werden."
+        },
+        {
+          "von": "03:00",
+          "bis": "04:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Er steht auf und schreibt die Zählerstände der Häuser auf ein Blatt, Haus für Haus."
+        },
+        {
+          "von": "04:30",
+          "bis": "05:30",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er ist im Rathaus, sortiert die Ordner und wartet auf den Nachtpförtner."
+        }
+      ],
+      "saetze": [
+        "Du bist Ermittler, ja? Dann brauchst du eine Liste. Ich führe alle Listen, die diese Stadt je hatte.",
+        "Mein Ordner für heute Nacht ist leer. Das ist das Schlimmste, was einem Verwalter passieren kann.",
+        "Die Zählerstände sind seit dem Knall eingefroren. Daraus ergibt sich keine Zahl, die man verstehen kann.",
+        "Schreib nichts in meine Akten, dann schreibe ich auch nichts in deine."
+      ],
+      "gerede": "Man sagt, der Verwaltungsangestellte kenne jeden Nebelriesen der Stadt, weil er alle Anträge für Kälteschäden bearbeitet."
+    },
+    {
+      "id": "B43",
+      "name": "Erika Schöning",
+      "alter": 85,
+      "geschlecht": "w",
+      "beruf": "Rentnerin, Stammgast der Bibliothek",
+      "wohnhaus": "H-103",
+      "arbeitshaus": null,
+      "wesen": "Hellwach im Kopf und langsam im Gang, sie liest jeden Abend zwei Bücher, auch wenn die Lampe nur noch flackert.",
+      "aussehen": {
+        "haar": "weiß",
+        "frisur": "dutt",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Kleid",
+            "rampe": "blau",
+            "stufe": 2
+          },
+          {
+            "teil": "Umhang",
+            "rampe": "neutral",
+            "stufe": 3
+          }
+        ],
+        "zubehoer": [
+          "Lesebrille"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "01:30",
+          "wo": "wohnhaus",
+          "zustand": "wach",
+          "tut": "Sie liest bei Kerzenlicht im Sessel, das Buch auf dem Schoß, und blättert langsam."
+        },
+        {
+          "von": "01:30",
+          "bis": "02:00",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft ein, das Buch aufgeschlagen auf der Brust."
+        },
+        {
+          "von": "02:00",
+          "bis": "03:00",
+          "wo": "fenster",
+          "zustand": "wach",
+          "tut": "Sie steht auf, weil ein Vogel ans Fenster schlägt, und sieht den Schatten der Dächer."
+        },
+        {
+          "von": "03:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Sie schläft bis zum Morgen."
+        }
+      ],
+      "saetze": [
+        "Du bist also der, der Fragen stellt. Ich habe nichts gegen Fragen, nur gegen schlechte Antworten.",
+        "Ich lese jede Nacht, auch im Dunkeln. Wer liest, sieht mehr, als die Augen zeigen.",
+        "In der Bibliothek gibt es eine Kammer voll Briefe von Schreibern, die längst still sind. Die reden lauter als wir.",
+        "Der Nebelriese in den Büchern ist ein Bär mit Hut. Der echte ist sicher bescheidener, sagt meine Enkelin."
+      ],
+      "gerede": "Man sagt, die alte Schöning lese dem Nebelriesen aus den Büchern vor, aber er schläft lieber, wenn es um Liebesbriefe geht."
+    },
+    {
+      "id": "B44",
+      "name": "Bernhard Seiler",
+      "alter": 60,
+      "geschlecht": "m",
+      "beruf": "Seiler",
+      "wohnhaus": "H-034",
+      "arbeitshaus": "H-034",
+      "wesen": "Hart und treu, er dreht Stricke, die jeden Sturm überstehen, und hat mit Lehrlingen eine Engelsgeduld.",
+      "aussehen": {
+        "haar": "grau",
+        "frisur": "kurz",
+        "kopf": "keine",
+        "kleidung": [
+          {
+            "teil": "Weste",
+            "rampe": "holz",
+            "stufe": 3
+          },
+          {
+            "teil": "Hose",
+            "rampe": "neutral",
+            "stufe": 2
+          }
+        ],
+        "zubehoer": [
+          "Garnrolle"
+        ]
+      },
+      "nacht": [
+        {
+          "von": "00:25",
+          "bis": "02:30",
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er dreht im Speicher Seilstränge, die Hände rau vom Hanf, und zählt die Windungen."
+        },
+        {
+          "von": "02:30",
+          "bis": "04:00",
+          "wo": "arbeitshaus",
+          "zustand": "wach",
+          "tut": "Er hört den Wind durch die Luken streichen und bindet einen Knoten, der nicht reißen soll."
+        },
+        {
+          "von": "04:00",
+          "bis": "05:30",
+          "wo": "wohnhaus",
+          "zustand": "schläft",
+          "tut": "Er schläft auf dem Stuhl neben dem Ofen, das Seil über der Lehne."
+        }
+      ],
+      "saetze": [
+        "Du willst einen Strick? Nein? Dann sag mir wenigstens, wo du dich festhältst. Ein guter Griff ist alles in dieser Nacht.",
+        "Hanf verträgt Nebel besser als Menschen. Er wird nicht schlaff, egal wie kalt es wird.",
+        "Mein Speicher hat Seilstränge bis zur Decke. Du kannst daran ziehen, aber nicht an mir.",
+        "Wer sich verirrt, folgt dem Seil. Das hat mir mein Großvater gesagt, und der Riese hat keinen Faden in der Hand."
+      ],
+      "gerede": "Man erzählt, der Seiler habe dem Nebelriesen ein Seil gedreht, und der Riese sei damit ins Tal gerutscht, aber das hat niemand gesehen."
+    }
+  ]
+}

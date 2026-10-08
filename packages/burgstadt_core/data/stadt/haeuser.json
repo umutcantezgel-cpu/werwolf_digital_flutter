@@ -1,0 +1,2013 @@
+{
+  "version": 1,
+  "haeuser": [
+    {
+      "id": "H-001",
+      "viertel": "Marktviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Rosenstock",
+      "inschrift": "Der Rosenstock blüht, wenn die Tür zu ist · 1648",
+      "geschichte": "Der Rosenstock an der Hauswand ist älter als das Dach, und wer ihn schneidet, bekommt im Winter die Zinsen dafür. Die Familie Ebner zahlt sie seit 1902 pünktlich.",
+      "betretbar": true,
+      "innenraum": "Wohnstube",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-002",
+      "viertel": "Marktviertel",
+      "typ": "Eckhaus",
+      "name": "Eckhaus am Pferdebrunnen",
+      "inschrift": "Wer um die Ecke geht, kommt wieder · 1787",
+      "geschichte": "Die Ecke ist abgeschrägt, damit die Fuhrwerke um den Brunnen herumkommen. Seit einer Generation hält sich niemand mehr an die Abschrägung, und der Putz ist dort abgeplatzt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-003",
+      "viertel": "Marktviertel",
+      "typ": "Laden",
+      "name": "Haus zum Goldenen Hut",
+      "inschrift": "Hut auf, Kopf hoch, Preis niedrig · 1859",
+      "geschichte": "Der Hutmacher hat seine Auslage nie geputzt, sondern nur mit Staub gepflegt, weil der Staub die Farben hält. Wer eine Mütze sucht, findet bei ihm noch eine aus dem Vorjahr.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": [
+        "B22"
+      ]
+    },
+    {
+      "id": "H-004",
+      "viertel": "Marktviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Eule",
+      "inschrift": "Die Eule sieht, was der Mond verschweigt · 1603",
+      "geschichte": "Eine steinerne Eule sitzt über dem Dachfenster und schaut immer zum Berg hinauf. Die Nachbarn sagen, sie habe die Stadt vor drei Feuern bewahrt, zählen aber nur zwei.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B18"
+      ]
+    },
+    {
+      "id": "H-005",
+      "viertel": "Marktviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Schwarzen Adler",
+      "inschrift": "Der Adler wacht, die Stube schläft · 1694",
+      "geschichte": "Der Adler aus schwarzem Eisen hat einen Flügel verloren, und seither dreht er sich nach jedem Wind anders herum. Im Erdgeschoss riecht es nach Bohnerwachs und Tee.",
+      "betretbar": true,
+      "innenraum": "Wohnstube",
+      "ort": null,
+      "bewohner": [
+        "B07"
+      ]
+    },
+    {
+      "id": "H-006",
+      "viertel": "Marktviertel",
+      "typ": "Speicher",
+      "name": "Kornspeicher am Markt",
+      "inschrift": "Was der Speicher hält, hält der Speicher · 1544",
+      "geschichte": "Hier wurde früher das Korn für den Winter gelagert, und die Luken im dritten Stock sind bis heute mit Eisen beschlagen. Heute steht nur noch Gerümpel auf den Dielen.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-007",
+      "viertel": "Marktviertel",
+      "typ": "Laubenhaus",
+      "name": "Haus zum Silbernen Stern",
+      "inschrift": "Ein Stern im Silber, ein Licht im Haus · 1768",
+      "geschichte": "Der Stern an der Fassade ist aus Blech und hat zwei Zacken weniger als das Wappen der Stadt. Die Frau des Uhrmachers hat ihn gemalt, weil ihr Mann die Zacken nie zählen konnte.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B21"
+      ]
+    },
+    {
+      "id": "H-008",
+      "viertel": "Marktviertel",
+      "typ": "Eckhaus",
+      "name": "Haus am Schiefen Eck",
+      "inschrift": "Schief steht, was lange steht · 1566",
+      "geschichte": "Das Eckhaus neigt sich seit Jahrhunderten zum Brunnen, sodass Kinder ihre Murmeln gern hinüberrollen lassen. Ein Geometer hat einmal gemessen und dann aufgehört, aus Mitleid mit dem Haus.",
+      "betretbar": true,
+      "innenraum": "Wohnstube",
+      "ort": null,
+      "bewohner": [
+        "B26"
+      ]
+    },
+    {
+      "id": "H-009",
+      "viertel": "Marktviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Hirschen",
+      "inschrift": "Der Hirsch springt, der Dachboden nicht · 1733",
+      "geschichte": "Ein Hirschgeweih hängt im Treppenhaus, dessen Spitzen seit dem letzten Umzug fehlen. Man sagt, der Hirsch sei einem Kutscher aus dem Fenster gefallen und habe seither den Stolz verloren.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B23"
+      ]
+    },
+    {
+      "id": "H-010",
+      "viertel": "Marktviertel",
+      "typ": "Laden",
+      "name": "Haus zum Gänsekiel",
+      "inschrift": "Gänsekiel und Tinte, gute Schrift für jedermann · 1819",
+      "geschichte": "Im Schaufenster liegen noch Gänsekiele, obwohl der Laden längst Füllfedern verkauft. Der Besitzer schreibt damit abends seine Einkaufslisten, und alle paar Wochen bricht eine Feder.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": [
+        "B09"
+      ]
+    },
+    {
+      "id": "H-011",
+      "viertel": "Marktviertel",
+      "typ": "Eckhaus",
+      "name": "Haus am Kirschbaum",
+      "inschrift": "Der Baum trägt, das Dach hält · 1856",
+      "geschichte": "Ein alter Kirschbaum wächst mitten im Hinterhof und hat schon zwei Zäune überwachsen. Im Sommer hängen die Früchte über die Gasse, und die Kinder dürfen sie pflücken, wenn sie fragen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B24"
+      ]
+    },
+    {
+      "id": "H-012",
+      "viertel": "Marktviertel",
+      "typ": "Speicher",
+      "name": "Salzspeicher",
+      "inschrift": "Salz hält, was Fleisch nicht hält · 1585",
+      "geschichte": "Im Salzspeicher lagerte einst das Salz aus dem Bergland, das die Stadt über den Winter bringen musste. Der Geruch ist nach vierhundert Jahren noch so scharf, dass Fremde husten.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-013",
+      "viertel": "Marktviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Anker",
+      "inschrift": "Der Anker hält, auch wenn das Meer fehlt · 1698",
+      "geschichte": "Der Anker über der Tür stammt von einem Flusskahn, den niemand mehr kennt, und trägt noch einen Rest Schiffslack. Die Hausleute erzählen, er habe schon in drei Stürmen das Dach gehalten.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-014",
+      "viertel": "Marktviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Laterne",
+      "inschrift": "Ein Licht am Haus, ein Licht im Herzen · 1809",
+      "geschichte": "Über der Tür hängt eine eiserne Laterne, die nie ausgeht, sobald jemand im Haus wach ist. Heute Nacht war sie dunkel, und die Bewohnerin fand das weniger beunruhigend als den Rest der Stadt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-015",
+      "viertel": "Marktviertel",
+      "typ": "Laden",
+      "name": "Haus zur Harfe",
+      "inschrift": "Die Saite singt, die Tür klemmt · 1792",
+      "geschichte": "Im Laden hängen Harfen in der Auslage, die niemand kauft, weil sie zu groß für die Wohnungen sind. Der Händler spielt abends eine davon, bis der Nachbar klopft und um Ruhe bittet.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": [
+        "B19"
+      ]
+    },
+    {
+      "id": "H-016",
+      "viertel": "Marktviertel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Ritter",
+      "inschrift": "Der Ritter schweigt, die Mauer redet · 1622",
+      "geschichte": "Ein steinerner Ritter lehnt an der Ecke und hält kein Schwert mehr, nur noch einen Stock. Die Jungen aus der Gasse haben ihm einen Hut aufgesetzt, den die Stadtverwaltung dreimal abgenommen hat.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-017",
+      "viertel": "Marktviertel",
+      "typ": "Laubenhaus",
+      "name": "Haus zur Mühle",
+      "inschrift": "Das Rad dreht sich, das Mehl bleibt · 1701",
+      "geschichte": "Das Mühlrad ist seit hundert Jahren trocken und steht als Gartendeko zwischen den Lauben. Im Frühjahr sprießen Kräuter aus den Speichen, und der Besitzer behauptet, sie mahlen von selbst.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-018",
+      "viertel": "Marktviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Bären",
+      "inschrift": "Der Bär hält Wache vor der Schwelle · 1651",
+      "geschichte": "Ein Bär aus Sandstein sitzt auf der Treppe und hat die Schwelle seit dreihundert Jahren weißgescheuert. Die Familie tauft jedes Kind auf diesem Stein, bevor es in die Kirche darf.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B20"
+      ]
+    },
+    {
+      "id": "H-019",
+      "viertel": "Marktviertel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Lindenbaum",
+      "inschrift": "Unter der Linde spricht man leise · 1883",
+      "geschichte": "Die Linde im Hof ist so breit, dass zwei Bänke darunter passen, und die alten Leute reden dort seit Jahren über das Wetter. Heute Nacht hat niemand gesprochen, weil es dunkel war.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-020",
+      "viertel": "Marktviertel",
+      "typ": "Speicher",
+      "name": "Zunftspeicher der Tuchmacher",
+      "inschrift": "Tuch und Tafel, Zunft und Zeit · 1602",
+      "geschichte": "Die Tuchmacher lagerten hier ihre Ballen bis zur Messe, und an den Balken hängen noch die Zählsteine aus Holz. Ein Kind hat einmal eins davon mitgenommen und nach einer Woche wieder zurückgebracht.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-021",
+      "viertel": "Marktviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Kranich",
+      "inschrift": "Der Kranich steht auf einem Bein · 1775",
+      "geschichte": "Der Kranich aus Blei steht auf einem Bein über der Tür und hält einen Ring im Schnabel. Wer den Ring dreimal dreht, bekommt angeblich eine kurze Antwort auf eine Frage, aber niemand hat es ausprobiert.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-022",
+      "viertel": "Marktviertel",
+      "typ": "Laden",
+      "name": "Haus zum Bernstein",
+      "inschrift": "Was im Bernstein liegt, bleibt liegen · 1883",
+      "geschichte": "Im Schaufenster liegen Steine mit eingeschlossenen Fliegen, die der Händler aus dem Bergland bezieht. Eine Kundin hat einmal versucht, eine Fliege durch das Glas zu befreien, und wurde gebeten zu gehen.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": [
+        "B25"
+      ]
+    },
+    {
+      "id": "H-023",
+      "viertel": "Marktviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Pelikan",
+      "inschrift": "Der Pelikan füttert, was er liebt · 1690",
+      "geschichte": "Der Pelikan aus Kupfer ist grün angelaufen und hält die Schnabelöffnung der Dachrinne offen. Bei Regen schüttet er das Wasser in den Hof, sodass die Hühner dort nie trocken stehen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B16"
+      ]
+    },
+    {
+      "id": "H-024",
+      "viertel": "Marktviertel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Sonnenrad",
+      "inschrift": "Das Rad der Sonne bleibt stehen, wenn es will · 1748",
+      "geschichte": "Über dem Erker dreht sich ein Sonnenrad aus Holz, das die Stunden anzeigt, sofern der Wind es erlaubt. In dieser Nacht stand es still, und der Besitzer hat es seit dem Knall nicht mehr angefasst.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B17"
+      ]
+    },
+    {
+      "id": "H-025",
+      "viertel": "Marktviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Glocke",
+      "inschrift": "Die Glocke ruft, der Hof schweigt · 1609",
+      "geschichte": "Eine kleine Glocke hängt am Eingang und schlägt bei jedem Öffnen der Tür an, was die Bewohner nach dreihundert Jahren nicht mehr hören. Die Besucher dagegen hören sie und bleiben stehen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B15"
+      ]
+    },
+    {
+      "id": "H-026",
+      "viertel": "Marktviertel",
+      "typ": "Uhrturm",
+      "name": "Uhrturm am Marktplatz",
+      "inschrift": "Ich zähle die Stunden, nicht die Schuld · 1717",
+      "geschichte": "Das Uhrwerk läuft mechanisch und ohne Strom, deshalb hat es den Knall kurz vor Mitternacht nicht einmal bemerkt. Der Turm schlägt die Nachtphasen an, als wäre nichts geschehen.",
+      "betretbar": true,
+      "innenraum": "Uhrwerk",
+      "ort": "ORT-01",
+      "bewohner": [
+        "B02"
+      ]
+    },
+    {
+      "id": "H-027",
+      "viertel": "Marktviertel",
+      "typ": "Museum",
+      "name": "Stadtmuseum am Marktplatz",
+      "inschrift": "Bewahrt, was die Zeit vergessen will · 1893",
+      "geschichte": "Im Stadtmuseum hängen Karten mit Fundnummern, und auf einer davon steht, dass eine Münze aus der Zeit des Silberbergbaus als Leihgabe an die Burg gegangen ist. Die Kustodin hat die Karte seither nicht mehr angefasst.",
+      "betretbar": true,
+      "innenraum": "Museum",
+      "ort": "ORT-02",
+      "bewohner": []
+    },
+    {
+      "id": "H-028",
+      "viertel": "Marktviertel",
+      "typ": "Pension",
+      "name": "Pension Zum Uhrturm",
+      "inschrift": "Gäste willkommen, Betten gewärmt · 1880",
+      "geschichte": "Die Pension hat acht Zimmer, und die Wäsche trägt das Zeichen Schartenfels 7, damit sie nie verwechselt wird. Von der Dachkammer sieht man den Uhrturm so nah, dass man die Zeiger zählen kann.",
+      "betretbar": true,
+      "innenraum": "Pension",
+      "ort": "ORT-03",
+      "bewohner": [
+        "B01"
+      ]
+    },
+    {
+      "id": "H-029",
+      "viertel": "Marktviertel",
+      "typ": "Teestube",
+      "name": "Teestube Zur Laterne",
+      "inschrift": "Tee für jeden, Platz für alle · 1926",
+      "geschichte": "Die Teestube hat zwanzig Sorten Tee und eine Laterne über der Theke, die bei jedem Besuch neu angezündet wird. Seit dem Knall reden die Leute dort über nichts anderes als den Stromausfall.",
+      "betretbar": true,
+      "innenraum": "Teestube",
+      "ort": "ORT-07",
+      "bewohner": []
+    },
+    {
+      "id": "H-030",
+      "viertel": "Marktviertel",
+      "typ": "Amtshaus",
+      "name": "Rathaus Schartenfels",
+      "inschrift": "Recht ist Recht, auch bei Kerzenlicht · 1738",
+      "geschichte": "Im Ratssaal hängt eine Tafel mit allen Bürgermeistern seit 1601. Seit dem Stromausfall verriegelt der Nachtpförtner jede Tür einzeln, obwohl dort niemand etwas zu holen hat.",
+      "betretbar": true,
+      "innenraum": "Amtsstube",
+      "ort": "ORT-09",
+      "bewohner": []
+    },
+    {
+      "id": "H-031",
+      "viertel": "Handwerkergasse",
+      "typ": "Werkstatt",
+      "name": "Haus zum Amboss",
+      "inschrift": "Der Hammer singt, der Amboss hält · 1696",
+      "geschichte": "Vor der Schmiede steht ein Amboss so blank poliert, dass sich die Gasse darin spiegelt. Der Schmied sagt, er habe ihn zuletzt vor drei Wochen angefasst, und das Eisen lag schon damals warm.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-032",
+      "viertel": "Handwerkergasse",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Schuh",
+      "inschrift": "Jeder Schritt braucht ein gutes Leder · 1748",
+      "geschichte": "Über der Tür hängt ein großer Holzschuh, den die Schusterfamilie als Zunftzeichen seit der Gründung trägt. Die Kinder der Gasse legen Münzen hinein, wenn sie den Schuh ihrer Mutter wieder abholen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B32"
+      ]
+    },
+    {
+      "id": "H-033",
+      "viertel": "Handwerkergasse",
+      "typ": "Werkstatt",
+      "name": "Färberei zum Blauen Faß",
+      "inschrift": "Im blauen Bad wird aus Weiß ein Versprechen · 1811",
+      "geschichte": "Die Küpen im Hof stinken nach Waid, und die Färberin lässt die Stoffe an der Leine trocknen, bis sie wie Himmel über dem Dach hängen. Ihre Hände sind dauerhaft blau, und sie findet das eher schön als lästig.",
+      "betretbar": true,
+      "innenraum": "Werkstatt",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-034",
+      "viertel": "Handwerkergasse",
+      "typ": "Speicher",
+      "name": "Haus zum Seil",
+      "inschrift": "Ein Strang hält, wo zwei sich lösen · 1632",
+      "geschichte": "Im Speicher hängt ein Seilerschaft von der Decke bis in den Hof, und man kann auf ihm vom dritten Stock bis zum Pflaster hinabgleiten. Der Seiler hat es nie getan, aber jedes Kind der Gasse hat es versucht.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B44"
+      ]
+    },
+    {
+      "id": "H-035",
+      "viertel": "Handwerkergasse",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Hobel",
+      "inschrift": "Was glatt wird, braucht den Hobel · 1769",
+      "geschichte": "In der Hauswand steckt ein alter Hobel als Dekoration, dessen Eisen längst fehlt. Der Drechsler wohnt im Obergeschoss und klopft abends mit dem Stock auf die Dielen, damit die Nachbarn wissen, dass er noch da ist.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B11"
+      ]
+    },
+    {
+      "id": "H-036",
+      "viertel": "Handwerkergasse",
+      "typ": "Laden",
+      "name": "Glaserei an der Gasse",
+      "inschrift": "Durch das Glas sieht man weiter · 1857",
+      "geschichte": "Die Scheiben im Schaufenster sind leicht wellig, weil das Glas noch in der alten Hütte gegossen wurde. Der Glaser verkauft nur Stücke, die mit einem Blasen im Glas zu wenig Perfektion haben, und das gilt ihm als Ehre.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": [
+        "B12"
+      ]
+    },
+    {
+      "id": "H-037",
+      "viertel": "Handwerkergasse",
+      "typ": "Eckhaus",
+      "name": "Haus zum Kessel",
+      "inschrift": "Im Kessel brodelt, was die Gasse nährt · 1703",
+      "geschichte": "Der große Kupferkessel steht seit dem Brand auf dem Hof, halb mit Regenwasser gefüllt. Im Sommer schwimmen Vögel darin, und der Kesselschmied hat sich geweigert, das Wasser abzulassen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B10"
+      ]
+    },
+    {
+      "id": "H-038",
+      "viertel": "Handwerkergasse",
+      "typ": "Speicher",
+      "name": "Haus zur Sattelkammer",
+      "inschrift": "Das Leder knarrt, der Sattel trägt · 1672",
+      "geschichte": "In der Kammer lagern Sättel aus drei Jahrhunderten, und der Geruch von Fett und altem Leder ist so dicht, dass er im Treppenhaus haften bleibt. Der Sattler verkauft nur noch Reparaturen, weil keiner mehr reitet.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-039",
+      "viertel": "Handwerkergasse",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Tiegel",
+      "inschrift": "Im Tiegel schmilzt, was die Hand formt · 1790",
+      "geschichte": "Die Töpferin hat über dem Eingang ein Tongefäß eingemauert, das bei jedem Regen ein wenig Wasser nachtropft. Sie sagt, es zähle die Gewitter, und ihre Teller hätten in diesem Jahr dreizehnmal dem Wetter getrotzt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-040",
+      "viertel": "Handwerkergasse",
+      "typ": "Laubenhaus",
+      "name": "Haus zum Weber",
+      "inschrift": "Schuss und Kette halten sich fest · 1581",
+      "geschichte": "Im Obergeschoss steht noch ein Webstuhl mit halbfertigem Stoff, der seit dem Hochwasser nicht weitergewebt wurde. Die Enkelin hat versprochen, den Faden zu Ende zu ziehen, sobald die Tage länger werden.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B33"
+      ]
+    },
+    {
+      "id": "H-041",
+      "viertel": "Handwerkergasse",
+      "typ": "Werkstatt",
+      "name": "Drechslerei am Brunnen",
+      "inschrift": "Ein Holzkopf dreht sich von allein · 1864",
+      "geschichte": "Die Drechslerbank steht am Fenster, damit der Meister bei Tageslicht arbeiten kann, und die Späne bilden auf der Schwelle einen Teppich. Er fertigt Spielzeugkreisel, die sich bei Stromausfall nicht stören lassen.",
+      "betretbar": true,
+      "innenraum": "Werkstatt",
+      "ort": null,
+      "bewohner": [
+        "B14"
+      ]
+    },
+    {
+      "id": "H-042",
+      "viertel": "Handwerkergasse",
+      "typ": "Eckhaus",
+      "name": "Haus zum Löwen",
+      "inschrift": "Der Löwe hütet die Schwelle, nicht den Schatz · 1656",
+      "geschichte": "Ein steinerner Löwe hält an der Ecke ein Wappen, das so verwittert ist, dass nur die Krone noch zu erkennen ist. Die Gerber haben in den Jahren vor dem Krieg den Löwen ihren Zunftstab zugeschoben.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-043",
+      "viertel": "Handwerkergasse",
+      "typ": "Speicher",
+      "name": "Haus zum Kupferstich",
+      "inschrift": "Grün wird das Kupfer, und das Dach wird grau · 1714",
+      "geschichte": "Die Dachrinne ist aus Kupfer und hat sich über die Jahre grün verfärbt, was niemand stört, weil die Gasse ohnehin im Schatten liegt. Im Speicher lagern alte Schablonen, die der Blecher nie aussortiert hat.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-044",
+      "viertel": "Handwerkergasse",
+      "typ": "Werkstatt",
+      "name": "Haus zur Zange",
+      "inschrift": "Mit Zange und Zunge, Stück für Stück · 1838",
+      "geschichte": "Der Schlosser hat seine Werkbank vor das Fenster gerückt, damit die Passanten ihm über die Schulter schauen können. Eine Zange im Schaufenster ist seit dreißig Jahren unverkauft, weil alle sie für Kunst halten.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-045",
+      "viertel": "Handwerkergasse",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Gerber",
+      "inschrift": "Was hart wird, wird weich gemacht · 1602",
+      "geschichte": "Die Gerberei liegt am Bach hinter dem Haus, und das Wasser färbt sich in Frostnächten braun. Die Gerberin hat die Fenster im Erdgeschoss mit Brettern vernagelt, weil der Geruch bei Sonne unerträglich wird.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B29"
+      ]
+    },
+    {
+      "id": "H-046",
+      "viertel": "Handwerkergasse",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Pinsel",
+      "inschrift": "Ein Pinselstrich, ein Haus in Farbe · 1883",
+      "geschichte": "Der Maler hat seine Fassade selbst gestrichen, und die Farbe ist gelb geworden, bevor die Tinte trocken war. Er malt Schilder für alle Läden der Gasse und vergisst dabei oft die Zahlen am eigenen Haus.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B27"
+      ]
+    },
+    {
+      "id": "H-047",
+      "viertel": "Handwerkergasse",
+      "typ": "Werkstatt",
+      "name": "Glockenhaus der Gießerei",
+      "inschrift": "Die Glocke klingt, wenn das Erz gut ist · 1545",
+      "geschichte": "Im Hof der alten Gießerei liegt eine Grube, in der früher die Glocken für den Berg gegossen wurden. Die Grube ist mit Brettern abgedeckt, und der Gießer hält sie für zu flach, um hineinzufallen.",
+      "betretbar": true,
+      "innenraum": "Werkstatt",
+      "ort": null,
+      "bewohner": [
+        "B28"
+      ]
+    },
+    {
+      "id": "H-048",
+      "viertel": "Handwerkergasse",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Zimmermann",
+      "inschrift": "Ein Balken trägt, was ein Balken trägt · 1747",
+      "geschichte": "Der Dachstuhl ist mit eingelegten Zapfen gefügt, ohne einen einzigen Nagel, und die Zimmerleute der Gasse kommen zum Staunen her. Im Winter knarrt es über dem Bett, aber die Bewohner haben sich daran gewöhnt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B30"
+      ]
+    },
+    {
+      "id": "H-049",
+      "viertel": "Handwerkergasse",
+      "typ": "Speicher",
+      "name": "Haus zur Bütte",
+      "inschrift": "In der Bütte sammelt sich, was man nicht braucht · 1696",
+      "geschichte": "Ein Holzfass mit Lattenbändern steht im Hausflur und dient seit Jahrzehnten als Regenwasserspeicher. Der Böttcher hat die Bänder ein halbes Dutzend Mal nachgezogen und erzählt jedem Besucher, dass das Fass bald ausläuft.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": [
+        "B34"
+      ]
+    },
+    {
+      "id": "H-050",
+      "viertel": "Handwerkergasse",
+      "typ": "Eckhaus",
+      "name": "Haus zum Schmied",
+      "inschrift": "Hart gemacht, was weich begann · 1625",
+      "geschichte": "An der Ecke hängt ein Hufeisen, das der Schmied vor langer Zeit als Glücksbringer eingemauert hat. Man sagt, es halte die Gasse zusammen, weil es noch nie einer herausgerissen hat.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-051",
+      "viertel": "Handwerkergasse",
+      "typ": "Laubenhaus",
+      "name": "Haus zum Schleifstein",
+      "inschrift": "Scharf wird, was der Stein abnutzt · 1767",
+      "geschichte": "Im Laubengang steht ein Schleifstein, der so tief eingekerbt ist, dass die Nachbarn ihn für einen Brunnen halten. Der Scherenschleifer kommt jeden zweiten Montag und wetzt die Messer der ganzen Straße an einem Tag.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-052",
+      "viertel": "Handwerkergasse",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Ziegel",
+      "inschrift": "Der Ziegel fällt, wo er fallen will · 1808",
+      "geschichte": "Ein einzelner roter Ziegel steckt im Pflaster vor dem Eingang und ist von allen Gängern schon zehnmal beinahe gebrochen worden. Der Dachdecker lässt ihn absichtlich liegen, weil er den Ziegel für sein Gesellenstück hält.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-053",
+      "viertel": "Handwerkergasse",
+      "typ": "Laden",
+      "name": "Haus zum Fensterladen",
+      "inschrift": "Hinter Läden wohnt, wer nicht gesehen werden will · 1793",
+      "geschichte": "Im Schaufenster stehen Läden aus Eiche, die sich bei jedem Wetter anders schließen lassen. Der Verkäufer hat selbst keine, sagt er, weil er Licht im Zimmer braucht, um zu schlafen.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-054",
+      "viertel": "Handwerkergasse",
+      "typ": "Eckhaus",
+      "name": "Haus zur Kanne",
+      "inschrift": "Eine Kanne voll, ein Hof voll Gäste · 1679",
+      "geschichte": "Die Zinnkanne über dem Torbogen ist so blank gescheuert, dass man das eigene Gesicht darin erkennt. Die Hausfrau hält sie für ein Glücksbild und hat sie nach jeder Hochzeit neu poliert.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B42"
+      ]
+    },
+    {
+      "id": "H-055",
+      "viertel": "Handwerkergasse",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Bogenschützen",
+      "inschrift": "Der Pfeil fliegt, die Sehne singt · 1632",
+      "geschichte": "Über dem Tor ist ein Bogenschütze aus Stein eingelassen, dessen Pfeil zum Nachbarhaus zeigt. Die Familie behauptet seit Generationen, der Schütze ziele auf eine Dachrinne, die es dort nie gab.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-056",
+      "viertel": "Handwerkergasse",
+      "typ": "Werkstatt",
+      "name": "Haus zum Wagenrad",
+      "inschrift": "Der Reifen dreht, die Speiche trägt · 1830",
+      "geschichte": "Im Hof steht ein Wagenrad ohne Felge, das der Wagner nie entsorgt hat. Er sagt, es erinnere ihn an die Zeit, als die Stadt noch mit dem Karren aus dem Bergland kam.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B39"
+      ]
+    },
+    {
+      "id": "H-057",
+      "viertel": "Handwerkergasse",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Glasglocke",
+      "inschrift": "Hinter Glas bleibt, was man liebt · 1862",
+      "geschichte": "Im Fenster steht eine Glasglocke über einem künstlichen Vogelnest, das der Großvater aus Stroh und Draht gebaut hat. Die Nachbarin hat es schon mehrfach fotografiert, und der Vogel hat es nie angenommen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-058",
+      "viertel": "Handwerkergasse",
+      "typ": "Werkstatt",
+      "name": "Schreinerei an der Mauergasse",
+      "inschrift": "Gutes Holz hält, wer's gut fügt · 1862",
+      "geschichte": "Im Schaufenster liegt ein Kostenvoranschlag für eine alte Eichentür, als Summe steht sechshundert, höchstens. Der Meister hobelt seit vierzig Jahren an derselben Bank.",
+      "betretbar": true,
+      "innenraum": "Schreinerei",
+      "ort": "ORT-04",
+      "bewohner": []
+    },
+    {
+      "id": "H-059",
+      "viertel": "Mauerviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus an der Zinne",
+      "inschrift": "Die Zinne schützt, das Fenster sieht · 1672",
+      "geschichte": "Das Haus ist so eng an die Stadtmauer gebaut, dass die Zinnen durch das Dachfenster zu sehen sind. Die Hausfrau zählt sie jeden Morgen beim Kaffee, weil sie seit dem Umbau eine mehr zu haben scheinen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-060",
+      "viertel": "Mauerviertel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Raben",
+      "inschrift": "Der Rabe kennt jede Gasse · 1698",
+      "geschichte": "Ein Rabe aus Blech sitzt auf dem Schornstein und dreht sich bei jedem Windstoß, sodass er wie ein Späher wirkt. Das Kind im Haus hat ihm einen Namen gegeben und nennt ihn jeden Morgen beim Frühstück.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-061",
+      "viertel": "Mauerviertel",
+      "typ": "Zunftturm",
+      "name": "Zunftturm der Schmiede",
+      "inschrift": "Der Turm hält die Glocke, die Glocke das Wort · 1541",
+      "geschichte": "In seinem Gewölbe hängen noch die Zunftfahnen aus Leinwand. Die letzte Versammlung dauerte nur eine Stunde, weil alle Mitglieder verschnupft waren.",
+      "betretbar": true,
+      "innenraum": "Werkstatt",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-062",
+      "viertel": "Mauerviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Sparren",
+      "inschrift": "Ein Sparren gerade, das Dach hält fest · 1719",
+      "geschichte": "Der Dachsparren über dem Erker ist so gewachsen, dass er einen rechten Winkel bildet, den der Zimmermann für ein Wunder hält. Das Haus knarrt bei Frost und verrät die Bewohner, sobald jemand über die Dielen geht.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-063",
+      "viertel": "Mauerviertel",
+      "typ": "Speicher",
+      "name": "Haus zur Ziegelei",
+      "inschrift": "Ziegel auf Ziegel, Wand auf Wand · 1632",
+      "geschichte": "Die Ziegel des Speichers stammen aus einer Brennerei am Mauerweg, die vor hundert Jahren geschlossen wurde. Im Frühling blühen auf dem Dach Mauerpfeffer und Hauswurz, und die Taubenschar wartet darauf.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-064",
+      "viertel": "Mauerviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Wächter",
+      "inschrift": "Der Wächter wacht, der Keller schläft · 1750",
+      "geschichte": "In der Wand neben der Tür steckt eine Nische, in der früher eine Laterne für den Wächter brannte. Heute liegt darin eine Stoffpuppe, die der Sohn jeden Abend zudeckt, weil sie das Dunkel fürchtet.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-065",
+      "viertel": "Mauerviertel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Pfeil",
+      "inschrift": "Der Pfeil fliegt über die Mauer · 1586",
+      "geschichte": "Ein Pfeil aus Eisen steckt im Türrahmen und wurde einst beim Angriff auf die Stadt abgeschossen. Die Hausleute haben ihn nie herausgezogen, weil ihre Großeltern schon darüber gestritten haben, wem er gehört.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-066",
+      "viertel": "Mauerviertel",
+      "typ": "Speicher",
+      "name": "Haus zur Pulverkammer",
+      "inschrift": "Trocken bleibt, was die Stadt verwahrt · 1575",
+      "geschichte": "Die Kammer im Erdgeschoss war einmal das Pulvermagazin der Stadt, die Wände sind so dick, dass kein Laut von draußen dringt. Heute stehen dort Einmachgläser mit Deckeln in einer einzigen Handschrift.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-067",
+      "viertel": "Mauerviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Kette",
+      "inschrift": "Die Kette rostet, der Hof bleibt offen · 1703",
+      "geschichte": "Eine eiserne Kette hängt quer über der Gasse, eingehängt an zwei Haken, und niemand weiß mehr, zu welchem Tor sie gehört. Die Anwohner benutzen die Kette, um Wäsche aufzuhängen, und niemand hat je widersprochen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-068",
+      "viertel": "Mauerviertel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Turmfalken",
+      "inschrift": "Der Falke sieht vom Dach, was ich nicht sehe · 1888",
+      "geschichte": "Auf dem Dachfirst nistet seit Jahren ein Turmfalke, dessen Eier in der Gasse oft übersehen werden. Der Bewohner hat einen Blechnapf aufgestellt, damit der Vogel im Winter nicht verhungert.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-069",
+      "viertel": "Mauerviertel",
+      "typ": "Laubenhaus",
+      "name": "Haus zum Wehrgang",
+      "inschrift": "Auf dem Gang steht man für alle da · 1665",
+      "geschichte": "Vom Laubengang aus sieht man über die Mauer hinweg auf die Rebhänge, die es hier nicht mehr gibt. Die Nachbarn benutzen den Gang als Gartenweg, und zweimal im Jahr fegt ihn die Stadtverwaltung, ohne ihn zu betreten.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-070",
+      "viertel": "Mauerviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Stachelbeer",
+      "inschrift": "Stachlig ist der Busch, süß seine Frucht · 1821",
+      "geschichte": "Der Stachelbeerstrauch wächst zwischen zwei Mauersteinen und ist so kräftig, dass er die Fuge gesprengt hat. Die Hausfrau erntet jeden August, und die Beeren schmecken so sauer, dass die Kinder sie als Mutprobe essen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-071",
+      "viertel": "Mauerviertel",
+      "typ": "Werkstatt",
+      "name": "Haus zum Hufeisen",
+      "inschrift": "Hufe klingen, Schritte verstummen · 1700",
+      "geschichte": "Die Schmiede am Mauerweg hat ihre Esse seit hundert Jahren ins Freie gebaut, weil sie die Hitze nicht drinnen halten wollte. Der Schmied legt im Sommer ein Brett über den Amboss und schläft darauf, wenn es zu heiß wird.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-072",
+      "viertel": "Mauerviertel",
+      "typ": "Speicher",
+      "name": "Haus zur Stiege",
+      "inschrift": "Jede Stufe trägt den nächsten Schritt · 1745",
+      "geschichte": "Eine steile Holzstiege führt vom Hof in den Speicher, auf deren zehnter Stufe eine Kerbe eingeritzt ist. Der Großvater hat sie als Zählstufe benutzt, und die Enkel springen seither darüber, ohne darauf zu treten.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-073",
+      "viertel": "Mauerviertel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Geißbock",
+      "inschrift": "Der Bock stößt, wo der Weg sich teilt · 1636",
+      "geschichte": "Ein Geißbock aus Holz hängt unter dem Dachvorsprung und hat einen Huf verloren, den der Schreiner nicht ersetzen wollte. Die Nachbarn nennen ihn den Wegweiser, weil er mit dem Huf immer auf die Obergasse zeigt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-074",
+      "viertel": "Mauerviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Fenster der Wäscherin",
+      "inschrift": "Im Wasser klärt sich, was der Wind trübt · 1804",
+      "geschichte": "Das Fenster geht auf den Hof, wo die Wäscherin jeden Montag die Bottiche füllt, und das Wasser wird abends im Hof stehen gelassen. Sie sagt, aus dem Wasser sehe man die Sterne besser als vom Dach.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-075",
+      "viertel": "Mauerviertel",
+      "typ": "Laden",
+      "name": "Haus zum Tor",
+      "inschrift": "Der Laden offen, das Tor verschlossen · 1857",
+      "geschichte": "Der Laden verkauft Schrauben, Nägel und Lampenöl, und die Regale tragen verblasste Schilder, die niemand mehr lesen kann. Der Kaufmann schließt jeden Abend das Tor zum Hof und lässt die Tür zum Laden nur angelehnt.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-076",
+      "viertel": "Mauerviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Quelle",
+      "inschrift": "Das Wasser bleibt, auch wenn der Brunnen schweigt · 1690",
+      "geschichte": "Im Keller läuft eine Quelle, die nie versiegt, auch wenn die Leitung im Hof trocken liegt. Die Hausleute füllen dort ihre Krüge, und das Wasser schmeckt nach Eisen und Frost.",
+      "betretbar": true,
+      "innenraum": "Wohnstube",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-077",
+      "viertel": "Mauerviertel",
+      "typ": "Eckhaus",
+      "name": "Haus zur Wetterfahne",
+      "inschrift": "Der Wind weiß, wohin er will · 1798",
+      "geschichte": "Die Wetterfahne auf dem Giebel zeigt seit Jahren nach Südwesten, egal welcher Wind weht. Der Hausherr hat deshalb aufgegeben, sich nach ihr zu richten, und hört lieber auf den Hund im Hof.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-078",
+      "viertel": "Mauerviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Ofenrohr",
+      "inschrift": "Der Rauch steigt, wo die Wärme wohnt · 1717",
+      "geschichte": "Ein eisernes Ofenrohr läuft quer über die Fassade und sorgt dafür, dass die Wand im Winter nie gefriert. Die Bewohnerin bäckt im Sommer darauf Äpfel, weil es die einzige warme Stelle im Haus ist, die nicht stinkt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B06"
+      ]
+    },
+    {
+      "id": "H-079",
+      "viertel": "Mauerviertel",
+      "typ": "Speicher",
+      "name": "Haus zum Ölberg",
+      "inschrift": "Im Öl steckt das Licht, im Licht die Wärme · 1694",
+      "geschichte": "Im Speicher stehen Fässer mit Leinöl, die der Ölmüller noch aus dem Winter übrig hat. Der Geruch hängt so schwer in der Luft, dass die Katzen der Gasse sich an der Tür drängen.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-080",
+      "viertel": "Mauerviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Nische",
+      "inschrift": "Eine Nische für Kerzen und Gebete · 1709",
+      "geschichte": "In der Hauswand öffnet sich eine Nische mit einem Holzbildnis der Muttergottes, das die Hausfrau jeden Morgen abstaubt. Sie findet, dass das Bildnis den Winter besser übersteht als sie selbst.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-081",
+      "viertel": "Mauerviertel",
+      "typ": "Werkstatt",
+      "name": "Haus zum Grünen Span",
+      "inschrift": "Der Span fällt, die Hobelbank wartet · 1846",
+      "geschichte": "Die Werkstatt riecht nach frisch gehobeltem Ahorn, an der Wand hängt die Zeichnung eines Stuhls, der nie fertig wurde. Der Tischler schiebt ihn jedes Jahr um eine Sprosse weiter.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-082",
+      "viertel": "Mauerviertel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Schwalbennest",
+      "inschrift": "Die Schwalbe baut, was der Mensch vergisst · 1771",
+      "geschichte": "Unter dem Dachvorsprung kleben drei Schwalbennester, deren Bewohner jedes Jahr zurückkehren. Die Familie hat einen Lappen über den Hauseingang gehängt, damit die Vögel nicht hineinfliegen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-083",
+      "viertel": "Mauerviertel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Maulbeer",
+      "inschrift": "Der Maulbeerbaum gibt, was die Seide braucht · 1738",
+      "geschichte": "Der alte Maulbeerbaum im Hof stammt aus einer Zeit, als in der Stadt noch Seidenraupen gezüchtet wurden. Im Herbst fallen die Beeren auf den Hof, und die Hausfrau sammelt sie für einen Saft, der nach nichts schmeckt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-084",
+      "viertel": "Mauerviertel",
+      "typ": "Stromhaus",
+      "name": "Stromhaus am Obertor",
+      "inschrift": "Licht für die Gassen, Strom für die Stadt · 1911",
+      "geschichte": "Auf dem Plan im Schaltraum laufen alle Leitungen der Oberstadt am Fuß des Burgturms zusammen. Der Wärter hat ihn mit Rotstift nachgezogen, weil ihm der Weg der Ströme wie ein Wunder vorkommt.",
+      "betretbar": true,
+      "innenraum": "Schaltraum",
+      "ort": "ORT-06",
+      "bewohner": []
+    },
+    {
+      "id": "H-085",
+      "viertel": "Kirchhügel",
+      "typ": "Pfarrhaus",
+      "name": "Pfarrhaus am Lindenplatz",
+      "inschrift": "Des Pfarrers Licht brennt auch im Winter · 1690",
+      "geschichte": "Das Pfarrhaus hat eine Küche mit Fenstern zum Kirchhof, und dort sitzt die Pfarrerin oft noch, wenn die Gassen längst schlafen. Sie liest dann Briefe aus dem Bergland, die sie nie beantwortet.",
+      "betretbar": true,
+      "innenraum": "Wohnstube",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-086",
+      "viertel": "Kirchhügel",
+      "typ": "Giebelhaus",
+      "name": "Küsterhaus",
+      "inschrift": "Der Riegel der Kirche hängt am Nagel · 1734",
+      "geschichte": "Der Küster bewohnt das schmale Haus an der Kirchhofmauer und kennt jede Glocke der Stadt am Klang. Eine davon hat er mit Stoff umwickelt, damit sie beim Stromausfall niemanden weckt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-087",
+      "viertel": "Kirchhügel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Glockenseil",
+      "inschrift": "Am Seil zieht, wer die Zeit verkündet · 1649",
+      "geschichte": "Ein dickes Glockenseil hängt vom Dachboden des Eckhauses in den Hausflur, weil die alte Glocke früher hier unten geläutet wurde. Die Kinder spielen Turmwächter daran, sehr zum Ärger der Mutter.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-088",
+      "viertel": "Kirchhügel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Stiegenweg",
+      "inschrift": "Hundertachtzehn Stufen, und jede sagt Guten Tag · 1812",
+      "geschichte": "Die Stiegen vom Hügel hinab sind an dieser Stelle so steil, dass die Bewohner ein Geländer aus Eisen anbrachten. Eine ältere Dame zählt die Stufen seit Jahren laut, und sie hat sich noch nie verzählt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-089",
+      "viertel": "Kirchhügel",
+      "typ": "Laubenhaus",
+      "name": "Haus zur Orgel",
+      "inschrift": "Die Orgel atmet, wenn der Wind es will · 1710",
+      "geschichte": "Im Dachboden steht eine kleine Hausorgel, die der Orgelbauer aus dem Bergland zurückgelassen hat und die nur noch zwei Töne spielt. Die Familie benutzt sie zum Anstimmen, wenn der Wind durch die Lauben pfeift.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B37"
+      ]
+    },
+    {
+      "id": "H-090",
+      "viertel": "Kirchhügel",
+      "typ": "Speicher",
+      "name": "Haus zum Ölbaum",
+      "inschrift": "Der Baum trägt, wenn der Frost ihn schont · 1864",
+      "geschichte": "Im Hof steht ein Ölbaum im Kübel, den die Familie seit der Auswanderung eines Großonkels pflegt. Im Winter kommt er in den Speicher, und die Blätter fallen dort wie Staub auf die Kisten.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B40"
+      ]
+    },
+    {
+      "id": "H-091",
+      "viertel": "Kirchhügel",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Schulglocke",
+      "inschrift": "Die Glocke ruft, die Kinder laufen · 1775",
+      "geschichte": "Die alte Schule gegenüber hatte eine Glocke am Giebel, deren Schlagwerk seit dem letzten Lehrer schweigt. Die Hausleute sagen, sie hätten die Pausen nach dem Schweigen gezählt und seien seither pünktlicher.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B05"
+      ]
+    },
+    {
+      "id": "H-092",
+      "viertel": "Kirchhügel",
+      "typ": "Werkstatt",
+      "name": "Haus zur Ölpresse",
+      "inschrift": "Aus Kern und Kraft wird Öl gepresst · 1721",
+      "geschichte": "Die alte Ölpresse steht noch im Hof, schwer und grün von Moos, und trägt die Jahreszahl ihrer Herstellung. Der Müller hat sie vor Jahren zur Zierde aufgestellt und ihr die Kurbel abgeschraubt.",
+      "betretbar": true,
+      "innenraum": "Werkstatt",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-093",
+      "viertel": "Kirchhügel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Schneeglöckchen",
+      "inschrift": "Erst Schnee, dann Glöckchen, dann Frühling · 1883",
+      "geschichte": "Vor dem Fenster blühen jedes Jahr die ersten Schneeglöckchen am Kirchhügel, und die Hausfrau nimmt sie zum Gedenken an den Pfarrer. Ihr Mann hält das für Aberglauben und pflückt sie trotzdem.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-094",
+      "viertel": "Kirchhügel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Kreuzweg",
+      "inschrift": "Wo sich zwei Wege kreuzen, wohnt man sicher · 1744",
+      "geschichte": "An der Kreuzung steht ein verwitterter Bildstock aus Sandstein, nur die Jahreszahl ist noch lesbar. Der Stifter soll seit vierzig Jahren keinen Schritt mehr an ihm vorbei gemacht haben.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-095",
+      "viertel": "Kirchhügel",
+      "typ": "Speicher",
+      "name": "Chorhaus",
+      "inschrift": "Im Chor sammelt sich der Gesang · 1679",
+      "geschichte": "Der Speicher hinter der Kirche lagerte früher Kerzen und Weihrauch, und die Balken sind vom Rauch der Jahrhunderte schwarz. Seit der Renovierung riecht es nur nach Holz, die Gemeinde vermisst den Duft.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-096",
+      "viertel": "Kirchhügel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Brunnenstein",
+      "inschrift": "Der Stein trinkt, was der Mensch vergisst · 1798",
+      "geschichte": "Ein Brunnenstein liegt quer vor der Tür, seine Mulde sammelt nach jedem Regen Wasser. Die Nachbarn tauchen dort Kerzenstummel ein, bevor sie sie verbrennen, angeblich für das Licht.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-097",
+      "viertel": "Kirchhügel",
+      "typ": "Laden",
+      "name": "Haus zum Papagei",
+      "inschrift": "Ein Vogel spricht, was er gehört hat · 1852",
+      "geschichte": "Im Laden sitzt ein Papagei in einem Messingkäfig, der jeden Satz nachplappert, den er im Vorübergehen hört. Die Besitzerin hat ihn umgewöhnt, bis er nur noch Guten Morgen sagt.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-098",
+      "viertel": "Kirchhügel",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Linde",
+      "inschrift": "Die Linde blüht, wo der Hügel fällt · 1737",
+      "geschichte": "Eine Linde beschattet das Haus, deren Wurzeln den Keller durchbrochen haben und jeden Herbst neue Risse hinterlassen. Der Hausherr sagt, die Linde sei der einzige Bewohner, der nie zu spät zum Frühjahr erscheint.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-099",
+      "viertel": "Kirchhügel",
+      "typ": "Eckhaus",
+      "name": "Haus zur Totenglocke",
+      "inschrift": "Die Glocke läutet für alle, nicht nur für den Tod · 1707",
+      "geschichte": "Die kleine Glocke über dem Eingang schlug früher für Verstorbene, heute schlägt sie nur noch zur Hochzeit. Die Familie hat sie dennoch nie abgehängt, damit der Hügel bei Hochzeiten weiß, wohin er gehört.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-100",
+      "viertel": "Kirchhügel",
+      "typ": "Speicher",
+      "name": "Haus zum Schafstall",
+      "inschrift": "Im Stall schläft das Heu, bis es duftet · 1625",
+      "geschichte": "Der Speicher war einmal ein Schafstall, und die Krippe steht noch in der Ecke, mit einer dünnen Heuschicht darin. Die Enkel sagen, die Schafe seien im Frühling wieder da, weil das Heu dann nach Gras riecht.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-101",
+      "viertel": "Kirchhügel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Pilger",
+      "inschrift": "Der Weg ist lang, das Dach ist nah · 1769",
+      "geschichte": "Die Pilger, die früher zum Hügel hinaufstiegen, fanden hier Unterkunft in einer Kammer unter dem Dach. Heute wohnt eine Schneiderin dort, die sagt, es sei immer noch der bessere Ort zum Nachdenken.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B38"
+      ]
+    },
+    {
+      "id": "H-102",
+      "viertel": "Kirchhügel",
+      "typ": "Eckhaus",
+      "name": "Haus zum Ahorn",
+      "inschrift": "Der Ahorn wirft Schatten, wo kein Licht ist · 1901",
+      "geschichte": "Der Ahorn vor dem Haus ist so hoch, dass er die Dachrinne berührt und im Herbst den Hof rot färbt. Die Kinder der Nachbarschaft haben ihn nach dem alten Pfarrer benannt, der die Bäume gepflanzt hat.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B13"
+      ]
+    },
+    {
+      "id": "H-103",
+      "viertel": "Kirchhügel",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Spitzbogen",
+      "inschrift": "Der Bogen trägt die Last der Jahre · 1673",
+      "geschichte": "Das Portal hat einen spitzen Bogen, dessen Schlussstein eine Krone trägt, die beim letzten Sturm ein Stück verlor. Die Hausfrau sagt, die Krone sei nie gekrönt gewesen, und die Nachbarn widersprechen ihr.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B43"
+      ]
+    },
+    {
+      "id": "H-104",
+      "viertel": "Kirchhügel",
+      "typ": "Theater",
+      "name": "Kostümfundus der Volksbühne",
+      "inschrift": "Jede Rolle hat ihren Kittel · 1890",
+      "geschichte": "Im Fundus hängen Kostüme aus drei Jahrhunderten, nach Farben sortiert, und die Herbstinventur hat jeden Kittel gezählt. Die Schneiderin flickt abends die Säume, weil die Bühne am Samstag wieder spielt.",
+      "betretbar": true,
+      "innenraum": "Fundus",
+      "ort": "ORT-05",
+      "bewohner": []
+    },
+    {
+      "id": "H-105",
+      "viertel": "Kirchhügel",
+      "typ": "Bibliothek",
+      "name": "Bibliothek mit Archiv",
+      "inschrift": "Ein Buch ist ein Brunnen, schöpf daraus · 1754",
+      "geschichte": "Im Archiv liegen alte Inschriften auf Pergament und eine Chronik der Oberstadt mit Silberbergbau und Torordnung. Die Bibliothekarin lüftet die Kammer nachts, weil die Feuchtigkeit das Pergament wellt.",
+      "betretbar": true,
+      "innenraum": "Archiv",
+      "ort": "ORT-10",
+      "bewohner": []
+    },
+    {
+      "id": "H-106",
+      "viertel": "Kirchhügel",
+      "typ": "Kirche",
+      "name": "Kirchenburg mit Friedhof",
+      "inschrift": "Wer hier betet, steht auf festem Grund · 1521",
+      "geschichte": "Die Kirchenburg ist von Mauern mit Wehrgang umgeben, auf dem Friedhof stehen Grabsteine aus dem Bergland. Eine überdachte Holztreppe führt zur Kirche, bei Eisnebel hält man sich am Geländer fest.",
+      "betretbar": true,
+      "innenraum": "Kirche",
+      "ort": "ORT-12",
+      "bewohner": []
+    },
+    {
+      "id": "H-107",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Gans",
+      "inschrift": "Die Gans wacht über den Hof und das Tor · 1696",
+      "geschichte": "Eine steinerne Gans steht auf dem Torpfosten, einen Flügel an die Mauer gelehnt, als wolle sie ein Nickerchen machen. Die echten Gänse der Nachbarn halten sich trotzdem für die Besitzer.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-108",
+      "viertel": "Untere Stadt",
+      "typ": "Laden",
+      "name": "Haus zum Krämer",
+      "inschrift": "Wer kauft, lernt die Waage kennen · 1768",
+      "geschichte": "Der Krämerladen führt Zucker, Seife und Kerzen aus Talg, und die Schublade mit den Knöpfen wurde seit dem Tod des Gründers nicht geöffnet. Die Krämerin fischt die Knöpfe trotzdem aus der Ritze.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-109",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Fischerhütte",
+      "inschrift": "Die Netze trocknen, der Fang kommt später · 1706",
+      "geschichte": "Die Fischerhütte steht am Bach und hat ein Netz im Dachboden, das so alt ist, dass die Maschen wie Spitze wirken. Der Fischer fängt darin keinen Fisch mehr, dafür Schmetterlinge, die er freilässt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-110",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Hirten",
+      "inschrift": "Der Hirte pfeift, die Herde kommt · 1655",
+      "geschichte": "Ein Hirtenstab steht im Flur, dessen Krümmung so glatt gegriffen ist, dass er nach Haut riecht. Der letzte Hirte der Gasse ist vor zwanzig Jahren gestorben, und seine Witwe pfeift noch immer jeden Abend auf dem Hof.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-111",
+      "viertel": "Untere Stadt",
+      "typ": "Laubenhaus",
+      "name": "Haus zur Weide",
+      "inschrift": "Die Weide biegt sich, sie bricht nicht · 1789",
+      "geschichte": "Eine alte Weide neigt sich über das Dach, und ihre Zweige schleifen über die Lauben, bis man den Kopf einziehen muss. Im Frühjahr schneidet der Gärtner die Ruten für Körbe ab und verkauft sie am Untertor.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B31"
+      ]
+    },
+    {
+      "id": "H-112",
+      "viertel": "Untere Stadt",
+      "typ": "Speicher",
+      "name": "Haus zum Kohlenmeiler",
+      "inschrift": "Die Kohle glüht, bis die Asche kommt · 1816",
+      "geschichte": "Im Speicher lagert noch Holzkohle aus dem letzten Winter, die der Köhler vergessen hat, weil er nach Silberhau gezogen ist. Im Sommer nimmt die Familie sie für den Grill, sie schmeckt nach Rauch und Teer.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-113",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Wassertrog",
+      "inschrift": "Im Trog schwimmt, was die Sonne nicht findet · 1742",
+      "geschichte": "Der Wassertrog im Hof ist aus einem einzigen Steinblock gehauen und so groß, dass die Kinder darin Boot spielen. Die Hausfrau legt Gebetsstreifen hinein, damit das Wasser sie langsam auflöst.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-114",
+      "viertel": "Untere Stadt",
+      "typ": "Eckhaus",
+      "name": "Haus zur Badestube",
+      "inschrift": "Warmes Wasser macht den Abend weich · 1671",
+      "geschichte": "Die alte Badestube unter dem Haus ist seit dem Brand verschlossen, der Ofen darüber wärmt die Küche bis tief in die Nacht. Der Hausherr sagt, das Wasser im Keller bleibe warm, weil der Stein es nicht hergibt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-115",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Holzapfel",
+      "inschrift": "Ein harter Apfel macht den Mund munter · 1807",
+      "geschichte": "Der Holzapfelbaum im Garten trägt Früchte, die so sauer sind, dass die Kinder nur daran lecken dürfen. Die Großmutter kocht daraus ein Mus, das gegen jede Erkältung helfen soll, und niemand widerspricht ihr.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B04"
+      ]
+    },
+    {
+      "id": "H-116",
+      "viertel": "Untere Stadt",
+      "typ": "Laubenhaus",
+      "name": "Herberge der Bergleute",
+      "inschrift": "Ein Dach für müde Hände und Füße · 1778",
+      "geschichte": "Das Haus mit den Lauben war früher eine Herberge für Bergleute, die vom Silberberg kamen, und die Namen aller Gäste hängen im Flur auf Blechschildern. Heute ist es eine Teestube ohne Schild, die nur Bekannte betreten.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-117",
+      "viertel": "Untere Stadt",
+      "typ": "Speicher",
+      "name": "Haus zur Schafwolle",
+      "inschrift": "Die Wolle wärmt, bevor man sie spinnt · 1698",
+      "geschichte": "In der Kammer liegen Ballen Schafwolle, die der Händler aus dem Bergland kauft und nie verkauft. Die Hausfrau sortiert sie nach Farben und spinnt im Winter daraus Socken für die ganze Gasse.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-118",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Wäscheleine",
+      "inschrift": "Wer die Wäsche aufhängt, glaubt an den Wind · 1845",
+      "geschichte": "Über den Hof spannt sich eine Wäscheleine von einem Dachgiebel zum anderen, und die Nachbarn tauschen darauf Briefe aus. Die Frau im Haus zieht die Leine jeden Montag straff, damit die Post nicht im Brunnen landet.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-119",
+      "viertel": "Untere Stadt",
+      "typ": "Laden",
+      "name": "Haus zum Leinenbaum",
+      "inschrift": "Im Faden steckt das ganze Gewebe · 1733",
+      "geschichte": "Der Laden führt Leinen in allen Breiten, im Schaufenster liegt ein Stück, das nie geschnitten wurde, weil es als Mitgift gilt. Die Verkäuferin staubt es jeden Morgen ab, ohne es anzufassen.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-120",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Milchkrug",
+      "inschrift": "Die Milch steht kühl, bis der Morgen kommt · 1761",
+      "geschichte": "Ein Milchkrug aus Steingut steht auf der Fensterbank und hält im Winter die Kälte besser als jeder Ofen. Der Milchmann stellt ihn jeden Morgen vor die Tür, und die Hausfrau spült ihn abends sorgfältig aus.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B36"
+      ]
+    },
+    {
+      "id": "H-121",
+      "viertel": "Untere Stadt",
+      "typ": "Werkstatt",
+      "name": "Haus zum Schwertfeger",
+      "inschrift": "Scharf ist, was der Stein geschliffen hat · 1703",
+      "geschichte": "Die Schleifwerkstatt hat ein großes Wasserrad aus Holz, das jeden Abend knarrt, weil der Schleifer es nicht ölt. Er sagt, das Quietschen sei seine Uhr, und er hat ohne sie noch nie einen Termin verpasst.",
+      "betretbar": true,
+      "innenraum": "Werkstatt",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-122",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Hasen",
+      "inschrift": "Der Hase hat Angst, und doch bleibt er · 1619",
+      "geschichte": "Über der Tür sitzt ein Hase aus Terrakotta, dem jemand die Ohren mit Draht gerichtet hat. Die Bewohnerin sagt, der Hase warne sie vor dem Regen, und in den letzten zehn Jahren hat er sich nie geirrt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": [
+        "B41"
+      ]
+    },
+    {
+      "id": "H-123",
+      "viertel": "Untere Stadt",
+      "typ": "Eckhaus",
+      "name": "Haus zum Ziegenbock",
+      "inschrift": "Der Bock stößt, wer ihn ärgert · 1731",
+      "geschichte": "Ein Holzbock steht auf dem Dach und dreht sich mit dem Wind so, dass er die Gasse abwechselnd nach links und rechts schaut. Die Kinder rufen ihm zu, und der Bock hat noch nie zurückgerufen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-124",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Schöpfbrunnen",
+      "inschrift": "Der Eimer schöpft, wenn das Seil hält · 1787",
+      "geschichte": "Der Schöpfbrunnen im Hof hat einen Eimer aus Kupfer, dessen Seil seit dem Sommer ausgefranst ist. Die Familie schöpft trotzdem, und das Wasser schmeckt nach dem Eisen des Eimers.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-125",
+      "viertel": "Untere Stadt",
+      "typ": "Speicher",
+      "name": "Haus zum Lichtstock",
+      "inschrift": "Der Stock trägt das Licht durch die Nacht · 1842",
+      "geschichte": "Ein Lichtstock aus Holz steht im Speicher, auf dem früher Talglichter aufgesteckt wurden, bevor es Gasleuchten gab. Die Hausfrau hat ihn an der Decke festgemacht, weil er sonst bei jedem Schritt umfällt.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": [
+        "B35"
+      ]
+    },
+    {
+      "id": "H-126",
+      "viertel": "Untere Stadt",
+      "typ": "Laden",
+      "name": "Haus zum Kompass",
+      "inschrift": "Die Nadel weiß, wohin das Herz will · 1816",
+      "geschichte": "Im Laden liegen Kompasse aus Messing, deren Nadeln alle leicht nach Westen zeigen, weil der Händler sie zu nah am Fenster lagert. Er verkauft sie als Geschenke für Wanderer, die sich ohnehin verlaufen.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-127",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Mörser",
+      "inschrift": "Im Mörser wird zerrieben, was man braucht · 1753",
+      "geschichte": "Ein Steinmörser steht im Hof, so groß, dass ein Kind hineinpasst, und er ist seit Generationen für Kräuter benutzt worden. Die Hausfrau mahlt darin Pfefferminz und Holunderblüten für den Tee im Winter.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-128",
+      "viertel": "Untere Stadt",
+      "typ": "Eckhaus",
+      "name": "Haus zum Lindwurm",
+      "inschrift": "Der Wurm hat keinen Schatz, nur Schuppen · 1690",
+      "geschichte": "Das Wappen an der Ecke zeigt einen Lindwurm, dessen Schwanz über das Dach ragt, und die Gasse behauptet, er sei aus Stein gefallen. Die Bewohner haben die Schuppen mit Kreide nachgezogen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-129",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Balkon",
+      "inschrift": "Ein Balkon für Blicke und Wäsche · 1904",
+      "geschichte": "Der Balkon ist so schmal, dass nur eine Person darauf stehen kann, und das Geländer trägt noch die Rosen der letzten Hausfrau. Im Sommer hängt die Familie dort die Bettdecken zum Lüften und grüßt damit die Gasse.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-130",
+      "viertel": "Untere Stadt",
+      "typ": "Speicher",
+      "name": "Haus zum Schwalbenstein",
+      "inschrift": "Der Stein trägt das Nest, das Nest den Ruf · 1709",
+      "geschichte": "Im Speicher hängt ein Stein mit einem Loch, in dem seit drei Generationen Schwalben brüten. Die Hausleute lassen die Luke offen, auch im Winter, damit die Vögel im Frühjahr sofort zurückkommen.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-131",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Brückenkopf",
+      "inschrift": "Die Brücke trägt, wer sie betritt · 1868",
+      "geschichte": "Eine kleine Brücke über den Bach führt zum Hauseingang, und das Geländer ist mit Sprüchen bemalt, die bei jedem Hochwasser verblassen. Der Hausherr malt sie jedes Frühjahr neu, auch wenn niemand mehr darüber geht.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-132",
+      "viertel": "Untere Stadt",
+      "typ": "Laubenhaus",
+      "name": "Haus zur Hecke",
+      "inschrift": "Die Hecke schützt, was sie verbirgt · 1754",
+      "geschichte": "Eine dichte Buchsbaumhecke umgibt den Vorgarten, so sorgfältig geschnitten, dass sie wie eine Burgmauer aussieht. Der Gärtner führt abends seine Katze auf einem Pfad an der Innenseite entlang.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-133",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Heidekrug",
+      "inschrift": "Heide blüht, wo der Boden schweigt · 1831",
+      "geschichte": "Die Heide am Bach hat im Herbst eine Farbe, die jeder Maler kopieren will, und der Krug auf dem Fenstersims ist aus demselben Ton gebrannt. Die Hausfrau stellt dort Blumen hinein, sobald die Heide blüht.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-134",
+      "viertel": "Untere Stadt",
+      "typ": "Werkstatt",
+      "name": "Haus zum Pflasterer",
+      "inschrift": "Jeder Stein an seinem Platz · 1794",
+      "geschichte": "Der Pflasterer hat die Gasse vor dem Haus mit Steinen aus dem Bergland belegt, und jeder Stein trägt eine Zahl auf der Unterseite. Er sagt, er könne jeden Stein im Dunkeln erkennen, und das hat er heute Nacht auch getan.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-135",
+      "viertel": "Untere Stadt",
+      "typ": "Speicher",
+      "name": "Haus zur Kornwaage",
+      "inschrift": "Gewogen, was in die Scheune kommt · 1663",
+      "geschichte": "Die Kornwaage im Speicher ist eine Waage aus Eisen, auf der früher das Getreide für den Markt abgewogen wurde. Seit das Korn ausbleibt, benutzt die Familie sie für Äpfel und zählt die Schalen als Einheit.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-136",
+      "viertel": "Untere Stadt",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Grenzstein",
+      "inschrift": "Der Stein weiß, wo die Stadt endet · 1734",
+      "geschichte": "Ein Grenzstein mit eingemeißelten Buchstaben steht an der Gassenecke, und die Nachbarn streiten, ob er noch auf der richtigen Linie steht. Der Hausherr hat ihn nach einer Nacht mit dem Spaten versetzt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-137",
+      "viertel": "Untere Stadt",
+      "typ": "Bäckerei",
+      "name": "Bäckerei am Untertor",
+      "inschrift": "Das Brot ist warm, bevor die Sonne kommt · 1889",
+      "geschichte": "Der Ofen wird jeden Morgen um drei Uhr angeheizt, und der erste Laib gehört dem Uhrturmwärter, der ihn von der Stiege aus abholt. Der Kachelofen wird mit Holz geheizt und bleibt deshalb auch im Stromausfall warm.",
+      "betretbar": true,
+      "innenraum": "Bäckerei",
+      "ort": "ORT-08",
+      "bewohner": [
+        "B03"
+      ]
+    },
+    {
+      "id": "H-138",
+      "viertel": "Untere Stadt",
+      "typ": "Apotheke",
+      "name": "Apotheke zum Heiligen Georg",
+      "inschrift": "Heilkraut im Glas, Rat im Gespräch · 1765",
+      "geschichte": "Im vorderen Regal stehen Kühlpacks, Pflaster und ein Bronzemörser, der seit 1765 jeden Winter gebraucht wird. Der Apotheker hat den Notdienst übernommen und wartet hinter dem Tresen, weil das Telefon schweigt.",
+      "betretbar": true,
+      "innenraum": "Apotheke",
+      "ort": "ORT-11",
+      "bewohner": []
+    },
+    {
+      "id": "H-139",
+      "viertel": "Burgberg",
+      "typ": "Giebelhaus",
+      "name": "Hauerhaus an der Stollengasse",
+      "inschrift": "Unter dem Berg gräbt man Silber, über dem Berg Brot · 1812",
+      "geschichte": "Das Haus gehörte einem Hauer, der bis zur Schließung des Bergwerks unter dem Berg arbeitete, und sein Hut hängt noch am Haken im Flur. Die Enkelin wohnt heute dort und zählt abends die Lampen am Berg.",
+      "betretbar": true,
+      "innenraum": "Wohnstube",
+      "ort": null,
+      "bewohner": [
+        "B08"
+      ]
+    },
+    {
+      "id": "H-140",
+      "viertel": "Burgberg",
+      "typ": "Giebelhaus",
+      "name": "Hauerhaus am Schartenweg",
+      "inschrift": "Ein Stollen führt tief, ein Weg führt hoch · 1798",
+      "geschichte": "Die Wände sind innen so feucht, dass die Tapete seit Jahren abfällt, und der Keller ist mit alten Grubenlampen gefüllt. Der Besitzer sagt, man höre im Keller bei Frost ein Klopfen, das nicht vom Haus kommt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-141",
+      "viertel": "Burgberg",
+      "typ": "Turm",
+      "name": "Wächterturm am Hang",
+      "inschrift": "Der Turm sieht ins Tal, das Tal sieht zurück · 1602",
+      "geschichte": "Ein schmaler Wehrturm steht am Hang und hat keine Tür mehr, nur ein Fenster, durch das man zu den Sternen blickt. Die Kinder klettern außen an den Steinen hoch, und die Stadt hat es verboten, aber nie kontrolliert.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-142",
+      "viertel": "Burgberg",
+      "typ": "Eckhaus",
+      "name": "Haus zum Bergmann",
+      "inschrift": "Der Bergmann kehrt heim, wenn das Licht ihn ruft · 1749",
+      "geschichte": "Am Eckhaus hängt ein eiserner Ring, an dem früher die Schichtlampen hingen. Der Sohn des Hauers stellt dort jeden Abend eine Laterne auf, damit der Vater den Weg nach Hause findet, auch wenn er längst nicht mehr lebt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-143",
+      "viertel": "Burgberg",
+      "typ": "Speicher",
+      "name": "Speicher am Stollenmund",
+      "inschrift": "Am Mund des Stollens lagert, was der Berg vergisst · 1734",
+      "geschichte": "Der Speicher steht direkt über einem zugemauerten Stolleneingang, und die Dielen sind dort kälter als überall sonst. Die Vorräte aus dem Keller bleiben im Frühjahr länger frisch, was die Nachbarn für ein Wunder halten.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-144",
+      "viertel": "Burgberg",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Felskante",
+      "inschrift": "Am Rand des Felsens steht man fest · 1685",
+      "geschichte": "Das Haus klebt so dicht an der Felskante, dass die Terrasse zur Hälfte in der Luft hängt. Die Familie stellt im Sommer nur leichte Stühle hinaus, weil der Fels bei Sturm schon einmal eine Blumenkiste mitgenommen hat.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-145",
+      "viertel": "Burgberg",
+      "typ": "Werkstatt",
+      "name": "Werkstatt am Hang",
+      "inschrift": "Im Hang wohnt das Eisen, an der Luft der Hammer · 1856",
+      "geschichte": "Der Schlosser hat seine Schmiede in den Fels gehauen, und das Feuer zieht durch einen Schacht nach oben. Er lässt die Esse brennen, auch wenn niemand Eisen bestellt, weil sie ihm die Gesellschaft ersetzt.",
+      "betretbar": true,
+      "innenraum": "Werkstatt",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-146",
+      "viertel": "Burgberg",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Gamsbart",
+      "inschrift": "Der Gamsbart zeigt, wer den Berg kennt · 1768",
+      "geschichte": "Am Türsturz hängt ein Gamsbart vom Großvater, der seither gegen jede Motte verteidigt wird. Bei Nebel soll er nach Tannenholz riechen, obwohl im Haus niemand Holz verarbeitet.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-147",
+      "viertel": "Burgberg",
+      "typ": "Laubenhaus",
+      "name": "Haus zum Stollenhof",
+      "inschrift": "Der Hof liegt tief, das Dach hoch · 1703",
+      "geschichte": "Der Hof ist mit Steinen gepflastert, die aus einem alten Stollenausgang stammen und noch die Bohrlöcher tragen. Die Frau aus dem Haus sammelt Blumen zwischen den Löchern und stellt sie in Gläser, sobald die Sonne kommt.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-148",
+      "viertel": "Burgberg",
+      "typ": "Laden",
+      "name": "Haus zum Kristall",
+      "inschrift": "Im Kristall bricht sich jedes Licht · 1889",
+      "geschichte": "Im Schaufenster liegt ein Bergkristall, den der Händler bei einer Grabung fand, und er dreht ihn jeden Morgen einmal um die eigene Achse. Anfassen darf ihn jeder, nur aufheben nicht.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-149",
+      "viertel": "Burgberg",
+      "typ": "Eckhaus",
+      "name": "Haus am Wetterkreuz",
+      "inschrift": "Das Kreuz trägt Wind und Wetter ab · 1721",
+      "geschichte": "Ein eisernes Wetterkreuz steht auf dem Dachfirst und dreht sich bei jedem Sturm so, dass seine Arme auf das Tal weisen. Der Besitzer hat seit Jahren kein Wetter mehr vorhergesagt, aber das Kreuz immer richtig gedreht.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-150",
+      "viertel": "Burgberg",
+      "typ": "Speicher",
+      "name": "Haus zum Erzkübel",
+      "inschrift": "Im Kübel liegt das Erz, bis es Silber ist · 1770",
+      "geschichte": "Der Speicher hat einen Erzkübel aus Eisen im Hof, der so schwer ist, dass ihn nur zwei Männer bewegen können. Im Kübel liegt heute Regenwasser, in dem die Kinder Schiffe aus Rinde segeln lassen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-151",
+      "viertel": "Burgberg",
+      "typ": "Giebelhaus",
+      "name": "Haus zur Quelle am Berg",
+      "inschrift": "Die Quelle fließt, wo der Berg es erlaubt · 1795",
+      "geschichte": "Eine kleine Quelle tritt am Fuß der Hauswand aus dem Fels und fließt in einen Trog, der auch im Winter nicht gefriert. Die Familie trinkt daraus seit Generationen und hält den Trog sauber wie einen Altar.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-152",
+      "viertel": "Burgberg",
+      "typ": "Eckhaus",
+      "name": "Haus zur Steinbank",
+      "inschrift": "Auf dem Stein ruht, wer lange ging · 1672",
+      "geschichte": "Vor dem Haus steht eine Bank aus einem einzigen Steinblock, auf der die Alten abends sitzen und zur dunklen Burg hinaufblicken. Sie reden über das Wetter und die alte Zeit, mehr nicht.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-153",
+      "viertel": "Burgberg",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Pulverturm",
+      "inschrift": "Das Pulver ruht, der Berg schweigt · 1740",
+      "geschichte": "Ein kleiner Turm neben dem Haus diente einst als Lager für Sprengpulver, und die Mauer ist innen noch grau vom Ruß der Jahrhunderte. Der Besitzer hat den Turm mit Blumenerde gefüllt und zieht dort Tomaten.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-154",
+      "viertel": "Burgberg",
+      "typ": "Laubenhaus",
+      "name": "Haus zum Tannenzapfen",
+      "inschrift": "Der Zapfen fällt, wo der Wind ihn hinträgt · 1807",
+      "geschichte": "Die Lauben stehen dicht am Bergwald, und die Zapfen fallen so zahlreich auf das Dach, dass die Hausfrau sie zum Anzünden sammelt. Die Kinder bauen daraus Häuschen für die Eichhörnchen, die jedes Mal wieder einziehen.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-155",
+      "viertel": "Burgberg",
+      "typ": "Speicher",
+      "name": "Haus zur Schieferplatte",
+      "inschrift": "Der Schiefer deckt, der Regen rutscht · 1653",
+      "geschichte": "Das Dach ist mit Schiefer gedeckt, der bei jedem Frost nachgibt und knackt. Im Speicher lagern Ersatzplatten, die wie Glocken klingen, wenn man sie anklopft.",
+      "betretbar": true,
+      "innenraum": "Speicher",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-156",
+      "viertel": "Burgberg",
+      "typ": "Giebelhaus",
+      "name": "Haus zum Grubenlicht",
+      "inschrift": "Ein Licht im Schacht zeigt den Weg zurück · 1816",
+      "geschichte": "An der Hauswand hängt eine alte Grubenlampe, deren Docht nie verbrannt wurde, weil der Vater sie als Andenken bewahrt. Der Sohn zündet sie an Silvester an, und sie leuchtet nur die Schuhe aus.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-157",
+      "viertel": "Burgberg",
+      "typ": "Eckhaus",
+      "name": "Haus zur Sonnenuhr",
+      "inschrift": "Die Sonne zählt, wenn das Auge es nicht kann · 1744",
+      "geschichte": "An der Hauswand ist eine Sonnenuhr aufgemalt, deren Strich seit einem Winter um eine Stunde verrutscht ist. Der Hausherr behauptet, die Sonne sei am Berg eben anders unterwegs, und niemand im Tal widerspricht ihm.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-158",
+      "viertel": "Burgberg",
+      "typ": "Turm",
+      "name": "Haus zum Bergfried",
+      "inschrift": "Der Turm hält, was keiner mehr braucht · 1697",
+      "geschichte": "Ein kleiner Bergfried steht zwischen den Häusern, dessen Dach aus Holz zerbrochen ist und nur noch eine Krähe trägt. Die Bewohner haben ihn zum Taubenschlag umfunktioniert, und die Tauben nisten auf dem Fenstergesims.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-159",
+      "viertel": "Burgberg",
+      "typ": "Laden",
+      "name": "Haus zum Silberdraht",
+      "inschrift": "Dünn wie Draht, fest wie Silber · 1841",
+      "geschichte": "Im Laden hängen Drähte aus Silber, die der Kunsthandwerker aus alten Fundstücken zieht und zu Ketten flicht. Die Kunden kaufen selten, doch er freut sich über jeden, der den Draht gegen das Licht hält.",
+      "betretbar": true,
+      "innenraum": "Laden",
+      "ort": null,
+      "bewohner": []
+    },
+    {
+      "id": "H-160",
+      "viertel": "Burgberg",
+      "typ": "Eckhaus",
+      "name": "Haus am Schlehenbusch",
+      "inschrift": "Schlehen sauer, Herz still, Dach dicht · 1708",
+      "geschichte": "Der Schlehenbusch vor dem Haus ist so dicht, dass die Wege darum herum nur im Winter frei sind. Die Familie erntet im Herbst die Früchte, die sie als Mus einkocht, und das Glas steht immer im Keller bereit.",
+      "betretbar": false,
+      "innenraum": null,
+      "ort": null,
+      "bewohner": []
+    }
+  ]
+}
