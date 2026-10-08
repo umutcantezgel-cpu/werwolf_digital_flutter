@@ -155,7 +155,14 @@ class LDe extends L {
 
   @override
   String case_endings(int count) {
-    return '$count Enden entdeckt';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Enden entdeckt',
+      one: '1 Ende entdeckt',
+      zero: 'Noch kein Ende entdeckt',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1268,7 +1275,13 @@ class LDe extends L {
 
   @override
   String ending_collection_count(int count) {
-    return '$count Enden in deiner Sammlung';
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Enden in deiner Sammlung',
+      one: '1 Ende in deiner Sammlung',
+    );
+    return '$_temp0';
   }
 
   @override
@@ -1441,4 +1454,98 @@ class LDe extends L {
 
   @override
   String get ach_combos10_desc => 'Ziehe insgesamt zehn Schlussfolgerungen.';
+
+  @override
+  String get error_unknown_scenario => 'Diese Akte ist unbekannt.';
+
+  @override
+  String get error_nothing_to_analyze =>
+      'Nichts zu analysieren – bring ungeklärte Hinweise mit.';
+
+  @override
+  String get error_nothing_to_scare =>
+      'Hier ist nichts, das man verscheuchen könnte.';
+
+  @override
+  String get error_nothing_left => 'Hier ist nichts mehr zu holen.';
+
+  @override
+  String get error_nothing_to_heal => 'Niemand in der Nähe braucht Hilfe.';
+
+  @override
+  String get error_not_needed => 'Das brauchst du gerade nicht.';
+
+  @override
+  String get error_no_pings => 'Keine Markierung mehr in diesem Kapitel.';
+
+  @override
+  String get error_not_on_board =>
+      'Dieser Hinweis hängt nicht an der Beweiswand.';
+
+  @override
+  String get item_trace => 'Schattenspur';
+
+  @override
+  String get item_trace_desc =>
+      'Hier war der Schatten. Vielleicht hat er etwas verloren.';
+
+  @override
+  String get toast_trace_search => 'Du untersuchst die Spur des Schattens …';
+
+  @override
+  String get toast_trace_nothing => 'Nur Schlamm und Asche.';
+
+  @override
+  String get toast_revived_dawn_me => 'Im Morgengrauen findet man dich.';
+
+  @override
+  String toast_revived_dawn(String player) {
+    return 'Im Morgengrauen wird $player gefunden.';
+  }
+
+  @override
+  String get dialogue_not_questioned => 'Noch nicht befragt';
+
+  @override
+  String get dialogue_traits_hint =>
+      'Merkmale – vergleiche sie mit deinen Hinweisen.';
+
+  @override
+  String get error_server_error =>
+      'Der Server hat ein Problem. Versuch es gleich noch einmal.';
+
+  @override
+  String get error_server_full =>
+      'Der Server ist gerade voll. Versuch es später erneut.';
+
+  @override
+  String get error_timeout => 'Der Server antwortet nicht.';
+
+  @override
+  String get error_unreachable =>
+      'Der Server ist nicht erreichbar. Prüfe deine Verbindung.';
+
+  @override
+  String get error_replaced =>
+      'Du hast diesen Raum auf einem anderen Gerät betreten.';
+
+  @override
+  String get error_bad_message => 'Verbindungsfehler (ungültige Nachricht).';
+
+  @override
+  String get error_not_in_room => 'Du bist nicht mehr in diesem Raum.';
+
+  @override
+  String get error_protocol => 'Diese App-Version passt nicht zum Server.';
+
+  @override
+  String get error_room_lost => 'Der Raum ist verloren gegangen.';
+
+  @override
+  String get logo_stamp => 'Ungelöst';
+
+  @override
+  String lobby_bot_slot(int n) {
+    return 'KI-Partner $n';
+  }
 }

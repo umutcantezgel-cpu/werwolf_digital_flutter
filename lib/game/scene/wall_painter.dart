@@ -239,12 +239,12 @@ class WallPainter {
       final zTop = d.tall ? kDoorTop : 0.6;
       if (d.alongX) {
         pen.worldBox(0.05, 0.44, 0.95, 0.56, 0, zTop, wood);
-        final at = (double u, double z) => pen.w(u, 0.56, z);
+        Offset at(double u, double z) => pen.w(u, 0.56, z);
         _doorPanels(c, at, zTop, 0.05, 0.95, wood);
         _lock(c, at, 0.8, zTop * 0.48);
       } else {
         pen.worldBox(0.44, 0.05, 0.56, 0.95, 0, zTop, wood);
-        final at = (double u, double z) => pen.w(0.56, 1 - u, z);
+        Offset at(double u, double z) => pen.w(0.56, 1 - u, z);
         _doorPanels(c, at, zTop, 0.05, 0.95, shade(wood, -0.2));
         _lock(c, at, 0.8, zTop * 0.48);
       }
@@ -260,7 +260,7 @@ class WallPainter {
     if (d.tall) {
       // Sturz über der Tür.
       pen.worldBox(0, 0, 1, 1, kDoorTop, kWallTall, pal.wall, top: pal.wallTop, eastC: shade(pal.wall, -0.24));
-      final trim = pal.trim;
+      final trim = mix(pal.trim, pal.darkWood, 0.5);
       if (d.alongX) {
         pen.worldBox(0, 0.9, 0.08, 1.0, 0, kDoorTop, trim, top: shade(trim, 0.1));
         pen.worldBox(0.92, 0.9, 1.0, 1.0, 0, kDoorTop, trim, top: shade(trim, 0.1));
@@ -273,12 +273,13 @@ class WallPainter {
     } else {
       // Niedrige Pfosten in der Stumpfwand.
       final col = shade(pal.wall, 0.05);
+      final top = mix(pal.trim, pal.darkWood, 0.55);
       if (d.alongX) {
-        pen.worldBox(0, 0.3, 0.1, 0.7, 0, kWallLow + 0.05, col, top: pal.trim);
-        pen.worldBox(0.9, 0.3, 1, 0.7, 0, kWallLow + 0.05, col, top: pal.trim);
+        pen.worldBox(0, 0.25, 0.1, 0.75, 0, kWallLow + 0.04, col, top: top);
+        pen.worldBox(0.9, 0.25, 1, 0.75, 0, kWallLow + 0.04, col, top: top);
       } else {
-        pen.worldBox(0.3, 0, 0.7, 0.1, 0, kWallLow + 0.05, col, top: pal.trim);
-        pen.worldBox(0.3, 0.9, 0.7, 1, 0, kWallLow + 0.05, col, top: pal.trim);
+        pen.worldBox(0.25, 0, 0.75, 0.1, 0, kWallLow + 0.04, col, top: top);
+        pen.worldBox(0.25, 0.9, 0.75, 1, 0, kWallLow + 0.04, col, top: top);
       }
     }
   }

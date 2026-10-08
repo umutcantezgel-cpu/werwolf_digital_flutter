@@ -11,6 +11,8 @@ class TextCache {
   final Map<String, TextPainter> _cache = {};
 
   TextPainter get(String text, double size, Color color, {FontWeight weight = FontWeight.w600, bool shadow = false}) {
+    // Deckkraft quantisieren, damit Überblendungen den Cache nicht fluten.
+    color = color.withValues(alpha: (color.a * 10).round() / 10);
     final key = '$text|$size|${color.toARGB32()}|${weight.value}|$shadow';
     final hit = _cache[key];
     if (hit != null) return hit;

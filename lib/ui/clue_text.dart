@@ -35,7 +35,12 @@ ClueTexts clueTexts(ScenarioDef? s, ClueView c, L l, {String locale = 'de'}) {
           'time' => l.clue_pending_time(c.revealChapter ?? 0),
           _ => null,
         };
-  return ClueTexts(title: title, text: clueText(s, c, l, locale: locale), pending: pending, kindLabel: l.clueKind(c.kind));
+  return ClueTexts(
+    title: title,
+    text: clueText(s, c, l, locale: locale),
+    pending: pending,
+    kindLabel: l.clueKind(c.kind),
+  );
 }
 
 /// Nur der Text eines Hinweises (siehe [clueTexts]).

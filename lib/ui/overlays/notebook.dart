@@ -55,7 +55,10 @@ class _NotebookSheetState extends State<NotebookSheet> {
     return Stack(
       children: [
         Positioned.fill(
-          child: GestureDetector(onTap: widget.onClose, child: const ColoredBox(color: Color(0x99000000))),
+          child: GestureDetector(
+            onTap: widget.onClose,
+            child: const ColoredBox(color: Color(0x99000000)),
+          ),
         ),
         Positioned(
           left: 0,
@@ -125,12 +128,17 @@ class _NotebookSheetState extends State<NotebookSheet> {
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: const [BoxShadow(color: Color(0xAA000000), blurRadius: 12)],
                 ),
-                child: Row(mainAxisSize: MainAxisSize.min, children: [
-                  const Icon(Icons.hub_rounded, color: Noir.cream, size: 18),
-                  const SizedBox(width: 8),
-                  Text(_first == null ? l.notebook_combine_hint : l.notebook_combine_hint_second,
-                      style: Noir.text(13.5, weight: FontWeight.w600)),
-                ]),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.hub_rounded, color: Noir.cream, size: 18),
+                    const SizedBox(width: 8),
+                    Text(
+                      _first == null ? l.notebook_combine_hint : l.notebook_combine_hint_second,
+                      style: Noir.text(13.5, weight: FontWeight.w600),
+                    ),
+                  ],
+                ),
               ),
             ).animate().fadeIn().slideY(begin: 0.4),
           ),
@@ -176,9 +184,11 @@ class _Header extends StatelessWidget {
                 Icon(icon, size: 17, color: sel ? Noir.cream : Noir.smokeDim),
                 const SizedBox(width: 7),
                 Flexible(
-                  child: Text(label,
-                      overflow: TextOverflow.ellipsis,
-                      style: Noir.label(13.5, color: sel ? Noir.cream : Noir.smokeDim, spacing: 0.4)),
+                  child: Text(
+                    label,
+                    overflow: TextOverflow.ellipsis,
+                    style: Noir.label(13.5, color: sel ? Noir.cream : Noir.smokeDim, spacing: 0.4),
+                  ),
                 ),
                 const SizedBox(width: 6),
                 Container(
@@ -204,7 +214,11 @@ class _Header extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 8),
-          Container(width: 42, height: 4, decoration: BoxDecoration(color: const Color(0x55E8E0D0), borderRadius: BorderRadius.circular(2))),
+          Container(
+            width: 42,
+            height: 4,
+            decoration: BoxDecoration(color: const Color(0x55E8E0D0), borderRadius: BorderRadius.circular(2)),
+          ),
           Padding(
             padding: const EdgeInsets.fromLTRB(18, 6, 6, 0),
             child: Row(
@@ -212,14 +226,19 @@ class _Header extends StatelessWidget {
                 const Icon(Icons.menu_book_rounded, color: Noir.brass, size: 22),
                 const SizedBox(width: 10),
                 Expanded(child: Text(l.notebook_title, style: Noir.title(22))),
-                IconButton(onPressed: onClose, icon: const Icon(Icons.close_rounded, color: Noir.smoke)),
+                IconButton(
+                  onPressed: onClose,
+                  icon: const Icon(Icons.close_rounded, color: Noir.smoke),
+                ),
               ],
             ),
           ),
-          Row(children: [
-            tabBtn(0, l.notebook_mine, mine, Icons.edit_note_rounded),
-            tabBtn(1, l.notebook_board, board, Icons.push_pin_rounded),
-          ]),
+          Row(
+            children: [
+              tabBtn(0, l.notebook_mine, mine, Icons.edit_note_rounded),
+              tabBtn(1, l.notebook_board, board, Icons.push_pin_rounded),
+            ],
+          ),
         ],
       ),
     );
@@ -239,19 +258,27 @@ class _MineTab extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 30),
       children: [
-        Row(children: [
-          const Icon(Icons.warning_amber_rounded, size: 16, color: Color(0xFFE0A050)),
-          const SizedBox(width: 6),
-          Expanded(child: Text(l.notebook_share_hint, style: Noir.text(12.5, color: const Color(0xFFE0A050)))),
-        ]),
+        Row(
+          children: [
+            const Icon(Icons.warning_amber_rounded, size: 16, color: Color(0xFFE0A050)),
+            const SizedBox(width: 6),
+            Expanded(
+              child: Text(l.notebook_share_hint, style: Noir.text(12.5, color: const Color(0xFFE0A050))),
+            ),
+          ],
+        ),
         const SizedBox(height: 12),
         for (var i = 0; i < list.length; i++)
           Padding(
             padding: const EdgeInsets.only(bottom: 14),
-            child: _NoteCard(g: g, clue: list[i], onShare: () {
-              HapticFeedback.mediumImpact();
-              g.send(ShareClue(list[i].id));
-            }),
+            child: _NoteCard(
+              g: g,
+              clue: list[i],
+              onShare: () {
+                HapticFeedback.mediumImpact();
+                g.send(ShareClue(list[i].id));
+              },
+            ),
           ).animate().fadeIn(delay: (50 * i).ms).slideX(begin: 0.04),
       ],
     );
@@ -282,11 +309,13 @@ class _NoteCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(children: [
-                _KindChip(kind: clue.kind, label: t.kindLabel),
-                const Spacer(),
-                if (t.pending != null) _PendingChip(text: t.pending!, lab: clue.pending == 'lab'),
-              ]),
+              Row(
+                children: [
+                  _KindChip(kind: clue.kind, label: t.kindLabel),
+                  const Spacer(),
+                  if (t.pending != null) _PendingChip(text: t.pending!, lab: clue.pending == 'lab'),
+                ],
+              ),
               const SizedBox(height: 8),
               Text(t.title, style: Noir.title(18, color: Noir.ink, spacing: 0.3)),
               const SizedBox(height: 4),
@@ -295,10 +324,7 @@ class _NoteCard extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: Text(
-                      l.clue_found_by(g.nameOf(clue.foundBy)),
-                      style: Noir.text(11.5, color: Noir.inkSoft),
-                    ),
+                    child: Text(l.clue_found_by(g.nameOf(clue.foundBy)), style: Noir.text(11.5, color: Noir.inkSoft)),
                   ),
                   SizedBox(
                     width: 120,
@@ -329,10 +355,13 @@ class _RuledPainter extends CustomPainter {
     for (var y = 34.0; y < size.height - 4; y += 21) {
       canvas.drawLine(Offset(0, y), Offset(size.width, y), line);
     }
-    canvas.drawLine(const Offset(24, 0), Offset(24, size.height),
-        Paint()
-          ..color = const Color(0x66B23A3A)
-          ..strokeWidth = 1.2);
+    canvas.drawLine(
+      const Offset(24, 0),
+      Offset(24, size.height),
+      Paint()
+        ..color = const Color(0x66B23A3A)
+        ..strokeWidth = 1.2,
+    );
     // Lochung
     for (var y = 22.0; y < size.height; y += 40) {
       canvas.drawCircle(Offset(11, y), 4, Paint()..color = const Color(0xFF221812));
@@ -351,13 +380,16 @@ class _KindChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(GameIcons.clueKind(kind), size: 14, color: Noir.blood),
-          const SizedBox(width: 4),
-          Text(label.toUpperCase(), style: Noir.label(10, color: Noir.blood, spacing: 1.6, weight: FontWeight.w700)),
-        ],
-      );
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Icon(GameIcons.clueKind(kind), size: 14, color: Noir.blood),
+      const SizedBox(width: 4),
+      Text(
+        label.toUpperCase(),
+        style: Noir.label(10, color: Noir.blood, spacing: 1.6, weight: FontWeight.w700),
+      ),
+    ],
+  );
 }
 
 class _PendingChip extends StatelessWidget {
@@ -368,18 +400,21 @@ class _PendingChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
-        decoration: BoxDecoration(
-          color: const Color(0x1A2D5A8A),
-          borderRadius: BorderRadius.circular(3),
-          border: Border.all(color: const Color(0x662D5A8A)),
-        ),
-        child: Row(mainAxisSize: MainAxisSize.min, children: [
-          Icon(lab ? Icons.science_rounded : Icons.hourglass_bottom_rounded, size: 12, color: const Color(0xFF2D5A8A)),
-          const SizedBox(width: 4),
-          Text(text, style: Noir.label(10.5, color: const Color(0xFF2D5A8A), spacing: 0.2)),
-        ]),
-      );
+    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 3),
+    decoration: BoxDecoration(
+      color: const Color(0x1A2D5A8A),
+      borderRadius: BorderRadius.circular(3),
+      border: Border.all(color: const Color(0x662D5A8A)),
+    ),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(lab ? Icons.science_rounded : Icons.hourglass_bottom_rounded, size: 12, color: const Color(0xFF2D5A8A)),
+        const SizedBox(width: 4),
+        Text(text, style: Noir.label(10.5, color: const Color(0xFF2D5A8A), spacing: 0.2)),
+      ],
+    ),
+  );
 }
 
 class _BoardTab extends StatelessWidget {
@@ -420,13 +455,15 @@ class _BoardTab extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Row(children: [
-                    const Icon(Icons.balance_rounded, color: Noir.brass, size: 18),
-                    const SizedBox(width: 8),
-                    Text(l.notebook_strength.toUpperCase(), style: Noir.label(11, color: Noir.brass, spacing: 1.8)),
-                    const Spacer(),
-                    Text('$strength', style: Noir.title(22, color: Noir.cream)),
-                  ]),
+                  Row(
+                    children: [
+                      const Icon(Icons.balance_rounded, color: Noir.brass, size: 18),
+                      const SizedBox(width: 8),
+                      Text(l.notebook_strength.toUpperCase(), style: Noir.label(11, color: Noir.brass, spacing: 1.8)),
+                      const Spacer(),
+                      Text('$strength', style: Noir.title(22, color: Noir.cream)),
+                    ],
+                  ),
                   const SizedBox(height: 8),
                   StrengthMeter(
                     value: strength,
@@ -435,13 +472,17 @@ class _BoardTab extends StatelessWidget {
                     perfect: Tuning.strengthPerfect,
                   ),
                   const SizedBox(height: 6),
-                  Row(children: [
-                    Expanded(
-                      child: Text(l.notebook_strength_hint(Tuning.strengthSolid, Tuning.strengthPerfect),
-                          style: Noir.text(11.5, color: Noir.smoke)),
-                    ),
-                    Text(l.notebook_contradictions(g.cv.contradictions), style: Noir.text(11.5, color: Noir.smoke)),
-                  ]),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          l.notebook_strength_hint(Tuning.strengthSolid, Tuning.strengthPerfect),
+                          style: Noir.text(11.5, color: Noir.smoke),
+                        ),
+                      ),
+                      Text(l.notebook_contradictions(g.cv.contradictions), style: Noir.text(11.5, color: Noir.smoke)),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -510,7 +551,12 @@ class _Masonry extends StatelessWidget {
       children: [
         Expanded(child: Column(children: left)),
         const SizedBox(width: 12),
-        Expanded(child: Padding(padding: const EdgeInsets.only(top: 22), child: Column(children: right))),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 22),
+            child: Column(children: right),
+          ),
+        ),
       ],
     );
   }
@@ -572,8 +618,10 @@ class _PinnedCard extends StatelessWidget {
                       _PendingChip(text: t.pending!, lab: clue.pending == 'lab'),
                     ],
                     const SizedBox(height: 6),
-                    Text(l.clue_shared_by(g.nameOf(clue.sharedBy ?? clue.foundBy)),
-                        style: Noir.text(10, color: Noir.inkSoft)),
+                    Text(
+                      l.clue_shared_by(g.nameOf(clue.sharedBy ?? clue.foundBy)),
+                      style: Noir.text(10, color: Noir.inkSoft),
+                    ),
                   ],
                 ),
               ),
@@ -589,10 +637,7 @@ class _PinnedCard extends StatelessWidget {
                       shape: BoxShape.circle,
                       gradient: RadialGradient(
                         center: const Alignment(-0.4, -0.4),
-                        colors: [
-                          selected ? const Color(0xFFFF8A80) : const Color(0xFFE55A50),
-                          Noir.blood,
-                        ],
+                        colors: [selected ? const Color(0xFFFF8A80) : const Color(0xFFE55A50), Noir.blood],
                       ),
                       boxShadow: const [BoxShadow(color: Color(0x99000000), blurRadius: 3, offset: Offset(1, 2))],
                     ),
@@ -628,11 +673,15 @@ class _DeductionCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(children: [
-            const Icon(Icons.hub_rounded, size: 16, color: Noir.blood),
-            const SizedBox(width: 6),
-            Expanded(child: Text(def?.name.resolve() ?? comboId, style: Noir.title(16, color: Noir.ink, spacing: 0.3))),
-          ]),
+          Row(
+            children: [
+              const Icon(Icons.hub_rounded, size: 16, color: Noir.blood),
+              const SizedBox(width: 6),
+              Expanded(
+                child: Text(def?.name.resolve() ?? comboId, style: Noir.title(16, color: Noir.ink, spacing: 0.3)),
+              ),
+            ],
+          ),
           const SizedBox(height: 5),
           Text(def?.text.resolve() ?? '', style: Noir.typed(13.5, color: Noir.ink)),
         ],
@@ -646,15 +695,15 @@ class _Cork extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => const DecoratedBox(
-        decoration: BoxDecoration(
-          gradient: RadialGradient(
-            radius: 1.2,
-            colors: [Color(0xFF6E4B2F), Color(0xFF4A321F), Color(0xFF2E1F14)],
-            stops: [0, 0.65, 1],
-          ),
-        ),
-        child: CustomPaint(painter: GrainPainter(opacity: 0.12, density: 0.012)),
-      );
+    decoration: BoxDecoration(
+      gradient: RadialGradient(
+        radius: 1.2,
+        colors: [Color(0xFF6E4B2F), Color(0xFF4A321F), Color(0xFF2E1F14)],
+        stops: [0, 0.65, 1],
+      ),
+    ),
+    child: CustomPaint(painter: GrainPainter(opacity: 0.12, density: 0.012)),
+  );
 }
 
 class _Empty extends StatelessWidget {
@@ -666,16 +715,20 @@ class _Empty extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Center(
-        child: Padding(
-          padding: const EdgeInsets.all(30),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(icon, size: 40, color: light ? const Color(0x99E8E0D0) : Noir.smokeDim),
-              const SizedBox(height: 12),
-              Text(text, textAlign: TextAlign.center, style: Noir.typed(14, color: light ? Noir.paper : Noir.smoke)),
-            ],
+    child: Padding(
+      padding: const EdgeInsets.all(30),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: 40, color: light ? const Color(0x99E8E0D0) : Noir.smokeDim),
+          const SizedBox(height: 12),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: Noir.typed(14, color: light ? Noir.paper : Noir.smoke),
           ),
-        ),
-      );
+        ],
+      ),
+    ),
+  );
 }

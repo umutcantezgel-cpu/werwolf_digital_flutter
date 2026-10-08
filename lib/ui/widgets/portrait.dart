@@ -31,7 +31,10 @@ class Portrait extends StatelessWidget {
       painter: PortraitPainter(look: look, background: background, accent: accent),
     );
     if (dead) {
-      p = ColorFiltered(colorFilter: const ColorFilter.matrix(_grey), child: Opacity(opacity: 0.6, child: p));
+      p = ColorFiltered(
+        colorFilter: const ColorFilter.matrix(_grey),
+        child: Opacity(opacity: 0.6, child: p),
+      );
     }
     if (circle) p = ClipOval(child: p);
     return SizedBox.square(dimension: size, child: p);
@@ -47,7 +50,14 @@ const _grey = <double>[
 
 /// Mini-Avatar eines Detektivs (Mantelfarbe + Hut).
 class DetectiveAvatar extends StatelessWidget {
-  const DetectiveAvatar({super.key, required this.coat, required this.hat, this.size = 40, this.ring, this.ghost = false});
+  const DetectiveAvatar({
+    super.key,
+    required this.coat,
+    required this.hat,
+    this.size = 40,
+    this.ring,
+    this.ghost = false,
+  });
 
   final int coat;
   final String hat;
@@ -69,7 +79,11 @@ class DetectiveAvatar extends StatelessWidget {
       child: ClipOval(
         child: Opacity(
           opacity: ghost ? 0.45 : 1,
-          child: Portrait(look: LookDef(coat: c, hat: hat, hair: '#3b2a20'), size: size, background: false),
+          child: Portrait(
+            look: LookDef(coat: c, hat: hat, hair: '#3b2a20'),
+            size: size,
+            background: false,
+          ),
         ),
       ),
     );
@@ -208,10 +222,14 @@ class PortraitPainter extends CustomPainter {
 
     // Ohren
     final ear = Color.lerp(skin, Colors.black, 0.12)!;
-    canvas.drawOval(Rect.fromCenter(center: Offset(cx - hw * 0.5, headCy + hh * 0.04), width: hw * 0.16, height: hh * 0.2),
-        lit..color = ear);
-    canvas.drawOval(Rect.fromCenter(center: Offset(cx + hw * 0.5, headCy + hh * 0.04), width: hw * 0.16, height: hh * 0.2),
-        lit..color = Color.lerp(ear, Colors.black, 0.25)!);
+    canvas.drawOval(
+      Rect.fromCenter(center: Offset(cx - hw * 0.5, headCy + hh * 0.04), width: hw * 0.16, height: hh * 0.2),
+      lit..color = ear,
+    );
+    canvas.drawOval(
+      Rect.fromCenter(center: Offset(cx + hw * 0.5, headCy + hh * 0.04), width: hw * 0.16, height: hh * 0.2),
+      lit..color = Color.lerp(ear, Colors.black, 0.25)!,
+    );
 
     // Kopf
     final headRect = Rect.fromCenter(center: Offset(cx, headCy), width: hw, height: hh);
@@ -227,22 +245,32 @@ class PortraitPainter extends CustomPainter {
     // Haar oben
     if (look.hat == 'none' || look.hat == 'bun' || look.hat == 'beret') {
       final top = Path()
-        ..addArc(Rect.fromCenter(center: Offset(cx, headCy - hh * 0.02), width: hw * 1.06, height: hh * 1.02), math.pi * 1.02,
-            math.pi * 0.96)
+        ..addArc(
+          Rect.fromCenter(center: Offset(cx, headCy - hh * 0.02), width: hw * 1.06, height: hh * 1.02),
+          math.pi * 1.02,
+          math.pi * 0.96,
+        )
         ..quadraticBezierTo(cx + hw * 0.1, headTop + hh * 0.22, cx - hw * 0.5, headCy - hh * 0.05)
         ..close();
       canvas.drawPath(top, lit..color = hair);
     } else {
       // Koteletten unter dem Hut
       canvas.drawRect(
-          Rect.fromLTWH(cx - hw * 0.5, headCy - hh * 0.2, hw * 0.08, hh * 0.25), lit..color = hair.withValues(alpha: 0.9));
+        Rect.fromLTWH(cx - hw * 0.5, headCy - hh * 0.2, hw * 0.08, hh * 0.25),
+        lit..color = hair.withValues(alpha: 0.9),
+      );
       canvas.drawRect(
-          Rect.fromLTWH(cx + hw * 0.42, headCy - hh * 0.2, hw * 0.08, hh * 0.25), lit..color = hair.withValues(alpha: 0.9));
+        Rect.fromLTWH(cx + hw * 0.42, headCy - hh * 0.2, hw * 0.08, hh * 0.25),
+        lit..color = hair.withValues(alpha: 0.9),
+      );
     }
     if (look.hat == 'bun') {
       canvas.drawCircle(Offset(cx + hw * 0.05, headTop - hh * 0.04), hw * 0.2, lit..color = hair);
-      canvas.drawCircle(Offset(cx + hw * 0.0, headTop - hh * 0.07), hw * 0.06,
-          lit..color = Color.lerp(hair, Colors.white, 0.15)!);
+      canvas.drawCircle(
+        Offset(cx + hw * 0.0, headTop - hh * 0.07),
+        hw * 0.06,
+        lit..color = Color.lerp(hair, Colors.white, 0.15)!,
+      );
     }
 
     // Gesicht
@@ -261,8 +289,11 @@ class PortraitPainter extends CustomPainter {
       ..strokeWidth = math.max(1, hw * 0.035)
       ..strokeCap = StrokeCap.round;
     canvas.drawLine(Offset(cx + hw * 0.02, eyeY + hh * 0.04), Offset(cx + hw * 0.06, eyeY + hh * 0.15), shade);
-    canvas.drawLine(Offset(cx - hw * 0.1, eyeY + hh * 0.26), Offset(cx + hw * 0.1, eyeY + hh * 0.25),
-        shade..color = Color.lerp(skin, const Color(0xFF5A1E1E), 0.55)!);
+    canvas.drawLine(
+      Offset(cx - hw * 0.1, eyeY + hh * 0.26),
+      Offset(cx + hw * 0.1, eyeY + hh * 0.25),
+      shade..color = Color.lerp(skin, const Color(0xFF5A1E1E), 0.55)!,
+    );
 
     // Hut
     _hat(canvas, look.hat, cx, headTop, hw, hh, hatColor);
@@ -299,16 +330,31 @@ class PortraitPainter extends CustomPainter {
           ..close();
         canvas.drawPath(crown, p);
         canvas.drawRect(Rect.fromLTRB(cx - hw * 0.45, brimY - hh * 0.09, cx + hw * 0.45, brimY - hh * 0.01), band);
-        canvas.drawLine(Offset(cx - hw * 0.3, top - hh * 0.18), Offset(cx - hw * 0.34, brimY - hh * 0.1),
-            hi..strokeWidth = math.max(1, hw * 0.04));
+        canvas.drawLine(
+          Offset(cx - hw * 0.3, top - hh * 0.18),
+          Offset(cx - hw * 0.34, brimY - hh * 0.1),
+          hi..strokeWidth = math.max(1, hw * 0.04),
+        );
       case 'bowler':
         final brimY = top + hh * 0.15;
         canvas.drawOval(Rect.fromCenter(center: Offset(cx, brimY), width: hw * 1.3, height: hh * 0.12), p);
-        canvas.drawArc(Rect.fromCenter(center: Offset(cx, brimY), width: hw * 1.04, height: hh * 0.78), math.pi, math.pi,
-            true, p);
+        canvas.drawArc(
+          Rect.fromCenter(center: Offset(cx, brimY), width: hw * 1.04, height: hh * 0.78),
+          math.pi,
+          math.pi,
+          true,
+          p,
+        );
         canvas.drawRect(Rect.fromLTRB(cx - hw * 0.52, brimY - hh * 0.07, cx + hw * 0.52, brimY - hh * 0.01), band);
-        canvas.drawArc(Rect.fromCenter(center: Offset(cx - hw * 0.12, brimY - hh * 0.1), width: hw * 0.5, height: hh * 0.4),
-            math.pi * 1.1, math.pi * 0.35, false, hi..style = PaintingStyle.stroke..strokeWidth = math.max(1, hw * 0.04));
+        canvas.drawArc(
+          Rect.fromCenter(center: Offset(cx - hw * 0.12, brimY - hh * 0.1), width: hw * 0.5, height: hh * 0.4),
+          math.pi * 1.1,
+          math.pi * 0.35,
+          false,
+          hi
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = math.max(1, hw * 0.04),
+        );
         hi.style = PaintingStyle.fill;
       case 'cap':
         final capPath = Path()

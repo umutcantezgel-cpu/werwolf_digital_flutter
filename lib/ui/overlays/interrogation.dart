@@ -121,8 +121,11 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
   void _onEntries() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_scroll.hasClients) {
-        _scroll.animateTo(_scroll.position.maxScrollExtent + 120,
-            duration: const Duration(milliseconds: 300), curve: Curves.easeOut);
+        _scroll.animateTo(
+          _scroll.position.maxScrollExtent + 120,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
       }
     });
   }
@@ -171,7 +174,7 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
                 gradient: RadialGradient(
                   center: const Alignment(-0.5, -0.85),
                   radius: 1.3,
-                  colors: [Color.lerp(g.accent, Noir.night, 0.82)!, const Color(0xF20B0C16), const Color(0xFA05060B)],
+                  colors: [Color.lerp(g.accent, Noir.night, 0.82)!, const Color(0xFF0B0C16), const Color(0xFF05060B)],
                   stops: const [0, 0.5, 1],
                 ),
               ),
@@ -199,7 +202,9 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
                                 padding: const EdgeInsets.fromLTRB(5, 5, 5, 16),
                                 decoration: const BoxDecoration(
                                   color: Noir.paper,
-                                  boxShadow: [BoxShadow(color: Color(0xAA000000), blurRadius: 12, offset: Offset(0, 5))],
+                                  boxShadow: [
+                                    BoxShadow(color: Color(0xAA000000), blurRadius: 12, offset: Offset(0, 5)),
+                                  ],
                                 ),
                                 child: def == null
                                     ? const SizedBox(width: 104, height: 104)
@@ -212,8 +217,10 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   const SizedBox(height: 4),
-                                  Text((def?.role.resolve() ?? '').toUpperCase(),
-                                      style: Noir.label(11, color: g.accent, spacing: 2, weight: FontWeight.w700)),
+                                  Text(
+                                    (def?.role.resolve() ?? '').toUpperCase(),
+                                    style: Noir.label(11, color: g.accent, spacing: 2, weight: FontWeight.w700),
+                                  ),
                                   const SizedBox(height: 3),
                                   Text(def?.name.resolve() ?? npcId, style: Noir.title(24)),
                                   const SizedBox(height: 6),
@@ -267,28 +274,33 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            Text(l.dialogue_topics.toUpperCase(), style: Noir.label(10.5, color: Noir.smoke, spacing: 2)),
+                            Text(
+                              l.dialogue_topics.toUpperCase(),
+                              style: Noir.label(10.5, color: Noir.smoke, spacing: 2),
+                            ),
                             const SizedBox(height: 8),
-                            LayoutBuilder(builder: (context, box) {
-                              final w = (box.maxWidth - 8) / 2;
-                              return Wrap(
-                                spacing: 8,
-                                runSpacing: 8,
-                                children: [
-                                  for (final t in topics)
-                                    SizedBox(
-                                      width: w,
-                                      child: _TopicButton(
-                                        topic: t,
-                                        heard: heard.contains(t),
-                                        accent: g.accent,
-                                        enabled: !dead,
-                                        onTap: () => _ask(t),
+                            LayoutBuilder(
+                              builder: (context, box) {
+                                final w = (box.maxWidth - 8) / 2;
+                                return Wrap(
+                                  spacing: 8,
+                                  runSpacing: 8,
+                                  children: [
+                                    for (final t in topics)
+                                      SizedBox(
+                                        width: w,
+                                        child: _TopicButton(
+                                          topic: t,
+                                          heard: heard.contains(t),
+                                          accent: g.accent,
+                                          enabled: !dead,
+                                          onTap: () => _ask(t),
+                                        ),
                                       ),
-                                    ),
-                                ],
-                              );
-                            }),
+                                  ],
+                                );
+                              },
+                            ),
                             const SizedBox(height: 10),
                             NoirButton(
                               label: l.dialogue_present,
@@ -348,10 +360,20 @@ class _TraitStrip extends StatelessWidget {
                           borderRadius: BorderRadius.circular(3),
                           border: Border.all(color: const Color(0x33E8E0D0)),
                         ),
-                        child: Text.rich(TextSpan(children: [
-                          TextSpan(text: '$label: ', style: Noir.text(11.5, color: Noir.smoke)),
-                          TextSpan(text: value, style: Noir.text(11.5, weight: FontWeight.w600)),
-                        ])),
+                        child: Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text: '$label: ',
+                                style: Noir.text(11.5, color: Noir.smoke),
+                              ),
+                              TextSpan(
+                                text: value,
+                                style: Noir.text(11.5, weight: FontWeight.w600),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
                   ],
                 ),
@@ -376,61 +398,70 @@ class _EntryView extends StatelessWidget {
     final question = entry.question;
     final presented = entry.presented;
     if (question != null || presented != null) {
-      children.add(Align(
-        alignment: Alignment.centerRight,
-        child: Container(
-          margin: const EdgeInsets.only(left: 60, bottom: 8),
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-          decoration: BoxDecoration(
-            color: Color.lerp(Noir.night3, g.accent, 0.12),
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(12),
-              topRight: Radius.circular(12),
-              bottomLeft: Radius.circular(12),
-              bottomRight: Radius.circular(3),
-            ),
-            border: Border.all(color: g.accent.withValues(alpha: 0.35)),
-          ),
-          child: Row(mainAxisSize: MainAxisSize.min, children: [
-            Icon(presented != null ? Icons.content_paste_search_rounded : GameIcons.topic(question!),
-                size: 15, color: g.accent),
-            const SizedBox(width: 6),
-            Flexible(
-              child: Text(
-                presented != null ? l.dialogue_presented(presented) : l.topicQuestion(question!),
-                style: Noir.text(13.5, weight: FontWeight.w500),
+      children.add(
+        Align(
+          alignment: Alignment.centerRight,
+          child: Container(
+            margin: const EdgeInsets.only(left: 60, bottom: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            decoration: BoxDecoration(
+              color: Color.lerp(Noir.night3, g.accent, 0.12),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(12),
+                topRight: Radius.circular(12),
+                bottomLeft: Radius.circular(12),
+                bottomRight: Radius.circular(3),
               ),
+              border: Border.all(color: g.accent.withValues(alpha: 0.35)),
             ),
-          ]),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Icon(
+                  presented != null ? Icons.content_paste_search_rounded : GameIcons.topic(question!),
+                  size: 15,
+                  color: g.accent,
+                ),
+                const SizedBox(width: 6),
+                Flexible(
+                  child: Text(
+                    presented != null ? l.dialogue_presented(presented) : l.topicQuestion(question!),
+                    style: Noir.text(13.5, weight: FontWeight.w500),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ),
-      ));
+      );
     }
     final answer = entry.answer;
     if (answer != null && answer.isNotEmpty) {
       final style = Noir.typed(15, color: Noir.ink);
-      children.add(Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Container(
-            margin: const EdgeInsets.only(right: 40, bottom: 6),
-            child: PaperCard(
-              padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
-              child: latest
-                  ? TypewriterText('„$answer“', style: style, charMs: 18)
-                  : Text('„$answer“', style: style),
+      children.add(
+        Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              margin: EdgeInsets.only(right: 40, bottom: entry.lie ? 22 : 6),
+              child: PaperCard(
+                padding: EdgeInsets.fromLTRB(14, 12, 14, entry.lie ? 22 : 12),
+                child: latest ? TypewriterText('„$answer“', style: style, charMs: 18) : Text('„$answer“', style: style),
+              ),
             ),
-          ),
-          if (entry.lie)
-            Positioned(
-              right: 20,
-              top: -12,
-              child: Stamp(text: l.dialogue_lie, fontSize: 15, angle: 0.12)
-                  .animate()
-                  .scale(begin: const Offset(1.8, 1.8), duration: 260.ms, curve: Curves.easeIn)
-                  .fadeIn(),
-            ),
-        ],
-      ));
+            if (entry.lie)
+              Positioned(
+                right: 12,
+                bottom: 2,
+                child: Stamp(
+                  text: l.dialogue_lie,
+                  fontSize: 15,
+                  angle: -0.08,
+                ).animate().scale(begin: const Offset(1.8, 1.8), duration: 260.ms, curve: Curves.easeIn).fadeIn(),
+              ),
+          ],
+        ),
+      );
     }
     final reaction = entry.reaction;
     if (reaction != null) {
@@ -439,34 +470,47 @@ class _EntryView extends StatelessWidget {
         'annoyed' => (Noir.debuff, l.dialogue_reaction_annoyed),
         _ => (Noir.smoke, l.dialogue_reaction_neutral),
       };
-      children.add(Padding(
-        padding: const EdgeInsets.only(bottom: 4, top: 2),
-        child: Row(children: [
-          Icon(
-            reaction == 'nervous'
-                ? Icons.sentiment_dissatisfied_rounded
-                : (reaction == 'annoyed' ? Icons.mood_bad_rounded : Icons.sentiment_neutral_rounded),
-            size: 16,
-            color: color,
+      children.add(
+        Padding(
+          padding: const EdgeInsets.only(bottom: 4, top: 2),
+          child: Row(
+            children: [
+              Icon(
+                reaction == 'nervous'
+                    ? Icons.sentiment_dissatisfied_rounded
+                    : (reaction == 'annoyed' ? Icons.mood_bad_rounded : Icons.sentiment_neutral_rounded),
+                size: 16,
+                color: color,
+              ),
+              const SizedBox(width: 6),
+              Text(
+                '$npcName $text',
+                style: Noir.text(12.5, color: color, weight: FontWeight.w600),
+              ),
+            ],
           ),
-          const SizedBox(width: 6),
-          Text('$npcName $text', style: Noir.text(12.5, color: color, weight: FontWeight.w600)),
-        ]),
-      ));
+        ),
+      );
     }
     final clue = entry.clue;
     if (clue != null) {
-      children.add(Padding(
-        padding: const EdgeInsets.only(bottom: 4),
-        child: Row(children: [
-          const Icon(Icons.note_add_rounded, size: 16, color: Noir.buff),
-          const SizedBox(width: 6),
-          Flexible(
-            child: Text(l.dialogue_new_clue(g.clueName(clue)),
-                style: Noir.text(12.5, color: Noir.buff, weight: FontWeight.w600)),
+      children.add(
+        Padding(
+          padding: const EdgeInsets.only(bottom: 4),
+          child: Row(
+            children: [
+              const Icon(Icons.note_add_rounded, size: 16, color: Noir.buff),
+              const SizedBox(width: 6),
+              Flexible(
+                child: Text(
+                  l.dialogue_new_clue(g.clueName(clue)),
+                  style: Noir.text(12.5, color: Noir.buff, weight: FontWeight.w600),
+                ),
+              ),
+            ],
           ),
-        ]),
-      ));
+        ),
+      );
     }
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
@@ -515,8 +559,10 @@ class _TopicButton extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(l.topicShort(topic),
-                          style: Noir.text(13.5, weight: FontWeight.w600, color: heard ? Noir.smoke : Noir.cream)),
+                      Text(
+                        l.topicShort(topic),
+                        style: Noir.text(13.5, weight: FontWeight.w600, color: heard ? Noir.smoke : Noir.cream),
+                      ),
                       if (heard) Text(l.dialogue_heard, style: Noir.text(10.5, color: Noir.smokeDim, height: 1.2)),
                     ],
                   ),
@@ -565,16 +611,24 @@ class _EvidencePicker extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Row(children: [
-                        Expanded(child: Text(l.dialogue_present_title, style: Noir.title(18))),
-                        IconButton(onPressed: onClose, icon: const Icon(Icons.close_rounded, color: Noir.smoke)),
-                      ]),
+                      Row(
+                        children: [
+                          Expanded(child: Text(l.dialogue_present_title, style: Noir.title(18))),
+                          IconButton(
+                            onPressed: onClose,
+                            icon: const Icon(Icons.close_rounded, color: Noir.smoke),
+                          ),
+                        ],
+                      ),
                       const SizedBox(height: 6),
                       if (clues.isEmpty)
                         Padding(
                           padding: const EdgeInsets.all(20),
-                          child: Text(l.dialogue_present_empty,
-                              textAlign: TextAlign.center, style: Noir.typed(14, color: Noir.paper)),
+                          child: Text(
+                            l.dialogue_present_empty,
+                            textAlign: TextAlign.center,
+                            style: Noir.typed(14, color: Noir.paper),
+                          ),
                         )
                       else
                         Flexible(
@@ -598,10 +652,12 @@ class _EvidencePicker extends StatelessWidget {
                                         children: [
                                           Text(t.title, style: Noir.title(14.5, color: Noir.ink, spacing: 0.2)),
                                           const SizedBox(height: 2),
-                                          Text(t.text,
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: Noir.typed(12.5, color: Noir.inkSoft, height: 1.3)),
+                                          Text(
+                                            t.text,
+                                            maxLines: 2,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: Noir.typed(12.5, color: Noir.inkSoft, height: 1.3),
+                                          ),
                                         ],
                                       ),
                                     ),

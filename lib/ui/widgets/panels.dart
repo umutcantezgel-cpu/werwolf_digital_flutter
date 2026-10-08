@@ -50,9 +50,12 @@ class ContentWidth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Align(
-        alignment: Alignment.topCenter,
-        child: ConstrainedBox(constraints: BoxConstraints(maxWidth: maxWidth), child: child),
-      );
+    alignment: Alignment.topCenter,
+    child: ConstrainedBox(
+      constraints: BoxConstraints(maxWidth: maxWidth),
+      child: child,
+    ),
+  );
 }
 
 /// Schwierigkeit als Lupen-Reihe.
@@ -66,28 +69,35 @@ class DifficultyDots extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (var i = 0; i < max; i++)
-            Padding(
-              padding: const EdgeInsets.only(right: 2),
-              child: Icon(Icons.search_rounded, size: size, color: i < value ? color : color.withValues(alpha: 0.22)),
-            ),
-        ],
-      );
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      for (var i = 0; i < max; i++)
+        Padding(
+          padding: const EdgeInsets.only(right: 2),
+          child: Icon(Icons.search_rounded, size: size, color: i < value ? color : color.withValues(alpha: 0.22)),
+        ),
+    ],
+  );
 }
 
 /// Zeigt eine kurze Meldung unten an.
-void showNoirSnack(BuildContext context, String text, {IconData icon = Icons.info_outline_rounded, Color color = Noir.brass}) {
+void showNoirSnack(
+  BuildContext context,
+  String text, {
+  IconData icon = Icons.info_outline_rounded,
+  Color color = Noir.brass,
+}) {
   ScaffoldMessenger.of(context)
     ..hideCurrentSnackBar()
     ..showSnackBar(
       SnackBar(
-        content: Row(children: [
-          Icon(icon, color: color, size: 18),
-          const SizedBox(width: 10),
-          Expanded(child: Text(text, style: Noir.text(14))),
-        ]),
+        content: Row(
+          children: [
+            Icon(icon, color: color, size: 18),
+            const SizedBox(width: 10),
+            Expanded(child: Text(text, style: Noir.text(14))),
+          ],
+        ),
         duration: const Duration(milliseconds: 2600),
       ),
     );

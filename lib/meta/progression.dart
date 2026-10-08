@@ -28,15 +28,7 @@ double rankProgress(int xp) {
 }
 
 /// Ab welchem Rang ein Hut freigeschaltet ist.
-const hatUnlockRank = <String, int>{
-  'fedora': 0,
-  'cap': 0,
-  'none': 0,
-  'bowler': 1,
-  'beret': 2,
-  'cloche': 3,
-  'top': 4,
-};
+const hatUnlockRank = <String, int>{'fedora': 0, 'cap': 0, 'none': 0, 'bowler': 1, 'beret': 2, 'cloche': 3, 'top': 4};
 
 /// Ab welchem Rang eine Mantelfarbe (Index in `detectiveCoats`) freigeschaltet ist.
 const coatUnlockRank = <int>[0, 0, 0, 0, 1, 2, 3, 5];

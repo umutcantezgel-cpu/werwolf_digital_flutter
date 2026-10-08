@@ -46,7 +46,11 @@ class _CasesScreenState extends State<CasesScreen> {
           child: Column(
             children: [
               ContentWidth(
-                child: NoirTopBar(title: l.cases_title, subtitle: l.cases_subtitle, onBack: () => context.go(Routes.hub)),
+                child: NoirTopBar(
+                  title: l.cases_title,
+                  subtitle: l.cases_subtitle,
+                  onBack: () => context.go(Routes.hub),
+                ),
               ),
               Expanded(
                 child: ListView.builder(
@@ -57,21 +61,24 @@ class _CasesScreenState extends State<CasesScreen> {
                     final isDaily = daily.scenarioId == s.id;
                     final mode = _mode[s.id] ?? (meta.storySolved(s.id) ? 'random' : 'story');
                     return ContentWidth(
-                      child: Padding(
-                        padding: const EdgeInsets.only(bottom: 26),
-                        child: _CaseFile(
-                          scenario: s,
-                          index: i + 1,
-                          daily: isDaily,
-                          mode: mode,
-                          endings: meta.endingsFor(s.id).length,
-                          storySolved: meta.storySolved(s.id),
-                          busy: _starting == s.id,
-                          onMode: (m) => setState(() => _mode[s.id] = m),
-                          onStart: _starting == null ? () => _start(s, mode) : null,
-                        ),
-                      ),
-                    ).animate().fadeIn(delay: (120 * i).ms, duration: 450.ms).slideY(begin: 0.06, curve: Curves.easeOutCubic);
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 26),
+                            child: _CaseFile(
+                              scenario: s,
+                              index: i + 1,
+                              daily: isDaily,
+                              mode: mode,
+                              endings: meta.endingsFor(s.id).length,
+                              storySolved: meta.storySolved(s.id),
+                              busy: _starting == s.id,
+                              onMode: (m) => setState(() => _mode[s.id] = m),
+                              onStart: _starting == null ? () => _start(s, mode) : null,
+                            ),
+                          ),
+                        )
+                        .animate()
+                        .fadeIn(delay: (120 * i).ms, duration: 450.ms)
+                        .slideY(begin: 0.06, curve: Curves.easeOutCubic);
                   },
                 ),
               ),
@@ -127,7 +134,12 @@ class _CaseFile extends StatelessWidget {
               ),
               child: Text(
                 l.case_file_no(index.toString().padLeft(2, '0')).toUpperCase(),
-                style: Noir.label(11, color: Color.lerp(accent, Colors.black, 0.75)!, spacing: 2, weight: FontWeight.w700),
+                style: Noir.label(
+                  11,
+                  color: Color.lerp(accent, Colors.black, 0.75)!,
+                  spacing: 2,
+                  weight: FontWeight.w700,
+                ),
               ),
             ),
             PaperCard(
@@ -151,8 +163,10 @@ class _CaseFile extends StatelessWidget {
                       children: [
                         Text(scenario.title.resolve(), style: Noir.title(27, color: Noir.cream, spacing: 0.8)),
                         const SizedBox(height: 6),
-                        Text(scenario.tagline.resolve(),
-                            style: Noir.text(14, color: accent, weight: FontWeight.w600, height: 1.3)),
+                        Text(
+                          scenario.tagline.resolve(),
+                          style: Noir.text(14, color: accent, weight: FontWeight.w600, height: 1.3),
+                        ),
                       ],
                     ),
                   ),
@@ -168,20 +182,32 @@ class _CaseFile extends StatelessWidget {
                           runSpacing: 8,
                           crossAxisAlignment: WrapCrossAlignment.center,
                           children: [
-                            Row(mainAxisSize: MainAxisSize.min, children: [
-                              Text('${l.case_difficulty} ', style: Noir.label(11, color: Noir.inkSoft, spacing: 0.4)),
-                              DifficultyDots(value: scenario.difficulty, color: Noir.blood),
-                            ]),
-                            Row(mainAxisSize: MainAxisSize.min, children: [
-                              const Icon(Icons.schedule_rounded, size: 15, color: Noir.inkSoft),
-                              const SizedBox(width: 3),
-                              Text(l.common_minutes(scenario.minutes), style: Noir.label(12, color: Noir.inkSoft, spacing: 0.3)),
-                            ]),
-                            Row(mainAxisSize: MainAxisSize.min, children: [
-                              const Icon(Icons.auto_stories_rounded, size: 15, color: Noir.inkSoft),
-                              const SizedBox(width: 4),
-                              Text(l.case_endings(endings), style: Noir.label(12, color: Noir.inkSoft, spacing: 0.3)),
-                            ]),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text('${l.case_difficulty} ', style: Noir.label(11, color: Noir.inkSoft, spacing: 0.4)),
+                                DifficultyDots(value: scenario.difficulty, color: Noir.blood),
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(Icons.schedule_rounded, size: 15, color: Noir.inkSoft),
+                                const SizedBox(width: 3),
+                                Text(
+                                  l.common_minutes(scenario.minutes),
+                                  style: Noir.label(12, color: Noir.inkSoft, spacing: 0.3),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(Icons.auto_stories_rounded, size: 15, color: Noir.inkSoft),
+                                const SizedBox(width: 4),
+                                Text(l.case_endings(endings), style: Noir.label(12, color: Noir.inkSoft, spacing: 0.3)),
+                              ],
+                            ),
                             if (storySolved)
                               TagChip(l.case_story_solved, color: const Color(0xFF3F7D45), icon: Icons.check_rounded),
                           ],
@@ -245,14 +271,21 @@ class _ModePicker extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Icon(icon, size: 17, color: sel ? accent : (enabled ? Noir.inkSoft : Noir.inkSoft.withValues(alpha: 0.35))),
+                Icon(
+                  icon,
+                  size: 17,
+                  color: sel ? accent : (enabled ? Noir.inkSoft : Noir.inkSoft.withValues(alpha: 0.35)),
+                ),
                 const SizedBox(height: 3),
                 Text(
                   l.modeName(id),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Noir.label(11.5,
-                      color: sel ? Noir.cream : (enabled ? Noir.ink : Noir.inkSoft.withValues(alpha: 0.4)), spacing: 0.3),
+                  style: Noir.label(
+                    11.5,
+                    color: sel ? Noir.cream : (enabled ? Noir.ink : Noir.inkSoft.withValues(alpha: 0.4)),
+                    spacing: 0.3,
+                  ),
                 ),
               ],
             ),
@@ -268,11 +301,13 @@ class _ModePicker extends StatelessWidget {
         borderRadius: BorderRadius.circular(5),
         border: Border.all(color: const Color(0x33000000)),
       ),
-      child: Row(children: [
-        seg('story', Icons.menu_book_rounded),
-        seg('random', Icons.casino_rounded),
-        seg('daily', Icons.today_rounded, enabled: daily),
-      ]),
+      child: Row(
+        children: [
+          seg('story', Icons.menu_book_rounded),
+          seg('random', Icons.casino_rounded),
+          seg('daily', Icons.today_rounded, enabled: daily),
+        ],
+      ),
     );
   }
 }

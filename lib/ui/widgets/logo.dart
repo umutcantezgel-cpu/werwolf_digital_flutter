@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../app/theme.dart';
+import '../../l10n/lookup.dart';
 import 'paper.dart';
 
 /// Code-gezeichnetes Logo „MORDAKTE“: Schreibmaschinen-Titel, Lupe, roter Stempel.
@@ -21,7 +22,10 @@ class MordakteLogo extends StatelessWidget {
             Container(width: size * 0.9, height: 1, color: Noir.brass.withValues(alpha: 0.6)),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: size * 0.2),
-              child: SizedBox.square(dimension: size * 0.42, child: const CustomPaint(painter: _LensPainter())),
+              child: SizedBox.square(
+                dimension: size * 0.42,
+                child: const CustomPaint(painter: _LensPainter()),
+              ),
             ),
             Container(width: size * 0.9, height: 1, color: Noir.brass.withValues(alpha: 0.6)),
           ],
@@ -44,14 +48,14 @@ class MordakteLogo extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: -size * 0.25,
+              right: -size * 0.4,
               bottom: -size * 0.5,
-              child: Stamp(text: 'Ungelöst', fontSize: size * 0.3, angle: -0.16),
+              child: Stamp(text: L.of(context).logo_stamp, fontSize: size * 0.3, angle: -0.16),
             ),
           ],
         ),
         if (subtitle != null) ...[
-          SizedBox(height: size * 0.42),
+          SizedBox(height: size * 0.66),
           Text(
             subtitle!.toUpperCase(),
             style: Noir.label(size * 0.24, color: Noir.smoke, spacing: size * 0.08, weight: FontWeight.w600),

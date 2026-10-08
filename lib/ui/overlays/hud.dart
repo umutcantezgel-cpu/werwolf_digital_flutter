@@ -23,6 +23,7 @@ class GameHud extends StatelessWidget {
     required this.onEffect,
     required this.mapOpen,
     required this.onMap,
+    required this.onMapExpand,
     this.showBottom = true,
   });
 
@@ -34,12 +35,15 @@ class GameHud extends StatelessWidget {
   final ValueChanged<String> onEffect;
   final bool mapOpen;
   final VoidCallback onMap;
+  final VoidCallback onMapExpand;
   final bool showBottom;
 
   @override
   Widget build(BuildContext context) {
     final pad = MediaQuery.paddingOf(context);
     final l = g.l;
+    // Querformat/geringe Höhe: Knöpfe als Zeile, damit sie den Fähigkeits-Knopf nicht berühren.
+    final compact = MediaQuery.sizeOf(context).height < 560;
     return Stack(
       children: [
         // Oben: dunkler Verlauf für Lesbarkeit
@@ -82,10 +86,11 @@ class GameHud extends StatelessWidget {
         Positioned(
           top: pad.top + 10,
           right: 10,
-          child: Column(
+          child: Flex(
+            direction: compact ? Axis.horizontal : Axis.vertical,
             children: [
               RoundIconButton(icon: Icons.menu_rounded, onPressed: onMenu, size: 40, tooltip: l.hud_menu),
-              const SizedBox(height: 10),
+              const SizedBox(width: 10, height: 10),
               RoundIconButton(
                 icon: Icons.menu_book_rounded,
                 onPressed: onNotebook,
@@ -93,14 +98,14 @@ class GameHud extends StatelessWidget {
                 tooltip: l.hud_notebook,
                 accent: g.accent,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(width: 10, height: 10),
               RoundIconButton(
                 icon: Icons.forum_rounded,
                 onPressed: onSignals,
                 tooltip: l.hud_signals,
                 accent: g.accent,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(width: 10, height: 10),
               RoundIconButton(
                 icon: Icons.map_rounded,
                 onPressed: onMap,
@@ -113,9 +118,12 @@ class GameHud extends StatelessWidget {
         ),
         if (mapOpen && g.scenario != null)
           Positioned(
-            top: pad.top + 112,
-            right: 62,
-            child: MiniMap(g: g, width: 150),
+            top: pad.top + (compact ? 64 : 112),
+            right: compact ? 10 : 62,
+            child: GestureDetector(
+              onTap: onMapExpand,
+              child: MiniMap(g: g, width: compact ? 130 : 150),
+            ),
           ),
         if (showBottom) ...[
           Positioned(
@@ -186,14 +194,17 @@ class _StatusCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(3),
                     child: SizedBox(
                       height: 6,
-                      child: Stack(fit: StackFit.expand, children: [
-                        const ColoredBox(color: Color(0x33E8E0D0)),
-                        FractionallySizedBox(
-                          alignment: Alignment.centerLeft,
-                          widthFactor: nerves / 100,
-                          child: ColoredBox(color: nerveColor),
-                        ),
-                      ]),
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          const ColoredBox(color: Color(0x33E8E0D0)),
+                          FractionallySizedBox(
+                            alignment: Alignment.centerLeft,
+                            widthFactor: nerves / 100,
+                            child: ColoredBox(color: nerveColor),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -257,8 +268,8 @@ class _PhaseTimerState extends State<_PhaseTimer> {
   int _lastSecond = -1;
 
   @override
-  void didUpdateWidget(covariant _PhaseTimer old) {
-    super.didUpdateWidget(old);
+  void didUpdateWidget(covariant _PhaseTimer oldWidget) {
+    super.didUpdateWidget(oldWidget);
     final rem = widget.world?.phaseRemainingMs ?? 0;
     final sec = (rem / 1000).ceil();
     if (sec != _lastSecond) {
@@ -297,17 +308,27 @@ class _PhaseTimerState extends State<_PhaseTimer> {
           ),
           Transform.scale(
             scale: pulse,
-            child: Text(formatClock(rem), style: Noir.title(25, color: urgent ? Noir.bloodBright : Noir.cream, spacing: 1)),
+            child: Text(
+              formatClock(rem),
+              style: Noir.title(25, color: urgent ? Noir.bloodBright : Noir.cream, spacing: 1),
+            ),
           ),
           const SizedBox(height: 2),
           ClipRRect(
             borderRadius: BorderRadius.circular(2),
             child: SizedBox(
               height: 3,
-              child: Stack(fit: StackFit.expand, children: [
-                const ColoredBox(color: Color(0x22E8E0D0)),
-                FractionallySizedBox(alignment: Alignment.centerLeft, widthFactor: frac, child: ColoredBox(color: color)),
-              ]),
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  const ColoredBox(color: Color(0x22E8E0D0)),
+                  FractionallySizedBox(
+                    alignment: Alignment.centerLeft,
+                    widthFactor: frac,
+                    child: ColoredBox(color: color),
+                  ),
+                ],
+              ),
             ),
           ),
           const SizedBox(height: 4),
@@ -376,11 +397,7 @@ class _AbilityButtonState extends State<AbilityButton> {
                 children: [
                   CustomPaint(
                     size: const Size.square(64),
-                    painter: _CooldownPainter(
-                      fraction: remaining / total,
-                      accent: g.accent,
-                      ready: ready,
-                    ),
+                    painter: _CooldownPainter(fraction: remaining / total, accent: g.accent, ready: ready),
                   ),
                   Center(
                     child: remaining > 0
@@ -435,12 +452,13 @@ class _CooldownPainter extends CustomPainter {
         ).createShader(Rect.fromCircle(center: c, radius: r)),
     );
     canvas.drawCircle(
-        c,
-        r - 1,
-        Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 1.5
-          ..color = ready ? Color.lerp(accent, Colors.white, 0.5)! : const Color(0x55E8E0D0));
+      c,
+      r - 1,
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.5
+        ..color = ready ? Color.lerp(accent, Colors.white, 0.5)! : const Color(0x55E8E0D0),
+    );
     if (fraction > 0) {
       canvas.drawArc(
         Rect.fromCircle(center: c, radius: r - 4),
@@ -500,14 +518,17 @@ class _Slot extends StatelessWidget {
       decoration: BoxDecoration(
         color: t == null ? const Color(0x880E101C) : const Color(0xDD0E101C),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: t == null ? const Color(0x33E8E0D0) : accent.withValues(alpha: 0.8), width: t == null ? 1 : 1.5),
+        border: Border.all(
+          color: t == null ? const Color(0x33E8E0D0) : accent.withValues(alpha: 0.8),
+          width: t == null ? 1 : 1.5,
+        ),
         boxShadow: t == null ? null : [BoxShadow(color: accent.withValues(alpha: 0.2), blurRadius: 8)],
       ),
       child: t == null
           ? const Icon(Icons.add_rounded, size: 16, color: Color(0x33E8E0D0))
           : Icon(GameIcons.item(t), size: 24, color: Noir.cream),
     );
-    if (t == null) return Tooltip(message: l.hud_inventory_empty, child: body);
+    if (t == null) return body;
     return Tooltip(
       message: '${l.itemName(t)} – ${l.itemDesc(t)}',
       child: GestureDetector(

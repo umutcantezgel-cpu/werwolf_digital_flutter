@@ -204,7 +204,7 @@ class PropPainter {
   }
 
   void _sofa(IsoPen pen, Color? custom) {
-    final fab = custom ?? mix(const Color(0xFF2E4A3C), pal.fabric, 0.25);
+    final fab = custom ?? mix(const Color(0xFF2F5A45), pal.fabric, 0.15);
     pen.box(0.03, 0.2, 0.97, 0.9, 0.04, 0.28, shade(fab, -0.1));
     pen.box(0.03, 0.12, 0.97, 0.34, 0.28, 0.7, shade(fab, -0.03), edge: withAlpha(shade(fab, 0.3), 0.35));
     pen.part(0.09, 0.6, () => pen.box(0.02, 0.26, 0.16, 0.92, 0.28, 0.46, fab));
@@ -891,13 +891,16 @@ class PropPainter {
             ..lineTo(0.5, 0.66)
             ..moveTo(0.4, 0.66)
             ..lineTo(0.6, 0.66);
-        default: // Mond und Stern
-          glyph
-            ..addArc(Rect.fromCenter(center: const Offset(0.38, 0.85), width: 0.3, height: 0.36), 0.9, 4.5)
-            ..moveTo(0.66, 0.98)
-            ..lineTo(0.66, 0.74)
-            ..moveTo(0.56, 0.86)
-            ..lineTo(0.76, 0.86);
+        default: // Stern
+          for (var i = 0; i <= 5; i++) {
+            final a = -math.pi / 2 + i * math.pi * 4 / 5;
+            final pt = Offset(0.5 + math.cos(a) * 0.2, 0.85 - math.sin(a) * 0.22);
+            if (i == 0) {
+              glyph.moveTo(pt.dx, pt.dy);
+            } else {
+              glyph.lineTo(pt.dx, pt.dy);
+            }
+          }
       }
       for (final (path, cl) in [(frame, second), (glyph, col)]) {
         c.drawPath(path, Paint()

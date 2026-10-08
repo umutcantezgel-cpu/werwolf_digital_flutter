@@ -33,16 +33,15 @@ abstract final class Noir {
   static const display = 'SpecialElite';
   static const body = 'Inter';
 
-  static TextStyle title(double size, {Color color = cream, double spacing = 1.5}) => TextStyle(
-        fontFamily: display,
-        fontSize: size,
-        color: color,
-        letterSpacing: spacing,
-        height: 1.15,
-      );
+  static TextStyle title(double size, {Color color = cream, double spacing = 1.5}) =>
+      TextStyle(fontFamily: display, fontSize: size, color: color, letterSpacing: spacing, height: 1.15);
 
-  static TextStyle label(double size, {Color color = smoke, FontWeight weight = FontWeight.w600, double spacing = 1.2}) =>
-      TextStyle(fontFamily: body, fontSize: size, color: color, fontWeight: weight, letterSpacing: spacing);
+  static TextStyle label(
+    double size, {
+    Color color = smoke,
+    FontWeight weight = FontWeight.w600,
+    double spacing = 1.2,
+  }) => TextStyle(fontFamily: body, fontSize: size, color: color, fontWeight: weight, letterSpacing: spacing);
 
   static TextStyle text(double size, {Color color = cream, FontWeight weight = FontWeight.w400, double height = 1.4}) =>
       TextStyle(fontFamily: body, fontSize: size, color: color, fontWeight: weight, height: height);
@@ -97,19 +96,26 @@ ThemeData buildNoirTheme() {
       filled: true,
       fillColor: Noir.night3,
       hintStyle: Noir.text(15, color: Noir.smokeDim),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(4), borderSide: const BorderSide(color: Noir.line)),
-      enabledBorder:
-          OutlineInputBorder(borderRadius: BorderRadius.circular(4), borderSide: const BorderSide(color: Noir.line)),
-      focusedBorder:
-          OutlineInputBorder(borderRadius: BorderRadius.circular(4), borderSide: const BorderSide(color: Noir.brass)),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(4),
+        borderSide: const BorderSide(color: Noir.line),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(4),
+        borderSide: const BorderSide(color: Noir.line),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(4),
+        borderSide: const BorderSide(color: Noir.brass),
+      ),
     ),
     tooltipTheme: TooltipThemeData(
-      decoration: BoxDecoration(color: Noir.night3, borderRadius: BorderRadius.circular(4), border: Border.all(color: Noir.line)),
+      decoration: BoxDecoration(
+        color: Noir.night3,
+        borderRadius: BorderRadius.circular(4),
+        border: Border.all(color: Noir.line),
+      ),
       textStyle: Noir.text(13),
     ),
-    pageTransitionsTheme: const PageTransitionsTheme(builders: {
-      TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-    }),
   );
 }

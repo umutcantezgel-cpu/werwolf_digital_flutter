@@ -39,16 +39,19 @@ class _LobbyScreenState extends State<LobbyScreen> {
     // Bevorzugte Ausrüstung setzen (nur freigeschaltete Teile).
     final meta = app.meta;
     final lo = meta.loadout;
-    app.send(SetLoadout(
-      cls: meta.classUnlocked(lo.cls) ? lo.cls : 'forensic',
-      coat: meta.coatUnlocked(lo.coat) ? lo.coat : 0,
-      hat: meta.hatUnlocked(lo.hat) ? lo.hat : 'fedora',
-    ));
+    app.send(
+      SetLoadout(
+        cls: meta.classUnlocked(lo.cls) ? lo.cls : 'forensic',
+        coat: meta.coatUnlocked(lo.coat) ? lo.coat : 0,
+        hat: meta.hatUnlocked(lo.hat) ? lo.hat : 'fedora',
+      ),
+    );
     final cfg = app.pendingConfig;
     if (cfg != null) {
       app.pendingConfig = null;
       app.send(cfg);
     }
+    if (!s.isOnline) app.send(const SetReady(true));
     s.caseView.addListener(_onCase);
     WidgetsBinding.instance.addPostFrameCallback((_) => _onCase());
   }
@@ -117,11 +120,7 @@ class _LobbyScreenState extends State<LobbyScreen> {
                 child: Column(
                   children: [
                     ContentWidth(
-                      child: NoirTopBar(
-                        title: l.lobby_title,
-                        subtitle: scenario?.title.resolve(),
-                        onBack: _leave,
-                      ),
+                      child: NoirTopBar(title: l.lobby_title, subtitle: scenario?.title.resolve(), onBack: _leave),
                     ),
                     Expanded(
                       child: cv == null
@@ -134,15 +133,22 @@ class _LobbyScreenState extends State<LobbyScreen> {
                                     crossAxisAlignment: CrossAxisAlignment.stretch,
                                     children: [
                                       if (s.isOnline) _RoomCode(code: cv.roomCode),
-                                      if (scenario != null) _CaseBanner(scenario: scenario, mode: cv.mode, accent: accent),
+                                      if (scenario != null)
+                                        _CaseBanner(scenario: scenario, mode: cv.mode, accent: accent),
                                       const SizedBox(height: 18),
-                                      SectionLabel(l.lobby_players(cv.lobby.length)),
+                                      SectionLabel(
+                                        l.lobby_players(
+                                          cv.lobby.length + (cv.bots - cv.lobby.where((p) => p.bot).length).clamp(0, 6),
+                                        ),
+                                      ),
                                       for (final p in cv.lobby)
                                         _PlayerRow(
                                           player: p,
                                           me: p.id == s.playerId,
                                           host: p.id == cv.hostId,
                                         ).animate().fadeIn(duration: 300.ms),
+                                      for (var i = cv.lobby.where((p) => p.bot).length; i < cv.bots; i++)
+                                        _BotSlot(index: i + 1),
                                       const SizedBox(height: 18),
                                       SectionLabel(l.lobby_loadout),
                                       _ClassPicker(
@@ -152,8 +158,10 @@ class _LobbyScreenState extends State<LobbyScreen> {
                                         onPick: (c) => _setLoadout(cls: c),
                                       ),
                                       const SizedBox(height: 16),
-                                      Text(l.lobby_coat.toUpperCase(),
-                                          style: Noir.label(11, color: Noir.smoke, spacing: 1.8)),
+                                      Text(
+                                        l.lobby_coat.toUpperCase(),
+                                        style: Noir.label(11, color: Noir.smoke, spacing: 1.8),
+                                      ),
                                       const SizedBox(height: 8),
                                       _CoatPicker(
                                         selected: me?.coat ?? 0,
@@ -161,8 +169,10 @@ class _LobbyScreenState extends State<LobbyScreen> {
                                         onPick: (c) => _setLoadout(coat: c),
                                       ),
                                       const SizedBox(height: 16),
-                                      Text(l.lobby_hat.toUpperCase(),
-                                          style: Noir.label(11, color: Noir.smoke, spacing: 1.8)),
+                                      Text(
+                                        l.lobby_hat.toUpperCase(),
+                                        style: Noir.label(11, color: Noir.smoke, spacing: 1.8),
+                                      ),
                                       const SizedBox(height: 8),
                                       _HatPicker(
                                         selected: me?.hat ?? 'fedora',
@@ -308,24 +318,38 @@ class _PlayerRow extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(children: [
-                  Flexible(
-                    child: Text(player.name,
-                        style: Noir.text(15.5, weight: FontWeight.w600), maxLines: 1, overflow: TextOverflow.ellipsis),
-                  ),
-                  if (me) ...[const SizedBox(width: 6), Text('(${l.common_you})', style: Noir.text(13, color: Noir.smoke))],
-                  if (host) ...[
-                    const SizedBox(width: 6),
-                    Tooltip(message: l.lobby_host, child: const Icon(Icons.star_rounded, size: 16, color: Noir.brass)),
+                Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        player.name,
+                        style: Noir.text(15.5, weight: FontWeight.w600),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    if (me) ...[
+                      const SizedBox(width: 6),
+                      Text('(${l.common_you})', style: Noir.text(13, color: Noir.smoke)),
+                    ],
+                    if (host) ...[
+                      const SizedBox(width: 6),
+                      Tooltip(
+                        message: l.lobby_host,
+                        child: const Icon(Icons.star_rounded, size: 16, color: Noir.brass),
+                      ),
+                    ],
                   ],
-                ]),
+                ),
                 const SizedBox(height: 2),
-                Row(children: [
-                  Icon(GameIcons.cls(player.cls), size: 14, color: Noir.smoke),
-                  const SizedBox(width: 4),
-                  Text(l.className(player.cls), style: Noir.text(12.5, color: Noir.smoke)),
-                  if (player.bot) ...[const SizedBox(width: 8), TagChip(l.lobby_bot, color: const Color(0xFF6FA8DC))],
-                ]),
+                Row(
+                  children: [
+                    Icon(GameIcons.cls(player.cls), size: 14, color: Noir.smoke),
+                    const SizedBox(width: 4),
+                    Text(l.className(player.cls), style: Noir.text(12.5, color: Noir.smoke)),
+                    if (player.bot) ...[const SizedBox(width: 8), TagChip(l.lobby_bot, color: const Color(0xFF6FA8DC))],
+                  ],
+                ),
               ],
             ),
           ),
@@ -335,16 +359,63 @@ class _PlayerRow extends StatelessWidget {
             AnimatedSwitcher(
               duration: const Duration(milliseconds: 200),
               child: player.ready || player.bot
-                  ? Row(key: const ValueKey(1), mainAxisSize: MainAxisSize.min, children: [
-                      const Icon(Icons.check_circle_rounded, color: Noir.buff, size: 18),
-                      const SizedBox(width: 4),
-                      Text(l.lobby_ready, style: Noir.label(12, color: Noir.buff, spacing: 0.3)),
-                    ])
-                  : Text(l.lobby_waiting, key: const ValueKey(0), style: Noir.label(12, color: Noir.smokeDim, spacing: 0.3)),
+                  ? Row(
+                      key: const ValueKey(1),
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.check_circle_rounded, color: Noir.buff, size: 18),
+                        const SizedBox(width: 4),
+                        Text(l.lobby_ready, style: Noir.label(12, color: Noir.buff, spacing: 0.3)),
+                      ],
+                    )
+                  : Text(
+                      l.lobby_waiting,
+                      key: const ValueKey(0),
+                      style: Noir.label(12, color: Noir.smokeDim, spacing: 0.3),
+                    ),
             ),
         ],
       ),
     );
+  }
+}
+
+/// Platzhalter für einen KI-Partner, der beim Start dazukommt.
+class _BotSlot extends StatelessWidget {
+  const _BotSlot({required this.index});
+
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    final l = L.of(context);
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(color: const Color(0x22E8E0D0)),
+        color: const Color(0x44151829),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: const Color(0x446FA8DC), width: 1.5),
+            ),
+            child: const Icon(Icons.smart_toy_rounded, color: Color(0xAA6FA8DC), size: 22),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(l.lobby_bot_slot(index), style: Noir.text(14.5, color: Noir.smoke)),
+          ),
+          TagChip(l.lobby_bot, color: const Color(0xFF6FA8DC)),
+        ],
+      ),
+    ).animate().fadeIn(duration: 250.ms).slideX(begin: 0.05);
   }
 }
 
@@ -387,42 +458,57 @@ class _ClassPicker extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(children: [
-                      Container(
-                        width: 34,
-                        height: 34,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: sel ? accent : const Color(0x22E8E0D0),
+                    Row(
+                      children: [
+                        Container(
+                          width: 34,
+                          height: 34,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: sel ? accent : const Color(0x22E8E0D0),
+                          ),
+                          child: Icon(GameIcons.cls(c.id), size: 19, color: sel ? Noir.night : Noir.cream),
                         ),
-                        child: Icon(GameIcons.cls(c.id), size: 19, color: sel ? Noir.night : Noir.cream),
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(l.className(c.id),
-                            style: Noir.title(15.5), maxLines: 1, overflow: TextOverflow.ellipsis),
-                      ),
-                    ]),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            alignment: Alignment.centerLeft,
+                            child: Text(l.className(c.id), style: Noir.title(15.5), maxLines: 1),
+                          ),
+                        ),
+                      ],
+                    ),
                     const SizedBox(height: 10),
                     Text(l.lobby_ability.toUpperCase(), style: Noir.label(9.5, color: accent, spacing: 1.5)),
                     const SizedBox(height: 2),
-                    Text(l.classAbility(c.id),
-                        style: Noir.text(11.5, height: 1.3), maxLines: 3, overflow: TextOverflow.ellipsis),
+                    Text(
+                      l.classAbility(c.id),
+                      style: Noir.text(11.5, height: 1.3),
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                     const Spacer(),
                     Text(l.lobby_passive.toUpperCase(), style: Noir.label(9.5, color: Noir.smoke, spacing: 1.5)),
                     const SizedBox(height: 2),
                     if (locked)
-                      Row(children: [
-                        const Icon(Icons.lock_rounded, size: 13, color: Noir.brass),
-                        const SizedBox(width: 4),
-                        Text(l.common_unlock_at(l.rankName(c.unlockRank)),
-                            style: Noir.label(11.5, color: Noir.brass, spacing: 0.2)),
-                      ])
+                      Row(
+                        children: [
+                          const Icon(Icons.lock_rounded, size: 13, color: Noir.brass),
+                          const SizedBox(width: 4),
+                          Text(
+                            l.common_unlock_at(l.rankName(c.unlockRank)),
+                            style: Noir.label(11.5, color: Noir.brass, spacing: 0.2),
+                          ),
+                        ],
+                      )
                     else
-                      Text(l.classPassive(c.id),
-                          style: Noir.text(11.5, color: Noir.smoke, height: 1.3),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis),
+                      Text(
+                        l.classPassive(c.id),
+                        style: Noir.text(11.5, color: Noir.smoke, height: 1.3),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                   ],
                 ),
               ),
@@ -460,8 +546,13 @@ class _CoatPicker extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: coatColor(i),
-                  border: Border.all(color: i == selected ? Noir.cream : const Color(0x44000000), width: i == selected ? 3 : 1),
-                  boxShadow: i == selected ? [BoxShadow(color: coatColor(i).withValues(alpha: 0.6), blurRadius: 10)] : null,
+                  border: Border.all(
+                    color: i == selected ? Noir.cream : const Color(0x44000000),
+                    width: i == selected ? 3 : 1,
+                  ),
+                  boxShadow: i == selected
+                      ? [BoxShadow(color: coatColor(i).withValues(alpha: 0.6), blurRadius: 10)]
+                      : null,
                 ),
                 child: rank < coatRank(i)
                     ? const Icon(Icons.lock_rounded, size: 16, color: Color(0xCCFFFFFF))
@@ -475,7 +566,13 @@ class _CoatPicker extends StatelessWidget {
 }
 
 class _HatPicker extends StatelessWidget {
-  const _HatPicker({required this.selected, required this.coat, required this.rank, required this.accent, required this.onPick});
+  const _HatPicker({
+    required this.selected,
+    required this.coat,
+    required this.rank,
+    required this.accent,
+    required this.onPick,
+  });
 
   final String selected;
   final int coat;
@@ -515,7 +612,11 @@ class _HatPicker extends StatelessWidget {
                       children: [
                         Opacity(
                           opacity: locked ? 0.35 : 1,
-                          child: Portrait(look: LookDef(coat: detectiveCoats[coat], hat: h), size: 62, accent: accent),
+                          child: Portrait(
+                            look: LookDef(coat: detectiveCoats[coat], hat: h),
+                            size: 62,
+                            accent: accent,
+                          ),
                         ),
                         if (locked) const Center(child: Icon(Icons.lock_rounded, color: Noir.brass, size: 20)),
                       ],
@@ -553,12 +654,14 @@ class _HostConfig extends StatelessWidget {
 
   void _send({String? scenarioId, String? mode, int? bots}) {
     final sid = scenarioId ?? cv.scenarioId ?? (scenarios.keys.toList()..sort()).first;
-    onConfigure(ConfigureGame(
-      scenarioId: sid,
-      mode: mode ?? cv.mode,
-      seed: mode == null || mode == cv.mode ? cv.seed : null,
-      bots: bots ?? cv.bots,
-    ));
+    onConfigure(
+      ConfigureGame(
+        scenarioId: sid,
+        mode: mode ?? cv.mode,
+        seed: mode == null || mode == cv.mode ? cv.seed : null,
+        bots: bots ?? cv.bots,
+      ),
+    );
   }
 
   @override
@@ -577,9 +680,7 @@ class _HostConfig extends StatelessWidget {
               isExpanded: true,
               dropdownColor: Noir.night3,
               style: Noir.text(14.5),
-              items: [
-                for (final id in ids) DropdownMenuItem(value: id, child: Text(scenarios[id]!.title.resolve())),
-              ],
+              items: [for (final id in ids) DropdownMenuItem(value: id, child: Text(scenarios[id]!.title.resolve()))],
               onChanged: (v) => v == null ? null : _send(scenarioId: v),
             ),
             const SizedBox(height: 14),
@@ -606,13 +707,25 @@ class _HostConfig extends StatelessWidget {
             children: [
               const Icon(Icons.smart_toy_rounded, color: Noir.smoke, size: 20),
               const SizedBox(width: 10),
-              Expanded(child: Text(l.lobby_bots, style: Noir.text(15, weight: FontWeight.w600))),
-              _StepButton(icon: Icons.remove_rounded, onTap: cv.bots > 0 ? () => _send(bots: cv.bots - 1) : null),
+              Expanded(
+                child: Text(l.lobby_bots, style: Noir.text(15, weight: FontWeight.w600)),
+              ),
+              _StepButton(
+                icon: Icons.remove_rounded,
+                onTap: cv.bots > 0 ? () => _send(bots: cv.bots - 1) : null,
+              ),
               SizedBox(
                 width: 40,
-                child: Text('${cv.bots}', textAlign: TextAlign.center, style: Noir.title(22, color: Noir.brassLight)),
+                child: Text(
+                  '${cv.bots}',
+                  textAlign: TextAlign.center,
+                  style: Noir.title(22, color: Noir.brassLight),
+                ),
               ),
-              _StepButton(icon: Icons.add_rounded, onTap: cv.bots < 5 ? () => _send(bots: cv.bots + 1) : null),
+              _StepButton(
+                icon: Icons.add_rounded,
+                onTap: cv.bots < 5 ? () => _send(bots: cv.bots + 1) : null,
+              ),
             ],
           ),
         ],
@@ -682,7 +795,9 @@ class _BottomBar extends StatelessWidget {
                       accent: accent,
                       onPressed: canStart ? onStart : null,
                     )
-                  : Center(child: Text(l.lobby_wait_host, style: Noir.text(13.5, color: Noir.smoke))),
+                  : Center(
+                      child: Text(l.lobby_wait_host, style: Noir.text(13.5, color: Noir.smoke)),
+                    ),
             ),
           ],
         ),

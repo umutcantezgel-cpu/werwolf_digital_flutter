@@ -47,17 +47,18 @@ class ToastController extends ChangeNotifier {
 }
 
 class ToastLayer extends StatelessWidget {
-  const ToastLayer({super.key, required this.controller, this.top = 150});
+  const ToastLayer({super.key, required this.controller, this.top = 150, this.right = 16});
 
   final ToastController controller;
   final double top;
+  final double right;
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
       top: MediaQuery.paddingOf(context).top + top,
-      left: 16,
-      right: 16,
+      left: 12,
+      right: right,
       child: IgnorePointer(
         child: ListenableBuilder(
           listenable: controller,
@@ -107,7 +108,9 @@ class _Toast extends StatelessWidget {
               child: Icon(t.icon, size: 15, color: t.color),
             ),
             const SizedBox(width: 9),
-            Flexible(child: Text(t.text, style: Noir.text(13.5, weight: FontWeight.w500, height: 1.3))),
+            Flexible(
+              child: Text(t.text, style: Noir.text(13.5, weight: FontWeight.w500, height: 1.3)),
+            ),
           ],
         ),
       ),

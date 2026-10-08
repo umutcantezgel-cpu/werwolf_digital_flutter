@@ -37,6 +37,9 @@ class AppState extends ChangeNotifier {
 
   DevOptions dev = const DevOptions();
 
+  /// Die KI steuert den eigenen Detektiv (Entwickler-Einstieg `?autoplay=`).
+  bool autoplay = false;
+
   /// Ergebnis des zuletzt verbuchten Spiels (End-Bildschirm).
   GameResult? lastResult;
 
@@ -82,6 +85,7 @@ class AppState extends ChangeNotifier {
     final s = await SessionFactory.solo(scenarios: scenarios, playerName: playerName, autoplay: true);
     pendingConfig = null;
     _attach(s);
+    autoplay = true;
     final lo = meta.loadout;
     s.send(SetLoadout(cls: lo.cls, coat: lo.coat, hat: lo.hat));
     s.send(ConfigureGame(scenarioId: scenario.id, mode: 'story', bots: 2));
@@ -115,6 +119,7 @@ class AppState extends ChangeNotifier {
 
   void _attach(GameSession s) {
     _session = s;
+    autoplay = false;
     lastResult = null;
     _recorded = false;
     _tally = GameTally();
@@ -186,7 +191,7 @@ class AppState extends ChangeNotifier {
       mode: cv.mode,
       playerId: s.playerId,
       online: s.isOnline,
-      scenarioCount: scenarios.length,
+      allScenarioIds: scenarios.keys.toSet(),
       tally: _tally,
     );
     notifyListeners();

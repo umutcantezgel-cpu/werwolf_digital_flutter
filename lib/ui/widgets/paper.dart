@@ -184,12 +184,17 @@ class Stamp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = Noir.title(fontSize, color: color, spacing: fontSize * 0.14);
-    final tp = TextPainter(text: TextSpan(text: text.toUpperCase(), style: style), textDirection: TextDirection.ltr)
-      ..layout();
+    final tp = TextPainter(
+      text: TextSpan(text: text.toUpperCase(), style: style),
+      textDirection: TextDirection.ltr,
+    )..layout();
     final size = Size(tp.width + padding.horizontal + 8, tp.height + padding.vertical + 8);
     return Transform.rotate(
       angle: angle,
-      child: SizedBox.fromSize(size: size, child: CustomPaint(painter: _StampPainter(tp, color, padding))),
+      child: SizedBox.fromSize(
+        size: size,
+        child: CustomPaint(painter: _StampPainter(tp, color, padding)),
+      ),
     );
   }
 }

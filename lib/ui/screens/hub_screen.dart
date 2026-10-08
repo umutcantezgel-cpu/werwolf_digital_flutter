@@ -37,8 +37,12 @@ class _HubScreenState extends State<HubScreen> {
       if (lost != null) {
         app.lostKey = null;
         final l = L.of(context);
-        showNoirSnack(context, '${l.error_room_lost} ${l.errorText(lost)}',
-            icon: Icons.wifi_off_rounded, color: Noir.bloodBright);
+        showNoirSnack(
+          context,
+          '${l.error_room_lost} ${l.errorText(lost)}',
+          icon: Icons.wifi_off_rounded,
+          color: Noir.bloodBright,
+        );
       }
       if (!context.read<MetaStore>().hasName) showNameDialog(context, first: true);
     });
@@ -191,8 +195,10 @@ class _BadgeCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 2),
-                    Text(l.rankName(meta.rank).toUpperCase(),
-                        style: Noir.label(11.5, color: Noir.brass, spacing: 2.4, weight: FontWeight.w700)),
+                    Text(
+                      l.rankName(meta.rank).toUpperCase(),
+                      style: Noir.label(11.5, color: Noir.brass, spacing: 2.4, weight: FontWeight.w700),
+                    ),
                   ],
                 ),
               ),
@@ -206,10 +212,16 @@ class _BadgeCard extends StatelessWidget {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(Icons.local_fire_department_rounded,
-                        size: 17, color: streak > 0 ? const Color(0xFFF0A040) : Noir.smokeDim),
+                    Icon(
+                      Icons.local_fire_department_rounded,
+                      size: 17,
+                      color: streak > 0 ? const Color(0xFFF0A040) : Noir.smokeDim,
+                    ),
                     const SizedBox(width: 4),
-                    Text('$streak', style: Noir.label(14, color: Noir.cream, spacing: 0, weight: FontWeight.w700)),
+                    Text(
+                      '$streak',
+                      style: Noir.label(14, color: Noir.cream, spacing: 0, weight: FontWeight.w700),
+                    ),
                   ],
                 ),
               ),
@@ -248,7 +260,7 @@ class _DailyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = L.of(context);
     return PaperCard(
-      clip: true,
+      tape: true,
       padding: EdgeInsets.zero,
       child: IntrinsicHeight(
         child: Row(
@@ -263,8 +275,10 @@ class _DailyCard extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text(l.hub_daily_title.toUpperCase(),
-                            style: Noir.label(11, color: Noir.blood, spacing: 2, weight: FontWeight.w700)),
+                        Text(
+                          l.hub_daily_title.toUpperCase(),
+                          style: Noir.label(11, color: Noir.blood, spacing: 2, weight: FontWeight.w700),
+                        ),
                         const Spacer(),
                         Text(date, style: Noir.typed(12, color: Noir.inkSoft)),
                       ],
@@ -277,16 +291,21 @@ class _DailyCard extends StatelessWidget {
                     Row(
                       children: [
                         if (done)
-                          Row(children: [
-                            const Icon(Icons.check_circle_rounded, color: Color(0xFF3F7D45), size: 18),
-                            const SizedBox(width: 6),
-                            Text(l.hub_daily_done, style: Noir.label(13, color: const Color(0xFF3F7D45), spacing: 0.3)),
-                          ])
+                          Row(
+                            children: [
+                              const Icon(Icons.check_circle_rounded, color: Color(0xFF3F7D45), size: 18),
+                              const SizedBox(width: 6),
+                              Text(
+                                l.hub_daily_done,
+                                style: Noir.label(13, color: const Color(0xFF3F7D45), spacing: 0.3),
+                              ),
+                            ],
+                          )
                         else
                           TagChip(l.hub_daily_bonus(dailyBonusXp), color: Noir.blood, icon: Icons.bolt_rounded),
                         const Spacer(),
                         SizedBox(
-                          width: 140,
+                          width: 148,
                           child: NoirButton(
                             label: l.hub_daily_play,
                             height: 42,

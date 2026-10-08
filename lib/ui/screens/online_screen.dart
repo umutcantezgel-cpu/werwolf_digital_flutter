@@ -37,8 +37,9 @@ class OnlineScreen extends StatefulWidget {
 
 class _OnlineScreenState extends State<OnlineScreen> {
   final _code = TextEditingController();
-  late final TextEditingController _server =
-      TextEditingController(text: context.read<MetaStore>().serverUrl ?? defaultServerUrl);
+  late final TextEditingController _server = TextEditingController(
+    text: context.read<MetaStore>().serverUrl ?? defaultServerUrl,
+  );
   String? _busy; // 'create' | 'join'
   String? _error;
 
@@ -100,11 +101,13 @@ class _OnlineScreenState extends State<OnlineScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Row(children: [
-                                const Icon(Icons.add_home_work_rounded, color: Noir.brass),
-                                const SizedBox(width: 10),
-                                Text(l.online_create, style: Noir.title(20)),
-                              ]),
+                              Row(
+                                children: [
+                                  const Icon(Icons.add_home_work_rounded, color: Noir.brass),
+                                  const SizedBox(width: 10),
+                                  Text(l.online_create, style: Noir.title(20)),
+                                ],
+                              ),
                               const SizedBox(height: 6),
                               Text(l.online_create_sub, style: Noir.text(13.5, color: Noir.smoke)),
                               const SizedBox(height: 16),
@@ -123,11 +126,13 @@ class _OnlineScreenState extends State<OnlineScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Row(children: [
-                                const Icon(Icons.vpn_key_rounded, color: Noir.brass),
-                                const SizedBox(width: 10),
-                                Text(l.online_join, style: Noir.title(20)),
-                              ]),
+                              Row(
+                                children: [
+                                  const Icon(Icons.vpn_key_rounded, color: Noir.brass),
+                                  const SizedBox(width: 10),
+                                  Text(l.online_join, style: Noir.title(20)),
+                                ],
+                              ),
                               const SizedBox(height: 6),
                               Text(l.online_join_sub, style: Noir.text(13.5, color: Noir.smoke)),
                               const SizedBox(height: 16),
@@ -138,7 +143,9 @@ class _OnlineScreenState extends State<OnlineScreen> {
                                 icon: Icons.login_rounded,
                                 style: NoirButtonStyle.secondary,
                                 busy: _busy == 'join',
-                                onPressed: _busy == null && codeOk ? () => _go(code: _code.text.trim().toUpperCase()) : null,
+                                onPressed: _busy == null && codeOk
+                                    ? () => _go(code: _code.text.trim().toUpperCase())
+                                    : null,
                               ),
                             ],
                           ),
@@ -152,11 +159,13 @@ class _OnlineScreenState extends State<OnlineScreen> {
                               borderRadius: BorderRadius.circular(4),
                               border: Border.all(color: Noir.bloodBright.withValues(alpha: 0.6)),
                             ),
-                            child: Row(children: [
-                              const Icon(Icons.error_outline_rounded, color: Noir.bloodBright),
-                              const SizedBox(width: 10),
-                              Expanded(child: Text(_error!, style: Noir.text(14))),
-                            ]),
+                            child: Row(
+                              children: [
+                                const Icon(Icons.error_outline_rounded, color: Noir.bloodBright),
+                                const SizedBox(width: 10),
+                                Expanded(child: Text(_error!, style: Noir.text(14))),
+                              ],
+                            ),
                           ),
                         ],
                         const SizedBox(height: 14),

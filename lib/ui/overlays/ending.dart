@@ -17,12 +17,12 @@ import '../widgets/portrait.dart';
 import 'game_context.dart';
 
 Color verdictColor(String v) => switch (v) {
-      'perfect' => Noir.brassLight,
-      'solid' => const Color(0xFF7CC47F),
-      'partial' => const Color(0xFFE0A050),
-      'wrong' => Noir.bloodBright,
-      _ => Noir.smoke,
-    };
+  'perfect' => Noir.brassLight,
+  'solid' => const Color(0xFF7CC47F),
+  'partial' => const Color(0xFFE0A050),
+  'wrong' => Noir.bloodBright,
+  _ => Noir.smoke,
+};
 
 /// Zusammengesetztes Ende: Urteil, Team, Täter-Epilog, Geheimnis, Auflösung, Auszeichnungen, XP.
 class EndingOverlay extends StatelessWidget {
@@ -75,9 +75,11 @@ class EndingOverlay extends StatelessWidget {
                       child: Stamp(text: l.verdictStamp(ending.verdict), color: vColor, fontSize: 34, angle: -0.06),
                     ).animate().scale(begin: const Offset(2.4, 2.4), duration: 420.ms, curve: Curves.easeIn).fadeIn(),
                     const SizedBox(height: 18),
-                    Text(verdict?.title.resolve() ?? '', textAlign: TextAlign.center, style: Noir.title(28))
-                        .animate()
-                        .fadeIn(delay: next(400).ms),
+                    Text(
+                      verdict?.title.resolve() ?? '',
+                      textAlign: TextAlign.center,
+                      style: Noir.title(28),
+                    ).animate().fadeIn(delay: next(400).ms),
                     const SizedBox(height: 8),
                     Text(
                       verdict?.text.resolve() ?? '',
@@ -87,16 +89,18 @@ class EndingOverlay extends StatelessWidget {
                     const SizedBox(height: 24),
                     // Epilog
                     PaperCard(
-                      clip: true,
-                      padding: const EdgeInsets.fromLTRB(18, 20, 18, 18),
+                      tape: true,
+                      padding: const EdgeInsets.fromLTRB(18, 22, 18, 18),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(children: [
-                            Text(l.ending_team.toUpperCase(), style: Noir.label(10.5, color: Noir.blood, spacing: 2)),
-                            const Spacer(),
-                            TagChip(l.teamLabel(ending.team), color: Noir.ink),
-                          ]),
+                          Row(
+                            children: [
+                              Text(l.ending_team.toUpperCase(), style: Noir.label(10.5, color: Noir.blood, spacing: 2)),
+                              const Spacer(),
+                              TagChip(l.teamLabel(ending.team), color: Noir.ink),
+                            ],
+                          ),
                           const SizedBox(height: 6),
                           Text(teamText ?? '', style: Noir.typed(14.5, color: Noir.ink)),
                           const SizedBox(height: 16),
@@ -116,7 +120,10 @@ class EndingOverlay extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(culpritDef?.name.resolve() ?? '', style: Noir.title(16, color: Noir.ink, spacing: 0.2)),
+                                    Text(
+                                      culpritDef?.name.resolve() ?? '',
+                                      style: Noir.title(16, color: Noir.ink, spacing: 0.2),
+                                    ),
                                     const SizedBox(height: 4),
                                     Text(epilogue ?? '', style: Noir.typed(14, color: Noir.ink)),
                                   ],
@@ -130,37 +137,51 @@ class EndingOverlay extends StatelessWidget {
                     if (ending.secret) ...[
                       const SizedBox(height: 16),
                       Container(
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF1A1508),
-                          borderRadius: BorderRadius.circular(6),
-                          border: Border.all(color: Noir.brassLight, width: 1.5),
-                          boxShadow: [BoxShadow(color: Noir.brass.withValues(alpha: 0.35), blurRadius: 20)],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(children: [
-                              const Icon(Icons.lock_open_rounded, color: Noir.brassLight, size: 18),
-                              const SizedBox(width: 8),
-                              Text(l.ending_secret.toUpperCase(),
-                                  style: Noir.label(11, color: Noir.brassLight, spacing: 2.2, weight: FontWeight.w700)),
-                            ]),
-                            const SizedBox(height: 8),
-                            Text(s?.endings.secret.resolve() ?? '', style: Noir.typed(14.5, color: Noir.cream)),
-                          ],
-                        ),
-                      ).animate().fadeIn(delay: next().ms).shimmer(delay: 800.ms, duration: 1400.ms, color: Noir.brassLight),
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF1A1508),
+                              borderRadius: BorderRadius.circular(6),
+                              border: Border.all(color: Noir.brassLight, width: 1.5),
+                              boxShadow: [BoxShadow(color: Noir.brass.withValues(alpha: 0.35), blurRadius: 20)],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    const Icon(Icons.lock_open_rounded, color: Noir.brassLight, size: 18),
+                                    const SizedBox(width: 8),
+                                    Text(
+                                      l.ending_secret.toUpperCase(),
+                                      style: Noir.label(
+                                        11,
+                                        color: Noir.brassLight,
+                                        spacing: 2.2,
+                                        weight: FontWeight.w700,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 8),
+                                Text(s?.endings.secret.resolve() ?? '', style: Noir.typed(14.5, color: Noir.cream)),
+                              ],
+                            ),
+                          )
+                          .animate()
+                          .fadeIn(delay: next().ms)
+                          .shimmer(delay: 800.ms, duration: 1400.ms, color: Noir.brassLight),
                     ],
                     const SizedBox(height: 22),
                     SectionLabel(l.ending_resolution),
                     _Resolution(g: g, ending: ending).animate().fadeIn(delay: next().ms),
                     const SizedBox(height: 18),
-                    Row(children: [
-                      Text(l.ending_strength.toUpperCase(), style: Noir.label(11, color: Noir.smoke, spacing: 1.8)),
-                      const Spacer(),
-                      Text('${ending.strength}', style: Noir.title(20, color: Noir.cream)),
-                    ]),
+                    Row(
+                      children: [
+                        Text(l.ending_strength.toUpperCase(), style: Noir.label(11, color: Noir.smoke, spacing: 1.8)),
+                        const Spacer(),
+                        Text('${ending.strength}', style: Noir.title(20, color: Noir.cream)),
+                      ],
+                    ),
                     const SizedBox(height: 8),
                     StrengthMeter(
                       value: ending.strength,
@@ -219,25 +240,33 @@ class _Resolution extends StatelessWidget {
     String weapon(String? id) => id == null ? l.ending_none : (s?.weaponById[id]?.name.resolve() ?? id);
     String culprit(String? id) => id == null ? l.ending_none : g.npcName(id);
     TableRow row(String label, String truth, String accused, bool ok) => TableRow(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: Text(label, style: Noir.label(11.5, color: Noir.smoke, spacing: 0.6)),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
-              child: Text(truth, style: Noir.text(13.5, weight: FontWeight.w600)),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
-              child: Row(children: [
-                Icon(ok ? Icons.check_circle_rounded : Icons.cancel_rounded, size: 16, color: ok ? Noir.buff : Noir.debuff),
-                const SizedBox(width: 5),
-                Flexible(child: Text(accused, style: Noir.text(13.5, color: ok ? Noir.cream : Noir.smoke))),
-              ]),
-            ),
-          ],
-        );
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Text(label, style: Noir.label(11.5, color: Noir.smoke, spacing: 0.6)),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
+          child: Text(truth, style: Noir.text(13.5, weight: FontWeight.w600)),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
+          child: Row(
+            children: [
+              Icon(
+                ok ? Icons.check_circle_rounded : Icons.cancel_rounded,
+                size: 16,
+                color: ok ? Noir.buff : Noir.debuff,
+              ),
+              const SizedBox(width: 5),
+              Flexible(
+                child: Text(accused, style: Noir.text(13.5, color: ok ? Noir.cream : Noir.smoke)),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
     return Container(
       padding: const EdgeInsets.fromLTRB(14, 6, 14, 6),
       decoration: BoxDecoration(
@@ -250,7 +279,9 @@ class _Resolution extends StatelessWidget {
         defaultVerticalAlignment: TableCellVerticalAlignment.middle,
         children: [
           TableRow(
-            decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: Color(0x22E8E0D0)))),
+            decoration: const BoxDecoration(
+              border: Border(bottom: BorderSide(color: Color(0x22E8E0D0))),
+            ),
             children: [
               const SizedBox(),
               Padding(
@@ -318,11 +349,14 @@ class _Awards extends StatelessWidget {
                                   gradient: const LinearGradient(colors: [Color(0xFFE6C766), Noir.brass]),
                                   borderRadius: BorderRadius.circular(12),
                                 ),
-                                child: Row(mainAxisSize: MainAxisSize.min, children: [
-                                  Icon(GameIcons.award(a), size: 13, color: Noir.night),
-                                  const SizedBox(width: 4),
-                                  Text(l.awardName(a), style: Noir.label(11, color: Noir.night, spacing: 0.3)),
-                                ]),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Icon(GameIcons.award(a), size: 13, color: Noir.night),
+                                    const SizedBox(width: 4),
+                                    Text(l.awardName(a), style: Noir.label(11, color: Noir.night, spacing: 0.3)),
+                                  ],
+                                ),
                               ),
                             ),
                         ],
@@ -331,7 +365,10 @@ class _Awards extends StatelessWidget {
                   ),
                 ),
                 if (ending.xp[e.key] != null)
-                  Text(l.common_xp_gain(ending.xp[e.key]!), style: Noir.label(12, color: Noir.brassLight, spacing: 0.2)),
+                  Text(
+                    l.common_xp_gain(ending.xp[e.key]!),
+                    style: Noir.label(12, color: Noir.brassLight, spacing: 0.2),
+                  ),
               ],
             ),
           ),
@@ -379,8 +416,10 @@ class _XpSection extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(l.rankName(rank), style: Noir.title(19)),
-                            Text(next == null ? l.hub_rank_max : l.hub_rank_progress(xp, next),
-                                style: Noir.text(11.5, color: Noir.smoke)),
+                            Text(
+                              next == null ? l.hub_rank_max : l.hub_rank_progress(xp, next),
+                              style: Noir.text(11.5, color: Noir.smoke),
+                            ),
                           ],
                         ),
                       ),
@@ -410,7 +449,8 @@ class _XpSection extends StatelessWidget {
           const SizedBox(height: 8),
           _Line(
             icon: r.newEnding ? Icons.auto_stories_rounded : Icons.bookmark_rounded,
-            text: '${r.newEnding ? l.ending_new_ending : l.ending_known_ending} ${l.ending_collection_count(r.endingsInScenario)}',
+            text:
+                '${r.newEnding ? l.ending_new_ending : l.ending_known_ending} ${l.ending_collection_count(r.endingsInScenario)}',
             color: r.newEnding ? Noir.brassLight : Noir.smoke,
           ),
           if (r.rankUp) ...[
@@ -421,11 +461,13 @@ class _XpSection extends StatelessWidget {
                 gradient: const LinearGradient(colors: [Color(0xFFE6C766), Noir.brass]),
                 borderRadius: BorderRadius.circular(4),
               ),
-              child: Row(children: [
-                const Icon(Icons.military_tech_rounded, color: Noir.night),
-                const SizedBox(width: 8),
-                Text(l.ending_rank_up(l.rankName(r.rankAfter)), style: Noir.title(17, color: Noir.night)),
-              ]),
+              child: Row(
+                children: [
+                  const Icon(Icons.military_tech_rounded, color: Noir.night),
+                  const SizedBox(width: 8),
+                  Text(l.ending_rank_up(l.rankName(r.rankAfter)), style: Noir.title(17, color: Noir.night)),
+                ],
+              ),
             ).animate().fadeIn(delay: 2200.ms).shake(delay: 2200.ms, hz: 3, rotation: 0.02),
           ],
           if (r.unlocks.isNotEmpty) ...[
@@ -460,24 +502,26 @@ class _XpSection extends StatelessWidget {
             for (final a in r.newAchievements)
               Padding(
                 padding: const EdgeInsets.only(bottom: 6),
-                child: Row(children: [
-                  Container(
-                    width: 30,
-                    height: 30,
-                    decoration: const BoxDecoration(shape: BoxShape.circle, color: Noir.brass),
-                    child: Icon(GameIcons.achievement(a), size: 17, color: Noir.night),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(l.achievementName(a), style: Noir.text(13.5, weight: FontWeight.w600)),
-                        Text(l.achievementDesc(a), style: Noir.text(11.5, color: Noir.smoke, height: 1.25)),
-                      ],
+                child: Row(
+                  children: [
+                    Container(
+                      width: 30,
+                      height: 30,
+                      decoration: const BoxDecoration(shape: BoxShape.circle, color: Noir.brass),
+                      child: Icon(GameIcons.achievement(a), size: 17, color: Noir.night),
                     ),
-                  ),
-                ]),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(l.achievementName(a), style: Noir.text(13.5, weight: FontWeight.w600)),
+                          Text(l.achievementDesc(a), style: Noir.text(11.5, color: Noir.smoke, height: 1.25)),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ).animate().fadeIn(delay: 2400.ms).slideX(begin: 0.1),
           ],
         ],
@@ -494,9 +538,13 @@ class _Line extends StatelessWidget {
   final Color color;
 
   @override
-  Widget build(BuildContext context) => Row(children: [
-        Icon(icon, size: 16, color: color),
-        const SizedBox(width: 8),
-        Expanded(child: Text(text, style: Noir.text(13, color: color))),
-      ]);
+  Widget build(BuildContext context) => Row(
+    children: [
+      Icon(icon, size: 16, color: color),
+      const SizedBox(width: 8),
+      Expanded(
+        child: Text(text, style: Noir.text(13, color: color)),
+      ),
+    ],
+  );
 }

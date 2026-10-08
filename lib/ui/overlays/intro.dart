@@ -33,46 +33,52 @@ class IntroOverlay extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(22, 30, 22, 20),
-                  child: Center(
+                child: LayoutBuilder(
+                  builder: (context, box) => SingleChildScrollView(
+                    padding: const EdgeInsets.fromLTRB(22, 24, 22, 20),
                     child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 560),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            (s?.title.resolve() ?? '').toUpperCase(),
-                            textAlign: TextAlign.center,
-                            style: Noir.label(12, color: g.accent, spacing: 3.2, weight: FontWeight.w700),
-                          ).animate().fadeIn(duration: 500.ms),
-                          const SizedBox(height: 14),
-                          Text(
-                            ch?.title.resolve() ?? l.hud_chapter(g.cv.chapter),
-                            textAlign: TextAlign.center,
-                            style: Noir.title(29, spacing: 0.8),
-                          ).animate().fadeIn(delay: 200.ms, duration: 700.ms).slideY(begin: 0.15),
-                          const SizedBox(height: 10),
-                          Center(child: Container(width: 60, height: 2, color: Noir.blood)),
-                          const SizedBox(height: 24),
-                          PaperCard(
-                            clip: true,
-                            padding: const EdgeInsets.fromLTRB(20, 22, 20, 22),
-                            child: TypewriterText(
-                              ch?.intro.resolve() ?? '',
-                              style: Noir.typed(16.5, color: Noir.ink, height: 1.6),
-                              delay: const Duration(milliseconds: 700),
-                              charMs: 30,
-                            ),
-                          ).animate().fadeIn(delay: 450.ms, duration: 500.ms),
-                          if (s != null && g.cv.chapter == 1) ...[
-                            const SizedBox(height: 22),
-                            _VictimCard(scenario: s, accent: g.accent)
-                                .animate()
-                                .fadeIn(delay: 1600.ms, duration: 600.ms)
-                                .slideY(begin: 0.1),
-                          ],
-                        ],
+                      constraints: BoxConstraints(minHeight: box.maxHeight - 44),
+                      child: Center(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 560),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                (s?.title.resolve() ?? '').toUpperCase(),
+                                textAlign: TextAlign.center,
+                                style: Noir.label(12, color: g.accent, spacing: 3.2, weight: FontWeight.w700),
+                              ).animate().fadeIn(duration: 500.ms),
+                              const SizedBox(height: 14),
+                              Text(
+                                ch?.title.resolve() ?? l.hud_chapter(g.cv.chapter),
+                                textAlign: TextAlign.center,
+                                style: Noir.title(29, spacing: 0.8),
+                              ).animate().fadeIn(delay: 200.ms, duration: 700.ms).slideY(begin: 0.15),
+                              const SizedBox(height: 10),
+                              Center(child: Container(width: 60, height: 2, color: Noir.blood)),
+                              const SizedBox(height: 24),
+                              PaperCard(
+                                tape: true,
+                                padding: const EdgeInsets.fromLTRB(20, 22, 20, 22),
+                                child: TypewriterText(
+                                  ch?.intro.resolve() ?? '',
+                                  style: Noir.typed(16.5, color: Noir.ink, height: 1.6),
+                                  delay: const Duration(milliseconds: 700),
+                                  charMs: 30,
+                                ),
+                              ).animate().fadeIn(delay: 450.ms, duration: 500.ms),
+                              if (s != null && g.cv.chapter == 1) ...[
+                                const SizedBox(height: 22),
+                                _VictimCard(
+                                  scenario: s,
+                                  accent: g.accent,
+                                ).animate().fadeIn(delay: 1600.ms, duration: 600.ms).slideY(begin: 0.1),
+                              ],
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -100,7 +106,9 @@ class IntroOverlay extends StatelessWidget {
                     child: ready
                         ? Row(
                             children: [
-                              Expanded(child: Text(l.intro_waiting, style: Noir.text(14, color: Noir.smoke))),
+                              Expanded(
+                                child: Text(l.intro_waiting, style: Noir.text(14, color: Noir.smoke)),
+                              ),
                               for (final p in g.cv.lobby)
                                 Padding(
                                   padding: const EdgeInsets.only(left: 6),
@@ -165,8 +173,10 @@ class _VictimCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(l.intro_victim.toUpperCase(),
-                    style: Noir.label(10.5, color: Noir.bloodBright, spacing: 2, weight: FontWeight.w700)),
+                Text(
+                  l.intro_victim.toUpperCase(),
+                  style: Noir.label(10.5, color: Noir.bloodBright, spacing: 2, weight: FontWeight.w700),
+                ),
                 const SizedBox(height: 3),
                 Text(v.name.resolve(), style: Noir.title(19)),
                 const SizedBox(height: 4),

@@ -64,7 +64,9 @@ class _Bar extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(height),
-              gradient: LinearGradient(colors: [Color.lerp(color, Colors.black, 0.25)!, color, Color.lerp(color, Colors.white, 0.3)!]),
+              gradient: LinearGradient(
+                colors: [Color.lerp(color, Colors.black, 0.25)!, color, Color.lerp(color, Colors.white, 0.3)!],
+              ),
               boxShadow: [BoxShadow(color: color.withValues(alpha: 0.45), blurRadius: 6)],
             ),
           ),
@@ -82,8 +84,10 @@ class RankBadge extends StatelessWidget {
   final double size;
 
   @override
-  Widget build(BuildContext context) =>
-      SizedBox.square(dimension: size, child: CustomPaint(painter: _RankPainter(rank)));
+  Widget build(BuildContext context) => SizedBox.square(
+    dimension: size,
+    child: CustomPaint(painter: _RankPainter(rank)),
+  );
 }
 
 class _RankPainter extends CustomPainter {
@@ -107,12 +111,13 @@ class _RankPainter extends CustomPainter {
     );
     canvas.drawCircle(c, r * 0.8, Paint()..color = Noir.night2);
     canvas.drawCircle(
-        c,
-        r * 0.8,
-        Paint()
-          ..color = metal.withValues(alpha: 0.6)
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 1);
+      c,
+      r * 0.8,
+      Paint()
+        ..color = metal.withValues(alpha: 0.6)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1,
+    );
     // Stern
     final star = Path();
     for (var i = 0; i < 10; i++) {
@@ -127,8 +132,11 @@ class _RankPainter extends CustomPainter {
     final dots = rank.clamp(0, 5);
     for (var i = 0; i < dots; i++) {
       final a = math.pi * 0.62 + (i - (dots - 1) / 2) * 0.28;
-      canvas.drawCircle(c + Offset(math.cos(a - math.pi * 0.12) * r * 0.9, math.sin(a - math.pi * 0.12) * r * 0.9),
-          r * 0.07, Paint()..color = Noir.night);
+      canvas.drawCircle(
+        c + Offset(math.cos(a - math.pi * 0.12) * r * 0.9, math.sin(a - math.pi * 0.12) * r * 0.9),
+        r * 0.07,
+        Paint()..color = Noir.night,
+      );
     }
   }
 
@@ -138,7 +146,14 @@ class _RankPainter extends CustomPainter {
 
 /// Beweisstärke als Skala mit Markierungen für „überführt“ und „lückenlos“.
 class StrengthMeter extends StatelessWidget {
-  const StrengthMeter({super.key, required this.value, this.max = 7, this.solid = 3, this.perfect = 5, this.dark = false});
+  const StrengthMeter({
+    super.key,
+    required this.value,
+    this.max = 7,
+    this.solid = 3,
+    this.perfect = 5,
+    this.dark = false,
+  });
 
   final int value;
   final int max;

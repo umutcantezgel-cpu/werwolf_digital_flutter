@@ -41,9 +41,9 @@ class TypewriterTextState extends State<TypewriterText> {
   }
 
   @override
-  void didUpdateWidget(covariant TypewriterText old) {
-    super.didUpdateWidget(old);
-    if (old.text != widget.text) {
+  void didUpdateWidget(covariant TypewriterText oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.text != widget.text) {
       _timer?.cancel();
       _start?.cancel();
       _shown = 0;
@@ -92,9 +92,16 @@ class TypewriterTextState extends State<TypewriterText> {
           style: widget.style,
           children: [
             TextSpan(text: visible),
-            if (widget.cursor && !done) TextSpan(text: '▌', style: TextStyle(color: widget.style.color?.withValues(alpha: 0.7))),
+            if (widget.cursor && !done)
+              TextSpan(
+                text: '▌',
+                style: TextStyle(color: widget.style.color?.withValues(alpha: 0.7)),
+              ),
             // Unsichtbarer Rest hält das Layout stabil.
-            TextSpan(text: rest, style: const TextStyle(color: Color(0x00000000))),
+            TextSpan(
+              text: rest,
+              style: const TextStyle(color: Color(0x00000000)),
+            ),
           ],
         ),
         textAlign: widget.textAlign,

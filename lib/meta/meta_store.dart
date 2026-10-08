@@ -17,10 +17,10 @@ class Loadout {
   Map<String, dynamic> toJson() => {'cls': cls, 'coat': coat, 'hat': hat};
 
   factory Loadout.fromJson(Map<String, dynamic> j) => Loadout(
-        cls: j['cls'] as String? ?? 'forensic',
-        coat: (j['coat'] as num? ?? 0).toInt(),
-        hat: j['hat'] as String? ?? 'fedora',
-      );
+    cls: j['cls'] as String? ?? 'forensic',
+    coat: (j['coat'] as num? ?? 0).toInt(),
+    hat: j['hat'] as String? ?? 'fedora',
+  );
 }
 
 /// Etwas, das durch einen Rangaufstieg freigeschaltet wurde.
@@ -169,7 +169,7 @@ class MetaStore extends ChangeNotifier {
     required String mode,
     required String playerId,
     required bool online,
-    required int scenarioCount,
+    required Set<String> allScenarioIds,
     required GameTally tally,
     DateTime? now,
   }) {
@@ -227,7 +227,7 @@ class MetaStore extends ChangeNotifier {
     grant('all_survived', ending.team == 'all');
     grant('revive3', stat('revives') >= 3);
     grant('secret', ending.secret);
-    grant('all_scenarios', scenarioCount > 0 && _solvedScenarios.length >= scenarioCount);
+    grant('all_scenarios', allScenarioIds.isNotEmpty && _solvedScenarios.containsAll(allScenarioIds));
     grant('streak5', _streak >= 5);
     grant('ghost_helper', ghostHelped);
     grant('online', online);

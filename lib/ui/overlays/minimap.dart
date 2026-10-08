@@ -69,7 +69,10 @@ class _MapPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final map = scenario.map;
     final cell = size.width / map.width;
-    final open = {for (final d in cv.openDoors) if (d.length == 2) '${d[0]},${d[1]}'};
+    final open = {
+      for (final d in cv.openDoors)
+        if (d.length == 2) '${d[0]},${d[1]}',
+    };
     final wall = Paint()..color = const Color(0xFF3A3F5C);
     final floor = Paint()..color = const Color(0xFF1C2034);
     final lit = Paint()..color = const Color(0xFF3A3220);
@@ -99,8 +102,11 @@ class _MapPainter extends CustomPainter {
       if (e.value != HotspotState.fresh) continue;
       final h = scenario.hotspotById[e.key];
       if (h == null) continue;
-      canvas.drawCircle(Offset((h.x + 0.5) * cell, (h.y + 0.5) * cell), math.max(1.6, cell * 0.28),
-          Paint()..color = accent.withValues(alpha: 0.85));
+      canvas.drawCircle(
+        Offset((h.x + 0.5) * cell, (h.y + 0.5) * cell),
+        math.max(1.6, cell * 0.28),
+        Paint()..color = accent.withValues(alpha: 0.85),
+      );
     }
     final w = world;
     if (w == null) return;
@@ -111,12 +117,13 @@ class _MapPainter extends CustomPainter {
       final phase = (t % 1000) / 1000;
       final o = Offset(s.x! * cell, s.y! * cell);
       canvas.drawCircle(
-          o,
-          cell * (0.8 + phase * 1.6),
-          Paint()
-            ..style = PaintingStyle.stroke
-            ..strokeWidth = 1.5
-            ..color = accent.withValues(alpha: 1 - phase));
+        o,
+        cell * (0.8 + phase * 1.6),
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.5
+          ..color = accent.withValues(alpha: 1 - phase),
+      );
       canvas.drawCircle(o, math.max(2, cell * 0.35), Paint()..color = accent);
     }
     // NPCs
@@ -136,8 +143,11 @@ class _MapPainter extends CustomPainter {
     // Schatten
     final sh = w.shadow;
     if (sh != null) {
-      canvas.drawCircle(Offset(sh.x * cell, sh.y * cell), math.max(3, cell * 0.5),
-          Paint()..color = Noir.bloodBright.withValues(alpha: 0.85));
+      canvas.drawCircle(
+        Offset(sh.x * cell, sh.y * cell),
+        math.max(3, cell * 0.5),
+        Paint()..color = Noir.bloodBright.withValues(alpha: 0.85),
+      );
     }
     // Detektive
     for (final d in w.detectives) {
@@ -147,19 +157,24 @@ class _MapPainter extends CustomPainter {
       if (d.id == me) {
         canvas.drawCircle(o, rad + 2, Paint()..color = Colors.white);
         final dir = Offset(math.cos(d.facing), math.sin(d.facing)) * (rad + 4);
-        canvas.drawLine(o, o + dir, Paint()
-          ..color = Colors.white
-          ..strokeWidth = 1.5);
+        canvas.drawLine(
+          o,
+          o + dir,
+          Paint()
+            ..color = Colors.white
+            ..strokeWidth = 1.5,
+        );
       }
       canvas.drawCircle(o, rad, Paint()..color = col);
       if (d.life == LifeState.downed) {
         canvas.drawCircle(
-            o,
-            rad + 3,
-            Paint()
-              ..style = PaintingStyle.stroke
-              ..color = Noir.bloodBright
-              ..strokeWidth = 1.5);
+          o,
+          rad + 3,
+          Paint()
+            ..style = PaintingStyle.stroke
+            ..color = Noir.bloodBright
+            ..strokeWidth = 1.5,
+        );
       }
     }
   }

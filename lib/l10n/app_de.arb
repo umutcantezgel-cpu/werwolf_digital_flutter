@@ -105,7 +105,7 @@
     }
   },
   "case_difficulty": "Schwierigkeit",
-  "case_endings": "{count} Enden entdeckt",
+  "case_endings": "{count, plural, =0{Noch kein Ende entdeckt} =1{1 Ende entdeckt} other{{count} Enden entdeckt}}",
   "@case_endings": {
     "placeholders": {
       "count": {
@@ -798,7 +798,7 @@
   "ending_achievement": "Erfolg errungen",
   "ending_new_ending": "Neues Ende entdeckt!",
   "ending_known_ending": "Dieses Ende kennst du bereits.",
-  "ending_collection_count": "{count} Enden in deiner Sammlung",
+  "ending_collection_count": "{count, plural, =1{1 Ende in deiner Sammlung} other{{count} Enden in deiner Sammlung}}",
   "@ending_collection_count": {
     "placeholders": {
       "count": {
@@ -922,5 +922,14 @@
   "error_bad_message": "Verbindungsfehler (ungültige Nachricht).",
   "error_not_in_room": "Du bist nicht mehr in diesem Raum.",
   "error_protocol": "Diese App-Version passt nicht zum Server.",
-  "error_room_lost": "Der Raum ist verloren gegangen."
+  "error_room_lost": "Der Raum ist verloren gegangen.",
+  "logo_stamp": "Ungelöst",
+  "lobby_bot_slot": "KI-Partner {n}",
+  "@lobby_bot_slot": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  }
 }

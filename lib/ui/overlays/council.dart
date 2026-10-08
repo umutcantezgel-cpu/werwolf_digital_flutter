@@ -59,8 +59,10 @@ class CouncilPanel extends StatelessWidget {
                       builder: (context, w, _) {
                         final rem = w?.phaseRemainingMs ?? 0;
                         final urgent = rem < 15000;
-                        return Text(formatClock(rem),
-                            style: Noir.title(24, color: urgent ? Noir.bloodBright : Noir.brassLight));
+                        return Text(
+                          formatClock(rem),
+                          style: Noir.title(24, color: urgent ? Noir.bloodBright : Noir.brassLight),
+                        );
                       },
                     ),
                   ],
@@ -70,8 +72,11 @@ class CouncilPanel extends StatelessWidget {
                 child: options.isEmpty
                     ? Padding(
                         padding: const EdgeInsets.all(28),
-                        child: Text(l.council_no_leads,
-                            textAlign: TextAlign.center, style: Noir.typed(14.5, color: Noir.paper)),
+                        child: Text(
+                          l.council_no_leads,
+                          textAlign: TextAlign.center,
+                          style: Noir.typed(14.5, color: Noir.paper),
+                        ),
                       )
                     : ListView.builder(
                         shrinkWrap: true,
@@ -153,12 +158,16 @@ class _LeadCard extends StatelessWidget {
                         if (def?.hidden ?? false)
                           Padding(
                             padding: const EdgeInsets.only(bottom: 4),
-                            child: Row(children: [
-                              const Icon(Icons.hub_rounded, size: 13, color: Noir.blood),
-                              const SizedBox(width: 4),
-                              Text(l.council_from_combo.toUpperCase(),
-                                  style: Noir.label(9.5, color: Noir.blood, spacing: 1.4)),
-                            ]),
+                            child: Row(
+                              children: [
+                                const Icon(Icons.hub_rounded, size: 13, color: Noir.blood),
+                                const SizedBox(width: 4),
+                                Text(
+                                  l.council_from_combo.toUpperCase(),
+                                  style: Noir.label(9.5, color: Noir.blood, spacing: 1.4),
+                                ),
+                              ],
+                            ),
                           ),
                         Text(def?.name.resolve() ?? leadId, style: Noir.title(18, color: Noir.ink, spacing: 0.3)),
                         const SizedBox(height: 4),
@@ -178,23 +187,32 @@ class _LeadCard extends StatelessWidget {
                                     ring: v == g.me ? g.accent : null,
                                   ),
                                 ),
-                              ).animate().scale(begin: const Offset(0.4, 0.4), duration: 220.ms, curve: Curves.easeOutBack),
+                              ).animate().scale(
+                                begin: const Offset(0.4, 0.4),
+                                duration: 220.ms,
+                                curve: Curves.easeOutBack,
+                              ),
                             if (voters.isEmpty) Text('—', style: Noir.text(13, color: Noir.inkSoft)),
                             const Spacer(),
                             if (mine)
-                              Row(children: [
-                                Icon(Icons.how_to_vote_rounded, size: 16, color: Color.lerp(g.accent, Noir.ink, 0.35)),
-                                const SizedBox(width: 4),
-                                Text(l.council_your_vote,
-                                    style: Noir.label(12, color: Color.lerp(g.accent, Noir.ink, 0.35)!, spacing: 0.3)),
-                              ])
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.how_to_vote_rounded,
+                                    size: 16,
+                                    color: Color.lerp(g.accent, Noir.ink, 0.35),
+                                  ),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    l.council_your_vote,
+                                    style: Noir.label(12, color: Color.lerp(g.accent, Noir.ink, 0.35)!, spacing: 0.3),
+                                  ),
+                                ],
+                              )
                             else
                               Container(
                                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                                decoration: BoxDecoration(
-                                  color: Noir.ink,
-                                  borderRadius: BorderRadius.circular(3),
-                                ),
+                                decoration: BoxDecoration(color: Noir.ink, borderRadius: BorderRadius.circular(3)),
                                 child: Text(l.council_vote, style: Noir.label(12, color: Noir.paper, spacing: 0.4)),
                               ),
                           ],

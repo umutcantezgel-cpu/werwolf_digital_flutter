@@ -17,8 +17,7 @@ class NoirBackdrop extends StatefulWidget {
 }
 
 class _NoirBackdropState extends State<NoirBackdrop> with SingleTickerProviderStateMixin {
-  late final AnimationController _c =
-      AnimationController(vsync: this, duration: const Duration(milliseconds: 1400));
+  late final AnimationController _c = AnimationController(vsync: this, duration: const Duration(milliseconds: 1400));
 
   @override
   void initState() {
@@ -56,18 +55,11 @@ class _NoirBackdropState extends State<NoirBackdrop> with SingleTickerProviderSt
             ),
           ),
         ),
-        if (widget.rain)
-          RepaintBoundary(
-            child: CustomPaint(painter: _RainPainter(_c)),
-          ),
+        if (widget.rain) RepaintBoundary(child: CustomPaint(painter: _RainPainter(_c))),
         const RepaintBoundary(child: CustomPaint(painter: GrainPainter())),
         const DecoratedBox(
           decoration: BoxDecoration(
-            gradient: RadialGradient(
-              radius: 1.05,
-              colors: [Color(0x00000000), Color(0x99000000)],
-              stops: [0.55, 1],
-            ),
+            gradient: RadialGradient(radius: 1.05, colors: [Color(0x00000000), Color(0x99000000)], stops: [0.55, 1]),
           ),
         ),
         widget.child,

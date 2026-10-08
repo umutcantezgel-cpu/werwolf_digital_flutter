@@ -42,25 +42,29 @@ class _NoirButtonState extends State<NoirButton> {
     final enabled = widget.onPressed != null && !widget.busy;
     final (Color bg, Color fg, Color border, Gradient? grad) = switch (widget.style) {
       NoirButtonStyle.primary => (
-          widget.accent,
-          Noir.night,
-          Color.lerp(widget.accent, Colors.white, 0.35)!,
-          LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color.lerp(widget.accent, Colors.white, 0.18)!, widget.accent, Color.lerp(widget.accent, Colors.black, 0.28)!],
-          ),
+        widget.accent,
+        Noir.night,
+        Color.lerp(widget.accent, Colors.white, 0.35)!,
+        LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            Color.lerp(widget.accent, Colors.white, 0.18)!,
+            widget.accent,
+            Color.lerp(widget.accent, Colors.black, 0.28)!,
+          ],
         ),
+      ),
       NoirButtonStyle.danger => (
-          Noir.blood,
-          Noir.cream,
-          Noir.bloodBright,
-          const LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFFA51C1C), Noir.blood, Color(0xFF5A0000)],
-          ),
+        Noir.blood,
+        Noir.cream,
+        Noir.bloodBright,
+        const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Color(0xFFA51C1C), Noir.blood, Color(0xFF5A0000)],
         ),
+      ),
       NoirButtonStyle.secondary => (Noir.night2.withValues(alpha: 0.75), Noir.cream, Noir.line, null),
       NoirButtonStyle.ghost => (Colors.transparent, Noir.smoke, Colors.transparent, null),
     };
@@ -74,17 +78,22 @@ class _NoirButtonState extends State<NoirButton> {
             child: SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2, color: fg)),
           )
         else if (widget.icon != null)
-          Padding(padding: const EdgeInsets.only(right: 10), child: Icon(widget.icon, color: fg, size: 20)),
+          Padding(
+            padding: EdgeInsets.only(right: widget.height < 46 ? 6 : 10),
+            child: Icon(widget.icon, color: fg, size: widget.height < 46 ? 17 : 20),
+          ),
         Flexible(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                widget.label,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: Noir.title(widget.height < 46 ? 15 : 18, color: fg, spacing: 1.6),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  widget.label,
+                  maxLines: 1,
+                  style: Noir.title(widget.height < 46 ? 15 : 18, color: fg, spacing: widget.height < 46 ? 0.8 : 1.6),
+                ),
               ),
               if (widget.subtitle != null)
                 Text(
@@ -126,7 +135,10 @@ class _NoirButtonState extends State<NoirButton> {
                     }
                   : null,
               onHighlightChanged: (v) => setState(() => _down = v),
-              child: Padding(padding: const EdgeInsets.symmetric(horizontal: 18), child: content),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: widget.height < 46 ? 10 : 18),
+                child: content,
+              ),
             ),
           ),
         ),
@@ -201,7 +213,10 @@ class RoundIconButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: Noir.night, width: 1.5),
               ),
-              child: Text('$badge', style: Noir.label(10.5, color: Colors.white, weight: FontWeight.w700, spacing: 0)),
+              child: Text(
+                '$badge',
+                style: Noir.label(10.5, color: Colors.white, weight: FontWeight.w700, spacing: 0),
+              ),
             ),
           ),
       ],
@@ -262,7 +277,10 @@ class SectionLabel extends StatelessWidget {
       padding: const EdgeInsets.only(top: 6, bottom: 10),
       child: Row(
         children: [
-          Text(text.toUpperCase(), style: Noir.label(11.5, color: color, spacing: 2.2, weight: FontWeight.w700)),
+          Text(
+            text.toUpperCase(),
+            style: Noir.label(11.5, color: color, spacing: 2.2, weight: FontWeight.w700),
+          ),
           const SizedBox(width: 10),
           Expanded(child: Container(height: 1, color: color.withValues(alpha: 0.25))),
           if (trailing != null) ...[const SizedBox(width: 10), trailing!],

@@ -56,7 +56,7 @@ class LightingRenderer {
       _glows(c, glows, 0.35);
       return;
     }
-    final dark = mode == LightMode.night ? mix(pal.fog, const Color(0xFF02030A), 0.55) : mix(const Color(0xFF2A1506), pal.fog, 0.35);
+    final dark = mode == LightMode.night ? mix(pal.fog, const Color(0xFF02030A), 0.55) : mix(const Color(0xFF1C0E04), pal.fog, 0.3);
     final a = (darkness * (1 - flash * 0.75)).clamp(0.0, 1.0);
     c.saveLayer(view, Paint());
     c.drawRect(view, Paint()..color = withAlpha(dark, a));
@@ -72,8 +72,8 @@ class LightingRenderer {
       cut.shader = Gradient.radial(
         Offset.zero,
         l.radius,
-        [withAlpha(_black, l.strength), withAlpha(_black, l.strength * 0.85), withAlpha(_black, 0)],
-        const [0.0, 0.45, 1.0],
+        [withAlpha(_black, l.strength), withAlpha(_black, l.strength * 0.9), withAlpha(_black, l.strength * 0.38), withAlpha(_black, 0)],
+        const [0.0, 0.3, 0.72, 1.0],
       );
       c.drawCircle(Offset.zero, l.radius, cut);
       if (l.cone != null) {
@@ -106,29 +106,48 @@ class LightingRenderer {
       c.restore();
     }
     c.restore();
+    if (mode == LightMode.night) {
+      // Kühles Mondlicht über allem, warme Inseln in beleuchteten Räumen.
+      c.drawRect(
+        view,
+        Paint()
+          ..color = withAlpha(const Color(0xFF7C8CB8), 0.42 * (1 - flash))
+          ..blendMode = BlendMode.multiply,
+      );
+      final warm = Paint()
+        ..color = withAlpha(pal.light, 0.07)
+        ..blendMode = BlendMode.plus;
+      for (final r in litRooms) {
+        c.drawPath(_roomPath(r, 0), warm);
+      }
+    }
     _glows(c, glows, mode == LightMode.night ? 1.0 : 0.7);
     if (mode == LightMode.council) {
       c.drawRect(view, Paint()..color = withAlpha(pal.light, 0.05));
     }
   }
 
-  void _roomCut(Canvas c, RoomDef r, Paint cut) {
-    // Boden + hintere Wände (Hexagon-Silhouette), weich auslaufend.
-    for (final (grow, alpha) in [(0.6, 0.25), (0.3, 0.35), (0.0, 0.9)]) {
-      final x0 = r.x - 1 - grow, y0 = r.y - 1 - grow;
-      final x1 = r.x + r.w + grow, y1 = r.y + r.h + grow;
-      final h = 1.6 + grow;
-      final pts = [
+  Path _roomPath(RoomDef r, double grow) {
+    final x0 = r.x - 1 - grow, y0 = r.y - 1 - grow;
+    final x1 = r.x + r.w + grow, y1 = r.y + r.h + grow;
+    final h = 1.6 + grow;
+    return Path()
+      ..addPolygon([
         Iso.toScreen(x0, y1, 0),
         Iso.toScreen(x0, y1, h),
         Iso.toScreen(x0, y0, h),
         Iso.toScreen(x1, y0, h),
         Iso.toScreen(x1, y0, 0),
         Iso.toScreen(x1, y1, 0),
-      ];
+      ], true);
+  }
+
+  void _roomCut(Canvas c, RoomDef r, Paint cut) {
+    // Boden + hintere Wände (Hexagon-Silhouette), weich auslaufend.
+    for (final (grow, alpha) in [(0.6, 0.25), (0.3, 0.35), (0.0, 0.9)]) {
       cut.shader = null;
       cut.color = withAlpha(_black, alpha);
-      c.drawPath(Path()..addPolygon(pts, true), cut);
+      c.drawPath(_roomPath(r, grow), cut);
     }
     cut.color = _black;
   }

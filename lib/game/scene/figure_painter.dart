@@ -243,7 +243,6 @@ class FigurePainter {
 
   void _hat(Canvas c, Offset h, double r, FigureLook look, bool front, bool side, double dir) {
     final col = look.hatColor;
-    final p = Paint()..color = col;
     final band = Paint()..color = shade(col, -0.45);
     final hi = Paint()..color = shade(col, 0.18);
     switch (look.hat) {
@@ -257,15 +256,15 @@ class FigurePainter {
         c.save();
         c.translate(h.dx, h.dy);
         c.rotate(side ? dir * 0.08 : 0);
-        c.drawOval(Rect.fromCenter(center: const Offset(0, -2.6), width: 22, height: 5.8), Paint()..color = shade(col, -0.12));
+        c.drawOval(Rect.fromCenter(center: const Offset(0, -2.4), width: 24, height: 6.6), Paint()..color = shade(col, -0.12));
         final crown = Path()
-          ..moveTo(-5.8, -3.2)
-          ..lineTo(-5.0, -10.6)
-          ..quadraticBezierTo(0, -8.4, 5.0, -10.6)
-          ..lineTo(5.8, -3.2)
+          ..moveTo(-6.0, -3.0)
+          ..quadraticBezierTo(-6.4, -8.4, -4.2, -9.4)
+          ..quadraticBezierTo(0, -7.0, 4.2, -9.4)
+          ..quadraticBezierTo(6.4, -8.4, 6.0, -3.0)
           ..close();
         c.drawPath(crown, Paint()..shader = Gradient.linear(const Offset(-6, 0), const Offset(6, 0), [shade(col, 0.22), shade(col, -0.25)]));
-        c.drawRect(const Rect.fromLTRB(-5.8, -5.2, 5.8, -3.4), band);
+        c.drawRect(const Rect.fromLTRB(-6.1, -5.0, 6.1, -3.2), band);
         c.restore();
       case 'cap':
         final capCol = mix(col, const Color(0xFF6B5A44), 0.35);
@@ -328,6 +327,7 @@ class FigurePainter {
     double rot = 0.6,
     bool chalk = false,
     Color? glow,
+    double scale = 1,
   }) {
     final o = Iso.toScreen(wx, wy);
     c.save();
@@ -335,65 +335,72 @@ class FigurePainter {
     c.save();
     Iso.applyGround(c);
     c.rotate(rot);
+    c.scale(scale);
     if (glow != null) {
-      c.drawCircle(Offset.zero, 0.62, Paint()..shader = Gradient.radial(Offset.zero, 0.62, [glow, withAlpha(glow, 0)]));
+      c.drawCircle(Offset.zero, 0.55, Paint()..shader = Gradient.radial(Offset.zero, 0.55, [glow, withAlpha(glow, 0)]));
     }
-    final shapes = _lyingShapes();
     if (chalk) {
-      final chalkP = Paint()
-        ..color = const Color(0xE6ECECE4)
-        ..style = PaintingStyle.stroke
-        ..strokeJoin = StrokeJoin.round
-        ..strokeWidth = 0.13;
-      c.save();
-      c.scale(1.18);
-      for (final s in shapes) {
-        c.drawPath(s.$1, chalkP);
-      }
-      final under = Paint()..color = withAlpha(_black, 0.55);
-      for (final s in shapes) {
-        c.drawPath(s.$1, under);
-      }
-      c.restore();
+      _lyingBody(c, look, outline: 0.07, outlineColor: const Color(0xEEEDEDE6));
     }
-    // Schatten / Körperunterseite
-    for (final s in shapes) {
-      c.drawPath(s.$1, Paint()..color = withAlpha(_black, 0.45));
-    }
+    _lyingBody(c, look, outline: 0.0, shadowOnly: true);
     c.restore();
     // Oberseite leicht angehoben
-    c.translate(0, -3);
+    c.translate(0, -2.5);
     Iso.applyGround(c);
     c.rotate(rot);
-    for (final s in shapes) {
-      final col = switch (s.$2) {
-        0 => shade(look.coat, -0.05),
-        1 => const Color(0xFF1E1C22),
-        2 => look.skin,
-        3 => look.hair,
-        _ => shade(look.coat, -0.25),
-      };
-      c.drawPath(s.$1, Paint()..color = col);
-    }
+    c.scale(scale);
+    _lyingBody(c, look, outline: 0.0);
     c.restore();
   }
 
-  /// Formen in Welt-Einheiten, Kopf zeigt nach +x. Typ: 0 Mantel, 1 Beine, 2 Haut, 3 Haar, 4 Ärmel.
-  List<(Path, int)> _lyingShapes() {
-    RRect rr(double l, double t, double r, double b, double rad) => RRect.fromLTRBR(l, t, r, b, Radius.circular(rad));
-    return [
-      (Path()..addRRect(rr(-0.42, -0.1, -0.12, -0.02, 0.03)), 1),
-      (Path()..addRRect(rr(-0.44, 0.02, -0.14, 0.1, 0.03)), 1),
-      (Path()..addRRect(rr(-0.16, -0.12, 0.2, 0.12, 0.06)), 0),
-      (
-        Path()
-          ..addRRect(rr(0.02, -0.26, 0.22, -0.18, 0.035))
-          ..addRRect(rr(0.06, 0.15, 0.3, 0.23, 0.035)),
-        4,
-      ),
-      (Path()..addOval(Rect.fromCircle(center: const Offset(0.29, 0.0), radius: 0.085)), 2),
-      (Path()..addOval(Rect.fromCircle(center: const Offset(0.31, -0.01), radius: 0.07)), 3),
-    ];
+  /// Gliedmaßen als Linien (Welt-Einheiten, Kopf nach +x).
+  static const _limbs = [
+    // (x0, y0, x1, y1, Breite, Typ) Typ: 0 Mantel, 1 Bein, 4 Ärmel
+    (-0.14, -0.05, -0.44, -0.2, 0.085, 1),
+    (-0.14, 0.05, -0.46, 0.13, 0.085, 1),
+    (0.12, -0.09, 0.3, -0.3, 0.07, 4),
+    (0.1, 0.09, -0.02, 0.32, 0.07, 4),
+  ];
+
+  void _lyingBody(Canvas c, FigureLook look, {required double outline, Color? outlineColor, bool shadowOnly = false}) {
+    Color col(int type) {
+      if (outlineColor != null) return outlineColor;
+      if (shadowOnly) return withAlpha(_black, 0.45);
+      return switch (type) {
+        0 => shade(look.coat, -0.02),
+        1 => const Color(0xFF24222A),
+        2 => look.skin,
+        3 => look.hair,
+        _ => shade(look.coat, -0.22),
+      };
+    }
+
+    final limb = Paint()
+      ..style = PaintingStyle.stroke
+      ..strokeCap = StrokeCap.round;
+    for (final (x0, y0, x1, y1, w, type) in _limbs) {
+      limb
+        ..strokeWidth = w + outline * 2
+        ..color = col(type);
+      c.drawLine(Offset(x0, y0), Offset(x1, y1), limb);
+      // Hände/Schuhe
+      final end = Paint()..color = outlineColor ?? (shadowOnly ? withAlpha(_black, 0.45) : (type == 1 ? const Color(0xFF0E0D10) : look.skin));
+      c.drawCircle(Offset(x1, y1), w * 0.55 + outline, end);
+    }
+    final torso = RRect.fromLTRBR(-0.2 - outline, -0.12 - outline, 0.17 + outline, 0.12 + outline, Radius.circular(0.07 + outline));
+    c.drawRRect(torso, Paint()..color = col(0));
+    if (outlineColor == null && !shadowOnly) {
+      c.drawLine(const Offset(-0.18, 0), const Offset(0.15, 0), Paint()
+        ..color = shade(look.coat, -0.35)
+        ..strokeWidth = 0.012);
+      c.drawLine(const Offset(-0.06, -0.12), const Offset(-0.06, 0.12), Paint()
+        ..color = shade(look.coat, -0.35)
+        ..strokeWidth = 0.025);
+    }
+    c.drawCircle(const Offset(0.27, 0.0), 0.085 + outline, Paint()..color = col(2));
+    if (outlineColor == null && !shadowOnly) {
+      c.drawArc(Rect.fromCircle(center: const Offset(0.28, 0.0), radius: 0.086), -math.pi / 2, math.pi, true, Paint()..color = look.hair);
+    }
   }
 
   /// Der Schatten: dunkle Silhouette (ohne Augen, die kommen über der Dunkelheit).

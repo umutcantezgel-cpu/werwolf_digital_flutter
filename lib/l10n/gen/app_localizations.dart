@@ -330,7 +330,7 @@ abstract class L {
   /// No description provided for @case_endings.
   ///
   /// In de, this message translates to:
-  /// **'{count} Enden entdeckt'**
+  /// **'{count, plural, =0{Noch kein Ende entdeckt} =1{1 Ende entdeckt} other{{count} Enden entdeckt}}'**
   String case_endings(int count);
 
   /// No description provided for @case_story_solved.
@@ -2268,7 +2268,7 @@ abstract class L {
   /// No description provided for @ending_collection_count.
   ///
   /// In de, this message translates to:
-  /// **'{count} Enden in deiner Sammlung'**
+  /// **'{count, plural, =1{1 Ende in deiner Sammlung} other{{count} Enden in deiner Sammlung}}'**
   String ending_collection_count(int count);
 
   /// No description provided for @ending_new_case.
@@ -2594,6 +2594,168 @@ abstract class L {
   /// In de, this message translates to:
   /// **'Ziehe insgesamt zehn Schlussfolgerungen.'**
   String get ach_combos10_desc;
+
+  /// No description provided for @error_unknown_scenario.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Akte ist unbekannt.'**
+  String get error_unknown_scenario;
+
+  /// No description provided for @error_nothing_to_analyze.
+  ///
+  /// In de, this message translates to:
+  /// **'Nichts zu analysieren – bring ungeklärte Hinweise mit.'**
+  String get error_nothing_to_analyze;
+
+  /// No description provided for @error_nothing_to_scare.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier ist nichts, das man verscheuchen könnte.'**
+  String get error_nothing_to_scare;
+
+  /// No description provided for @error_nothing_left.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier ist nichts mehr zu holen.'**
+  String get error_nothing_left;
+
+  /// No description provided for @error_nothing_to_heal.
+  ///
+  /// In de, this message translates to:
+  /// **'Niemand in der Nähe braucht Hilfe.'**
+  String get error_nothing_to_heal;
+
+  /// No description provided for @error_not_needed.
+  ///
+  /// In de, this message translates to:
+  /// **'Das brauchst du gerade nicht.'**
+  String get error_not_needed;
+
+  /// No description provided for @error_no_pings.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Markierung mehr in diesem Kapitel.'**
+  String get error_no_pings;
+
+  /// No description provided for @error_not_on_board.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Hinweis hängt nicht an der Beweiswand.'**
+  String get error_not_on_board;
+
+  /// No description provided for @item_trace.
+  ///
+  /// In de, this message translates to:
+  /// **'Schattenspur'**
+  String get item_trace;
+
+  /// No description provided for @item_trace_desc.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier war der Schatten. Vielleicht hat er etwas verloren.'**
+  String get item_trace_desc;
+
+  /// No description provided for @toast_trace_search.
+  ///
+  /// In de, this message translates to:
+  /// **'Du untersuchst die Spur des Schattens …'**
+  String get toast_trace_search;
+
+  /// No description provided for @toast_trace_nothing.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur Schlamm und Asche.'**
+  String get toast_trace_nothing;
+
+  /// No description provided for @toast_revived_dawn_me.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Morgengrauen findet man dich.'**
+  String get toast_revived_dawn_me;
+
+  /// No description provided for @toast_revived_dawn.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Morgengrauen wird {player} gefunden.'**
+  String toast_revived_dawn(String player);
+
+  /// No description provided for @dialogue_not_questioned.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nicht befragt'**
+  String get dialogue_not_questioned;
+
+  /// No description provided for @dialogue_traits_hint.
+  ///
+  /// In de, this message translates to:
+  /// **'Merkmale – vergleiche sie mit deinen Hinweisen.'**
+  String get dialogue_traits_hint;
+
+  /// No description provided for @error_server_error.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Server hat ein Problem. Versuch es gleich noch einmal.'**
+  String get error_server_error;
+
+  /// No description provided for @error_server_full.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Server ist gerade voll. Versuch es später erneut.'**
+  String get error_server_full;
+
+  /// No description provided for @error_timeout.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Server antwortet nicht.'**
+  String get error_timeout;
+
+  /// No description provided for @error_unreachable.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Server ist nicht erreichbar. Prüfe deine Verbindung.'**
+  String get error_unreachable;
+
+  /// No description provided for @error_replaced.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast diesen Raum auf einem anderen Gerät betreten.'**
+  String get error_replaced;
+
+  /// No description provided for @error_bad_message.
+  ///
+  /// In de, this message translates to:
+  /// **'Verbindungsfehler (ungültige Nachricht).'**
+  String get error_bad_message;
+
+  /// No description provided for @error_not_in_room.
+  ///
+  /// In de, this message translates to:
+  /// **'Du bist nicht mehr in diesem Raum.'**
+  String get error_not_in_room;
+
+  /// No description provided for @error_protocol.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese App-Version passt nicht zum Server.'**
+  String get error_protocol;
+
+  /// No description provided for @error_room_lost.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Raum ist verloren gegangen.'**
+  String get error_room_lost;
+
+  /// No description provided for @logo_stamp.
+  ///
+  /// In de, this message translates to:
+  /// **'Ungelöst'**
+  String get logo_stamp;
+
+  /// No description provided for @lobby_bot_slot.
+  ///
+  /// In de, this message translates to:
+  /// **'KI-Partner {n}'**
+  String lobby_bot_slot(int n);
 }
 
 class _LDelegate extends LocalizationsDelegate<L> {

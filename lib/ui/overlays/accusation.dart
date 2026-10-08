@@ -49,9 +49,9 @@ class _AccusationOverlayState extends State<AccusationOverlay> {
     final suspects = s?.candidates ?? const <SuspectDef>[];
 
     List<String> votersFor(bool Function(AccuseVote v) test) => [
-          for (final e in g.cv.accusations.entries)
-            if (test(e.value)) e.key,
-        ];
+      for (final e in g.cv.accusations.entries)
+        if (test(e.value)) e.key,
+    ];
 
     return NoirBackdrop(
       accent: Noir.blood,
@@ -78,8 +78,10 @@ class _AccusationOverlayState extends State<AccusationOverlay> {
                     valueListenable: g.session.world,
                     builder: (context, w, _) {
                       final rem = w?.phaseRemainingMs ?? 0;
-                      return Text(formatClock(rem),
-                          style: Noir.title(26, color: rem < 20000 ? Noir.bloodBright : Noir.brassLight));
+                      return Text(
+                        formatClock(rem),
+                        style: Noir.title(26, color: rem < 20000 ? Noir.bloodBright : Noir.brassLight),
+                      );
                     },
                   ),
                 ],
@@ -100,36 +102,45 @@ class _AccusationOverlayState extends State<AccusationOverlay> {
                             child: TextButton.icon(
                               onPressed: widget.onNotebook,
                               icon: const Icon(Icons.menu_book_rounded, size: 18, color: Noir.brass),
-                              label: Text(l.accuse_open_notebook, style: Noir.label(12.5, color: Noir.brass, spacing: 0.4)),
+                              label: Text(
+                                l.accuse_open_notebook,
+                                style: Noir.label(12.5, color: Noir.brass, spacing: 0.4),
+                              ),
                             ),
                           ),
                           SectionLabel(l.accuse_who, color: Noir.bloodBright),
-                          LayoutBuilder(builder: (context, box) {
-                            final cols = box.maxWidth > 520 ? 3 : 2;
-                            final w = (box.maxWidth - (cols - 1) * 10) / cols;
-                            return Wrap(
-                              spacing: 10,
-                              runSpacing: 12,
-                              children: [
-                                for (var i = 0; i < suspects.length; i++)
-                                  SizedBox(
-                                    width: w,
-                                    child: _SuspectCard(
-                                      g: g,
-                                      s: suspects[i],
-                                      selected: _culprit == suspects[i].id,
-                                      voters: votersFor((v) => v.culprit == suspects[i].id),
-                                      onTap: () {
-                                        HapticFeedback.selectionClick();
-                                        setState(() => _culprit = suspects[i].id);
-                                      },
-                                    ).animate().fadeIn(delay: (70 * i).ms).slideY(begin: 0.08),
-                                  ),
-                              ],
-                            );
-                          }),
+                          LayoutBuilder(
+                            builder: (context, box) {
+                              final cols = box.maxWidth > 520 ? 3 : 2;
+                              final w = (box.maxWidth - (cols - 1) * 10) / cols;
+                              return Wrap(
+                                spacing: 10,
+                                runSpacing: 12,
+                                children: [
+                                  for (var i = 0; i < suspects.length; i++)
+                                    SizedBox(
+                                      width: w,
+                                      child: _SuspectCard(
+                                        g: g,
+                                        s: suspects[i],
+                                        selected: _culprit == suspects[i].id,
+                                        voters: votersFor((v) => v.culprit == suspects[i].id),
+                                        onTap: () {
+                                          HapticFeedback.selectionClick();
+                                          setState(() => _culprit = suspects[i].id);
+                                        },
+                                      ).animate().fadeIn(delay: (70 * i).ms).slideY(begin: 0.08),
+                                    ),
+                                ],
+                              );
+                            },
+                          ),
                           const SizedBox(height: 22),
-                          SectionLabel(l.accuse_why, color: Noir.bloodBright, trailing: _Optional(text: l.accuse_optional)),
+                          SectionLabel(
+                            l.accuse_why,
+                            color: Noir.bloodBright,
+                            trailing: _Optional(text: l.accuse_optional),
+                          ),
                           _ChoiceWrap(
                             g: g,
                             options: [for (final m in s?.motives ?? const <MotiveDef>[]) (m.id, m.name.resolve())],
@@ -138,7 +149,11 @@ class _AccusationOverlayState extends State<AccusationOverlay> {
                             onPick: (id) => setState(() => _motive = _motive == id ? null : id),
                           ),
                           const SizedBox(height: 22),
-                          SectionLabel(l.accuse_how, color: Noir.bloodBright, trailing: _Optional(text: l.accuse_optional)),
+                          SectionLabel(
+                            l.accuse_how,
+                            color: Noir.bloodBright,
+                            trailing: _Optional(text: l.accuse_optional),
+                          ),
                           _ChoiceWrap(
                             g: g,
                             options: [for (final w in s?.weapons ?? const <WeaponDef>[]) (w.id, w.name.resolve())],
@@ -169,14 +184,20 @@ class _AccusationOverlayState extends State<AccusationOverlay> {
                       if (mine != null && !changed)
                         Padding(
                           padding: const EdgeInsets.only(bottom: 8),
-                          child: Row(children: [
-                            const Icon(Icons.check_circle_rounded, color: Noir.buff, size: 17),
-                            const SizedBox(width: 6),
-                            Expanded(child: Text(l.accuse_submitted, style: Noir.text(12.5, color: Noir.smoke))),
-                          ]),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.check_circle_rounded, color: Noir.buff, size: 17),
+                              const SizedBox(width: 6),
+                              Expanded(
+                                child: Text(l.accuse_submitted, style: Noir.text(12.5, color: Noir.smoke)),
+                              ),
+                            ],
+                          ),
                         ),
                       NoirButton(
-                        label: _culprit == null ? l.accuse_pick_culprit : (mine == null ? l.accuse_submit : l.accuse_update),
+                        label: _culprit == null
+                            ? l.accuse_pick_culprit
+                            : (mine == null ? l.accuse_submit : l.accuse_update),
                         icon: Icons.gavel_rounded,
                         style: NoirButtonStyle.danger,
                         onPressed: _culprit == null || !changed
@@ -208,7 +229,13 @@ class _Optional extends StatelessWidget {
 }
 
 class _SuspectCard extends StatelessWidget {
-  const _SuspectCard({required this.g, required this.s, required this.selected, required this.voters, required this.onTap});
+  const _SuspectCard({
+    required this.g,
+    required this.s,
+    required this.selected,
+    required this.voters,
+    required this.onTap,
+  });
 
   final GameCtx g;
   final SuspectDef s;
@@ -254,32 +281,54 @@ class _SuspectCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(s.name.resolve(),
-                          style: Noir.title(14.5, color: Noir.ink, spacing: 0.2), maxLines: 1, overflow: TextOverflow.ellipsis),
+                      Text(
+                        s.name.resolve(),
+                        style: Noir.title(14.5, color: Noir.ink, spacing: 0.2),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                       Text(s.role.resolve(), style: Noir.text(11, color: Noir.inkSoft, height: 1.2)),
                       const SizedBox(height: 6),
                       if (traits == null)
-                        Text(l.dialogue_not_questioned, style: Noir.text(10.5, color: Noir.inkSoft.withValues(alpha: 0.8)))
+                        Text(
+                          l.dialogue_not_questioned,
+                          style: Noir.text(10.5, color: Noir.inkSoft.withValues(alpha: 0.8)),
+                        )
                       else
                         for (final (label, value) in traits)
                           Text.rich(
-                            TextSpan(children: [
-                              TextSpan(text: '$label: ', style: Noir.text(10.5, color: Noir.inkSoft, height: 1.3)),
-                              TextSpan(text: value, style: Noir.text(10.5, color: Noir.ink, weight: FontWeight.w600, height: 1.3)),
-                            ]),
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: '$label: ',
+                                  style: Noir.text(10.5, color: Noir.inkSoft, height: 1.3),
+                                ),
+                                TextSpan(
+                                  text: value,
+                                  style: Noir.text(10.5, color: Noir.ink, weight: FontWeight.w600, height: 1.3),
+                                ),
+                              ],
+                            ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
                       const SizedBox(height: 6),
                       SizedBox(
                         height: 22,
-                        child: Row(children: [
-                          for (final v in voters.take(5))
-                            Padding(
-                              padding: const EdgeInsets.only(right: 3),
-                              child: DetectiveAvatar(coat: g.coatOf(v), hat: g.hatOf(v), size: 22, ring: v == g.me ? Noir.bloodBright : null),
-                            ),
-                        ]),
+                        child: Row(
+                          children: [
+                            for (final v in voters.take(5))
+                              Padding(
+                                padding: const EdgeInsets.only(right: 3),
+                                child: DetectiveAvatar(
+                                  coat: g.coatOf(v),
+                                  hat: g.hatOf(v),
+                                  size: 22,
+                                  ring: v == g.me ? Noir.bloodBright : null,
+                                ),
+                              ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -288,14 +337,20 @@ class _SuspectCard extends StatelessWidget {
             ),
           ),
           if (dead)
-            Positioned(top: 8, left: 6, child: Stamp(text: l.accuse_dead, fontSize: 12, angle: -0.2, color: Noir.ink)),
+            Positioned(
+              top: 8,
+              left: 6,
+              child: Stamp(text: l.accuse_dead, fontSize: 12, angle: -0.2, color: Noir.ink),
+            ),
           if (selected)
             Positioned(
               top: 6,
               right: 4,
-              child: Stamp(text: l.ending_culprit, fontSize: 13, angle: 0.18)
-                  .animate()
-                  .scale(begin: const Offset(1.8, 1.8), duration: 220.ms, curve: Curves.easeIn),
+              child: Stamp(
+                text: l.ending_culprit,
+                fontSize: 13,
+                angle: 0.18,
+              ).animate().scale(begin: const Offset(1.8, 1.8), duration: 220.ms, curve: Curves.easeIn),
             ),
         ],
       ),
@@ -346,10 +401,7 @@ class _ChoiceWrap extends StatelessWidget {
                     const SizedBox(width: 8),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 1),
-                      decoration: BoxDecoration(
-                        color: const Color(0x33E8E0D0),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
+                      decoration: BoxDecoration(color: const Color(0x33E8E0D0), borderRadius: BorderRadius.circular(8)),
                       child: Text('${votes(id).length}', style: Noir.label(11, color: Noir.cream, spacing: 0)),
                     ),
                   ],

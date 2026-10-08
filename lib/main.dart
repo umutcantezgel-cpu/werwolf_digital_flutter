@@ -55,7 +55,10 @@ String _devEntry(AppState app) {
   if (fake != null) {
     final phase = Phase.values.where((p) => p.name == fake).firstOrNull ?? Phase.investigation;
     if (!app.meta.hasName) app.meta.name = 'Detektiv';
-    app.openFake(phase, dev: DevOptions(open: q['open'], life: q['life']));
+    app.openFake(
+      phase,
+      dev: DevOptions(open: q['open'], life: q['life']),
+    );
     return phase == Phase.lobby ? Routes.lobby : Routes.game;
   }
   return switch (q['screen']) {
