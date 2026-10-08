@@ -13,7 +13,7 @@
 ///   {"t":"welcome","player":"p_…","token":"…"}
 ///   {"t":"room","code":"KX4T"}
 ///   {"t":"err","key":"room_not_found"}
-///   {"t":"w", …WorldSnapshot.toJson()…}
+///   {"t":"w","wt":<Laufzeit>, …WorldSnapshot.toJson() ohne "t"…}  (siehe server/lib/wire.dart)
 ///   {"t":"c", …CaseView.toJson()…}
 ///   {"t":"ev","list":[…GameEvent.toJson()…]}
 ///   {"t":"pong","n":42}

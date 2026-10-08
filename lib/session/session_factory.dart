@@ -3,6 +3,7 @@ import 'package:mordakte_core/mordakte_core.dart';
 import 'fake_session.dart';
 import 'game_session.dart';
 import 'local_session.dart';
+import 'online_session.dart';
 
 /// Konfiguration des Online-Servers: `--dart-define=MORDAKTE_SERVER=wss://…/ws`.
 const defaultServerUrl = String.fromEnvironment('MORDAKTE_SERVER', defaultValue: 'ws://localhost:8080/ws');
@@ -26,7 +27,12 @@ class SessionFactory {
     String? roomCode,
     String serverUrl = defaultServerUrl,
   }) async {
-    throw UnimplementedError('OnlineSession folgt');
+    return OnlineSession.connect(
+      url: serverUrl,
+      playerName: playerName,
+      scenarios: scenarios,
+      roomCode: roomCode,
+    );
   }
 
   static GameSession fake() => FakeSession();

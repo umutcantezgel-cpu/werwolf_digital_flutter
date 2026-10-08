@@ -16,10 +16,10 @@ COPY packages/mordakte_core packages/mordakte_core
 COPY server server
 COPY content content
 
-RUN cd server \
+RUN mkdir -p /out/content/scenarios \
+ && cd server \
  && dart pub get --offline \
  && dart compile exe bin/server.dart -o /out/server \
- && mkdir -p /out/content/scenarios \
  && if [ -d /src/content/scenarios ]; then cp -r /src/content/scenarios/. /out/content/scenarios/; fi
 
 # --- Stage 2: minimales Laufzeit-Image ---------------------------------------

@@ -36,14 +36,7 @@ class OnlineSessionException implements Exception {
 ///   [GameEvent] vom Typ [Ev.error] mit `key` (z. B. `room_not_found`) und
 ///   [lostReason] wird gesetzt; danach wird nicht mehr neu verbunden.
 class OnlineSession implements GameSession {
-  OnlineSession._({
-    required Uri url,
-    required String playerName,
-    required this.scenarios,
-    required String? token,
-  })  : _url = url,
-        _playerName = playerName,
-        _token = token;
+  OnlineSession._(this._url, this._playerName, this.scenarios, this._token);
 
   /// shared_preferences-Schlüssel für das Wiederverbindungs-Token.
   static const tokenKey = 'mordakte_token';
@@ -78,12 +71,7 @@ class OnlineSession implements GameSession {
     } on FormatException {
       throw const OnlineSessionException(OnlineSessionException.unreachable);
     }
-    final session = OnlineSession._(
-      url: uri,
-      playerName: playerName,
-      scenarios: scenarios,
-      token: await _loadToken(),
-    );
+    final session = OnlineSession._(uri, playerName, scenarios, await _loadToken());
     try {
       await session._start(roomCode).timeout(
             connectTimeout,
@@ -357,8 +345,10 @@ class OnlineSession implements GameSession {
     switch (msg['t']) {
       case Msg.world:
         _world.value = WorldSnapshot.fromJson({...msg, 't': msg[_worldTimeKey] ?? 0});
+        _completeIfReady();
       case Msg.caseView:
         _case.value = CaseView.fromJson(msg);
+        _completeIfReady();
       case Msg.events:
         for (final raw in msg['list'] as List) {
           final e = GameEvent.fromJson((raw as Map).cast<String, dynamic>());
@@ -413,14 +403,21 @@ class OnlineSession implements GameSession {
     _roomCode = code;
     _attempt = 0;
     _connected.value = true;
-    final pending = _pending;
-    if (pending != null && !pending.isCompleted) pending.complete();
+    _completeIfReady();
     if (_queued.isNotEmpty) {
       final queued = List.of(_queued);
       _queued.clear();
       queued.forEach(send);
     }
     _scheduleMove();
+  }
+
+  /// Erster Aufbau fertig, sobald `room` und die erste Ansicht (`c`/`w`) da
+  /// sind – die Lobby hat dann sofort Daten. Der Server schickt `c` direkt nach `room`.
+  void _completeIfReady() {
+    final pending = _pending;
+    if (pending == null || pending.isCompleted || _roomCode.isEmpty) return;
+    if (_case.value != null || _world.value != null) pending.complete();
   }
 
   void _onError(String key) {
