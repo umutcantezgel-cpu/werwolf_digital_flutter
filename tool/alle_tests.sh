@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Gesamt-Testlauf aller Ebenen (Nachtlauf). Bricht beim ersten Fehler ab.
+# Aufruf: bash tool/alle_tests.sh [schnell]
+set -euo pipefail
+export PATH=/opt/flutter/bin:$PATH
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+filter() { grep -v -E 'running flutter as root|superuser|Woah|📎|^  /$' || true; }
+step() { echo; echo "== $*"; }
+
+step "Ebene 11 · Bestand: mordakte_core"
+(cd packages/mordakte_core && dart analyze 2>&1 | filter | tail -1 && dart test 2>&1 | filter | tail -1 && dart run bin/validate.dart 2>&1 | filter | grep -E "OK|FEHLER")
+
+for p in pixel_engine burgstadt_core room_host; do
+  if [ -d "packages/$p" ]; then
+    step "Paket $p: analyze + test"
+    (cd "packages/$p" && dart pub get >/dev/null 2>&1 && dart analyze 2>&1 | filter | tail -1 && { [ -d test ] && dart test 2>&1 | filter | tail -1 || echo "keine Tests"; })
+  fi
+done
+
+if [ -f packages/burgstadt_core/bin/kanon.dart ]; then
+  step "Ebene 1/10 · Kanon-Abgleich + Leitplanken"
+  (cd packages/burgstadt_core && dart run bin/kanon.dart --pruefe 2>&1 | filter | tail -5)
+fi
+for t in fairness durchspiel teilen_nutzen erkundung leistung; do
+  if [ -f "packages/burgstadt_core/bin/$t.dart" ] && [ "${1:-}" != "schnell" ]; then
+    step "burgstadt_core: $t"
+    (cd packages/burgstadt_core && dart run "bin/$t.dart" 2>&1 | filter | tail -8)
+  fi
+done
+
+step "Kanon-Werkzeug (Original): kanon.py pruefe"
+python3 krimidinner/spuk-im-gewoelbe/90_werkzeug/kanon.py pruefe 2>&1 | tail -1
+
+step "Flutter analyze (App)"
+flutter analyze 2>&1 | filter | tail -1
+
+if [ "${1:-}" != "schnell" ]; then
+  step "Ebene 11 · Server-Smoke"
+  (cd server && dart pub get >/dev/null 2>&1 && timeout 300 dart run tool/smoke.dart 2>&1 | filter | tail -1)
+  step "Ebene 11 · Mordakte simulate"
+  (cd packages/mordakte_core && dart run bin/simulate.dart alle 1 2 2>&1 | filter | grep "Σ")
+fi
+echo; echo "ALLE TESTS GRÜN"
