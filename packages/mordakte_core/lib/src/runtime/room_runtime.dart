@@ -40,6 +40,12 @@ class RoomRuntime {
   /// Verbindungsstatus (Reconnect-Fenster).
   void setConnected(String playerId, bool connected) => _engine.setConnected(playerId, connected);
 
+  /// Lässt einen menschlichen Spieler von der KI steuern (Autoplay, Simulation).
+  void setAutopilot(String playerId, bool on) => _engine.setAutopilot(playerId, on);
+
+  /// Nur für Werkzeuge: Zugriff auf die Engine (Wahrheit, Phase).
+  Engine get debugEngine => _engine;
+
   void applyMove(String playerId, MoveInput move) => _engine.applyMove(playerId, move);
 
   void applyCommand(String playerId, Command command) => _engine.applyCommand(playerId, command);

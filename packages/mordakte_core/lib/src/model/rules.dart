@@ -51,8 +51,8 @@ abstract final class Tuning {
   static const signalLifetimeMs = 6000;
 
   /// Beweisstärke für die Urteile.
-  static const strengthPerfect = 5;
-  static const strengthSolid = 3;
+  static const strengthPerfect = 8;
+  static const strengthSolid = 5;
 
   /// XP-Werte für die Meta-Progression.
   static const xpClueFound = 10;

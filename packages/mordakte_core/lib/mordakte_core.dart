@@ -14,3 +14,5 @@ export 'src/protocol/events.dart';
 export 'src/protocol/views.dart';
 export 'src/protocol/messages.dart';
 export 'src/runtime/room_runtime.dart';
+export 'src/engine/case_generator.dart';
+export 'src/scenario/validator.dart';

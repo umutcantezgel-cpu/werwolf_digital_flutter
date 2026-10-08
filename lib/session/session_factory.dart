@@ -2,6 +2,7 @@ import 'package:mordakte_core/mordakte_core.dart';
 
 import 'fake_session.dart';
 import 'game_session.dart';
+import 'local_session.dart';
 
 /// Konfiguration des Online-Servers: `--dart-define=MORDAKTE_SERVER=wss://…/ws`.
 const defaultServerUrl = String.fromEnvironment('MORDAKTE_SERVER', defaultValue: 'ws://localhost:8080/ws');
@@ -13,9 +14,9 @@ class SessionFactory {
   static Future<GameSession> solo({
     required Map<String, ScenarioDef> scenarios,
     required String playerName,
+    bool autoplay = false,
   }) async {
-    // Wird mit der Engine durch LocalSession ersetzt.
-    return FakeSession();
+    return LocalSession(scenarios: scenarios, playerName: playerName, autoplay: autoplay);
   }
 
   /// Online: [roomCode] == null → neuen Raum erstellen.

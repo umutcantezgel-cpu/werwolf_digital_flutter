@@ -102,6 +102,10 @@ abstract final class ItemType {
   static const medkit = 'medkit';
   static const flare = 'flare';
 
+  /// Nur von der Engine erzeugt: Spur, die der Schatten nachts hinterlässt.
+  /// Aufheben → Sichtungs-Hinweis (ein Merkmal des Täters).
+  static const trace = 'trace';
+
   static const all = {coffee, battery, salts, antidote, medkit, flare};
 }
 
