@@ -195,7 +195,7 @@ class WeatherSystem {
       c.drawCircle(
         Offset(cx, cy),
         r,
-        Paint()..shader = Gradient.radial(Offset(cx, cy), r, [withAlpha(cols[i], 0.09 * flick * intensity), withAlpha(cols[i], 0)]),
+        Paint()..shader = Gradient.radial(Offset(cx, cy), r, [withAlpha(cols[i], 0.13 * flick * intensity), withAlpha(cols[i], 0)]),
       );
     }
   }

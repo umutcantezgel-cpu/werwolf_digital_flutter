@@ -434,6 +434,29 @@ class MordakteGame extends Game with KeyboardEvents {
     final mag = math.min(1.0, input.distance);
     final canMove = me != null && _canMovePhase && me.life != LifeState.downed && !me.hidden;
     var moved = 0.0;
+    // Folgemodus: Ohne eigene Eingabe übernimmt der Client die Serverposition
+    // (Autopilot, Versetzen in der Beratung), ohne sie zurückzusenden.
+    final idle = mag <= 0.05;
+    _idleT = idle ? _idleT + dt : 0;
+    if (!idle) {
+      _following = false;
+      _followT = 0;
+    } else if (me != null && _idleT > 0.25) {
+      final d = dist(me.x, me.y, _px, _py);
+      _followT = d > 0.12 ? _followT + dt : 0;
+      if (_followT > 0.45) _following = true;
+      if (_following && d > 0.001) {
+        final k = math.min(1.0, dt * 10);
+        final nx = _px + (me.x - _px) * k, ny = _py + (me.y - _py) * k;
+        moved = dist(nx, ny, _px, _py);
+        if (moved > 0.004) _pf = _lerpAngle(_pf, math.atan2(ny - _py, nx - _px), math.min(1.0, dt * 12));
+        _px = nx;
+        _py = ny;
+        _sentX = _px;
+        _sentY = _py;
+        _sentF = _pf;
+      }
+    }
     if (canMove && mag > 0.05) {
       final dir = Iso.screenDirToWorld(input.dx, input.dy);
       final dl = dir.distance;
@@ -472,6 +495,8 @@ class MordakteGame extends Game with KeyboardEvents {
   }
 
   String? _playerRoom;
+  double _idleT = 0, _followT = 0;
+  bool _following = false;
 
   bool _isDoorTile(double x, double y) {
     final c = _scene?.map.charAt(x.floor(), y.floor());

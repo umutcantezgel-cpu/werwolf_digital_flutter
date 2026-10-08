@@ -6,6 +6,7 @@ import 'package:mordakte_core/mordakte_core.dart';
 
 import '../../session/fake_session.dart';
 import '../../session/game_session.dart';
+import '../../session/local_session.dart';
 import '../game_view.dart';
 import '../mordakte_game.dart';
 import 'scenario_preview_session.dart';
@@ -15,7 +16,8 @@ import 'showcase_session.dart';
 /// `flutter build web -t lib/game/dev/preview_main.dart`, Phase per URL
 /// `?phase=night|council|investigation|accusation`, optional `&zoom=1.6`,
 /// `&at=4.5,8.5` (Startposition), `&demo=1` (Showcase-Zustände) und
-/// `&scenario=ravensmoor` (beliebiges Szenario aus `content/scenarios/`).
+/// `&scenario=ravensmoor` (beliebiges Szenario aus `content/scenarios/`),
+/// `&local=1` (echte Engine im Prozess, KI steuert den eigenen Detektiv).
 Future<void> main() async {
   final session = FakeSession();
   final q = Uri.base.queryParameters;
@@ -36,6 +38,23 @@ Future<void> main() async {
     await Future<void>.delayed(const Duration(milliseconds: 250));
   }
   GameSession s = q['demo'] == '1' ? ShowcaseSession(session) : session;
+  if (q['local'] == '1') {
+    WidgetsFlutterBinding.ensureInitialized();
+    final defs = <String, ScenarioDef>{};
+    final sample = ScenarioDef.fromJson(jsonDecode(sampleScenarioJson) as Map<String, dynamic>);
+    defs[sample.id] = sample;
+    final id = q['scenario'] ?? sample.id;
+    if (id != sample.id) {
+      final json = await rootBundle.loadString('content/scenarios/$id.json');
+      final def = ScenarioDef.fromJson(jsonDecode(json) as Map<String, dynamic>);
+      defs[def.id] = def;
+    }
+    final local = LocalSession(scenarios: defs, playerName: 'Du', autoplay: q['auto'] != '0');
+    local.send(ConfigureGame(scenarioId: id, mode: 'story', bots: 2));
+    local.send(const StartGame());
+    runApp(_app(local));
+    return;
+  }
   final scenarioId = q['scenario'];
   if (scenarioId != null) {
     WidgetsFlutterBinding.ensureInitialized();
@@ -48,13 +67,15 @@ Future<void> main() async {
     }
     s = preview;
   }
-  runApp(MaterialApp(
-    title: 'Mordakte – Szene',
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData.dark(),
-    home: Scaffold(
-      backgroundColor: const Color(0xFF0B0910),
-      body: GameView(session: s),
-    ),
-  ));
+  runApp(_app(s));
 }
+
+Widget _app(GameSession s) => MaterialApp(
+      title: 'Mordakte – Szene',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
+      home: Scaffold(
+        backgroundColor: const Color(0xFF0B0910),
+        body: GameView(session: s),
+      ),
+    );
