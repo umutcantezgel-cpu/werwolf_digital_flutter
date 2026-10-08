@@ -16,12 +16,15 @@ class Fallsitzung {
   Fallsitzung(this.fall, this.sim, this.figuren);
 
   factory Fallsitzung.starte(FallDaten daten, Welt welt, int n, Map<String, Teil> teile, Map<String, Figurenkarte> karten,
-      {int seed = 7, double tempo = 65 / 480}) {
+      {int seed = 7,
+      double tempo = 65 / 480,
+      List<Map<String, dynamic>> bewohner = const [],
+      List<Map<String, dynamic>> haeuser = const []}) {
     final fall = FallZustand(daten, n);
     final start = fall.starte();
-    final sim = Simulation(welt, fall, seed: seed, tempo: tempo);
+    final sim = Simulation(welt, fall, seed: seed, tempo: tempo, bewohnerDaten: bewohner, haeuser: haeuser);
     final lager = FigurenLager(teile);
-    for (final id in ['BW', ...fall.rollen]) {
+    for (final id in ['BW', ...fall.rollen, ...sim.bewohner.keys]) {
       final k = karten[id];
       if (k != null) lager.karte(k);
     }

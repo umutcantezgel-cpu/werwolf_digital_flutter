@@ -12,6 +12,7 @@ export 'src/fall/fall_zustand.dart';
 export 'src/fall/bots.dart';
 export 'src/zufall.dart';
 export 'src/fall/simulation.dart';
+export 'src/fall/stadtleben.dart';
 export 'src/welt/navigation.dart';
 export 'src/welt/oberstadt.dart';
 export 'src/welt/spuren.dart';

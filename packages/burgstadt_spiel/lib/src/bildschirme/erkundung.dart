@@ -210,6 +210,8 @@ class Erkundung extends Bildschirm {
 
   String _name(Figur f) {
     if (f.id == 'BW') return 'Burgwart Eckehard';
+    final b = sitzung?.sim.bewohner[f.id];
+    if (b != null) return '${b.name} (${b.beruf})';
     return sitzung?.fall.daten.rollen[f.id]?.name ?? f.id;
   }
 

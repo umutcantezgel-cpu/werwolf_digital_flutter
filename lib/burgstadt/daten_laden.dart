@@ -50,5 +50,12 @@ Future<void> ladeSpielDaten(Spiel spiel) async {
             h as Map<String, dynamic>,
         ]
       : null;
+  spiel.haeuserDaten = haeuser ?? const [];
+  const bewohnerPfad = 'packages/burgstadt_core/data/stadt/bewohner.json';
+  if (da.contains(bewohnerPfad)) {
+    spiel.bewohnerDaten = [
+      for (final b in (jsonDecode(await rootBundle.loadString(bewohnerPfad)) as Map)['bewohner'] as List) b as Map<String, dynamic>,
+    ];
+  }
   spiel.setzeWelt(baueWelt(innen, haeuser: haeuser));
 }

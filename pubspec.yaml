@@ -43,6 +43,7 @@ flutter:
     - packages/pixel_engine/data/figuren/
     - packages/burgstadt_core/data/innenraeume/
     - packages/burgstadt_core/data/stadt/haeuser.json
+    - packages/burgstadt_core/data/stadt/bewohner.json
   fonts:
     - family: SpecialElite
       fonts:

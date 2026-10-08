@@ -65,11 +65,15 @@ class Spiel {
   final Map<String, Figurenkarte> karten = {};
   int besetzung = 4;
 
+  /// Stadtbewohner und Häuser (für das Stadtleben in der Simulation).
+  List<Map<String, dynamic>> bewohnerDaten = const [], haeuserDaten = const [];
+
   /// Neue Solo-Fallsitzung (Detektiv = Spieler, Rollen = Bots).
   Fallsitzung? starteFall({int seed = 7, double tempo = 65 / 480}) {
     final d = fallDaten;
     if (d == null) return null;
-    return Fallsitzung.starte(d, stadt, besetzung, teile, karten, seed: seed, tempo: tempo);
+    return Fallsitzung.starte(d, stadt, besetzung, teile, karten,
+        seed: seed, tempo: tempo, bewohner: bewohnerDaten, haeuser: haeuserDaten);
   }
 
   BereichGeometrie geometrie(String id) => _geometrie.putIfAbsent(id, () => BereichGeometrie(stadt.bereiche[id]!));

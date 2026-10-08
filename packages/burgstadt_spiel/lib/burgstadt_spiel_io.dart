@@ -19,13 +19,18 @@ void ladeAusRepo(Spiel spiel) {
   spiel.fallDaten = FallDaten(k);
   final innen = Directory('$w/packages/burgstadt_core/data/innenraeume');
   if (innen.existsSync()) {
-    final haeuser = File('$w/packages/burgstadt_core/data/stadt/haeuser.json');
+    List<Map<String, dynamic>>? liste(String datei, String feld) {
+      final f = File('$w/packages/burgstadt_core/data/stadt/$datei');
+      return f.existsSync() ? [for (final h in (jsonDecode(f.readAsStringSync()) as Map)[feld] as List) h as Map<String, dynamic>] : null;
+    }
+
+    final haeuser = liste('haeuser.json', 'haeuser');
+    spiel.haeuserDaten = haeuser ?? const [];
+    spiel.bewohnerDaten = liste('bewohner.json', 'bewohner') ?? const [];
     spiel.setzeWelt(baueWelt([
       for (final f in innen.listSync().whereType<File>())
         if (f.path.endsWith('.json')) jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
-    ], haeuser: haeuser.existsSync()
-        ? [for (final h in (jsonDecode(haeuser.readAsStringSync()) as Map)['haeuser'] as List) h as Map<String, dynamic>]
-        : null));
+    ], haeuser: haeuser));
   }
   final fig = '$w/packages/pixel_engine/data/figuren';
   for (final name in ['teile_koepfe.json', 'teile_kleidung.json']) {

@@ -117,6 +117,9 @@ StadtPlan generiereStadt({
     final json = innenVorlagen['innen-uhrturm']!;
     innen.add(Bereich.ausJson(json));
     marken['tuer-innen-uhrturm'] = (ix, uhr.z1 + 1);
+    for (final h in haeuser.where((h) => h['ort'] == 'ORT-01')) {
+      marken['vor-${h['id']}'] = (ix, uhr.z1 + 1);
+    }
     dinge.add(Ding('D', const Legende(KachelArt.tuer, 'Tür zum Uhrwerk', ziel: 'innen-uhrturm', zielMarke: 't', textur: 'eichenTuerEisen', hoehe: 2.2),
         ix, uhr.z1, ix, uhr.z1));
   }
@@ -135,6 +138,9 @@ StadtPlan generiereStadt({
     karte[tz][tx] = 'D';
     innen.add(Bereich.ausJson(innenVorlagen['innen-kirche']!));
     marken['tuer-innen-kirche'] = (tx + 1, tz);
+    for (final h in haeuser.where((h) => h['ort'] == 'ORT-12')) {
+      marken['vor-${h['id']}'] = (tx + 1, tz);
+    }
     dinge.add(Ding('D', const Legende(KachelArt.tuer, 'Kirchentür', ziel: 'innen-kirche', zielMarke: 't', textur: 'eichenTuerEisen', hoehe: 3),
         tx, tz, tx, tz));
   }
@@ -318,6 +324,8 @@ StadtPlan generiereStadt({
     // Tür: mittig zur Gasse; Marke davor
     final (mx, mz) = switch (seite) { 'n' => (tx, tz - 1), 's' => (tx, tz + 1), 'w' => (tx - 1, tz), _ => (tx + 1, tz) };
     karte[tz][tx] = 'D';
+    // Marke vor jeder Haustür (Bewohner stehen dort in der Tür)
+    marken['vor-$id'] = (mx, mz);
     String? zielId;
     if (h != null && h['betretbar'] == true) {
       final v = vorlageFuer(h);
