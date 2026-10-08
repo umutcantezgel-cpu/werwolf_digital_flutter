@@ -1,8 +1,9 @@
 import 'dart:typed_data';
 
-/// Minimaler PNG-Encoder (RGBA8, unkomprimierte Deflate-Blöcke) in reinem Dart –
-/// web-tauglich, ohne Abhängigkeiten. Für Belegbilder und Tests.
-Uint8List encodePngRgba(int width, int height, Uint8List rgba) {
+/// Minimaler PNG-Encoder (RGBA8) in reinem Dart – web-tauglich, ohne Abhängigkeiten.
+/// Ohne [zlib] werden unkomprimierte Deflate-Blöcke geschrieben; Werkzeuge auf der
+/// Dart-VM übergeben `zlib: zlib.encode` (dart:io) für kleine Dateien.
+Uint8List encodePngRgba(int width, int height, Uint8List rgba, {List<int> Function(List<int>)? zlib}) {
   // Rohdaten mit Filterbyte 0 pro Zeile.
   final stride = width * 4;
   final raw = Uint8List((stride + 1) * height);
@@ -10,7 +11,7 @@ Uint8List encodePngRgba(int width, int height, Uint8List rgba) {
     raw[y * (stride + 1)] = 0;
     raw.setRange(y * (stride + 1) + 1, (y + 1) * (stride + 1), rgba, y * stride);
   }
-  final zlib = _zlibStored(raw);
+  final daten = zlib == null ? _zlibStored(raw) : Uint8List.fromList(zlib(raw));
   final out = BytesBuilder();
   out.add(const [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A]);
   final ihdr = ByteData(13)
@@ -22,7 +23,7 @@ Uint8List encodePngRgba(int width, int height, Uint8List rgba) {
     ..setUint8(11, 0)
     ..setUint8(12, 0);
   _chunk(out, 'IHDR', ihdr.buffer.asUint8List());
-  _chunk(out, 'IDAT', zlib);
+  _chunk(out, 'IDAT', daten);
   _chunk(out, 'IEND', Uint8List(0));
   return out.toBytes();
 }

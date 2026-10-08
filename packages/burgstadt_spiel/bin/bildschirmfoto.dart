@@ -13,7 +13,7 @@ void main(List<String> args) {
   final spiel = Spiel()..groesse(w, h);
   void foto(String name) {
     final rgba = komponiere(spiel.welt, spiel.ui, spiel.skala!);
-    File('$ordner/$name.png').writeAsBytesSync(encodePngRgba(w, h, rgba));
+    File('$ordner/$name.png').writeAsBytesSync(encodePngRgba(w, h, rgba, zlib: zlib.encode));
     final b = blockTest(rgba, w, h, spiel.skala!.kUi);
     stdout.writeln('$name: ${spiel.skala} · Palette ${countOffPalette(rgba) == 0 ? 'OK' : 'FEHLER'} · Block $b${b.ratio == 1 ? '' : ' FEHLER'}');
   }

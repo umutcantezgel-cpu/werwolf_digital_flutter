@@ -19,7 +19,7 @@ void main(List<String> args) {
     font.draw(fb, text[i], 4, 3 + i * 14, Pal.parchment, shadow: Pal.black);
   }
   final out = upscaleRgba(fb.toRgbaBytes(), w, h, 3);
-  File(args.isEmpty ? 'schriftprobe.png' : args.first).writeAsBytesSync(encodePngRgba(w * 3, h * 3, out));
+  File(args.isEmpty ? 'schriftprobe.png' : args.first).writeAsBytesSync(encodePngRgba(w * 3, h * 3, out, zlib: zlib.encode));
   final befunde = font.validate();
   stdout.writeln(befunde.isEmpty ? 'Schrift OK (${font.glyphs.length} Zeichen)' : '${befunde.length} Befunde, z. B. ${befunde.take(5).join(' · ')}');
 }

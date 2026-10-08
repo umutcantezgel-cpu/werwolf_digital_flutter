@@ -28,7 +28,7 @@ void main(List<String> args) {
   }
   final out = upscaleRgba(fb.toRgbaBytes(), w, h, 2);
   final pfad = args.isEmpty ? 'texturen.png' : args.first;
-  File(pfad).writeAsBytesSync(encodePngRgba(w * 2, h * 2, out));
+  File(pfad).writeAsBytesSync(encodePngRgba(w * 2, h * 2, out, zlib: zlib.encode));
   stdout.writeln('Kontaktbogen: ${texturen.length} Texturen → $pfad (${w * 2}×${h * 2})');
 }
 

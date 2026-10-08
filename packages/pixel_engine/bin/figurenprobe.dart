@@ -41,7 +41,7 @@ void main(List<String> args) {
     }
   }
   final rgba = upscaleRgba(fb.toRgbaBytes(), fb.width, fb.height, skala);
-  File(ziel).writeAsBytesSync(encodePngRgba(fb.width * skala, fb.height * skala, rgba));
+  File(ziel).writeAsBytesSync(encodePngRgba(fb.width * skala, fb.height * skala, rgba, zlib: zlib.encode));
   final bilder = saetze.fold<int>(0, (a, s) => a + s.bilder.values.fold<int>(0, (b, l) => b + l.length * 8));
   stdout.writeln('${saetze.length} Figuren, $bilder Bilder in ${sw.elapsedMilliseconds} ms → $ziel');
 }

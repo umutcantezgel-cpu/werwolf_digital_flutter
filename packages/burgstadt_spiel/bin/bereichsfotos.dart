@@ -23,7 +23,7 @@ void main(List<String> args) {
     erk.pitch = b.innen ? -0.05 : 0.05;
     spiel.tick(1 / 30, e);
     final rgba = komponiere(spiel.welt, spiel.ui, spiel.skala!);
-    File('$ordner/bereich_${b.id}.png').writeAsBytesSync(encodePngRgba(w, h, rgba));
+    File('$ordner/bereich_${b.id}.png').writeAsBytesSync(encodePngRgba(w, h, rgba, zlib: zlib.encode));
     final pal = countOffPalette(rgba);
     final blk = blockTest(rgba, w, h, spiel.skala!.kUi);
     if (pal != 0 || blk.ratio != 1) fehler++;

@@ -7,3 +7,5 @@ export 'src/kanon/proben.dart';
 export 'src/version.dart';
 export 'src/welt/bereich.dart';
 export 'src/welt/burg.dart';
+export 'src/fall/fall_daten.dart';
+export 'src/fall/fall_zustand.dart';

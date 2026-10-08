@@ -12,7 +12,7 @@ void main(List<String> args) {
   final r = runBenchmark(w, h, frames);
   stdout.writeln(r.report);
   if (png != null) {
-    File(png).writeAsBytesSync(encodePngRgba(w, h, r.lastFrame));
+    File(png).writeAsBytesSync(encodePngRgba(w, h, r.lastFrame, zlib: zlib.encode));
     stdout.writeln('Bild: $png');
   }
 }
