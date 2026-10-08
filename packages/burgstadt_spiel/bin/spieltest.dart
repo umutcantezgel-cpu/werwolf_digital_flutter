@@ -72,7 +72,7 @@ void main(List<String> args) {
   erk.z = wachs.mitteZ + 0.9;
   erk.yaw = -math.pi / 2;
   erk.betreten(spiel);
-  tick();
+  tick(12); // Einblendung abwarten
   druecke(Taste.aktion);
   tick(5);
   foto('03_station');
@@ -90,7 +90,7 @@ void main(List<String> args) {
   erk.yaw = 0.15;
   erk.pitch = -0.45;
   erk.betreten(spiel);
-  tick(2);
+  tick(12); // Einblendung abwarten
   foto('03c_raureif');
   druecke(Taste.blick);
   erk.pitch = 0;

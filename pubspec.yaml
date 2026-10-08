@@ -42,6 +42,7 @@ flutter:
     - nachtlauf/kanon/ANPASSUNG.md
     - packages/pixel_engine/data/figuren/
     - packages/burgstadt_core/data/innenraeume/
+    - packages/burgstadt_core/data/stadt/haeuser.json
   fonts:
     - family: SpecialElite
       fonts:

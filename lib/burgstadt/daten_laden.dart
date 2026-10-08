@@ -42,5 +42,13 @@ Future<void> ladeSpielDaten(Spiel spiel) async {
     for (final a in da.where((a) => a.startsWith(innenPfad) && a.endsWith('.json')))
       jsonDecode(await rootBundle.loadString(a)) as Map<String, dynamic>,
   ];
-  spiel.setzeWelt(baueWelt(innen));
+  // Oberstadt aus dem Generator (Häuserliste); fehlt sie, bleibt es beim Marktplatz.
+  const haeuserPfad = 'packages/burgstadt_core/data/stadt/haeuser.json';
+  final haeuser = da.contains(haeuserPfad)
+      ? [
+          for (final h in (jsonDecode(await rootBundle.loadString(haeuserPfad)) as Map)['haeuser'] as List)
+            h as Map<String, dynamic>,
+        ]
+      : null;
+  spiel.setzeWelt(baueWelt(innen, haeuser: haeuser));
 }

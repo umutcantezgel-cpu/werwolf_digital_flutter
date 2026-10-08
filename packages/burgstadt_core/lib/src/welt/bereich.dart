@@ -3,6 +3,7 @@
 library;
 
 import 'dart:math' as math;
+import 'dart:typed_data';
 
 const double kKachel = 0.5;
 
@@ -108,9 +109,41 @@ class Bereich {
     required this.karte,
     required this.legende,
     Map<String, (int, int)> namensMarken = const {},
+    List<Ding>? vorgegebeneDinge,
   }) {
-    _finde();
+    if (vorgegebeneDinge != null) {
+      dinge.addAll(vorgegebeneDinge);
+      _markenSuchen();
+    } else {
+      _finde();
+    }
     marken.addAll(namensMarken);
+    _indexBauen();
+  }
+
+  late Int32List _index;
+
+  void _indexBauen() {
+    _index = Int32List(breite * tiefe)..fillRange(0, breite * tiefe, -1);
+    for (var i = 0; i < dinge.length; i++) {
+      final d = dinge[i];
+      for (var z = d.z0; z <= d.z1; z++) {
+        if (z < 0 || z >= tiefe) continue;
+        for (var x = d.x0; x <= d.x1; x++) {
+          if (x >= 0 && x < breite) _index[z * breite + x] = i;
+        }
+      }
+    }
+  }
+
+  void _markenSuchen() {
+    for (var z = 0; z < tiefe; z++) {
+      final zeile = karte[z];
+      for (var x = 0; x < zeile.length; x++) {
+        final c = zeile[x];
+        if (_istMarke(c)) marken[c] = (x, z);
+      }
+    }
   }
 
   factory Bereich.ausJson(Map<String, dynamic> j) => Bereich(
@@ -174,10 +207,9 @@ class Bereich {
 
   /// Ding an Kachel (oder null).
   Ding? dingAn(int x, int z) {
-    for (final d in dinge) {
-      if (x >= d.x0 && x <= d.x1 && z >= d.z0 && z <= d.z1) return d;
-    }
-    return null;
+    if (x < 0 || z < 0 || x >= breite || z >= tiefe) return null;
+    final i = _index[z * breite + x];
+    return i < 0 ? null : dinge[i];
   }
 
   /// Mitte einer Marke in Metern.

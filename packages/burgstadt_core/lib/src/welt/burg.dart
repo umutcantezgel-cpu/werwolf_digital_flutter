@@ -1,5 +1,6 @@
 import 'bereich.dart';
 import 'oberstadt.dart';
+import 'stadtgenerator.dart';
 
 const _l = Legende.new;
 
@@ -156,7 +157,7 @@ Map<String, Bereich> baueBurg() {
       raumHoehe: 1.1,
       wandTextur: 'bruchsteinMauer',
       bodenTextur: 'holzBohlen',
-      grundKalt: 0.28,
+      grundKalt: 0.4,
       karte: const [
         'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ',
         'P..........3.......................P',
@@ -177,7 +178,7 @@ Map<String, Bereich> baueBurg() {
       raumHoehe: 7,
       wandTextur: 'burgBruchstein',
       bodenTextur: 'pflasterGross',
-      grundKalt: 0.24,
+      grundKalt: 0.36,
       karte: const [
         '################################',
         '#UUUUUU........................#',
@@ -215,8 +216,21 @@ Map<String, Bereich> baueBurg() {
 
 /// Ganze Welt: Burg, Innenräume aus Daten (`{"bereiche":[…]}`-Dateien) und der
 /// Marktplatz mit Türen zu den vorhandenen Innenräumen.
-Map<String, Bereich> baueWelt(Iterable<Map<String, dynamic>> innenraumDateien) {
+Map<String, Bereich> baueWelt(Iterable<Map<String, dynamic>> innenraumDateien, {List<Map<String, dynamic>>? haeuser, int seed = 1752}) {
   final w = baueBurg();
+  if (haeuser != null) {
+    final vorlagen = <String, Map<String, dynamic>>{
+      for (final datei in innenraumDateien)
+        for (final b in datei['bereiche'] as List) (b as Map<String, dynamic>)['id'] as String: b,
+    };
+    final plan = generiereStadt(haeuser: haeuser, innenVorlagen: vorlagen, seed: seed);
+    w['stadt'] = plan.stadt;
+    w['gaenge'] = plan.gaenge;
+    for (final b in plan.innenraeume) {
+      w[b.id] = b;
+    }
+    return w;
+  }
   final innen = <String, Bereich>{};
   for (final datei in innenraumDateien) {
     for (final b in datei['bereiche'] as List) {

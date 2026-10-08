@@ -138,24 +138,45 @@ class BereichGeometrie {
     const s = kKachel;
     final breite = b.breite * s, tiefe = b.tiefe * s;
     final h = b.raumHoehe;
-    // Boden und Decke
-    final boden = MeshBuilder();
-    boden.floor(0, 0, breite, tiefe, 0, tex(b.bodenTextur, TexturId.schieferPlatten), step: 1,
-        warmAt: (x, z) => licht(x, 0, z).$1, coldAt: (x, z) => licht(x, 0, z).$2);
+    // Boden und Decke in Blöcken (16 m), damit große Bereiche weggeschnitten werden
+    const block = 16.0;
+    final gross = breite * tiefe > 2500;
+    final schritt = gross ? 2.0 : 1.0;
+    bool leer(double x0, double z0, double x1, double z1) {
+      for (var z = (z0 / s).floor(); z < (z1 / s).ceil(); z += 2) {
+        for (var x = (x0 / s).floor(); x < (x1 / s).ceil(); x += 2) {
+          if (b.art(x, z) != KachelArt.leer) return false;
+        }
+      }
+      return true;
+    }
+
+    for (var bz = 0.0; bz < tiefe; bz += block) {
+      for (var bx = 0.0; bx < breite; bx += block) {
+        final x1 = math.min(bx + block, breite), z1 = math.min(bz + block, tiefe);
+        if (leer(bx, bz, x1, z1)) continue;
+        final boden = MeshBuilder();
+        boden.floor(bx, bz, x1, z1, 0, tex(b.bodenTextur, TexturId.schieferPlatten), step: schritt,
+            warmAt: (x, z) => licht(x, 0, z).$1, coldAt: (x, z) => licht(x, 0, z).$2);
+        meshes.add(boden.build());
+        if (b.innen) {
+          final decke = MeshBuilder();
+          decke.floor(bx, bz, x1, z1, h, tex(b.deckenTextur, TexturId.gewoelbeDecke), up: false, step: schritt,
+              warmAt: (x, z) => licht(x, h, z).$1, coldAt: (x, z) => licht(x, h, z).$2);
+          meshes.add(decke.build());
+        }
+      }
+    }
     // Raureif-Stationen: heller Boden
+    final reif = MeshBuilder();
     for (final d in b.dinge.where((d) => d.legende.form == 'raureif')) {
-      boden.floor(d.x0 * s, d.z0 * s, (d.x1 + 1) * s, (d.z1 + 1) * s, 0.01, TexturId.putzKalkweiss.index, step: 1,
+      reif.floor(d.x0 * s, d.z0 * s, (d.x1 + 1) * s, (d.z1 + 1) * s, 0.01, TexturId.putzKalkweiss.index, step: 1,
           warmAt: (x, z) => licht(x, 0, z).$1, coldAt: (x, z) => licht(x, 0, z).$2 + 0.1);
     }
-    meshes.add(boden.build());
-    if (b.innen) {
-      final decke = MeshBuilder();
-      decke.floor(0, 0, breite, tiefe, h, tex(b.deckenTextur, TexturId.gewoelbeDecke), up: false, step: 1,
-          warmAt: (x, z) => licht(x, h, z).$1, coldAt: (x, z) => licht(x, h, z).$2);
-      meshes.add(decke.build());
-    }
+    if (reif.triangleCount > 0) meshes.add(reif.build());
     // Wände: Kanten zwischen Wand/Tür-Kacheln und begehbaren/Objekt-Kacheln
-    final waende = MeshBuilder();
+    final wandBloecke = <int, MeshBuilder>{};
+    MeshBuilder wandBlock(int x, int z) => wandBloecke.putIfAbsent((z ~/ 32) * 1000 + x ~/ 32, MeshBuilder.new);
     final wandTex = tex(b.wandTextur, TexturId.burgBruchstein);
     bool massiv(int x, int z) {
       final a = b.art(x, z);
@@ -171,6 +192,7 @@ class BereichGeometrie {
       for (var x = 0; x < b.breite; x++) {
         if (!massiv(x, z) || b.art(x, z) == KachelArt.leer) continue;
         final tuer = b.art(x, z) == KachelArt.tuer ? b.dingAn(x, z) : null;
+        final waende = wandBlock(x, z);
         // vier Seiten; sichtbar von der Nachbarkachel aus
         for (final (dx, dz) in const [(0, 1), (0, -1), (1, 0), (-1, 0)]) {
           if (!innenraum(x + dx, z + dz)) continue;
@@ -202,11 +224,25 @@ class BereichGeometrie {
         }
       }
     }
-    meshes.add(waende.build());
-    // Möbel und Bauten als Quader
+    for (final w in wandBloecke.values) {
+      if (w.triangleCount > 0) meshes.add(w.build());
+    }
+    // Möbel und Bauten als Quader (Gärten je Block gebündelt)
+    final gartenBloecke = <int, MeshBuilder>{};
     for (final d in b.dinge) {
       final l = d.legende;
+      if (l.form == 'laube') {
+        _laube(d);
+        continue;
+      }
       if (l.art != KachelArt.objekt) continue;
+      if (l.form == 'garten') {
+        final g = gartenBloecke.putIfAbsent((d.z0 ~/ 32) * 1000 + d.x0 ~/ 32, MeshBuilder.new);
+        final (w, k) = licht(d.mitteX, 1, d.mitteZ);
+        g.box(d.x0 * s, 0, d.z0 * s, (d.x1 + 1) * s, l.hoehe, (d.z1 + 1) * s, tex(l.textur, TexturId.bruchsteinMauer),
+            warm: w, cold: k, texTop: TexturId.wiese.index);
+        continue;
+      }
       final m = MeshBuilder();
       final t = tex(l.textur, TexturId.holzDielen);
       final x0 = d.x0 * s + 0.04, z0 = d.z0 * s + 0.04, x1 = (d.x1 + 1) * s - 0.04, z1 = (d.z1 + 1) * s - 0.04;
@@ -244,5 +280,35 @@ class BereichGeometrie {
       }
       meshes.add(m.build());
     }
+    for (final g in gartenBloecke.values) {
+      meshes.add(g.build());
+    }
+  }
+
+  /// Überdachter Laubengang / Holztreppe: Pfosten an den Längsseiten, Dach darüber (begehbar).
+  void _laube(Ding d) {
+    const s = kKachel;
+    final m = MeshBuilder();
+    final l = d.legende;
+    final x0 = d.x0 * s, z0 = d.z0 * s, x1 = (d.x1 + 1) * s, z1 = (d.z1 + 1) * s;
+    final holz = tex(l.textur, TexturId.holzBohlen);
+    final (w, k) = licht(d.mitteX, 1, d.mitteZ);
+    final laengsX = (x1 - x0) >= (z1 - z0);
+    if (laengsX) {
+      for (var x = x0; x <= x1 - 0.1; x += 2) {
+        for (final z in [z0, z1 - 0.12]) {
+          m.box(x, 0, z, x + 0.12, l.hoehe, z + 0.12, holz, warm: w, cold: k);
+        }
+      }
+    } else {
+      for (var z = z0; z <= z1 - 0.1; z += 2) {
+        for (final x in [x0, x1 - 0.12]) {
+          m.box(x, 0, z, x + 0.12, l.hoehe, z + 0.12, holz, warm: w, cold: k);
+        }
+      }
+    }
+    m.box(x0 - 0.2, l.hoehe, z0 - 0.2, x1 + 0.2, l.hoehe + 0.15, z1 + 0.2, holz, warm: w, cold: k, texTop: TexturId.dachBiberschwanz.index);
+    m.floor(x0, z0, x1, z1, l.hoehe - 0.01, holz, up: false, step: 2, warmAt: (_, _) => w, coldAt: (_, _) => k * 0.6);
+    meshes.add(m.build());
   }
 }
