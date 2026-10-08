@@ -54,7 +54,7 @@ Du willst ein vollständig spielbares Krimidinner (4–20 Rollen plus Geburtstag
 - **Erzähler:** 15 Atmosphäre-Einwürfe (Pflicht: mindestens 12).
 - **Kanon und Beweise:** etwa 70–90 Einträge in K3, davon 40–50 Hinweiskarten; 9–10 physische Beweisstücke.
 - **Bilder:** etwa 65 Bildprompts.
-- **Umfang:** Eine Rollenmappe hat rund 3.000 Wörter. Der Abend dauert etwa 3:15 (4 Rollen) bis 3:50 (20 Rollen).
+- **Umfang:** Eine Rollenmappe hat rund 3.000 Wörter. Der Abend dauert ohne Ausklang etwa 3:10 (4 Rollen) bis 4:15 (20 Rollen); siehe K5 ZM-4.
 
 ### 3.2 Tagesplan (★ = kritischer Pfad; jeder Tag hat Charge a = Schreiben/REP und Charge b = PRÜF/LAUF auf bereits Freigegebenem)
 | Tag | Inhalt |

@@ -8,6 +8,8 @@ Aufruf:
   python3 90_werkzeug/kanon.py pruefe last       # einzelne Probe: syntax last ersatz absicherung zeit d e vollst
   python3 90_werkzeug/kanon.py zeige R07         # alle Datensätze, deren Kennung mit R07 beginnt
   python3 90_werkzeug/kanon.py lasttabelle       # Gespräche je Rolle, Phase und Besetzung
+  python3 90_werkzeug/kanon.py absicherungstabelle  # unabhängige Quellen je Schlussfolgerung und Besetzung
+  python3 90_werkzeug/kanon.py gesamt            # schreibt 10_kanon/GESAMT-KANON.md (alle Teile in fester Reihenfolge)
 """
 import os
 import re
@@ -322,6 +324,45 @@ PROBEN = OrderedDict([
 ])
 
 
+GESAMT_REIHE = [
+    ("K1", ["K1-GRUNDWAHRHEIT.md"]),
+    ("K2", ["K2-ROLLEN-KERN.md", "K2-ROLLEN-05-12.md", "K2-ROLLEN-13-20.md"]),
+    ("K3", ["K3-HINWEISE.md", "K3-HINWEISE-KERN.md", "K3-HINWEISE-P1.md", "K3-HINWEISE-P2.md", "K3-HINWEISE-P3.md"]),
+    ("K4", ["K4-GESPRAECHE-KERN.md", "K4-GESPRAECHE-P1.md", "K4-GESPRAECHE-P2.md", "K4-GESPRAECHE-P3.md"]),
+    ("K5", ["K5-MECHANIK.md", "K5-ENTSCHEIDUNGEN-DETEKTIV.md", "K5-ENTSCHEIDUNGEN-P1.md", "K5-ENTSCHEIDUNGEN-P2.md", "K5-ENTSCHEIDUNGEN-P3.md"]),
+    ("K6", ["K6-AUFLOESUNG.md"]),
+    ("K7", ["K7-LUEGENREGEL.md"]),
+    ("K8", ["K8-STILBLATT.md"]),
+    ("K9", ["K9-LOOKBIBEL.md"]),
+    ("Anhang", ["FORMAT.md", "SELBSTPRUEFUNG.md", "PROTOKOLL.md"]),
+]
+
+
+def schreibe_gesamt(recs, pfad=KANON):
+    """Fügt alle Kanon-Dateien byte-gleich zu einem Dokument zusammen (Name beginnt nicht mit K, wird also nicht mitgeladen)."""
+    version = "0.9"
+    vp = os.path.join(pfad, "VERSION.md")
+    if os.path.exists(vp):
+        m = re.search(r"Kanon v([\d.]+)", open(vp, encoding="utf-8").read())
+        version = m.group(1) if m else version
+    teile = ["[ENTHÄLT LÖSUNG]", f"# KANON „Spuk im Gewölbe“ · Gesamtdokument · Kanon v{version}",
+             f"Erzeugt aus den Einzeldateien in 10_kanon/ (nicht von Hand ändern) · {len(recs)} Datensätze.", "", "## Inhalt"]
+    vorhanden = []
+    for teil, dateien in GESAMT_REIHE:
+        for d in dateien:
+            if os.path.exists(os.path.join(pfad, d)):
+                vorhanden.append((teil, d))
+                teile.append(f"- {teil} · {d}")
+    for teil, d in vorhanden:
+        inhalt = open(os.path.join(pfad, d), encoding="utf-8").read().strip()
+        inhalt = "\n".join(z for z in inhalt.split("\n") if z.strip() != "[ENTHÄLT LÖSUNG]")
+        teile += ["", "", f"<!-- ===== {d} ===== -->", inhalt]
+    ziel = os.path.join(pfad, "GESAMT-KANON.md")
+    with open(ziel, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(teile) + "\n")
+    return ziel
+
+
 def main(argv):
     recs, fehler = lade()
     cmd = argv[1] if len(argv) > 1 else "pruefe"
@@ -346,6 +387,10 @@ def main(argv):
         return 0
     if cmd == "absicherungstabelle":
         probe_absicherung(recs, ausgabe=True)
+        return 0
+    if cmd == "gesamt":
+        ziel = schreibe_gesamt(recs)
+        print(f"{ziel} ({len(recs)} Datensätze)")
         return 0
     print(__doc__)
     return 2

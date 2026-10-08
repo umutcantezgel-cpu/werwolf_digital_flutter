@@ -61,12 +61,12 @@ Pflichtformulierung für den Punsch: `a large copper cauldron of warm non-alcoho
 Konsistenzregel: Die Rüstung heißt im Bild immer „a full suit of medieval armor“, nie mit Namen. Die Bluetooth-Box ist klein und unscheinbar. Kerzen sind immer warm leuchtend, nie mit sichtbarem Rauch.
 
 ## 8. Konsistenzanker je Figur (Brustbild, ohne Lösungsbezug)
-Kein Porträt zeigt Taler, Schlüsselbund, Laken, Lampe, Kerzenständer, Code-Zettel, Wanderstiefel oder Ruß. Jede Figur hält höchstens ihr Signaturstück. Grün tragen im Bild nur Merle (Strickjacke) und Jonas (Fleecejacke), so wie im öffentlichen Steckbrief.
+Kein Porträt zeigt Taler, Schlüsselbund, Laken, Lampe, Kerzenständer, Code-Zettel, Wanderstiefel oder Ruß. Jede Figur hält höchstens ihr Signaturstück. Grün tragen im Bild nur Merle (Strickjacke) und Jonas (Strickpullover), so wie im öffentlichen Steckbrief.
 @LF-BW [O] | Figur: Eckehard Lüddecke, Burgwart | Anker (EN): a sturdy 71-year-old man from the Harz mountains, weathered face, bushy white eyebrows, short white beard, reading glasses pushed up on his forehead, corduroy trousers, knitted waistcoat with many pockets, warm grumpy smile
 @LF-R01 [O] | Figur: Adnan Hodžić | Anker (EN): a 33-year-old man with short dark brown hair and a neatly trimmed beard, calm practical look, grey knitted beanie, black work jacket with many pockets, a multitool on his belt
 @LF-R02 [O] | Figur: Rojda Baran | Anker (EN): a 29-year-old woman with long dark curly hair, lively dark eyes, black hoodie, large headphones around her neck, mid-sentence expression
-@LF-R03 [O] | Figur: Merle Hartwig | Anker (EN): a 28-year-old woman with shoulder-length light brown hair held by a hair clip, freckles, curious friendly eyes, dark green cable-knit cardigan over a white blouse, holding a small notebook
-@LF-R04 [O] | Figur: Jonas Brinkmann | Anker (EN): a 34-year-old man with short blond hair and a salesman smile, olive green fleece jacket over a checked shirt, big-faced wristwatch, both hands raised as if presenting something
+@LF-R03 [O] | Figur: Merle Hartwig | Anker (EN): a 28-year-old woman with shoulder-length light brown hair held by a hair clip, freckles, curious friendly eyes, dark green cable-knit cardigan over a white blouse
+@LF-R04 [O] | Figur: Jonas Brinkmann | Anker (EN): a 34-year-old man with short blond hair and a salesman smile, olive green chunky knit sweater over a checked shirt, big-faced wristwatch, both hands raised as if presenting something
 @LF-R05 [O] | Figur: Paulina Zielińska | Anker (EN): a 31-year-old woman with a dark blonde bob and slim glasses, dark blue corduroy blazer with a pen tucked in the lapel, skeptical raised eyebrow
 @LF-R06 [O] | Figur: Diyar Kaya | Anker (EN): a 34-year-old man with short black hair and stubble, calm attentive look, dark blue functional jacket, dark red neckerchief
 @LF-R07 [O] | Figur: Emre Kaplan | Anker (EN): a 30-year-old man with wavy dark hair, worn brown leather jacket covered in small theatre pins, slightly sulky smile

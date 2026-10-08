@@ -81,23 +81,23 @@ Vorlesetempo: etwa 130 Wörter pro Minute.
 ## 8. Katalog der Grusel- und Comedy-Momente
 Jeder Moment darf in Erzähltexten und Karten vorkommen, genau so, wie er hier steht. Kein Moment wird erfunden, und keiner verrät mehr, als in der Spalte „Darf zeigen“ steht.
 
-| Kennung | Moment | Wann im Spiel | Darf zeigen | Trägt |
-|---|---|---|---|---|
-| GM-01 | Wind pfeift durch die Schießscharten, die Kerzen ducken sich | Einführung, Einwürfe | Atmosphäre | – |
-| GM-02 | Die Eisentür zur Speisekammer quietscht wie eine Katze im Keller | Einführung, Phase 1–3 | dass sie laut ist, bei jedem Öffnen und Schließen | Spur (S-2) |
-| GM-03 | Der Knall: die Hauptsicherung, dann Stockdunkel | Einführung | Knall, Dunkelheit, Handylichter | – |
-| GM-04 | Kettenrasseln, Schritte, eine knarrende Tür aus der Box | Einführung (Rückblick), Phase 1 | dass die Box im Dunkeln weiterspielte | Spur (S-3) |
-| GM-05 | Der Schrei um Mitternacht, hoch und lang, mit Kathedralen-Hall | Einführung | den Schrei selbst; nicht, woher er kam | falsche Fährte (Tatzeit) |
-| GM-06 | Kunibert im Kerzenschein, das Visier halb offen, als ob er zuhört | Phase 1–3 | die Rüstung, den verbogenen Handschuh | Spur (S-4) |
-| GM-07 | Raureif auf dem Hof, der Atem dampft, das Geleucht am Brunnen | Phase 1, Einwürfe | Stiefelspuren im Reif | Spur (S-1) |
-| GM-08 | Das Brockengespenst: ein Riesenschatten im Nebel, der sich bewegt, wenn du dich bewegst | Einwürfe | die Legende und ihre nüchterne Erklärung | Farbe |
-| GM-09 | Kein Handyempfang, außer an der dritten Zinne, wo einer mit erhobenem Arm im Wind steht | Einführung, Phase 2 | die dritte Zinne als einziger Netzplatz | Spur (S-10) |
-| KM-01 | Rüstungsschreck: Jonas hält Kunibert für einen Menschen und kracht dagegen | Einführung (Rückblick 21:20) | Schreck, Klappern, verbogener Handschuh, „Der beißt nicht, der ist seit 1911 tot.“ | Spur, falsche Fährte |
-| KM-02 | Verlaufen im Treppenturm: Merle will aufs Klo und landet auf dem Wehrgang | Einführung (Merles eigene Darstellung) | nur, was Merle selbst erzählt | Alibi-Lüge |
-| KM-03 | Die Box hallt wie in einer Kathedrale: „Die Miete ist bezahlt … bezahlt … bezahlt!“ – „Welche Miete?“; später „Verbindung getrennt“ | Einführung | beide Box-Ansagen mit Uhrzeit sechs vor zwölf | Spur (Strang a, Zeitstempel) |
-| KM-04 | Adnan und die Heißluftpistole: Qualm, Husten, aufgerissene Türen | Einführung | Qualm, Ruß, offene Turmtür | Alibi, Spur |
-| KM-05 | Der Burgwart grantelt mit Kühlpack aus Tiefkühlerbsen auf dem Kopf | Phasenstarts, Einwürfe | seine Sätze aus BW-AUSSAGE der jeweiligen Phase | Spur |
-| KM-06 | „Kunibert, du alter Hehler.“ (Bund im Helm) | Phasenstart 2 | Fund des Bunds | Spur (S-1, S-4) |
+| Kennung | Moment | Wann im Spiel | Darf zeigen |
+|---|---|---|---|
+| GM-01 | Wind pfeift durch die Schießscharten, die Kerzen ducken sich | Einführung, Einwürfe | Atmosphäre |
+| GM-02 | Die Eisentür zur Speisekammer quietscht wie eine Katze im Keller | Einführung, Phase 1–3 | dass sie laut ist, bei jedem Öffnen und Schließen |
+| GM-03 | Der Knall: die Hauptsicherung, dann Stockdunkel | Einführung | Knall, Dunkelheit, Handylichter |
+| GM-04 | Kettenrasseln, Schritte, eine knarrende Tür aus der Box | Einführung (Rückblick), Phase 1 | dass die Box im Dunkeln weiterspielte |
+| GM-05 | Der Schrei um Mitternacht, hoch und lang, mit Kathedralen-Hall | Einführung | den Schrei selbst; nicht, woher er kam |
+| GM-06 | Kunibert im Kerzenschein, das Visier geschlossen, als ob er schläft | Phase 1–3 | die Rüstung, den verbogenen Handschuh |
+| GM-07 | Raureif auf dem Hof, der Atem dampft, das Geleucht am Brunnen | Phase 1, Einwürfe | Stiefelspuren im Reif |
+| GM-08 | Das Brockengespenst: ein Riesenschatten im Nebel, der sich bewegt, wenn du dich bewegst | Einwürfe | die Legende und ihre nüchterne Erklärung |
+| GM-09 | Kein Handyempfang, außer an der dritten Zinne, wo einer mit erhobenem Arm im Wind steht | Einführung, Phase 2 | die dritte Zinne als einziger Netzplatz |
+| KM-01 | Rüstungsschreck: Jonas hält Kunibert für einen Menschen und kracht dagegen | Einführung (Rückblick 21:20) | Schreck, Klappern, verbogener Handschuh, „Der beißt nicht, der ist seit 1911 tot.“ |
+| KM-02 | Verlaufen im Treppenturm: Merle will aufs Klo und landet auf dem Wehrgang | Einführung (Merles eigene Darstellung) | nur, was Merle selbst erzählt |
+| KM-03 | Die Box hallt wie in einer Kathedrale: „Die Miete ist bezahlt … bezahlt … bezahlt!“ – „Welche Miete?“; später „Verbindung getrennt“ | Einführung | beide Box-Ansagen mit Uhrzeit sechs vor zwölf |
+| KM-04 | Adnan und die Heißluftpistole: Qualm, Husten, aufgerissene Türen | Einführung | Qualm, Ruß, offene Turmtür |
+| KM-05 | Der Burgwart grantelt mit Kühlpack aus Tiefkühlerbsen auf dem Kopf | Phasenstarts, Einwürfe | seine Sätze aus BW-AUSSAGE der jeweiligen Phase |
+| KM-06 | „Kunibert, du alter Hehler.“ (Bund im Helm) | Phasenstart 2 | Fund des Bunds |
 
 ## 9. Glossar fester Schreibweisen
 Diese Schreibweisen gelten überall. Aussprachehilfen stehen nur im Feld „Aussprache“, nie im Vorlesetext.
@@ -122,7 +122,7 @@ Diese Schreibweisen gelten überall. Aussprachehilfen stehen nur im Feld „Auss
 @GL-18 [O] | Begriff: Erzähler | Schreibweise: der Erzähler | Aussprache: –
 @GL-19 [O] | Begriff: Lampe | Schreibweise: die Stablampe „HODŽIĆ VT · 3“ | Aussprache: HOD-schitsch fau-te drei
 @GL-20 [O] | Begriff: Wäschezeichen | Schreibweise: „Schartenfels 7“ | Aussprache: SCHAR-ten-fels sie-ben
-@GL-21 [O] | Begriff: Codewörter in Gesprächsbedingungen | Schreibweise: „Brockengespenst“ und „Daumen hoch“ (Rojda zu Merle), „Zuckerguss“ (Tomasz zu Annika); Codewörter stehen auf den Karten in Anführungszeichen | Aussprache: –
+@GL-21 [O] | Begriff: Codewörter in Gesprächsbedingungen | Schreibweise: „Brockengespenst“ · „Daumen hoch“ · „Zuckerguss“; Codewörter stehen auf den Karten in Anführungszeichen. Wer welches Codewort zu wem sagt, steht nur in den Gesprächsdatensätzen. | Aussprache: –
 Namen der Rollen mit Aussprache: siehe K2, Datensätze R01-STAMM bis R20-STAMM (Feld Aussprache); sie gelten als Glossar.
 
 ## 10. Das Spiel in fünf Sätzen (Standardtext, in jedem Paket wortgleich)
@@ -163,22 +163,22 @@ Muster zeigen Format und Ton. Sie sind nicht zum Abschreiben gedacht: Kein Paket
     (Muster: Rollen-Steckbriefe haben dieselben Felder.)
 
 ### M-07 Gesprächsauftrag (Spielerkarte, 50–90 Wörter)
-    AUFTRAG G1-04 · Phase 1 · Rolle 02 Rojda
-    WENN du mit Adnan Hodžić (Rolle 01) sprichst UND ihn fragst: „Wer kam kurz vor dem Schrei durch die Turmtür ins Gewölbe?“,
-    DANN erfährst du, wer kurz vor dem Schrei plötzlich neben ihm stand und wie diese Person aussah.
-    Achte darauf: Wann genau war das? Und woher kam sie?
+    AUFTRAG G0-01 · Phase 1 · Rolle 00 Beispielfigur (nur Muster)
+    WENN du mit der Beispielfigur B (Rolle 00b) sprichst UND sie fragst: „Wer hat vorhin die Kerzen auf der Tafel nachgezählt?“,
+    DANN erfährst du, wer an der Tafel stand und was dabei auffiel.
+    Achte darauf: Wann genau war das? Und wer stand daneben?
 
 ### M-08 Spiegelstück (Reaktionskarte, 40–80 Wörter)
-    SPIEGEL G1-04 · Phase 1 · Rolle 01 Adnan
-    WENN Rojda Baran (Rolle 02) dich fragt, wer kurz vor dem Schrei durch die Turmtür kam,
-    DANN sagst du: „Gesehen hab ich nichts, nur Qualm. Aber kurz vor dem Schrei stand plötzlich Merle neben mir, außer Atem, mit eiskalten Händen, und hat laut gesagt, sie hätte sich verlaufen.“
+    SPIEGEL G0-01 · Phase 1 · Rolle 00b Beispielfigur B (nur Muster)
+    WENN die Beispielfigur (Rolle 00) dich fragt, wer die Kerzen nachgezählt hat,
+    DANN sagst du: „Gesehen hab ich nur die Hände, im Kerzenschein. Aber die Torte stand da noch unberührt, das weiß ich genau.“
     Du darfst hier nicht lügen.
 
 ### M-09 Spiegelstück im Ersatzfall
-    SPIEGEL G1-03-E · Phase 1 · Rolle 04 Jonas
-    [NUR WENN ROLLE 05 NICHT BESETZT]
-    WENN Adnan Hodžić (Rolle 01) dich fragt, was du für den Keller eingesammelt hast,
-    DANN sagst du fröhlich: „Leute, Leute! Unkostenbeitrag. Punkt eins Endreinigung, Punkt zwei Strom, Punkt drei Punsch. Alles korrekt.“
+    SPIEGEL G0-02-E · Phase 1 · Rolle 00c Beispielfigur C (nur Muster)
+    [NUR WENN ROLLE 00b NICHT BESETZT]
+    WENN die Beispielfigur (Rolle 00) dich fragt, wo du um halb elf warst,
+    DANN sagst du fröhlich: „Halb elf? Da hab ich Servietten gefaltet. Mehr erzähl ich nicht, das ist mein Geheimnis.“
     Du weichst aus, lügst aber nicht.
     [ENDE BEDINGUNG]
 
@@ -190,8 +190,8 @@ Muster zeigen Format und Ton. Sie sind nicht zum Abschreiben gedacht: Kein Paket
     (Muster mit erfundener Beispielfigur; im echten Paket gelten nur die Optionen aus K5.)
 
 ### M-11 Hinweiskarte (30–90 Wörter)
-    HINWEIS H-27 · Station Wendeltreppenturm · ab Phase 1
-    Am rechten Panzerhandschuh von Kunibert sind die Fingerplatten nach vorn verbogen, seit um zwanzig nach neun jemand bei der Führung dagegen gekracht ist. Die Kanten sind scharf.
+    HINWEIS H-00 · Station Beispiel · ab Phase 1 (nur Muster)
+    Auf der Fensterbank liegt ein Streichholzbriefchen, halb leer. Drei Hölzer sind abgebrannt, eins nur angekokelt. Daneben ein Rest Kerzenwachs, längst kalt.
 
 ### M-12 Bildprompt-Eintrag
     BILD-ID: BILD-MUSTER-01
