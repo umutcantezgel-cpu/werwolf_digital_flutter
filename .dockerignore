@@ -1,0 +1,44 @@
+# Build-Kontext für server/Dockerfile (Kontext = Repo-Root).
+# Gebraucht werden nur: packages/mordakte_core, server, content.
+# Hinweis: Muster sind relativ zum Root verankert (`lib` = nur /lib, nicht server/lib).
+
+.git
+.github
+.idea
+.vscode
+.dart_tool
+**/.dart_tool
+**/.packages
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+build
+**/build
+android
+ios
+web
+linux
+macos
+windows
+lib
+test
+integration_test
+assets
+node_modules
+coverage
+*.apk
+*.aab
+*.ipa
+*.iml
+*.log
+
+# Root-Dateien der Flutter-App
+pubspec.yaml
+pubspec.lock
+analysis_options.yaml
+l10n.yaml
+devtools_options.yaml
+.metadata
+build.sh
+netlify.toml
+vercel.json
+README.md

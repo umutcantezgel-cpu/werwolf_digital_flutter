@@ -1,4 +1,917 @@
 {
   "@@locale": "de",
-  "appTitle": "Mordakte"
+  "appTitle": "Mordakte",
+  "appSubtitle": "Ein kooperativer Krimi",
+  "appLoading": "Akten werden geladen …",
+  "common_back": "Zurück",
+  "common_cancel": "Abbrechen",
+  "common_ok": "OK",
+  "common_save": "Speichern",
+  "common_close": "Schließen",
+  "common_locked": "Gesperrt",
+  "common_you": "Du",
+  "common_unlock_at": "ab {rank}",
+  "@common_unlock_at": {
+    "placeholders": {
+      "rank": {
+        "type": "String"
+      }
+    }
+  },
+  "common_minutes": "{n} Min.",
+  "@common_minutes": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "common_xp": "{xp} XP",
+  "@common_xp": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "common_xp_gain": "+{xp} XP",
+  "@common_xp_gain": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "hub_welcome": "Willkommen zurück, {name}.",
+  "@hub_welcome": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "hub_cases": "Fallakten",
+  "hub_cases_sub": "Solo mit KI-Partnern",
+  "hub_online": "Online spielen",
+  "hub_online_sub": "Mit bis zu fünf Freunden",
+  "hub_collection": "Sammlung",
+  "hub_profile": "Profil",
+  "hub_streak": "{days, plural, =0{Keine Serie} =1{1 Tag in Folge} other{{days} Tage in Folge}}",
+  "@hub_streak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "hub_daily_title": "Fall des Tages",
+  "hub_daily_play": "Ermitteln",
+  "hub_daily_done": "Heute gelöst",
+  "hub_daily_bonus": "+{xp} XP Bonus",
+  "@hub_daily_bonus": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "hub_rank_progress": "{xp} / {next} XP",
+  "@hub_rank_progress": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      },
+      "next": {
+        "type": "int"
+      }
+    }
+  },
+  "hub_rank_max": "Höchster Rang erreicht",
+  "hub_motto": "Niemand verlässt das Haus, bevor der Fall gelöst ist.",
+  "name_prompt_title": "Wie lautet Ihr Name, Detektiv?",
+  "name_prompt_text": "Er steht ab sofort auf Ihrer Dienstmarke.",
+  "name_prompt_hint": "Name",
+  "name_prompt_confirm": "Dienstmarke ausstellen",
+  "name_edit": "Name ändern",
+  "name_default": "Detektiv",
+  "cases_title": "Fallakten",
+  "cases_subtitle": "Wähle eine Akte. Deine KI-Partner warten schon.",
+  "case_file_no": "Akte Nr. {n}",
+  "@case_file_no": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "case_difficulty": "Schwierigkeit",
+  "case_endings": "{count} Enden entdeckt",
+  "@case_endings": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "case_story_solved": "Story gelöst",
+  "case_daily_badge": "Heute",
+  "case_start": "Akte öffnen",
+  "case_starting": "Akte wird geöffnet …",
+  "mode_story": "Story",
+  "mode_story_desc": "Der Originalfall – ideal für den ersten Durchlauf.",
+  "mode_random": "Zufallsfall",
+  "mode_random_desc": "Neuer Täter, neues Motiv, neue Waffe.",
+  "mode_daily": "Fall des Tages",
+  "mode_daily_desc": "Für alle gleich. Heute mit Bonus-XP.",
+  "mode_daily_other": "Heute ist eine andere Akte dran.",
+  "online_title": "Online spielen",
+  "online_create": "Raum erstellen",
+  "online_create_sub": "Du bist Gastgeber und wählst den Fall.",
+  "online_join": "Raum beitreten",
+  "online_join_sub": "Gib den vierstelligen Code deines Gastgebers ein.",
+  "online_join_button": "Beitreten",
+  "online_advanced": "Erweitert",
+  "online_server": "Server-Adresse",
+  "online_server_reset": "Standard",
+  "online_connecting": "Verbinde …",
+  "online_playing_as": "Du spielst als {name}",
+  "@online_playing_as": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "error_room_not_found": "Diesen Raum gibt es nicht. Prüfe den Code.",
+  "error_room_full": "Der Raum ist voll.",
+  "error_game_running": "In diesem Raum läuft bereits ein Fall.",
+  "error_not_host": "Das darf nur der Gastgeber.",
+  "error_too_far": "Zu weit entfernt.",
+  "error_inventory_full": "Deine Taschen sind voll.",
+  "error_cooldown": "Noch nicht wieder bereit.",
+  "error_not_in_phase": "Das geht gerade nicht.",
+  "error_no_charges": "Keine Ladungen mehr in dieser Nacht.",
+  "error_invalid": "Ungültige Eingabe.",
+  "error_connection": "Keine Verbindung zum Server.",
+  "error_unavailable": "Der Online-Modus ist noch nicht verfügbar.",
+  "error_unknown": "Etwas ist schiefgelaufen.",
+  "lobby_title": "Lagebesprechung",
+  "lobby_room_code": "Raumcode",
+  "lobby_copied": "Code kopiert",
+  "lobby_players": "Ermittler ({count}/6)",
+  "@lobby_players": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "lobby_bot": "KI",
+  "lobby_host": "Gastgeber",
+  "lobby_ready": "Bereit",
+  "lobby_waiting": "Wartet",
+  "lobby_offline": "Getrennt",
+  "lobby_loadout": "Deine Ausrüstung",
+  "lobby_class": "Klasse",
+  "lobby_coat": "Mantel",
+  "lobby_hat": "Hut",
+  "lobby_ability": "Fähigkeit",
+  "lobby_passive": "Passiv",
+  "lobby_case": "Der Fall",
+  "lobby_scenario": "Akte",
+  "lobby_mode": "Modus",
+  "lobby_bots": "KI-Partner",
+  "lobby_start": "Ermittlung beginnen",
+  "lobby_set_ready": "Ich bin bereit",
+  "lobby_unready": "Doch nicht bereit",
+  "lobby_wait_host": "Warte auf den Gastgeber …",
+  "lobby_leave": "Lobby verlassen",
+  "lobby_empty_slot": "Freier Platz",
+  "class_forensic_name": "Forensikerin",
+  "class_forensic_ability": "Adlerauge: 15 s lang Blutspuren sehen und schneller suchen.",
+  "class_forensic_passive": "Laboranalysen gehen doppelt so schnell.",
+  "class_profiler_name": "Profiler",
+  "class_profiler_ability": "Ruhe bewahren: Fokus für alle in der Nähe, heilt Panik.",
+  "class_profiler_passive": "Erkennt Lügen im Verhör.",
+  "class_excop_name": "Ex-Polizist",
+  "class_excop_ability": "Verscheuchen: Der Schatten in deiner Nähe flieht. 1× pro Nacht.",
+  "class_excop_passive": "Vier statt drei Herzen.",
+  "class_journalist_name": "Journalistin",
+  "class_journalist_ability": "Quellen: Markiert den Ort eines ungefundenen Hinweises.",
+  "class_journalist_passive": "Kann Verdächtige nach Gerüchten fragen.",
+  "class_medic_name": "Sanitäter",
+  "class_medic_ability": "Erste Hilfe: +1 Herz, heilt Verletzung und Gift beim nächsten Detektiv.",
+  "class_medic_passive": "Wiederbelebt doppelt so schnell.",
+  "ability_scan": "Adlerauge",
+  "ability_calm": "Ruhe bewahren",
+  "ability_scare": "Verscheuchen",
+  "ability_sources": "Quellen",
+  "ability_firstaid": "Erste Hilfe",
+  "hat_fedora": "Fedora",
+  "hat_bowler": "Melone",
+  "hat_cap": "Schiebermütze",
+  "hat_beret": "Baskenmütze",
+  "hat_cloche": "Glockenhut",
+  "hat_top": "Zylinder",
+  "hat_none": "Ohne Hut",
+  "coat_name": "Mantel {n}",
+  "@coat_name": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "effect_caffeine": "Koffein",
+  "effect_caffeine_desc": "Du läufst und suchst schneller.",
+  "effect_teamgeist": "Teamgeist",
+  "effect_teamgeist_desc": "In der Gruppe: schneller suchen, ruhige Nerven, Schutz vor dem Schatten.",
+  "effect_adrenaline": "Adrenalin",
+  "effect_adrenaline_desc": "Ein kurzer Sprint – nichts wie weg!",
+  "effect_eagle_eye": "Adlerauge",
+  "effect_eagle_eye_desc": "Du siehst Blutspuren und suchst schneller.",
+  "effect_focused": "Fokussiert",
+  "effect_focused_desc": "Deine Nerven erholen sich rasch, du suchst schneller.",
+  "effect_bright": "Helle Lampe",
+  "effect_bright_desc": "Deine Lampe leuchtet weiter.",
+  "effect_hidden": "Versteckt",
+  "effect_hidden_desc": "Unsichtbar für den Schatten – aber du kannst dich nicht bewegen.",
+  "effect_injured": "Verletzt",
+  "effect_injured_desc": "Du bist langsamer.",
+  "effect_panic": "Panik",
+  "effect_panic_desc": "Weniger Licht, langsameres Suchen. Bleib bei den anderen!",
+  "effect_poisoned": "Vergiftet",
+  "effect_poisoned_desc": "Du verlierst jede Minute ein Herz. Ein Gegengift hilft.",
+  "effect_blinded": "Geblendet",
+  "effect_blinded_desc": "Du siehst kaum etwas.",
+  "effect_suspicious": "Verdächtig",
+  "effect_suspicious_desc": "Verdächtige verweigern das Gespräch mit dir.",
+  "effect_buff": "Vorteil",
+  "effect_debuff": "Nachteil",
+  "item_coffee": "Kaffee",
+  "item_coffee_desc": "Koffein: schneller laufen und suchen.",
+  "item_battery": "Batterie",
+  "item_battery_desc": "Deine Lampe leuchtet weiter.",
+  "item_salts": "Riechsalz",
+  "item_salts_desc": "Fokus: Nerven beruhigen, Panik vertreiben.",
+  "item_antidote": "Gegengift",
+  "item_antidote_desc": "Heilt Vergiftung.",
+  "item_medkit": "Verbandskasten",
+  "item_medkit_desc": "+1 Herz, heilt Verletzungen.",
+  "item_flare": "Leuchtfackel",
+  "item_flare_desc": "Vertreibt den Schatten in deiner Nähe.",
+  "quick_come_here": "Komm her!",
+  "quick_found_clue": "Ich habe was gefunden!",
+  "quick_help": "Hilfe!",
+  "quick_stay_together": "Bleibt zusammen!",
+  "quick_split_up": "Wir teilen uns auf.",
+  "quick_suspect": "Ich habe einen Verdacht.",
+  "quick_danger": "Vorsicht, Gefahr!",
+  "quick_thanks": "Danke!",
+  "emote_wave": "Winken",
+  "emote_shock": "Schock",
+  "emote_think": "Grübeln",
+  "emote_laugh": "Lachen",
+  "emote_scared": "Angst",
+  "emote_thumbs": "Daumen hoch",
+  "award_spurensucher": "Spurensucher",
+  "award_spurensucher_desc": "Die meisten Hinweise gefunden.",
+  "award_lebensretter": "Lebensretter",
+  "award_lebensretter_desc": "Die meisten Kollegen wiederbelebt.",
+  "award_kombinierer": "Kombinierer",
+  "award_kombinierer_desc": "Die meisten Schlussfolgerungen gezogen.",
+  "award_ueberlebender": "Überlebender",
+  "award_ueberlebender_desc": "Nie zu Boden gegangen.",
+  "award_geist": "Rastloser Geist",
+  "award_geist_desc": "Auch als Geist weiterermittelt.",
+  "award_teamplayer": "Teamplayer",
+  "award_teamplayer_desc": "Die meisten Hinweise geteilt.",
+  "rank_0": "Anwärter",
+  "rank_1": "Ermittler",
+  "rank_2": "Inspektor",
+  "rank_3": "Kommissar",
+  "rank_4": "Hauptkommissar",
+  "rank_5": "Legende",
+  "phase_lobby": "Lobby",
+  "phase_intro": "Einleitung",
+  "phase_investigation": "Ermittlung",
+  "phase_council": "Beratung",
+  "phase_night": "Nacht",
+  "phase_accusation": "Anklage",
+  "phase_ending": "Abschluss",
+  "hud_chapter": "Kapitel {n}/3",
+  "@hud_chapter": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "hud_notebook": "Notizbuch",
+  "hud_signals": "Signale",
+  "hud_map": "Karte",
+  "hud_map_ping": "Tippe auf die Karte, um einen Ort zu markieren ({left} übrig).",
+  "@hud_map_ping": {
+    "placeholders": {
+      "left": {
+        "type": "int"
+      }
+    }
+  },
+  "hud_map_no_ping": "Keine Markierung mehr in diesem Kapitel.",
+  "hud_emotes": "Gesten",
+  "hud_quick_chat": "Schnellchat",
+  "hud_nerves": "Nerven",
+  "hud_ability_ready": "Bereit",
+  "hud_menu": "Menü",
+  "hud_leave_title": "Fall verlassen?",
+  "hud_leave_text": "Dein Fortschritt in diesem Fall geht verloren.",
+  "hud_leave_confirm": "Verlassen",
+  "hud_disconnected": "Verbindung unterbrochen – verbinde neu …",
+  "hud_inventory_empty": "Leerer Slot",
+  "toast_clue_found": "Hinweis gefunden: {clue}",
+  "@toast_clue_found": {
+    "placeholders": {
+      "clue": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_hotspot_empty": "{player} war schneller – hier ist nichts mehr.",
+  "@toast_hotspot_empty": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_nothing_found": "Nichts gefunden: {place}",
+  "@toast_nothing_found": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_clue_shared_me": "An die Beweiswand gepinnt: {clue}",
+  "@toast_clue_shared_me": {
+    "placeholders": {
+      "clue": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_clue_shared": "{player} hat einen Hinweis geteilt: {clue}",
+  "@toast_clue_shared": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "clue": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_clue_evolved": "Neue Erkenntnis: {clue}",
+  "@toast_clue_evolved": {
+    "placeholders": {
+      "clue": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_clue_lost": "Der Schatten hat Notizen zerstört: {clue}",
+  "@toast_clue_lost": {
+    "placeholders": {
+      "clue": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_clues_faded": "{count, plural, =1{Eine Spur ist verblasst.} other{{count} Spuren sind verblasst.}}",
+  "@toast_clues_faded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toast_combo": "Schlussfolgerung: {combo}",
+  "@toast_combo": {
+    "placeholders": {
+      "combo": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_combo_fail": "Das passt nicht zusammen.",
+  "toast_refused_silenced": "{npc} will nicht mit dir reden.",
+  "@toast_refused_silenced": {
+    "placeholders": {
+      "npc": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_refused_dead": "{npc} wird nie wieder sprechen.",
+  "@toast_refused_dead": {
+    "placeholders": {
+      "npc": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_refused_busy": "{npc} spricht gerade mit jemand anderem.",
+  "@toast_refused_busy": {
+    "placeholders": {
+      "npc": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_contradiction": "Widerspruch! {npc} hat gelogen. Beweisstärke +1",
+  "@toast_contradiction": {
+    "placeholders": {
+      "npc": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_effect_on": "{effect}: {desc}",
+  "@toast_effect_on": {
+    "placeholders": {
+      "effect": {
+        "type": "String"
+      },
+      "desc": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_effect_off": "{effect} lässt nach.",
+  "@toast_effect_off": {
+    "placeholders": {
+      "effect": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_attacked_me": "Du wurdest angegriffen!",
+  "toast_attacked": "{player} wurde angegriffen!",
+  "@toast_attacked": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_downed_me": "Du bist niedergeschlagen!",
+  "toast_downed": "{player} liegt am Boden – hilf!",
+  "@toast_downed": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_revived": "{by} hat {player} wiederbelebt.",
+  "@toast_revived": {
+    "placeholders": {
+      "by": {
+        "type": "String"
+      },
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_revived_me": "{by} hat dich gerettet!",
+  "@toast_revived_me": {
+    "placeholders": {
+      "by": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_died": "Der Schatten hat {player} getötet.",
+  "@toast_died": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_died_me": "Du bist gestorben … aber noch nicht fort.",
+  "toast_npc_killed": "Der Schatten hat {npc} getötet.",
+  "@toast_npc_killed": {
+    "placeholders": {
+      "npc": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_repelled_group": "Gemeinsam habt ihr den Schatten vertrieben!",
+  "toast_repelled_scare": "{player} hat den Schatten verscheucht!",
+  "@toast_repelled_scare": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_repelled_flare": "Leuchtfackel! Der Schatten flieht.",
+  "toast_shadow_near": "Etwas ist ganz nah …",
+  "toast_lead_chosen": "Spur gewählt: {lead}",
+  "@toast_lead_chosen": {
+    "placeholders": {
+      "lead": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_ping": "{player} hat einen Ort markiert.",
+  "@toast_ping": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_signal": "{player}: {text}",
+  "@toast_signal": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_item_picked": "Eingesteckt: {item}",
+  "@toast_item_picked": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_item_used_me": "{item} benutzt.",
+  "@toast_item_used_me": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_item_used": "{player} benutzt: {item}",
+  "@toast_item_used": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_ability_me": "{ability} aktiviert.",
+  "@toast_ability_me": {
+    "placeholders": {
+      "ability": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_ability": "{player} nutzt {ability}.",
+  "@toast_ability": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      },
+      "ability": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_sources": "Quelle markiert: {place}",
+  "@toast_sources": {
+    "placeholders": {
+      "place": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_lab_done": "{count, plural, =0{Labor: nichts zu analysieren.} =1{Labor: ein Hinweis analysiert.} other{Labor: {count} Hinweise analysiert.}}",
+  "@toast_lab_done": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "toast_hidden": "Du versteckst dich.",
+  "toast_unhidden": "Du verlässt das Versteck.",
+  "toast_phase": "{phase} · Kapitel {chapter}",
+  "@toast_phase": {
+    "placeholders": {
+      "phase": {
+        "type": "String"
+      },
+      "chapter": {
+        "type": "int"
+      }
+    }
+  },
+  "intro_ready": "Bereit",
+  "intro_waiting": "Warte auf die anderen …",
+  "intro_victim": "Das Opfer",
+  "intro_tap_to_skip": "Tippen, um den Text sofort zu zeigen",
+  "notebook_title": "Notizbuch",
+  "notebook_mine": "Meine Hinweise",
+  "notebook_board": "Beweiswand",
+  "notebook_empty_mine": "Noch keine Hinweise. Durchsuche Orte und befrage Verdächtige.",
+  "notebook_empty_board": "Die Wand ist leer. Teile Hinweise, damit das ganze Team sie sieht.",
+  "notebook_share": "Teilen",
+  "notebook_share_hint": "Ungeteilte Notizen sind nachts in Gefahr.",
+  "notebook_combine": "Kombinieren",
+  "notebook_combine_hint": "Wähle zwei Hinweise, die zusammenpassen.",
+  "notebook_combine_hint_second": "Und jetzt den zweiten Hinweis.",
+  "notebook_deductions": "Schlussfolgerungen",
+  "notebook_strength": "Beweisstärke",
+  "notebook_strength_hint": "Überführt ab {solid}, lückenlos ab {perfect}.",
+  "@notebook_strength_hint": {
+    "placeholders": {
+      "solid": {
+        "type": "int"
+      },
+      "perfect": {
+        "type": "int"
+      }
+    }
+  },
+  "notebook_contradictions": "{count, plural, =0{Keine Widersprüche} =1{1 Widerspruch} other{{count} Widersprüche}}",
+  "@notebook_contradictions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "clue_kind_trait": "Merkmal",
+  "clue_kind_motive": "Motiv",
+  "clue_kind_weapon": "Tatwaffe",
+  "clue_kind_alibi": "Alibi",
+  "clue_kind_story": "Notiz",
+  "clue_kind_sighting": "Sichtung",
+  "clue_kind_other": "Hinweis",
+  "clue_pending_lab": "Im Labor analysieren",
+  "clue_pending_time": "Ergebnis in Kapitel {chapter}",
+  "@clue_pending_time": {
+    "placeholders": {
+      "chapter": {
+        "type": "int"
+      }
+    }
+  },
+  "clue_sighting_title": "Sichtung",
+  "clue_sighting": "Sichtung: {trait} – {value}",
+  "@clue_sighting": {
+    "placeholders": {
+      "trait": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "clue_found_by": "gefunden von {player}",
+  "@clue_found_by": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "clue_shared_by": "geteilt von {player}",
+  "@clue_shared_by": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "clue_unknown": "Ein unleserlicher Zettel.",
+  "dialogue_topics": "Befragen",
+  "topic_alibi": "Wo waren Sie zur Tatzeit?",
+  "topic_victim": "Was wissen Sie über das Opfer?",
+  "topic_observation": "Ist Ihnen etwas aufgefallen?",
+  "topic_rumor": "Was erzählt man sich?",
+  "topic_alibi_short": "Alibi",
+  "topic_victim_short": "Opfer",
+  "topic_observation_short": "Beobachtung",
+  "topic_rumor_short": "Gerüchte",
+  "dialogue_lie": "Lüge erkannt",
+  "dialogue_present": "Beweis vorlegen",
+  "dialogue_present_title": "Welchen Beweis legst du vor?",
+  "dialogue_present_empty": "Du hast noch nichts in der Hand.",
+  "dialogue_reaction_nervous": "wirkt nervös",
+  "dialogue_reaction_annoyed": "reagiert gereizt",
+  "dialogue_reaction_neutral": "zeigt keine Regung.",
+  "dialogue_heard": "schon gehört",
+  "dialogue_new_clue": "Neuer Hinweis: {clue}",
+  "@dialogue_new_clue": {
+    "placeholders": {
+      "clue": {
+        "type": "String"
+      }
+    }
+  },
+  "dialogue_profile": "Steckbrief",
+  "dialogue_presented": "Du legst vor: {clue}",
+  "@dialogue_presented": {
+    "placeholders": {
+      "clue": {
+        "type": "String"
+      }
+    }
+  },
+  "council_title": "Beratung",
+  "council_subtitle": "Welcher Spur folgt ihr als Nächstes?",
+  "council_vote": "Dafür stimmen",
+  "council_your_vote": "Deine Stimme",
+  "council_no_leads": "Keine offenen Spuren – die Nacht kommt trotzdem.",
+  "council_chosen": "Bisher verfolgt",
+  "council_from_combo": "Aus einer Schlussfolgerung",
+  "night_title": "Die Nacht bricht herein",
+  "night_hint": "Bleibt zusammen. Licht schützt.",
+  "downed_title": "Niedergeschlagen",
+  "downed_text": "Ein Teammitglied muss dich wiederbeleben – bevor die Zeit abläuft.",
+  "downed_help": "Hilfe rufen",
+  "downed_seconds": "{s} s",
+  "@downed_seconds": {
+    "placeholders": {
+      "s": {
+        "type": "int"
+      }
+    }
+  },
+  "ghost_title": "Du bist ein Geist",
+  "ghost_text": "Finde Echo-Spuren – nur du kannst sie sehen. Du hast einen Spuk-Ping.",
+  "accuse_title": "Die Anklage",
+  "accuse_subtitle": "Wer war es, warum und womit?",
+  "accuse_who": "Täter",
+  "accuse_why": "Motiv",
+  "accuse_how": "Tatwaffe",
+  "accuse_optional": "optional – stärkt das Urteil",
+  "accuse_submit": "Anklage erheben",
+  "accuse_update": "Anklage ändern",
+  "accuse_submitted": "Deine Anklage liegt vor. Ihr könnt sie bis zum Ende ändern.",
+  "accuse_pick_culprit": "Wähle zuerst einen Täter.",
+  "accuse_open_notebook": "Beweise ansehen",
+  "accuse_dead": "tot",
+  "ending_case_closed": "Akte geschlossen",
+  "ending_truth": "Die Wahrheit",
+  "ending_accusation": "Eure Anklage",
+  "ending_resolution": "Auflösung",
+  "ending_culprit": "Täter",
+  "ending_motive": "Motiv",
+  "ending_weapon": "Waffe",
+  "ending_none": "—",
+  "ending_strength": "Beweisstärke",
+  "ending_team": "Das Team",
+  "ending_epilogue": "Epilog",
+  "ending_secret": "Geheimes Ende",
+  "ending_awards": "Auszeichnungen",
+  "ending_no_awards": "Diesmal keine Auszeichnungen.",
+  "ending_xp": "Erfahrung",
+  "ending_rank_up": "Beförderung: {rank}!",
+  "@ending_rank_up": {
+    "placeholders": {
+      "rank": {
+        "type": "String"
+      }
+    }
+  },
+  "ending_unlocked": "Freigeschaltet",
+  "ending_achievement": "Erfolg errungen",
+  "ending_new_ending": "Neues Ende entdeckt!",
+  "ending_known_ending": "Dieses Ende kennst du bereits.",
+  "ending_collection_count": "{count} Enden in deiner Sammlung",
+  "@ending_collection_count": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ending_new_case": "Neuer Fall",
+  "ending_hub": "Zum Hub",
+  "ending_survivors": "Überlebende: {names}",
+  "@ending_survivors": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "ending_daily_bonus": "Fall des Tages",
+  "ending_streak": "Serie",
+  "verdict_stamp_perfect": "Lückenlos",
+  "verdict_stamp_solid": "Gelöst",
+  "verdict_stamp_partial": "Knapp",
+  "verdict_stamp_wrong": "Fehlurteil",
+  "verdict_stamp_unsolved": "Ungelöst",
+  "team_all": "Alle überlebt",
+  "team_some": "Mit Verlusten",
+  "team_lone": "Einer blieb",
+  "team_none": "Keiner überlebte",
+  "collection_title": "Sammlung",
+  "collection_endings": "Enden",
+  "collection_achievements": "Erfolge",
+  "collection_discovered": "{count} entdeckt",
+  "@collection_discovered": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "collection_no_endings": "Noch kein Ende entdeckt. Löse diese Akte!",
+  "collection_grid": "Urteil × Team",
+  "collection_secret": "Geheimnis",
+  "collection_achievements_count": "{done} von {total} errungen",
+  "@collection_achievements_count": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "profile_title": "Profil",
+  "profile_record": "Dienstakte",
+  "profile_classes": "Klassen",
+  "profile_hats": "Hüte",
+  "profile_coats": "Mäntel",
+  "profile_next_rank": "Nächster Rang: {rank}",
+  "@profile_next_rank": {
+    "placeholders": {
+      "rank": {
+        "type": "String"
+      }
+    }
+  },
+  "stat_cases": "Fälle",
+  "stat_solved": "Gelöst",
+  "stat_perfect": "Lückenlos",
+  "stat_revives": "Rettungen",
+  "stat_combos": "Kombinationen",
+  "stat_best_streak": "Beste Serie",
+  "ach_first_case": "Erste Akte",
+  "ach_first_case_desc": "Schließe deinen ersten Fall ab.",
+  "ach_perfect": "Lückenlos",
+  "ach_perfect_desc": "Erreiche ein perfektes Urteil.",
+  "ach_all_survived": "Keiner bleibt zurück",
+  "ach_all_survived_desc": "Alle Ermittler überleben einen Fall.",
+  "ach_revive3": "Schutzengel",
+  "ach_revive3_desc": "Belebe insgesamt drei Kollegen wieder.",
+  "ach_secret": "Das Geheimnis",
+  "ach_secret_desc": "Entdecke ein geheimes Ende.",
+  "ach_all_scenarios": "Alle Akten geschlossen",
+  "ach_all_scenarios_desc": "Löse jedes Szenario mindestens einmal.",
+  "ach_streak5": "Stammgast im Präsidium",
+  "ach_streak5_desc": "Ermittle fünf Tage in Folge.",
+  "ach_ghost_helper": "Stimme aus dem Jenseits",
+  "ach_ghost_helper_desc": "Hilf deinem Team als Geist.",
+  "ach_online": "Im Team",
+  "ach_online_desc": "Spiele einen Fall online.",
+  "ach_combos10": "Meisterkombinierer",
+  "ach_combos10_desc": "Ziehe insgesamt zehn Schlussfolgerungen.",
+  "error_unknown_scenario": "Diese Akte ist unbekannt.",
+  "error_nothing_to_analyze": "Nichts zu analysieren – bring ungeklärte Hinweise mit.",
+  "error_nothing_to_scare": "Hier ist nichts, das man verscheuchen könnte.",
+  "error_nothing_left": "Hier ist nichts mehr zu holen.",
+  "error_nothing_to_heal": "Niemand in der Nähe braucht Hilfe.",
+  "error_not_needed": "Das brauchst du gerade nicht.",
+  "error_no_pings": "Keine Markierung mehr in diesem Kapitel.",
+  "error_not_on_board": "Dieser Hinweis hängt nicht an der Beweiswand.",
+  "item_trace": "Schattenspur",
+  "item_trace_desc": "Hier war der Schatten. Vielleicht hat er etwas verloren.",
+  "toast_trace_search": "Du untersuchst die Spur des Schattens …",
+  "toast_trace_nothing": "Nur Schlamm und Asche.",
+  "toast_revived_dawn_me": "Im Morgengrauen findet man dich.",
+  "toast_revived_dawn": "Im Morgengrauen wird {player} gefunden.",
+  "@toast_revived_dawn": {
+    "placeholders": {
+      "player": {
+        "type": "String"
+      }
+    }
+  },
+  "dialogue_not_questioned": "Noch nicht befragt",
+  "dialogue_traits_hint": "Merkmale – vergleiche sie mit deinen Hinweisen."
 }

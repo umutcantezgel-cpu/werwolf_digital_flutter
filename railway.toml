@@ -1,0 +1,17 @@
+# Railway: Mordakte-Server (Dockerfile mit Repo-Root als Build-Kontext).
+# Im Railway-Dienst muss "Root Directory" leer bleiben (= Repo-Root),
+# sonst fehlt dem Build packages/mordakte_core.
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "server/Dockerfile"
+# Nur neu bauen, wenn sich Server, Core oder Szenarien ändern.
+watchPatterns = ["server/**", "packages/mordakte_core/**", "content/**", "railway.toml", ".dockerignore"]
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+# Räume liegen im Speicher: genau eine Instanz.
+numReplicas = 1

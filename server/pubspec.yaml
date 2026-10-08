@@ -1,0 +1,17 @@
+name: mordakte_server
+description: WebSocket-Server für Mordakte-Online-Räume (nutzt dieselbe RoomRuntime wie der Offline-Modus).
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  mordakte_core:
+    path: ../packages/mordakte_core
+  shelf: ^1.4.2
+  shelf_web_socket: ^3.0.0
+  web_socket_channel: ^3.0.3
+
+dev_dependencies:
+  lints: ^6.0.0
