@@ -27,7 +27,8 @@ Future<void> main() async {
   final app = AppState(meta: meta, scenarios: scenarios);
   var initial = _devEntry(app);
   final autoplay = _query['autoplay'];
-  if (autoplay != null && await app.startAutoplay(autoplay)) initial = Routes.game;
+  final speed = double.tryParse(_query['speed'] ?? '') ?? 1;
+  if (autoplay != null && await app.startAutoplay(autoplay, speed: speed)) initial = Routes.game;
   runApp(MordakteApp(app: app, initialLocation: initial));
 }
 

@@ -16,8 +16,9 @@ class SessionFactory {
     required Map<String, ScenarioDef> scenarios,
     required String playerName,
     bool autoplay = false,
+    double timeScale = 1,
   }) async {
-    return LocalSession(scenarios: scenarios, playerName: playerName, autoplay: autoplay);
+    return LocalSession(scenarios: scenarios, playerName: playerName, autoplay: autoplay, timeScale: timeScale);
   }
 
   /// Online: [roomCode] == null → neuen Raum erstellen.

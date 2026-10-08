@@ -78,11 +78,16 @@ class AppState extends ChangeNotifier {
 
   /// Entwickler-Einstieg `?autoplay=<id>`: echtes Solo-Spiel, KI steuert den eigenen
   /// Detektiv, 2 KI-Partner, Story-Modus – startet sofort.
-  Future<bool> startAutoplay(String scenarioId) async {
+  Future<bool> startAutoplay(String scenarioId, {double speed = 1}) async {
     final scenario = scenarios[scenarioId] ?? sortedScenarios.firstOrNull;
     if (scenario == null) return false;
     await leaveSession();
-    final s = await SessionFactory.solo(scenarios: scenarios, playerName: playerName, autoplay: true);
+    final s = await SessionFactory.solo(
+      scenarios: scenarios,
+      playerName: playerName,
+      autoplay: true,
+      timeScale: speed.clamp(1, 20).toDouble(),
+    );
     pendingConfig = null;
     _attach(s);
     autoplay = true;
@@ -185,6 +190,11 @@ class AppState extends ChangeNotifier {
     final ending = cv.ending;
     if (ending == null) return;
     _recorded = true;
+    // Entwickler-Einstiege (Fake/Autoplay) zählen nicht für den Fortschritt.
+    if (s is FakeSession || autoplay) {
+      notifyListeners();
+      return;
+    }
     lastResult = meta.record(
       ending: ending,
       scenarioId: cv.scenarioId ?? 'unknown',

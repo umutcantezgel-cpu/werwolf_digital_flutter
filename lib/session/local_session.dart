@@ -12,6 +12,7 @@ class LocalSession implements GameSession {
     required this.scenarios,
     required String playerName,
     bool autoplay = false,
+    this.timeScale = 1,
   }) {
     _rt = RoomRuntime(roomCode: roomCode, scenarios: scenarios);
     _rt.join(playerId, playerName);
@@ -23,6 +24,9 @@ class LocalSession implements GameSession {
 
   @override
   final Map<String, ScenarioDef> scenarios;
+
+  /// Zeitraffer für Demo/Screenshots (`?speed=`), 1 = Echtzeit.
+  final double timeScale;
 
   late final RoomRuntime _rt;
   late final Timer _timer;
@@ -69,9 +73,13 @@ class LocalSession implements GameSession {
   void _tick() {
     if (_disposed) return;
     final now = _clock.elapsedMilliseconds;
-    final dt = now - _last;
+    var dt = ((now - _last) * timeScale).round();
     _last = now;
-    _rt.tick(dt);
+    while (dt > 0) {
+      final step = dt > 100 ? 100 : dt;
+      _rt.tick(step);
+      dt -= step;
+    }
     _publish();
   }
 
