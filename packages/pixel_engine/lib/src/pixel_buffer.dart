@@ -74,6 +74,8 @@ final Uint32List _rgbaLut = () {
       final c = paletteRgb[i];
       final r = (c >> 16) & 0xFF, g = (c >> 8) & 0xFF, b = c & 0xFF;
       l[i] = 0xFF000000 | (b << 16) | (g << 8) | r;
+    } else if (i == kTransparent) {
+      l[i] = 0; // durchsichtig (UI-Ebene)
     } else {
       l[i] = 0xFFFF00FF; // nie sichtbar – fällt im Palettentest auf
     }

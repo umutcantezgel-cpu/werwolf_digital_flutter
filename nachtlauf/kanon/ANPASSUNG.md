@@ -12,14 +12,19 @@ Regeln für das Overlay:
 @ERSETZE-01 [O] | Von: Silberhauer Ausbeutetaler | Nach: Schartenfelser Ausbeutetaler
 @ERSETZE-02 [O] | Von: Silberhauer | Nach: Schartenfelser
 @ERSETZE-03 [O] | Von: aus der Zeit des Harzer Silberbergbaus | Nach: aus der Zeit des Silberbergbaus unter Schartenfels
-@ERSETZE-04 [O] | Von: Brockengespenst | Nach: Nebelriese
-@ERSETZE-05 [O] | Von: Nationalpark Harz | Nach: Naturpark
-@ERSETZE-06 [O] | Von: Nationalpark | Nach: Naturpark
-@ERSETZE-07 [O] | Von: Oberharz | Nach: Bergland
-@ERSETZE-08 [O] | Von: Harzwald | Nach: Bergwald
-@ERSETZE-09 [O] | Von: in the Harz mountains | Nach: in high wooded mountains
-@ERSETZE-10 [O] | Von: from the Harz mountains | Nach: from the mountains
-@ERSETZE-11 [O] | Von: im Harz | Nach: im Bergland
+@ERSETZE-04 [O] | Von: dem Brockengespenst | Nach: dem Nebelriesen
+@ERSETZE-05 [O] | Von: über das Brockengespenst | Nach: über den Nebelriesen
+@ERSETZE-06 [O] | Von: mit seinem Brockengespenst | Nach: mit seinem Nebelriesen
+@ERSETZE-07 [O] | Von: Das Brockengespenst ist | Nach: Der Nebelriese ist
+@ERSETZE-08 [O] | Von: Das Brockengespenst: | Nach: Der Nebelriese:
+@ERSETZE-09 [O] | Von: Brockengespenst | Nach: Nebelriese
+@ERSETZE-10 [O] | Von: Nationalpark Harz | Nach: Naturpark
+@ERSETZE-11 [O] | Von: Nationalpark | Nach: Naturpark
+@ERSETZE-12 [O] | Von: Oberharz | Nach: Bergland
+@ERSETZE-13 [O] | Von: Harzwald | Nach: Bergwald
+@ERSETZE-14 [O] | Von: in the Harz mountains | Nach: in high wooded mountains
+@ERSETZE-15 [O] | Von: from the Harz mountains | Nach: from the mountains
+@ERSETZE-16 [O] | Von: im Harz | Nach: im Bergland
 
 ## Ort und Rahmen
 @K-001 [O] | Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist die kleine, renovierte Stadtburg am höchsten Punkt der erfundenen, ummauerten Oberstadt Schartenfels: Gassen mit Kopfsteinpflaster, Häuser mit Dachgauben, die wie Augen schauen, eine Stadtmauer mit Wehrgang und Zunfttürmen, ein Uhrturm am Marktplatz und eine Kirchenburg auf dem Hügel. Unten im Tal liegt das erfundene Bergstädtchen Silberhau (SIL-ber-hau). Burg und Heimatmuseum gehören einer Stiftung; Burgwart ist Eckehard Lüddecke.

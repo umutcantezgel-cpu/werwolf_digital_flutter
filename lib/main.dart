@@ -65,10 +65,11 @@ String _devEntry(AppState app) {
     return phase == Phase.lobby ? Routes.lobby : Routes.game;
   }
   return switch (q['screen']) {
+    'hub' => Routes.hub,
     'cases' => Routes.cases,
     'collection' => Routes.collection,
     'profile' => Routes.profile,
     'online' => Routes.online,
-    _ => Routes.hub,
+    _ => Routes.burgstadt,
   };
 }

@@ -17,6 +17,12 @@ dependencies:
   intl: ^0.20.3
   mordakte_core:
     path: packages/mordakte_core
+  burgstadt_core:
+    path: packages/burgstadt_core
+  burgstadt_spiel:
+    path: packages/burgstadt_spiel
+  pixel_engine:
+    path: packages/pixel_engine
   provider: ^6.1.5+1
   shared_preferences: ^2.5.6
   web_socket_channel: ^3.0.3

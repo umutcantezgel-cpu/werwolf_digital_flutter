@@ -11,12 +11,17 @@ step() { echo; echo "== $*"; }
 step "Ebene 11 · Bestand: mordakte_core"
 (cd packages/mordakte_core && dart analyze 2>&1 | filter | tail -1 && dart test 2>&1 | filter | tail -1 && dart run bin/validate.dart 2>&1 | filter | grep -E "OK|FEHLER")
 
-for p in pixel_engine burgstadt_core room_host; do
+for p in pixel_engine burgstadt_core burgstadt_spiel room_host; do
   if [ -d "packages/$p" ]; then
     step "Paket $p: analyze + test"
-    (cd "packages/$p" && dart pub get >/dev/null 2>&1 && dart analyze 2>&1 | filter | tail -1 && { [ -d test ] && dart test 2>&1 | filter | tail -1 || echo "keine Tests"; })
+    (cd "packages/$p" && dart pub get >/dev/null 2>&1 && dart analyze --fatal-infos 2>&1 | filter | tail -1 && { [ -d test ] && dart test 2>&1 | filter | tail -1 || echo "keine Tests"; })
   fi
 done
+
+if [ -f packages/burgstadt_core/bin/leitplanken.dart ]; then
+  step "Ebene 10 · Leitplanken (Burgstadt-Texte)"
+  (cd packages/burgstadt_core && dart run bin/leitplanken.dart --burgstadt 2>&1 | filter | tail -1)
+fi
 
 if [ -f packages/burgstadt_core/bin/kanon.dart ]; then
   step "Ebene 1/10 · Kanon-Abgleich + Leitplanken"
@@ -29,6 +34,13 @@ for t in fairness durchspiel teilen_nutzen erkundung leistung; do
   fi
 done
 
+if [ -d packages/burgstadt_spiel ]; then
+  step "Ebene 5 · Pixel: alle Bildschirme headless (Palette + Blocktest)"
+  FOTOS="$(mktemp -d)"
+  (cd packages/burgstadt_spiel && dart run bin/bildschirmfoto.dart "$FOTOS" 1280 720 2>&1 | filter | tee /dev/stderr | grep -q FEHLER && exit 1 || true)
+  (cd packages/burgstadt_spiel && dart run bin/bildschirmfoto.dart "$FOTOS" 2401 1081 2>&1 | filter | tee /dev/stderr | grep -q FEHLER && exit 1 || true)
+fi
+
 step "Kanon-Werkzeug (Original): kanon.py pruefe"
 python3 krimidinner/spuk-im-gewoelbe/90_werkzeug/kanon.py pruefe 2>&1 | tail -1
 
@@ -38,6 +50,14 @@ flutter analyze 2>&1 | filter | tail -1
 if [ "${1:-}" != "schnell" ]; then
   step "Ebene 11 · Server-Smoke"
   (cd server && dart pub get >/dev/null 2>&1 && timeout 300 dart run tool/smoke.dart 2>&1 | filter | tail -1)
+  step "Ebene 9 · Geräte: Web-Build + Playwright (desktop, handy-quer, handy-hoch)"
+  flutter build web --release --no-web-resources-cdn 2>&1 | filter | tail -1
+  GER="$(mktemp -d)"
+  timeout 600 node tool/browser/geraete.js build/web "$GER"
+  for f in "$GER"/*.png; do
+    case "$f" in *desktop*) k=2 ;; *) k=3 ;; esac
+    (cd packages/pixel_engine && dart run bin/pixel_pruef.dart "$f" "$k" 2>&1 | filter)
+  done
   step "Ebene 11 · Mordakte simulate"
   (cd packages/mordakte_core && dart run bin/simulate.dart alle 1 2 2>&1 | filter | grep "Σ")
 fi

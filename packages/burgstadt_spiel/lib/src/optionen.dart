@@ -1,0 +1,32 @@
+import 'skalierung.dart';
+
+/// Spieler-Optionen (Barrierefreiheit und Leistung).
+class Optionen {
+  Qualitaet qualitaet = Qualitaet.mittel;
+  bool kopfwippen = true;
+  bool flackernAus = false;
+  bool neigen = false;
+  double sichtfeldGrad = 62;
+  double blickEmpfindlichkeit = 1.0;
+  int lautstaerke = 8; // 0..10
+
+  Map<String, Object> zuJson() => {
+        'qualitaet': qualitaet.name,
+        'kopfwippen': kopfwippen,
+        'flackernAus': flackernAus,
+        'neigen': neigen,
+        'sichtfeldGrad': sichtfeldGrad,
+        'blickEmpfindlichkeit': blickEmpfindlichkeit,
+        'lautstaerke': lautstaerke,
+      };
+
+  void ausJson(Map<String, dynamic> j) {
+    qualitaet = Qualitaet.values.where((q) => q.name == j['qualitaet']).firstOrNull ?? qualitaet;
+    kopfwippen = j['kopfwippen'] as bool? ?? kopfwippen;
+    flackernAus = j['flackernAus'] as bool? ?? flackernAus;
+    neigen = j['neigen'] as bool? ?? neigen;
+    sichtfeldGrad = (j['sichtfeldGrad'] as num?)?.toDouble() ?? sichtfeldGrad;
+    blickEmpfindlichkeit = (j['blickEmpfindlichkeit'] as num?)?.toDouble() ?? blickEmpfindlichkeit;
+    lautstaerke = (j['lautstaerke'] as num?)?.toInt() ?? lautstaerke;
+  }
+}

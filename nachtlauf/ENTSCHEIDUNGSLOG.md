@@ -63,3 +63,19 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 ## E11 · 08.10. 23:38 · Licht: quadratische Stufen, farbtontreue Colormaps, gedämpftes Dithering
 - Befund am ersten Bild: volles Bayer-Dithering erzeugte ein Schachbrettmuster, weil benachbarte Lichtstufen in andere Farbrampen sprangen.
 - Lösung: Lichtstufen quadratisch verteilt (mehr Stufen im Dunkeln), Farbsuche bevorzugt die eigene Rampe (Faktor 1,6 für fremde Rampen), Dithering-Stärke 0,5 (schmale Übergangsbänder statt Flächen-Raster). Bild: `nachtlauf/bilder/phase1/rasterer_320.png`.
+
+## E12 · 09.10. 00:20 · Bildausgabe: gerade Welt-Skalierung, UI = halbe Skalierung, physische Pixel
+- Ziel: Blocktest 100 % für das zusammengesetzte Bild (Welt + Oberfläche) auf jedem Gerät.
+- Wege: Welt und UI mit unabhängigen ganzzahligen Faktoren (Mischkanten verletzen den Blocktest, z. B. ×3/×2), UI = Weltauflösung (zu grobe Schrift), Welt-Faktor immer gerade und UI = Hälfte.
+- Gewählt: `Skalierung.fuer`: gerader Faktor, dessen kurze Weltseite der Qualitätsstufe am nächsten liegt; UI-Faktor = Hälfte. Hülle zeichnet in physischen Pixeln (`canvas.scale(1/dpr)`, `FilterQuality.none`). Bildweg: nativ `decodeImageFromPixelsSync` (Impeller), sonst asynchron mit Verwerfen statt Rückstau.
+- Beleg: Browser-Fotos Desktop 1280×720, Handy quer 2400×1080, Handy hoch 1080×2400: Palette OK, Blocktest 100 % (`nachtlauf/bilder/phase1/geraete/`).
+- Grenze: Im Browser mit gebrochenem Pixelverhältnis (z. B. 2,625) skaliert der Compositor die Leinwand um Bruchteile nach → Blocktest dort nur ~60 %. Native App nicht betroffen. → FÜR DEN NUTZER.
+
+## E13 · 09.10. 00:20 · Kanon-Parser webtauglich, Dateizugriff getrennt
+- `package:burgstadt_core/burgstadt_core.dart` ohne `dart:io` (Kanon, Proben, Overlay-Diff); `burgstadt_core_io.dart` für VM-Werkzeuge (Kanon aus Dateien, Repo-Wurzel, Leitplanken-Scan).
+- Overlay: Genus-Korrektur für „Nebelriese“ (männlich) über ERSETZE-04…08 vor der allgemeinen Ersetzung; Test verhindert „das/dem Nebelriese“.
+
+## E14 · 09.10. 00:20 · Leitplanken-Scanner: Geltungsbereich und Bestand
+- Burgstadt-Texte (Kanon, Overlay, Stadtdaten, App- und Spieltexte): 0 Treffer, Prüfung in `tool/alle_tests.sh` (Ebene 10).
+- Ausnahmen nur für Regelzitate/Negativ-Anweisungen in K8/K9 und den Kater als Tier (`nachtlauf/kanon/LEITPLANKEN-AUSNAHMEN.md`).
+- Bestand „Klassische Fälle“ (`content/`): 28 Fehler (Wein, Portwein, Brandy, Gin, Bar, Bier, Blut-Details). §3 gilt für das ausgelieferte Spiel → Auftrag A-702a: Texte leitplankenkonform umschreiben (Vorratskeller statt Weinkeller, Tee/Kakao/Limonade statt Alkohol, Diner-Theke statt Bar, keine Blutdetails), Mordfälle bleiben Mordfälle (Bestand), `validate`/`simulate` bleiben grün. Begründete Ersetzung im Sinne von §3 „Bestand schützen“.

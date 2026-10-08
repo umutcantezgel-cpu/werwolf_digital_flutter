@@ -4,7 +4,7 @@ import 'package:test/test.dart';
 void main() {
   final font = BitmapFont.parse(kSchriftNormal);
 
-  test('Spielschrift ist vollständig und regelkonform', skip: 'wartet auf Auftrag A-104a', () {
+  test('Spielschrift ist vollständig und regelkonform', () {
     final befunde = font.validate();
     expect(befunde, isEmpty, reason: befunde.join('\n'));
   });

@@ -82,7 +82,7 @@ class BitmapFont {
       if (!glyphs.containsKey(r)) out.add('fehlt: „${String.fromCharCode(r)}“ (U+${r.toRadixString(16).toUpperCase().padLeft(4, '0')})');
     }
     const descenders = 'gjpqyçşğ,;';
-    const tall = 'ÄÖÜÉÓĆŞŽ'; // Großbuchstaben mit Akzent dürfen in Zeilen 0–1
+    const tall = 'ÄÖÜÉÓĆŽ'; // Großbuchstaben mit Akzent oben (Ş hat die Cedille unten)
     for (final g in glyphs.values) {
       final ch = String.fromCharCode(g.codePoint);
       if (g.width < 1 || g.width > 9) out.add('„$ch“: Breite ${g.width} außerhalb 1–9');

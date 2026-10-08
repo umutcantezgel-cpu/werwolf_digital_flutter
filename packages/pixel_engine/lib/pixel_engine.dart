@@ -16,3 +16,5 @@ export 'src/demo/benchmark.dart';
 export 'src/pruef.dart';
 export 'src/font/bitmap_font.dart';
 export 'src/font/schrift_normal.dart';
+export 'src/ui/eingabe.dart';
+export 'src/ui/pixel_ui.dart';
