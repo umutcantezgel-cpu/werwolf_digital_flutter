@@ -42,7 +42,10 @@ Future<void> main() async {
     final json = await rootBundle.loadString('content/scenarios/$scenarioId.json');
     final def = ScenarioDef.fromJson(jsonDecode(json) as Map<String, dynamic>);
     final preview = ScenarioPreviewSession(def, phase: p ?? Phase.investigation);
-    if (at.length == 2 && at[0] != null && at[1] != null) preview.move(at[0]!, at[1]!, 0.8);
+    if (at.length == 2 && at[0] != null && at[1] != null) {
+      preview.move(at[0]!, at[1]!, 0.8);
+      await Future<void>.delayed(const Duration(milliseconds: 250));
+    }
     s = preview;
   }
   runApp(MaterialApp(

@@ -134,18 +134,22 @@ class StaticScene {
       (w + h) * Iso.halfH + 64,
     );
     _buildFloors(resolution);
-    // Wände
+    // Wände. Hohe Wände, die einen Raum zusätzlich nach Süden/Osten begrenzen,
+    // bekommen eine niedrige Variante (Cutaway, solange der Spieler dort ist).
+    bool tallAt(int x, int y) => _isWall(x, y) && (_floorLike(x, y + 1) || _floorLike(x + 1, y) || _floorLike(x + 1, y + 1));
+    bool cuttable(int x, int y) => tallAt(x, y) && _backRooms(x, y).isNotEmpty;
     for (var y = 0; y < h; y++) {
       for (var x = 0; x < w; x++) {
         if (_isWall(x, y)) {
-          final tall = _floorLike(x, y + 1) || _floorLike(x + 1, y) || _floorLike(x + 1, y + 1);
+          final tall = tallAt(x, y);
           final info = WallInfo(
             x: x,
             y: y,
             tall: tall,
             window: map.charAt(x, y) == TileChar.window,
-            south: !_isWall(x, y + 1),
-            east: !_isWall(x + 1, y),
+            // Seiten zu absenkbaren Nachbarn mitzeichnen (sonst Loch im Cutaway).
+            south: !_isWall(x, y + 1) || (tall && cuttable(x, y + 1)),
+            east: !_isWall(x + 1, y) || (tall && cuttable(x + 1, y)),
             southFloor: _floorLike(x, y + 1),
             eastFloor: _floorLike(x + 1, y),
             southOutdoor: map.roomAt(x, y + 1)?.outdoor ?? false,
