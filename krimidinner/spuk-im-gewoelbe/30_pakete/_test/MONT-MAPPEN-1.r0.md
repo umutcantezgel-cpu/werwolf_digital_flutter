@@ -60,31 +60,31 @@ MAPPE R01 · Adnan Hodžić (Aussprache: AD-nan HOD-schitsch)
 - PROFIL-R01: Steckbrief, Dossier, Kleidungshinweis
 - P1-R01: Aufträge G1-01, G1-02, G1-03 · Spiegelstücke G1-04, G1-08, G1-13, G1-20, G1-25, G1-37, G1-49 · Ersatz-Spiegelstücke G1-12 · Entscheidungskarte E1-01 · Meldekarte MK1-R01
 - P2-R01: Aufträge G2-01, G2-02, G2-03 · Spiegelstücke G2-07, G2-11, G2-17, G2-22, G2-34, G2-46, G2-58 · Ersatz-Spiegelstücke G2-06, G2-15 · Entscheidungskarte E2-01 · Meldekarte MK2-R01
-- P3-R01: Aufträge G3-01, G3-02, G3-03 · Spiegelstücke G3-05, G3-10 · Ersatz-Spiegelstücke G3-09 · Entscheidungskarte E3-01 · Meldekarte MK3-R01
+- P3-R01: Aufträge G3-01, G3-02, G3-03 · Spiegelstücke G3-05, G3-10, G3-14, G3-19, G3-31, G3-43, G3-55 · Ersatz-Spiegelstücke G3-09 · Entscheidungskarte E3-01 · Meldekarte MK3-R01
 
 MAPPE R02 · Rojda Baran (Aussprache: ROSCH-da BA-ran (das J wie in „Journal“))
 - PROFIL-R02: Steckbrief, Dossier, Kleidungshinweis
 - P1-R02: Aufträge G1-04, G1-05, G1-06 · Spiegelstücke G1-01, G1-11, G1-16, G1-23, G1-28, G1-40, G1-52 · Ersatz-Spiegelstücke G1-09, G1-15 · Entscheidungskarte E1-02 · Meldekarte MK1-R02
 - P2-R02: Aufträge G2-04, G2-05, G2-06 · Spiegelstücke G2-08, G2-10, G2-13, G2-20, G2-25, G2-37, G2-49 · Ersatz-Spiegelstücke G2-03 · Entscheidungskarte E2-02 · Meldekarte MK2-R02
-- P3-R02: Aufträge G3-04, G3-05, G3-06 · Spiegelstücke G3-02, G3-07 · Ersatz-Spiegelstücke G3-12 · Entscheidungskarte E3-02 · Meldekarte MK3-R02
+- P3-R02: Aufträge G3-04, G3-05, G3-06 · Spiegelstücke G3-02, G3-07, G3-17, G3-22, G3-34, G3-46, G3-58 · Ersatz-Spiegelstücke G3-12, G3-15 · Entscheidungskarte E3-02 · Meldekarte MK3-R02
 
 MAPPE R03 · Merle Hartwig (Aussprache: MER-le HART-wich)
 - PROFIL-R03: Steckbrief, Dossier, Kleidungshinweis
 - P1-R03: Aufträge G1-07, G1-08, G1-09 · Spiegelstücke G1-02, G1-10, G1-14, G1-19, G1-31, G1-43, G1-55 · Ersatz-Spiegelstücke G1-06 · Entscheidungskarte E1-03 · Meldekarte MK1-R03
 - P2-R03: Aufträge G2-07, G2-08, G2-09 · Spiegelstücke G2-01, G2-05, G2-16, G2-23, G2-28, G2-40, G2-52 · Ersatz-Spiegelstücke G2-12 · Entscheidungskarte E2-03 · Meldekarte MK2-R03
-- P3-R03: Aufträge G3-07, G3-08, G3-09 · Spiegelstücke G3-04, G3-11 · Ersatz-Spiegelstücke G3-03 · Entscheidungskarte E3-03 · Meldekarte MK3-R03
+- P3-R03: Aufträge G3-07, G3-08, G3-09 · Spiegelstücke G3-04, G3-11, G3-13, G3-20, G3-25, G3-37, G3-49 · Ersatz-Spiegelstücke G3-03 · Entscheidungskarte E3-03 · Meldekarte MK3-R03
 
 MAPPE R04 · Jonas Brinkmann (Aussprache: JO-nas BRINK-man)
 - PROFIL-R04: Steckbrief, Dossier, Kleidungshinweis
 - P1-R04: Aufträge G1-10, G1-11, G1-12 · Spiegelstücke G1-05, G1-07, G1-17, G1-22, G1-34, G1-46, G1-58 · Ersatz-Spiegelstücke G1-03 · Entscheidungskarte E1-04 · Meldekarte MK1-R04
 - P2-R04: Aufträge G2-10, G2-11, G2-12 · Spiegelstücke G2-02, G2-04, G2-14, G2-19, G2-31, G2-43, G2-55 · Ersatz-Spiegelstücke G2-09 · Entscheidungskarte E2-04 · Meldekarte MK2-R04
-- P3-R04: Aufträge G3-10, G3-11, G3-12 · Spiegelstücke G3-01, G3-08 · Ersatz-Spiegelstücke G3-06 · Entscheidungskarte E3-04 · Meldekarte MK3-R04
+- P3-R04: Aufträge G3-10, G3-11, G3-12 · Spiegelstücke G3-01, G3-08, G3-16, G3-23, G3-28, G3-40, G3-52 · Ersatz-Spiegelstücke G3-06 · Entscheidungskarte E3-04 · Meldekarte MK3-R04
 
 MAPPE R05 · Paulina Zielińska (Aussprache: pau-LI-na sche-LIN-ska)
 - PROFIL-R05: Steckbrief, Dossier, Kleidungshinweis
 - P1-R05: Aufträge G1-13, G1-14, G1-15 · Spiegelstücke G1-03, G1-18, G1-26 · Ersatz-Spiegelstücke G1-21 · Entscheidungskarte E1-05
 - P2-R05: Aufträge G2-13, G2-14, G2-15 · Spiegelstücke G2-06, G2-18, G2-26 · Ersatz-Spiegelstücke G2-21 · Entscheidungskarte E2-05
-- P3-R05: Aufträge  · Spiegelstücke G3-09 · Entscheidungskarte E3-05
+- P3-R05: Aufträge G3-13, G3-14, G3-15 · Spiegelstücke G3-09, G3-18, G3-26 · Ersatz-Spiegelstücke G3-21 · Entscheidungskarte E3-05
 
 ## 4. Stil und Ton
 - Deckblatt (30–60 Wörter): Rolle, Name, Aussprache, „Erst öffnen, wenn die Spielleitung es sagt“.

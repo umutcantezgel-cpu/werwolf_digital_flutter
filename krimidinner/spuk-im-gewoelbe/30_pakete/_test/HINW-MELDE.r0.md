@@ -58,7 +58,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Phase: 3
    - Text: „Ich hab von vier vor zwölf bis kurz nach zwei vor zwölf telefoniert, oben an der dritten Zinne.“
 13. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest ihre Meldekarte der Phase laut vor; das ist Pflicht. Erweiterungsrollen dürfen je eine erhaltene Hinweiskarte offen in die Tischmitte legen, wenn ihre Rollen-Entscheidung das vorsieht.
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
 
 Namen weiterer Personen (nur zur korrekten Schreibweise):
    - R01 = Adnan Hodžić (Aussprache: AD-nan HOD-schitsch; m, 33; selbstständiger Veranstaltungstechniker („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma mit Transporter), ausgebildeter Ersthelfer)

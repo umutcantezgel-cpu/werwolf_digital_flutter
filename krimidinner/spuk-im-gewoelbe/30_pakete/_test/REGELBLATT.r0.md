@@ -23,29 +23,33 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Regel: Wer mit der Bedingung auf seiner Karte angesprochen wird (bestimmte Karte gezeigt, bestimmte Frage gestellt, Codewort genannt), spielt das Spiegelstück so aus, wie es auf der Karte steht.
 7. [LR-6] (öffentlich)
    - Regel: Fragt der Detektiv eine Rolle direkt, antwortet sie nach ihren Karten. Steht dort nichts zur Frage, sagt sie wahrheitsgemäß: „Dazu weiß ich nichts.“ Erweiterungsrollen (ab Rolle 5) lügen nie; sie dürfen über ihr eigenes Geheimnis schweigen.
-8. [IF-1] (öffentlich)
+8. [LR-8] (öffentlich)
+   - Regel: Deine Karten gelten Gespräch für Gespräch, so wie sie stehen. Hast du eine Lüge zugegeben, bleibst du ab der nächsten Phase bei der Wahrheit, auch anderen gegenüber, und deine Karten der späteren Phasen sind schon so geschrieben.
+9. [IF-1] (öffentlich)
    - Regel: Der Detektiv darf jederzeit einem Gespräch zuhören, aber immer nur einem gleichzeitig. Nach dem Zuhören darf er einer beteiligten Rolle genau eine Frage stellen; sie antwortet nach der Lügenregel.
-9. [IF-2] (öffentlich)
+10. [IF-2] (öffentlich)
    - Regel: Hinweiskarten liegen ab ihrer Phase an den Stationen. Alle dürfen sie lesen, abfotografieren oder mitnehmen und in Gesprächen vorlegen. Am Phasenende kommen sie an die Station zurück.
-10. [IF-3] (öffentlich)
+11. [IF-3] (öffentlich)
    - Regel: Die Beweisstücke liegen an ihrer Station. Track-Karte (ab Phase 1) und Sohlenkarten (ab Phase 3) gibt die Spielleitung auf Verlangen heraus, an jede Person, die danach fragt.
-11. [IF-4] (öffentlich)
+12. [IF-4] (öffentlich)
    - Regel: Die Detektiv-Mappe enthält von Anfang an die eigenen Beobachtungen des Geburtstagskinds (DET-B1 bis DET-B6).
-12. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest ihre Meldekarte der Phase laut vor; das ist Pflicht. Erweiterungsrollen dürfen je eine erhaltene Hinweiskarte offen in die Tischmitte legen, wenn ihre Rollen-Entscheidung das vorsieht.
-13. [IF-6] (öffentlich)
+13. [IF-5] (öffentlich)
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
+14. [IF-8] (öffentlich)
+   - Regel: Was eine Rolle in der Lagerunde laut sagt oder dem Detektiv unter vier Augen weitergibt, schreibt die Spielleitung auf eine Notizkarte (Kennung der Rollen-Entscheidung und Option). Notizkarten liegen danach in der Tischmitte und gelten wie Hinweiskarten.
+15. [IF-6] (öffentlich)
    - Regel: Phasenstart und Zwischenresümee des Erzählers bringen die Aussagen des Burgwarts; sie erreichen alle, ohne dass jemand sie verhindern kann.
-14. [IF-7] (öffentlich)
+16. [IF-7] (öffentlich)
    - Regel: Nach der Lagerunde trifft der Detektiv seine drei Entscheidungen der Phase. Er darf vorher eine Minute mit niemandem sprechen und nachdenken.
-15. [ZM-1] (öffentlich)
+17. [ZM-1] (öffentlich)
    - Regel: Ein Gespräch dauert vier Minuten, ein zusammengelegtes Gespräch fünf. Die Box (Spielleitung) gibt alle vier Minuten einen leisen Gong.
-16. [ZM-2] (öffentlich)
+18. [ZM-2] (öffentlich)
    - Regel: Gesprächsfenster je Phase: bei 4 bis 8 Rollen 20 Minuten, bei 9 bis 16 Rollen 25 Minuten, bei 17 bis 20 Rollen 30 Minuten.
-17. [ZM-3] (öffentlich)
-   - Ablauf: 0:00 Ankommen, Mappen lesen (15 Min.) · 0:15 Einführung mit Steckbrief-Vorstellungen (20 Min.) · 0:35 Phase 1, Vorspeise (Phasenstart 2, Gesprächsfenster, Lagerunde 5, Rollen-Entscheidungen 3, Detektiv-Entscheidungen 5) · Gangwechsel mit Zwischenresümee 1 und Einwurf (10 Min.) · Phase 2, Hauptgang (wie Phase 1, plus 5 Minuten Essen) · Gangwechsel mit Zwischenresümee 2 (10 Min.) · Phase 3, Nachtisch (wie Phase 1) · Zwischenresümee 3, Eingrenzung und Anklage (15 Min.) · Ende und Geständnis (8 Min.) · Ausklang mit Torte.
-18. [ZM-4] (öffentlich)
+19. [ZM-3] (öffentlich)
+   - Ablauf: 0:00 Ankommen, Mappen lesen (15 Min.) · 0:15 Einführung mit Steckbrief-Vorstellungen (20 Min.) · 0:35 Phase 1, Vorspeise (Phasenstart 2, Gesprächsfenster, Rollen-Entscheidungen 3, Lagerunde 5, Detektiv-Entscheidungen 5) · Gangwechsel mit Zwischenresümee 1 und Einwurf (10 Min.) · Phase 2, Hauptgang (wie Phase 1, plus 5 Minuten Essen) · Gangwechsel mit Zwischenresümee 2 (10 Min.) · Phase 3, Nachtisch (wie Phase 1) · Zwischenresümee 3, Eingrenzung und Anklage (15 Min.) · Ende und Geständnis (8 Min.) · Ausklang mit Torte.
+20. [ZM-4] (öffentlich)
    - Dauer: bei 4 Rollen etwa 3 Stunden 15 Minuten, bei 20 Rollen etwa 3 Stunden 50 Minuten.
-19. [ZM-5] (öffentlich)
+21. [ZM-5] (öffentlich)
    - Regel: Je Phase liest der Erzähler höchstens zehn Ansagen zu Rollen-Entscheidungen. Atmosphäre-Einwürfe liegen in den Gangwechseln und zwischen Gesprächsrunden, fünf je Phase.
 
 ## 4. Stil und Ton

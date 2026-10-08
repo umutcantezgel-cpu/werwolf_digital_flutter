@@ -38,6 +38,7 @@ Zusätzlich `@DET-… ` (Detektiv, alles [O] oder [G] für das Geburtstagskind) 
 - `@H-14 [O] | Inhalt: … | Form: Karte/Beweisstück/mündlich/Erzähler | Quelle: Station …/Beweisstück BS-0x/Gespräch G2-07/Erzähler | Phase: 1 | Min: 4`
   - `Inhalt` ist genau das, was der Finder erfährt. Sichtklasse `O`, weil es in Spieltexten stehen darf, sobald gefunden. Ein Hinweis, der nur einer Rolle bekannt ist, bekommt `[G]` und `Rolle: R0x`.
 - `@HW-14 [L] | Wahrheit: … | Stützt: S3 | Einstufung: echt/falsche Fährte/entlastend | Blockierbar durch: E1-02 Option 2 / nein | Unabhängig von: …`
+  - Einstufung nach Wirkung auf den Detektiv: „echt“ führt zur Lösung; „falsche Fährte“ lässt eine unschuldige Person schuldig wirken (z. B. Jonas’ Geldnot, Strang a); „entlastend“ gibt einer unschuldigen Person Zeit, Ort oder Erklärung (z. B. Jonas’ Telefonat an der Zinne); „Farbe“ trägt nur Nebenhandlung. Ein Zusatz in Klammern ist erlaubt.
 - `@S-1 [L] | Schlussfolgerung: … | Notwendig: ja/nein | Hinweise: H-03, H-14, …`
 
 ## K4 Gesprächsgraph (`10_kanon/K4-GESPRAECHE.md`)

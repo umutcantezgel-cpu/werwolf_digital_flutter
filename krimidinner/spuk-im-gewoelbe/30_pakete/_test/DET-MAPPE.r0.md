@@ -18,88 +18,92 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 4. [IF-4] (öffentlich)
    - Regel: Die Detektiv-Mappe enthält von Anfang an die eigenen Beobachtungen des Geburtstagskinds (DET-B1 bis DET-B6).
 5. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest ihre Meldekarte der Phase laut vor; das ist Pflicht. Erweiterungsrollen dürfen je eine erhaltene Hinweiskarte offen in die Tischmitte legen, wenn ihre Rollen-Entscheidung das vorsieht.
-6. [IF-6] (öffentlich)
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
+6. [IF-8] (öffentlich)
+   - Regel: Was eine Rolle in der Lagerunde laut sagt oder dem Detektiv unter vier Augen weitergibt, schreibt die Spielleitung auf eine Notizkarte (Kennung der Rollen-Entscheidung und Option). Notizkarten liegen danach in der Tischmitte und gelten wie Hinweiskarten.
+7. [IF-6] (öffentlich)
    - Regel: Phasenstart und Zwischenresümee des Erzählers bringen die Aussagen des Burgwarts; sie erreichen alle, ohne dass jemand sie verhindern kann.
-7. [IF-7] (öffentlich)
+8. [IF-7] (öffentlich)
    - Regel: Nach der Lagerunde trifft der Detektiv seine drei Entscheidungen der Phase. Er darf vorher eine Minute mit niemandem sprechen und nachdenken.
-8. [LR-1] (öffentlich)
+9. [LR-1] (öffentlich)
    - Regel: Jede Rolle darf schweigen oder ausweichen, wenn es um ihr eigenes Geheimnis geht. Ausweichen heißt: etwas Wahres, aber Unvollständiges sagen („Ich war draußen.“).
-9. [LR-2] (öffentlich)
+10. [LR-2] (öffentlich)
    - Regel: Aktiv lügen, also etwas Falsches als Tatsache behaupten, darf eine Rolle nur zu Themen, die auf ihrer Karte mit „Du darfst hier lügen“ markiert sind.
-10. [LR-3] (öffentlich)
+11. [LR-3] (öffentlich)
    - Regel: Bei jeder erlaubten Lüge steht auf der Karte ein Gegenbeweis. Wird dir dieser Gegenbeweis vorgelegt, gibst du zu, was er zeigt. Danach darfst du ihn nur noch anders deuten.
-11. [LR-4] (öffentlich)
+12. [LR-4] (öffentlich)
    - Regel: Was eine vorgelegte Hinweiskarte oder ein Beweisstück zeigt, bestreitet niemand.
-12. [LR-5] (öffentlich)
+13. [LR-5] (öffentlich)
    - Regel: Wer mit der Bedingung auf seiner Karte angesprochen wird (bestimmte Karte gezeigt, bestimmte Frage gestellt, Codewort genannt), spielt das Spiegelstück so aus, wie es auf der Karte steht.
-13. [LR-6] (öffentlich)
+14. [LR-6] (öffentlich)
    - Regel: Fragt der Detektiv eine Rolle direkt, antwortet sie nach ihren Karten. Steht dort nichts zur Frage, sagt sie wahrheitsgemäß: „Dazu weiß ich nichts.“ Erweiterungsrollen (ab Rolle 5) lügen nie; sie dürfen über ihr eigenes Geheimnis schweigen.
-14. [DET-STAMM] (öffentlich)
+15. [LR-8] (öffentlich)
+   - Regel: Deine Karten gelten Gespräch für Gespräch, so wie sie stehen. Hast du eine Lüge zugegeben, bleibst du ab der nächsten Phase bei der Wahrheit, auch anderen gegenüber, und deine Karten der späteren Phasen sind schon so geschrieben.
+16. [DET-STAMM] (öffentlich)
    - Bezeichnung: das Geburtstagskind
    - Anrede: du
    - Name, Alter, Geschlecht: werden nie genannt
    - Rolle im Spiel: Detektiv; spielt sich selbst als Gast; ist nie verdächtig
    - Rolle im Streich: Ziel des Geisterschrecks
-15. [DET-ALIBI] (öffentlich)
+17. [DET-ALIBI] (öffentlich)
    - Alibi: 23:30–23:56 im Gewölbe (ab 23:48 im Qualm). 23:56:00 schickt Rojda dich an die Speisekammertür („Geh mal lauschen, gleich spukt's“). Von 23:56:10 bis 00:00:05 stehst du an der verkeilten Eichentür. 00:00:15 gehst du mit Adnan über den Turm, 00:00:25 bist du in der Speisekammer.
-16. [D1-1] (öffentlich)
+18. [D1-1] (öffentlich)
    - Phase: 1
    - Frage: In der Speisekammer kannst du genau eine Spur gründlich untersuchen, bevor alle durcheinanderlaufen. Welche?
    - Option A: die Stablampe unter dem Regal
    - Option B: die Wachsspritzer neben der Eisentür
    - Option C: die Geburtstagstorte im Regal
    - Begründbar durch: H-04, H-05, H-21
-17. [D1-2] (öffentlich)
+19. [D1-2] (öffentlich)
    - Phase: 1
    - Frage: Im Wendeltreppenturm fallen dir drei Stellen auf. Welche untersuchst du zuerst?
    - Option A: die Rüstung Kunibert auf dem ersten Absatz
    - Option B: den offenen Sicherungskasten am Turm-Fuß
    - Option C: die Schauvitrine auf der Hofebene
    - Begründbar durch: H-04, H-27, H-09
-18. [D1-3] (öffentlich)
+20. [D1-3] (öffentlich)
    - Phase: 1
    - Frage: Der Schrei um Mitternacht kam aus dem Gewölbe. Was nimmst du dir dort vor?
    - Option A: den Kamin und die Heißluftpistole
    - Option B: den Punschkessel
    - Option C: die Bluetooth-Box in der Nische neben der Eichentür
    - Begründbar durch: H-09, H-07, H-10
-19. [D2-1] (öffentlich)
+21. [D2-1] (öffentlich)
    - Phase: 2
    - Frage: Wem legst du die Rückseite des Code-Zettels mit dem Streich-Ablauf vor?
    - Option A: Adnan
    - Option B: Jonas
    - Option C: Rojda
    - Begründbar durch: H-25, H-07, H-24
-20. [D2-2] (öffentlich)
+22. [D2-2] (öffentlich)
    - Phase: 2
    - Frage: Die Raureif-Karte zeigt: Im Hof war außer dem Burgwart niemand. Wem hältst du sie vor?
    - Option A: Rojda
    - Option B: Jonas
    - Option C: Merle
    - Begründbar durch: H-02, H-17, H-26
-21. [D2-3] (öffentlich)
+23. [D2-3] (öffentlich)
    - Phase: 2
    - Frage: Der Burgwart sagt, es habe in seiner Dose geklimpert, und dann habe er zugepackt. Wem legst du das Sofortbild der Burgführung vor?
    - Option A: Jonas
    - Option B: Merle
    - Option C: Adnan
    - Begründbar durch: H-18, H-19, H-11, H-20
-22. [D3-1] (öffentlich)
+24. [D3-1] (öffentlich)
    - Phase: 3
    - Frage: Wann wurde der Burgwart niedergeschlagen?
    - Option A: gegen Viertel vor zwölf, als er angeblich ins Bett ging
    - Option B: um Mitternacht, beim Schrei
    - Option C: kurz nach dem Knall, gegen zwei vor zwölf
    - Begründbar durch: H-08, H-07, H-09, H-10, H-11
-23. [D3-2] (öffentlich)
+25. [D3-2] (öffentlich)
    - Phase: 3
    - Frage: Wessen Weg zwischen elf vor zwölf und Mitternacht prüfst du Minute für Minute?
    - Option A: Merle
    - Option B: Adnan
    - Option C: Rojda
    - Begründbar durch: H-16, H-17, H-09, H-25
-24. [D3-3] (öffentlich)
+26. [D3-3] (öffentlich)
    - Phase: 3
    - Frage: Womit vergleichst du den Absatzabdruck aus dem Wachs?
    - Option A: mit Jonas' Wanderstiefeln, die du kennst

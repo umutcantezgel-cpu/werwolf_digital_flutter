@@ -154,9 +154,9 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Phase: 1
    - Min: 4
 35. [ZM-3] (öffentlich)
-   - Ablauf: 0:00 Ankommen, Mappen lesen (15 Min.) · 0:15 Einführung mit Steckbrief-Vorstellungen (20 Min.) · 0:35 Phase 1, Vorspeise (Phasenstart 2, Gesprächsfenster, Lagerunde 5, Rollen-Entscheidungen 3, Detektiv-Entscheidungen 5) · Gangwechsel mit Zwischenresümee 1 und Einwurf (10 Min.) · Phase 2, Hauptgang (wie Phase 1, plus 5 Minuten Essen) · Gangwechsel mit Zwischenresümee 2 (10 Min.) · Phase 3, Nachtisch (wie Phase 1) · Zwischenresümee 3, Eingrenzung und Anklage (15 Min.) · Ende und Geständnis (8 Min.) · Ausklang mit Torte.
+   - Ablauf: 0:00 Ankommen, Mappen lesen (15 Min.) · 0:15 Einführung mit Steckbrief-Vorstellungen (20 Min.) · 0:35 Phase 1, Vorspeise (Phasenstart 2, Gesprächsfenster, Rollen-Entscheidungen 3, Lagerunde 5, Detektiv-Entscheidungen 5) · Gangwechsel mit Zwischenresümee 1 und Einwurf (10 Min.) · Phase 2, Hauptgang (wie Phase 1, plus 5 Minuten Essen) · Gangwechsel mit Zwischenresümee 2 (10 Min.) · Phase 3, Nachtisch (wie Phase 1) · Zwischenresümee 3, Eingrenzung und Anklage (15 Min.) · Ende und Geständnis (8 Min.) · Ausklang mit Torte.
 36. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest ihre Meldekarte der Phase laut vor; das ist Pflicht. Erweiterungsrollen dürfen je eine erhaltene Hinweiskarte offen in die Tischmitte legen, wenn ihre Rollen-Entscheidung das vorsieht.
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
 37. [IF-7] (öffentlich)
    - Regel: Nach der Lagerunde trifft der Detektiv seine drei Entscheidungen der Phase. Er darf vorher eine Minute mit niemandem sprechen und nachdenken.
 38. [DET-STAMM] (öffentlich)
@@ -174,7 +174,7 @@ Namen weiterer Personen (nur zur korrekten Schreibweise):
 
 ## 4. Stil und Ton
 - Erzählerstimme nach Stilblatt; die Runde wird mit „ihr“ angesprochen, das Geburtstagskind mit „du“.
-- Phasenstart (200–300 Wörter): leitet den Gang ein (Phase 1 Vorspeise, Phase 2 Hauptgang, Phase 3 Nachtisch). Er enthält die Aussage des Burgwarts dieser Phase (Datensatz BW-AUSSAGE-1) wörtlich und erklärt kurz den Ablauf der Phase: Gespräche, Lagerunde mit Meldekarten, Entscheidungen.
+- Phasenstart (200–300 Wörter): leitet den Gang ein (Phase 1 Vorspeise, Phase 2 Hauptgang, Phase 3 Nachtisch). Er enthält die Aussage des Burgwarts dieser Phase (Datensatz BW-AUSSAGE-1) wörtlich und erklärt kurz den Ablauf der Phase: Gespräche, Rollen-Entscheidungen, Lagerunde mit Meldekarten, Entscheidungen des Detektivs.
 - Zwischenresümee (220–320 Wörter): pfadneutral. Es nennt nur öffentliche Tatsachen (was an den Stationen liegt, was der Burgwart gesagt hat) und keine Ergebnisse von Gesprächen oder Entscheidungen. Es endet mit dem Übergang zum nächsten Gang bzw. zur Auflösung.
 - Einwürfe (je 40–80 Wörter): kurze Grusel- oder Comedy-Momente aus dem Katalog unten, ohne neue Tatsachen.
 Katalog der erlaubten Momente:

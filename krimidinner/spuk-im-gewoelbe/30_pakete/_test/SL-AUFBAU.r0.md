@@ -111,10 +111,12 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 31. [IF-4] (öffentlich)
    - Regel: Die Detektiv-Mappe enthält von Anfang an die eigenen Beobachtungen des Geburtstagskinds (DET-B1 bis DET-B6).
 32. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest ihre Meldekarte der Phase laut vor; das ist Pflicht. Erweiterungsrollen dürfen je eine erhaltene Hinweiskarte offen in die Tischmitte legen, wenn ihre Rollen-Entscheidung das vorsieht.
-33. [IF-6] (öffentlich)
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
+33. [IF-8] (öffentlich)
+   - Regel: Was eine Rolle in der Lagerunde laut sagt oder dem Detektiv unter vier Augen weitergibt, schreibt die Spielleitung auf eine Notizkarte (Kennung der Rollen-Entscheidung und Option). Notizkarten liegen danach in der Tischmitte und gelten wie Hinweiskarten.
+34. [IF-6] (öffentlich)
    - Regel: Phasenstart und Zwischenresümee des Erzählers bringen die Aussagen des Burgwarts; sie erreichen alle, ohne dass jemand sie verhindern kann.
-34. [IF-7] (öffentlich)
+35. [IF-7] (öffentlich)
    - Regel: Nach der Lagerunde trifft der Detektiv seine drei Entscheidungen der Phase. Er darf vorher eine Minute mit niemandem sprechen und nachdenken.
 
 ## 4. Stil und Ton

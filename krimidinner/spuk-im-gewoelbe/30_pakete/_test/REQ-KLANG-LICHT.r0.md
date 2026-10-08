@@ -110,11 +110,11 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 32. [ZM-1] (öffentlich)
    - Regel: Ein Gespräch dauert vier Minuten, ein zusammengelegtes Gespräch fünf. Die Box (Spielleitung) gibt alle vier Minuten einen leisen Gong.
 33. [ZM-3] (öffentlich)
-   - Ablauf: 0:00 Ankommen, Mappen lesen (15 Min.) · 0:15 Einführung mit Steckbrief-Vorstellungen (20 Min.) · 0:35 Phase 1, Vorspeise (Phasenstart 2, Gesprächsfenster, Lagerunde 5, Rollen-Entscheidungen 3, Detektiv-Entscheidungen 5) · Gangwechsel mit Zwischenresümee 1 und Einwurf (10 Min.) · Phase 2, Hauptgang (wie Phase 1, plus 5 Minuten Essen) · Gangwechsel mit Zwischenresümee 2 (10 Min.) · Phase 3, Nachtisch (wie Phase 1) · Zwischenresümee 3, Eingrenzung und Anklage (15 Min.) · Ende und Geständnis (8 Min.) · Ausklang mit Torte.
+   - Ablauf: 0:00 Ankommen, Mappen lesen (15 Min.) · 0:15 Einführung mit Steckbrief-Vorstellungen (20 Min.) · 0:35 Phase 1, Vorspeise (Phasenstart 2, Gesprächsfenster, Rollen-Entscheidungen 3, Lagerunde 5, Detektiv-Entscheidungen 5) · Gangwechsel mit Zwischenresümee 1 und Einwurf (10 Min.) · Phase 2, Hauptgang (wie Phase 1, plus 5 Minuten Essen) · Gangwechsel mit Zwischenresümee 2 (10 Min.) · Phase 3, Nachtisch (wie Phase 1) · Zwischenresümee 3, Eingrenzung und Anklage (15 Min.) · Ende und Geständnis (8 Min.) · Ausklang mit Torte.
 34. [ZM-5] (öffentlich)
    - Regel: Je Phase liest der Erzähler höchstens zehn Ansagen zu Rollen-Entscheidungen. Atmosphäre-Einwürfe liegen in den Gangwechseln und zwischen Gesprächsrunden, fünf je Phase.
 35. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest ihre Meldekarte der Phase laut vor; das ist Pflicht. Erweiterungsrollen dürfen je eine erhaltene Hinweiskarte offen in die Tischmitte legen, wenn ihre Rollen-Entscheidung das vorsieht.
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
 
 ## 4. Stil und Ton
 - Je Cue eine Zeile im festen Format: „CUE K-nn · <Zeitpunkt im Ablauf> · Klang: … · Licht: … · Auslöser: Spielleitung / Erzähler-App“ (30–45 Wörter).

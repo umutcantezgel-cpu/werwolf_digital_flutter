@@ -171,8 +171,7 @@ def ax_profil(a, prm, plan_rec):
     a.add_prefix("OA-")
     a.add("BW-STAMM")
     a.add("DET-STAMM")
-    for i in range(1, 7):
-        a.add(f"LR-{i}")
+    a.add_prefix("LR-", sicht="O")
     txt = " ".join(a.items[k][0].roh for k in a.items)
     a.namen(rollen_in(txt) - {R})
     return {"ROLLE": R, "ROLLENNAME": a.recs[f"{R}-STAMM"].get("Name"),
@@ -207,8 +206,7 @@ def ax_phase_rolle(a, prm, plan_rec):
         a.add(h)
     a.add(f"E{ph}-{R[1:]}", pflicht=False)
     a.add(f"MK{ph}-{R}", pflicht=False)
-    for i in range(1, 7):
-        a.add(f"LR-{i}")
+    a.add_prefix("LR-", sicht="O")
     a.namen({p for p in partner if p and p != "–"} - {R})
     return {"ROLLE": R, "ROLLENNAME": a.recs[f"{R}-STAMM"].get("Name"), "PHASE": str(ph),
             "N_AUFTRAEGE": str(len(eigene)), "N_SPIEGEL": str(len(spiegel)),
@@ -463,8 +461,7 @@ def ax_erz_gest(a, prm, plan_rec):
 
 def ax_det_mappe(a, prm, plan_rec):
     a.add_prefix("IF-")
-    for i in range(1, 7):
-        a.add(f"LR-{i}")
+    a.add_prefix("LR-", sicht="O")
     a.add("DET-STAMM")
     a.add("DET-ALIBI")
     for ph in (1, 2, 3):
@@ -477,7 +474,7 @@ def ax_det_mappe(a, prm, plan_rec):
 SL_TEILE = {
     "Aufbau und Material": lambda a: (basis_oeffentlich(a), [a.add(f"BSO-{b:02d}") for b in range(1, 14)], a.add_prefix("IF-")),
     "Ablaufplan mit Cues": lambda a: (a.add_prefix("ZM-"), a.add_prefix("IF-")),
-    "Regeln und Sonderfälle": lambda a: (a.add_prefix("LR-"), a.add_prefix("IF-"), a.add_prefix("ZM-"), a.add_prefix("AK-")),
+    "Regeln und Sonderfälle": lambda a: (a.add_prefix("LR-", sicht="O"), a.add_prefix("IF-"), a.add_prefix("ZM-"), a.add_prefix("AK-", sicht="O")),
     "Hergang und Zeitleiste": lambda a: (a.add_prefix("Z-"), a.add_prefix("POS-"), a.add_prefix("PF-"), a.add("K-090")),
     "Lösungsweg und Gegenprobe": lambda a: (a.add_prefix("S-"), [a.add(f"DW{p}-{i}") for p in (1, 2, 3) for i in (1, 2, 3)], a.add_prefix("AB-"), a.add_prefix("EM-")),
     "Besetzung je Spielerzahl": lambda a: (a.add("VK-1"), [a.add(f"R{n:02d}-PLOT") for n in range(1, 21)], [a.add(f"R{n:02d}-STAMM") for n in range(1, 21)], a.add("ZM-2")),
@@ -492,8 +489,7 @@ def ax_sl(a, prm, plan_rec):
 
 def ax_regelblatt(a, prm, plan_rec):
     a.add("FÜNF-SÄTZE")
-    for i in range(1, 7):
-        a.add(f"LR-{i}")
+    a.add_prefix("LR-", sicht="O")
     a.add_prefix("IF-")
     a.add_prefix("ZM-")
     return {}

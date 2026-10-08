@@ -104,15 +104,17 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Regel: Wer mit der Bedingung auf seiner Karte angesprochen wird (bestimmte Karte gezeigt, bestimmte Frage gestellt, Codewort genannt), spielt das Spiegelstück so aus, wie es auf der Karte steht.
 29. [LR-6] (öffentlich)
    - Regel: Fragt der Detektiv eine Rolle direkt, antwortet sie nach ihren Karten. Steht dort nichts zur Frage, sagt sie wahrheitsgemäß: „Dazu weiß ich nichts.“ Erweiterungsrollen (ab Rolle 5) lügen nie; sie dürfen über ihr eigenes Geheimnis schweigen.
-30. [LR-7] (Lösung)
+30. [LR-8] (öffentlich)
+   - Regel: Deine Karten gelten Gespräch für Gespräch, so wie sie stehen. Hast du eine Lüge zugegeben, bleibst du ab der nächsten Phase bei der Wahrheit, auch anderen gegenüber, und deine Karten der späteren Phasen sind schon so geschrieben.
+31. [LR-7] (Lösung)
    - Regel: Erlaubte Lügen in dieser Geschichte. R01: ob er den Code weitergegeben hat (Gegenbeweis: Vorderseite des Code-Zettels). R02: wer den Hebel gezogen hat und ob es einen Streich gab (Gegenbeweis: Rückseite des Code-Zettels oder Track-Karte). R04: sein Aufenthaltsort 23:53–00:01 („im Hof“), damit auch, ob er Merle auf dem Wehrgang gesehen hat, und sein Job (Gegenbeweis: Raureif-Karte oder Box-Meldung „Verbindung getrennt“, wenn jemand sie ihm als Gegenbeweis nennt). R03: ihr Weg 23:54–23:59:40, ob sie das Gespenst oder in der Speisekammer war, Taler, Bund, Laken (Gegenbeweise: Sohlenkarte mit Wachsabdruck, Laken, Track-Karte mit Zettel-Rückseite, Sofortbild). Damit haben alle vier Kernrollen erlaubte Lügen, und niemand ist allein dadurch verdächtig.
-31. [VK-1] (Lösung)
+32. [VK-1] (Lösung)
    - Besetzung: 4 bis 20 Rollen
    - Verdächtigenkreis: immer genau R01 Adnan, R02 Rojda, R03 Merle, R04 Jonas
    - Begründung: Täterin, Hauptzeugin und die beiden Hauptverdächtigen liegen im Kern. Erweiterungsrollen sind nie verdächtig; sie waren zur Tatminute im Gewölbe oder auf dem Wehrgang und lügen nie. In Erzähltexten werden sie nur in markierten Einschüben genannt.
-32. [K-090] (Lösung)
+33. [K-090] (Lösung)
    - Tatsache: Täterin ist Merle Hartwig (R03). Motiv: die Angst, als Taler-Diebin und Lügnerin dazustehen und ihre Verbeamtung zu verlieren. Sie wollte den Taler heimlich zurückbringen; der Schlag war ein Panikreflex im Dunkeln, als der lauernde Burgwart sie packte. Den Bund nahm sie danach bewusst, damit er nicht sofort vom Torhaus die Polizei ruft. Danach log sie über ihren Weg und nutzte den aufgenommenen Schrei als Alibi.
-33. [DW1-1] (Lösung)
+34. [DW1-1] (Lösung)
    - Echte Spur: B
    - Falsche Fährte: A
    - Ablenkung: C
@@ -120,7 +122,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Ergebnis A: Klebeband „HODŽIĆ VT · 3“: Es ist Adnans Lampe. Der Schalter steht auf AN, die Batterie ist leer. Wer sie zuletzt hatte, verrät sie nicht; sie zeigt auf Adnan.
    - Ergebnis B: Das Wachs ist aus den Tüllen gespritzt, als der Kerzenständer geschwungen wurde, und sofort auf dem kalten Stein erstarrt. In einem Spritzer steckt der Abdruck eines Absatzes mit Stollenprofil, die Spitze zeigt zur Eisentür. Wer zuschlug, ging durch die Eisentür hinaus; merk dir das Profil.
    - Ergebnis C: Die Torte ist unversehrt, obendrauf ein Marzipan-Kunibert. Hübsch, aber sie verrät nichts.
-34. [DW1-2] (Lösung)
+35. [DW1-2] (Lösung)
    - Echte Spur: A
    - Falsche Fährte: B
    - Ablenkung: C
@@ -128,7 +130,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Ergebnis A: Am verbogenen Panzerhandschuh hängt ein Streifen weißes Leinen mit rotem Wäschezeichen „Schartenfels 7“. Wer nach der Tat hier hinaufging, trug ein Laken. Das Visier sitzt schief und klemmt; ohne den Burgwart bekommst du es nicht auf.
    - Ergebnis B: Der Code-Zettel trägt vorn Adnans Schrift: „3108 · nur der große Hebel · nach 2 Min wieder hoch – A.“ Die Hauptsicherung ist durchgeschmort. Alles sieht nach dem Techniker aus.
    - Ergebnis C: Die Vitrine ist abgeschlossen und leer, um die Samtmulde ein Staubrand. Der Taler liegt ja längst wieder in der Dose.
-35. [DW1-3] (Lösung)
+36. [DW1-3] (Lösung)
    - Echte Spur: C
    - Falsche Fährte: A
    - Ablenkung: B
@@ -136,7 +138,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Ergebnis A: Nasses Holz, eine Heißluftpistole, Ruß bis zur Tafel. Adnan war hier – aber wer weiß schon, wie lange, im Qualm und im Dunkeln?
    - Ergebnis B: Der Punsch ist noch warm und duftet nach Zimt. Der Kessel lief bis zum Knall; mehr verrät er nicht.
    - Ergebnis C: Auf der Track-Karte „Geisterstunde“ steht: Wind, bei 1:30 Ketten, bei 3:00 ein langer hoher Schrei. Auf der Zettel-Rückseite steht als Startzeit drei vor zwölf. Der Schrei kam also um Mitternacht aus der Box. Was du kurz nach dem Knall gehört hast, noch vor den Ketten, war echt.
-36. [DW2-1] (Lösung)
+37. [DW2-1] (Lösung)
    - Echte Spur: C
    - Falsche Fährte: A
    - Ablenkung: B
@@ -144,7 +146,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Ergebnis A: Adnan erkennt vorn seine eigene Schrift und bleibt dabei: Er hat am Kamin gekniet. Die Rückseite? „Nicht meine Schrift.“ Mehr sagt er nicht, und das wirkt verstockt.
    - Ergebnis B: Jonas liest „0:02 Licht und Torte“ und strahlt: „Torte! Leute, die Torte!“ Vom Streich weiß er nichts.
    - Ergebnis C: Rojda gibt den Streich zu. Sie hat um zwei vor zwölf den Hebel gezogen, der Schrei war ihr Track. Am Turm-Fuß stand ein Gespenst im Laken an der Eisentür und zeigte ihr den Daumen. Wer darunter war, will sie dir nicht sagen.
-37. [DW2-2] (Lösung)
+38. [DW2-2] (Lösung)
    - Echte Spur: B
    - Falsche Fährte: C
    - Ablenkung: A
@@ -152,7 +154,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Ergebnis A: Rojda zuckt mit den Schultern: Sie war im Turm, nie im Hof. Nichts Neues.
    - Ergebnis B: Jonas gibt auf: Er war nicht im Hof, sondern oben an der dritten Zinne und hat telefoniert – es ging um Geld, sagt er leise. Merle hat ihn dort oben um sechs vor zwölf erschreckt und ist wieder hinuntergegangen.
    - Ergebnis C: Merle nickt erleichtert: „Siehst du, ich war ja auch nie im Hof. Ich war auf der Treppe.“ Ihre Geschichte klingt jetzt runder als vorher.
-38. [DW2-3] (Lösung)
+39. [DW2-3] (Lösung)
    - Echte Spur: B
    - Falsche Fährte: A
    - Ablenkung: C
@@ -160,7 +162,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Ergebnis A: Jonas lacht verlegen: Ja, er ist gegen Kunibert gekracht, in seiner grünen Fleecejacke. Der Burgwart hat „was Grünes“ gesehen … Das passt verdächtig gut zu ihm.
    - Ergebnis B: Merle schaut lange auf das Bild. Ja, sie hat den Taler in der Hand gehabt, als Jonas gegen Kunibert prallte, und dachte, sie hätte ihn zurückgegeben. Wer ihn um Mitternacht in die Dose warf, wurde gepackt. Und wer ihn hatte, hatte einen Grund, ihn heimlich zurückzubringen.
    - Ergebnis C: Adnan ist auf dem Bild nicht zu sehen. Kein Gewinn.
-39. [DW3-1] (Lösung)
+40. [DW3-1] (Lösung)
    - Echte Spur: C
    - Falsche Fährte: B
    - Ablenkung: A
@@ -168,7 +170,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Ergebnis A: Um Viertel vor zwölf stieg der Burgwart in den Turm, wie die Raureifspuren zeigen. Da war er noch munter. Das bringt dich nicht weiter.
    - Ergebnis B: Wenn es beim Schrei passierte, hatten Merle und Adnan ein Alibi, Rojda und Jonas nicht. Die Liste wird kurz, aber stimmt sie auch?
    - Ergebnis C: Alles fügt sich. Gleich nach dem Knall klimperte die Dose, der Burgwart brüllte „Hab ich dich!“, dann Schlag und Poltern, alles vor den Ketten um eine halbe Minute nach zwei vor zwölf. Der Schrei um Mitternacht war die Box. Wer für den Schrei ein Alibi hat, hat für die Tat keins.
-40. [DW3-2] (Lösung)
+41. [DW3-2] (Lösung)
    - Echte Spur: A
    - Falsche Fährte: C
    - Ablenkung: B
@@ -176,7 +178,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Ergebnis A: Um sechs vor zwölf war Merle auf dem Wehrgang, bei Adnan am Kamin erst eine knappe Minute vor dem Schrei: fünf Minuten für eine Treppe. Ihr Alibi gilt nur für den Schrei. Und wer im Streich mitspielte, wusste, wann der Schrei kommt.
    - Ergebnis B: Adnan kniete im Qualm am Kamin, rußschwarz bis zu den Ellbogen. Kaum jemand war so sichtbar wie er.
    - Ergebnis C: Rojda stand allein am Sicherungskasten, die Eisentür nur ein paar Schritte entfernt, ohne Zeugen. Das sieht nicht gut für sie aus.
-41. [DW3-3] (Lösung)
+42. [DW3-3] (Lösung)
    - Echte Spur: C
    - Falsche Fährte: A
    - Ablenkung: B
@@ -225,13 +227,17 @@ Gespräche, die stattfinden (Antwortart in Klammern):
 - G1-03 R01 → R04 (Ersatzfall); Bedingung: [NUR WENN ROLLE 05 NICHT BESETZT] Adnan fragt Jonas nach dem eingesammelten Geld. (ausweichend) ⇒ H-104: Jonas nennt das eingesammelte Geld einen „Unkostenbeitrag“ für Reinigung, Strom und Punsch, obwohl du weißt, dass der Keller umsonst war.
 - G1-04 R02 → R01; Bedingung: Rojda fragt Adnan nach der Turmtür. (wahr) ⇒ H-105: Adnan hat nichts gesehen, aber kurz vor dem Schrei stand Merle plötzlich neben ihm, außer Atem, mit eiskalten Händen, und sagte laut, sie habe sich verlaufen.
 - G1-05 R02 → R04; Bedingung: Rojda fragt Jonas, wo er war, als es geknallt hat. (gelogen) ⇒ H-106: Jonas sagt, er sei wegen des Qualms zum Luftschnappen in den Hof gegangen und dort gewesen, als es knallte.
-- G1-06 R02 → R03 (Ersatzfall); Bedingung: [NUR WENN ROLLE 06 NICHT BESETZT] Rojda nennt Merle leise das Codewort „Brockengespenst“. (gelogen) ⇒ H-108: Merle sagt, sie habe als Gespenst gekniffen, als es knallte, und sei gar nicht unten gewesen.
+- G1-06 R02 → R03 (Ersatzfall); Bedingung: [NUR WENN ROLLE 06 NICHT BESETZT] Rojda nennt Merle leise das Codewort „Brockengespenst“. (gelogen) ⇒ H-108: Merle sagt, sie habe als Gespenst gekniffen, als es knallte, und sei nicht in der Speisekammer gewesen; du sollst nichts vom Streich sagen.
 - G1-07 R03 → R04; Bedingung: Merle bittet Jonas, ihren Weg zu bestätigen. (gelogen) ⇒ H-109: Jonas bestreitet, dich auf dem Wehrgang gesehen zu haben; er sagt, er sei im Hof gewesen.
 - G1-08 R03 → R01; Bedingung: Merle fragt Adnan nach dem Moment des Schreis. (wahr) ⇒ H-110: Adnan bestätigt, dass du beim Schrei neben ihm standest, sagt aber auch, dass du erst kurz davor von der Turmtür kamst.
 - G1-09 R03 → R02 (Ersatzfall); Bedingung: [NUR WENN ROLLE 07 NICHT BESETZT] Merle fragt Rojda, was sie unten gehört hat. (ausweichend) ⇒ H-112: Rojda hat unten am Turm-Fuß gleich nach dem Knall Gepolter und eine tiefe Stimme gehört und will später mehr erzählen.
 - G1-10 R04 → R03; Bedingung: Jonas fragt Merle nach dem Knall. (gelogen) ⇒ H-113: Merle sagt, beim Knall sei sie im Stockdunkeln auf der Turmtreppe gewesen, nachdem sie sich verlaufen hatte, und beim Schrei schon neben Adnan.
 - G1-11 R04 → R02; Bedingung: Jonas fragt Rojda nach dem Schrei. (gelogen) ⇒ H-114: Rojda sagt, die Box spinne seit dem Nachmittag; sie sei unten gewesen, weil sie das Licht wieder anmachen wollte.
 - G1-12 R04 → R01 (Ersatzfall); Bedingung: [NUR WENN ROLLE 08 NICHT BESETZT] Jonas fragt Adnan nach dem Türschaden. (wahr) ⇒ H-116: Adnan hat den Türschaden um halb zwölf per Handschlag mit dem Burgwart geklärt: Er repariert die Tür selbst und macht beim Burgfest mehr Licht.
+- Rollen-Entscheidung E1-01 (R01): Deine Stablampe „HODŽIĆ VT · 3“ liegt laut Stationskarte leer unter dem Regal in der Speisekammer und zeigt auf dich. Rojda sagt, sie habe die … · Option 1: Lampenspur offenlegen: Du erzählst am Tisch, wohin deine Lampe gewandert ist. → Folge: In der Lagerunde sagst du nach deiner Meldekarte offen, was Rojda und Merle dir über die Lampe gesagt haben (Hinweise H-101 und H-102); die Spielleitung notiert es auf eine Notizkarte. · Option 2: Freundinnen decken: Du nimmst den Verdacht vorerst auf dich und schweigst über die Lampe. → Folge: Behalte H-101 und H-102 für dich; wer dich direkt nach deiner Lampe fragt, bekommt beides. · Option 3: Anonymer Wink: Du lässt die Spur andeuten, ohne dass jemand erfährt, von wem sie kommt. → Folge: Die Spielleitung lässt Ansage A-E1-01-3 vorlesen. [Jemand am Tisch lässt dir ausrichten: Die Stablampe aus der Speisekammer war am Abend verliehen und wurde für eine Überraschung weitergegeben, und wer sie weitergab, will nicht sagen, an wen.]
+- Rollen-Entscheidung E1-02 (R02): Merle hat dich um vier nach zwölf gebeten, nichts vom Streich zu sagen, dabei hast du das Gespenst an der Eisentür selbst gesehen. Adnan erzählt, … · Option 1: Merles Ankunft melden: Du sagst am Tisch, was Adnan dir über Merles späte Ankunft erzählt hat. → Folge: In der Lagerunde sagst du nach deiner Meldekarte offen, was du über Merles Ankunft am Kamin weißt (Hinweis H-105, bei besetzter Rolle 06 zusätzlich H-107); die Spielleitung notiert es auf eine Notizkarte. · Option 2: Versprechen halten: Du hältst zu Merle und sagst vorerst nichts. → Folge: Behalte H-105 für dich; wer dich direkt nach Merle fragt, bekommt es. · Option 3: Anonymer Wink: Du lässt andeuten, was du unten gehört hast, ohne dass jemand erfährt, von wem es kommt. → Folge: Die Spielleitung lässt Ansage A-E1-02-3 vorlesen. [Jemand am Tisch lässt dir ausrichten: Kurz nach dem Knall, lange vor dem Schrei, hat unten am Turm-Fuß die Eisentür zur Speisekammer gequietscht.]
+- Rollen-Entscheidung E1-03 (R03): Dein einziger Zeuge für den Wehrgang ist Jonas, und der bestreitet, dich dort gesehen zu haben; er sagt, er sei im Hof gewesen (H-109). Adnan … · Option 1: Zeugen einfordern: Du stellst am Tisch klar, dass Jonas oben auf dem Wehrgang war. → Folge: In der Lagerunde sagst du nach deiner Meldekarte offen, dass Jonas bestreitet, dich oben gesehen zu haben (Hinweis H-109), obwohl er um sechs vor zwölf mit dem Handy an der dritten Zinne stand; die Spielleitung notiert es auf eine Notizkarte. · Option 2: Jonas decken: Du lässt ihm seine Hof-Geschichte und sagst vorerst nichts. → Folge: Behalte H-109 für dich; wer dich direkt nach Jonas fragt, bekommt es. · Option 3: Anonymer Wink: Du lässt Jonas' Platz andeuten, ohne dass jemand erfährt, von wem es kommt. → Folge: Die Spielleitung lässt Ansage A-E1-03-3 vorlesen. [Jemand am Tisch lässt dir ausrichten: Jonas war um sechs vor zwölf nicht im Hof, sondern oben auf dem Wehrgang an der dritten Zinne, mit dem Handy in der Hand.]
+- Rollen-Entscheidung E1-04 (R04): Seit dem Ruf „Welche Miete?“ und der Drohung des Burgwarts kurz nach halb zwölf hast du Angst vor dem Frühstück, und allen hast du erzählt, … · Option 1: Taler-Moment melden: Du sagst am Tisch, wer bei der Führung den Taler hielt. → Folge: In der Lagerunde sagst du nach deiner Meldekarte offen, dass Merle den Taler in der Hand hielt, als du gegen Kunibert gekracht bist (bei besetzter Rolle 08 zusätzlich Hinweis H-115); die Spielleitung notiert es auf eine Notizkarte. · Option 2: Merle decken: Du hältst dich raus und sagst vorerst nichts über den Taler. → Folge: Behalte es für dich; wer dich direkt fragt, wer bei der Führung den Taler hatte, bekommt es. · Option 3: Anonymer Wink: Du lässt den Taler-Moment andeuten, ohne dass jemand erfährt, von wem es kommt. → Folge: Die Spielleitung lässt Ansage A-E1-04-3 vorlesen. [Jemand am Tisch lässt dir ausrichten: Als bei der Führung jemand gegen die Rüstung krachte, hielt Merle gerade den Taler in der Hand.]
 - Meldekarte MK1-R01 (Lagerunde, Pflicht): „Ich hab seit dem Kamin Ruß an Händen und Gesicht. Den Kerzenständer hab ich nicht angefasst.“
 - Meldekarte MK1-R02 (Lagerunde, Pflicht): „Als es geknallt hat, war ich schon unten am Turm-Fuß.“
 - Meldekarte MK1-R03 (Lagerunde, Pflicht): „Um sechs vor zwölf war ich oben auf dem Wehrgang.“
@@ -264,6 +270,10 @@ Gespräche, die stattfinden (Antwortart in Klammern):
 - G2-10 R04 → R02; Bedingung: Jonas zeigt Rojda die Rückseite des Code-Zettels (H-07). (wahr) ⇒ H-213: Rojda gibt den Streich zu: Sie hat um zwei vor zwölf den Hebel gezogen, der Schrei war ihr Track. Als sie unten ankam, stand ein Gespenst im Laken an der Eisentür und zeigte ihr den Daumen.
 - G2-11 R04 → R01; Bedingung: Jonas zeigt Adnan die Vorderseite des Code-Zettels (H-24). (ausweichend) ⇒ H-214: Adnan bestätigt seine Schrift auf dem Code-Zettel, bestreitet aber das Abschalten; er habe am Kamin gekniet. Den Code habe er jemandem für einen Geburtstagsstreich aufgeschrieben, mit der Warnung, Kessel und Heizstrahler vorher auszuschalten. Wem, sagt er nicht.
 - G2-12 R04 → R03 (Ersatzfall); Bedingung: [NUR WENN ROLLE 07 NICHT BESETZT] Jonas fragt Merle nach dem Moment des Schreis. (gelogen) ⇒ H-216: Merle sagt, sie habe nicht gewusst, wann der Schrei kommt; dass sie genau dann neben Adnan stand, sei Zufall gewesen.
+- Rollen-Entscheidung E2-01 (R01): Jonas hat dir in Phase 2 praktisch zugegeben, dass er das Geld für den Keller behalten hat, den du umsonst besorgt hast; er will es … · Option 1: Offen ansprechen: Du sagst in der Lagerunde, was Jonas dir über das Mietgeld gesagt hat. → Folge: Lege in der Lagerunde offen auf den Tisch, was du über das Mietgeld weißt (Hinweis H-202); die Spielleitung notiert es auf eine Notizkarte. · Option 2: Kumpel decken: Du lässt Jonas sein Gesicht wahren und sprichst das Geld von dir aus nicht an. → Folge: Behalte es für dich; wer dich direkt nach dem Mietgeld fragt, bekommt H-202. · Option 3: Ohne Namen: Die Sache soll auf den Tisch, aber Jonas soll nicht vor allen bloßstehen. → Folge: Die Spielleitung lässt Ansage A-E2-01-3 vorlesen. [Jemand am Tisch lässt dir ausrichten: Wer heute Geld für den Keller eingesammelt hat, hat es behalten, will es jedem zurückzahlen und führt darüber eine Liste.]
+- Rollen-Entscheidung E2-02 (R02): Merle hat dir auf „Daumen hoch“ geantwortet, sie sei nicht das Gespenst an der Eisentür gewesen, sie habe vorher gekniffen und das Laken auf die … · Option 1: Offen sagen: Du legst Merles Darstellung vor allen neben das, was du gesehen hast. → Folge: Lege in der Lagerunde offen auf den Tisch, was Merle dir über das Laken gesagt hat (Hinweis H-206); die Spielleitung notiert es auf eine Notizkarte. · Option 2: Freundin decken: Du schweigst darüber, wen du als Gespenst eingeplant hattest und was sie dir gesagt hat. → Folge: Behalte es für dich; wer dich direkt danach fragt, was Merle über das Laken gesagt hat, bekommt H-206. · Option 3: Ohne Namen: Die Frage soll auf den Tisch, ohne dass du deine Freundin vor allen nennst. → Folge: Die Spielleitung lässt Ansage A-E2-02-3 vorlesen. [Jemand am Tisch lässt dir ausrichten: Die Person, die als Gespenst eingeplant war, sagt, sie habe vorher gekniffen und das Laken auf die Truhe gelegt; trotzdem stand um 23:56 ein Gespenst im Laken an der Eisentür und zeigte den Daumen.]
+- Rollen-Entscheidung E2-03 (R03): Adnan hat dir bestätigt, dass der Taler um 00:06 in der Blechdose lag und der Burgwart brummte: „Wenigstens einer mit Anstand.“ (H-209). Rojda hat dir … · Option 1: Offen erinnern: Du erzählst in der Lagerunde, was Adnan dir über die Dose gesagt hat. → Folge: Lege in der Lagerunde offen auf den Tisch, was du über den Taler in der Dose weißt (Hinweis H-209); die Spielleitung notiert es auf eine Notizkarte. · Option 2: Stillhalten: Du sagst zur Dose von dir aus nichts und lenkst keine Aufmerksamkeit auf den Taler. → Folge: Behalte es für dich; wer dich direkt nach der Dose fragt, bekommt H-209. · Option 3: Ohne Namen: Alle sollen an das Versprechen des Burgwarts denken, ohne dass du selbst davon anfängst. → Folge: Die Spielleitung lässt Ansage A-E2-03-3 vorlesen. [Jemand am Tisch lässt dir ausrichten: Der Taler lag um 00:06 wieder in der Dose, und der Burgwart hatte um 22:45 allen versprochen: „Dann war nix, Ehrenwort.“]
+- Rollen-Entscheidung E2-04 (R04): Als du Rojda die Rückseite des Code-Zettels gezeigt hast, gab sie den Streich zu: Sie hat um 23:58 den Hebel gezogen, der Schrei war ihr … · Option 1: Offen sagen: Du erzählst in der Lagerunde, was Rojda dir über den Streich gestanden hat. → Folge: Lege in der Lagerunde offen auf den Tisch, was du über den Streich weißt (Hinweis H-213); die Spielleitung notiert es auf eine Notizkarte. · Option 2: Rojda decken: Du lässt Rojda selbst entscheiden, wann sie den Streich vor allen zugibt. → Folge: Behalte es für dich; wer dich direkt nach dem Streich fragt, bekommt H-213. · Option 3: Ohne Namen: Der Streich soll bekannt werden, ohne dass Rojda vor allen am Pranger steht. → Folge: Die Spielleitung lässt Ansage A-E2-04-3 vorlesen. [Jemand am Tisch lässt dir ausrichten: Der Schrei um 00:00 war ein aufgenommener Track aus der Box, der Hebel wurde um 23:58 für einen Geburtstagsstreich gezogen, und kurz davor stand am Turm-Fuß ein Gespenst im Laken an der Eisentür.]
 - Meldekarte MK2-R01 (Lagerunde, Pflicht): „Den Code des Sicherungskastens hab ich aufgeschrieben, für jemand anderen, mit der Warnung, vorher Kessel und Heizstrahler auszuschalten.“
 - Meldekarte MK2-R02 (Lagerunde, Pflicht): „Am Turm-Fuß stand kurz vor zwölf ein Gespenst im Laken an der Eisentür.“
 - Meldekarte MK2-R03 (Lagerunde, Pflicht): „Bei der Führung hatte ich den Taler in der Hand, als Jonas gegen Kunibert gekracht ist.“
