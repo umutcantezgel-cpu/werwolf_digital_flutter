@@ -28,26 +28,42 @@ extension _EndingLogic on Engine {
   AccuseVote? _tallyAccusation() {
     if (_accuse.isEmpty) return null;
     // Die Menschen entscheiden: KI-Stimmen zählen nur, wenn kein Mensch angeklagt hat.
+    // Bei Gleichstand unter den Menschen geben die KI-Stimmen den Ausschlag, danach die
+    // zuerst abgegebene Anklage – nachvollziehbar statt verdecktem Losentscheid.
     final human = _humanAccusations;
-    final votes = human.isNotEmpty ? human.values : _accuse.values;
-    String? plurality(Iterable<String?> values) {
-      final counts = <String, int>{};
-      for (final v in values) {
-        if (v != null) counts[v] = (counts[v] ?? 0) + 1;
-      }
-      if (counts.isEmpty) return null;
-      final best = counts.values.reduce(math.max);
-      final top = counts.entries.where((e) => e.value == best).map((e) => e.key).toList()..sort();
-      return top.length == 1 ? top.first : _rt.pick(top);
-    }
+    final votes = (human.isNotEmpty ? human.values : _accuse.values).toList();
+    final ai = human.isNotEmpty ? [for (final e in _accuse.entries) if (!human.containsKey(e.key)) e.value] : <AccuseVote>[];
 
-    final culprit = plurality(votes.map((v) => v.culprit))!;
+    final culprit = _decideVote(votes.map((v) => v.culprit), ai.map((v) => v.culprit))!;
     final backing = votes.where((v) => v.culprit == culprit);
+    final aiBacking = ai.where((v) => v.culprit == culprit);
     return AccuseVote(
       culprit: culprit,
-      motive: plurality(backing.map((v) => v.motive)),
-      weapon: plurality(backing.map((v) => v.weapon)),
+      motive: _decideVote(backing.map((v) => v.motive), aiBacking.map((v) => v.motive)),
+      weapon: _decideVote(backing.map((v) => v.weapon), aiBacking.map((v) => v.weapon)),
     );
+  }
+
+  /// Mehrheit von [votes] (in Abgabe-Reihenfolge). Gleichstand: [tieBreak]-Stimmen
+  /// (KI-Partner) unter den Gleichauf-Optionen, danach die früheste Stimme.
+  String? _decideVote(Iterable<String?> votes, Iterable<String?> tieBreak) {
+    final counts = <String, int>{};
+    for (final v in votes) {
+      if (v != null) counts[v] = (counts[v] ?? 0) + 1;
+    }
+    if (counts.isEmpty) return null;
+    final best = counts.values.reduce(math.max);
+    // Map behält die Einfüge-Reihenfolge: früheste Stimme zuerst.
+    var top = [for (final e in counts.entries) if (e.value == best) e.key];
+    if (top.length > 1) {
+      final extra = <String, int>{for (final o in top) o: 0};
+      for (final v in tieBreak) {
+        if (v != null && extra.containsKey(v)) extra[v] = extra[v]! + 1;
+      }
+      final extraBest = extra.values.reduce(math.max);
+      top = top.where((o) => extra[o] == extraBest).toList();
+    }
+    return top.first;
   }
 
   void _finish() {

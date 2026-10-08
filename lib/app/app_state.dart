@@ -216,9 +216,18 @@ class AppState extends ChangeNotifier {
   void _onCase() {
     final s = _session;
     final cv = s?.caseView.value;
-    if (s == null || cv == null || _recorded) return;
+    if (s == null || cv == null) return;
     final ending = cv.ending;
-    if (ending == null) return;
+    if (ending == null) {
+      // Neuer Fall in derselben (Online-)Session: das nächste Ende wieder verbuchen.
+      if (_recorded) {
+        _recorded = false;
+        _tally = GameTally();
+        lastResult = null;
+      }
+      return;
+    }
+    if (_recorded) return;
     _recorded = true;
     // Entwickler-Einstiege (Fake/Autoplay) zählen nicht für den Fortschritt.
     if (s is FakeSession || autoplay) {

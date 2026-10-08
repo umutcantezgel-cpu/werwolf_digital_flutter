@@ -207,6 +207,24 @@ abstract class L {
   /// **'Mit bis zu fünf Freunden'**
   String get hub_online_sub;
 
+  /// No description provided for @hub_online_rejoin.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zu Raum {code}'**
+  String hub_online_rejoin(String code);
+
+  /// No description provided for @hud_room.
+  ///
+  /// In de, this message translates to:
+  /// **'RAUM {code}'**
+  String hud_room(String code);
+
+  /// No description provided for @toast_combo_known.
+  ///
+  /// In de, this message translates to:
+  /// **'„{combo}“ habt ihr schon kombiniert.'**
+  String toast_combo_known(String combo);
+
   /// No description provided for @hub_collection.
   ///
   /// In de, this message translates to:
@@ -680,6 +698,18 @@ abstract class L {
   /// In de, this message translates to:
   /// **'Warte auf den Gastgeber …'**
   String get lobby_wait_host;
+
+  /// No description provided for @lobby_pick_case.
+  ///
+  /// In de, this message translates to:
+  /// **'Akte wählen …'**
+  String get lobby_pick_case;
+
+  /// No description provided for @lobby_need_case.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle zuerst eine Akte – dann kann die Ermittlung beginnen.'**
+  String get lobby_need_case;
 
   /// No description provided for @lobby_leave.
   ///
@@ -1983,6 +2013,18 @@ abstract class L {
   /// **'schon gehört'**
   String get dialogue_heard;
 
+  /// No description provided for @dialogue_heard_team.
+  ///
+  /// In de, this message translates to:
+  /// **'Team hat gefragt'**
+  String get dialogue_heard_team;
+
+  /// No description provided for @dialogue_team_note.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Team hat {name} schon befragt ({topics}). Frag selbst nach, um die Antworten zu hören.'**
+  String dialogue_team_note(String name, String topics);
+
   /// No description provided for @dialogue_new_clue.
   ///
   /// In de, this message translates to:
@@ -2300,6 +2342,30 @@ abstract class L {
   /// In de, this message translates to:
   /// **'Zum Hub'**
   String get ending_hub;
+
+  /// No description provided for @ending_rematch.
+  ///
+  /// In de, this message translates to:
+  /// **'Neuer Fall in diesem Raum'**
+  String get ending_rematch;
+
+  /// No description provided for @ending_rematch_title.
+  ///
+  /// In de, this message translates to:
+  /// **'Welcher Fall als Nächstes?'**
+  String get ending_rematch_title;
+
+  /// No description provided for @ending_rematch_text.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle im Raum ermitteln gemeinsam weiter.'**
+  String get ending_rematch_text;
+
+  /// No description provided for @ending_wait_host.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Gastgeber kann einen neuen Fall in diesem Raum starten.'**
+  String get ending_wait_host;
 
   /// No description provided for @ending_survivors.
   ///

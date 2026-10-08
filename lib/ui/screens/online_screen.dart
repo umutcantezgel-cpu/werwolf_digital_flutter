@@ -48,6 +48,11 @@ class _OnlineScreenState extends State<OnlineScreen> {
   void initState() {
     super.initState();
     _app = context.read<AppState>(); // in dispose() ist kein Context-Lookup mehr erlaubt
+    // Nach einem Neuladen: zuletzt besuchten Raum vorschlagen.
+    SessionFactory.storedOnlineRoom().then((code) {
+      if (!mounted || code == null || _code.text.isNotEmpty) return;
+      setState(() => _code.text = code);
+    });
   }
 
   @override

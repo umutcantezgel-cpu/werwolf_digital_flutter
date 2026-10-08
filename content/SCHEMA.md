@@ -101,7 +101,8 @@ NPC-Täter) isolierte Detektive, tötet evtl. einen Zeugen und beschädigt unget
 ```
 
 - `x/y`: freie Bodenkachel, an der die Person steht.
-- `hat`: `none bowler fedora cap bun top beret cloche`; `build`: `slim normal broad tall small`.
+- `hat`: `none bowler fedora cap bun top beret cloche`; `build`: `slim normal broad tall small`;
+  `outfit`: `suit` (Standard) oder `dress` (Kleid).
 - `traits`: Wert für **jedes** Merkmal aus `traits`.
 - `candidate`: kann Täter sein (3–4 Kandidaten). Kandidaten brauchen ≥1 Motiv in `motives`.
 - `lines`: alle 8 Schlüssel. `alibi` ist die wahre Version (Unschuldiger), `alibiLie` die

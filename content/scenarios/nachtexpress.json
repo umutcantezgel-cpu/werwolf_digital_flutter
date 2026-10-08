@@ -214,7 +214,7 @@
     {
       "id": "countess", "name": {"de": "Gräfin Natalja Orlowa"}, "role": {"de": "Russische Gräfin im Exil"},
       "bio": {"de": "Floh 1920 aus Petrograd, mit einem Koffer voller Juwelen. Geblieben sind der Koffer, der Titel und eine Schachtel Papirossi."},
-      "look": {"coat": "#5b1f3a", "skin": "#efd3c0", "hair": "#d9d4c7", "hat": "bun", "build": "tall"},
+      "look": {"coat": "#5b1f3a", "skin": "#efd3c0", "hair": "#d9d4c7", "hat": "bun", "build": "tall", "outfit": "dress"},
       "x": 15, "y": 11,
       "traits": {"gloves": "kid", "smoke": "papirossi", "ticket": "wien"},
       "candidate": true, "motives": ["blackmail", "greed"], "witness": true,
@@ -250,7 +250,7 @@
     {
       "id": "singer", "name": {"de": "Ruby Lafleur"}, "role": {"de": "Jazzsängerin"},
       "bio": {"de": "Aus New Orleans, auf dem Weg zu ihrem ersten großen Engagement in Paris. Lacht laut, schläft nie, vergisst kein Gesicht."},
-      "look": {"coat": "#1f6b52", "skin": "#9a6544", "hair": "#1a1210", "hat": "cloche", "build": "slim"},
+      "look": {"coat": "#1f6b52", "skin": "#9a6544", "hair": "#1a1210", "hat": "cloche", "build": "slim", "outfit": "dress"},
       "x": 17, "y": 9,
       "traits": {"gloves": "kid", "smoke": "turkish", "ticket": "salzburg"},
       "candidate": true, "motives": ["blackmail", "revenge"], "witness": true,
@@ -286,7 +286,7 @@
     {
       "id": "secretary", "name": {"de": "Greta Falk"}, "role": {"de": "Sekretärin des Toten"},
       "bio": {"de": "Seit neun Jahren Lindqvists rechte Hand: tippt seine Briefe, kennt seine Termine, erträgt seine Launen. Spricht leise und sieht alles."},
-      "look": {"coat": "#3d4b5c", "skin": "#f0d2bd", "hair": "#8a4b2a", "hat": "beret", "build": "normal"},
+      "look": {"coat": "#3d4b5c", "skin": "#f0d2bd", "hair": "#8a4b2a", "hat": "beret", "build": "normal", "outfit": "dress"},
       "x": 22, "y": 11,
       "traits": {"gloves": "leather", "smoke": "turkish", "ticket": "wien"},
       "candidate": true, "motives": ["revenge", "greed"], "witness": true,

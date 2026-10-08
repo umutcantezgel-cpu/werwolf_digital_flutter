@@ -4,6 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
+import '../../session/session_factory.dart';
+
 import '../../app/app_state.dart';
 import '../../app/router.dart';
 import '../../app/theme.dart';
@@ -27,10 +29,14 @@ class HubScreen extends StatefulWidget {
 
 class _HubScreenState extends State<HubScreen> {
   bool _starting = false;
+  String? _lastRoom;
 
   @override
   void initState() {
     super.initState();
+    SessionFactory.storedOnlineRoom().then((code) {
+      if (mounted && code != null) setState(() => _lastRoom = code);
+    });
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       final app = context.read<AppState>();
@@ -158,7 +164,7 @@ class _HubScreenState extends State<HubScreen> {
                               child: _TileBody(
                                 icon: Icons.public_rounded,
                                 title: l.hub_online,
-                                subtitle: l.hub_online_sub,
+                                subtitle: _lastRoom == null ? l.hub_online_sub : l.hub_online_rejoin(_lastRoom!),
                               ),
                             ),
                           ),

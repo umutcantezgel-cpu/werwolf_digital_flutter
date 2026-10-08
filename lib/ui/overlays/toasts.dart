@@ -37,6 +37,17 @@ class ToastController extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Alle Toasts sofort entfernen (z. B. beim Wechsel in einen Vollbild-Abschnitt).
+  void clear() {
+    for (final t in _timers.values) {
+      t.cancel();
+    }
+    _timers.clear();
+    if (items.isEmpty) return;
+    items.clear();
+    notifyListeners();
+  }
+
   @override
   void dispose() {
     for (final t in _timers.values) {
@@ -47,31 +58,56 @@ class ToastController extends ChangeNotifier {
 }
 
 class ToastLayer extends StatelessWidget {
-  const ToastLayer({super.key, required this.controller, this.top = 150, this.right = 16});
+  const ToastLayer({
+    super.key,
+    required this.controller,
+    this.top = 150,
+    this.bottom,
+    this.left = 12,
+    this.right = 16,
+    this.maxVisible = 3,
+  });
 
   final ToastController controller;
+
+  /// Abstand unter der Statusleiste (oben verankert), wenn [bottom] `null` ist.
   final double top;
+
+  /// Unten verankert (Abstand über dem unteren Safe-Area-Rand); hat Vorrang vor [top].
+  final double? bottom;
+  final double left;
   final double right;
+
+  /// Höchstens so viele (die neuesten) Toasts zeigen – auf engen Bildschirmen weniger.
+  final int maxVisible;
 
   @override
   Widget build(BuildContext context) {
+    final pad = MediaQuery.paddingOf(context);
+    final b = bottom;
     return Positioned(
-      top: MediaQuery.paddingOf(context).top + top,
-      left: 12,
+      top: b == null ? pad.top + top : null,
+      bottom: b == null ? null : pad.bottom + b,
+      left: left,
       right: right,
       child: IgnorePointer(
         child: ListenableBuilder(
           listenable: controller,
-          builder: (context, _) => Column(
-            children: [
-              for (final t in controller.items)
-                Padding(
-                  key: ValueKey(t.id),
-                  padding: const EdgeInsets.only(bottom: 6),
-                  child: Center(child: _Toast(t)),
-                ).animate().fadeIn(duration: 200.ms).slideY(begin: -0.4, curve: Curves.easeOutBack),
-            ],
-          ),
+          builder: (context, _) {
+            final items = controller.items;
+            final shown = items.length > maxVisible ? items.sublist(items.length - maxVisible) : items;
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                for (final t in shown)
+                  Padding(
+                    key: ValueKey(t.id),
+                    padding: const EdgeInsets.only(bottom: 6),
+                    child: Center(child: _Toast(t)),
+                  ).animate().fadeIn(duration: 200.ms).slideY(begin: b == null ? -0.4 : 0.4, curve: Curves.easeOutBack),
+              ],
+            );
+          },
         ),
       ),
     );

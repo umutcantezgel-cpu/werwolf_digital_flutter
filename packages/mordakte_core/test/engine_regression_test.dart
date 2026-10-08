@@ -262,5 +262,92 @@ void main() {
       _run(rt, () => rt.debugEngine.phase != Phase.council);
       expect(rt.caseFor('h1', force: true)!.chosenLeads, contains(pick));
     });
+
+    for (final firstH1 in const [true, false]) {
+      test('Anklage 1:1 unter Menschen: früheste Anklage gilt, KI-Partner zieht mit (${firstH1 ? 'h1' : 'h2'} zuerst)', () {
+        final rt = _room('ravensmoor', bots: 1);
+        _toPhase(rt, Phase.accusation);
+        final e = rt.debugEngine;
+        final candidates = e.scenario!.suspects.where((x) => x.candidate).map((x) => x.id).toList();
+        final a = candidates[0], b = candidates[1];
+        final (first, second) = firstH1 ? ('h1', 'h2') : ('h2', 'h1');
+        rt.applyCommand(first, Accuse(culprit: a));
+        _run(rt, () => false, maxMs: 1000);
+        rt.applyCommand(second, Accuse(culprit: b));
+        _run(rt, () => rt.finished);
+        expect(e.ending!.accused!.culprit, a);
+      });
+    }
+
+    test('Anklage 1:1: geänderte Stimme zählt als neue (spätere) Stimme', () {
+      final rt = _room('ravensmoor', bots: 1);
+      _toPhase(rt, Phase.accusation);
+      final e = rt.debugEngine;
+      final candidates = e.scenario!.suspects.where((x) => x.candidate).map((x) => x.id).toList();
+      final a = candidates[0], b = candidates[1], c = candidates[2];
+      rt.applyCommand('h1', Accuse(culprit: c));
+      rt.applyCommand('h2', Accuse(culprit: b));
+      rt.applyCommand('h1', Accuse(culprit: a));
+      _run(rt, () => rt.finished);
+      expect(e.ending!.accused!.culprit, b);
+    });
+
+    test('Spurenwahl 1:1 unter Menschen: KI-Stimme passt zum Ergebnis', () {
+      final rt = _room('ravensmoor', bots: 1);
+      _toPhase(rt, Phase.council);
+      final options = rt.caseFor('h1', force: true)!.leadOptions;
+      if (options.length < 2) return;
+      rt.applyCommand('h1', VoteLead(options[1]));
+      _run(rt, () => false, maxMs: 500);
+      rt.applyCommand('h2', VoteLead(options[0]));
+      // Die KI-Stimme schließt sich an, bevor die Beratung endet.
+      Map<String, String> votes = const {};
+      _run(rt, () {
+        if (rt.debugEngine.phase == Phase.council) votes = Map.of(rt.caseFor('h1', force: true)!.leadVotes);
+        return rt.debugEngine.phase != Phase.council;
+      });
+      final chosen = rt.caseFor('h1', force: true)!.chosenLeads;
+      expect(chosen, contains(options[1]));
+      expect(chosen, isNot(contains(options[0])));
+      final counts = <String, int>{};
+      for (final v in votes.values) {
+        counts[v] = (counts[v] ?? 0) + 1;
+      }
+      expect(counts[options[1]], greaterThan(counts[options[0]] ?? 0), reason: 'Anzeige muss zum Ergebnis passen');
+    });
+  });
+
+  test('Bereits gezogene Schlussfolgerung meldet combo_known statt combo_fail', () {
+    final rt = _room('ravensmoor', bots: 3);
+    final e = rt.debugEngine;
+    _run(rt, () => (rt.caseFor('h1', force: true)?.deductions.isNotEmpty ?? false));
+    final id = rt.caseFor('h1', force: true)!.deductions.first;
+    final combo = e.scenario!.combos.firstWhere((k) => k.id == id);
+    rt.drainEvents('h1');
+    rt.applyCommand('h1', Combine(combo.b, combo.a));
+    final evs = rt.drainEvents('h1').map((x) => x.type).toList();
+    expect(evs, contains(Ev.comboKnown));
+    expect(evs, isNot(contains(Ev.comboFail)));
+  });
+
+  test('KI-Detektive durchsuchen nie gleichzeitig denselben Ort', () {
+    for (final scenario in _all.keys) {
+      final rt = _room(scenario, bots: 3);
+      rt.setAutopilot('h1', true);
+      rt.setAutopilot('h2', true);
+      var t = 0;
+      while (!rt.finished && t < 40 * 60 * 1000) {
+        rt.tick(Tuning.tickMs);
+        t += Tuning.tickMs;
+        final targets = <String>[];
+        for (final id in const ['h1', 'h2', 'bot_0', 'bot_1', 'bot_2']) {
+          final ch = rt.debugEngine.debugPlayer(id)?.channel;
+          if (ch != null && ch.kind != 'revive') targets.add(ch.target);
+        }
+        expect(targets.toSet().length, targets.length, reason: '$scenario t=$t $targets');
+        rt.drainEvents('h1');
+        rt.drainEvents('h2');
+      }
+    }
   });
 }

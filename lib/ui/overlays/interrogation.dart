@@ -1,11 +1,13 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
 import '../../app/theme.dart';
 import '../../l10n/lookup.dart';
 import '../clue_text.dart';
+import '../haptics.dart';
 import '../icons.dart';
 import '../widgets/buttons.dart';
 import '../widgets/noir_backdrop.dart';
@@ -42,7 +44,22 @@ class DialogueState extends ChangeNotifier {
   String? _pendingTopic;
   String? _pendingPresent;
 
+  /// Themen, die dieser Spieler selbst gefragt hat (pro NPC, über Verhöre hinweg).
+  final Map<String, Set<String>> _askedByMe = {};
+
+  /// Hat dieser Spieler [topic] bei [npcId] selbst gehört?
+  bool askedByMe(String npcId, String topic) => _askedByMe[npcId]?.contains(topic) ?? false;
+
   bool get open => npc != null;
+
+  /// Unterkante des Verhör-Kopfs (globale y-Koordinate) – Toasts beginnen darunter.
+  final headerBottom = ValueNotifier<double>(0);
+
+  @override
+  void dispose() {
+    headerBottom.dispose();
+    super.dispose();
+  }
 
   void openFor(String npcId, ScenarioDef? s) {
     if (npc == npcId) return;
@@ -51,6 +68,12 @@ class DialogueState extends ChangeNotifier {
     final greet = s?.suspectById[npcId]?.line('greet').resolve() ?? '';
     if (greet.isNotEmpty) entries.add(DialogueEntry(answer: greet));
     notifyListeners();
+  }
+
+  /// Neuer Fall in derselben Session: eigene Befragungen vergessen.
+  void resetCase() {
+    _askedByMe.clear();
+    close();
   }
 
   void close() {
@@ -74,6 +97,7 @@ class DialogueState extends ChangeNotifier {
     final line = e.str('line') ?? topic ?? 'greet';
     final text = s?.suspectById[id]?.line(line).resolve() ?? '';
     entries.add(DialogueEntry(question: topic, answer: text, lie: e.flag('lie'), clue: e.str('clue')));
+    if (topic != null) (_askedByMe[id] ??= {}).add(topic);
     _pendingTopic = null;
     notifyListeners();
   }
@@ -93,6 +117,19 @@ class DialogueState extends ChangeNotifier {
 class InterrogationOverlay extends StatefulWidget {
   const InterrogationOverlay({super.key, required this.g, required this.state, required this.onClose});
 
+  /// Querformat/geringe Höhe: Protokoll links, Themen rechts, kompakter Kopf.
+  static bool wideLayout(Size size) => size.width > size.height && size.height < 560;
+
+  /// Breite der Themen-Spalte im Querformat.
+  static const double sidePanelWidth = 340;
+
+  /// Querformat: linker Rand der Themen-Spalte (dort, unter „Beweis vorlegen“, ist Platz für Toasts).
+  static double sidePanelLeft(Size size, EdgeInsets pad) {
+    final avail = size.width - pad.left - pad.right;
+    final body = math.min(avail, 980.0);
+    return pad.left + (avail - body) / 2 + body - sidePanelWidth;
+  }
+
   final GameCtx g;
   final DialogueState state;
   final VoidCallback onClose;
@@ -103,6 +140,7 @@ class InterrogationOverlay extends StatefulWidget {
 
 class _InterrogationOverlayState extends State<InterrogationOverlay> {
   final _scroll = ScrollController();
+  final _headerKey = GlobalKey();
   bool _picking = false;
 
   @override
@@ -133,7 +171,7 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
   void _ask(String topic) {
     final npc = widget.state.npc;
     if (npc == null) return;
-    HapticFeedback.selectionClick();
+    Haptics.selection();
     widget.state.asked(topic);
     widget.g.send(AskTopic(npc: npc, topic: topic));
   }
@@ -141,14 +179,24 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
   void _present(ClueView c) {
     final npc = widget.state.npc;
     if (npc == null) return;
-    HapticFeedback.mediumImpact();
+    Haptics.medium();
     widget.state.presenting(clueTexts(widget.g.scenario, c, widget.g.l).title);
     widget.g.send(PresentClue(npc: npc, clue: c.id));
     setState(() => _picking = false);
   }
 
+  /// Kopfhöhe melden (Name und Bio sind unterschiedlich lang), damit Toasts ihn nicht verdecken.
+  void _reportHeader() {
+    if (!mounted) return;
+    final box = _headerKey.currentContext?.findRenderObject();
+    if (box is! RenderBox || !box.hasSize) return;
+    final bottom = box.localToGlobal(Offset(0, box.size.height)).dy;
+    if ((widget.state.headerBottom.value - bottom).abs() > 0.5) widget.state.headerBottom.value = bottom;
+  }
+
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) => _reportHeader());
     final g = widget.g;
     final l = g.l;
     final npcId = widget.state.npc!;
@@ -163,6 +211,206 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
     final traits = g.traitsOf(npcId);
     final pad = MediaQuery.paddingOf(context);
     final dead = g.cv.deadNpcs.contains(npcId);
+    final wide = InterrogationOverlay.wideLayout(MediaQuery.sizeOf(context));
+    final name = def?.name.resolve() ?? npcId;
+    // Vom Team schon gefragt, von mir aber nicht: erklären statt nur abzuhaken.
+    final teamOnly = [
+      for (final t in topics)
+        if (heard.contains(t) && !widget.state.askedByMe(npcId, t)) t,
+    ];
+
+    final header = Padding(
+      key: _headerKey,
+      padding: EdgeInsets.fromLTRB(16, wide ? 6 : 8, 6, 0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Transform.rotate(
+            angle: -0.04,
+            child: Container(
+              padding: EdgeInsets.fromLTRB(5, 5, 5, wide ? 10 : 16),
+              decoration: const BoxDecoration(
+                color: Noir.paper,
+                boxShadow: [BoxShadow(color: Noir.shadowStrong, blurRadius: 12, offset: Offset(0, 5))],
+              ),
+              child: def == null
+                  ? SizedBox(width: wide ? 60 : 104, height: wide ? 60 : 104)
+                  : Portrait(look: def.look, size: wide ? 60 : 104, accent: g.accent, dead: dead),
+            ),
+          ).animate().fadeIn(duration: 300.ms).slideX(begin: -0.1),
+          SizedBox(width: wide ? 12 : 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 4),
+                Text(
+                  (def?.role.resolve() ?? '').toUpperCase(),
+                  style: Noir.label(11, color: g.accent, spacing: 2, weight: FontWeight.w700),
+                ),
+                const SizedBox(height: 3),
+                Text(name, style: Noir.title(wide ? 20 : 24)),
+                const SizedBox(height: 6),
+                Text(
+                  def?.bio.resolve() ?? '',
+                  maxLines: wide ? 1 : null,
+                  overflow: wide ? TextOverflow.ellipsis : null,
+                  style: Noir.text(13, color: Noir.smoke, height: 1.35),
+                ),
+              ],
+            ),
+          ),
+          IconButton(
+            onPressed: widget.onClose,
+            icon: const Icon(Icons.close_rounded, color: Noir.smoke, size: 26),
+          ),
+        ],
+      ),
+    );
+
+    final transcript = ListenableBuilder(
+      listenable: widget.state,
+      builder: (context, _) {
+        final entries = widget.state.entries;
+        final note = teamOnly.isEmpty ? 0 : 1;
+        return ListView.builder(
+          controller: _scroll,
+          padding: const EdgeInsets.fromLTRB(16, 6, 16, 12),
+          itemCount: entries.length + note,
+          itemBuilder: (context, i) {
+            if (i < note) {
+              return _TeamNote(text: l.dialogue_team_note(name, teamOnly.map(l.topicShort).join(', ')));
+            }
+            final k = i - note;
+            return _EntryView(entry: entries[k], g: g, latest: k == entries.length - 1, npcName: name);
+          },
+        );
+      },
+    );
+
+    final topicsPanel = Container(
+      padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
+      decoration: BoxDecoration(
+        color: Noir.bar,
+        border: wide
+            ? const Border(left: BorderSide(color: Noir.lineSoft))
+            : const Border(top: BorderSide(color: Noir.lineSoft)),
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(l.dialogue_topics.toUpperCase(), style: Noir.label(10.5, color: Noir.smoke, spacing: 2)),
+          const SizedBox(height: 8),
+          LayoutBuilder(
+            builder: (context, box) {
+              final w = (box.maxWidth - 8) / 2;
+              return Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (final t in topics)
+                    SizedBox(
+                      width: w,
+                      child: _TopicButton(
+                        topic: t,
+                        heard: heard.contains(t) && !teamOnly.contains(t),
+                        teamHeard: teamOnly.contains(t),
+                        accent: g.accent,
+                        enabled: !dead,
+                        onTap: () => _ask(t),
+                      ),
+                    ),
+                ],
+              );
+            },
+          ),
+          const SizedBox(height: 10),
+          NoirButton(
+            label: l.dialogue_present,
+            icon: Icons.content_paste_search_rounded,
+            height: 46,
+            style: NoirButtonStyle.danger,
+            onPressed: dead ? null : () => setState(() => _picking = true),
+          ),
+        ],
+      ),
+    );
+
+    final traitStrip = Padding(
+      padding: EdgeInsets.fromLTRB(16, wide ? 8 : 14, 16, 4),
+      child: _TraitStrip(traits: traits, l: l),
+    );
+    const divider = Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Divider(height: 1, color: Noir.lineSoft),
+    );
+
+    final Widget body;
+    if (wide) {
+      body = ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 980),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  header,
+                  traitStrip,
+                  divider,
+                  Expanded(child: transcript),
+                ],
+              ),
+            ),
+            SizedBox(
+              width: InterrogationOverlay.sidePanelWidth,
+              child: LayoutBuilder(
+                builder: (context, box) => SingleChildScrollView(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: box.maxHeight),
+                    child: topicsPanel,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    } else {
+      body = ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 620),
+        child: LayoutBuilder(
+          builder: (context, box) {
+            // Sehr niedrige Bildschirme: Kopf, Steckbrief und Themen scrollen mit,
+            // statt das Protokoll auf null Höhe zu drücken.
+            if (box.maxHeight < 520) {
+              return ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  header,
+                  traitStrip,
+                  divider,
+                  SizedBox(height: 200, child: transcript),
+                  topicsPanel,
+                ],
+              );
+            }
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                header,
+                traitStrip,
+                divider,
+                Expanded(child: transcript),
+                topicsPanel,
+              ],
+            );
+          },
+        ),
+      );
+    }
 
     return Material(
       color: Colors.transparent,
@@ -183,139 +431,8 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
           ),
           Positioned.fill(
             child: Padding(
-              padding: EdgeInsets.only(top: pad.top, bottom: pad.bottom),
-              child: Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 620),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      // Kopf
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 8, 6, 0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Transform.rotate(
-                              angle: -0.04,
-                              child: Container(
-                                padding: const EdgeInsets.fromLTRB(5, 5, 5, 16),
-                                decoration: const BoxDecoration(
-                                  color: Noir.paper,
-                                  boxShadow: [
-                                    BoxShadow(color: Noir.shadowStrong, blurRadius: 12, offset: Offset(0, 5)),
-                                  ],
-                                ),
-                                child: def == null
-                                    ? const SizedBox(width: 104, height: 104)
-                                    : Portrait(look: def.look, size: 104, accent: g.accent, dead: dead),
-                              ),
-                            ).animate().fadeIn(duration: 300.ms).slideX(begin: -0.1),
-                            const SizedBox(width: 16),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    (def?.role.resolve() ?? '').toUpperCase(),
-                                    style: Noir.label(11, color: g.accent, spacing: 2, weight: FontWeight.w700),
-                                  ),
-                                  const SizedBox(height: 3),
-                                  Text(def?.name.resolve() ?? npcId, style: Noir.title(24)),
-                                  const SizedBox(height: 6),
-                                  Text(def?.bio.resolve() ?? '', style: Noir.text(13, color: Noir.smoke, height: 1.35)),
-                                ],
-                              ),
-                            ),
-                            IconButton(
-                              onPressed: widget.onClose,
-                              icon: const Icon(Icons.close_rounded, color: Noir.smoke, size: 26),
-                            ),
-                          ],
-                        ),
-                      ),
-                      // Steckbrief
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 14, 16, 4),
-                        child: _TraitStrip(traits: traits, l: l),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                        child: Divider(height: 1, color: Noir.lineSoft),
-                      ),
-                      // Protokoll
-                      Expanded(
-                        child: ListenableBuilder(
-                          listenable: widget.state,
-                          builder: (context, _) {
-                            final entries = widget.state.entries;
-                            return ListView.builder(
-                              controller: _scroll,
-                              padding: const EdgeInsets.fromLTRB(16, 6, 16, 12),
-                              itemCount: entries.length,
-                              itemBuilder: (context, i) => _EntryView(
-                                entry: entries[i],
-                                g: g,
-                                latest: i == entries.length - 1,
-                                npcName: def?.name.resolve() ?? npcId,
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                      // Themen
-                      Container(
-                        padding: const EdgeInsets.fromLTRB(14, 12, 14, 14),
-                        decoration: const BoxDecoration(
-                          color: Noir.bar,
-                          border: Border(top: BorderSide(color: Noir.lineSoft)),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Text(
-                              l.dialogue_topics.toUpperCase(),
-                              style: Noir.label(10.5, color: Noir.smoke, spacing: 2),
-                            ),
-                            const SizedBox(height: 8),
-                            LayoutBuilder(
-                              builder: (context, box) {
-                                final w = (box.maxWidth - 8) / 2;
-                                return Wrap(
-                                  spacing: 8,
-                                  runSpacing: 8,
-                                  children: [
-                                    for (final t in topics)
-                                      SizedBox(
-                                        width: w,
-                                        child: _TopicButton(
-                                          topic: t,
-                                          heard: heard.contains(t),
-                                          accent: g.accent,
-                                          enabled: !dead,
-                                          onTap: () => _ask(t),
-                                        ),
-                                      ),
-                                  ],
-                                );
-                              },
-                            ),
-                            const SizedBox(height: 10),
-                            NoirButton(
-                              label: l.dialogue_present,
-                              icon: Icons.content_paste_search_rounded,
-                              height: 46,
-                              style: NoirButtonStyle.danger,
-                              onPressed: dead ? null : () => setState(() => _picking = true),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              padding: EdgeInsets.only(top: pad.top, bottom: pad.bottom, left: pad.left, right: pad.right),
+              child: Center(child: body),
             ),
           ),
           if (_picking)
@@ -323,6 +440,38 @@ class _InterrogationOverlayState extends State<InterrogationOverlay> {
               child: _EvidencePicker(g: g, onPick: _present, onClose: () => setState(() => _picking = false)),
             ),
         ],
+      ),
+    );
+  }
+}
+
+/// Hinweis im Protokoll: Das Team hat schon gefragt – die Antworten hört man durch eigenes Nachfragen.
+class _TeamNote extends StatelessWidget {
+  const _TeamNote({required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(10, 8, 12, 8),
+        decoration: BoxDecoration(
+          color: Noir.lineFaint,
+          borderRadius: BorderRadius.circular(6),
+          border: Border.all(color: Noir.lineSoft),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Icon(Icons.groups_rounded, size: 17, color: Noir.smoke),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(text, style: Noir.text(12.5, color: Noir.smoke, height: 1.35)),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -523,13 +672,19 @@ class _TopicButton extends StatelessWidget {
   const _TopicButton({
     required this.topic,
     required this.heard,
+    this.teamHeard = false,
     required this.accent,
     required this.enabled,
     required this.onTap,
   });
 
   final String topic;
+
+  /// Selbst gehört.
   final bool heard;
+
+  /// Nur das Team hat gefragt – die Antwort fehlt diesem Spieler noch.
+  final bool teamHeard;
   final Color accent;
   final bool enabled;
   final VoidCallback onTap;
@@ -559,15 +714,24 @@ class _TopicButton extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        l.topicShort(topic),
-                        style: Noir.text(13.5, weight: FontWeight.w600, color: heard ? Noir.smoke : Noir.cream),
+                      // Ein Wort pro Thema: lieber minimal verkleinern als mitten im Wort umbrechen.
+                      FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          l.topicShort(topic),
+                          maxLines: 1,
+                          style: Noir.text(13.5, weight: FontWeight.w600, color: heard ? Noir.smoke : Noir.cream),
+                        ),
                       ),
                       if (heard) Text(l.dialogue_heard, style: Noir.text(10.5, color: Noir.smokeDim, height: 1.2)),
+                      if (teamHeard)
+                        Text(l.dialogue_heard_team, style: Noir.text(10.5, color: Noir.smoke, height: 1.2)),
                     ],
                   ),
                 ),
                 if (heard) const Icon(Icons.check_rounded, size: 16, color: Noir.buff),
+                if (teamHeard) const Icon(Icons.groups_rounded, size: 16, color: Noir.smoke),
               ],
             ),
           ),

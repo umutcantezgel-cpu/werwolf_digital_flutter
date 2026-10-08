@@ -167,7 +167,8 @@ class FlashOverlay extends StatelessWidget {
       child: ValueListenableBuilder<int>(
         valueListenable: trigger,
         builder: (context, v, _) {
-          if (v == 0) return const SizedBox.expand();
+          // Nur frische Treffer zeigen: Ein neu aufgebautes Overlay darf keinen alten Treffer wiederholen.
+          if (v == 0 || DateTime.now().millisecondsSinceEpoch - v > 700) return const SizedBox.expand();
           return TweenAnimationBuilder<double>(
             key: ValueKey(v),
             tween: Tween(begin: 1, end: 0),

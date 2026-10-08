@@ -77,6 +77,21 @@ class LDe extends L {
   String get hub_online_sub => 'Mit bis zu fünf Freunden';
 
   @override
+  String hub_online_rejoin(String code) {
+    return 'Zurück zu Raum $code';
+  }
+
+  @override
+  String hud_room(String code) {
+    return 'RAUM $code';
+  }
+
+  @override
+  String toast_combo_known(String combo) {
+    return '„$combo“ habt ihr schon kombiniert.';
+  }
+
+  @override
   String get hub_collection => 'Sammlung';
 
   @override
@@ -345,6 +360,13 @@ class LDe extends L {
 
   @override
   String get lobby_wait_host => 'Warte auf den Gastgeber …';
+
+  @override
+  String get lobby_pick_case => 'Akte wählen …';
+
+  @override
+  String get lobby_need_case =>
+      'Wähle zuerst eine Akte – dann kann die Ermittlung beginnen.';
 
   @override
   String get lobby_leave => 'Lobby verlassen';
@@ -1125,6 +1147,14 @@ class LDe extends L {
   String get dialogue_heard => 'schon gehört';
 
   @override
+  String get dialogue_heard_team => 'Team hat gefragt';
+
+  @override
+  String dialogue_team_note(String name, String topics) {
+    return 'Dein Team hat $name schon befragt ($topics). Frag selbst nach, um die Antworten zu hören.';
+  }
+
+  @override
   String dialogue_new_clue(String clue) {
     return 'Neuer Hinweis: $clue';
   }
@@ -1302,6 +1332,19 @@ class LDe extends L {
 
   @override
   String get ending_hub => 'Zum Hub';
+
+  @override
+  String get ending_rematch => 'Neuer Fall in diesem Raum';
+
+  @override
+  String get ending_rematch_title => 'Welcher Fall als Nächstes?';
+
+  @override
+  String get ending_rematch_text => 'Alle im Raum ermitteln gemeinsam weiter.';
+
+  @override
+  String get ending_wait_host =>
+      'Der Gastgeber kann einen neuen Fall in diesem Raum starten.';
 
   @override
   String ending_survivors(String names) {

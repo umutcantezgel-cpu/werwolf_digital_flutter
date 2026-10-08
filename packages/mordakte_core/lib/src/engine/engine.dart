@@ -283,11 +283,14 @@ class Engine {
         _combine(p, a, b);
       case VoteLead(:final lead):
         if (_phase != Phase.council || !_leadOptions.contains(lead) || p.downed) return;
+        // Geänderte Stimme rückt ans Ende: Gleichstände entscheidet die früheste aktuelle Stimme.
+        if (_leadVotes[p.id] != lead) _leadVotes.remove(p.id);
         _leadVotes[p.id] = lead;
         _dirtyAll();
       case Accuse(:final culprit, :final motive, :final weapon):
         final s = _s;
         if (_phase != Phase.accusation || s == null || !s.suspectById.containsKey(culprit)) return;
+        if (_accuse[p.id]?.culprit != culprit) _accuse.remove(p.id);
         _accuse[p.id] = AccuseVote(
           culprit: culprit,
           motive: s.motiveById.containsKey(motive) ? motive : null,
@@ -523,20 +526,14 @@ class Engine {
   void _resolveLeadVote() {
     if (_leadOptions.isEmpty) return;
     // Die Menschen entscheiden: Bot-/Autopilot-Stimmen zählen nur, wenn kein Mensch gewählt hat.
-    final humanVotes = _leadVotes.entries.where((e) => _isHumanVoter(e.key)).map((e) => e.value).toList();
-    final counts = <String, int>{};
-    for (final v in humanVotes.isNotEmpty ? humanVotes : _leadVotes.values) {
-      counts[v] = (counts[v] ?? 0) + 1;
-    }
-    String chosen;
-    if (counts.isEmpty) {
-      chosen = _leadOptions.first;
-    } else {
-      final best = counts.values.reduce(math.max);
-      final top = _leadOptions.where((o) => counts[o] == best).toList();
-      chosen = top.length == 1 ? top.first : _rt.pick(top);
-    }
-    _applyLead(chosen);
+    // Gleichstand unter Menschen: KI-Stimmen entscheiden, danach die früheste Stimme.
+    final valid = _leadVotes.entries.where((e) => _leadOptions.contains(e.value)).toList();
+    final humanVotes = [for (final e in valid) if (_isHumanVoter(e.key)) e.value];
+    final aiVotes = [for (final e in valid) if (!_isHumanVoter(e.key)) e.value];
+    final chosen = humanVotes.isNotEmpty
+        ? _decideVote(humanVotes, aiVotes)
+        : _decideVote(aiVotes, const []);
+    _applyLead(chosen ?? _leadOptions.first);
   }
 
   /// Stimme eines Menschen, der gerade selbst spielt (kein Bot, kein Autopilot).
@@ -1055,8 +1052,13 @@ class Engine {
     final ca = _clues[a], cb = _clues[b];
     if (ca == null || cb == null || !ca.onBoard || !cb.onBoard) return _err(p, 'not_on_board');
     final combo = s.combos.where((k) => (k.a == a && k.b == b) || (k.a == b && k.b == a)).firstOrNull;
-    if (combo == null || _deductions.contains(combo.id)) {
+    if (combo == null) {
       _emit(GameEvent(Ev.comboFail, to: p.id));
+      return;
+    }
+    if (_deductions.contains(combo.id)) {
+      // Richtig kombiniert, aber schon bekannt – nicht als Fehlschlag melden.
+      _emit(GameEvent(Ev.comboKnown, to: p.id, args: {'combo': combo.id}));
       return;
     }
     _deductions.add(combo.id);

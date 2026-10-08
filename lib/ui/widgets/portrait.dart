@@ -201,39 +201,57 @@ class PortraitPainter extends CustomPainter {
         ).createShader(Rect.fromLTWH(cx - sw / 2, shoulderTop, sw, h - shoulderTop)),
     );
 
-    // Hemd + Krawatte
+    // Damenhut/Dutt (Cloche, Dutt): Ausschnitt mit Perlenkette statt Hemd, Krawatte und Revers.
+    final feminine = look.dress || look.hat == 'cloche' || look.hat == 'bun';
     final vTop = shoulderTop - h * 0.03;
-    final shirt = Path()
-      ..moveTo(cx - hw * 0.26, vTop)
-      ..lineTo(cx + hw * 0.26, vTop)
-      ..lineTo(cx, h * 0.93)
-      ..close();
-    canvas.drawPath(shirt, lit..color = _Fig.shirt);
-    final tie = Path()
-      ..moveTo(cx - hw * 0.06, vTop + h * 0.015)
-      ..lineTo(cx + hw * 0.06, vTop + h * 0.015)
-      ..lineTo(cx + hw * 0.08, h * 0.88)
-      ..lineTo(cx, h * 0.93)
-      ..lineTo(cx - hw * 0.08, h * 0.88)
-      ..close();
-    canvas.drawPath(tie, lit..color = Color.lerp(coat, _Fig.tie, 0.6)!);
+    if (feminine) {
+      final neckline = Path()
+        ..moveTo(cx - hw * 0.32, vTop)
+        ..quadraticBezierTo(cx, h * 0.9, cx + hw * 0.32, vTop)
+        ..close();
+      canvas.drawPath(neckline, lit..color = Color.lerp(skin, Colors.black, 0.18)!);
+      final pearl = Paint()..color = _Fig.shirt;
+      final ctrlY = vTop + (h * 0.9 - vTop) * 0.75;
+      for (var i = 0; i <= 8; i++) {
+        final t = i / 8;
+        final x = cx - hw * 0.26 + hw * 0.52 * t;
+        final y = (1 - t) * (1 - t) * vTop + 2 * t * (1 - t) * ctrlY + t * t * vTop;
+        canvas.drawCircle(Offset(x, y + h * 0.008), math.max(0.7, hw * 0.028), pearl);
+      }
+    } else {
+      // Hemd + Krawatte
+      final shirt = Path()
+        ..moveTo(cx - hw * 0.26, vTop)
+        ..lineTo(cx + hw * 0.26, vTop)
+        ..lineTo(cx, h * 0.93)
+        ..close();
+      canvas.drawPath(shirt, lit..color = _Fig.shirt);
+      final tie = Path()
+        ..moveTo(cx - hw * 0.06, vTop + h * 0.015)
+        ..lineTo(cx + hw * 0.06, vTop + h * 0.015)
+        ..lineTo(cx + hw * 0.08, h * 0.88)
+        ..lineTo(cx, h * 0.93)
+        ..lineTo(cx - hw * 0.08, h * 0.88)
+        ..close();
+      canvas.drawPath(tie, lit..color = Color.lerp(coat, _Fig.tie, 0.6)!);
 
-    // Revers
-    final lapelColor = Color.lerp(coat, Colors.black, 0.3)!;
-    final lapelL = Path()
-      ..moveTo(cx - hw * 0.3, vTop - h * 0.005)
-      ..lineTo(cx - sw * 0.2, shoulderTop + h * 0.02)
-      ..lineTo(cx - hw * 0.12, h * 0.98)
-      ..lineTo(cx - hw * 0.02, h * 0.93)
-      ..close();
-    final lapelR = Path()
-      ..moveTo(cx + hw * 0.3, vTop - h * 0.005)
-      ..lineTo(cx + sw * 0.2, shoulderTop + h * 0.02)
-      ..lineTo(cx + hw * 0.12, h * 0.98)
-      ..lineTo(cx + hw * 0.02, h * 0.93)
-      ..close();
-    canvas.drawPath(lapelL, lit..color = lapelColor);
-    canvas.drawPath(lapelR, lit..color = Color.lerp(lapelColor, Colors.black, 0.2)!);
+      // Revers
+      final lapelColor = Color.lerp(coat, Colors.black, 0.3)!;
+      final lapelL = Path()
+        ..moveTo(cx - hw * 0.3, vTop - h * 0.005)
+        ..lineTo(cx - sw * 0.2, shoulderTop + h * 0.02)
+        ..lineTo(cx - hw * 0.12, h * 0.98)
+        ..lineTo(cx - hw * 0.02, h * 0.93)
+        ..close();
+      final lapelR = Path()
+        ..moveTo(cx + hw * 0.3, vTop - h * 0.005)
+        ..lineTo(cx + sw * 0.2, shoulderTop + h * 0.02)
+        ..lineTo(cx + hw * 0.12, h * 0.98)
+        ..lineTo(cx + hw * 0.02, h * 0.93)
+        ..close();
+      canvas.drawPath(lapelL, lit..color = lapelColor);
+      canvas.drawPath(lapelR, lit..color = Color.lerp(lapelColor, Colors.black, 0.2)!);
+    }
 
     // Ohren
     final ear = Color.lerp(skin, Colors.black, 0.12)!;
@@ -268,6 +286,21 @@ class PortraitPainter extends CustomPainter {
         ..quadraticBezierTo(cx + hw * 0.1, headTop + hh * 0.22, cx - hw * 0.5, headCy - hh * 0.05)
         ..close();
       canvas.drawPath(top, lit..color = hair);
+    } else if (look.hat == 'cloche') {
+      // Bubikopf unter der Cloche: Haar bis zum Kinn statt Koteletten
+      for (final side in const [-1.0, 1.0]) {
+        canvas.drawRRect(
+          RRect.fromRectAndRadius(
+            Rect.fromCenter(
+              center: Offset(cx + side * hw * 0.47, headCy + hh * 0.06),
+              width: hw * 0.2,
+              height: hh * 0.52,
+            ),
+            Radius.circular(hw * 0.1),
+          ),
+          lit..color = side < 0 ? hair : Color.lerp(hair, Colors.black, 0.2)!,
+        );
+      }
     } else {
       // Koteletten unter dem Hut
       canvas.drawRect(

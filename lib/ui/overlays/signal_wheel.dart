@@ -1,12 +1,12 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
 import '../../app/theme.dart';
 import '../../l10n/lookup.dart';
+import '../haptics.dart';
 import '../icons.dart';
 
 /// Signal-Rad: 6 Gesten innen, 8 Schnellchat-Phrasen außen.
@@ -139,7 +139,7 @@ class _EmoteButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        HapticFeedback.selectionClick();
+        Haptics.selection();
         onTap();
       },
       child: Container(
@@ -168,7 +168,7 @@ class _QuickPill extends StatelessWidget {
     final c = danger ? Noir.bloodBright : Noir.paper;
     return GestureDetector(
       onTap: () {
-        HapticFeedback.selectionClick();
+        Haptics.selection();
         onTap();
       },
       child: Container(

@@ -93,10 +93,14 @@ class MarkerPainter {
     };
     if (state == 'searched') {
       c.drawCircle(p, 2.6, Paint()..color = withAlpha(const Color(0xFF9A9A9A), 0.45));
-      c.drawCircle(p, 4.5, Paint()
-        ..color = withAlpha(const Color(0xFF9A9A9A), 0.25)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 1);
+      c.drawCircle(
+        p,
+        4.5,
+        Paint()
+          ..color = withAlpha(const Color(0xFF9A9A9A), 0.25)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1,
+      );
       return;
     }
     final fresh = state == 'fresh';
@@ -105,7 +109,11 @@ class MarkerPainter {
     final bob = math.sin(t * 1.6 + seed) * 2;
     final o = p.translate(0, bob);
     final glowR = fresh ? 15.0 : 10.0;
-    c.drawCircle(o, glowR, Paint()..shader = Gradient.radial(o, glowR, [withAlpha(col, fresh ? 0.45 : 0.28), withAlpha(col, 0)]));
+    c.drawCircle(
+      o,
+      glowR,
+      Paint()..shader = Gradient.radial(o, glowR, [withAlpha(col, fresh ? 0.45 : 0.28), withAlpha(col, 0)]),
+    );
     c.save();
     c.translate(o.dx, o.dy);
     c.rotate(t * 0.6 + seed);
@@ -137,8 +145,15 @@ class MarkerPainter {
     if (type == 'trace') return; // eigener Painter
     final bob = math.sin(t * 2.4 + seed) * 2.2;
     final o = ground.translate(0, -15 + bob);
-    c.drawOval(Rect.fromCenter(center: ground, width: 14 - bob, height: 5 - bob * 0.3), Paint()..color = withAlpha(_black, 0.35));
-    c.drawCircle(o, 12, Paint()..shader = Gradient.radial(o, 12, [withAlpha(pal.light, 0.32), withAlpha(pal.light, 0)]));
+    c.drawOval(
+      Rect.fromCenter(center: ground, width: 14 - bob, height: 5 - bob * 0.3),
+      Paint()..color = withAlpha(_black, 0.35),
+    );
+    c.drawCircle(
+      o,
+      12,
+      Paint()..shader = Gradient.radial(o, 12, [withAlpha(pal.light, 0.32), withAlpha(pal.light, 0)]),
+    );
     c.save();
     c.translate(o.dx, o.dy);
     c.rotate(math.sin(t * 1.3 + seed) * 0.12);
@@ -162,7 +177,10 @@ class MarkerPainter {
   }
 
   void _coffee(Canvas c, double t) {
-    c.drawOval(Rect.fromCenter(center: const Offset(0, 5), width: 15, height: 4), Paint()..color = const Color(0xFFDAD4C6));
+    c.drawOval(
+      Rect.fromCenter(center: const Offset(0, 5), width: 15, height: 4),
+      Paint()..color = const Color(0xFFDAD4C6),
+    );
     final cup = Path()
       ..moveTo(-5, -3)
       ..lineTo(5, -3)
@@ -170,11 +188,20 @@ class MarkerPainter {
       ..quadraticBezierTo(0, 5.5, -4, 4)
       ..close();
     c.drawPath(cup, Paint()..color = const Color(0xFFF2EEE4));
-    c.drawOval(Rect.fromCenter(center: const Offset(0, -3), width: 10, height: 3), Paint()..color = const Color(0xFF4A2A18));
-    c.drawArc(Rect.fromCenter(center: const Offset(5.5, 0.5), width: 5, height: 5), -math.pi / 2, math.pi, false, Paint()
-      ..color = const Color(0xFFF2EEE4)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.4);
+    c.drawOval(
+      Rect.fromCenter(center: const Offset(0, -3), width: 10, height: 3),
+      Paint()..color = const Color(0xFF4A2A18),
+    );
+    c.drawArc(
+      Rect.fromCenter(center: const Offset(5.5, 0.5), width: 5, height: 5),
+      -math.pi / 2,
+      math.pi,
+      false,
+      Paint()
+        ..color = const Color(0xFFF2EEE4)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.4,
+    );
     final steam = Paint()
       ..color = withAlpha(_white, 0.5)
       ..style = PaintingStyle.stroke
@@ -190,8 +217,14 @@ class MarkerPainter {
   }
 
   void _battery(Canvas c) {
-    c.drawRRect(RRect.fromRectAndRadius(const Rect.fromLTRB(-4, -7, 4, 7), const Radius.circular(1.5)), Paint()..color = const Color(0xFF26262C));
-    c.drawRRect(RRect.fromRectAndRadius(const Rect.fromLTRB(-4, -7, 4, -1), const Radius.circular(1.5)), Paint()..color = const Color(0xFFE8B83A));
+    c.drawRRect(
+      RRect.fromRectAndRadius(const Rect.fromLTRB(-4, -7, 4, 7), const Radius.circular(1.5)),
+      Paint()..color = const Color(0xFF26262C),
+    );
+    c.drawRRect(
+      RRect.fromRectAndRadius(const Rect.fromLTRB(-4, -7, 4, -1), const Radius.circular(1.5)),
+      Paint()..color = const Color(0xFFE8B83A),
+    );
     c.drawRect(const Rect.fromLTRB(-1.6, -9, 1.6, -7), Paint()..color = const Color(0xFFB8B8C0));
     final plus = Paint()
       ..color = const Color(0xFF26262C)
@@ -221,33 +254,52 @@ class MarkerPainter {
   void _syringe(Canvas c) {
     c.save();
     c.rotate(-0.7);
-    c.drawRRect(RRect.fromRectAndRadius(const Rect.fromLTRB(-2.4, -6, 2.4, 6), const Radius.circular(1)), Paint()..color = const Color(0xCCDDE8EE));
+    c.drawRRect(
+      RRect.fromRectAndRadius(const Rect.fromLTRB(-2.4, -6, 2.4, 6), const Radius.circular(1)),
+      Paint()..color = const Color(0xCCDDE8EE),
+    );
     c.drawRect(const Rect.fromLTRB(-2.4, -1, 2.4, 6), Paint()..color = const Color(0xFF7ADF6A));
     c.drawRect(const Rect.fromLTRB(-3.8, -7, 3.8, -6), Paint()..color = const Color(0xFFB8B8C0));
     c.drawRect(const Rect.fromLTRB(-0.6, -11, 0.6, -7), Paint()..color = const Color(0xFFB8B8C0));
     c.drawRect(const Rect.fromLTRB(-2.4, -12, 2.4, -11), Paint()..color = const Color(0xFFB8B8C0));
-    c.drawLine(const Offset(0, 6), const Offset(0, 11), Paint()
-      ..color = const Color(0xFFE0E0E8)
-      ..strokeWidth = 0.8);
+    c.drawLine(
+      const Offset(0, 6),
+      const Offset(0, 11),
+      Paint()
+        ..color = const Color(0xFFE0E0E8)
+        ..strokeWidth = 0.8,
+    );
     c.restore();
   }
 
   void _medkit(Canvas c) {
-    c.drawRRect(RRect.fromRectAndRadius(const Rect.fromLTRB(-7, -5, 7, 6), const Radius.circular(2)), Paint()..color = const Color(0xFFF0ECE4));
+    c.drawRRect(
+      RRect.fromRectAndRadius(const Rect.fromLTRB(-7, -5, 7, 6), const Radius.circular(2)),
+      Paint()..color = const Color(0xFFF0ECE4),
+    );
     c.drawRect(const Rect.fromLTRB(-7, -5, 7, -3), Paint()..color = const Color(0xFFD8D2C6));
     final red = Paint()..color = const Color(0xFFC8283A);
     c.drawRect(const Rect.fromLTRB(-1.4, -2.5, 1.4, 4.5), red);
     c.drawRect(const Rect.fromLTRB(-4.2, 0.4, 4.2, 1.6), red);
-    c.drawArc(Rect.fromCenter(center: const Offset(0, -5), width: 6, height: 4), math.pi, math.pi, false, Paint()
-      ..color = const Color(0xFF6A6A70)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.2);
+    c.drawArc(
+      Rect.fromCenter(center: const Offset(0, -5), width: 6, height: 4),
+      math.pi,
+      math.pi,
+      false,
+      Paint()
+        ..color = const Color(0xFF6A6A70)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1.2,
+    );
   }
 
   void _flare(Canvas c, double t) {
     c.save();
     c.rotate(0.5);
-    c.drawRRect(RRect.fromRectAndRadius(const Rect.fromLTRB(-2.2, -6, 2.2, 8), const Radius.circular(1)), Paint()..color = const Color(0xFFC8283A));
+    c.drawRRect(
+      RRect.fromRectAndRadius(const Rect.fromLTRB(-2.2, -6, 2.2, 8), const Radius.circular(1)),
+      Paint()..color = const Color(0xFFC8283A),
+    );
     c.drawRect(const Rect.fromLTRB(-2.2, 2, 2.2, 4), Paint()..color = const Color(0xFFF0E4C0));
     c.drawRect(const Rect.fromLTRB(-2.4, -8, 2.4, -6), Paint()..color = const Color(0xFF2A2A2E));
     c.restore();
@@ -265,7 +317,15 @@ class MarkerPainter {
     Iso.applyGround(c);
     c.rotate(seed * 0.9);
     final glow = 0.55 + 0.25 * math.sin(t * 2 + seed);
-    c.drawCircle(Offset.zero, 0.5, Paint()..shader = Gradient.radial(Offset.zero, 0.5, [withAlpha(const Color(0xFF8A0A14), 0.35 * glow), withAlpha(const Color(0xFF8A0A14), 0)]));
+    c.drawCircle(
+      Offset.zero,
+      0.5,
+      Paint()
+        ..shader = Gradient.radial(Offset.zero, 0.5, [
+          withAlpha(const Color(0xFF8A0A14), 0.35 * glow),
+          withAlpha(const Color(0xFF8A0A14), 0),
+        ]),
+    );
     final foot = Paint()..color = withAlpha(const Color(0xFF5A0610), 0.9);
     final rim = Paint()
       ..color = withAlpha(const Color(0xFFFF3A2A), 0.55 * glow)
@@ -317,7 +377,15 @@ class MarkerPainter {
   void traceGlow(Canvas c, double wx, double wy, double t, int seed) {
     final o = Iso.toScreen(wx, wy);
     final glow = 0.5 + 0.5 * math.sin(t * 2 + seed);
-    c.drawCircle(o, 9, Paint()..shader = Gradient.radial(o, 9, [withAlpha(const Color(0xFFFF2A2A), 0.3 * glow + 0.1), withAlpha(const Color(0xFFFF2A2A), 0)]));
+    c.drawCircle(
+      o,
+      9,
+      Paint()
+        ..shader = Gradient.radial(o, 9, [
+          withAlpha(const Color(0xFFFF2A2A), 0.3 * glow + 0.1),
+          withAlpha(const Color(0xFFFF2A2A), 0),
+        ]),
+    );
     c.drawCircle(o, 1.6, Paint()..color = withAlpha(const Color(0xFFFF6A50), 0.5 + 0.4 * glow));
   }
 
@@ -331,19 +399,27 @@ class MarkerPainter {
     Iso.applyGround(c);
     for (var i = 0; i < 3; i++) {
       final ph = ((age * 0.9 + i / 3) % 1.0);
-      c.drawCircle(Offset.zero, 0.15 + ph * 0.9, Paint()
-        ..color = withAlpha(col, (1 - ph) * 0.8 * fade)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 0.05);
+      c.drawCircle(
+        Offset.zero,
+        0.15 + ph * 0.9,
+        Paint()
+          ..color = withAlpha(col, (1 - ph) * 0.8 * fade)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 0.05,
+      );
     }
     c.drawCircle(Offset.zero, 0.14, Paint()..color = withAlpha(col, 0.8 * fade));
     c.restore();
     // Stecknadel
     final bob = math.sin(age * 4) * 2;
     final top = Offset(0, -26 + bob);
-    c.drawLine(Offset.zero, top.translate(0, 6), Paint()
-      ..color = withAlpha(col, 0.7 * fade)
-      ..strokeWidth = 1.5);
+    c.drawLine(
+      Offset.zero,
+      top.translate(0, 6),
+      Paint()
+        ..color = withAlpha(col, 0.7 * fade)
+        ..strokeWidth = 1.5,
+    );
     final pin = Path()
       ..moveTo(0, top.dy + 9)
       ..quadraticBezierTo(-7, top.dy + 1, -6, top.dy - 3)
@@ -363,10 +439,14 @@ class MarkerPainter {
     c.translate(o.dx, o.dy);
     Iso.applyGround(c);
     final r = 0.48 + 0.05 * pulse;
-    c.drawCircle(Offset.zero, r, Paint()
-      ..color = withAlpha(pal.accent, 0.5 + 0.4 * pulse)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 0.045);
+    c.drawCircle(
+      Offset.zero,
+      r,
+      Paint()
+        ..color = withAlpha(pal.accent, 0.5 + 0.4 * pulse)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 0.045,
+    );
     c.rotate(t * 0.8);
     final dash = Paint()
       ..color = withAlpha(mix(pal.accent, _white, 0.4), 0.85)
@@ -382,15 +462,25 @@ class MarkerPainter {
   /// Fortschrittsring (Bildschirm-Pixel).
   void channelRing(Canvas c, Offset center, double progress, Color col) {
     c.drawCircle(center, 11, Paint()..color = withAlpha(_black, 0.55));
-    c.drawCircle(center, 9, Paint()
-      ..color = withAlpha(_white, 0.15)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 3);
-    c.drawArc(Rect.fromCircle(center: center, radius: 9), -math.pi / 2, math.pi * 2 * progress.clamp(0.0, 1.0), false, Paint()
-      ..color = col
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 3
-      ..strokeCap = StrokeCap.round);
+    c.drawCircle(
+      center,
+      9,
+      Paint()
+        ..color = withAlpha(_white, 0.15)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 3,
+    );
+    c.drawArc(
+      Rect.fromCircle(center: center, radius: 9),
+      -math.pi / 2,
+      math.pi * 2 * progress.clamp(0.0, 1.0),
+      false,
+      Paint()
+        ..color = col
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 3
+        ..strokeCap = StrokeCap.round,
+    );
   }
 
   /// Namensschild (Bildschirm-Pixel, [anchor] = Unterkante Mitte).
@@ -403,16 +493,29 @@ class MarkerPainter {
     tp.paint(c, Offset(r.left + 13, r.top + 2.5));
   }
 
+  /// Bildschirmfläche der Zielbeschriftung (inkl. Spitze), zum Entzerren anderer Schilder.
+  Rect targetLabelRect(Offset anchor, String name) {
+    final tp = text.get(name, 12, pal.text, weight: FontWeight.w700);
+    final w = tp.width + 16, h = tp.height + 7;
+    return Rect.fromLTWH(anchor.dx - w / 2, anchor.dy - h - 6, w, h + 6);
+  }
+
   /// Beschriftung am Aktionsziel.
   void targetLabel(Canvas c, Offset anchor, String name, double alpha) {
     final tp = text.get(name, 12, withAlpha(pal.text, alpha), weight: FontWeight.w700);
     final w = tp.width + 16, h = tp.height + 7;
-    final r = RRect.fromRectAndRadius(Rect.fromLTWH(anchor.dx - w / 2, anchor.dy - h - 6, w, h), const Radius.circular(6));
+    final r = RRect.fromRectAndRadius(
+      Rect.fromLTWH(anchor.dx - w / 2, anchor.dy - h - 6, w, h),
+      const Radius.circular(6),
+    );
     c.drawRRect(r, Paint()..color = withAlpha(const Color(0xFF0C0A10), 0.75 * alpha));
-    c.drawRRect(r, Paint()
-      ..color = withAlpha(pal.accent, 0.7 * alpha)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1);
+    c.drawRRect(
+      r,
+      Paint()
+        ..color = withAlpha(pal.accent, 0.7 * alpha)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1,
+    );
     final tri = Path()
       ..moveTo(anchor.dx - 5, r.bottom)
       ..lineTo(anchor.dx + 5, r.bottom)
@@ -460,10 +563,13 @@ class MarkerPainter {
     switch (id) {
       case 'come_here':
         c.drawLine(o.translate(0, -7), o.translate(0, 6), ink);
-        c.drawPath(Path()
-          ..moveTo(o.dx - 5, o.dy + 1)
-          ..lineTo(o.dx, o.dy + 6)
-          ..lineTo(o.dx + 5, o.dy + 1), ink);
+        c.drawPath(
+          Path()
+            ..moveTo(o.dx - 5, o.dy + 1)
+            ..lineTo(o.dx, o.dy + 6)
+            ..lineTo(o.dx + 5, o.dy + 1),
+          ink,
+        );
       case 'found_clue':
         c.drawCircle(o.translate(-2, -2), 5, ink);
         c.drawLine(o.translate(1.8, 1.8), o.translate(6, 6), ink..strokeWidth = 3);

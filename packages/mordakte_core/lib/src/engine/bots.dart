@@ -43,11 +43,13 @@ extension _BotLogic on Engine {
           }
           final own = _leadVotes[p.id];
           if (humanVotes.isNotEmpty) {
+            // Menschen haben gewählt: zügig anschließen, bevor die Beratung vorzeitig endet.
+            if (b.voteAt > _now + 1200) b.voteAt = _now + 400 + _rt.nextInt(600);
             // Später abgegebenen Menschen-Stimmen folgen, damit die Anzeige zum Ergebnis passt.
+            // Bei Gleichstand der frühesten Option (so entscheidet auch _resolveLeadVote).
             final best = humanVotes.values.reduce(math.max);
-            if (_now >= b.voteAt && (own == null || humanVotes[own] != best)) {
-              applyCommand(p.id, VoteLead(humanVotes.entries.firstWhere((e) => e.value == best).key));
-            }
+            final target = humanVotes.entries.firstWhere((e) => e.value == best).key;
+            if (_now >= b.voteAt && own != target) applyCommand(p.id, VoteLead(target));
           } else if (_now >= b.voteAt && own == null) {
             applyCommand(p.id, VoteLead(_rt.pick(_leadOptions)));
           }
@@ -56,6 +58,7 @@ extension _BotLogic on Engine {
       case Phase.accusation:
         _botShareAndCombine(p);
         if (b.voteAt < 0) b.voteAt = _now + 4000 + _rt.nextInt(8000);
+        if (_humanAccusations.isNotEmpty && b.voteAt > _now + 1200) b.voteAt = _now + 400 + _rt.nextInt(600);
         if (_now >= b.voteAt) {
           final own = _accuse[p.id];
           if (own == null) {
@@ -111,6 +114,12 @@ extension _BotLogic on Engine {
     final reach = b.goalKind == 'follow' ? 1.8 : Tuning.interactRange - 0.25;
     if (d <= reach) {
       b.path = [];
+      if (!_botGoalStillValid(p, b)) {
+        b.blacklist[b.goal!] = 5000;
+        b.goal = null;
+        b.thinkMs = 0;
+        return;
+      }
       _botAct(p, b);
       return;
     }
@@ -159,11 +168,7 @@ extension _BotLogic on Engine {
 
   void _botChooseGoal(PlayerState p, _Brain b) {
     final s = _s!;
-    final claimed = <String>{
-      for (final e in _brains.entries)
-        // Nur Gehirne, die gerade steuern – ein eingefrorenes (Mensch wieder da) beansprucht nichts.
-        if (e.key != p.id && e.value.goal != null && (_players[e.key]?.autopilot ?? false)) e.value.goal!,
-    };
+    final claimed = _claimedBy(p);
     bool free(String id) => !claimed.contains(id) && !b.blacklist.containsKey(id) && !b.blacklist.containsKey('npc:$id');
 
     // Niedergeschlagene Teamkameraden haben Vorrang.
@@ -245,6 +250,49 @@ extension _BotLogic on Engine {
     final humans = _aliveDetectives.where((q) => !q.bot && q != p).toList();
     if (humans.isNotEmpty) return _setGoal(b, humans.first.id, 'follow');
     b.goal = null;
+  }
+
+  /// Ziele, die andere gerade beanspruchen: Ziele steuernder Gehirne (ein eingefrorenes –
+  /// Mensch wieder da – beansprucht nichts) und alles, woran jemand gerade arbeitet
+  /// (Durchsuchen, Labor), damit niemand zum selben Fundort oder Labor nachläuft.
+  Set<String> _claimedBy(PlayerState p) => {
+        for (final q in _players.values)
+          if (q != p) ...[
+            if (q.autopilot && _brains[q.id]?.goal != null) _brains[q.id]!.goal!,
+            if (q.channel != null) q.channel!.target,
+          ],
+      };
+
+  /// Am Ziel angekommen: lohnt es sich noch? Sonst Ziel fallen lassen statt Fehlermeldung.
+  bool _botGoalStillValid(PlayerState p, _Brain b) {
+    final id = b.goal!;
+    switch (b.goalKind) {
+      case 'hotspot':
+      case 'npc':
+      case 'item':
+        break;
+      default:
+        return true;
+    }
+    for (final q in _players.values) {
+      if (q == p) continue;
+      if (q.channel?.target == id) return false;
+      final ob = _brains[q.id];
+      if (q.autopilot && ob != null && ob.goal == id && ob != b) {
+        // Beide wollen dasselbe: der Nähere (bei Gleichstand die kleinere ID) bleibt dran.
+        final pos = _goalPos(b);
+        if (pos == null) return false;
+        final mine = dist(p.x, p.y, pos.$1, pos.$2), theirs = dist(q.x, q.y, pos.$1, pos.$2);
+        if (theirs < mine || (theirs == mine && q.id.compareTo(p.id) < 0)) return false;
+      }
+    }
+    if (b.goalKind == 'hotspot') {
+      final h = _s!.hotspotById[id];
+      if (h == null) return false;
+      if (h.kind == HotspotKind.lab) return _labPending(p).isNotEmpty;
+      if (_searchedBy.containsKey(id) && _availableCluesAt(p, id).isEmpty) return false;
+    }
+    return true;
   }
 
   List<String> _botTopics(PlayerState p, NpcState n) {

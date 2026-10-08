@@ -258,7 +258,7 @@
     {
       "id": "viv", "name": {"de": "Vivian „Viv“ LaRue"}, "role": {"de": "Lounge-Sängerin"},
       "bio": {"de": "Hatte 1979 einen Hit, der im Radio noch manchmal läuft. Singt freitags in Luckys Lounge – für Zimmer, Gin und Trinkgeld."},
-      "look": {"coat": "#e0218a", "skin": "#f2cdb5", "hair": "#f6d36b", "hat": "none", "build": "slim"},
+      "look": {"coat": "#e0218a", "skin": "#f2cdb5", "hair": "#f6d36b", "hat": "none", "build": "slim", "outfit": "dress"},
       "x": 26, "y": 12,
       "traits": {"shoe": "heels", "habit": "menthol", "mark": "ring"},
       "candidate": true, "motives": ["blackmail", "betrayal"], "witness": true,
@@ -294,7 +294,7 @@
     {
       "id": "sol", "name": {"de": "Marisol „Sol“ Vega"}, "role": {"de": "Barkeeperin"},
       "bio": {"de": "Steht seit zehn Jahren hinter Luckys Theke. Kennt jedes Getränk, jeden Gast und jede Lüge, die hier erzählt wurde."},
-      "look": {"coat": "#7b2ff7", "skin": "#b07a52", "hair": "#1a1010", "hat": "bun", "build": "normal"},
+      "look": {"coat": "#7b2ff7", "skin": "#b07a52", "hair": "#1a1010", "hat": "bun", "build": "normal", "outfit": "dress"},
       "x": 24, "y": 8,
       "traits": {"shoe": "heels", "habit": "gum", "mark": "tattoo"},
       "candidate": true, "motives": ["betrayal", "insurance"], "witness": true,

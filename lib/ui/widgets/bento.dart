@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../app/theme.dart';
+import '../haptics.dart';
 
 /// Kachel im Bento-Grid: Druck-Animation + Haptik, optional hervorgehoben (Messing + Glow).
 class BentoTile extends StatefulWidget {
@@ -63,7 +63,7 @@ class _BentoTileState extends State<BentoTile> {
           ? null
           : (_) {
               setState(() => _down = false);
-              HapticFeedback.selectionClick();
+              Haptics.selection();
               widget.onTap!();
             },
       child: AnimatedScale(

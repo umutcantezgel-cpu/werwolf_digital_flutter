@@ -1,9 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../app/theme.dart';
+import '../haptics.dart';
 
 enum NoirButtonStyle { primary, secondary, danger, ghost }
+
+/// Knopftext: schrumpft höchstens auf 80 %, sonst bricht er zweizeilig in kleinerer Schrift um –
+/// statt in schmalen Knöpfen auf unlesbare Größe zu schrumpfen.
+class _ButtonLabel extends StatelessWidget {
+  const _ButtonLabel({required this.text, required this.style});
+
+  final String text;
+  final TextStyle style;
+
+  static const double _minScale = 0.8;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, box) {
+        final single = Text(text, maxLines: 1, style: style);
+        if (!box.hasBoundedWidth) return single;
+        final tp = TextPainter(
+          text: TextSpan(text: text, style: style),
+          textDirection: Directionality.of(context),
+          textScaler: MediaQuery.textScalerOf(context),
+          maxLines: 1,
+        )..layout();
+        final natural = tp.width;
+        tp.dispose();
+        if (natural * _minScale <= box.maxWidth) return FittedBox(fit: BoxFit.scaleDown, child: single);
+        final small = style.copyWith(
+          fontSize: (style.fontSize ?? 18) * 0.82,
+          letterSpacing: (style.letterSpacing ?? 0) * 0.4,
+          height: 1.05,
+        );
+        return Text(text, maxLines: 2, textAlign: TextAlign.center, overflow: TextOverflow.ellipsis, style: small);
+      },
+    );
+  }
+}
 
 /// Hauptknopf im Akten-Stil.
 class NoirButton extends StatefulWidget {
@@ -87,13 +123,9 @@ class _NoirButtonState extends State<NoirButton> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  widget.label,
-                  maxLines: 1,
-                  style: Noir.title(widget.height < 46 ? 15 : 18, color: fg, spacing: widget.height < 46 ? 0.8 : 1.6),
-                ),
+              _ButtonLabel(
+                text: widget.label,
+                style: Noir.title(widget.height < 46 ? 15 : 18, color: fg, spacing: widget.height < 46 ? 0.8 : 1.6),
               ),
               if (widget.subtitle != null)
                 Text(
@@ -130,7 +162,7 @@ class _NoirButtonState extends State<NoirButton> {
               borderRadius: BorderRadius.circular(4),
               onTap: enabled
                   ? () {
-                      HapticFeedback.selectionClick();
+                      Haptics.selection();
                       widget.onPressed!();
                     }
                   : null,
@@ -192,7 +224,7 @@ class RoundIconButton extends StatelessWidget {
               onTap: onPressed == null
                   ? null
                   : () {
-                      HapticFeedback.selectionClick();
+                      Haptics.selection();
                       onPressed!();
                     },
               child: Icon(icon, color: active ? Noir.night : color, size: size * 0.48),

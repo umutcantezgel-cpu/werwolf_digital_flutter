@@ -32,6 +32,10 @@ class OnlineSessionException implements Exception {
 ///
 /// - Reconnect automatisch mit Backoff (0,5 s → 5 s, unbegrenzt) und gespeichertem
 ///   Token; der Server bringt den Spieler selbst in den Raum zurück.
+/// - Der Raumcode wird neben dem Token gespeichert ([storedRoomCode]), damit die
+///   App nach Neuladen bzw. Neustart „Zurück zum Fall“ anbieten kann; ein `join`
+///   mit demselben Token bringt den Spieler auf seinen gehaltenen Platz zurück.
+///   Verlassen ([dispose]) oder ein verlorener Raum löscht ihn wieder.
 /// - Ist der Raum endgültig weg (z. B. Server neu gestartet), kommt ein
 ///   [GameEvent] vom Typ [Ev.error] mit `key` (z. B. `room_not_found`) und
 ///   [lostReason] wird gesetzt; danach wird nicht mehr neu verbunden.
@@ -41,6 +45,12 @@ class OnlineSession implements GameSession {
   /// Speicher-Schlüssel für das Wiederverbindungs-Token (Mobil: shared_preferences,
   /// Web: sessionStorage – pro Tab, damit zwei Tabs nicht dieselbe Identität teilen).
   static const tokenKey = token_store.tokenKey;
+
+  /// Speicher-Schlüssel für den Raumcode der laufenden Partie (wie [tokenKey]).
+  static const roomKey = token_store.roomKey;
+
+  /// Fehler, nach denen ein gespeicherter Raum nicht mehr betreten werden kann.
+  static const _roomGone = {NetError.roomNotFound, NetError.roomFull, NetError.gameRunning, NetError.notInRoom};
 
   static const connectTimeout = Duration(seconds: 8);
   static const _pingEvery = Duration(seconds: 10);
@@ -74,16 +84,42 @@ class OnlineSession implements GameSession {
     }
     final session = OnlineSession._(uri, playerName, scenarios, await _loadToken());
     try {
-      await session._start(roomCode).timeout(
-            connectTimeout,
-            onTimeout: () => throw const OnlineSessionException(OnlineSessionException.timeout),
-          );
+      await session
+          ._start(roomCode)
+          .timeout(connectTimeout, onTimeout: () => throw const OnlineSessionException(OnlineSessionException.timeout));
     } catch (e) {
       await session._shutdown(sendLeave: false);
-      if (e is OnlineSessionException) rethrow;
+      if (e is OnlineSessionException) {
+        // Gespeicherter Raum existiert nicht mehr bzw. nimmt uns nicht mehr auf.
+        final code = session._joinCode;
+        if (code != null && _roomGone.contains(e.key)) await _forgetRoom(code);
+        rethrow;
+      }
       throw const OnlineSessionException(OnlineSessionException.unreachable);
     }
     return session;
+  }
+
+  /// Raumcode der letzten Online-Partie (pro Tab bzw. Gerät), solange sie weder
+  /// verlassen wurde noch verloren ging. Mit `SessionFactory.online(roomCode: …)`
+  /// kehrt der Spieler auf seinen Platz zurück (Server: `join` mit demselben Token).
+  static Future<String?> storedRoomCode() async {
+    try {
+      final code = (await token_store.loadRoom())?.trim().toUpperCase();
+      return (code == null || code.isEmpty) ? null : code;
+    } catch (_) {
+      return null;
+    }
+  }
+
+  /// Gespeicherten Raum vergessen ([code] gesetzt: nur, wenn es genau dieser ist).
+  static Future<void> forgetStoredRoom([String? code]) => _forgetRoom(code);
+
+  static Future<void> _forgetRoom(String? code) async {
+    try {
+      if (code != null && await storedRoomCode() != code) return;
+      await token_store.clearRoom();
+    } catch (_) {}
   }
 
   final Uri _url;
@@ -95,6 +131,9 @@ class OnlineSession implements GameSession {
 
   String _playerId = '';
   String _roomCode = '';
+
+  /// Zuletzt gespeicherter Raumcode (vermeidet unnötige Schreibzugriffe).
+  String? _savedRoom;
 
   final _world = ValueNotifier<WorldSnapshot?>(null);
   final _case = ValueNotifier<CaseView?>(null);
@@ -333,6 +372,8 @@ class OnlineSession implements GameSession {
     }
     await sub?.cancel();
     _connected.value = false;
+    // Bewusst verlassen: keine „Zurück zum Fall“-Rückkehr mehr anbieten.
+    if (sendLeave && _roomCode.isNotEmpty) await _forgetRoom(_roomCode);
     await _events.close();
   }
 
@@ -427,6 +468,10 @@ class OnlineSession implements GameSession {
     _rejoinTimer = null;
     _rejoining = false;
     _roomCode = code;
+    if (_savedRoom != code) {
+      _savedRoom = code;
+      unawaited(_saveRoom(code));
+    }
     _attempt = 0;
     _connected.value = true;
     _completeIfReady();
@@ -452,8 +497,7 @@ class OnlineSession implements GameSession {
       if (!pending.isCompleted) pending.completeError(OnlineSessionException(key));
       return;
     }
-    const roomGone = {NetError.roomNotFound, NetError.roomFull, NetError.gameRunning, NetError.notInRoom};
-    if (_rejoining && roomGone.contains(key)) {
+    if (_rejoining && _roomGone.contains(key)) {
       _lose(key);
     } else if (key == NetError.notInRoom) {
       // Server hat uns aus dem Raum genommen: einmal versuchen, wieder beizutreten.
@@ -473,6 +517,8 @@ class OnlineSession implements GameSession {
     _queued.clear();
     _generation++;
     _dropChannel();
+    // `replaced`: Eine andere Instanz mit demselben Token spielt weiter und nutzt den Eintrag.
+    if (key != 'replaced' && _roomCode.isNotEmpty) unawaited(_forgetRoom(_roomCode));
     if (!_events.isClosed) _events.add(GameEvent(Ev.error, to: _playerId, args: {'key': key}));
   }
 
@@ -516,6 +562,12 @@ class OnlineSession implements GameSession {
   static Future<void> _saveToken(String token) async {
     try {
       await token_store.saveToken(token);
+    } catch (_) {}
+  }
+
+  static Future<void> _saveRoom(String code) async {
+    try {
+      await token_store.saveRoom(code);
     } catch (_) {}
   }
 }

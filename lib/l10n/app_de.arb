@@ -54,6 +54,30 @@
   "hub_cases_sub": "Solo mit KI-Partnern",
   "hub_online": "Online spielen",
   "hub_online_sub": "Mit bis zu fünf Freunden",
+  "hub_online_rejoin": "Zurück zu Raum {code}",
+  "@hub_online_rejoin": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "hud_room": "RAUM {code}",
+  "@hud_room": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_combo_known": "„{combo}“ habt ihr schon kombiniert.",
+  "@toast_combo_known": {
+    "placeholders": {
+      "combo": {
+        "type": "String"
+      }
+    }
+  },
   "hub_collection": "Sammlung",
   "hub_profile": "Profil",
   "hub_streak": "{days, plural, =0{Keine Serie} =1{1 Tag in Folge} other{{days} Tage in Folge}}",
@@ -185,6 +209,8 @@
   "lobby_set_ready": "Ich bin bereit",
   "lobby_unready": "Doch nicht bereit",
   "lobby_wait_host": "Warte auf den Gastgeber …",
+  "lobby_pick_case": "Akte wählen …",
+  "lobby_need_case": "Wähle zuerst eine Akte – dann kann die Ermittlung beginnen.",
   "lobby_leave": "Lobby verlassen",
   "lobby_empty_slot": "Freier Platz",
   "class_forensic_name": "Forensikerin",
@@ -737,6 +763,18 @@
   "dialogue_reaction_annoyed": "reagiert gereizt",
   "dialogue_reaction_neutral": "zeigt keine Regung.",
   "dialogue_heard": "schon gehört",
+  "dialogue_heard_team": "Team hat gefragt",
+  "dialogue_team_note": "Dein Team hat {name} schon befragt ({topics}). Frag selbst nach, um die Antworten zu hören.",
+  "@dialogue_team_note": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "topics": {
+        "type": "String"
+      }
+    }
+  },
   "dialogue_new_clue": "Neuer Hinweis: {clue}",
   "@dialogue_new_clue": {
     "placeholders": {
@@ -825,6 +863,10 @@
   },
   "ending_new_case": "Neuer Fall",
   "ending_hub": "Zum Hub",
+  "ending_rematch": "Neuer Fall in diesem Raum",
+  "ending_rematch_title": "Welcher Fall als Nächstes?",
+  "ending_rematch_text": "Alle im Raum ermitteln gemeinsam weiter.",
+  "ending_wait_host": "Der Gastgeber kann einen neuen Fall in diesem Raum starten.",
   "ending_survivors": "Überlebende: {names}",
   "@ending_survivors": {
     "placeholders": {

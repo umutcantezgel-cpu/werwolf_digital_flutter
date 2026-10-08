@@ -9,9 +9,11 @@ import 'app/app_state.dart';
 import 'app/router.dart';
 import 'meta/meta_store.dart';
 import 'session/scenario_repository.dart';
+import 'ui/haptics.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Haptics.install();
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
 
   final meta = await MetaStore.load();

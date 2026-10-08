@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
 import '../../app/theme.dart';
+import '../haptics.dart';
 import '../widgets/portrait.dart';
 import 'game_context.dart';
 
@@ -95,7 +95,7 @@ class CouncilPanel extends StatelessWidget {
                             voters: voters,
                             mine: myVote == id,
                             onVote: () {
-                              HapticFeedback.mediumImpact();
+                              Haptics.medium();
                               g.send(VoteLead(id));
                             },
                           ).animate().fadeIn(delay: (90 * i).ms, duration: 300.ms).slideY(begin: 0.12);

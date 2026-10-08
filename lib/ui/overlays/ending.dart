@@ -33,13 +33,19 @@ class EndingOverlay extends StatelessWidget {
     required this.result,
     required this.onNewCase,
     required this.onHub,
+    this.onRematch,
   });
 
   final GameCtx g;
   final EndingView ending;
   final GameResult? result;
-  final VoidCallback onNewCase;
+
+  /// Solo: neue Akte wählen. `null` online – dort startet der Gastgeber im selben Raum neu.
+  final VoidCallback? onNewCase;
   final VoidCallback onHub;
+
+  /// Online (nur Gastgeber): neuen Fall im selben Raum starten.
+  final VoidCallback? onRematch;
 
   @override
   Widget build(BuildContext context) {
@@ -172,47 +178,92 @@ class EndingOverlay extends StatelessWidget {
                           .shimmer(delay: 800.ms, duration: 1400.ms, color: Noir.brassLight),
                     ],
                     const SizedBox(height: 22),
-                    SectionLabel(l.ending_resolution),
-                    _Resolution(g: g, ending: ending).animate().fadeIn(delay: next().ms),
-                    const SizedBox(height: 18),
-                    Row(
+                    // Überschriften und Knöpfe blenden mit ihrem Inhalt ein – nichts steht vorab allein da.
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Text(l.ending_strength.toUpperCase(), style: Noir.label(11, color: Noir.smoke, spacing: 1.8)),
-                        const Spacer(),
-                        Text('${ending.strength}', style: Noir.title(20, color: Noir.cream)),
+                        SectionLabel(l.ending_resolution),
+                        _Resolution(g: g, ending: ending),
                       ],
-                    ),
-                    const SizedBox(height: 8),
-                    StrengthMeter(
-                      value: ending.strength,
-                      max: math.max(Tuning.strengthPerfect + 2, ending.strength),
-                      solid: Tuning.strengthSolid,
-                      perfect: Tuning.strengthPerfect,
-                    ),
-                    if (ending.survivors.isNotEmpty) ...[
-                      const SizedBox(height: 10),
-                      Text(
-                        l.ending_survivors(ending.survivors.map((id) => g.nameOf(id)).join(', ')),
-                        style: Noir.text(12.5, color: Noir.smoke),
-                      ),
-                    ],
+                    ).animate().fadeIn(delay: next().ms),
+                    const SizedBox(height: 18),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              l.ending_strength.toUpperCase(),
+                              style: Noir.label(11, color: Noir.smoke, spacing: 1.8),
+                            ),
+                            const Spacer(),
+                            Text('${ending.strength}', style: Noir.title(20, color: Noir.cream)),
+                          ],
+                        ),
+                        const SizedBox(height: 8),
+                        StrengthMeter(
+                          value: ending.strength,
+                          max: math.max(Tuning.strengthPerfect + 2, ending.strength),
+                          solid: Tuning.strengthSolid,
+                          perfect: Tuning.strengthPerfect,
+                        ),
+                        if (ending.survivors.isNotEmpty) ...[
+                          const SizedBox(height: 10),
+                          Text(
+                            l.ending_survivors(ending.survivors.map((id) => g.nameOf(id)).join(', ')),
+                            style: Noir.text(12.5, color: Noir.smoke),
+                          ),
+                        ],
+                      ],
+                    ).animate().fadeIn(delay: next().ms),
                     const SizedBox(height: 24),
-                    SectionLabel(l.ending_awards),
-                    _Awards(g: g, ending: ending).animate().fadeIn(delay: next().ms),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        SectionLabel(l.ending_awards),
+                        _Awards(g: g, ending: ending),
+                      ],
+                    ).animate().fadeIn(delay: next().ms),
                     const SizedBox(height: 24),
                     if (result != null) ...[
-                      SectionLabel(l.ending_xp),
-                      _XpSection(result: result!, l: l).animate().fadeIn(delay: next().ms),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          SectionLabel(l.ending_xp),
+                          _XpSection(result: result!, l: l),
+                        ],
+                      ).animate().fadeIn(delay: next().ms),
                       const SizedBox(height: 26),
                     ],
-                    NoirButton(label: l.ending_new_case, icon: Icons.folder_open_rounded, onPressed: onNewCase),
-                    const SizedBox(height: 12),
-                    NoirButton(
-                      label: l.ending_hub,
-                      icon: Icons.home_rounded,
-                      style: NoirButtonStyle.secondary,
-                      onPressed: onHub,
-                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (onRematch != null) ...[
+                          NoirButton(label: l.ending_rematch, icon: Icons.replay_rounded, onPressed: onRematch),
+                          const SizedBox(height: 12),
+                        ] else if (onNewCase != null) ...[
+                          NoirButton(label: l.ending_new_case, icon: Icons.folder_open_rounded, onPressed: onNewCase),
+                          const SizedBox(height: 12),
+                        ] else ...[
+                          Row(
+                            children: [
+                              const Icon(Icons.hourglass_top_rounded, size: 16, color: Noir.smoke),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(l.ending_wait_host, style: Noir.text(12.5, color: Noir.smoke)),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                        ],
+                        NoirButton(
+                          label: l.ending_hub,
+                          icon: Icons.home_rounded,
+                          style: NoirButtonStyle.secondary,
+                          onPressed: onHub,
+                        ),
+                      ],
+                    ).animate().fadeIn(delay: next().ms),
                   ],
                 ),
               ),

@@ -1,13 +1,13 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
 import '../../app/theme.dart';
 import '../../l10n/lookup.dart';
 import '../clue_text.dart';
+import '../haptics.dart';
 import '../icons.dart';
 import '../widgets/buttons.dart';
 import '../widgets/meters.dart';
@@ -22,6 +22,9 @@ class NotebookSheet extends StatefulWidget {
   final VoidCallback onClose;
   final int initialTab;
 
+  /// Abstand des Blatts (28) plus Griff, Titelzeile und Reiter – Toasts beginnen darunter.
+  static const double headerExtent = 28 + 114;
+
   @override
   State<NotebookSheet> createState() => _NotebookSheetState();
 }
@@ -33,7 +36,7 @@ class _NotebookSheetState extends State<NotebookSheet> {
 
   void _tapBoard(ClueView c) {
     if (!_combine) return;
-    HapticFeedback.selectionClick();
+    Haptics.selection();
     if (_first == null) {
       setState(() => _first = c.id);
     } else if (_first == c.id) {
@@ -275,7 +278,7 @@ class _MineTab extends StatelessWidget {
               g: g,
               clue: list[i],
               onShare: () {
-                HapticFeedback.mediumImpact();
+                Haptics.medium();
                 g.send(ShareClue(list[i].id));
               },
             ),

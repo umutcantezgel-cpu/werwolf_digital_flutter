@@ -28,13 +28,13 @@ class SessionFactory {
     String? roomCode,
     String serverUrl = defaultServerUrl,
   }) async {
-    return OnlineSession.connect(
-      url: serverUrl,
-      playerName: playerName,
-      scenarios: scenarios,
-      roomCode: roomCode,
-    );
+    return OnlineSession.connect(url: serverUrl, playerName: playerName, scenarios: scenarios, roomCode: roomCode);
   }
+
+  /// Raumcode einer nicht verlassenen Online-Partie (z. B. nach Neuladen des Tabs),
+  /// sonst `null`. Rückkehr: [online] mit diesem `roomCode` – der Server erkennt
+  /// das gespeicherte Token und gibt den gehaltenen Platz zurück.
+  static Future<String?> storedOnlineRoom() => OnlineSession.storedRoomCode();
 
   static GameSession fake() => FakeSession();
 }

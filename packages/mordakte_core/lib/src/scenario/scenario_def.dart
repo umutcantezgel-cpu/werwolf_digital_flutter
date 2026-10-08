@@ -365,16 +365,23 @@ class LookDef {
   /// `slim`, `normal`, `broad`, `tall`, `small`.
   final String build;
 
+  /// `suit` (Mantel/Anzug) oder `dress` (Kleid).
+  final String outfit;
+
   const LookDef({
     this.coat = '#3a3a44',
     this.skin = '#e0b89a',
     this.hair = '#3b2a20',
     this.hat = 'none',
     this.build = 'normal',
+    this.outfit = 'suit',
   });
 
   static const hats = {'none', 'bowler', 'fedora', 'cap', 'bun', 'top', 'beret', 'cloche'};
   static const builds = {'slim', 'normal', 'broad', 'tall', 'small'};
+  static const outfits = {'suit', 'dress'};
+
+  bool get dress => outfit == 'dress';
 
   factory LookDef.fromJson(Map<String, dynamic> j) => LookDef(
         coat: j['coat'] as String? ?? '#3a3a44',
@@ -382,9 +389,11 @@ class LookDef {
         hair: j['hair'] as String? ?? '#3b2a20',
         hat: j['hat'] as String? ?? 'none',
         build: j['build'] as String? ?? 'normal',
+        outfit: j['outfit'] as String? ?? 'suit',
       );
 
-  Map<String, dynamic> toJson() => {'coat': coat, 'skin': skin, 'hair': hair, 'hat': hat, 'build': build};
+  Map<String, dynamic> toJson() =>
+      {'coat': coat, 'skin': skin, 'hair': hair, 'hat': hat, 'build': build, 'outfit': outfit};
 }
 
 class SuspectDef {

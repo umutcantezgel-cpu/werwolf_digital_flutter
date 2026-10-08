@@ -15,6 +15,9 @@ class FigureLook {
   final String hat;
   final String build;
 
+  /// Kleid statt Mantel/Anzug (A-Linie, Ausschnitt statt Hemd und Krawatte).
+  final bool dress;
+
   const FigureLook({
     required this.coat,
     required this.skin,
@@ -22,6 +25,7 @@ class FigureLook {
     required this.hatColor,
     required this.hat,
     required this.build,
+    this.dress = false,
   });
 
   factory FigureLook.fromLook(LookDef l) {
@@ -33,6 +37,7 @@ class FigureLook {
       hatColor: mix(coat, const Color(0xFF16151A), 0.55),
       hat: l.hat,
       build: l.build,
+      dress: l.dress,
     );
   }
 
@@ -96,15 +101,16 @@ class FigurePainter {
     c.save();
     c.translate(feet.dx, feet.dy - bob);
 
+    final dress = look.dress;
     final legTop = -14.0 * hm;
     final shoulderY = -37.0 * hm;
-    final hemY = -11.0 * hm;
-    final sW = 8.6 * wm, hW = 10.8 * wm;
+    final hemY = (dress ? -6.5 : -11.0) * hm;
+    final sW = 8.6 * wm, hW = (dress ? 12.6 : 10.8) * wm;
     final coat = look.coat;
 
     // Beine
     if (!ghost) {
-      final trousers = Paint()..color = const Color(0xFF1E1C22);
+      final trousers = Paint()..color = dress ? shade(look.skin, -0.45) : const Color(0xFF1E1C22);
       final shoe = Paint()..color = const Color(0xFF0C0B0D);
       for (final s in [-1.0, 1.0]) {
         final swing = sw * s;
@@ -157,7 +163,23 @@ class FigurePainter {
       ..strokeWidth = 1.1
       ..style = PaintingStyle.stroke;
     final beltY = -22.5 * hm;
-    if (front) {
+    if (front && dress) {
+      final cx = side ? dir * 2.5 : 0.0;
+      // Ausschnitt mit Perlenkette
+      final neck = Path()
+        ..moveTo(cx - 3.6, shoulderY)
+        ..quadraticBezierTo(cx, shoulderY + 7.5, cx + 3.6, shoulderY)
+        ..close();
+      c.drawPath(neck, Paint()..color = look.skin);
+      final pearl = Paint()..color = const Color(0xFFF1ECE2);
+      for (var i = -2; i <= 2; i++) {
+        final t = i / 2.0;
+        c.drawCircle(Offset(cx + t * 3.0, shoulderY + 4.2 - t * t * 2.2), 0.65, pearl);
+      }
+      // Rockfalten
+      c.drawLine(Offset(cx - 3, beltY + 2), Offset(cx - 5.5, hemY - 0.5), dark);
+      c.drawLine(Offset(cx + 3, beltY + 2), Offset(cx + 5.5, hemY - 0.5), dark);
+    } else if (front) {
       final cx = side ? dir * 2.5 : 0.0;
       // Hemd + Krawatte
       final shirt = Path()

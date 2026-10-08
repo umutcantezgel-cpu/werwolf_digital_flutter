@@ -59,6 +59,9 @@ abstract final class Ev {
   /// {} – passt nicht zusammen
   static const comboFail = 'combo_fail';
 
+  /// {combo} – diese Schlussfolgerung ist schon gezogen (nur an den Spieler)
+  static const comboKnown = 'combo_known';
+
   /// {npc} – Verhör geöffnet
   static const dialogueOpen = 'dialogue_open';
 

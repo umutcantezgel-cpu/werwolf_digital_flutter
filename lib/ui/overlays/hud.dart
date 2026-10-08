@@ -1,11 +1,11 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
 import '../../app/theme.dart';
 import '../../l10n/lookup.dart';
+import '../haptics.dart';
 import '../icons.dart';
 import '../widgets/buttons.dart';
 import 'game_context.dart';
@@ -84,7 +84,13 @@ class GameHud extends StatelessWidget {
           left: timerLeft,
           child: ValueListenableBuilder<WorldSnapshot?>(
             valueListenable: g.session.world,
-            builder: (context, w, _) => _PhaseTimer(world: w, phase: g.cv.phase, chapter: g.cv.chapter, l: l),
+            builder: (context, w, _) => _PhaseTimer(
+              world: w,
+              phase: g.cv.phase,
+              chapter: g.cv.chapter,
+              l: l,
+              roomCode: g.session.isOnline ? g.session.roomCode : null,
+            ),
           ),
         ),
         Positioned(
@@ -260,7 +266,10 @@ class _EffectIcon extends StatelessWidget {
 
 /// Phase, Kapitel und Restzeit. Unter 30 s pulsiert der Timer rot.
 class _PhaseTimer extends StatefulWidget {
-  const _PhaseTimer({required this.world, required this.phase, required this.chapter, required this.l});
+  const _PhaseTimer({required this.world, required this.phase, required this.chapter, required this.l, this.roomCode});
+
+  /// Online: Raumcode, damit Mitspieler nach einem Neuladen zurückfinden.
+  final String? roomCode;
 
   final WorldSnapshot? world;
   final Phase phase;
@@ -280,7 +289,7 @@ class _PhaseTimerState extends State<_PhaseTimer> {
     final rem = widget.world?.phaseRemainingMs ?? 0;
     final sec = (rem / 1000).ceil();
     if (sec != _lastSecond) {
-      if (sec <= 5 && sec > 0 && _lastSecond != -1) HapticFeedback.selectionClick();
+      if (sec <= 5 && sec > 0 && _lastSecond != -1) Haptics.selection();
       _lastSecond = sec;
     }
   }
@@ -340,6 +349,8 @@ class _PhaseTimerState extends State<_PhaseTimer> {
           ),
           const SizedBox(height: 4),
           Text(widget.l.hud_chapter(widget.chapter), style: Noir.label(9.5, color: Noir.smoke, spacing: 1)),
+          if (widget.roomCode != null)
+            Text(widget.l.hud_room(widget.roomCode!), style: Noir.label(9, color: Noir.brassLight, spacing: 1.5)),
         ],
       ),
     );
@@ -393,10 +404,10 @@ class _AbilityButtonState extends State<AbilityButton> {
           child: GestureDetector(
             onTap: ready
                 ? () {
-                    HapticFeedback.mediumImpact();
+                    Haptics.medium();
                     g.send(const UseAbility());
                   }
-                : () => HapticFeedback.lightImpact(),
+                : () => Haptics.light(),
             child: SizedBox(
               width: 64,
               height: 64,
@@ -538,7 +549,7 @@ class _Slot extends StatelessWidget {
       message: '${l.itemName(t)} – ${l.itemDesc(t)}',
       child: GestureDetector(
         onTap: () {
-          HapticFeedback.mediumImpact();
+          Haptics.medium();
           onUse();
         },
         child: body,

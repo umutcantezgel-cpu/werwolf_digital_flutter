@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +11,7 @@ import '../../app/theme.dart';
 import '../../game/game_view.dart';
 import '../../l10n/lookup.dart';
 import '../../session/game_session.dart';
+import '../haptics.dart';
 import '../overlays/accusation.dart';
 import '../overlays/council.dart';
 import '../overlays/ending.dart';
@@ -165,10 +165,20 @@ class _GameScreenState extends State<GameScreen> {
         context.go(Routes.lobby);
         return;
       }
+      if (prev == Phase.ending) {
+        // Neuer Fall im selben Raum: Merker des alten Falls verwerfen.
+        _seen.clear();
+        _flash.value = 0;
+        _dialogue.resetCase();
+      }
+      final world = cv.phase == Phase.investigation || cv.phase == Phase.night || cv.phase == Phase.council;
+      // Vollbild-Abschnitte (Intro, Anklage, Ende) starten ohne Meldungen der vorigen Phase.
+      if (!world) _toasts.clear();
       if (prev != null && cv.phase != Phase.ending) {
-        HapticFeedback.mediumImpact();
+        Haptics.medium();
         final g = _ctx();
-        if (g != null && cv.phase != Phase.intro) {
+        // Anklage/Intro zeigen ihren Titel selbst – der Phasen-Toast würde ihn nur verdecken.
+        if (g != null && world) {
           _toasts.show(g.l.toast_phase(g.l.phaseName(cv.phase), cv.chapter), icon: Icons.flag_rounded, color: g.accent);
         }
       }
@@ -209,7 +219,7 @@ class _GameScreenState extends State<GameScreen> {
       case Ev.dialogueOpen:
         final npc = e.str('npc');
         if (npc == null) return;
-        HapticFeedback.selectionClick();
+        Haptics.selection();
         _dialogue.openFor(npc, g.scenario);
         setState(() {
           _notebook = false;
@@ -220,13 +230,13 @@ class _GameScreenState extends State<GameScreen> {
         _dialogue.onDialogue(e, g.scenario);
       case Ev.present:
         _dialogue.onPresent(e, g.scenario, g.clueName(e.str('clue')));
-        if (e.str('reaction') == 'nervous') HapticFeedback.mediumImpact();
+        if (e.str('reaction') == 'nervous') Haptics.medium();
       case Ev.shadowNear:
         final now = DateTime.now().millisecondsSinceEpoch;
         _heart.value = now;
         if (now - _lastHeartHaptic > 1400) {
           _lastHeartHaptic = now;
-          HapticFeedback.heavyImpact();
+          Haptics.heavy();
         }
       case Ev.phase:
       case Ev.ending:
@@ -261,6 +271,58 @@ class _GameScreenState extends State<GameScreen> {
     final router = GoRouter.of(context);
     await _app.leaveSession();
     router.go(to);
+  }
+
+  /// Online-Gastgeber: neuen Fall im selben Raum starten (alle Mitspieler bleiben dabei).
+  Future<void> _rematch(GameCtx g) async {
+    final l = g.l;
+    final list = g.session.scenarios.values.toList()..sort((a, b) => a.id.compareTo(b.id));
+    final id = await showDialog<String>(
+      context: context,
+      barrierColor: Noir.scrim,
+      builder: (c) => Dialog(
+        backgroundColor: Colors.transparent,
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 400),
+          child: PaperCard(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 16),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(l.ending_rematch_title, style: Noir.title(21, color: Noir.ink)),
+                const SizedBox(height: 6),
+                Text(l.ending_rematch_text, style: Noir.typed(13.5, color: Noir.inkSoft)),
+                const SizedBox(height: 14),
+                for (final sc in list) ...[
+                  NoirButton(
+                    label: sc.title.resolve(),
+                    icon: Icons.folder_open_rounded,
+                    height: 48,
+                    style: sc.id == g.cv.scenarioId ? NoirButtonStyle.secondary : NoirButtonStyle.primary,
+                    onPressed: () => Navigator.of(c).pop(sc.id),
+                  ),
+                  const SizedBox(height: 8),
+                ],
+                NoirButton(
+                  label: l.common_cancel,
+                  style: NoirButtonStyle.ghost,
+                  height: 44,
+                  onPressed: () => Navigator.of(c).pop(),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    if (id == null || !mounted) return;
+    final cv = g.session.caseView.value ?? g.cv;
+    if (cv.phase != Phase.ending) return;
+    // Tagesfall nicht wiederholen: ein neuer Fall im Raum ist ein Zufallsfall bzw. die Story.
+    final mode = cv.mode == 'daily' ? 'random' : cv.mode;
+    _app.send(ConfigureGame(scenarioId: id, mode: mode, bots: cv.bots));
+    _app.send(const StartGame());
   }
 
   Future<void> _menu() async {
@@ -337,9 +399,9 @@ class _GameScreenState extends State<GameScreen> {
                       ? ColorFiltered(colorFilter: const ColorFilter.matrix(ghostMatrix), child: scene)
                       : scene,
                 ),
-                if (phase == Phase.night) const NightVignette(),
-                HeartbeatVignette(trigger: _heart),
-                FlashOverlay(trigger: _flash),
+                if (phase == Phase.night) const NightVignette(key: ValueKey('night')),
+                HeartbeatVignette(key: const ValueKey('heartbeat'), trigger: _heart),
+                FlashOverlay(key: const ValueKey('flash'), trigger: _flash),
                 if (inWorld) ..._worldOverlays(g),
                 if (phase == Phase.intro) IntroOverlay(g: g),
                 if (phase == Phase.accusation) AccusationOverlay(g: g, onNotebook: () => _openNotebook(1)),
@@ -349,7 +411,9 @@ class _GameScreenState extends State<GameScreen> {
                       g: g,
                       ending: cv.ending!,
                       result: app.lastResult,
-                      onNewCase: () => _leave(to: Routes.cases),
+                      // Online führt „Neuer Fall“ nicht in die Solo-Akten, sondern bleibt im Raum.
+                      onNewCase: s.isOnline ? null : () => _leave(to: Routes.cases),
+                      onRematch: s.isOnline && cv.hostId == s.playerId ? () => _rematch(g) : null,
                       onHub: () => _leave(),
                     ),
                   ),
@@ -372,11 +436,7 @@ class _GameScreenState extends State<GameScreen> {
                     },
                   ),
                 if (_mapBig && inWorld) _bigMap(g),
-                ToastLayer(
-                  controller: _toasts,
-                  top: _dialogue.open || _notebook || !inWorld ? 4 : 112,
-                  right: _dialogue.open || _notebook || !inWorld ? 12 : 64,
-                ),
+                _toastLayer(phase, inWorld),
                 ValueListenableBuilder<bool>(
                   valueListenable: s.connected,
                   builder: (context, ok, _) => ok
@@ -411,10 +471,57 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
+  /// Toasts nie über die Kopfzeilen der Vollbild-Overlays legen und auf engen Bildschirmen
+  /// (Querformat) weniger gleichzeitig zeigen, damit Nachtbanner und Beratung lesbar bleiben.
+  Widget _toastLayer(Phase phase, bool inWorld) {
+    final size = MediaQuery.sizeOf(context);
+    final compact = size.height < 560;
+    final overlayMax = compact ? 1 : 2;
+    if (phase == Phase.ending) return ToastLayer(controller: _toasts, bottom: 16, right: 12);
+    if (_notebook) {
+      return ToastLayer(controller: _toasts, top: NotebookSheet.headerExtent, right: 12, maxVisible: overlayMax);
+    }
+    if (phase == Phase.accusation) {
+      return ToastLayer(controller: _toasts, top: AccusationOverlay.headerExtent, right: 12, maxVisible: overlayMax);
+    }
+    if (!inWorld) return ToastLayer(controller: _toasts, top: 4, right: 12);
+    if (_dialogue.open) {
+      if (InterrogationOverlay.wideLayout(size)) {
+        // Querformat: unten in der Themen-Spalte, fern von Kopf und Protokoll.
+        return ToastLayer(
+          controller: _toasts,
+          bottom: 12,
+          left: InterrogationOverlay.sidePanelLeft(size, MediaQuery.paddingOf(context)) + 8,
+          right: 8,
+          maxVisible: 1,
+        );
+      }
+      final padTop = MediaQuery.paddingOf(context).top;
+      return ValueListenableBuilder<double>(
+        valueListenable: _dialogue.headerBottom,
+        builder: (context, bottom, _) => ToastLayer(
+          controller: _toasts,
+          // Bis der Kopf gemessen ist: unter Porträt (104) samt Rahmen.
+          top: bottom > padTop ? bottom - padTop + 6 : 146,
+          right: 12,
+          maxVisible: overlayMax,
+        ),
+      );
+    }
+    final banner = phase == Phase.night && _nightText != null;
+    return ToastLayer(
+      controller: _toasts,
+      top: compact ? 88 : 112,
+      right: compact ? 12 : 64,
+      maxVisible: compact ? 1 : (banner || phase == Phase.council ? 2 : 3),
+    );
+  }
+
   List<Widget> _worldOverlays(GameCtx g) {
     final phase = g.cv.phase;
     return [
       ValueListenableBuilder<LifeState>(
+        key: const ValueKey('hud'),
         valueListenable: _life,
         builder: (context, life, _) => GameHud(
           g: g,
@@ -440,15 +547,17 @@ class _GameScreenState extends State<GameScreen> {
           showBottom: phase != Phase.council && life == LifeState.alive,
         ),
       ),
-      if (phase == Phase.council) CouncilPanel(g: g),
+      if (phase == Phase.council) CouncilPanel(key: const ValueKey('council'), g: g),
       if (phase == Phase.night && _nightText != null)
         ValueListenableBuilder<LifeState>(
+          key: const ValueKey('nightBanner'),
           valueListenable: _life,
           builder: (context, life, _) => life == LifeState.alive
               ? NightBanner(title: g.l.night_title, text: _nightText!, hint: g.l.night_hint)
               : const SizedBox.shrink(),
         ),
       ValueListenableBuilder<LifeState>(
+        key: const ValueKey('lifeState'),
         valueListenable: _life,
         builder: (context, life, _) {
           if (life == LifeState.ghost) {

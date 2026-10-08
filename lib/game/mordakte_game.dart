@@ -296,14 +296,23 @@ class MordakteGame extends Game with KeyboardEvents {
 
   @override
   void update(double dt) {
-    dt = dt.clamp(0.0, 0.05);
+    // Nur gegen Hänger begrenzen (wie die Engine mit 250 ms). Die eigene Figur
+    // läuft in Teilschritten ≤ 50 ms, damit sie auch bei < 20 fps volle
+    // Geschwindigkeit hat und die Wandkollision pro Schritt greift.
+    final frameDt = dt.clamp(0.0, 0.25);
+    dt = math.min(frameDt, 0.05);
     _lastDt = dt;
-    _time += dt;
+    _time += frameDt;
     _syncScenario();
     if (_scene == null) return;
     _ingestWorld();
     _syncCase();
-    _updatePlayer(dt);
+    var rem = frameDt;
+    do {
+      final s = math.min(rem, 0.05);
+      _updatePlayer(s);
+      rem -= s;
+    } while (rem > 1e-9);
     _updateTracks(dt);
     _updateCamera(dt);
     _updateTarget();
@@ -442,9 +451,8 @@ class MordakteGame extends Game with KeyboardEvents {
     // unsere letzten Moves bestätigt hat – sonst zieht ein Funkloch uns zurück.
     final w = _world;
     final unacked = _unackedSince;
-    final meTrusted = w != null &&
-        _time - _worldRecvT < 0.5 &&
-        (w.ackSeq == 0 || unacked == null || _time - unacked < 0.8);
+    final meTrusted =
+        w != null && _time - _worldRecvT < 0.5 && (w.ackSeq == 0 || unacked == null || _time - unacked < 0.8);
     if (!meTrusted) {
       _farTimer = 0;
       _followT = 0;
@@ -660,7 +668,10 @@ class MordakteGame extends Game with KeyboardEvents {
       final z = prop != null ? PropPainter.topZ(prop) : 0.0;
       final hx = h.x + 0.5, hy = h.y + 0.5;
       final d = dist(_px, _py, hx, hy);
-      consider(ActionTarget(id: h.id, label: label, kind: h.kind, x: hx, y: hy, z: z, name: h.name.resolve()), me.hidden ? math.min(d, range - 0.01) : d);
+      consider(
+        ActionTarget(id: h.id, label: label, kind: h.kind, x: hx, y: hy, z: z, name: h.name.resolve()),
+        me.hidden ? math.min(d, range - 0.01) : d,
+      );
     }
     if (me.hidden) return best;
     if (!ghost) {
@@ -676,7 +687,15 @@ class MordakteGame extends Game with KeyboardEvents {
           final nx = tr?.x ?? n.x, ny = tr?.y ?? n.y;
           final sus = s.suspectById[n.id];
           consider(
-            ActionTarget(id: n.id, label: 'Durchsuchen', kind: 'search', x: nx, y: ny, z: 0.2, name: sus?.name.resolve() ?? n.id),
+            ActionTarget(
+              id: n.id,
+              label: 'Durchsuchen',
+              kind: 'search',
+              x: nx,
+              y: ny,
+              z: 0.2,
+              name: sus?.name.resolve() ?? n.id,
+            ),
             dist(_px, _py, nx, ny),
           );
           continue;
@@ -685,7 +704,15 @@ class MordakteGame extends Game with KeyboardEvents {
         final nx = tr?.x ?? n.x, ny = tr?.y ?? n.y;
         final sus = s.suspectById[n.id];
         consider(
-          ActionTarget(id: n.id, label: 'Befragen', kind: 'npc', x: nx, y: ny, z: 1.5, name: sus?.name.resolve() ?? n.id),
+          ActionTarget(
+            id: n.id,
+            label: 'Befragen',
+            kind: 'npc',
+            x: nx,
+            y: ny,
+            z: 1.5,
+            name: sus?.name.resolve() ?? n.id,
+          ),
           dist(_px, _py, nx, ny),
           -0.05,
         );
@@ -710,7 +737,11 @@ class MordakteGame extends Game with KeyboardEvents {
           if (d.id == me.id || d.life != LifeState.downed) continue;
           final tr = _tracks['d:${d.id}'];
           final dx = tr?.x ?? d.x, dy = tr?.y ?? d.y;
-          consider(ActionTarget(id: d.id, label: 'Wiederbeleben', kind: 'revive', x: dx, y: dy, z: 0.4, name: d.name), dist(_px, _py, dx, dy), -0.3);
+          consider(
+            ActionTarget(id: d.id, label: 'Wiederbeleben', kind: 'revive', x: dx, y: dy, z: 0.4, name: d.name),
+            dist(_px, _py, dx, dy),
+            -0.3,
+          );
         }
       }
     }
@@ -730,14 +761,16 @@ class MordakteGame extends Game with KeyboardEvents {
       final o = Iso.toScreen(sh.x, sh.y);
       final n = (dt * 26).ceil();
       for (var i = 0; i < n && _smoke.length < 42; i++) {
-        _smoke.add(_Smoke(
-          o.dx + (_rnd.nextDouble() - 0.5) * 26,
-          o.dy - _rnd.nextDouble() * 10,
-          (_rnd.nextDouble() - 0.5) * 10,
-          -12 - _rnd.nextDouble() * 18,
-          0.9 + _rnd.nextDouble() * 0.9,
-          4 + _rnd.nextDouble() * 5,
-        ));
+        _smoke.add(
+          _Smoke(
+            o.dx + (_rnd.nextDouble() - 0.5) * 26,
+            o.dy - _rnd.nextDouble() * 10,
+            (_rnd.nextDouble() - 0.5) * 10,
+            -12 - _rnd.nextDouble() * 18,
+            0.9 + _rnd.nextDouble() * 0.9,
+            4 + _rnd.nextDouble() * 5,
+          ),
+        );
       }
     }
     for (var i = _smoke.length - 1; i >= 0; i--) {
@@ -763,10 +796,10 @@ class MordakteGame extends Game with KeyboardEvents {
       _flash = t < 0.07
           ? 1.0
           : t < 0.14
-              ? 0.25
-              : t < 0.22
-                  ? 0.85
-                  : math.max(0.0, 0.85 * (1 - (t - 0.22) / 0.5));
+          ? 0.25
+          : t < 0.22
+          ? 0.85
+          : math.max(0.0, 0.85 * (1 - (t - 0.22) / 0.5));
       if (t > 0.75) {
         _flashT = -1;
         _flash = 0;
@@ -810,7 +843,11 @@ class MordakteGame extends Game with KeyboardEvents {
     canvas.translate(size.x / 2, size.y * _camY);
     canvas.scale(_zoom);
     canvas.translate(-_cam.dx, -_cam.dy);
-    final view = Rect.fromCenter(center: _cam.translate(0, (0.5 - _camY) * size.y / _zoom), width: size.x / _zoom, height: size.y / _zoom);
+    final view = Rect.fromCenter(
+      center: _cam.translate(0, (0.5 - _camY) * size.y / _zoom),
+      width: size.x / _zoom,
+      height: size.y / _zoom,
+    );
     final cull = view.inflate(48);
 
     // 1) Böden
@@ -835,15 +872,20 @@ class MordakteGame extends Game with KeyboardEvents {
     final lightMode = phase == Phase.night
         ? LightMode.night
         : (phase == Phase.council || phase == Phase.accusation)
-            ? LightMode.council
-            : LightMode.day;
+        ? LightMode.council
+        : LightMode.day;
     _lighting!.render(
       canvas,
       view.inflate(4),
       mode: lightMode,
       darkness: lightMode == LightMode.night ? (1 - s.theme.nightAmbient).clamp(0.3, 0.97) : 0.42,
       lights: _lights(lightMode),
-      litRooms: lightMode == LightMode.day ? const [] : [for (final r in s.map.rooms) if (r.lit) r],
+      litRooms: lightMode == LightMode.day
+          ? const []
+          : [
+              for (final r in s.map.rooms)
+                if (r.lit) r,
+            ],
       glows: _glows(scene, cull, t),
       flash: _flash,
       dayTint: ((1 - s.theme.dayAmbient) * 0.55).clamp(0.0, 0.5),
@@ -972,7 +1014,11 @@ class MordakteGame extends Game with KeyboardEvents {
       final o = Iso.toScreen(h.x + 0.5, h.y + 0.5, z);
       if (!cull.contains(o)) continue;
       final seed = h.id.hashCode % 13;
-      items.add((h.x + h.y + 1.0 + (prop != null ? 0.01 : 0), 1, () => _markers!.hotspot(c, o, e.value, h.kind, _time, seed)));
+      items.add((
+        h.x + h.y + 1.0 + (prop != null ? 0.01 : 0),
+        1,
+        () => _markers!.hotspot(c, o, e.value, h.kind, _time, seed),
+      ));
     }
     // Items (Spuren: nur der Rauchfaden steht im Raum)
     for (final it in cv?.items ?? const <ItemView>[]) {
@@ -1014,7 +1060,11 @@ class MordakteGame extends Game with KeyboardEvents {
       final walk = isMe ? _walk : tr!.walk;
       final move = isMe ? _moveAmt : tr!.move;
       final ghost = d.life == LifeState.ghost;
-      items.add((x + y, 2, () => _drawDetective(c, o, look, facing, walk, move, ghost: ghost, hidden: d.hidden, isMe: isMe)));
+      items.add((
+        x + y,
+        2,
+        () => _drawDetective(c, o, look, facing, walk, move, ghost: ghost, hidden: d.hidden, isMe: isMe),
+      ));
     }
     // Schatten
     final sh = w?.shadow;
@@ -1023,10 +1073,14 @@ class MordakteGame extends Game with KeyboardEvents {
       final o = Iso.toScreen(st.x, st.y);
       if (cull.contains(o)) {
         final alpha = sh.mode == 'flee' ? 0.3 + 0.15 * math.sin(_time * 9) : 1.0;
-        items.add((st.x + st.y, 2, () {
-          _drawSmoke(c, alpha);
-          _fig.shadowFigure(c, o, _time, facing: st.facing, mode: sh.mode, alpha: alpha);
-        }));
+        items.add((
+          st.x + st.y,
+          2,
+          () {
+            _drawSmoke(c, alpha);
+            _fig.shadowFigure(c, o, _time, facing: st.facing, mode: sh.mode, alpha: alpha);
+          },
+        ));
       }
     }
     items.sort((a, b) {
@@ -1067,16 +1121,30 @@ class MordakteGame extends Game with KeyboardEvents {
     if (faded) c.restore();
   }
 
-  void _drawDetective(Canvas c, Offset o, FigureLook look, double facing, double walk, double move, {required bool ghost, required bool hidden, required bool isMe}) {
+  void _drawDetective(
+    Canvas c,
+    Offset o,
+    FigureLook look,
+    double facing,
+    double walk,
+    double move, {
+    required bool ghost,
+    required bool hidden,
+    required bool isMe,
+  }) {
     if (isMe && !ghost && !hidden) {
       // dezenter Ring unter dem eigenen Detektiv
       c.save();
       c.translate(o.dx, o.dy);
       Iso.applyGround(c);
-      c.drawCircle(Offset.zero, 0.36, Paint()
-        ..color = withAlpha(_pal.accent, 0.55)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 0.035);
+      c.drawCircle(
+        Offset.zero,
+        0.36,
+        Paint()
+          ..color = withAlpha(_pal.accent, 0.55)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 0.035,
+      );
       c.restore();
     }
     if (ghost) {
@@ -1092,7 +1160,15 @@ class MordakteGame extends Game with KeyboardEvents {
             0, 0, 0, 0.5, 0,
           ]),
       );
-      c.drawCircle(o.translate(0, -30 + float), 26, Paint()..shader = Gradient.radial(o.translate(0, -30 + float), 26, [const Color(0x557FA8FF), const Color(0x007FA8FF)]));
+      c.drawCircle(
+        o.translate(0, -30 + float),
+        26,
+        Paint()
+          ..shader = Gradient.radial(o.translate(0, -30 + float), 26, [
+            const Color(0x557FA8FF),
+            const Color(0x007FA8FF),
+          ]),
+      );
       _fig.standing(c, o.translate(0, float), look, facing: facing, walk: walk, moveAmt: move * 0.3, ghost: true);
       c.restore();
       return;
@@ -1171,7 +1247,8 @@ class MordakteGame extends Game with KeyboardEvents {
     final st = _tracks['shadow'];
     if (sh != null && st != null) {
       final o = Iso.toScreen(st.x, st.y);
-      if (cull.contains(o) && !_occluded(scene, Rect.fromCenter(center: o.translate(0, -51), width: 10, height: 6), st.x + st.y)) {
+      if (cull.contains(o) &&
+          !_occluded(scene, Rect.fromCenter(center: o.translate(0, -51), width: 10, height: 6), st.x + st.y)) {
         final alpha = sh.mode == 'flee' ? 0.35 : 1.0;
         _fig.shadowEyes(c, o, _time, facing: st.facing, mode: sh.mode, alpha: alpha);
       }
@@ -1181,7 +1258,9 @@ class MordakteGame extends Game with KeyboardEvents {
       for (final it in cv?.items ?? const <ItemView>[]) {
         if (it.type != 'trace') continue;
         final o = Iso.toScreen(it.x, it.y);
-        if (!cull.contains(o) || _occluded(scene, Rect.fromCenter(center: o, width: 8, height: 6), it.x + it.y)) continue;
+        if (!cull.contains(o) || _occluded(scene, Rect.fromCenter(center: o, width: 8, height: 6), it.x + it.y)) {
+          continue;
+        }
         _markers!.traceGlow(c, it.x, it.y, _time, it.id.hashCode % 7);
       }
     }
@@ -1197,10 +1276,14 @@ class MordakteGame extends Game with KeyboardEvents {
       c.save();
       c.translate(o.dx, o.dy);
       Iso.applyGround(c);
-      c.drawCircle(Offset.zero, 0.3 + ph * 0.6, Paint()
-        ..color = withAlpha(_pal.danger, (1 - ph) * 0.8)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 0.05);
+      c.drawCircle(
+        Offset.zero,
+        0.3 + ph * 0.6,
+        Paint()
+          ..color = withAlpha(_pal.danger, (1 - ph) * 0.8)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 0.05,
+      );
       c.restore();
     }
     // Pings
@@ -1220,10 +1303,14 @@ class MordakteGame extends Game with KeyboardEvents {
       c.translate(o.dx, o.dy);
       Iso.applyGround(c);
       final k = lp.age / 1.6;
-      c.drawCircle(Offset.zero, 0.2 + k * 1.1, Paint()
-        ..color = withAlpha(col, (1 - k) * 0.9)
-        ..style = PaintingStyle.stroke
-        ..strokeWidth = 0.06);
+      c.drawCircle(
+        Offset.zero,
+        0.2 + k * 1.1,
+        Paint()
+          ..color = withAlpha(col, (1 - k) * 0.9)
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 0.06,
+      );
       c.restore();
     }
   }
@@ -1248,6 +1335,17 @@ class MordakteGame extends Game with KeyboardEvents {
     // Namensschilder und Kanal-Ringe; merkt sich die Oberkante für Sprechblasen.
     final stackTop = <String, Offset>{};
     final placed = <Rect>[];
+    // Zielbeschriftung zuerst vermessen, damit Namensschilder darüber ausweichen
+    // statt vom Banner verdeckt zu werden (gezeichnet wird sie zuletzt).
+    final tg = target.value;
+    final tp = _targetPos;
+    Offset? targetAnchor;
+    if (tg != null && tp != null && !tg.isCancel && tg.kind != 'revive' && tg.name.isNotEmpty) {
+      final z = tg.kind == 'npc' ? 0.0 : tg.z;
+      final a = _toView(Iso.toScreen(tp.dx, tp.dy, z));
+      targetAnchor = a.translate(0, tg.kind == 'npc' ? -headPx - 10 : -18 * _zoom - 10);
+      placed.add(m.targetLabelRect(targetAnchor, tg.name).inflate(1));
+    }
     for (final d in w?.detectives ?? const <DetectiveView>[]) {
       final isMe = d.id == session.playerId;
       if (d.hidden && !isMe) continue;
@@ -1258,7 +1356,9 @@ class MordakteGame extends Game with KeyboardEvents {
       if (feet.dx < -60 || feet.dy < -60 || feet.dx > size.x + 60 || feet.dy > size.y + 100) continue;
       final down = d.life == LifeState.downed;
       final ghostLift = d.life == LifeState.ghost ? 8 * _zoom : 0.0;
-      var top = down ? feet.translate(0, -16 * _zoom) : feet.translate(0, -headPx - (d.hat == 'top' ? 12 : 4) * _zoom - ghostLift);
+      var top = down
+          ? feet.translate(0, -16 * _zoom)
+          : feet.translate(0, -headPx - (d.hat == 'top' ? 12 : 4) * _zoom - ghostLift);
       if (!isMe) {
         final col = parseHex(detectiveCoats[d.coat.abs() % detectiveCoats.length]) ?? _pal.accent;
         // Überlappende Schilder nach oben schieben.
@@ -1310,14 +1410,7 @@ class MordakteGame extends Game with KeyboardEvents {
       m.bubble(c, anchor, sg.kind, sg.value, alpha, pop);
     }
     // Zielbeschriftung
-    final tg = target.value;
-    final tp = _targetPos;
-    if (tg != null && tp != null && !tg.isCancel && tg.kind != 'revive' && tg.name.isNotEmpty) {
-      final z = tg.kind == 'npc' ? 0.0 : tg.z;
-      var anchor = _toView(Iso.toScreen(tp.dx, tp.dy, z));
-      anchor = anchor.translate(0, tg.kind == 'npc' ? -headPx - 10 : -18 * _zoom - 10);
-      m.targetLabel(c, anchor, tg.name, 1);
-    }
+    if (tg != null && targetAnchor != null) m.targetLabel(c, targetAnchor, tg.name, 1);
   }
 
   double _easeOutBack(double x) {

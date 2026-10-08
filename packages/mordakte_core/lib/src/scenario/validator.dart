@@ -227,6 +227,7 @@ ValidationReport validateScenario(ScenarioDef s) {
     }
     if (!LookDef.hats.contains(sus.look.hat)) err('Verdächtige ${sus.id}: Hut ${sus.look.hat} unbekannt');
     if (!LookDef.builds.contains(sus.look.build)) err('Verdächtige ${sus.id}: build ${sus.look.build} unbekannt');
+    if (!LookDef.outfits.contains(sus.look.outfit)) err('Verdächtige ${sus.id}: outfit ${sus.look.outfit} unbekannt');
   }
   final cands = s.candidates;
   if (cands.length < 2) err('Mindestens 2 Kandidaten nötig');

@@ -1,10 +1,10 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
 import '../../app/theme.dart';
+import '../haptics.dart';
 import 'game_context.dart';
 
 /// Einfache Draufsicht: Raster aus dem Szenario + Positionen aus dem Snapshot.
@@ -39,7 +39,7 @@ class MiniMap extends StatelessWidget {
                 if (g.cv.pingsLeft <= 0) return;
                 final x = (d.localPosition.dx / cell).clamp(0, mw - 0.01).toDouble();
                 final y = (d.localPosition.dy / cell).clamp(0, mh - 0.01).toDouble();
-                HapticFeedback.mediumImpact();
+                Haptics.medium();
                 g.send(Signal(kind: 'ping', value: 'ping', x: x, y: y));
                 onPinged?.call();
               }

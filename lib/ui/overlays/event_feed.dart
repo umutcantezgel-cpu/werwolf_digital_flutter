@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
 import '../../app/theme.dart';
 import '../../l10n/lookup.dart';
+import '../haptics.dart';
 import '../icons.dart';
 import 'game_context.dart';
 import 'toasts.dart';
@@ -13,13 +13,13 @@ enum Haptic { none, light, medium, heavy, selection }
 void haptic(Haptic h) {
   switch (h) {
     case Haptic.light:
-      HapticFeedback.lightImpact();
+      Haptics.light();
     case Haptic.medium:
-      HapticFeedback.mediumImpact();
+      Haptics.medium();
     case Haptic.heavy:
-      HapticFeedback.heavyImpact();
+      Haptics.heavy();
     case Haptic.selection:
-      HapticFeedback.selectionClick();
+      Haptics.selection();
     case Haptic.none:
       break;
   }
@@ -70,6 +70,8 @@ void showEventToast(GameEvent e, GameCtx g, ToastController toasts) {
       t(l.toast_combo(g.comboName(e.str('combo'))), Icons.hub_rounded, Noir.brassLight, Haptic.heavy);
     case Ev.comboFail:
       t(l.toast_combo_fail, Icons.link_off_rounded, Noir.smoke);
+    case Ev.comboKnown:
+      t(l.toast_combo_known(g.comboName(e.str('combo'))), Icons.hub_outlined, Noir.smoke);
     case Ev.dialogueRefused:
       final npc = g.npcName(e.str('npc'));
       final text = switch (e.str('reason')) {

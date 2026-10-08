@@ -691,6 +691,7 @@ class _HostConfig extends StatelessWidget {
             DropdownButtonFormField<String>(
               initialValue: cv.scenarioId,
               isExpanded: true,
+              hint: Text(l.lobby_pick_case, style: Noir.text(14.5, color: Noir.smoke)),
               dropdownColor: Noir.night3,
               style: Noir.text(14.5),
               items: [for (final id in ids) DropdownMenuItem(value: id, child: Text(scenarios[id]!.title.resolve()))],
@@ -786,33 +787,63 @@ class _BottomBar extends StatelessWidget {
         border: Border(top: BorderSide(color: Noir.lineSoft)),
       ),
       child: ContentWidth(
-        child: Row(
-          children: [
-            if (online) ...[
-              Expanded(
-                child: NoirButton(
-                  label: ready ? l.lobby_unready : l.lobby_set_ready,
-                  icon: ready ? Icons.close_rounded : Icons.check_rounded,
-                  style: NoirButtonStyle.secondary,
-                  onPressed: () => onReady(!ready),
-                ),
-              ),
-              const SizedBox(width: 12),
-            ],
-            Expanded(
-              flex: 2,
-              child: isHost
-                  ? NoirButton(
-                      label: l.lobby_start,
-                      icon: Icons.play_arrow_rounded,
-                      accent: accent,
-                      onPressed: canStart ? onStart : null,
-                    )
-                  : Center(
-                      child: Text(l.lobby_wait_host, style: Noir.text(13.5, color: Noir.smoke)),
+        child: LayoutBuilder(
+          builder: (context, box) {
+            final ready0 = online
+                ? NoirButton(
+                    label: ready ? l.lobby_unready : l.lobby_set_ready,
+                    icon: ready ? Icons.close_rounded : Icons.check_rounded,
+                    style: NoirButtonStyle.secondary,
+                    height: 46,
+                    onPressed: () => onReady(!ready),
+                  )
+                : null;
+            final start = isHost
+                ? NoirButton(
+                    label: l.lobby_start,
+                    icon: Icons.play_arrow_rounded,
+                    accent: accent,
+                    onPressed: canStart ? onStart : null,
+                  )
+                : Center(
+                    child: Text(l.lobby_wait_host, style: Noir.text(13.5, color: Noir.smoke)),
+                  );
+            // Gastgeber ohne Akte: sagen, warum „Ermittlung beginnen“ noch gesperrt ist.
+            final reason = isHost && !canStart
+                ? Padding(
+                    padding: const EdgeInsets.only(bottom: 8),
+                    child: Row(
+                      children: [
+                        const Icon(Icons.info_outline_rounded, size: 16, color: Noir.smoke),
+                        const SizedBox(width: 6),
+                        Expanded(
+                          child: Text(l.lobby_need_case, style: Noir.text(12.5, color: Noir.smoke)),
+                        ),
+                      ],
                     ),
-            ),
-          ],
+                  )
+                : null;
+            // Schmal (Handy): Bereit-Knopf in eigener Zeile, damit sein Text lesbar bleibt.
+            final stacked = ready0 != null && box.maxWidth < 480;
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                ?reason,
+                if (stacked) ...[
+                  ready0,
+                  const SizedBox(height: 10),
+                  SizedBox(height: 54, child: start),
+                ] else
+                  Row(
+                    children: [
+                      if (ready0 != null) ...[Expanded(child: ready0), const SizedBox(width: 12)],
+                      Expanded(flex: 2, child: SizedBox(height: 54, child: start)),
+                    ],
+                  ),
+              ],
+            );
+          },
         ),
       ),
     );

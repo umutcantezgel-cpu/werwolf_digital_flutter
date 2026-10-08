@@ -31,8 +31,16 @@ class PaperCard extends StatelessWidget {
   final BoxBorder? border;
   final double radius;
 
+  /// Unterkante der Büroklammer (Kartenkoordinaten) plus etwas Luft: Inhalt beginnt darunter.
+  static const double _clipClearance = 30;
+
   @override
   Widget build(BuildContext context) {
+    var inner = padding;
+    if (clip) {
+      final p = padding.resolve(Directionality.of(context));
+      if (p.top < _clipClearance) inner = p.copyWith(top: _clipClearance);
+    }
     Widget card = Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
@@ -50,7 +58,7 @@ class PaperCard extends StatelessWidget {
       ),
       child: CustomPaint(
         painter: _PaperPainter(ruled: ruled),
-        child: Padding(padding: padding, child: child),
+        child: Padding(padding: inner, child: child),
       ),
     );
     if (onTap != null) {
@@ -83,7 +91,7 @@ class PaperCard extends StatelessWidget {
                 ),
               ),
             ),
-          if (clip) const Positioned(top: -10, left: 18, child: PaperClip()),
+          if (clip) const Positioned(top: -14, left: 18, child: PaperClip()),
         ],
       );
     }
