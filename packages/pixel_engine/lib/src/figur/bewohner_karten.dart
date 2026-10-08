@@ -1,0 +1,422 @@
+import 'dart:math' as math;
+import 'dart:typed_data';
+
+import '../palette.dart';
+import '../raster/renderer.dart' show SpriteImage;
+import 'baker.dart';
+import 'figur.dart';
+
+/// Figurenkarten der Stadtbewohner aus ihrem Steckbrief (`bewohner.json`, Feld `aussehen`).
+///
+/// Verbindlich aus dem Datensatz: Name, Kleidungsstücke mit Farbe (Rampe/Stufe), Haarfarbe,
+/// Frisur-Art, Kopfbedeckungs-Art, Zubehör. Frei gewählt (erfunden) werden nur Größe, Statur,
+/// Hautton, die Variante von Frisur/Kopfbedeckung/Jacke/Rock, Bart, Schuhe und eine fehlende
+/// Hose. [bewohnerKarte] erzeugt zu jeder Varianten-Nummer eine andere freie Wahl; das Werkzeug
+/// `bin/bewohnerkarten.dart` nimmt je Figur die Variante, die allen anderen am wenigsten ähnelt.
+
+/// Rampen nach Namen (FORMAT-FIGUREN.md).
+const Map<String, int> kRampeNamen = {
+  'neutral': 0,
+  'stein': 1,
+  'holz': 2,
+  'rot': 3,
+  'bernstein': 4,
+  'grün': 5,
+  'blau': 6,
+  'haut': 7,
+};
+
+const _aussen = {'Mantel', 'Jacke', 'Kittel'};
+
+/// Material der Figurenkarte, das die Farbe des Kleidungsstücks [teil] trägt (alle Teile der
+/// Figur in [alle]). Ein Hemd unter Jacke, Mantel oder Kittel liegt auf `darunter`.
+String kleidungsMaterial(String teil, Set<String> alle) {
+  switch (teil) {
+    case 'Mantel' || 'Jacke' || 'Kittel' || 'Pullover' || 'Kleid' || 'Bluse':
+      return 'oberteil';
+    case 'Hemd':
+      return alle.any(_aussen.contains) ? 'darunter' : 'oberteil';
+    case 'Weste':
+      return 'weste';
+    case 'Rock' || 'Hose' || 'Overall':
+      return 'hose';
+    case 'Schürze':
+      return 'schuerze';
+    case 'Umhang' || 'Schal':
+      return 'schal';
+  }
+  throw ArgumentError('Kleidungsstück „$teil“ unbekannt');
+}
+
+/// Haarfarbe aus dem Steckbrief → Material (nie [0,1], das ist die Augenfarbe).
+const Map<String, Material> kHaarfarben = {
+  'grau': Material(0, 5),
+  'weiß': Material(0, 7),
+  'braun': Material(2, 3),
+  'rot': Material(3, 4),
+  'blond': Material(4, 6),
+  'schwarz': Material(0, 2),
+};
+
+const _frisurenM = {
+  'kurz': ['frisur-kurz', 'frisur-kurz-seitenscheitel', 'frisur-kurz-wuschel', 'frisur-igel', 'frisur-stoppel', 'frisur-nackenlang'],
+  'lang': ['frisur-nackenlang', 'frisur-lang-glatt', 'frisur-undercut-lang'],
+  'locken': ['frisur-locken-kurz', 'frisur-locken'],
+  'kraus': ['frisur-kraus-kurz', 'frisur-locken-kurz'],
+  'glatze': ['frisur-haarkranz', 'frisur-glatze-seiten'],
+};
+const _frisurenW = {
+  'kurz': ['frisur-bob', 'frisur-kinnlang', 'frisur-pagenkopf', 'frisur-kurz-wuschel'],
+  'lang': ['frisur-lang-glatt', 'frisur-lang-wellig', 'frisur-lang'],
+  'locken': ['frisur-locken-lang', 'frisur-locken'],
+  'kraus': ['frisur-kraus-kurz', 'frisur-locken-kurz'],
+  'glatze': ['frisur-haarkranz', 'frisur-glatze-seiten'],
+};
+const _frisurenAlle = {
+  'dutt': ['frisur-dutt', 'frisur-hochsteck', 'frisur-knoten-tief'],
+  'zopf': ['frisur-zopf', 'frisur-zwei-zoepfe', 'frisur-zopf-kranz', 'frisur-pferdeschwanz'],
+};
+
+const _baerte = [null, null, 'bart-kurz', 'bart-schnurr', 'bart-voll', 'bart-walross', 'bart-kinnbart', 'bart-dreitage'];
+const _kopfFarben = [Material(3, 3), Material(6, 2), Material(0, 3), Material(2, 2), Material(4, 4), Material(1, 3), Material(3, 5), Material(6, 4)];
+const _haubenFarben = [Material(0, 6), Material(4, 6), Material(6, 5), Material(7, 7)];
+const _hosen = [Material(0, 2), Material(1, 3), Material(0, 3), Material(6, 1), Material(1, 2)];
+const _hemden = [Material(0, 6), Material(4, 6), Material(6, 5), Material(0, 5), Material(1, 6)];
+const _akzente = [Material(0, 5), Material(4, 5), Material(0, 6), Material(1, 5)];
+const _taschen = [Material(1, 3), Material(2, 3), Material(3, 2), Material(6, 2)];
+
+/// Schuhe der Bewohner: nie Schaftstiefel, nie braun (Wanderstiefel-Anmutung nur R03/R04).
+const _schuhe = <(String?, Material)>[
+  (null, Material(0, 2)),
+  (null, Material(1, 2)),
+  ('schuhe-arbeitsschuhe', Material(0, 2)),
+  ('schuhe-arbeitsschuhe', Material(1, 3)),
+  ('schuhe-gummistiefel', Material(6, 2)),
+  (null, Material(3, 2)),
+];
+
+const _uniformBerufe = ['Pförtner', 'Ratsdiener', 'Briefträger', 'Wärter'];
+
+/// Zubehör aus dem Steckbrief → Teil (nicht jedes Zubehör hat eine sichtbare Form).
+const Map<String, String> kZubehoerTeile = {
+  'Notizbuch': 'notizbuch',
+  'Taschenuhr': 'taschenuhr-kette',
+  'Gehstock': 'gehstock',
+  'Brille': 'brille',
+  'Lesebrille': 'brille',
+  'Laterne': 'laterne',
+  'Regenschirm': 'regenschirm-zu',
+  'Nähkorb': 'korb',
+  'Häkelbeutel': 'korb',
+  'Eimer': 'korb',
+  'Gießkanne': 'korb',
+  'Strickzeug': 'korb',
+  'Arzttasche': 'werkzeugtasche',
+  'Umhängetasche': 'umhaengetasche',
+  'Aktenmappe': 'umhaengetasche',
+  'Notenmappe': 'umhaengetasche',
+  'Samtbeutel': 'umhaengetasche',
+  'Hutschachtel': 'umhaengetasche',
+  'Zange': 'guertel-tasche',
+  'Abisolierzange': 'guertel-tasche',
+  'Zollstock': 'guertel-tasche',
+  'Winkelmaß': 'guertel-tasche',
+  'Glasschneider': 'guertel-tasche',
+  'Ahle': 'guertel-tasche',
+  'Drechseleisen': 'guertel-tasche',
+  'Falzbein': 'guertel-tasche',
+  'Maßband': 'guertel-tasche',
+  'Garnrolle': 'guertel-tasche',
+  'Skizzenbuch': 'buch',
+  'Kassenbuch': 'buch',
+  'Aktenordner': 'buch',
+  'Klemmbrett': 'buch',
+  'Ladeliste': 'buch',
+};
+
+class _Zufall {
+  int _s;
+  _Zufall(int seed) : _s = (seed * 2654435761 + 0x9E3779B9) & 0x7FFFFFFF;
+  int naechste(int n) {
+    _s = (_s * 1103515245 + 12345) & 0x7FFFFFFF;
+    return (_s >> 8) % n;
+  }
+
+  T waehle<T>(List<T> l) => l[naechste(l.length)];
+  double zwischen(double a, double b) => a + (b - a) * naechste(1001) / 1000;
+}
+
+/// Figurenkarte für den Bewohner [b] (Eintrag aus `bewohner.json`) in der freien Variante [variante].
+Figurenkarte bewohnerKarte(Map<String, dynamic> b, int variante) {
+  final id = b['id'] as String;
+  final nr = int.tryParse(id.substring(1)) ?? 0;
+  final z = _Zufall(nr * 7919 + variante * 104729);
+  final a = b['aussehen'] as Map<String, dynamic>;
+  final mann = b['geschlecht'] == 'm';
+  final alter = (b['alter'] as num).toInt();
+  final beruf = b['beruf'] as String? ?? '';
+  final mats = <String, Material>{};
+  final teile = <String>[];
+
+  // Körper (erfunden)
+  final groesse = (mann ? z.zwischen(1.66, 1.90) : z.zwischen(1.55, 1.76)) - (alter >= 75 ? 0.04 : 0);
+  final breite = z.zwischen(0.86, 1.24);
+  final kopf = z.zwischen(0.94, 1.06);
+  mats['haut'] = Material(7, 3 + z.naechste(4));
+
+  // Haar
+  final haar = a['haar'] as String;
+  final frisur = a['frisur'] as String;
+  final hm = kHaarfarben[haar];
+  if (hm != null) mats['haar'] = hm;
+  if (haar == 'keins' || hm == null) {
+    teile.add('frisur-glatze');
+  } else {
+    final liste = _frisurenAlle[frisur] ?? (mann ? _frisurenM : _frisurenW)[frisur] ?? const ['frisur-kurz'];
+    teile.add(z.waehle(liste));
+    if (mann && alter >= 25) {
+      final bart = z.waehle(_baerte);
+      if (bart != null) {
+        teile.add(bart);
+        mats['bart'] = hm;
+      }
+    }
+  }
+
+  // Kopfbedeckung
+  switch (a['kopf'] as String?) {
+    case 'mütze':
+      teile.add(z.waehle(const ['kopf-muetze', 'kopf-wollmuetze-bommel', 'kopf-schiebermuetze']));
+      mats['kopfbedeckung'] = z.waehle(_kopfFarben);
+    case 'hut':
+      teile.add(z.waehle(const ['kopf-hut', 'kopf-filzhut']));
+      mats['kopfbedeckung'] = z.waehle(_kopfFarben);
+    case 'haube':
+      teile.add(beruf.contains('Bäck') ? 'kopf-haube-baeckerin' : 'kopf-haube');
+      mats['kopfbedeckung'] = beruf.contains('Bäck') ? const Material(0, 7) : z.waehle(_haubenFarben);
+  }
+
+  // Kleidung (Farben verbindlich)
+  final kleidung = [for (final k in a['kleidung'] as List) k as Map<String, dynamic>];
+  final alle = {for (final k in kleidung) k['teil'] as String};
+  for (final k in kleidung) {
+    final teil = k['teil'] as String;
+    final m = Material(kRampeNamen[k['rampe']]!, (k['stufe'] as num).toInt());
+    mats[kleidungsMaterial(teil, alle)] = m;
+    switch (teil) {
+      case 'Mantel':
+        teile.add('oberteil-mantel');
+      case 'Jacke':
+        teile.add(_uniformBerufe.any(beruf.contains)
+            ? 'oberteil-uniformjacke'
+            : z.waehle(const ['oberteil-arbeitsjacke', 'oberteil-strickjacke']));
+      case 'Kittel':
+        teile.add('kittel-oberteil');
+      case 'Pullover':
+        teile.add('oberteil-strickpulli-rolli');
+      case 'Bluse':
+        teile.add('oberteil-bluse-rueschen');
+        mats['darunter'] = m;
+      case 'Hemd':
+        teile.add('oberteil-hemdkragen');
+        mats.putIfAbsent('darunter', () => m);
+      case 'Weste':
+        teile.add('oberteil-weste');
+      case 'Kleid':
+        teile.add('unterteil-kleid');
+      case 'Rock':
+        teile.add(alter >= 55 ? z.waehle(const ['unterteil-rock', 'rock-lang-weit']) : 'unterteil-rock');
+      case 'Overall':
+        teile.add('latz-vorn');
+      case 'Schürze':
+        teile.add('schuerze-vorn');
+      case 'Umhang':
+        teile.add('umhang-tuch');
+      case 'Schal':
+        teile.add('schal');
+    }
+  }
+  // Weste ohne Hemd im Datensatz: Hemd darunter (erfunden)
+  if (!mats.containsKey('oberteil')) mats['oberteil'] = z.waehle(_hemden);
+  // Hemd unter Jacke/Mantel/Kittel: Kragen in Hemdfarbe (oben gesetzt), sonst hell
+  if (!mats.containsKey('darunter')) mats['darunter'] = const Material(0, 6);
+  // Fehlende Hose (erfunden), nie gleich dem Oberteil
+  if (!mats.containsKey('hose') && !alle.contains('Kleid')) {
+    final ober = mats['oberteil'];
+    final frei = [for (final h in _hosen) if (ober == null || h.rampe != ober.rampe || h.stufe != ober.stufe) h];
+    mats['hose'] = z.waehle(frei);
+  }
+  // Schuhe (erfunden): nie Schaftstiefel, nie braun
+  final (schuhTeil, schuhFarbe) = z.waehle(_schuhe);
+  if (schuhTeil != null) teile.add(schuhTeil);
+  mats['schuhe'] = schuhFarbe;
+  mats['akzent'] = z.waehle(_akzente);
+  mats['tasche'] = z.waehle(_taschen);
+  if (alle.contains('Kleid') || alle.contains('Rock')) mats['strumpf'] = mats['haut']!;
+
+  // Zubehör (eine Hand je Teil; doppelte weglassen)
+  for (final s in a['zubehoer'] as List? ?? const []) {
+    final t = kZubehoerTeile[s];
+    if (t != null && !teile.contains(t)) teile.add(t);
+  }
+  return Figurenkarte(
+    id: id,
+    name: b['name'] as String,
+    groesse: (groesse * 100).round() / 100,
+    breite: (breite * 100).round() / 100,
+    kopf: (kopf * 100).round() / 100,
+    materialien: mats,
+    teile: teile,
+  );
+}
+
+/// Statur-Klassen der Rollen (`rollen.json`, Feld `statur`, erfunden) → Spanne des Breitenfaktors.
+const Map<String, (double, double)> kStaturBreite = {
+  'schmal': (0.86, 0.95),
+  'normal': (0.96, 1.06),
+  'kräftig': (1.10, 1.24),
+};
+
+/// Variante einer Rollenkarte: Kanon-Farben, Kleidung und Größe bleiben; frei sind nur die
+/// Breite innerhalb der Statur-Klasse und die Kopfgröße (±6 %). Variante 0 = unverändert.
+Figurenkarte rollenVariante(Figurenkarte k, String statur, int variante) {
+  if (variante == 0) return k;
+  final nr = int.tryParse(k.id.substring(1)) ?? 0;
+  final z = _Zufall(nr * 3571 + variante * 7727 + 99);
+  final (b0, b1) = kStaturBreite[statur] ?? (0.9, 1.15);
+  return Figurenkarte(
+    id: k.id,
+    name: k.name,
+    groesse: k.groesse,
+    breite: (z.zwischen(b0, b1) * 100).round() / 100,
+    kopf: (z.zwischen(0.94, 1.06) * 100).round() / 100,
+    materialien: k.materialien,
+    teile: k.teile,
+  );
+}
+
+/// Karte als JSON (eine Zeile, Format von `karten.json`).
+Map<String, dynamic> karteAlsJson(Figurenkarte k) => {
+      'id': k.id,
+      'name': k.name,
+      'groesse': k.groesse,
+      'breite': k.breite,
+      'kopf': k.kopf,
+      'materialien': {for (final e in k.materialien.entries) e.key: [e.value.rampe, e.value.stufe]},
+      'teile': k.teile,
+    };
+
+/// Sichtvergleich zweier Figuren nach dem Maß der Sichtprüfer (A-605): Silhouetten-Überlappung
+/// (IoU) vorne und seitlich, Farbabstand je Zone vorne (Haar/Kopfbedeckung, Gesicht, Oberkörper,
+/// Hüfte, Beine) – Menschen unterscheiden Figuren gerade an Haar, Hut und Oberteil.
+/// Obere Grenzen der Farbzonen als Anteil der Figurenhöhe (von oben).
+const kZonen = [0.0, 0.10, 0.20, 0.45, 0.62];
+
+class Figurenbild {
+  final List<SpriteImage> ansichten; // vorne, seitlich
+  late final List<Uint32List> _masken = [for (final s in ansichten) _maske(s)];
+  late final List<int> _flaechen = [for (final m in _masken) _bits(m)];
+  late final List<List<double>> _zonen = _zonenFarben(ansichten.first);
+
+  Figurenbild(this.ansichten);
+
+  factory Figurenbild.backe(FigurBaker baker, Figurenkarte k) {
+    final stehen = kAnimationen['stehen']!.first;
+    return Figurenbild([baker.backeEinzel(k, stehen, 0), baker.backeEinzel(k, stehen, 2)]);
+  }
+
+  static Uint32List _maske(SpriteImage s) {
+    final m = Uint32List((s.pixels.length + 31) >> 5);
+    for (var i = 0; i < s.pixels.length; i++) {
+      if (s.pixels[i] != kTransparent) m[i >> 5] |= 1 << (i & 31);
+    }
+    return m;
+  }
+
+  static final Uint8List _zaehl16 = () {
+    final t = Uint8List(65536);
+    for (var i = 1; i < 65536; i++) {
+      t[i] = (i & 1) + t[i >> 1];
+    }
+    return t;
+  }();
+
+  static int _bits(Uint32List m) {
+    var n = 0;
+    for (final w in m) {
+      n += _zaehl16[w & 0xFFFF] + _zaehl16[w >> 16];
+    }
+    return n;
+  }
+
+  static List<List<double>> _zonenFarben(SpriteImage s) {
+    var y0 = s.height, y1 = 0;
+    for (var y = 0; y < s.height; y++) {
+      for (var x = 0; x < s.width; x++) {
+        if (s.pixels[y * s.width + x] != kTransparent) {
+          y0 = math.min(y0, y);
+          y1 = math.max(y1, y);
+        }
+      }
+    }
+    final h = math.max(1, y1 - y0 + 1);
+    // Zonen: Haar/Kopfbedeckung, Gesicht, Oberkörper, Hüfte/Hände, Beine
+    final grenzen = [for (final f in kZonen) y0 + h * f, y1 + 1.0];
+    final out = <List<double>>[];
+    for (var zone = 0; zone < kZonen.length; zone++) {
+      var r = 0.0, g = 0.0, b = 0.0, n = 0;
+      for (var y = grenzen[zone].ceil(); y < grenzen[zone + 1]; y++) {
+        for (var x = 0; x < s.width; x++) {
+          final p = s.pixels[y * s.width + x];
+          if (p == kTransparent) continue;
+          r += paletteR(p);
+          g += paletteG(p);
+          b += paletteB(p);
+          n++;
+        }
+      }
+      out.add(n == 0 ? [0, 0, 0] : [r / n, g / n, b / n]);
+    }
+    return out;
+  }
+}
+
+class Aehnlichkeit {
+  /// Mittlere Silhouetten-Überlappung (vorne, seitlich), 0…1.
+  final double iou;
+
+  /// Größter Farbabstand (RGB, euklidisch) der Zonen ([kZonen]).
+  final double farbe;
+  const Aehnlichkeit(this.iou, this.farbe);
+
+  /// Verwechselbar im Sinne der Sichtprüfung: fast gleiche Silhouette und kein deutlicher Farbunterschied.
+  bool get verwechselbar => iou >= 0.84 && farbe <= 46;
+
+  /// Je größer, desto ähnlicher (für die Variantenwahl).
+  double get wert => iou - farbe / 120;
+
+  @override
+  String toString() => 'IoU ${iou.toStringAsFixed(2)} · Farbabstand ${farbe.toStringAsFixed(0)}';
+}
+
+Aehnlichkeit vergleiche(Figurenbild a, Figurenbild b) {
+  var iou = 0.0;
+  for (var v = 0; v < a.ansichten.length; v++) {
+    final ma = a._masken[v], mb = b._masken[v];
+    var schnitt = 0;
+    for (var i = 0; i < ma.length && i < mb.length; i++) {
+      final w = ma[i] & mb[i];
+      schnitt += Figurenbild._zaehl16[w & 0xFFFF] + Figurenbild._zaehl16[w >> 16];
+    }
+    final vereint = a._flaechen[v] + b._flaechen[v] - schnitt;
+    iou += vereint == 0 ? 1 : schnitt / vereint;
+  }
+  iou /= a.ansichten.length;
+  var farbe = 0.0;
+  for (var zone = 0; zone < kZonen.length; zone++) {
+    final p = a._zonen[zone], q = b._zonen[zone];
+    final d = math.sqrt((p[0] - q[0]) * (p[0] - q[0]) + (p[1] - q[1]) * (p[1] - q[1]) + (p[2] - q[2]) * (p[2] - q[2]));
+    farbe = math.max(farbe, d);
+  }
+  return Aehnlichkeit(iou, farbe);
+}

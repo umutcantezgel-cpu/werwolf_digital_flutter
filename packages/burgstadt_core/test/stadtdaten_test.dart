@@ -234,6 +234,7 @@ void main() {
         expect(k['rampe'], isNot('grün'), reason: '$id: grüne Kleidung');
         expect(k['stufe'], isA<int>(), reason: '$id: Stufe');
         expect(k['stufe'] as int, inInclusiveRange(0, 7), reason: '$id: Stufe außerhalb 0-7');
+        expect(k['rampe'] == 'neutral' && k['stufe'] == 1, isFalse, reason: '$id: Neutral 1 ist die Augenfarbe');
       }
       expect(aussehen['zubehoer'], isA<List<dynamic>>(), reason: '$id: Zubehör');
     }

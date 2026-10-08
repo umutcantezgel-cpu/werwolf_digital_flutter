@@ -194,6 +194,7 @@ const Map<String, String> kMaterialErsatz = {
   'kopfbedeckung': 'akzent',
   'tasche': 'akzent',
   'schal': 'akzent',
+  'schuerze': 'akzent',
   'strumpf': 'haut',
 };
 

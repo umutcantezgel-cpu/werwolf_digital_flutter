@@ -12,7 +12,7 @@ const _formen = {'ellipsoid', 'quader', 'zylinder'};
 /// Materialnamen aus FORMAT-FIGUREN.md (bekannte und feste Namen).
 const _materialien = {
   'haut', 'haar', 'bart', 'oberteil', 'darunter', 'weste', 'aermel', 'unterarm', 'hose', 'unterbein',
-  'strumpf', 'schuhe', 'akzent', 'kopfbedeckung', 'schal', 'tasche', 'brille', 'papier', 'laterne', 'handy',
+  'strumpf', 'schuhe', 'akzent', 'kopfbedeckung', 'schal', 'schuerze', 'tasche', 'brille', 'papier', 'laterne', 'handy',
   'metall',
 };
 

@@ -25,7 +25,7 @@ entstehen automatisch.
 - `form`: `ellipsoid` | `quader` | `zylinder` (Achse y). `groesse` = Halbachsen. `dreh` optional (Grad x, y, z).
 - `art`: `frisur` | `gesicht` | `oberteil` | `unterteil` | `schuhe` | `kopf` | `zubehoer`.
 - `material`: Name; die Figurenkarte ordnet Namen Rampe/Stufe zu. Bekannte Namen: haut, haar, bart, oberteil,
-  darunter, weste, aermel, unterarm, hose, unterbein, strumpf, schuhe, akzent, kopfbedeckung, schal, tasche,
+  darunter, weste, aermel, unterarm, hose, unterbein, strumpf, schuhe, akzent, kopfbedeckung, schal, schuerze, tasche,
   sowie feste: brille, papier, laterne, handy, metall. Fehlende Namen fallen zurück (`kMaterialErsatz`).
 - `umleitung`: ersetzt Materialnamen des Körpers (z. B. kurze Ärmel `unterarm → haut`, Rock `unterbein → strumpf`).
 

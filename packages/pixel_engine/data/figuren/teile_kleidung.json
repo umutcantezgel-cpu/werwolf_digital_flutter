@@ -150,5 +150,21 @@
 ]},
 {"id":"kuehlpack","art":"zubehoer","koerper":[
  {"form":"quader","knochen":"handL","mitte":[-0.04,-0.04,0.12],"groesse":[0.04,0.055,0.014],"material":"papier"}
-]}
+]},
+{"id":"kittel-oberteil","art":"oberteil","koerper":[
+ {"form":"ellipsoid","knochen":"rumpf","mitte":[0,0.22,0],"groesse":[0.18,0.28,0.12],"material":"oberteil"},
+ {"form":"ellipsoid","knochen":"becken","mitte":[0,-0.15,0],"groesse":[0.2,0.31,0.135],"material":"oberteil"},
+ {"form":"quader","knochen":"rumpf","mitte":[0,0.2,0.128],"groesse":[0.012,0.22,0.012],"material":"akzent"}]},
+{"id":"schuerze-vorn","art":"zubehoer","koerper":[
+ {"form":"quader","knochen":"becken","mitte":[0,-0.2,0.122],"groesse":[0.14,0.28,0.02],"material":"schuerze"},
+ {"form":"quader","knochen":"rumpf","mitte":[0,0.17,0.117],"groesse":[0.075,0.18,0.02],"material":"schuerze"},
+ {"form":"quader","knochen":"rumpf","mitte":[-0.08,0.42,0.09],"groesse":[0.012,0.07,0.01],"material":"schuerze"},
+ {"form":"quader","knochen":"rumpf","mitte":[0.08,0.42,0.09],"groesse":[0.012,0.07,0.01],"material":"schuerze"}]},
+{"id":"latz-vorn","art":"zubehoer","koerper":[
+ {"form":"quader","knochen":"rumpf","mitte":[0,0.13,0.115],"groesse":[0.11,0.12,0.012],"material":"hose"},
+ {"form":"quader","knochen":"rumpf","mitte":[-0.075,0.36,0.1],"groesse":[0.014,0.12,0.01],"material":"hose"},
+ {"form":"quader","knochen":"rumpf","mitte":[0.075,0.36,0.1],"groesse":[0.014,0.12,0.01],"material":"hose"}]},
+{"id":"rock-lang-weit","art":"unterteil","koerper":[
+ {"form":"ellipsoid","knochen":"becken","mitte":[0,-0.27,0],"groesse":[0.2,0.4,0.155],"material":"hose"}],
+ "umleitung":{"unterbein":"strumpf"}}
 ]}

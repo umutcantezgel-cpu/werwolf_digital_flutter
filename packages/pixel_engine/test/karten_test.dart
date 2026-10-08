@@ -70,6 +70,59 @@ void main() {
     }
   });
 
+  test('Braune Schaftstiefel (Wanderstiefel-Anmutung) nur bei R03 und R04 (Sichtprüfung A-605)', () {
+    final braun = [
+      for (final k in karten)
+        if (k.teile.contains('schuhe-stiefel') && k.materialien['schuhe']?.rampe == 2) k.id,
+    ];
+    expect(braun, ['R03', 'R04']);
+    for (final k in karten.where((k) => RegExp(r'^B\d').hasMatch(k.id))) {
+      expect(k.teile, isNot(contains('schuhe-stiefel')), reason: k.id);
+      expect(k.materialien['schuhe']!.rampe, isNot(2), reason: '${k.id}: braune Schuhe');
+    }
+  });
+
+  test('Bewohner: jedes Kleidungsstück aus bewohner.json trägt genau seine Farbe', () {
+    final bewohner = (_lies('../burgstadt_core/data/stadt/bewohner.json')['bewohner'] as List).cast<Map<String, dynamic>>();
+    final nach = {for (final k in karten) k.id: k};
+    for (final b in bewohner) {
+      final k = nach[b['id']]!;
+      final kleidung = ((b['aussehen'] as Map)['kleidung'] as List).cast<Map<String, dynamic>>();
+      final alle = {for (final x in kleidung) x['teil'] as String};
+      for (final x in kleidung) {
+        final m = k.materialien[kleidungsMaterial(x['teil'] as String, alle)];
+        expect([m?.rampe, m?.stufe], [kRampeNamen[x['rampe']], x['stufe']], reason: '${k.id}: ${x['teil']}');
+      }
+      final haar = kHaarfarben[(b['aussehen'] as Map)['haar']];
+      if (haar != null) expect([k.materialien['haar']!.rampe, k.materialien['haar']!.stufe], [haar.rampe, haar.stufe], reason: '${k.id}: Haar');
+    }
+  });
+
+  test('Keine Laken-/Gespenst-Anmutung bei Bewohnern: kein Nachthemd, Morgenmantel, keine Kapuze', () {
+    for (final k in karten.where((k) => RegExp(r'^B\d').hasMatch(k.id))) {
+      for (final t in ['oberteil-nachthemd', 'oberteil-morgenmantel', 'kopf-kapuze', 'oberteil-poncho']) {
+        expect(k.teile, isNot(contains(t)), reason: k.id);
+      }
+    }
+  });
+
+  test('Unterscheidbarkeit nach dem Maß der Sichtprüfer: kein Paar mit IoU ≥ 0,84 und Farbabstand ≤ 46', () {
+    // Geprüfte Ausnahme (Kanon-Farben, beide Sichtprüfer A-605 ohne Befund): grüne Strickjacke und
+    // braunes Haar gegen dunkelblaues Oberteil und blondes Haar – das Maß unterschätzt Farbtöne im Dunkeln.
+    const ausnahmen = {'R03|R05'};
+    final bilder = [for (final k in karten) Figurenbild.backe(baker, k)];
+    final befunde = <String>[];
+    for (var i = 0; i < karten.length; i++) {
+      for (var j = i + 1; j < karten.length; j++) {
+        final a = vergleiche(bilder[i], bilder[j]);
+        if (a.verwechselbar && !ausnahmen.contains('${karten[i].id}|${karten[j].id}')) {
+          befunde.add('${karten[i].id} ≈ ${karten[j].id}: $a');
+        }
+      }
+    }
+    expect(befunde, isEmpty, reason: befunde.join('\n'));
+  });
+
   test('Keine Materialien auf [0,1] (Augenfarbe liegt auf Rampe 0 Stufe 1)', () {
     for (final k in karten) {
       for (final e in k.materialien.entries) {
