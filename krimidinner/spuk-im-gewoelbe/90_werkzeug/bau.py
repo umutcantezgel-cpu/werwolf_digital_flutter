@@ -752,6 +752,29 @@ def fuelle(text, werte):
     return re.sub(r"\{\{([A-Z_]+)\}\}", ersetze, text)
 
 
+def reparaturauftrag(kennung, runde):
+    """Abschnitt 11 für Runde >= 1: Fundstellen der letzten Abnahme, bei REPARIEREN dazu die bisherige Fassung."""
+    abn = os.path.join(ROOT, "50_abnahmen", f"{kennung}.r{runde - 1}.md")
+    if not os.path.exists(abn):
+        raise BauFehler(f"Abnahme {os.path.relpath(abn, ROOT)} fehlt; ohne sie gibt es keinen Reparaturauftrag")
+    abnahme = open(abn, encoding="utf-8").read().strip()
+    neu = re.search(r"Urteil:\s*NEU", abnahme) is not None
+    teile = [f"\n## 11. Reparaturauftrag (Runde {runde})"]
+    if neu:
+        teile.append("Die letzte Fassung wurde verworfen (Urteil NEU). Schreibe das Paket vollständig neu nach den Abschnitten 1 bis 10. "
+                     "Vermeide dabei ausdrücklich jede der folgenden Fundstellen:")
+        teile.append(abnahme)
+    else:
+        rueck = os.path.join(ROOT, "40_rueckgaben", f"{kennung}.r{runde - 1}.md")
+        if not os.path.exists(rueck):
+            raise BauFehler(f"Rückgabe {os.path.relpath(rueck, ROOT)} fehlt")
+        teile.append("Die letzte Fassung ist fast fertig (Urteil REPARIEREN). Korrigiere genau die Fundstellen der Abnahme und übernimm alles andere "
+                     "wortgleich. Gib danach die vollständige, korrigierte Fassung aus (nicht nur die Änderungen), mit Selbstprüfung und Endmarke.")
+        teile.append("### Abnahme der letzten Fassung\n" + abnahme)
+        teile.append("### Deine letzte Fassung\n" + open(rueck, encoding="utf-8").read().strip())
+    return "\n".join(teile)
+
+
 def baue(kennung, runde=0, zielordner=PAKETE):
     pl = plan()
     if kennung not in pl:
@@ -797,6 +820,8 @@ def baue(kennung, runde=0, zielordner=PAKETE):
     teile.append("\n## 9. Selbstprüfung (am Ende deiner Ausgabe ausfüllen)\n" + fuelle(v["SELBSTPRUEFUNG"], werte))
     teile.append("\n## 10. Endmarke\nDie letzte Zeile deiner Ausgabe lautet exakt:\n=== ENDE " + kennung +
                  " · BEREIT ZUR RÜCKGABE ===\nReicht der Platz nicht, hörst du an einer Feldgrenze auf mit:\n=== UNTERBROCHEN BEI [Feld] · WEITER MIT „weiter“ ===")
+    if runde > 0:
+        teile.append(reparaturauftrag(kennung, runde))
     text = "\n".join(teile) + "\n"
     if not loes and "[L]" in text:
         raise BauFehler("Lösungsmarke [L] im Paket ohne Lösung")

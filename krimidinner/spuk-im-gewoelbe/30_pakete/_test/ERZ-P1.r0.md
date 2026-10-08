@@ -1,4 +1,4 @@
-ERZ-P1 · SCHREIB · Welle 2 · Kanon v0.9 · erwarteter Umfang 750–1.100 Wörter
+ERZ-P1 · SCHREIB · Welle 2 · Kanon v1.0 · erwarteter Umfang 750–1.100 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -12,11 +12,11 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 1. [K-001] (öffentlich)
    - Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist eine renovierte mittelalterliche Höhenburg im Oberharz über dem erfundenen Bergstädtchen Silberhau (SIL-ber-hau). Sie gehört einer Stiftung; Burgwart ist Eckehard Lüddecke.
 2. [K-002] (öffentlich)
-   - Tatsache: Es ist ein Samstag im November. Klarer Himmel, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
+   - Tatsache: Es ist ein Samstag im November. Über der Burg ist der Himmel klar, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Im Tal um Silberhau und auf dem unteren Burgweg liegt dichter Eisnebel (Inversionswetterlage), die Straße ist spiegelglatt. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
 3. [K-003] (öffentlich)
    - Tatsache: Das Kamin-Gewölbe (Festsaal im Keller) hat drei Türen: die Turmtür zum Fuß des Wendeltreppenturms, den Kellerhals (Treppe hinauf in den Hof) und die alte Eichentür zur Speisekammer.
 4. [K-004] (öffentlich)
-   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut beim Öffnen und beim Schließen. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
+   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut, sobald man sie aufzieht; ihr Zufallen hört man kaum. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
 5. [K-005] (öffentlich)
    - Tatsache: Der Wendeltreppenturm verbindet alle Ebenen. Unten am Turm-Fuß: Turmtür zum Gewölbe, Eisentür zur Speisekammer, der Sicherungskasten mit Zahlenschloss und eine alte Holztruhe. Acht Stufen höher, auf dem ersten Absatz: die Ritterrüstung „Kunibert“. Darüber die Hofebene mit der Hoftür, der Schauvitrine und der Toilette. Ganz oben der Wehrgang.
 6. [K-006] (öffentlich)
@@ -36,7 +36,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 13. [LISTE-GEGENSTÄNDE] (öffentlich)
    - Gegenstände: eiserner Kerzenständer mit drei Kerzen · Blechdose des Burgwarts · Ausbeutetaler · Schlüsselbund mit Karabiner · Rüstung Kunibert mit Panzerhandschuh und Helmvisier · Bluetooth-Box · Sicherungskasten mit Hauptschalter · Code-Zettel (zwei Handschriften) · Stablampe mit Klebeband „HODŽIĆ VT · 3“ · weißes Bettlaken mit rotem Wäschezeichen „Schartenfels 7“ · Holztruhe · Schadenszettel des Burgwarts · Punschkessel · Heißluftpistole · Wanderstiefel · Sohlenkarten · Sofortbild der Burgführung · Handys mit Taschenlampe · Kühlpack (Tiefkühlerbsen) · Wolldecke · Geburtstagstorte · Azads Kamerafotos mit Uhrzeit (nur wenn Rolle 19 besetzt)
 14. [LISTE-ZEITEN] (öffentlich)
-   - Öffentlich bekannte Zeitpunkte: 17:40 Türschaden an der Eichentür · 20:30 Begrüßungsrede mit Box-Echo · 21:15 bis 21:35 Burgführung · 22:45 Ultimatum des Burgwarts · 23:00 Burgtor abgeschlossen · 23:35 der Burgwart sagt, er gehe ins Bett · 23:48 Kamin-Qualm · 23:54 Box meldet „Verbindung getrennt“ · kurz vor zwölf meldet die Box „Verbunden“ · Knall und Stromausfall kurz vor zwölf · um Mitternacht der Schrei · kurz nach Mitternacht wird der Burgwart in der Speisekammer gefunden
+   - Öffentlich bekannte Zeitpunkte: 17:40 Türschaden an der Eichentür · 20:30 Begrüßungsrede mit Box-Echo · 21:15 bis 21:35 Burgführung · 22:45 Ultimatum des Burgwarts · 23:00 Burgtor abgeschlossen · 23:35 der Burgwart sagt, er gehe ins Bett · 23:48 Kamin-Qualm · 23:52 Adnan reißt die Turmtür auf, Merle geht aufs Klo, kurz danach geht Jonas Luft schnappen · 23:54 Box meldet „Verbindung getrennt“ · 23:56 Rojda schickt das Geburtstagskind an die Eichentür, kurz darauf meldet die Box „Verbunden“ · 23:58 Knall und Stromausfall · um Mitternacht der Schrei · 00:01 der Burgwart wird in der Speisekammer gefunden und kommt zu sich · 00:02 Jonas kommt die Treppe herunter · 00:03 der Bund fehlt · ab 00:05 Versorgung, Tor- und Torhausprobe, Anruf bei der Leitstelle, Beschluss zum Weiterfeiern (bis 00:30). Andere Uhrzeiten nennen nur Rollenkarten, Hinweise und Beweisstücke.
 15. [BW-STAMM] (öffentlich)
    - Name: Eckehard Lüddecke
    - Aussprache: E-ke-hart LÜD-de-ke
@@ -58,7 +58,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Phase: 1
    - Min: 4
 19. [H-02] (öffentlich)
-   - Inhalt: Im Raureif auf dem Hof: eine Stiefelspur vom Kellerhals zum Torhaus und eine vom Torhaus zur Hoftür des Turms (beide vom Burgwart), dazu frischere Spuren von zwei Personen zum Tor und zurück. Vor dem Burgtor liegt unberührter Reif.
+   - Inhalt: Im Raureif auf dem Hof: eine Stiefelspur vom Kellerhals zum Torhaus und eine vom Torhaus zur Hoftür des Turms (beide vom Burgwart), dazu frischere Spuren von zwei Personen zum Tor und zurück. Draußen vor dem Burgtor, auf dem Burgweg (vom Wehrgang aus zu sehen), liegt unberührter Reif.
    - Form: Karte
    - Quelle: Station Hof (Raureif)
    - Phase: 1
@@ -70,7 +70,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Phase: 1
    - Min: 4
 21. [H-06] (öffentlich)
-   - Inhalt: Erstarrte Wachsspritzer auf dem Steinboden neben der Eisentür; in einem der Teilabdruck eines Absatzes mit Stollenprofil, die Spitze zeigt zur Eisentür.
+   - Inhalt: Erstarrte Wachsspritzer auf dem Steinboden neben der Eisentür; in einem der Teilabdruck eines Absatzes mit Stollenprofil. Am Absatzrand fehlt ein Stollen (eine glatte Lücke im Muster); die Spitze zeigt zur Eisentür.
    - Form: Beweisstück
    - Quelle: Beweisstück BS-01 (Station Speisekammer)
    - Phase: 1
@@ -154,9 +154,9 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Phase: 1
    - Min: 4
 35. [ZM-3] (öffentlich)
-   - Ablauf: 0:00 Ankommen, Mappen lesen (15 Min.) · 0:15 Einführung mit Steckbrief-Vorstellungen (20 Min.) · 0:35 Phase 1, Vorspeise (Phasenstart 2, Gesprächsfenster, Rollen-Entscheidungen 3, Lagerunde 5, Detektiv-Entscheidungen 5) · Gangwechsel mit Zwischenresümee 1 und Einwurf (10 Min.) · Phase 2, Hauptgang (wie Phase 1, plus 5 Minuten Essen) · Gangwechsel mit Zwischenresümee 2 (10 Min.) · Phase 3, Nachtisch (wie Phase 1) · Zwischenresümee 3, Eingrenzung und Anklage (15 Min.) · Ende und Geständnis (8 Min.) · Ausklang mit Torte.
+   - Ablauf: 0:00 Ankommen, Mappen lesen (15 Min.) · 0:15 Einführung mit Steckbrief-Vorstellungen (20 Min.) · 0:35 Phase 1, Vorspeise (Phasenstart 2, Gesprächsfenster nach ZM-2, Rollen-Entscheidungen 3, Lagerunde nach ZM-2, Detektiv-Entscheidungen 5) · Gangwechsel mit Zwischenresümee 1 und Einwurf (10 Min.) · Phase 2, Hauptgang (wie Phase 1, plus 5 Minuten Essen) · Gangwechsel mit Zwischenresümee 2 (10 Min.) · Phase 3, Nachtisch (wie Phase 1) · Zwischenresümee 3, Eingrenzung und Anklage (15 Min.) · Ende und Geständnis (8 Min.) · Ausklang mit Torte.
 36. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde (Dauer nach ZM-2). Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Was unter vier Augen weitergegeben werden soll, schreibt die Rolle beim Ankreuzen auf ihre Entscheidungskarte; die Spielleitung übergibt es dem Detektiv als Notizkarte. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
 37. [IF-7] (öffentlich)
    - Regel: Nach der Lagerunde trifft der Detektiv seine drei Entscheidungen der Phase. Er darf vorher eine Minute mit niemandem sprechen und nachdenken.
 38. [DET-STAMM] (öffentlich)
@@ -170,7 +170,7 @@ Namen weiterer Personen (nur zur korrekten Schreibweise):
    - R01 = Adnan Hodžić (Aussprache: AD-nan HOD-schitsch; m, 33; selbstständiger Veranstaltungstechniker („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma mit Transporter), ausgebildeter Ersthelfer)
    - R02 = Rojda Baran (Aussprache: ROSCH-da BA-ran (das J wie in „Journal“); w, 29; Mediengestalterin Bild und Ton beim Lokalradio, Geräuschemacherin aus Leidenschaft)
    - R03 = Merle Hartwig (Aussprache: MER-le HART-wich; w, 28; Studienreferendarin für Geschichte und Deutsch an einem Gymnasium; im Februar ist Examen, danach soll die Verbeamtung auf Probe kommen)
-   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik (so erzählt er es))
+   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik)
 
 ## 4. Stil und Ton
 - Erzählerstimme nach Stilblatt; die Runde wird mit „ihr“ angesprochen, das Geburtstagskind mit „du“.
@@ -180,23 +180,23 @@ Namen weiterer Personen (nur zur korrekten Schreibweise):
 Katalog der erlaubten Momente:
 Jeder Moment darf in Erzähltexten und Karten vorkommen, genau so, wie er hier steht. Kein Moment wird erfunden, und keiner verrät mehr, als in der Spalte „Darf zeigen“ steht.
 
-| Kennung | Moment | Wann im Spiel | Darf zeigen | Trägt |
-|---|---|---|---|---|
-| GM-01 | Wind pfeift durch die Schießscharten, die Kerzen ducken sich | Einführung, Einwürfe | Atmosphäre | – |
-| GM-02 | Die Eisentür zur Speisekammer quietscht wie eine Katze im Keller | Einführung, Phase 1–3 | dass sie laut ist, bei jedem Öffnen und Schließen | Spur (S-2) |
-| GM-03 | Der Knall: die Hauptsicherung, dann Stockdunkel | Einführung | Knall, Dunkelheit, Handylichter | – |
-| GM-04 | Kettenrasseln, Schritte, eine knarrende Tür aus der Box | Einführung (Rückblick), Phase 1 | dass die Box im Dunkeln weiterspielte | Spur (S-3) |
-| GM-05 | Der Schrei um Mitternacht, hoch und lang, mit Kathedralen-Hall | Einführung | den Schrei selbst; nicht, woher er kam | falsche Fährte (Tatzeit) |
-| GM-06 | Kunibert im Kerzenschein, das Visier halb offen, als ob er zuhört | Phase 1–3 | die Rüstung, den verbogenen Handschuh | Spur (S-4) |
-| GM-07 | Raureif auf dem Hof, der Atem dampft, das Geleucht am Brunnen | Phase 1, Einwürfe | Stiefelspuren im Reif | Spur (S-1) |
-| GM-08 | Das Brockengespenst: ein Riesenschatten im Nebel, der sich bewegt, wenn du dich bewegst | Einwürfe | die Legende und ihre nüchterne Erklärung | Farbe |
-| GM-09 | Kein Handyempfang, außer an der dritten Zinne, wo einer mit erhobenem Arm im Wind steht | Einführung, Phase 2 | die dritte Zinne als einziger Netzplatz | Spur (S-10) |
-| KM-01 | Rüstungsschreck: Jonas hält Kunibert für einen Menschen und kracht dagegen | Einführung (Rückblick 21:20) | Schreck, Klappern, verbogener Handschuh, „Der beißt nicht, der ist seit 1911 tot.“ | Spur, falsche Fährte |
-| KM-02 | Verlaufen im Treppenturm: Merle will aufs Klo und landet auf dem Wehrgang | Einführung (Merles eigene Darstellung) | nur, was Merle selbst erzählt | Alibi-Lüge |
-| KM-03 | Die Box hallt wie in einer Kathedrale: „Die Miete ist bezahlt … bezahlt … bezahlt!“ – „Welche Miete?“; später „Verbindung getrennt“ | Einführung | beide Box-Ansagen mit Uhrzeit sechs vor zwölf | Spur (Strang a, Zeitstempel) |
-| KM-04 | Adnan und die Heißluftpistole: Qualm, Husten, aufgerissene Türen | Einführung | Qualm, Ruß, offene Turmtür | Alibi, Spur |
-| KM-05 | Der Burgwart grantelt mit Kühlpack aus Tiefkühlerbsen auf dem Kopf | Phasenstarts, Einwürfe | seine Sätze aus BW-AUSSAGE der jeweiligen Phase | Spur |
-| KM-06 | „Kunibert, du alter Hehler.“ (Bund im Helm) | Phasenstart 2 | Fund des Bunds | Spur (S-1, S-4) |
+| Kennung | Moment | Wann im Spiel | Darf zeigen |
+|---|---|---|---|
+| GM-01 | Wind pfeift durch die Schießscharten, die Kerzen ducken sich | Einführung, Einwürfe | Atmosphäre |
+| GM-02 | Die Eisentür zur Speisekammer quietscht wie eine Katze im Keller | Einführung, Phase 1–3 | dass sie laut quietscht, sobald man sie aufzieht |
+| GM-03 | Der Knall: die Hauptsicherung, dann Stockdunkel | Einführung | Knall, Dunkelheit, Handylichter |
+| GM-04 | Kettenrasseln, Schritte, eine knarrende Tür aus der Box | Einführung (Rückblick), Phase 1 | dass die Box im Dunkeln weiterspielte |
+| GM-05 | Der Schrei um Mitternacht, hoch und lang, mit Kathedralen-Hall | Einführung | den Schrei selbst; nicht, woher er kam |
+| GM-06 | Kunibert im Kerzenschein, das Visier geschlossen, als ob er schläft | Phase 1–3 | die Rüstung, den verbogenen Handschuh |
+| GM-07 | Raureif auf dem Hof, der Atem dampft, das Geleucht am Brunnen | Phase 1, Einwürfe | Stiefelspuren im Reif |
+| GM-08 | Das Brockengespenst: ein Riesenschatten im Nebel, der sich bewegt, wenn du dich bewegst | Einwürfe | die Legende und ihre nüchterne Erklärung |
+| GM-09 | Kein Handyempfang, außer an der dritten Zinne, wo einer mit erhobenem Arm im Wind steht | Einführung, Phase 2 | die dritte Zinne als einziger Netzplatz |
+| KM-01 | Rüstungsschreck: Jonas hält Kunibert für einen Menschen und kracht dagegen | Einführung (Rückblick 21:20) | Schreck, Klappern, verbogener Handschuh, „Der beißt nicht, der ist seit 1911 tot.“ |
+| KM-02 | Verlaufen im Treppenturm: Merle will aufs Klo und landet auf dem Wehrgang | Einführung (Merles eigene Darstellung) | nur, was Merle selbst erzählt |
+| KM-03 | Die Box hallt wie in einer Kathedrale: „Die Miete ist bezahlt … bezahlt … bezahlt!“ – „Welche Miete?“; später „Verbindung getrennt“ | Einführung | beide Box-Ansagen mit Uhrzeit sechs vor zwölf |
+| KM-04 | Adnan und die Heißluftpistole: Qualm, Husten, aufgerissene Türen | Einführung | Qualm, Ruß, offene Turmtür |
+| KM-05 | Der Burgwart grantelt mit Kühlpack aus Tiefkühlerbsen auf dem Kopf | Phasenstarts, Einwürfe | seine Sätze aus BW-AUSSAGE der jeweiligen Phase |
+| KM-06 | „Kunibert, du alter Hehler.“ (Bund im Helm) | Phasenstart 2 | Fund des Bunds |
 
 Allgemeine Regeln aus dem Stilblatt:
 - Die ganze Runde: „ihr“, „euch“, „eure“.

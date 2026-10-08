@@ -1,4 +1,4 @@
-ERZ-ANS-P1-A · SCHREIB · Welle 2 · Kanon v0.9 · erwarteter Umfang 600–900 Wörter
+ERZ-ANS-P1-A · SCHREIB · Welle 2 · Kanon v1.0 · erwarteter Umfang 600–900 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -25,7 +25,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Umsetzung: beides
 3. [E1-03] (geheim)
    - Rolle: R03
-   - Lage: Dein einziger Zeuge für den Wehrgang ist Jonas, und der bestreitet, dich dort gesehen zu haben; er sagt, er sei im Hof gewesen (H-109). Adnan bestätigt zwar, dass du beim Schrei neben ihm standest, erwähnt aber auch, dass du erst kurz davor von der Turmtür kamst (H-110). Belastest du Jonas, stützt das deinen Weg; deckst du ihn, bleibt seine Hof-Geschichte stehen.
+   - Lage: Dein einziger Zeuge für den Wehrgang ist Jonas, und der bestreitet, dich dort gesehen zu haben; er sagt, er sei im Hof gewesen (H-109). Adnan bestätigt zwar, dass du beim Schrei neben ihm standest, erwähnt aber auch, dass du erst kurz davor kamst; er hörte dich von der Turmtür-Seite her an der Wand entlangtasten (H-110). Belastest du Jonas, stützt das deinen Weg; deckst du ihn, bleibt seine Hof-Geschichte stehen.
    - Option 1: Zeugen einfordern: Du stellst am Tisch klar, dass Jonas oben auf dem Wehrgang war. → Folge: In der Lagerunde sagst du nach deiner Meldekarte offen, dass Jonas bestreitet, dich oben gesehen zu haben (Hinweis H-109), obwohl er um sechs vor zwölf mit dem Handy an der dritten Zinne stand; die Spielleitung notiert es auf eine Notizkarte.
    - Option 2: Jonas decken: Du lässt ihm seine Hof-Geschichte und sagst vorerst nichts. → Folge: Behalte H-109 für dich; wer dich direkt nach Jonas fragt, bekommt es.
    - Option 3: Anonymer Wink: Du lässt Jonas' Platz andeuten, ohne dass jemand erfährt, von wem es kommt. → Folge: Die Spielleitung lässt Ansage A-E1-03-3 vorlesen. [Jemand am Tisch lässt dir ausrichten: Jonas war um sechs vor zwölf nicht im Hof, sondern oben auf dem Wehrgang an der dritten Zinne, mit dem Handy in der Hand.]
@@ -41,13 +41,13 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Rolle: R05
    - Lage: Adnan sagt, für den Keller habe der Burgwart keine Rechnung geschrieben, kassiert habe Jonas (H-121), und laut Stiftungsseite wird der Gewölbekeller im November gar nicht vermietet. Merle sagt aber, Jonas habe oben an der dritten Zinne mit dem Handy gestanden (H-122), und du selbst hast ihn um sieben vor zwölf mit erhobenem Handy in den Turm gehen sehen, nicht in den Hof. Du willst deinen Beleg, aber keinen Freund ungerecht an den Pranger stellen.
    - Option 1: An den Pranger: Du legst das Mietgeld vor allen offen. → Folge: Lege in der Lagerunde die Hinweiskarte H-121 offen in die Tischmitte; die Spielleitung notiert sie auf eine Notizkarte.
-   - Option 2: Beleg für beide Seiten: Du gibst dem Detektiv, was Jonas belastet und was ihn entlastet. → Folge: Sag dem Detektiv unter vier Augen, was du über das Mietgeld weißt (H-121) und dass Jonas laut Merle und nach deinen eigenen Augen in den Turm hinaufging, nicht in den Hof (H-122).
+   - Option 2: Beleg für beide Seiten: Du gibst dem Detektiv, was Jonas belastet und was ihn entlastet. → Folge: Sag dem Detektiv unter vier Augen, was du über das Mietgeld weißt (H-121) und dass Jonas laut Merle und nach deinen eigenen Augen in den Turm ging, nicht in den Hof (H-122).
    - Option 3: Erst die Quittung: Du gibst Jonas Zeit, es selbst zu sagen. → Folge: Behalte es für dich; wer dich direkt nach Jonas oder dem Mietgeld fragt, bekommt es.
    - Umsetzung: Kartenaktion
 6. [E1-06] (geheim)
    - Rolle: R06
-   - Lage: Du hast von zwölf vor zwölf bis nach dem Schrei neben Adnan am Kamin gekniet, und kurz vor dem Schrei kam Merle von der Turmtür her, außer Atem, mit eiskalten Händen. Rojda behauptet, sie habe am Turm-Fuß im Dunkeln niemanden erkannt (H-125), und Jonas wusste genau, dass es nur an der dritten Zinne Netz gibt (H-126). Ein klarer Befund entlastet Adnan, wirft aber einen Schatten auf Merle.
-   - Option 1: Voller Befund: Du gibst dem Detektiv alles, was du am Kamin gesehen hast. → Folge: Sag dem Detektiv unter vier Augen, dass Adnan die ganze Zeit neben dir kniete und dass Merle kurz vor dem Schrei außer Atem und mit eiskalten Händen von der Turmtür kam (Inhalt wie H-140 und H-107).
+   - Lage: Du hast von zwölf vor zwölf bis nach dem Schrei neben Adnan am Kamin gekniet, und kurz vor dem Schrei kam Merle von der Turmtür her, außer Atem, mit eiskalten Händen. Rojda behauptet, sie habe am Turm-Fuß im Dunkeln niemanden erkannt (H-125), und Jonas hat dir den Rat der Leitstelle von der dritten Zinne wiedergegeben (H-126). Ein klarer Befund entlastet Adnan, wirft aber einen Schatten auf Merle.
+   - Option 1: Voller Befund: Du gibst dem Detektiv alles, was du am Kamin gesehen hast. → Folge: Sag dem Detektiv unter vier Augen, dass Adnan die ganze Zeit neben dir kniete, nur um acht vor zwölf kurz zur Turmtür sprang, und dass Merle kurz vor dem Schrei außer Atem und mit eiskalten Händen von der Turmtür-Seite kam (Inhalt wie H-140 und H-107).
    - Option 2: Nur Adnan entlasten: Du stehst für deinen Freund ein und lässt Merle aus dem Spiel. → Folge: Lege in der Lagerunde offen auf den Tisch, dass Adnan vom Qualm bis zum Schrei neben dir am Kamin kniete (Inhalt wie H-140), und die Spielleitung notiert es auf eine Notizkarte; über Merle schweigst du, wer dich direkt nach ihr fragt, bekommt es.
    - Option 3: Schweigepflicht: Du sagst vorerst gar nichts. → Folge: Behalte alles für dich; wer dich direkt nach Adnan oder Merle fragt, bekommt es.
    - Umsetzung: Kartenaktion
@@ -70,7 +70,7 @@ Namen weiterer Personen (nur zur korrekten Schreibweise):
    - R01 = Adnan Hodžić (Aussprache: AD-nan HOD-schitsch; m, 33; selbstständiger Veranstaltungstechniker („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma mit Transporter), ausgebildeter Ersthelfer)
    - R02 = Rojda Baran (Aussprache: ROSCH-da BA-ran (das J wie in „Journal“); w, 29; Mediengestalterin Bild und Ton beim Lokalradio, Geräuschemacherin aus Leidenschaft)
    - R03 = Merle Hartwig (Aussprache: MER-le HART-wich; w, 28; Studienreferendarin für Geschichte und Deutsch an einem Gymnasium; im Februar ist Examen, danach soll die Verbeamtung auf Probe kommen)
-   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik (so erzählt er es))
+   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik)
    - R05 = Paulina Zielińska (Aussprache: pau-LI-na sche-LIN-ska; w, 31; Steuerfachangestellte in einer Kanzlei in Braunschweig)
    - R06 = Diyar Kaya (Aussprache: di-JAR KA-ja; m, 34; Rettungssanitäter auf einer Rettungswache, nebenbei Sanitätsdienst bei Veranstaltungen)
    - R07 = Emre Kaplan (Aussprache: EM-re kap-LAN; m, 30; Tontechniker am Stadttheater)

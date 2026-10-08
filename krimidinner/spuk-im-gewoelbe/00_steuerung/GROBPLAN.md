@@ -107,7 +107,7 @@ Du willst ein vollständig spielbares Krimidinner (4–20 Rollen plus Geburtstag
 
 **Weitere Risiken:**
 - Alkohol-Drift, auch in Bildprompts: Stoppliste und Negativliste („non-alcoholic apple-cinnamon punch, ceramic mugs; no wine, goblets, tankards, bottles“).
-- Herkunft und Schuld: Funktionsmatrix, damit keine Herkunftsgruppe mehr als eine belastete Funktion trägt.
+- Herkunft und Schuld: Funktionsmatrix, damit keine Minderheitsgruppe eine belastete Funktion mit Schuld trägt (präzisiert in F-07).
 - Engpass Abnahme: Opus-Prüfagent mit festem Raster.
 - Container-Neustart: Push nach jedem Tag.
 

@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-# K3 · HINWEISNETZ · Gesprächshinweise Phase 3 · Rollen 05–20 · Kanon v0.9
+# K3 · HINWEISNETZ · Gesprächshinweise Phase 3 · Rollen 05–20 · Kanon v1.0
 Jeder Hinweis gehört der Rolle, die ihn im Gespräch erfährt („Rolle:“). Er erreicht den Detektiv, wenn der zuhört, nachfragt oder die Rolle ihn meldet. Blockierbar ist nur diese Weitergabe, nicht das Gespräch selbst. Ersatzfall-Hinweise gelten nur, solange das reguläre Ziel nicht besetzt ist.
 
 ## Block 5–8

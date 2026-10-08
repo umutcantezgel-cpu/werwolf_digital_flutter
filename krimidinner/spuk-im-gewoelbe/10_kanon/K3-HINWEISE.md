@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-# K3 · HINWEISNETZ · Grundnetz (Stationen, Beweisstücke, Erzähler, Detektiv-Mappe) · Kanon v0.9
+# K3 · HINWEISNETZ · Grundnetz (Stationen, Beweisstücke, Erzähler, Detektiv-Mappe) · Kanon v1.0
 
 Gesprächshinweise stehen in K3-HINWEISE-P1.md, K3-HINWEISE-P2.md und K3-HINWEISE-P3.md (Kennungen H-101 ff., H-201 ff., H-301 ff.). Alle Hinweise in dieser Datei sind durch keine Rollen-Entscheidung blockierbar und schon mit den Rollen 1–4 erreichbar (Min 4).
 
@@ -15,7 +15,7 @@ Gesprächshinweise stehen in K3-HINWEISE-P1.md, K3-HINWEISE-P2.md und K3-HINWEIS
 ## Gegenprobe (entlastende Schlussfolgerungen)
 @S-8 [L] | Schlussfolgerung: Adnan war es nicht: Ruß an Händen und Gesicht, aber Kerzenständer, Helm und Bund sind sauber; der Türschaden war um 23:30 erledigt; wer den Hebel zog, missachtete seine eigene Warnung. | Notwendig: nein | Hinweise: H-21, H-22, H-23, H-24
 @S-9 [L] | Schlussfolgerung: Rojda war es nicht: Sie stand am Sicherungskasten und zog den Hebel, das Gespenst war jemand anderes; ihre Turnschuhe haben glatte Sohlen. | Notwendig: nein | Hinweise: H-25, H-07, H-06, H-15, H-14
-@S-10 [L] | Schlussfolgerung: Jonas war es nicht: Er war um 23:54 oben auf dem Wehrgang (Merle selbst sagt es), und an seinen Stiefeln sind alle Stollen heil. | Notwendig: nein | Hinweise: H-26, H-06, H-15, H-52, H-14
+@S-10 [L] | Schlussfolgerung: Jonas war es nicht: Er war um 23:54 oben auf dem Wehrgang (Merle selbst sagt es), und an seinen Stiefeln sind alle Stollen heil. | Notwendig: nein | Hinweise: H-26, H-43, H-06, H-15, H-52
 
 ## Stationen und Beweisstücke
 @H-01 [O] | Inhalt: Das Burgtor ist abgeschlossen; das Kastenschloss öffnet auch von innen nur mit dem großen Schlüssel. Das Torhaus ist ebenfalls verschlossen. Die Ausfallpforte ist zugemauert, die Mauer fällt acht Meter auf Fels ab. | Form: Karte | Quelle: Station Hof | Phase: 1 | Min: 4
@@ -50,7 +50,7 @@ Gesprächshinweise stehen in K3-HINWEISE-P1.md, K3-HINWEISE-P2.md und K3-HINWEIS
 
 ## Wahrheit hinter den Grundhinweisen
 @HW-01 [L] | Wahrheit: Niemand hat die Burg verlassen; das Tor war seit 23:00 zu. | Stützt: S-1 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-02, H-03
-@HW-02 [L] | Wahrheit: Die Spuren zeigen, dass niemand zum Tor ging, und dass der Burgwart nicht ins Bett ging, sondern zurück in den Turm. | Stützt: S-1 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-01
+@HW-02 [L] | Wahrheit: Die Spuren zeigen, dass vor 00:07 niemand zum Tor ging (die frischeren Spuren sind die von Adnan und Jonas um 00:07), und dass der Burgwart nicht ins Bett ging, sondern zurück in den Turm. | Stützt: S-1 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-01
 @HW-03 [L] | Wahrheit: Merle versteckte den Bund um 23:58:50 im Helm; der Bund war nie draußen. | Stützt: S-1, S-4 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-01
 @HW-04 [L] | Wahrheit: Durch die Eichentür kam niemand; einziger Weg ist die Eisentür. | Stützt: S-2 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-05
 @HW-05 [L] | Wahrheit: Das Geburtstagskind stand selbst an der Eichentür. | Stützt: S-2 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-04
@@ -59,7 +59,7 @@ Gesprächshinweise stehen in K3-HINWEISE-P1.md, K3-HINWEISE-P2.md und K3-HINWEIS
 @HW-08 [L] | Wahrheit: Mit der Startzeit 23:57 von der Zettel-Rückseite fallen die Ketten auf 23:58:30 und der Schrei auf 00:00:00. | Stützt: S-3 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-07
 @HW-09 [L] | Wahrheit: Die echten Geräusche des Überfalls (Klimpern, „Hab ich dich!“, Schlag, Dosen) kamen vor den Ketten, also vor 23:58:30. | Stützt: S-3, S-6 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-08
 @HW-10 [L] | Wahrheit: Der hohe Schrei um Mitternacht kann nicht vom Burgwart stammen; er hat eine tiefe Stimme und hat nicht geschrien. | Stützt: S-3 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-08
-@HW-11 [L] | Wahrheit: Knall, Klimpern und Zupacken folgten direkt aufeinander; wer den Taler in die Dose warf, wurde gepackt und schlug zu. | Stützt: S-3, S-7 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-09
+@HW-11 [L] | Wahrheit: Klimpern und Zupacken folgten direkt aufeinander; wer den Taler in die Dose warf, wurde gepackt und schlug zu. Die Verbindung zum Knall liefert erst H-09. | Stützt: S-7, S-3 (nur zusammen mit H-09) | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-09
 @HW-12 [L] | Wahrheit: Der Streifen stammt aus dem Gespenster-Laken; er riss um 23:58:55, als Merle den Bund versteckt hatte. | Stützt: S-4 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-13
 @HW-13 [L] | Wahrheit: Das Laken ist das Kostüm des Gespensts; Merle stopfte es um 23:59:05 in die Truhe. | Stützt: S-4 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-12
 @HW-14 [L] | Wahrheit: Unter dem Laken trug die Person eine Strickjacke: Merles grüne Strickjacke mit Zopfmuster (öffentlicher Steckbrief). Der Burgwart packte ein Handgelenk (Z-2358f), gestrickt war also ein Ärmel; Adnans Strickmütze kommt nicht in Frage. Gestrickt tragen unter den Rollen 1–4 nur Merle (Strickjacke) und Jonas (Strickpullover); Adnan (Arbeitsjacke) und Rojda (Hoodie) scheiden aus. | Stützt: S-4, S-5 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-15

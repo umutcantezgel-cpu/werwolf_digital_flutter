@@ -1,4 +1,4 @@
-BILD-BEWEISE-1 · SCHREIB · Welle 1 · Kanon v0.9 · erwarteter Umfang 600–900 Wörter
+BILD-BEWEISE-1 · SCHREIB · Welle 1 · Kanon v1.0 · erwarteter Umfang 600–900 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -14,12 +14,12 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 2. [K-001] (öffentlich)
    - Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist eine renovierte mittelalterliche Höhenburg im Oberharz über dem erfundenen Bergstädtchen Silberhau (SIL-ber-hau). Sie gehört einer Stiftung; Burgwart ist Eckehard Lüddecke.
 3. [K-002] (öffentlich)
-   - Tatsache: Es ist ein Samstag im November. Klarer Himmel, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
+   - Tatsache: Es ist ein Samstag im November. Über der Burg ist der Himmel klar, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Im Tal um Silberhau und auf dem unteren Burgweg liegt dichter Eisnebel (Inversionswetterlage), die Straße ist spiegelglatt. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
 4. [BSO-01] (öffentlich)
    - Beweisstück: Wachsspritzer mit Teilabdruck
    - Fundort: Speisekammer, neben der Eisentür
    - Phase: 1
-   - Aussehen: Erstarrte Wachsspritzer auf dem Steinboden; in einem der Abdruck eines Absatzes mit Stollenprofil, Spitze Richtung Eisentür.
+   - Aussehen: Erstarrte Wachsspritzer auf dem Steinboden; in einem der Abdruck eines Absatzes mit Stollenprofil, am Absatzrand fehlt ein Stollen (glatte Lücke im Muster), Spitze Richtung Eisentür.
 5. [BSO-02] (öffentlich)
    - Beweisstück: Stofffetzen
    - Fundort: Panzerhandschuh der Rüstung Kunibert (erster Turmabsatz)

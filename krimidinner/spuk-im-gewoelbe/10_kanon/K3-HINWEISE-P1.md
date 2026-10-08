@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-# K3 · HINWEISNETZ · Gesprächshinweise Phase 1 · Rollen 05–20 · Kanon v0.9
+# K3 · HINWEISNETZ · Gesprächshinweise Phase 1 · Rollen 05–20 · Kanon v1.0
 Hinweise aus den Aufträgen G1-13 bis G1-60 (K4-GESPRAECHE-P1.md). Jeder Hinweis gehört der Rolle, die ihn im Gespräch erfährt („Rolle:“). Er erreicht den Detektiv, wenn der zuhört, nachfragt oder die Rolle ihn meldet. Blockierbar ist nur diese Weitergabe, nicht das Gespräch selbst. Kein Hinweis ist der einzige Weg zu einer notwendigen Schlussfolgerung.
 
 ## Block 5–8
@@ -43,7 +43,7 @@ Hinweise aus den Aufträgen G1-13 bis G1-60 (K4-GESPRAECHE-P1.md). Jeder Hinweis
 @HW-138 [L] | Wahrheit: Der Track lief ab 23:57:00; der Schrei bei 3:00 fiel auf 00:00:00. Der Überfall geschah früher. | Stützt: S-3 | Einstufung: echt | Blockierbar durch: Weitergabe an den Detektiv (Rollen-Entscheidung) | Unabhängig von: H-10
 @H-139 [G] | Rolle: R10 | Inhalt: Rojda hat die Box selbst in die Nische direkt neben der Eichentür gestellt; da habe sie stehen sollen. Warum, will sie nicht sagen. | Form: mündlich | Quelle: Gespräch G1-28 | Phase: 1 | Min: 10
 @HW-139 [L] | Wahrheit: Rojda stellte die Box um 23:50 neben die Eichentür, damit der aufgenommene Schrei um 00:00 direkt neben dem lauschenden Geburtstagskind ertönt. Der Schrei kam aus der Box, nicht aus der Speisekammer. | Stützt: S-3 | Einstufung: echt | Blockierbar durch: Weitergabe an den Detektiv (Rollen-Entscheidung) | Unabhängig von: H-08
-@H-140 [G] | Rolle: R10 | Inhalt: Diyar hat den Feuerlöscher nie benutzt. Ab zwölf vor zwölf kniete er neben Adnan am Kamin und wedelte mit einem Tablett den Qualm weg, auch im Dunkeln; Adnan war die ganze Zeit neben ihm, bis er nach dem Schrei mit dem Handylicht losging. | Form: mündlich | Quelle: Gespräch G1-29 | Phase: 1 | Min: 10
+@H-140 [G] | Rolle: R10 | Inhalt: Diyar hat den Feuerlöscher nie benutzt. Ab zwölf vor zwölf kniete er neben Adnan am Kamin und wedelte mit einem Tablett den Qualm weg, auch im Dunkeln; Adnan war die ganze Zeit neben ihm, nur um acht vor zwölf sprang er kurz zur Turmtür, und nach dem Schrei ging er mit dem Handylicht los. | Form: mündlich | Quelle: Gespräch G1-29 | Phase: 1 | Min: 10
 @HW-140 [L] | Wahrheit: Adnan war von 23:48 bis 00:00:05 am Kamin (nur um 23:52 kurz an Turmtür und Läden) und kniete zur Tatminute 23:58:22 dort. Diyar ebenso. | Stützt: S-8 | Einstufung: entlastend | Blockierbar durch: Weitergabe an den Detektiv (Rollen-Entscheidung) | Unabhängig von: H-22
 @H-141 [G] | Rolle: R10 | Inhalt: Tomasz sah um zehn vor zwölf Kerzenlicht unter der Eisentür. Als er öffnete, zischte der Burgwart hinter dem Regal: „Psst! Ich bin nicht hier. Geh wieder.“ Tomasz machte die Tür wieder zu und ging zurück ins Gewölbe. | Form: mündlich | Quelle: Gespräch G1-30 | Phase: 1 | Min: 10
 @HW-141 [L] | Wahrheit: Der Burgwart saß ab 23:46 hinter dem Regal an der Dose auf der Lauer; wer später durch die Eisentür kam und den Taler zurückbrachte, lief ihm in die Arme. | Stützt: S-7, S-2 | Einstufung: echt | Blockierbar durch: Weitergabe an den Detektiv (Rollen-Entscheidung) | Unabhängig von: H-29

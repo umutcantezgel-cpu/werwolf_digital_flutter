@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-# K3 · HINWEISNETZ · Gesprächshinweise der Kernrollen-Aufträge · Kanon v0.9
+# K3 · HINWEISNETZ · Gesprächshinweise der Kernrollen-Aufträge · Kanon v1.0
 Jeder Hinweis gehört der Rolle, die ihn im Gespräch erfährt („Rolle:“). Er erreicht den Detektiv, wenn der zuhört, nachfragt oder die Rolle ihn meldet. Blockierbar ist nur diese Weitergabe, nicht das Gespräch selbst.
 
 ## Phase 1
@@ -15,7 +15,7 @@ Jeder Hinweis gehört der Rolle, die ihn im Gespräch erfährt („Rolle:“). E
 @HW-105 [L] | Wahrheit: Merle kam um 23:59:40 vom Turm an den Kamin. | Stützt: S-6 | Einstufung: echt | Blockierbar durch: Weitergabe | Unabhängig von: H-16
 @H-106 [G] | Rolle: R02 | Inhalt: Jonas sagt, er sei wegen des Qualms zum Luftschnappen in den Hof gegangen und dort gewesen, als es knallte. | Form: mündlich | Quelle: Gespräch G1-05 | Phase: 1 | Min: 4
 @HW-106 [L] | Wahrheit: Lüge. Jonas stieg auf den Wehrgang und telefonierte; der Raureif im Hof zeigt keine Spur von ihm. | Stützt: S-10 | Einstufung: falsche Fährte (Lüge eines Unschuldigen) | Blockierbar durch: Weitergabe | Unabhängig von: –
-@H-107 [G] | Rolle: R02 | Inhalt: Diyar kniete neben Adnan am Kamin; Adnan war die ganze Zeit dort. Ganz zum Schluss kam Merle von der Turmtür her, außer Atem, mit eiskalten Händen. | Form: mündlich | Quelle: Gespräch G1-06 | Phase: 1 | Min: 6
+@H-107 [G] | Rolle: R02 | Inhalt: Diyar kniete neben Adnan am Kamin; Adnan war die ganze Zeit dort, nur um acht vor zwölf sprang er kurz auf und riss die Turmtür auf. Ganz zum Schluss kam Merle von der Turmtür-Seite her, außer Atem, mit eiskalten Händen. | Form: mündlich | Quelle: Gespräch G1-06 | Phase: 1 | Min: 6
 @HW-107 [L] | Wahrheit: Adnan blieb am Kamin; Merle kam um 23:59:40 vom Turm. | Stützt: S-6, S-8 | Einstufung: echt | Blockierbar durch: Weitergabe | Unabhängig von: H-105
 @H-108 [G] | Rolle: R02 | Inhalt: Merle sagt, sie habe als Gespenst gekniffen, als es knallte, und sei nicht in der Speisekammer gewesen; du sollst nichts vom Streich sagen. | Form: mündlich | Quelle: Gespräch G1-06 (Ersatzfall) | Phase: 1 | Min: 4
 @HW-108 [L] | Wahrheit: Lüge. Merle stand ab 23:56:30 als Gespenst an der Eisentür und ging um 23:58:05 hinein. | Stützt: S-5, S-6 | Einstufung: falsche Fährte (Lüge der Täterin) | Blockierbar durch: Weitergabe | Unabhängig von: –

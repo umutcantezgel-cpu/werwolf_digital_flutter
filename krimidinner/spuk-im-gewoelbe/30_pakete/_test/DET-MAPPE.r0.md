@@ -1,4 +1,4 @@
-DET-MAPPE · SCHREIB · Welle 5 · Kanon v0.9 · erwarteter Umfang 800–1.400 Wörter
+DET-MAPPE · SCHREIB · Welle 5 · Kanon v1.0 · erwarteter Umfang 800–1.400 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -18,7 +18,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 4. [IF-4] (öffentlich)
    - Regel: Die Detektiv-Mappe enthält von Anfang an die eigenen Beobachtungen des Geburtstagskinds (DET-B1 bis DET-B6).
 5. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde (Dauer nach ZM-2). Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Was unter vier Augen weitergegeben werden soll, schreibt die Rolle beim Ankreuzen auf ihre Entscheidungskarte; die Spielleitung übergibt es dem Detektiv als Notizkarte. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
 6. [IF-8] (öffentlich)
    - Regel: Was eine Rolle in der Lagerunde laut sagt oder dem Detektiv unter vier Augen weitergibt, schreibt die Spielleitung auf eine Notizkarte (Kennung der Rollen-Entscheidung und Option). Notizkarten liegen danach in der Tischmitte und gelten wie Hinweiskarten.
 7. [IF-6] (öffentlich)
@@ -30,7 +30,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 10. [LR-2] (öffentlich)
    - Regel: Aktiv lügen, also etwas Falsches als Tatsache behaupten, darf eine Rolle nur zu Themen, die auf ihrer Karte mit „Du darfst hier lügen“ markiert sind.
 11. [LR-3] (öffentlich)
-   - Regel: Bei jeder erlaubten Lüge steht auf der Karte ein Gegenbeweis. Wird dir dieser Gegenbeweis vorgelegt, gibst du zu, was er zeigt. Danach darfst du ihn nur noch anders deuten.
+   - Regel: Bei jeder erlaubten Lüge steht auf der Karte ein Gegenbeweis. Wird dir dieser Gegenbeweis vorgelegt, gibst du zu, was er zeigt, und darfst ihn danach nur noch anders deuten. Innerhalb derselben Phase gelten deine übrigen Karten weiter so, wie sie stehen (LR-8).
 12. [LR-4] (öffentlich)
    - Regel: Was eine vorgelegte Hinweiskarte oder ein Beweisstück zeigt, bestreitet niemand.
 13. [LR-5] (öffentlich)
@@ -60,7 +60,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Option A: die Rüstung Kunibert auf dem ersten Absatz
    - Option B: den offenen Sicherungskasten am Turm-Fuß
    - Option C: die Schauvitrine auf der Hofebene
-   - Begründbar durch: H-04, H-27, H-09
+   - Begründbar durch: H-12, H-27, H-04
 20. [D1-3] (öffentlich)
    - Phase: 1
    - Frage: Der Schrei um Mitternacht kam aus dem Gewölbe. Was nimmst du dir dort vor?
@@ -77,7 +77,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Begründbar durch: H-25, H-07, H-24
 22. [D2-2] (öffentlich)
    - Phase: 2
-   - Frage: Die Raureif-Karte zeigt: Im Hof war außer dem Burgwart niemand. Wem hältst du sie vor?
+   - Frage: Die Raureif-Karte zeigt: Bis Adnan und Jonas um sieben nach zwölf zum Tor gingen, war im Hof außer dem Burgwart niemand. Wem hältst du sie vor?
    - Option A: Rojda
    - Option B: Jonas
    - Option C: Merle
@@ -98,7 +98,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Begründbar durch: H-08, H-07, H-09, H-10, H-11
 25. [D3-2] (öffentlich)
    - Phase: 3
-   - Frage: Wessen Weg zwischen elf vor zwölf und Mitternacht prüfst du Minute für Minute?
+   - Frage: Wessen Weg zwischen acht vor zwölf und Mitternacht prüfst du Minute für Minute?
    - Option A: Merle
    - Option B: Adnan
    - Option C: Rojda
@@ -115,7 +115,7 @@ Namen weiterer Personen (nur zur korrekten Schreibweise):
    - R01 = Adnan Hodžić (Aussprache: AD-nan HOD-schitsch; m, 33; selbstständiger Veranstaltungstechniker („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma mit Transporter), ausgebildeter Ersthelfer)
    - R02 = Rojda Baran (Aussprache: ROSCH-da BA-ran (das J wie in „Journal“); w, 29; Mediengestalterin Bild und Ton beim Lokalradio, Geräuschemacherin aus Leidenschaft)
    - R03 = Merle Hartwig (Aussprache: MER-le HART-wich; w, 28; Studienreferendarin für Geschichte und Deutsch an einem Gymnasium; im Februar ist Examen, danach soll die Verbeamtung auf Probe kommen)
-   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik (so erzählt er es))
+   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik)
 
 ## 4. Stil und Ton
 - Du-Form an das Geburtstagskind, ohne Geschlechtsformen.

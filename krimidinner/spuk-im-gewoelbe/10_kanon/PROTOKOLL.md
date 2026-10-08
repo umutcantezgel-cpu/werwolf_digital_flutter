@@ -48,3 +48,16 @@ Jede Änderung nach dem ersten vollständigen Stand (v0.9) mit Kennung, Grund un
 | P-36 | FM-1, R06-GEHEIM | Funktionsmatrix Herkunft als Datensatz; Diyars scheinbare Färbung ohne Bedrohungsbild. | Pflicht/Leitplanken |
 | P-37 | H-02, BS-11, BSO-11, PF-7, LISTE-ZEITEN, Z-2140, BS-02, R02-WISSEN | Unberührter Reif liegt draußen auf dem Burgweg; vollständige öffentliche Zeitliste; Herkunft des Lakens (Wäschekorb, 21:40). | Pflicht/Leitplanken |
 | – | G3-25 | Keine Änderung: Nach LR-8 gelten Karten innerhalb einer Phase Gespräch für Gespräch; Merles Widerspruch zu G3-49 bei 17+ Rollen ist eine gewollte Spur. | Spiegel P3 |
+
+## Nachprüfung (Runde 2) → v1.0
+| Nr | Kennungen | Änderung | Prüfer |
+|---|---|---|---|
+| P-38 | E1-19, E1-20, E2-19, E2-20, R19-LÜGE | Azads zwei Fotos in allen Entscheidungskarten und der Ansage A-E1-19-1. | Nachprüfung A, B |
+| P-39 | Z-2358a, Z-0000f, R02-WISSEN | Rojdas Handy rutscht unter die Truhe; sie ertastet es um 00:00:10. | Nachprüfung A |
+| P-40 | S-10, HW-11, DW1-1, D2-2, HW-02, K8 M-05 | Hinweislisten und Ergebnistexte an die neuen Karten angepasst; Muster M-05 mit erfundenem Inhalt. | Nachprüfung A |
+| P-41 | R11-GEHEIM, R11-WISSEN | Berfin geht um 00:03 am belebten Turm-Fuß vorbei ins Gewölbe; ein Flüstern hört sie nicht. | Nachprüfung A, B |
+| P-42 | K-004, K8 GM-02 | Die Eisentür quietscht beim Aufziehen; ihr Zufallen hört man kaum (zwei Quietscher in der Tatminute). | Nachprüfung A |
+| P-43 | E1-03, E1-05, E1-06, E3-04, E3-07, E3-19, G1-06, G1-29, H-107, H-140, R06-LÜGE | Lage-Texte zitieren die neuen Hinweise; Diyar nennt Adnans kurzes Aufspringen überall. | Nachprüfung B |
+| P-44 | R04-LÜGE, LR-7 | Jonas darf die Job-Fassade aus seinem Steckbrief aufrechterhalten (Gegenbeweis: Raureif, Box-Meldung oder Kamils Freibad-Beobachtung); über das Mietgeld nur schweigen. | Nachprüfung B |
+| P-45 | LR-3 | Zugeständnis gilt sofort; die übrigen Karten derselben Phase bleiben (Verweis auf LR-8). | Nachprüfung B |
+| – | VERSION | Kanon v1.0 gesetzt. | – |

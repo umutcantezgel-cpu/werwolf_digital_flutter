@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-ERZ-GEST-V1 · VARIANTEN · Welle 5 · Kanon v0.9 · erwarteter Umfang 600–900 Wörter
+ERZ-GEST-V1 · VARIANTEN · Welle 5 · Kanon v1.0 · erwarteter Umfang 600–900 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 

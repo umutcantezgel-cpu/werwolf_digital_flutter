@@ -1,4 +1,4 @@
-BILD-FIGUREN-1 · SCHREIB · Welle 1 · Kanon v0.9 · erwarteter Umfang 500–800 Wörter
+BILD-FIGUREN-1 · SCHREIB · Welle 1 · Kanon v1.0 · erwarteter Umfang 500–800 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -14,7 +14,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 2. [K-001] (öffentlich)
    - Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist eine renovierte mittelalterliche Höhenburg im Oberharz über dem erfundenen Bergstädtchen Silberhau (SIL-ber-hau). Sie gehört einer Stiftung; Burgwart ist Eckehard Lüddecke.
 3. [K-002] (öffentlich)
-   - Tatsache: Es ist ein Samstag im November. Klarer Himmel, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
+   - Tatsache: Es ist ein Samstag im November. Über der Burg ist der Himmel klar, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Im Tal um Silberhau und auf dem unteren Burgweg liegt dichter Eisnebel (Inversionswetterlage), die Straße ist spiegelglatt. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
 4. [LF-R01] (öffentlich)
    - Figur: Adnan Hodžić
    - Anker (EN): a 33-year-old man with short dark brown hair and a neatly trimmed beard, calm practical look, grey knitted beanie, black work jacket with many pockets, a multitool on his belt
@@ -41,7 +41,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Kleidung: schwarzer Hoodie, weiße Turnschuhe mit glatter Sohle, Kopfhörer um den Hals
 8. [LF-R03] (öffentlich)
    - Figur: Merle Hartwig
-   - Anker (EN): a 28-year-old woman with shoulder-length light brown hair held by a hair clip, freckles, curious friendly eyes, dark green cable-knit cardigan over a white blouse, holding a small notebook
+   - Anker (EN): a 28-year-old woman with shoulder-length light brown hair held by a hair clip, freckles, curious friendly eyes, dark green cable-knit cardigan over a white blouse
 9. [R03-STAMM] (öffentlich)
    - Name: Merle Hartwig
    - Aussprache: MER-le HART-wich
@@ -53,16 +53,16 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Kleidung: dunkelgrüne Strickjacke mit Zopfmuster über weißer Bluse, Jeans, braune Wanderstiefel (Sonderangebot), Haarspange
 10. [LF-R04] (öffentlich)
    - Figur: Jonas Brinkmann
-   - Anker (EN): a 34-year-old man with short blond hair and a salesman smile, olive green fleece jacket over a checked shirt, big-faced wristwatch, both hands raised as if presenting something
+   - Anker (EN): a 34-year-old man with short blond hair and a salesman smile, olive green chunky knit sweater over a checked shirt, big-faced wristwatch, both hands raised as if presenting something
 11. [R04-STAMM] (öffentlich)
    - Name: Jonas Brinkmann
    - Aussprache: JO-nas BRINK-man
    - Geschlecht: m
    - Alter: 34
    - Wurzeln: deutsch
-   - Beruf: Vertriebler für Medizintechnik (so erzählt er es)
+   - Beruf: Vertriebler für Medizintechnik
    - Beziehung zum Geburtstagskind: Fußballverein seit der Jugend; der Organisator mit Tabellen und großen Versprechen („Mitternacht am lodernden Kamin!“)
-   - Kleidung: olivgrüne Fleecejacke, kariertes Hemd, Jeans, braune Wanderstiefel (Sonderangebot), Armbanduhr mit großem Ziffernblatt
+   - Kleidung: olivgrüner grober Strickpullover, kariertes Hemd, Jeans, braune Wanderstiefel (Sonderangebot), Armbanduhr mit großem Ziffernblatt
 12. [LA-02] (öffentlich)
    - Ort: Kamin-Gewölbe
    - Anker (EN): a vaulted cellar hall of rough grey rubble stone, long heavy oak tables with massive benches, many candles in iron candelabras (LED-style flicker), a large open stone fireplace, platters of flatbread and dips, a large copper cauldron of warm non-alcoholic apple-cinnamon punch with ceramic mugs, a small wobbly bluetooth speaker in a wall niche next to an old split oak door

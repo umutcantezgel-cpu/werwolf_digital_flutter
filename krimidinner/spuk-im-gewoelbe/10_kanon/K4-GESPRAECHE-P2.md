@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-# K4 · GESPRÄCHSGRAPH · Phase 2 · Rollen 05–20 · Kanon v0.9
+# K4 · GESPRÄCHSGRAPH · Phase 2 · Rollen 05–20 · Kanon v1.0
 Skelett aus 90_werkzeug/raster.py. Muster und Kernaufträge G2-01 bis G2-12 stehen in K4-GESPRAECHE-KERN.md; die herausgegebenen Hinweise stehen in K3-HINWEISE-P2.md.
 Lesart: „Von“ führt den Auftrag aus (Gesprächsauftragskarte), „Ziel“ bzw. „Ersatz“ hat das Spiegelstück. Bei Zielen ab Rolle 5 gilt die Ersatz-Zeile, solange die Zielrolle nicht besetzt ist. Kernrollen antworten wie in ihren festen Phase-2-Aufträgen: Rojda, Adnan und Jonas geben ihre Lüge nur auf, wenn in der Bedingung ihr Gegenbeweis vorgelegt wird; Merle lügt weiter.
 

@@ -1,4 +1,4 @@
-HINW-DET · SCHREIB · Welle 1 · Kanon v0.9 · erwarteter Umfang 500–800 Wörter
+HINW-DET · SCHREIB · Welle 1 · Kanon v1.0 · erwarteter Umfang 500–800 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -25,7 +25,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Beobachtung: Um 23:56 hat Rojda dich an die Speisekammertür geschickt: „Geh mal lauschen, gleich spukt's.“ Danach war sie weg.
 5. [DET-B3] (geheim)
    - Rolle: DET
-   - Beobachtung: An der Tür: Aus der Box neben dir heulte Wind. Dann der Knall, und alles wurde dunkel. Kurz danach, noch bevor aus der Box Kettenrasseln kam, hörtest du durch die gesplitterte Tür ein Klimpern, einen tiefen Ruf, einen dumpfen Schlag, Poltern und rollende Dosen. Dann eine Weile nur Box-Geräusche. Dann der Schrei, direkt neben dir. Damals hieltest du alles für die Show.
+   - Beobachtung: An der Tür: Aus der Box neben dir heulte Wind. Dann der Knall, und alles wurde dunkel. Kurz danach quietschte drüben in der Speisekammer eine Tür. Dann, noch bevor aus der Box Kettenrasseln kam, hörtest du durch die gesplitterte Tür ein Klimpern, einen tiefen Ruf, einen dumpfen Schlag, Poltern und rollende Dosen. Unter dem Kettenrasseln quietschte die Tür drüben noch einmal. Dann eine Weile nur Box-Geräusche. Dann der Schrei, direkt neben dir. Damals hieltest du alles für die Show.
 6. [DET-B4] (geheim)
    - Rolle: DET
    - Beobachtung: Im Kaminschein kniete jemand mit Mütze und hustete. Die Eichentür hat die ganze Zeit niemand von deiner Seite geöffnet; sie war von innen verkeilt.
@@ -34,7 +34,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Beobachtung: Kurz vor dem Schrei sagte Merle drüben am Kamin laut: „Adnan? Ich bin's, Merle! Ich hab mich total verlaufen.“
 8. [DET-B6] (geheim)
    - Rolle: DET
-   - Beobachtung: Am Turm-Fuß stand Rojda mit Handylicht am offenen Sicherungskasten und sagte: „Ich wollte nur das Licht wieder …“ In der Speisekammer lag der Burgwart, neben ihm der Kerzenständer; auf dem Boden erstarrte Wachsspritzer.
+   - Beobachtung: Am Turm-Fuß stand Rojda mit Handylicht am offenen Sicherungskasten und sagte: „Ich wollte nur das Licht wieder …“ In der Speisekammer lag der Burgwart, neben ihm der Kerzenständer; auf dem Boden Wachsspritzer, schon hart, als du mit Adnan noch vor allen anderen hereinkamst, und in einem steckte bereits ein Abdruck.
 9. [IF-1] (öffentlich)
    - Regel: Der Detektiv darf jederzeit einem Gespräch zuhören, aber immer nur einem gleichzeitig. Nach dem Zuhören darf er einer beteiligten Rolle genau eine Frage stellen; sie antwortet nach der Lügenregel.
 10. [IF-4] (öffentlich)
@@ -44,7 +44,7 @@ Namen weiterer Personen (nur zur korrekten Schreibweise):
    - R01 = Adnan Hodžić (Aussprache: AD-nan HOD-schitsch; m, 33; selbstständiger Veranstaltungstechniker („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma mit Transporter), ausgebildeter Ersthelfer)
    - R02 = Rojda Baran (Aussprache: ROSCH-da BA-ran (das J wie in „Journal“); w, 29; Mediengestalterin Bild und Ton beim Lokalradio, Geräuschemacherin aus Leidenschaft)
    - R03 = Merle Hartwig (Aussprache: MER-le HART-wich; w, 28; Studienreferendarin für Geschichte und Deutsch an einem Gymnasium; im Februar ist Examen, danach soll die Verbeamtung auf Probe kommen)
-   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik (so erzählt er es))
+   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik)
 
 ## 4. Stil und Ton
 - Beobachtungskarte (30–90 Wörter): Kopf „DEINE BEOBACHTUNG · Bk“, Du-Form, Inhalt wortgetreu nach dem Datensatz; Uhrzeiten als „23:56 Uhr“ erlaubt.

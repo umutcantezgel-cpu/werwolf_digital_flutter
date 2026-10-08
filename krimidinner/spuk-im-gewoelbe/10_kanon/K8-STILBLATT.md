@@ -84,7 +84,7 @@ Jeder Moment darf in Erzähltexten und Karten vorkommen, genau so, wie er hier s
 | Kennung | Moment | Wann im Spiel | Darf zeigen |
 |---|---|---|---|
 | GM-01 | Wind pfeift durch die Schießscharten, die Kerzen ducken sich | Einführung, Einwürfe | Atmosphäre |
-| GM-02 | Die Eisentür zur Speisekammer quietscht wie eine Katze im Keller | Einführung, Phase 1–3 | dass sie laut ist, bei jedem Öffnen und Schließen |
+| GM-02 | Die Eisentür zur Speisekammer quietscht wie eine Katze im Keller | Einführung, Phase 1–3 | dass sie laut quietscht, sobald man sie aufzieht |
 | GM-03 | Der Knall: die Hauptsicherung, dann Stockdunkel | Einführung | Knall, Dunkelheit, Handylichter |
 | GM-04 | Kettenrasseln, Schritte, eine knarrende Tür aus der Box | Einführung (Rückblick), Phase 1 | dass die Box im Dunkeln weiterspielte |
 | GM-05 | Der Schrei um Mitternacht, hoch und lang, mit Kathedralen-Hall | Einführung | den Schrei selbst; nicht, woher er kam |
@@ -151,8 +151,8 @@ Muster zeigen Format und Ton. Sie sind nicht zum Abschreiben gedacht: Kein Paket
     [ENDE BEDINGUNG]
 
 ### M-05 Ergebnistext einer Detektiv-Option (80–140 Wörter)
-    Du gehst hinaus in den Hof. Der Atem dampft, das Geleucht am Brunnen wirft einen kleinen, kalten Lichtkreis. Im Raureif zeichnen sich Stiefelspuren ab: eine vom Kellerhals zum Torhaus, eine vom Torhaus zurück zur Hoftür des Turms. Vor dem Burgtor liegt der Reif unberührt, glatt wie Zuckerguss. Durch dieses Tor ist heute Nacht niemand gegangen. Wer auch immer zugeschlagen hat, sitzt noch mit euch am Tisch.
-    (Muster für Form und Ton; keine echte Detektiv-Option.)
+    Du gehst hinüber zur Beispielstation. Der Atem dampft, eine Laterne wirft einen kleinen, kalten Lichtkreis. Auf der Fensterbank liegt ein Streichholzbriefchen, halb leer; drei Hölzer sind abgebrannt, eins nur angekokelt. Daneben ein Rest Kerzenwachs, längst kalt. Wer hier gezündelt hat, hatte es eilig und kam nicht mehr zurück, um aufzuräumen. Merk dir das angekokelte Holz.
+    (Muster für Form und Ton; erfundener Inhalt, keine echte Detektiv-Option.)
 
 ### M-06 Öffentlicher Steckbrief (Spielerkarte, 100–150 Wörter)
     STECKBRIEF · ERZÄHLERFIGUR · Eckehard Lüddecke (E-ke-hart LÜD-de-ke)

@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-ERZ-ENDEN-RICHTIG-V1 · VARIANTEN · Welle 5 · Kanon v0.9 · erwarteter Umfang 600–900 Wörter
+ERZ-ENDEN-RICHTIG-V1 · VARIANTEN · Welle 5 · Kanon v1.0 · erwarteter Umfang 600–900 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -43,11 +43,11 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 9. [S-9] (Lösung)
    - Schlussfolgerung: Rojda war es nicht: Sie stand am Sicherungskasten und zog den Hebel, das Gespenst war jemand anderes; ihre Turnschuhe haben glatte Sohlen.
    - Notwendig: nein
-   - Hinweise: H-25, H-07, H-15
+   - Hinweise: H-25, H-07, H-06, H-15, H-14
 10. [S-10] (Lösung)
    - Schlussfolgerung: Jonas war es nicht: Er war um 23:54 oben auf dem Wehrgang (Merle selbst sagt es), und an seinen Stiefeln sind alle Stollen heil.
    - Notwendig: nein
-   - Hinweise: H-26, H-15
+   - Hinweise: H-26, H-43, H-06, H-15, H-52
 11. [BW-STAMM] (öffentlich)
    - Name: Eckehard Lüddecke
    - Aussprache: E-ke-hart LÜD-de-ke
@@ -75,7 +75,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Zeit: 21:20
    - Wer: R03, R04, BW
    - Ort: erster Absatz (Kunibert)
-   - Was: Jonas erschrickt vor Kunibert und prallt gegen ihn (KOMIK-1). Merle hält gerade den Taler für ein Foto in der Hand. Sie will Jonas auffangen und steckt den Taler reflexhaft in die Tasche ihrer grünen Strickjacke. Der Burgwart eilt ohne Brille zu Kunibert und sieht dabei nur „was Grünes“ an der Vitrine (Merles Strickjacke und Jonas' Fleecejacke sind beide grün).
+   - Was: Jonas erschrickt vor Kunibert und prallt gegen ihn (KOMIK-1). Merle hält gerade den Taler für ein Foto in der Hand. Sie will Jonas auffangen und steckt den Taler reflexhaft in die Tasche ihrer grünen Strickjacke. Der Burgwart eilt ohne Brille zu Kunibert und sieht dabei nur „was Grünes“ an der Vitrine (Merles Strickjacke und Jonas' Strickpullover sind beide grün).
 18. [Z-2245] (Lösung)
    - Zeit: 22:45
    - Wer: BW, alle, R03
@@ -90,7 +90,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Zeit: 23:20
    - Wer: R02, R03
    - Ort: Kamin-Gewölbe (am Punschkessel)
-   - Was: Rojda weist Merle als Gespenst ein: 23:57 Track starten, 23:58 Hebel, Gespenst wartet am Turm-Fuß, um 00:00 Schrei aus der Box, dann tritt das Gespenst mit Lampe unterm Kinn durch die Turmtür hinter das Geburtstagskind, 00:02 Licht und Torte. Merle fragt: „Wie lange bleibt's dunkel?“ – „Bis zwei nach.“ Rojda gibt ihr die Stablampe „HODŽIĆ VT · 3“; das Laken steckt in Merles Tasche. Merle hat das Gespenst schon vor Wochen zugesagt, obwohl sie Angst im Dunkeln hat, weil das Geburtstagskind ein schweres Jahr hinter sich hat.
+   - Was: Rojda weist Merle als Gespenst ein: 23:57 Track starten, 23:58 Hebel, Gespenst wartet am Turm-Fuß, um 00:00 Schrei aus der Box, dann tritt das Gespenst mit Lampe unterm Kinn durch die Turmtür hinter das Geburtstagskind, 00:02 Licht und Torte. Merle fragt: „Wie lange bleibt's dunkel?“ – „Bis zwei nach.“ Rojda gibt ihr die Stablampe „HODŽIĆ VT · 3“; Merle knipst sie an: „Die ist ja fast leer.“; das Laken steckt in Merles Tasche. Merle hat das Gespenst schon vor Wochen zugesagt, obwohl sie Angst im Dunkeln hat, weil das Geburtstagskind ein schweres Jahr hinter sich hat.
 21. [Z-2346] (Lösung)
    - Zeit: 23:46
    - Wer: BW
@@ -100,7 +100,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Zeit: 23:58:00
    - Wer: R02
    - Ort: Turm-Fuß
-   - Was: Rojda legt den Hauptschalter um. Punschkessel und Heizstrahler laufen noch; unter Last brennt die Hauptsicherung mit lautem Knall durch. Die ganze Burg ist dunkel, bis auf Kaminglut und das Geleucht im Hof. Die Box spielt mit Akku weiter.
+   - Was: Rojda legt den Hauptschalter um. Punschkessel und Heizstrahler laufen noch; unter Last brennt die Hauptsicherung mit lautem Knall durch. Die ganze Burg ist dunkel, bis auf Kaminglut und das Geleucht im Hof. Die Box spielt mit Akku weiter. Vor Schreck fällt Rojda das Handy aus der Hand und rutscht mit der Lampe nach unten unter die Holztruhe; ihr Licht ist weg.
 23. [Z-2358e] (Lösung)
    - Zeit: 23:58:15
    - Wer: R03
@@ -151,7 +151,7 @@ Namen weiterer Personen (nur zur korrekten Schreibweise):
    - R01 = Adnan Hodžić (Aussprache: AD-nan HOD-schitsch; m, 33; selbstständiger Veranstaltungstechniker („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma mit Transporter), ausgebildeter Ersthelfer)
    - R02 = Rojda Baran (Aussprache: ROSCH-da BA-ran (das J wie in „Journal“); w, 29; Mediengestalterin Bild und Ton beim Lokalradio, Geräuschemacherin aus Leidenschaft)
    - R03 = Merle Hartwig (Aussprache: MER-le HART-wich; w, 28; Studienreferendarin für Geschichte und Deutsch an einem Gymnasium; im Februar ist Examen, danach soll die Verbeamtung auf Probe kommen)
-   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik (so erzählt er es))
+   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik)
 
 ## 4. Stil und Ton
 - Erzählerstimme nach Stilblatt, vorlesbar, Uhrzeiten und Zahlen in Worten.

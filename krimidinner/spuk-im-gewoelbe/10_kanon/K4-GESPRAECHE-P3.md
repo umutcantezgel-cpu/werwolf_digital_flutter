@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-# K4 · GESPRÄCHSGRAPH · Phase 3 · Rollen 05–20 · Kanon v0.9
+# K4 · GESPRÄCHSGRAPH · Phase 3 · Rollen 05–20 · Kanon v1.0
 Skelett aus 90_werkzeug/raster.py. Phasenfokus: Alibis und Zeitleiste. Lesart wie in K4-GESPRAECHE-KERN.md: „Von“ führt den Auftrag aus, „Ziel“ bzw. „Ersatz“ hat das Spiegelstück. Bei Zielen ab Rolle 5 gilt die Ersatz-Zeile, solange die Zielrolle nicht besetzt ist.
 
 ## Block 5–8 · Schlüsselmotive und Alibi-Brecher

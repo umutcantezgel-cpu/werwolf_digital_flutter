@@ -1,4 +1,4 @@
-SL-AUFBAU · SCHREIB · Welle 5 · Kanon v0.9 · erwarteter Umfang 800–1.300 Wörter
+SL-AUFBAU · SCHREIB · Welle 5 · Kanon v1.0 · erwarteter Umfang 800–1.300 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -12,11 +12,11 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 1. [K-001] (öffentlich)
    - Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist eine renovierte mittelalterliche Höhenburg im Oberharz über dem erfundenen Bergstädtchen Silberhau (SIL-ber-hau). Sie gehört einer Stiftung; Burgwart ist Eckehard Lüddecke.
 2. [K-002] (öffentlich)
-   - Tatsache: Es ist ein Samstag im November. Klarer Himmel, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
+   - Tatsache: Es ist ein Samstag im November. Über der Burg ist der Himmel klar, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Im Tal um Silberhau und auf dem unteren Burgweg liegt dichter Eisnebel (Inversionswetterlage), die Straße ist spiegelglatt. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
 3. [K-003] (öffentlich)
    - Tatsache: Das Kamin-Gewölbe (Festsaal im Keller) hat drei Türen: die Turmtür zum Fuß des Wendeltreppenturms, den Kellerhals (Treppe hinauf in den Hof) und die alte Eichentür zur Speisekammer.
 4. [K-004] (öffentlich)
-   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut beim Öffnen und beim Schließen. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
+   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut, sobald man sie aufzieht; ihr Zufallen hört man kaum. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
 5. [K-005] (öffentlich)
    - Tatsache: Der Wendeltreppenturm verbindet alle Ebenen. Unten am Turm-Fuß: Turmtür zum Gewölbe, Eisentür zur Speisekammer, der Sicherungskasten mit Zahlenschloss und eine alte Holztruhe. Acht Stufen höher, auf dem ersten Absatz: die Ritterrüstung „Kunibert“. Darüber die Hofebene mit der Hoftür, der Schauvitrine und der Toilette. Ganz oben der Wehrgang.
 6. [K-006] (öffentlich)
@@ -36,12 +36,12 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 13. [LISTE-GEGENSTÄNDE] (öffentlich)
    - Gegenstände: eiserner Kerzenständer mit drei Kerzen · Blechdose des Burgwarts · Ausbeutetaler · Schlüsselbund mit Karabiner · Rüstung Kunibert mit Panzerhandschuh und Helmvisier · Bluetooth-Box · Sicherungskasten mit Hauptschalter · Code-Zettel (zwei Handschriften) · Stablampe mit Klebeband „HODŽIĆ VT · 3“ · weißes Bettlaken mit rotem Wäschezeichen „Schartenfels 7“ · Holztruhe · Schadenszettel des Burgwarts · Punschkessel · Heißluftpistole · Wanderstiefel · Sohlenkarten · Sofortbild der Burgführung · Handys mit Taschenlampe · Kühlpack (Tiefkühlerbsen) · Wolldecke · Geburtstagstorte · Azads Kamerafotos mit Uhrzeit (nur wenn Rolle 19 besetzt)
 14. [LISTE-ZEITEN] (öffentlich)
-   - Öffentlich bekannte Zeitpunkte: 17:40 Türschaden an der Eichentür · 20:30 Begrüßungsrede mit Box-Echo · 21:15 bis 21:35 Burgführung · 22:45 Ultimatum des Burgwarts · 23:00 Burgtor abgeschlossen · 23:35 der Burgwart sagt, er gehe ins Bett · 23:48 Kamin-Qualm · 23:54 Box meldet „Verbindung getrennt“ · kurz vor zwölf meldet die Box „Verbunden“ · Knall und Stromausfall kurz vor zwölf · um Mitternacht der Schrei · kurz nach Mitternacht wird der Burgwart in der Speisekammer gefunden
+   - Öffentlich bekannte Zeitpunkte: 17:40 Türschaden an der Eichentür · 20:30 Begrüßungsrede mit Box-Echo · 21:15 bis 21:35 Burgführung · 22:45 Ultimatum des Burgwarts · 23:00 Burgtor abgeschlossen · 23:35 der Burgwart sagt, er gehe ins Bett · 23:48 Kamin-Qualm · 23:52 Adnan reißt die Turmtür auf, Merle geht aufs Klo, kurz danach geht Jonas Luft schnappen · 23:54 Box meldet „Verbindung getrennt“ · 23:56 Rojda schickt das Geburtstagskind an die Eichentür, kurz darauf meldet die Box „Verbunden“ · 23:58 Knall und Stromausfall · um Mitternacht der Schrei · 00:01 der Burgwart wird in der Speisekammer gefunden und kommt zu sich · 00:02 Jonas kommt die Treppe herunter · 00:03 der Bund fehlt · ab 00:05 Versorgung, Tor- und Torhausprobe, Anruf bei der Leitstelle, Beschluss zum Weiterfeiern (bis 00:30). Andere Uhrzeiten nennen nur Rollenkarten, Hinweise und Beweisstücke.
 15. [BSO-01] (öffentlich)
    - Beweisstück: Wachsspritzer mit Teilabdruck
    - Fundort: Speisekammer, neben der Eisentür
    - Phase: 1
-   - Aussehen: Erstarrte Wachsspritzer auf dem Steinboden; in einem der Abdruck eines Absatzes mit Stollenprofil, Spitze Richtung Eisentür.
+   - Aussehen: Erstarrte Wachsspritzer auf dem Steinboden; in einem der Abdruck eines Absatzes mit Stollenprofil, am Absatzrand fehlt ein Stollen (glatte Lücke im Muster), Spitze Richtung Eisentür.
 16. [BSO-02] (öffentlich)
    - Beweisstück: Stofffetzen
    - Fundort: Panzerhandschuh der Rüstung Kunibert (erster Turmabsatz)
@@ -91,7 +91,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Beweisstück: Raureif-Spuren
    - Fundort: Hof
    - Phase: 1
-   - Aussehen: Zwei Stiefelspuren zwischen Kellerhals, Torhaus und Hoftür; frischere Spuren von zwei Personen zum Tor; vor dem Tor unberührter Reif.
+   - Aussehen: Zwei Stiefelspuren zwischen Kellerhals, Torhaus und Hoftür; frischere Spuren von zwei Personen zum Tor; draußen vor dem Tor auf dem Burgweg (vom Wehrgang aus zu sehen) unberührter Reif.
 26. [BSO-12] (öffentlich)
    - Beweisstück: Sofortbild der Burgführung
    - Fundort: Fotowand im Kamin-Gewölbe
@@ -111,7 +111,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 31. [IF-4] (öffentlich)
    - Regel: Die Detektiv-Mappe enthält von Anfang an die eigenen Beobachtungen des Geburtstagskinds (DET-B1 bis DET-B6).
 32. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde (Dauer nach ZM-2). Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Was unter vier Augen weitergegeben werden soll, schreibt die Rolle beim Ankreuzen auf ihre Entscheidungskarte; die Spielleitung übergibt es dem Detektiv als Notizkarte. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
 33. [IF-8] (öffentlich)
    - Regel: Was eine Rolle in der Lagerunde laut sagt oder dem Detektiv unter vier Augen weitergibt, schreibt die Spielleitung auf eine Notizkarte (Kennung der Rollen-Entscheidung und Option). Notizkarten liegen danach in der Tischmitte und gelten wie Hinweiskarten.
 34. [IF-6] (öffentlich)

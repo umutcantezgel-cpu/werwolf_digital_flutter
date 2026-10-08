@@ -1,4 +1,4 @@
-# K5 · MECHANIK · Informationsfluss, Meldekarten, Zeitmodell · Kanon v0.9
+# K5 · MECHANIK · Informationsfluss, Meldekarten, Zeitmodell · Kanon v1.0
 Öffentlich (Regelblatt und Spielleiter-Handbuch), außer den Inhalten der Meldekarten [G].
 
 ## Informationsfluss zum Detektiv

@@ -1,4 +1,4 @@
-HINW-MELDE · SCHREIB · Welle 1 · Kanon v0.9 · erwarteter Umfang 600–900 Wörter
+HINW-MELDE · SCHREIB · Welle 1 · Kanon v1.0 · erwarteter Umfang 600–900 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -44,11 +44,11 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 9. [MK3-R01] (geheim)
    - Rolle: R01
    - Phase: 3
-   - Text: „Merle kam erst eine knappe Minute vor dem Schrei an den Kamin, mit eiskalten Händen.“
+   - Text: „Ich hab vom Qualm bis zum Schrei am Kamin gekniet. Nur um acht vor zwölf bin ich kurz aufgesprungen und hab Turmtür und Läden aufgerissen.“
 10. [MK3-R02] (geheim)
    - Rolle: R02
    - Phase: 3
-   - Text: „Der Schrei um Mitternacht ist auf meinem Track. Das Poltern davor nicht.“
+   - Text: „Der Schrei um Mitternacht ist auf meinem Track.“
 11. [MK3-R03] (geheim)
    - Rolle: R03
    - Phase: 3
@@ -58,13 +58,13 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Phase: 3
    - Text: „Ich hab von vier vor zwölf bis kurz nach zwei vor zwölf telefoniert, oben an der dritten Zinne.“
 13. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde (Dauer nach ZM-2). Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Was unter vier Augen weitergegeben werden soll, schreibt die Rolle beim Ankreuzen auf ihre Entscheidungskarte; die Spielleitung übergibt es dem Detektiv als Notizkarte. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
 
 Namen weiterer Personen (nur zur korrekten Schreibweise):
    - R01 = Adnan Hodžić (Aussprache: AD-nan HOD-schitsch; m, 33; selbstständiger Veranstaltungstechniker („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma mit Transporter), ausgebildeter Ersthelfer)
    - R02 = Rojda Baran (Aussprache: ROSCH-da BA-ran (das J wie in „Journal“); w, 29; Mediengestalterin Bild und Ton beim Lokalradio, Geräuschemacherin aus Leidenschaft)
    - R03 = Merle Hartwig (Aussprache: MER-le HART-wich; w, 28; Studienreferendarin für Geschichte und Deutsch an einem Gymnasium; im Februar ist Examen, danach soll die Verbeamtung auf Probe kommen)
-   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik (so erzählt er es))
+   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik)
 
 ## 4. Stil und Ton
 - Kopf „MELDEKARTE · Phase p · Rolle NN <Name>“, dann „In der Lagerunde liest du laut vor:“, dann der Text wörtlich in „…“, dann „Diese Karte ist Pflicht. Du darfst nichts hinzufügen und nichts weglassen.“

@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-# K6 · AUFLÖSUNGSLOGIK · Kanon v0.9
+# K6 · AUFLÖSUNGSLOGIK · Kanon v1.0
 
 ## Verdächtigenkreis je Besetzungsstufe
 @VK-1 [L] | Besetzung: 4 bis 20 Rollen | Verdächtigenkreis: immer genau R01 Adnan, R02 Rojda, R03 Merle, R04 Jonas | Begründung: Täterin, Hauptzeugin und die beiden Hauptverdächtigen liegen im Kern. Erweiterungsrollen sind nie verdächtig; sie waren zur Tatminute im Gewölbe oder auf dem Wehrgang und lügen nie. In Erzähltexten werden sie nur in markierten Einschüben genannt.

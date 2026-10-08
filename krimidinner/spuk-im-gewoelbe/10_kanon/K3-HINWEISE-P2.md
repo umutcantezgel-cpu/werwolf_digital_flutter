@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-# K3 · HINWEISNETZ · Gesprächshinweise Phase 2 · Rollen 05–20 · Kanon v0.9
+# K3 · HINWEISNETZ · Gesprächshinweise Phase 2 · Rollen 05–20 · Kanon v1.0
 Jeder Hinweis gehört der Rolle, die ihn im Gespräch erfährt („Rolle:“). Er erreicht den Detektiv, wenn der zuhört, nachfragt oder die Rolle ihn meldet. Blockierbar ist nur diese Weitergabe, nicht das Gespräch selbst. Gespräche siehe K4-GESPRAECHE-P2.md.
 
 ## Phase 2 · Rollen 05–08
