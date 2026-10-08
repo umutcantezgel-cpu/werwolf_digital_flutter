@@ -397,6 +397,10 @@ List<String> spieltextBestand(String wurzel) {
   rekursiv('lib/burgstadt', (p) => p.endsWith('.dart'));
   rekursiv('packages/burgstadt_spiel/lib', (p) => p.endsWith('.dart'));
   rekursiv('content', (_) => true);
+  // Bestand „Klassische Fälle“: Spieltexte der Oberfläche
+  datei('lib/l10n/app_de.arb');
+  rekursiv('lib/ui', (p) => p.endsWith('.dart'));
+  rekursiv('lib/game', (p) => p.endsWith('.dart'));
   out.sort();
   return out;
 }

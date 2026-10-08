@@ -89,3 +89,9 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - Wege: (a) handgepixelte Raster je Richtung und Bild (≈100 Bilder je Figur – nicht machbar, uneinheitlich), (b) 2D-Teile mit Spiegeln (Licht/Details falsch, Plan E5 ursprünglich), (c) 3D-Gliederpuppe aus analytischen Grundkörpern (Ellipsoid, Quader, Zylinder), per Strahlwurf orthografisch gebrannt, Schattierung in der Materialrampe, automatische Kontur und Innenlinien.
 - Gewählt: (c). 104 Bilder je Figur in ~0,1 s (Dart-VM) – Brennen zur Laufzeit beim Laden möglich, keine Asset-Last. Stilisierung (Kopf ×1,24, Glieder ×1,3) für Lesbarkeit bei ~56 px. Bodenkontakt automatisch. Augen nur auf sichtbarer Gesichtshaut.
 - Umkehrprobe: falsch, wenn die Figuren „klumpig“ wirken → Teile feiner (mehr Grundkörper), Kontur-Regeln anpassen; Porträts (64×64) bekommen eigenes, höher aufgelöstes Brennen mit Ausdrücken.
+
+## E9b · 09.10. 00:31 · Abhängigkeit gamepads (MIT)
+- Zweck: Gamepad auf Android, iOS, Web, Desktop mit normalisierten Tasten/Achsen (Flame-Projekt, gepflegt). Belegt durch Gamepad-Simulation im Geräte-Test.
+
+## E14a · 09.10. 00:31 · Klassische Fälle leitplankenkonform (A-702a umgesetzt)
+- 49 Textstellen in den drei Szenarien + SCHEMA, Beispielszenario („Dunkle Spritzer“) und Oberflächentexte („verborgene Spuren“) geändert; Lösungen, IDs, validate/simulate unverändert grün. Leitplanken-Scanner prüft jetzt alle Spieltexte (Burgstadt + Klassische Fälle): 0 Fehler.

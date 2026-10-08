@@ -732,7 +732,7 @@ abstract class L {
   /// No description provided for @class_forensic_ability.
   ///
   /// In de, this message translates to:
-  /// **'Adlerauge: 15 s lang Blutspuren sehen und schneller suchen.'**
+  /// **'Adlerauge: 15 s lang verborgene Spuren sehen und schneller suchen.'**
   String get class_forensic_ability;
 
   /// No description provided for @class_forensic_passive.
@@ -936,7 +936,7 @@ abstract class L {
   /// No description provided for @effect_eagle_eye_desc.
   ///
   /// In de, this message translates to:
-  /// **'Du siehst Blutspuren und suchst schneller.'**
+  /// **'Du siehst verborgene Spuren und suchst schneller.'**
   String get effect_eagle_eye_desc;
 
   /// No description provided for @effect_focused.

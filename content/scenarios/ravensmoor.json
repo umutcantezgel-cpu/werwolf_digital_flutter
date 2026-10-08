@@ -54,7 +54,7 @@
       {"id": "library", "name": {"de": "Bibliothek"}, "x": 1, "y": 1, "w": 8, "h": 6, "floor": "parquet"},
       {"id": "study", "name": {"de": "Arbeitszimmer"}, "x": 10, "y": 1, "w": 6, "h": 6, "floor": "parquet"},
       {"id": "kitchen", "name": {"de": "Küche"}, "x": 17, "y": 1, "w": 7, "h": 6, "floor": "tiles"},
-      {"id": "cellar", "name": {"de": "Weinkeller"}, "x": 25, "y": 1, "w": 4, "h": 6, "floor": "stone"},
+      {"id": "cellar", "name": {"de": "Vorratskeller"}, "x": 25, "y": 1, "w": 4, "h": 6, "floor": "stone"},
       {"id": "salon", "name": {"de": "Salon"}, "x": 1, "y": 8, "w": 9, "h": 7, "floor": "carpet", "lit": true},
       {"id": "hall", "name": {"de": "Eingangshalle"}, "x": 11, "y": 8, "w": 7, "h": 7, "floor": "checker"},
       {"id": "dining", "name": {"de": "Speisesaal"}, "x": 19, "y": 8, "w": 10, "h": 7, "floor": "parquet"},
@@ -226,7 +226,7 @@
     {"id": "h_schreibtisch", "name": {"de": "Schreibtisch"}, "x": 12, "y": 3, "kind": "search"},
     {"id": "h_kamin", "name": {"de": "Kamin im Arbeitszimmer"}, "x": 10, "y": 5, "kind": "search"},
     {"id": "h_sekretaer", "name": {"de": "Edmunds Sekretär"}, "x": 10, "y": 2, "kind": "search", "searchMs": 3500, "requires": {"lead": "l_sekretaer"}, "fromChapter": 2},
-    {"id": "h_tropfen", "name": {"de": "Tropfen auf dem Parkett"}, "x": 11, "y": 4, "kind": "blood"},
+    {"id": "h_tropfen", "name": {"de": "Flecken auf dem Parkett"}, "x": 11, "y": 4, "kind": "blood"},
     {"id": "h_labor", "name": {"de": "Chemiekasten der Ärztin"}, "x": 5, "y": 3, "kind": "lab"},
     {"id": "h_sessel", "name": {"de": "Lesesessel"}, "x": 1, "y": 5, "kind": "search"},
     {"id": "h_kartentisch", "name": {"de": "Kartentisch"}, "x": 2, "y": 13, "kind": "search"},
@@ -240,7 +240,7 @@
     {"id": "h_beet", "name": {"de": "Rosenbeet unter dem Salonfenster"}, "x": 7, "y": 16, "kind": "search"},
     {"id": "h_hecke", "name": {"de": "Buchsbaumhecke"}, "x": 22, "y": 19, "kind": "search", "searchMs": 3000},
     {"id": "h_schuppen", "name": {"de": "Gerätekiste des Gärtners"}, "x": 27, "y": 21, "kind": "search", "searchMs": 3500, "requires": {"lead": "l_schuppen"}, "fromChapter": 2},
-    {"id": "h_kellerregal", "name": {"de": "Regal der alten Jahrgänge"}, "x": 25, "y": 6, "kind": "search", "searchMs": 4500, "requires": {"lead": "l_keller"}, "fromChapter": 2},
+    {"id": "h_kellerregal", "name": {"de": "Regal der alten Vorräte"}, "x": 25, "y": 6, "kind": "search", "searchMs": 4500, "requires": {"lead": "l_keller"}, "fromChapter": 2},
     {"id": "h_geist", "name": {"de": "Statue der ersten Lady"}, "x": 1, "y": 18, "kind": "search", "ghost": true}
   ],
   "items": [
@@ -322,8 +322,8 @@
       "lines": {
         "greet": {"de": "Ermittler! Endlich jemand, der nicht trauert. Zigarre? Nein? Dann eben ich."},
         "alibi": {"de": "Ich saß im Salon und legte Patience. Stundenlang. Die Karten liegen noch da – sehen Sie selbst nach."},
-        "alibiLie": {"de": "Patience, im Salon, beim Brandy. Der langweiligste Abend meines Lebens. Die Karten liegen noch da."},
-        "victim": {"de": "Onkel Edmund liebte drei Dinge: sein Geld, seinen Portwein und es, mir beides vorzuenthalten."},
+        "alibiLie": {"de": "Patience, im Salon, bei einer Tasse Tee. Der langweiligste Abend meines Lebens. Die Karten liegen noch da."},
+        "victim": {"de": "Onkel Edmund liebte drei Dinge: sein Geld, seinen Lieblingstee und es, mir beides vorzuenthalten."},
         "observation": {"de": "Zwischendurch sah ich zur Bibliothekstür hinüber. War da Licht? Lassen Sie mich … nachdenken."},
         "rumor": {"de": "Julians Vater starb verarmt, nachdem Edmund ihn aus dem Familiengeschäft gedrängt hatte. Julian war zwölf."},
         "nervous": {"de": "Ha. Ha! Das ist doch kein Beweis. Das ist … ein Zufall. Oder?"},
@@ -365,8 +365,8 @@
       "witness": true,
       "lines": {
         "greet": {"de": "Mein Chemiekasten steht dort auf dem Tisch. Benutzen Sie ihn. Die Wahrheit ist wichtiger als jeder Ruf."},
-        "alibi": {"de": "Gegen halb elf gab ich Lady Constance ein Pulver. Danach schrieb ich hier in der Bibliothek meinen Bericht."},
-        "alibiLie": {"de": "Ein Pulver für die Lady, dann mein Bericht, hier am Pult. Bei Lampenlicht, bis Pell durchs Haus rief."},
+        "alibi": {"de": "Gegen halb elf brachte ich Lady Constance einen Kräutertee. Danach schrieb ich hier in der Bibliothek meinen Bericht."},
+        "alibiLie": {"de": "Ein Kräutertee für die Lady, dann mein Bericht, hier am Pult. Bei Lampenlicht, bis Pell durchs Haus rief."},
         "victim": {"de": "Edmund hatte ein schwaches Herz. Und ein Testament, das mein Armenhospital bedachte – bis gestern Abend."},
         "observation": {"de": "Die Lady hat beim Dinner kaum gegessen. Und Pell schenkte Edmund zweimal nach, ohne dass er darum bat."},
         "rumor": {"de": "Im Dorf heißt es, das Diplom in Dr. Marshs Praxis trage den Vornamen ihres verstorbenen Bruders."},
@@ -403,9 +403,9 @@
     {"id": "rache", "name": {"de": "Rache"}, "reveal": {"de": "Eine alte Rechnung: Edmund hatte dem Täter einst etwas genommen, das kein Geld ersetzen konnte. In dieser Nacht wurde sie beglichen."}}
   ],
   "weapons": [
-    {"id": "gift", "name": {"de": "Gift"}, "reveal": {"de": "Im Portweinglas: Rückstände eines Pflanzengifts. Edmund hat seinen Tod Schluck für Schluck getrunken."}},
-    {"id": "brieffoeffner", "name": {"de": "Brieföffner"}, "reveal": {"de": "Ein einziger, präziser Stich mit schmaler Klinge – Edmunds eigener silberner Brieföffner."}},
-    {"id": "leuchter", "name": {"de": "Kerzenleuchter"}, "reveal": {"de": "Ein Schlag gegen die Schläfe, Wachs im Haar: ein schwerer Silberleuchter aus dem Speisesaal."}}
+    {"id": "gift", "name": {"de": "Gift"}, "reveal": {"de": "In der Teetasse: Rückstände eines Pflanzengifts. Edmund hat seinen Tod Schluck für Schluck getrunken."}},
+    {"id": "brieffoeffner", "name": {"de": "Brieföffner"}, "reveal": {"de": "Die Tatwaffe: Edmunds eigener silberner Brieföffner."}},
+    {"id": "leuchter", "name": {"de": "Kerzenleuchter"}, "reveal": {"de": "Die Tatwaffe: ein schwerer Silberleuchter aus dem Speisesaal. Wachs im Haar verrät ihn."}}
   ],
   "story": {"culprit": "aerztin", "motive": "geheimnis", "weapon": "brieffoeffner"},
   "clues": [
@@ -426,12 +426,12 @@
      "reveal": {"de": "Hier hat jemand auf Edmund gewartet. Im Polster hängt: {value}."},
      "evolve": "none", "source": {"hotspot": "h_sessel"}, "chapter": 1, "expires": 1},
     {"id": "c_taschentuch", "kind": "trait", "trait": "duft", "name": {"de": "Fremdes Taschentuch"},
-     "found": {"de": "In Edmunds Hand: ein zerknülltes Taschentuch ohne Monogramm. Der Portweingeruch überdeckt alles andere."},
-     "reveal": {"de": "Unter dem Portwein tritt ein zweiter Geruch hervor: {value}."},
+     "found": {"de": "In Edmunds Hand: ein zerknülltes Taschentuch ohne Monogramm. Der Teeduft überdeckt alles andere."},
+     "reveal": {"de": "Unter dem Teeduft tritt ein zweiter Geruch hervor: {value}."},
      "evolve": "lab", "source": {"hotspot": "h_leiche"}, "chapter": 1},
     {"id": "c_serviette", "kind": "trait", "trait": "duft", "name": {"de": "Serviette hinter der Anrichte"},
-     "found": {"de": "Eine zerknüllte Serviette, getränkt mit Rotwein, hastig hinter die Anrichte gestopft."},
-     "reveal": {"de": "Der Weindunst ist verflogen. Zurück bleibt ein anderer Geruch: {value}."},
+     "found": {"de": "Eine zerknüllte Serviette, getränkt mit Kirschsaft, hastig hinter die Anrichte gestopft."},
+     "reveal": {"de": "Der Fruchtduft ist verflogen. Zurück bleibt ein anderer Geruch: {value}."},
      "evolve": "time", "chapters": 1, "source": {"hotspot": "h_anrichte"}, "chapter": 1},
     {"id": "c_tinte", "kind": "trait", "trait": "hand", "name": {"de": "Verwischte Tinte"},
      "found": {"de": "Ein umgestoßenes Tintenfass. Jemand hat hineingefasst und einen Bogen vom Tisch gerissen. Die Tinte ist noch nass."},
@@ -447,11 +447,11 @@
     {"id": "c_notizen", "kind": "motive", "name": {"de": "Notizen im Sekretär"},
      "found": {"de": "Hinter dem aufgebrochenen Schloss: Edmunds Notizen vom gestrigen Abend, in fahriger Schrift."},
      "evolve": "none", "source": {"hotspot": "h_sekretaer"}, "chapter": 2},
-    {"id": "c_leichenschau", "kind": "weapon", "name": {"de": "Leichenschau"},
+    {"id": "c_leichenschau", "kind": "weapon", "name": {"de": "Untersuchung"},
      "found": {"de": "Edmund liegt vor dem Kamin, die Augen offen. Was ihn tötete, wird erst eine gründliche Untersuchung zeigen."},
      "evolve": "time", "chapters": 1, "source": {"hotspot": "h_leiche"}, "chapter": 1},
-    {"id": "c_tropfen", "kind": "weapon", "name": {"de": "Dunkle Tropfen"},
-     "found": {"de": "Im Streiflicht: dunkle Tropfen auf dem Parkett, zum Kamin hin. Blut, Wachs oder Portwein?"},
+    {"id": "c_tropfen", "kind": "weapon", "name": {"de": "Dunkle Flecken"},
+     "found": {"de": "Im Streiflicht: dunkle Flecken auf dem Parkett, zum Kamin hin. Wachs, Tee oder Schmutz?"},
      "evolve": "lab", "source": {"hotspot": "h_tropfen"}, "chapter": 1, "requires": {"class": "forensic"}},
     {"id": "c_buendel", "kind": "weapon", "name": {"de": "Bündel in der Gerätekiste"},
      "found": {"de": "Unter Säcken mit Rosenerde: ein Bündel in Sackleinen, hastig verschnürt. Darin liegt etwas, das jemand loswerden wollte."},
@@ -462,8 +462,8 @@
      "revealFalse": {"de": "Pell bricht sein Schweigen: Das Bett war leer und kalt. Lady Constances Alibi ist gelogen."},
      "evolve": "time", "chapters": 1, "source": {"npc": "butler", "topic": "observation"}, "chapter": 1},
     {"id": "c_alibi_neffe", "kind": "alibi", "subject": "neffe", "name": {"de": "Die Patience"},
-     "found": {"de": "Eine halbfertige Patience, ein Brandyglas und eine Kerze im Leuchter. Wie lange sie brannte, verrät erst das Wachs."},
-     "reveal": {"de": "Die Kerze brannte über drei Stunden, das Glas trägt nur Julians Abdrücke. Er saß wirklich hier."},
+     "found": {"de": "Eine halbfertige Patience, eine Teetasse und eine Kerze im Leuchter. Wie lange sie brannte, verrät erst das Wachs."},
+     "reveal": {"de": "Die Kerze brannte über drei Stunden, die Tasse trägt nur Julians Abdrücke. Er saß wirklich hier."},
      "revealFalse": {"de": "Das Wachs verrät: Die Kerze brannte kaum eine halbe Stunde – entzündet erst nach elf. Julians Patience ist eine Kulisse."},
      "evolve": "lab", "source": {"hotspot": "h_kartentisch"}, "chapter": 1},
     {"id": "c_alibi_butler", "kind": "alibi", "subject": "butler", "name": {"de": "Licht in der Küche"},
@@ -480,10 +480,10 @@
      "found": {"de": "Die Standuhr steht still: 23:10. Jemand hat das Pendel angehalten. Im Gehäuse klemmt ein Schlüssel mit eingeprägtem Fass."},
      "evolve": "none", "source": {"hotspot": "h_uhr"}, "chapter": 1, "expires": 1},
     {"id": "c_geist", "kind": "story", "name": {"de": "Flüstern an der Statue"},
-     "found": {"de": "Die Steinlady weint Regen. Edmunds Stimme, dünn wie Wind: „Mein letzter Wille … liegt bei den alten Jahrgängen …“"},
+     "found": {"de": "Die Steinlady weint Regen. Edmunds Stimme, dünn wie Wind: „Mein letzter Wille … liegt bei den alten Vorräten …“"},
      "evolve": "none", "source": {"hotspot": "h_geist"}, "chapter": 1, "ghost": true},
     {"id": "c_testament", "kind": "story", "name": {"de": "Das wahre Testament"},
-     "found": {"de": "Hinter den alten Jahrgängen: ein versiegeltes Testament, gestern datiert. Ravensmoor soll an Ambrose Pell fallen – „meinen Sohn“."},
+     "found": {"de": "Hinter den alten Vorräten: ein versiegeltes Testament, gestern datiert. Ravensmoor soll an Ambrose Pell fallen – „meinen Sohn“."},
      "evolve": "none", "source": {"hotspot": "h_kellerregal"}, "chapter": 2, "secret": true}
   ],
   "combos": [
@@ -496,8 +496,8 @@
      "text": {"de": "Sessel und Taschentuch tragen denselben Duft: Wer in der Bibliothek wartete, stand später an Edmunds Seite."},
      "reveals": ["c_taschentuch"]},
     {"id": "k_keller", "a": "c_uhr", "b": "c_serviette",
-     "name": {"de": "Schlüssel und Wein"},
-     "text": {"de": "Ein Kellerschlüssel im Uhrgehäuse, eine Serviette voller Rotwein: In dieser Nacht war jemand im Weinkeller – und wollte nicht, dass man es merkt."},
+     "name": {"de": "Schlüssel und Vorrat"},
+     "text": {"de": "Ein Kellerschlüssel im Uhrgehäuse, eine Serviette voller Kirschsaft: In dieser Nacht war jemand im Vorratskeller – und wollte nicht, dass man es merkt."},
      "lead": "l_keller"},
     {"id": "k_verbrannt", "a": "c_notizen", "b": "c_asche",
      "name": {"de": "Was verbrannt wurde"},
@@ -516,7 +516,7 @@
         {"id": "l_schuppen", "name": {"de": "Die Gerätekiste des Gärtners öffnen"},
          "text": {"de": "Silas rückt murrend den Schlüssel heraus. Die Kiste im Garten darf durchsucht werden."},
          "unlock": {"hotspots": ["h_schuppen"]}},
-        {"id": "l_keller", "name": {"de": "Den Weinkeller aufschließen"},
+        {"id": "l_keller", "name": {"de": "Den Vorratskeller aufschließen"},
          "text": {"de": "Der Schlüssel aus der Standuhr passt. Die Kellertür in der Küche schwingt knarrend auf."},
          "unlock": {"hotspots": ["h_kellerregal"], "doors": [[24, 3]], "items": ["i_kellerfackel"]},
          "hidden": true}
@@ -533,7 +533,7 @@
         {"id": "l_schuppen2", "name": {"de": "Die Gerätekiste des Gärtners öffnen"},
          "text": {"de": "Der Schlüssel zur Gerätekiste hängt am Haken neben der Gartentür. Die Kiste im Garten darf durchsucht werden."},
          "unlock": {"hotspots": ["h_schuppen"]}},
-        {"id": "l_keller2", "name": {"de": "Den Weinkeller öffnen lassen"},
+        {"id": "l_keller2", "name": {"de": "Den Vorratskeller öffnen lassen"},
          "text": {"de": "Der Ersatzschlüssel liegt in der Anrichte der Küche. Die Kellertür in der Küche öffnet sich."},
          "unlock": {"hotspots": ["h_kellerregal"], "doors": [[24, 3]], "items": ["i_kellerfackel"]}}
       ]
@@ -577,6 +577,6 @@
         "escaped": {"de": "Dr. Marsh praktiziert weiter, in einer anderen Grafschaft, unter einem anderen Namen. Ihre Patienten loben die ruhige Hand."}
       }
     },
-    "secret": {"de": "Hinter den alten Jahrgängen lag Edmunds wahrer letzter Wille: Ravensmoor sollte an Ambrose Pell fallen – seinen Sohn, der ihm dreißig Jahre lang den Wein einschenkte. Ob Pell es je ahnte, verrät er nicht."}
+    "secret": {"de": "Hinter den alten Vorräten lag Edmunds wahrer letzter Wille: Ravensmoor sollte an Ambrose Pell fallen – seinen Sohn, der ihm dreißig Jahre lang den Tee einschenkte. Ob Pell es je ahnte, verrät er nicht."}
   }
 }

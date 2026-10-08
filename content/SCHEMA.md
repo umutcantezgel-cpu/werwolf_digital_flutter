@@ -82,7 +82,7 @@ NPC-Täter) isolierte Detektive, tötet evtl. einen Zeugen und beschädigt unget
 
 - `kind`: `search` (durchsuchen), `lab` (genau **1** pro Szenario), `hide` (Versteck, 2–3, am
   besten auf einem `wardrobe`/`cabinet`), `blood` (nur für Forensik-Blick sichtbar, 1–2),
-  `body` (genau 1, die Leiche – auf einer **freien** Bodenkachel).
+  `body` (genau 1, der Tote – auf einer **freien** Bodenkachel).
 - Ein Hotspot liegt auf einem Prop (z. B. Schreibtisch) **oder** einer Bodenkachel; er muss von
   einer begehbaren Nachbarkachel aus erreichbar sein.
 - `requires`: `{"class": "forensic"|"profiler"|"excop"|"journalist"|"medic"}` oder

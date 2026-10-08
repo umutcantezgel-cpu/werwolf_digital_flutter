@@ -14,3 +14,4 @@ krimidinner/spuk-im-gewoelbe/10_kanon/K2-ROLLEN-13-20.md | Kater | Haustier (Kat
 krimidinner/spuk-im-gewoelbe/10_kanon/K4-GESPRAECHE-P2.md | Kater | Vergleich mit einem Tier („wie ein hungriger Kater“)
 packages/burgstadt_core/data/stadt/bewohner.json | Wirtin | Wirtin der Teestube (alkoholfrei)
 packages/burgstadt_core/data/stadt/haeuser.json | gelagert | Korn im Speicher gelagert, kein Bier
+content/scenarios/blue_palm.json | drink | technische Kennung der Tatwaffe (Text: „Präparierte Tasse Tee“)

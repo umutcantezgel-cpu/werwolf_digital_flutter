@@ -308,9 +308,9 @@
     {"id": "greed", "name": {"de": "Habgier"}, "reveal": {"de": "Es ging ums Geld: Lindqvist reiste mit Inhaberobligationen über ein Vermögen – und die sind verschwunden. Der Täter wollte nie wieder arm sein."}}
   ],
   "weapons": [
-    {"id": "veronal", "name": {"de": "Veronal"}, "reveal": {"de": "In Lindqvists Nachttrunk war Veronal – genug für drei Männer. Er ist eingeschlafen und nicht mehr aufgewacht."}},
-    {"id": "scarf", "name": {"de": "Seidenschal"}, "reveal": {"de": "Druckmale am Hals, feine Seidenfasern am Kragen: Lindqvist wurde mit einem Schal erdrosselt."}},
-    {"id": "candlestick", "name": {"de": "Messingleuchter"}, "reveal": {"de": "Ein einziger Schlag gegen die Schläfe, Messingabrieb im Haar: Die Waffe war ein schwerer Leuchter aus dem Zug."}}
+    {"id": "veronal", "name": {"de": "Veronal"}, "reveal": {"de": "In Lindqvists Nachttee war Veronal – genug für drei Männer. Er ist eingeschlafen und nicht mehr aufgewacht."}},
+    {"id": "scarf", "name": {"de": "Seidenschal"}, "reveal": {"de": "Feine Seidenfasern am Kragen: Die Tatwaffe war ein Seidenschal."}},
+    {"id": "candlestick", "name": {"de": "Messingleuchter"}, "reveal": {"de": "Messingabrieb im Haar: Die Waffe war ein schwerer Leuchter aus dem Zug."}}
   ],
   "story": {"culprit": "secretary", "motive": "revenge", "weapon": "veronal"},
   "clues": [
@@ -343,9 +343,9 @@
      "reveal": {"de": "Nähte und Narbung zeichnen sich deutlich ab: {value}."},
      "evolve": "none", "source": {"hotspot": "h_rail"}, "chapter": 1, "expires": 1},
 
-    {"id": "c_blood_fabric", "kind": "trait", "trait": "gloves", "name": {"de": "Blutstropfen im Gang"},
-     "found": {"de": "Unter dem zersprungenen Wandleuchter: drei Tropfen Blut. Jemand hat sich im Dunkeln an den Scherben geschnitten."},
-     "reveal": {"de": "Im Blut klebt ein winziges Stück Handschuh. Das Material verrät: {value}."},
+    {"id": "c_blood_fabric", "kind": "trait", "trait": "gloves", "name": {"de": "Dunkle Flecken im Gang"},
+     "found": {"de": "Unter dem zersprungenen Wandleuchter: drei dunkle Flecken. Jemand ist im Dunkeln an den Scherben hängengeblieben."},
+     "reveal": {"de": "Im dunklen Fleck klebt ein winziges Stück Handschuh. Das Material verrät: {value}."},
      "evolve": "lab", "source": {"hotspot": "h_blood"}, "chapter": 1},
 
     {"id": "c_conductor_smoke", "kind": "trait", "trait": "smoke", "name": {"de": "Huber im Dunkeln"},

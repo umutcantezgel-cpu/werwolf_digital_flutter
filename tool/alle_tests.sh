@@ -19,8 +19,8 @@ for p in pixel_engine burgstadt_core burgstadt_spiel room_host; do
 done
 
 if [ -f packages/burgstadt_core/bin/leitplanken.dart ]; then
-  step "Ebene 10 · Leitplanken (Burgstadt-Texte)"
-  (cd packages/burgstadt_core && dart run bin/leitplanken.dart --burgstadt 2>&1 | filter | tail -1)
+  step "Ebene 10 · Leitplanken (alle Spieltexte: Burgstadt + Klassische Fälle)"
+  (cd packages/burgstadt_core && dart run bin/leitplanken.dart 2>&1 | filter | tail -1)
 fi
 
 if [ -f packages/burgstadt_core/bin/kanon.dart ]; then
