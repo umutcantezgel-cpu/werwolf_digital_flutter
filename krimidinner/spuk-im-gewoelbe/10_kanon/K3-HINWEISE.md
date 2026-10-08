@@ -78,3 +78,29 @@ Gesprächshinweise stehen in K3-HINWEISE-P1.md, K3-HINWEISE-P2.md und K3-HINWEIS
 @HW-27 [L] | Wahrheit: Der Handschuh war seit 21:20 verbogen; deshalb riss das Laken dort. Jonas kennt die Rüstung, versteckt hat er nichts. | Stützt: S-4 | Einstufung: falsche Fährte gegen Jonas, zugleich Erklärung des Fetzens | Blockierbar durch: nein | Unabhängig von: H-12
 @HW-28 [L] | Wahrheit: Die Lampe gehört Adnan, wurde aber über Rojda an Merle weitergegeben und fiel Merle beim Zupacken aus der Hand. | Stützt: S-5 | Einstufung: falsche Fährte gegen Adnan, echte Spur zusammen mit Merles Batteriebitte | Blockierbar durch: nein | Unabhängig von: H-15
 @HW-29 [L] | Wahrheit: Der Burgwart lauerte in der Speisekammer an der Dose; wer dort im Dunkeln etwas in die Dose warf, lief ihm in die Arme. | Stützt: S-7 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: H-20
+
+## Meldekarten der Kernrollen (Pflicht in der Lagerunde, nicht blockierbar)
+@H-41 [O] | Inhalt: Adnan meldet: Er hat seit dem Kamin Ruß an Händen und Gesicht und hat den Kerzenständer nicht angefasst. | Form: Meldekarte | Quelle: Meldekarte MK1-R01 | Phase: 1 | Min: 4
+@HW-41 [L] | Wahrheit: Wahr; der Griff ist sauber. | Stützt: S-8 | Einstufung: entlastend | Blockierbar durch: nein | Unabhängig von: –
+@H-42 [O] | Inhalt: Rojda meldet: Als es knallte, war sie schon unten am Turm-Fuß. | Form: Meldekarte | Quelle: Meldekarte MK1-R02 | Phase: 1 | Min: 4
+@HW-42 [L] | Wahrheit: Wahr; sie stand am Sicherungskasten und zog den Hebel. | Stützt: S-9 | Einstufung: echt (Spur zum Hebel) | Blockierbar durch: nein | Unabhängig von: –
+@H-43 [O] | Inhalt: Merle meldet: Um sechs vor zwölf war sie oben auf dem Wehrgang. | Form: Meldekarte | Quelle: Meldekarte MK1-R03 | Phase: 1 | Min: 4
+@HW-43 [L] | Wahrheit: Wahr; danach ging sie hinunter und wurde zum Gespenst. | Stützt: S-6, S-10 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: –
+@H-44 [O] | Inhalt: Jonas meldet: Merle und er tragen das gleiche Wanderstiefelmodell. | Form: Meldekarte | Quelle: Meldekarte MK1-R04 | Phase: 1 | Min: 4
+@HW-44 [L] | Wahrheit: Wahr; nur an Merles linkem Absatz fehlt ein Stollen. | Stützt: S-5 | Einstufung: echt (Spur, zunächst doppeldeutig) | Blockierbar durch: nein | Unabhängig von: –
+@H-45 [O] | Inhalt: Adnan meldet: Er hat den Code des Sicherungskastens für jemand anderen aufgeschrieben, mit der Warnung, vorher Kessel und Heizstrahler auszuschalten. | Form: Meldekarte | Quelle: Meldekarte MK2-R01 | Phase: 2 | Min: 4
+@HW-45 [L] | Wahrheit: Wahr; für Rojdas Streich. | Stützt: S-8 | Einstufung: entlastend | Blockierbar durch: nein | Unabhängig von: –
+@H-46 [O] | Inhalt: Rojda meldet: Am Turm-Fuß stand kurz vor zwölf ein Gespenst im Laken an der Eisentür. | Form: Meldekarte | Quelle: Meldekarte MK2-R02 | Phase: 2 | Min: 4
+@HW-46 [L] | Wahrheit: Wahr; es war Merle. | Stützt: S-4 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: –
+@H-47 [O] | Inhalt: Merle meldet: Bei der Führung hatte sie den Taler in der Hand, als Jonas gegen Kunibert krachte. | Form: Meldekarte | Quelle: Meldekarte MK2-R03 | Phase: 2 | Min: 4
+@HW-47 [L] | Wahrheit: Wahr; sie steckte ihn ein. | Stützt: S-7 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: –
+@H-48 [O] | Inhalt: Jonas meldet: Um Mitternacht war er nicht im Hof. | Form: Meldekarte | Quelle: Meldekarte MK2-R04 | Phase: 2 | Min: 4
+@HW-48 [L] | Wahrheit: Wahr; er war auf dem Wehrgang. | Stützt: S-10 | Einstufung: entlastend | Blockierbar durch: nein | Unabhängig von: –
+@H-49 [O] | Inhalt: Adnan meldet: Merle kam erst eine knappe Minute vor dem Schrei an den Kamin, mit eiskalten Händen. | Form: Meldekarte | Quelle: Meldekarte MK3-R01 | Phase: 3 | Min: 4
+@HW-49 [L] | Wahrheit: Wahr; 23:59:40. | Stützt: S-6 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: –
+@H-50 [O] | Inhalt: Rojda meldet: Der Schrei um Mitternacht ist auf ihrem Track, das Poltern davor nicht. | Form: Meldekarte | Quelle: Meldekarte MK3-R02 | Phase: 3 | Min: 4
+@HW-50 [L] | Wahrheit: Wahr. | Stützt: S-3 | Einstufung: echt | Blockierbar durch: nein | Unabhängig von: –
+@H-51 [O] | Inhalt: Merle meldet: Beim Schrei um Mitternacht stand sie neben Adnan. | Form: Meldekarte | Quelle: Meldekarte MK3-R03 | Phase: 3 | Min: 4
+@HW-51 [L] | Wahrheit: Wahr, aber für die Tatminute wertlos. | Stützt: S-6 | Einstufung: echt (wertloses Alibi) | Blockierbar durch: nein | Unabhängig von: –
+@H-52 [O] | Inhalt: Jonas meldet: Er hat von vier vor zwölf bis kurz nach zwei vor zwölf telefoniert, oben an der dritten Zinne. | Form: Meldekarte | Quelle: Meldekarte MK3-R04 | Phase: 3 | Min: 4
+@HW-52 [L] | Wahrheit: Wahr; Alibi für die Tatminute. | Stützt: S-10 | Einstufung: entlastend | Blockierbar durch: nein | Unabhängig von: –

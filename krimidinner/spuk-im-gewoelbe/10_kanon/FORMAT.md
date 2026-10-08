@@ -26,8 +26,8 @@ Der Kanon besteht aus Datensätzen, je Datensatz genau eine Zeile:
 ## K2 Rollenregister (`10_kanon/K2-ROLLEN.md`)
 Je Rolle sieben Datensätze (hier R07):
 - `@R07-STAMM [O] | Name: … | Aussprache: … | Geschlecht: w/m | Alter: … | Wurzeln: … | Familie: … | Beruf: … | Beziehung zum Geburtstagskind: … | Kleidung: … | Sprechweise: 1) … 2) … 3) …`
-- `@R07-ÖFFENTLICH [O] | Beziehung zum Burgwart (bekannt): … | Behauptetes Alibi 23:30–00:30: … | Comedy-Beteiligung (sichtbar): …`
-- `@R07-GEHEIM [G] | Geheimnis: … | Motiv: … | Wahres Alibi 23:30–00:30: … | Beziehung zum Burgwart (wahr): …`
+- `@R07-ÖFFENTLICH [O] | Beziehung zum Burgwart (bekannt): … | Behauptetes Alibi: … | Comedy-Beteiligung (sichtbar): …`
+- `@R07-GEHEIM [G] | Geheimnis: … | Motiv: … | Wahres Alibi: … | Beziehung zum Burgwart (wahr): …`
 - `@R07-WISSEN [G] | Wissen: HH:MM … ; HH:MM … ; …` – nur was die Rolle selbst gesehen, gehört oder getan hat, mit Uhrzeit.
 - `@R07-VERBINDUNGEN [G] | Verbindungen: R03 (…) ; R11 (…) ; …`
 - `@R07-PLOT [L] | Funktion: … | Motiv-Einstufung: echt/scheinbar | Block: … | Anker je Phase: P1 R0x, P2 R0x, P3 R0x`

@@ -49,7 +49,7 @@ Rollen ab Nummer 5 werden in Erzähltexten nur innerhalb eines Besetzungs-Einsch
 ## 6. Wortspannen je Textsorte
 | Textsorte | Wörter | Vorlesedauer |
 |---|---|---|
-| Einführung (Rahmen, ohne Vorstellungen) | 450–650 | 3½–5 Min. |
+| Einführung (Rahmen, ohne Vorstellungen) | 600–900 | 4½–7 Min. |
 | Steckbrief-Vorstellung je Rolle (Erzähler) | 50–75 | ca. ½ Min. |
 | Phasenstart | 200–300 | 1½–2½ Min. |
 | Zwischenresümee (pfadneutral) | 220–320 | 2–2½ Min. |
@@ -79,13 +79,188 @@ Vorlesetempo: etwa 130 Wörter pro Minute.
 - Entscheidungskarte: Lage (2–3 Sätze), Optionen 1–3 mit je einer klaren Folge („Gib Karte H-22 an die Spielleitung.“ oder „Die Spielleitung lässt Ansage A-E2-07-1 vorlesen.“).
 
 ## 8. Katalog der Grusel- und Comedy-Momente
-(wird mit dem Kanon-Kern ergänzt: Abschnitt 8a)
+Jeder Moment darf in Erzähltexten und Karten vorkommen, genau so, wie er hier steht. Kein Moment wird erfunden, und keiner verrät mehr, als in der Spalte „Darf zeigen“ steht.
+
+| Kennung | Moment | Wann im Spiel | Darf zeigen | Trägt |
+|---|---|---|---|---|
+| GM-01 | Wind pfeift durch die Schießscharten, die Kerzen ducken sich | Einführung, Einwürfe | Atmosphäre | – |
+| GM-02 | Die Eisentür zur Speisekammer quietscht wie eine Katze im Keller | Einführung, Phase 1–3 | dass sie laut ist, bei jedem Öffnen und Schließen | Spur (S-2) |
+| GM-03 | Der Knall: die Hauptsicherung, dann Stockdunkel | Einführung | Knall, Dunkelheit, Handylichter | – |
+| GM-04 | Kettenrasseln, Schritte, eine knarrende Tür aus der Box | Einführung (Rückblick), Phase 1 | dass die Box im Dunkeln weiterspielte | Spur (S-3) |
+| GM-05 | Der Schrei um Mitternacht, hoch und lang, mit Kathedralen-Hall | Einführung | den Schrei selbst; nicht, woher er kam | falsche Fährte (Tatzeit) |
+| GM-06 | Kunibert im Kerzenschein, das Visier halb offen, als ob er zuhört | Phase 1–3 | die Rüstung, den verbogenen Handschuh | Spur (S-4) |
+| GM-07 | Raureif auf dem Hof, der Atem dampft, das Geleucht am Brunnen | Phase 1, Einwürfe | Stiefelspuren im Reif | Spur (S-1) |
+| GM-08 | Das Brockengespenst: ein Riesenschatten im Nebel, der sich bewegt, wenn du dich bewegst | Einwürfe | die Legende und ihre nüchterne Erklärung | Farbe |
+| GM-09 | Kein Handyempfang, außer an der dritten Zinne, wo einer mit erhobenem Arm im Wind steht | Einführung, Phase 2 | die dritte Zinne als einziger Netzplatz | Spur (S-10) |
+| KM-01 | Rüstungsschreck: Jonas hält Kunibert für einen Menschen und kracht dagegen | Einführung (Rückblick 21:20) | Schreck, Klappern, verbogener Handschuh, „Der beißt nicht, der ist seit 1911 tot.“ | Spur, falsche Fährte |
+| KM-02 | Verlaufen im Treppenturm: Merle will aufs Klo und landet auf dem Wehrgang | Einführung (Merles eigene Darstellung) | nur, was Merle selbst erzählt | Alibi-Lüge |
+| KM-03 | Die Box hallt wie in einer Kathedrale: „Die Miete ist bezahlt … bezahlt … bezahlt!“ – „Welche Miete?“; später „Verbindung getrennt“ | Einführung | beide Box-Ansagen mit Uhrzeit sechs vor zwölf | Spur (Strang a, Zeitstempel) |
+| KM-04 | Adnan und die Heißluftpistole: Qualm, Husten, aufgerissene Türen | Einführung | Qualm, Ruß, offene Turmtür | Alibi, Spur |
+| KM-05 | Der Burgwart grantelt mit Kühlpack aus Tiefkühlerbsen auf dem Kopf | Phasenstarts, Einwürfe | seine Sätze aus BW-AUSSAGE der jeweiligen Phase | Spur |
+| KM-06 | „Kunibert, du alter Hehler.“ (Bund im Helm) | Phasenstart 2 | Fund des Bunds | Spur (S-1, S-4) |
 
 ## 9. Glossar fester Schreibweisen
-(wird mit dem Kanon-Kern ergänzt: Abschnitt 9a)
+Diese Schreibweisen gelten überall. Aussprachehilfen stehen nur im Feld „Aussprache“, nie im Vorlesetext.
 
-## 10. Das Spiel in fünf Sätzen
-(wird mit dem Kanon-Kern ergänzt: Abschnitt 10a)
+@GL-01 [O] | Begriff: Burg Schartenfels | Schreibweise: Burg Schartenfels | Aussprache: SCHAR-ten-fels
+@GL-02 [O] | Begriff: Silberhau | Schreibweise: Silberhau | Aussprache: SIL-ber-hau
+@GL-03 [O] | Begriff: Oberharz | Schreibweise: Oberharz | Aussprache: O-ber-harz
+@GL-04 [O] | Begriff: Burgwart | Schreibweise: Eckehard Lüddecke, „der Burgwart“, „der Alte“ (nur in wörtlicher Rede der Clique) | Aussprache: E-ke-hart LÜD-de-ke
+@GL-05 [O] | Begriff: Rüstung | Schreibweise: Kunibert (ohne Artikel) | Aussprache: KU-ni-bert
+@GL-06 [O] | Begriff: Münze | Schreibweise: der Silberhauer Ausbeutetaler, kurz „der Taler“ | Aussprache: AUS-beu-te-ta-ler
+@GL-07 [O] | Begriff: Solarlaterne am Brunnen | Schreibweise: das Geleucht | Aussprache: ge-LEUCHT
+@GL-08 [O] | Begriff: Bergmannsgruß | Schreibweise: Glück auf! | Aussprache: GLÜCK AUF
+@GL-09 [O] | Begriff: Stationen | Schreibweise: das Kamin-Gewölbe · die Speisekammer · der Wendeltreppenturm · der Hof | Aussprache: –
+@GL-10 [O] | Begriff: Türen | Schreibweise: die Eichentür (Gewölbe–Speisekammer) · die Eisentür (Speisekammer–Turm-Fuß) · die Turmtür (Gewölbe–Turm-Fuß) · die Hoftür (Turm–Hof) · der Kellerhals (Treppe Gewölbe–Hof) · das Burgtor · das Torhaus | Aussprache: –
+@GL-11 [O] | Begriff: Orte im Turm | Schreibweise: der Turm-Fuß · der erste Absatz · die Hofebene · der Wehrgang · die dritte Zinne | Aussprache: –
+@GL-12 [O] | Begriff: Technik | Schreibweise: der Sicherungskasten · der Hauptschalter · die Hauptsicherung · die Bluetooth-Box (kurz: die Box) | Aussprache: BLU-tuhs-box
+@GL-13 [O] | Begriff: Track | Schreibweise: der Track „Geisterstunde“ | Aussprache: TRÄCK
+@GL-14 [O] | Begriff: Getränk | Schreibweise: der warme, alkoholfreie Apfel-Zimt-Punsch | Aussprache: –
+@GL-15 [O] | Begriff: Legende | Schreibweise: das Brockengespenst | Aussprache: BRO-cken-ge-spenst
+@GL-16 [O] | Begriff: Detektiv | Schreibweise: das Geburtstagskind (in Texten); „Detektiv“ nur als Name der Rolle und der Mappe | Aussprache: –
+@GL-17 [O] | Begriff: Spielleitung | Schreibweise: die Spielleitung | Aussprache: –
+@GL-18 [O] | Begriff: Erzähler | Schreibweise: der Erzähler | Aussprache: –
+@GL-19 [O] | Begriff: Lampe | Schreibweise: die Stablampe „HODŽIĆ VT · 3“ | Aussprache: HOD-schitsch fau-te drei
+@GL-20 [O] | Begriff: Wäschezeichen | Schreibweise: „Schartenfels 7“ | Aussprache: SCHAR-ten-fels sie-ben
+Namen der Rollen mit Aussprache: siehe K2, Datensätze R01-STAMM bis R20-STAMM (Feld Aussprache); sie gelten als Glossar.
+
+## 10. Das Spiel in fünf Sätzen (Standardtext, in jedem Paket wortgleich)
+@FÜNF-SÄTZE [O] | Text: Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenfels im Oberharz, bei Kerzenlicht, Fladenbrot und warmem, alkoholfreiem Apfel-Zimt-Punsch. Kurz vor Mitternacht knallt die Hauptsicherung, und im Dunkeln wird Burgwart Eckehard Lüddecke in der Speisekammer niedergeschlagen; er erholt sich, aber sein Schlüsselbund ist weg und das Burgtor verschlossen. Das Geburtstagskind ermittelt als Detektiv, während alle anderen in drei Phasen je drei Gespräche nach ihren Karten führen, Hinweise sammeln und je Phase eine Entscheidung treffen. Ein KI-Erzähler liest alle Texte wortgetreu vor; nur die neun Entscheidungen des Detektivs bringen Punkte. Am Ende grenzt der Erzähler die Verdächtigen nach Punkten ein, das Geburtstagskind klagt an, und eines von vier Enden deckt auf, was wirklich geschah.
 
 ## 11. Musterkarten je Textsorte
-(wird mit dem Kanon-Kern ergänzt: Abschnitt 11a)
+Muster zeigen Format und Ton. Sie sind nicht zum Abschreiben gedacht: Kein Paket übernimmt Sätze aus einem Muster.
+
+### M-01 Einführung (Ausschnitt, Erzähler)
+    Glück auf, ihr Stadtkinder. So nennt euch der Burgwart, und heute Nacht hat er recht.
+    Draußen liegt Raureif auf dem Hof von Burg Schartenfels. Drinnen, im Kamin-Gewölbe, flackern die Kerzen über dem Bruchstein, und aus dem Kessel steigt der Duft von Apfel und Zimt.
+    Hört genau hin. Der Wind pfeift durch die Schießscharten. Irgendwo quietscht eine Eisentür.
+    Ihr seid hier, um zu feiern. Noch.
+
+### M-02 Steckbrief-Vorstellung (Erzähler, 50–75 Wörter)
+    Und dann ist da noch einer, der nicht mitfeiert, aber überall ist: Eckehard Lüddecke, Burgwart von Schartenfels. Dreißig Jahre war er Hauer unter Tage, jetzt bewacht er Bruchstein und Buntbartschlüssel. Er grüßt mit „Glück auf“, nennt euch Stadtkinder und redet mit einer Rüstung namens Kunibert. Wer ihn für grantig hält, hat recht. Wer ihn für herzlos hält, hat ihn noch nie lachen hören.
+    Aussprache: Eckehard Lüddecke = E-ke-hart LÜD-de-ke
+    (Muster: Vorstellung der Erzählerfigur; die Vorstellungen der Rollen sehen genauso aus, mit Besetzungsmarkierung ab Rolle 5.)
+
+### M-03 Atmosphäre-Einwurf (40–80 Wörter)
+    Kurz wird es still am Tisch. Draußen auf dem Hof knackt der Reif unter einem Schritt, den niemand gemacht hat. Dann pfeift der Wind wieder durch die Schießscharten, und eine Kerze legt sich flach, als wolle sie sich verstecken. Der Burgwart hebt seinen Becher Punsch: „Das ist nur die Burg. Die redet nachts.“
+
+### M-04 Ansage zu einer Rollen-Entscheidung (30–60 Wörter; Kernrollen anonym)
+    [NUR WENN E2-03 OPTION 2 GEWÄHLT]
+    Jemand am Tisch hat beschlossen, eine Sache für sich zu behalten. Die Spielleitung legt eine Karte verdeckt zur Seite. Sie wird erst später gebraucht, und vielleicht zu spät.
+    [ENDE BEDINGUNG]
+
+### M-05 Ergebnistext einer Detektiv-Option (80–140 Wörter)
+    Du gehst hinaus in den Hof. Der Atem dampft, das Geleucht am Brunnen wirft einen kleinen, kalten Lichtkreis. Im Raureif zeichnen sich Stiefelspuren ab: eine vom Kellerhals zum Torhaus, eine vom Torhaus zurück zur Hoftür des Turms. Vor dem Burgtor liegt der Reif unberührt, glatt wie Zuckerguss. Durch dieses Tor ist heute Nacht niemand gegangen. Wer auch immer zugeschlagen hat, sitzt noch mit euch am Tisch.
+    (Muster für Form und Ton; keine echte Detektiv-Option.)
+
+### M-06 Öffentlicher Steckbrief (Spielerkarte, 100–150 Wörter)
+    STECKBRIEF · ERZÄHLERFIGUR · Eckehard Lüddecke (E-ke-hart LÜD-de-ke)
+    71 Jahre, Burgwart von Schartenfels, früher Hauer im Erzbergbau. Wohnt im Torhaus, seine Frau Gerda ist dieses Wochenende in Osterode.
+    Was alle wissen: Er duzt alle, grüßt mit „Glück auf!“, nennt die Solarlaterne „Geleucht“ und die Gäste „Stadtkinder“. Ohne Brille sieht er nur Farben. Er liebt seinen Taler und seine Rüstung Kunibert.
+    Sprechweise: Bergmannswörter, knappe grantige Sätze, die warm enden, Zahlen aus dreißig Jahren unter Tage.
+    Am Abend trägt er: Cordhose, Strickweste mit vielen Taschen, Gürtel mit Karabiner und Schlüsselbund.
+    (Muster: Rollen-Steckbriefe haben dieselben Felder.)
+
+### M-07 Gesprächsauftrag (Spielerkarte, 50–90 Wörter)
+    AUFTRAG G1-04 · Phase 1 · Rolle 02 Rojda
+    WENN du mit Adnan Hodžić (Rolle 01) sprichst UND ihn fragst: „Wer kam kurz vor dem Schrei durch die Turmtür ins Gewölbe?“,
+    DANN erfährst du, wer kurz vor dem Schrei plötzlich neben ihm stand und wie diese Person aussah.
+    Achte darauf: Wann genau war das? Und woher kam sie?
+
+### M-08 Spiegelstück (Reaktionskarte, 40–80 Wörter)
+    SPIEGEL G1-04 · Phase 1 · Rolle 01 Adnan
+    WENN Rojda Baran (Rolle 02) dich fragt, wer kurz vor dem Schrei durch die Turmtür kam,
+    DANN sagst du: „Gesehen hab ich nichts, nur Qualm. Aber kurz vor dem Schrei stand plötzlich Merle neben mir, außer Atem, mit eiskalten Händen, und hat laut gesagt, sie hätte sich verlaufen.“
+    Du darfst hier nicht lügen.
+
+### M-09 Spiegelstück im Ersatzfall
+    SPIEGEL G1-03-E · Phase 1 · Rolle 04 Jonas
+    [NUR WENN ROLLE 05 NICHT BESETZT]
+    WENN Adnan Hodžić (Rolle 01) dich fragt, was du für den Keller eingesammelt hast,
+    DANN sagst du fröhlich: „Leute, Leute! Unkostenbeitrag. Punkt eins Endreinigung, Punkt zwei Strom, Punkt drei Punsch. Alles korrekt.“
+    Du weichst aus, lügst aber nicht.
+    [ENDE BEDINGUNG]
+
+### M-10 Entscheidungskarte einer Rolle (120–200 Wörter)
+    ENTSCHEIDUNG E0-00 · Muster · Rolle 00 Beispielfigur
+    Lage: Du hast beim Aufräumen einen Zettel gefunden, der dir nicht gehört. Er könnte jemandem am Tisch peinlich sein. Die anderen suchen genau so etwas.
+    Option 1 · Teilen: Du zeigst den Zettel offen am Tisch. → Folge: Lege die Karte „Zettel“ offen in die Tischmitte. Die Spielleitung lässt Ansage A-E0-00-1 vorlesen.
+    Option 2 · Für dich behalten: Du steckst den Zettel ein. → Folge: Lege die Karte „Zettel“ verdeckt vor dich. Wer dich direkt danach fragt, bekommt sie.
+    (Muster mit erfundener Beispielfigur; im echten Paket gelten nur die Optionen aus K5.)
+
+### M-11 Hinweiskarte (30–90 Wörter)
+    HINWEIS H-27 · Station Wendeltreppenturm · ab Phase 1
+    Am rechten Panzerhandschuh von Kunibert sind die Fingerplatten nach vorn verbogen, seit um zwanzig nach neun jemand bei der Führung dagegen gekracht ist. Die Kanten sind scharf.
+
+### M-12 Bildprompt-Eintrag
+    BILD-ID: BILD-MUSTER-01
+    Motiv: Der leere Hof von Burg Schartenfels bei Nacht, Raureif, das Geleucht am Brunnen.
+    Prompt (EN): Empty medieval castle courtyard at night in the Harz mountains, hoarfrost glittering on cobblestones, a small solar lantern glowing on an old stone well, cold blue moonlight, warm amber light spilling from a cellar stairway, fog drifting over the battlements, wide establishing shot from a low angle, 24mm lens look, semi-realistic painterly illustration, cinematic lighting, warm graphic-novel style with oil-painting texture, cozy-spooky mood, friendly expressive faces
+    Negativ (EN): no text, no letters, no logos, no watermark, no blood, no wounds, no gore, no weapons in use, no alcohol, no wine, no beer, no goblets, no tankards, no bottles, no glasses with drinks, no cigarettes, no real people, no celebrities, no witches, no pentagrams, no skulls
+    Format: 16:9
+    Zweck und Einsatz (DE): Muster für den Aufbau eines Bildprompts. Hintergrund für Stationskarten und Zwischentitel in der App.
+
+### M-13 Geheimes Dossier (Ausschnitt, 400–700 Wörter im Original)
+    DOSSIER · ROLLE 00 · Beispielfigur (nur Muster)
+    Wer du bist: Du bist die, die bei jeder Feier zuerst die Stühle zählt und zuletzt das Licht ausmacht. Deine Familie nennt dich „die Zuverlässige“, und genau das willst du heute Abend bleiben.
+    Was du heute Nacht erlebt hast: Um halb zwölf hast du … (nur Tatsachen aus dem Kanon, mit Uhrzeit, in Du-Form).
+    Was du verbirgst und warum: …
+    Was du nie tun würdest: …
+    So spielst du: kurze Sätze, ein Lachen vor jeder schlechten Nachricht.
+    Ob du schuldig bist: Ein klarer Satz.
+    (Muster mit erfundener Beispielfigur; Gliederung verbindlich, Inhalte nicht übernehmen.)
+
+### M-14 Kleidungshinweis (40–80 Wörter)
+    KLEIDUNG · ERZÄHLERFIGUR · Burgwart
+    Cordhose in Braun, eine Strickweste mit vielen Taschen, festes Schuhwerk. Am Gürtel ein Karabiner. Wer ihn spielen würde, bräuchte nur eine Lesebrille auf der Stirn und ein Stirnrunzeln. Ohne Kostümzwang: Ein Teil reicht, wenn es erkennbar ist.
+
+### M-15 Phasenstart (200–300 Wörter, Ausschnitt)
+    Die Platten mit der Vorspeise wandern über den Tisch, und für einen Moment ist es fast gemütlich. Fast. Denn irgendwo unter diesem Gewölbe sitzt jemand, der weiß, was in der Speisekammer passiert ist.
+    Ab jetzt habt ihr Zeit für eure Gespräche. Jede und jeder von euch hat drei Aufträge. Haltet euch an eure Karten, sprecht leise oder laut, wie es euch passt.
+    (Muster ohne Spielinhalt; echte Phasenstarts nennen die Aussage des Burgwarts dieser Phase wortgetreu.)
+
+### M-16 Zwischenresümee (220–320 Wörter, Ausschnitt; pfadneutral)
+    Der Gong. Die Gespräche verstummen, aber die Blicke nicht. Was wissen wir sicher? Nur das, was an den Stationen liegt und was der Burgwart selbst gesagt hat. Alles andere ist das, was ihr einander erzählt habt, und wer erzählt, kann sich irren oder etwas verschweigen.
+    (Muster: Zwischenresümees nennen keine Entscheidung und keinen Gesprächsinhalt, nur öffentliche Tatsachen.)
+
+### M-17 Bauanleitung für ein Beweisstück
+    BAU · BEISPIEL · Marzipan-Kunibert für die Torte (nur Muster)
+    Zweck: Deko auf der Geburtstagstorte, keine Spur.
+    Material: 100 g Marzipan, Lebensmittelfarbe Silbergrau, Zahnstocher.
+    Bauzeit: 20 Minuten.
+    Schritte: 1. … 2. … 3. …
+    Sicherheit: Nichts Spitzes in der Torte lassen.
+    Platzierung: Speisekammer-Station, auf der Torte, ab Beginn.
+    Prüfen: Sieht man es aus zwei Metern Entfernung?
+
+### M-18 Raum- und Dekoleitfaden (Ausschnitt)
+    STATION HOF · Ecke am Fenster oder an der Balkontür
+    Stimmung: kalt, still, Mondlicht.
+    Aufbau: eine LED-Laterne als Geleucht auf einem Hocker, darum eine graue Decke als Brunnenrand, auf dem Boden ein Streifen weißes Papier mit Stiefelspuren als Raureif.
+    Sicherheit: Kabel abkleben, keine Flammen.
+    Was hier ab welcher Phase ausliegt: siehe Liste der Beweisstücke.
+
+### M-19 Klang- und Lichtliste (Zeilen)
+    CUE K-01 · Einführung, vor dem ersten Satz · Klang: Wind durch Schießscharten, leise, 30 Sekunden · Licht: alle LED-Kerzen an, Raumlicht aus · Auslöser: Spielleitung
+    CUE K-02 · Einführung, „Ein lauter Knall“ · Klang: kurzer, trockener Knall · Licht: Raumlicht bleibt aus, LED-Kerzen für 10 Sekunden aus · Auslöser: Erzähler-App
+
+### M-20 Meldekarte
+    MELDEKARTE · Phase 1 · Rolle 00 Beispielfigur (nur Muster)
+    In der Lagerunde liest du laut vor:
+    „Um halb zwölf stand ich am Punschkessel.“
+    Diese Karte ist Pflicht. Du darfst nichts hinzufügen und nichts weglassen.
+
+### M-21 Einladung (Ausschnitt)
+    Glück auf! Du bist eingeladen zu einer Nacht auf Burg Schartenfels.
+    Am: ______  Um: ______  Wo: ______
+    Bring warme Socken mit, gute Laune und Mut für den Turm.
+    (Muster: Ausfüllfelder bleiben als Linien stehen; keine Platzhalter wie „usw.“)
+
+### M-22 Beobachtungskarte des Detektivs
+    DEINE BEOBACHTUNG · B0 · nur Muster
+    Um halb elf hast du gesehen, wie jemand die Kerzen auf der Tafel nachgezählt hat. Du hast dir nichts dabei gedacht.
+    (Muster: echte Beobachtungskarten geben DET-B1 bis DET-B6 wortgetreu wieder.)
+
+### M-23 Prüfbefund (Fundstellenliste)
+    1. PROFIL-R07, Dossier, Absatz 2 → nennt eine Uhrzeit, die nicht im Kanon steht → Uhrzeit streichen oder Kanon-Uhrzeit verwenden [A-ZEIT]
+    2. PROFIL-R07, Steckbrief → 162 Wörter statt höchstens 150 → kürzen [H-WORTSPANNE]
