@@ -6,19 +6,18 @@ const tokenKey = 'mordakte_token';
 /// Speicher-Schlüssel des zuletzt betretenen Online-Raums (Rückkehr nach Neuladen).
 const roomKey = 'mordakte_room';
 
-@JS()
-class _Storage {
-  external String? getItem(String key);
-  external void setItem(String key, String value);
-  external void removeItem(String key);
-}
+@JS('window.sessionStorage.getItem')
+external String? _getItem(String key);
 
-@JS('sessionStorage')
-external _Storage get _sessionStorage;
+@JS('window.sessionStorage.setItem')
+external void _setItem(String key, String value);
+
+@JS('window.sessionStorage.removeItem')
+external void _removeItem(String key);
 
 String? _get(String key) {
   try {
-    return _sessionStorage.getItem(key);
+    return _getItem(key);
   } catch (_) {
     return null;
   }
@@ -26,7 +25,7 @@ String? _get(String key) {
 
 void _set(String key, String value) {
   try {
-    _sessionStorage.setItem(key, value);
+    _setItem(key, value);
   } catch (_) {}
 }
 
@@ -42,6 +41,6 @@ Future<void> saveRoom(String code) async => _set(roomKey, code);
 
 Future<void> clearRoom() async {
   try {
-    _sessionStorage.removeItem(roomKey);
+    _removeItem(roomKey);
   } catch (_) {}
 }
