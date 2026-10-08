@@ -36,7 +36,12 @@ Future<void> ladeSpielDaten(Spiel spiel) async {
       spiel.karten[karte.id] = karte;
     }
   }
-  spiel.fallDaten = FallDaten(kanon);
+  final fall = FallDaten(kanon);
+  const faehigkeitenPfad = 'packages/burgstadt_core/data/rollen/faehigkeiten.json';
+  if (da.contains(faehigkeitenPfad)) {
+    fall.faehigkeiten.addAll(faehigkeitenAusJson(jsonDecode(await rootBundle.loadString(faehigkeitenPfad)) as Map<String, dynamic>));
+  }
+  spiel.fallDaten = fall;
   const innenPfad = 'packages/burgstadt_core/data/innenraeume/';
   final innen = [
     for (final a in da.where((a) => a.startsWith(innenPfad) && a.endsWith('.json')))

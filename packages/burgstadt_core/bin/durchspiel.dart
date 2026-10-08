@@ -6,9 +6,7 @@ import 'package:burgstadt_core/burgstadt_core_io.dart';
 /// Ebene 3/4: Durchspiel mit Bots für N = 4…20 (mit und ohne Teilen).
 void main(List<String> args) {
   final w = findeRepoWurzel()!;
-  final k = kanonLesen('$w/krimidinner/spuk-im-gewoelbe/10_kanon')
-      .mitOverlay(File('$w/nachtlauf/kanon/ANPASSUNG.md').readAsStringSync(), datei: 'ANPASSUNG.md');
-  final d = FallDaten(k);
+  final d = ladeFallDaten(w);
   var fehler = 0;
   var summeMit = 0, summeOhne = 0, ungeloestOhne = 0;
   for (final n in [4, 6, 8, 10, 12, 14, 16, 18, 20]) {

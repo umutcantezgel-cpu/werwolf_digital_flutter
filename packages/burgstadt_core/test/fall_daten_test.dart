@@ -1,15 +1,9 @@
-import 'dart:io';
 
 import 'package:burgstadt_core/burgstadt_core.dart';
 import 'package:burgstadt_core/burgstadt_core_io.dart';
 import 'package:test/test.dart';
 
-FallDaten ladeFall() {
-  final w = findeRepoWurzel()!;
-  final k = kanonLesen('$w/krimidinner/spuk-im-gewoelbe/10_kanon')
-      .mitOverlay(File('$w/nachtlauf/kanon/ANPASSUNG.md').readAsStringSync(), datei: 'ANPASSUNG.md');
-  return FallDaten(k);
-}
+FallDaten ladeFall() => ladeFallDaten(findeRepoWurzel()!);
 
 void main() {
   final f = ladeFall();

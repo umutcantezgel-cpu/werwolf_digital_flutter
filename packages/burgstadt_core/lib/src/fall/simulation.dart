@@ -81,6 +81,9 @@ class Simulation {
     }
     final (mx, mz) = g.markePos('m');
     figuren['DET'] = Figur('DET', 'gewoelbe', mx, mz, bot: !menschen.contains('DET'));
+    for (final r in fall.rollen) {
+      _melde(fall.betritt(r, 'gewoelbe'));
+    }
     _stadtlebenAnlegen(bewohnerDaten, haeuser);
   }
 
@@ -221,7 +224,25 @@ class Simulation {
         f.animZeit += dt;
         continue;
       }
-      if (fall.abschnitt == Abschnitt.ermittlung) _bot(f, dt);
+      if (fall.abschnitt == Abschnitt.ermittlung) {
+        _bot(f, dt);
+        _begegnungen(f);
+      }
+    }
+  }
+
+  /// Gesprächs-Fähigkeiten wirken, wenn die Rolle ihrem Gegenüber nahekommt (1,6 m).
+  void _begegnungen(Figur f) {
+    final fa = fall.daten.faehigkeiten[f.id];
+    if (fa == null || !fa.gespraech || fall.faehigkeitGenutzt.contains(f.id)) return;
+    for (final o in figuren.values) {
+      if (o == f || o.bewohner || o.id == 'DET') continue;
+      if (fa.gespraechMit != null && o.id != fa.gespraechMit) continue;
+      final d = _abstand(f, o);
+      if (d != null && d < 1.6) {
+        _melde(fall.begegnung(f.id, o.id));
+        return;
+      }
     }
   }
 
@@ -281,6 +302,7 @@ class Simulation {
       final d = b.dinge.firstWhere((d) => d.legende.station == teile[2]);
       if (Navigation.nebenDing(b, d, (f.bereich, f.kachel.$1, f.kachel.$2))) {
         _melde(fall.untersuche(f.id, teile[2]));
+        if (fall.daten.faehigkeiten[f.id]?.werkzeug == teile[2] && zufall.chance(0.7)) _melde(fall.verwische(f.id, teile[2]));
         f.animation = 'untersuchen';
         f.warten = 3;
         f.auftrag = 'spricht'; // kurz still stehen
@@ -310,6 +332,7 @@ class Simulation {
       if (p.$1 != f.bereich) {
         // Türsprung
         f.bereich = p.$1;
+        if (!f.bewohner && f.id != 'DET' && f.id != 'BW') _melde(fall.betritt(f.id, p.$1));
         f.x = (p.$2 + 0.5) * kKachel;
         f.z = (p.$3 + 0.5) * kKachel;
         f.pfad.removeAt(0);

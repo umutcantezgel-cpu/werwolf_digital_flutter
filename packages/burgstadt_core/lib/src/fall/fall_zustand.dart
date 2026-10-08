@@ -35,6 +35,12 @@ class FallZustand {
   final List<(String, String)> faeden = [];
   final Set<String> erledigt = {};
   final Set<String> untersucht = {};
+
+  /// Rollen, deren Fähigkeit schon gewirkt hat (je Rolle einmal).
+  final Set<String> faehigkeitGenutzt = {};
+
+  /// Von der Täterin verwischte Spuren (Stations-IDs).
+  final Set<String> verwischt = {};
   final Map<String, int> rollenWahl = {};
   final Map<String, String> detektivWahl = {};
   final List<Ereignis> protokoll = [];
@@ -132,7 +138,37 @@ class FallZustand {
     for (final h in stationsHinweise(station)) {
       if (wissen[wer]!.add(h.id)) out.add(_e('fund', h.inhalt, von: wer, hinweis: h.id));
     }
-    return _neu(out);
+    return [..._neu(out), ..._faehigkeit(wer, station: station)];
+  }
+
+  // ------------------------------------------------------------ Fähigkeiten (Z-05)
+
+  /// Die Fähigkeit von [rolle] wirkt, wenn ihr Auslöser passt (einmal je Rolle):
+  /// Ereignis `sicht` nur an die Rolle selbst.
+  List<Ereignis> _faehigkeit(String rolle, {String? station, String? mit, String? bereich}) {
+    final f = daten.faehigkeiten[rolle];
+    if (f == null || !rollen.contains(rolle) || faehigkeitGenutzt.contains(rolle)) return const [];
+    final passt = (station != null && (f.station == station || f.werkzeug == station)) ||
+        (mit != null && f.gespraech && (f.gespraechMit == null || f.gespraechMit == mit)) ||
+        (bereich != null && f.bereich == bereich);
+    if (!passt) return const [];
+    faehigkeitGenutzt.add(rolle);
+    return _neu([_e('sicht', f.text, von: rolle, an: rolle)]);
+  }
+
+  /// [rolle] begegnet [mit] (im Gespräch oder in Rufweite).
+  List<Ereignis> begegnung(String rolle, String mit) => _faehigkeit(rolle, mit: mit);
+
+  /// [rolle] betritt [bereich].
+  List<Ereignis> betritt(String rolle, String bereich) => _faehigkeit(rolle, bereich: bereich);
+
+  /// Gegenspiel der Täterin: Wer die Werkzeug-Fähigkeit für [station] hat, verwischt die
+  /// Abdruckspur dort. Sie bleibt im Detektivblick als „verwischt“ erkennbar.
+  List<Ereignis> verwische(String rolle, String station) {
+    final f = daten.faehigkeiten[rolle];
+    if (abschnitt != Abschnitt.ermittlung || f == null || f.werkzeug != station || !rollen.contains(rolle)) return const [];
+    if (!verwischt.add(station)) return const [];
+    return _neu([_e('verwischt', 'Du wischst über den Abdruck. Ganz weg ist er nicht.', von: rolle, an: rolle)]);
   }
 
   /// [von] führt Gespräch [gid] mit seinem Ziel. [zuhoerer] (z. B. der Detektiv in
@@ -154,7 +190,7 @@ class FallZustand {
         if (z != von && wissen[z]!.add(h)) out.add(_e('belauscht', daten.hinweise[h]!.inhalt, von: z, hinweis: h));
       }
     }
-    return _neu(out);
+    return [..._neu(out), ..._faehigkeit(von, mit: ziel)];
   }
 
   /// [von] teilt Hinweis [h] mit [an] (Spieler-ID oder `akte`). Nur Bekanntes lässt sich teilen.
@@ -289,6 +325,8 @@ class FallZustand {
         'faeden': [for (final f in faeden) [f.$1, f.$2]],
         'erledigt': erledigt.toList()..sort(),
         'untersucht': untersucht.toList()..sort(),
+        'faehigkeitGenutzt': faehigkeitGenutzt.toList()..sort(),
+        'verwischt': verwischt.toList()..sort(),
         'rollenWahl': rollenWahl,
         'detektivWahl': detektivWahl,
         'angeklagt': angeklagt,
@@ -310,6 +348,8 @@ class FallZustand {
     z.faeden.addAll([for (final f in j['faeden'] as List) ((f as List)[0] as String, f[1] as String)]);
     z.erledigt.addAll([for (final g in j['erledigt'] as List) g as String]);
     z.untersucht.addAll([for (final g in j['untersucht'] as List) g as String]);
+    z.faehigkeitGenutzt.addAll([for (final g in (j['faehigkeitGenutzt'] as List?) ?? const []) g as String]);
+    z.verwischt.addAll([for (final g in (j['verwischt'] as List?) ?? const []) g as String]);
     z.rollenWahl.addAll({for (final e in (j['rollenWahl'] as Map).entries) e.key as String: e.value as int});
     z.detektivWahl.addAll({for (final e in (j['detektivWahl'] as Map).entries) e.key as String: e.value as String});
     z.protokoll.addAll([for (final e in j['protokoll'] as List) Ereignis.ausJson(e as Map<String, dynamic>)]);

@@ -44,6 +44,7 @@ flutter:
     - packages/burgstadt_core/data/innenraeume/
     - packages/burgstadt_core/data/stadt/haeuser.json
     - packages/burgstadt_core/data/stadt/bewohner.json
+    - packages/burgstadt_core/data/rollen/faehigkeiten.json
     - packages/burgstadt_spiel/data/texte/
   fonts:
     - family: SpecialElite

@@ -19,6 +19,14 @@ class Spur {
 
   const Spur(this.art, this.bereich, this.x, this.z, this.beschreibung,
       {this.hoehe = 0, this.drehung = 0, this.station, this.abPhase = 1, this.sicht = const {'detektiv'}});
+
+  /// Dieselbe Spur in anderen Sichtschichten.
+  Spur mitSicht(Set<String> neu) =>
+      Spur(art, bereich, x, z, beschreibung, hoehe: hoehe, drehung: drehung, station: station, abPhase: abPhase, sicht: neu);
+
+  /// Verwischt (Gegenspiel der Täterin): bleibt als Spurenart „verwischt“ erkennbar.
+  Spur alsVerwischt() => Spur(SpurArt.verwischt, bereich, x, z, 'Verwischter Abdruck – hier hat jemand darübergewischt',
+      hoehe: hoehe, drehung: drehung, station: station, abPhase: abPhase, sicht: sicht);
 }
 
 /// Spuren in der Burg – nur, was die öffentlichen Beschreibungen (BSO-*) und

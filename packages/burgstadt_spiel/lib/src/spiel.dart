@@ -201,6 +201,14 @@ class Spiel {
     e.bildEnde();
   }
 
+  /// Spuren im aktuellen Fallzustand: von der Täterin verwischte Abdrücke erscheinen
+  /// als Spurenart „verwischt“.
+  List<Spur> spurenFuer(Fallsitzung? s) {
+    final v = s?.fall.verwischt ?? const <String>{};
+    if (v.isEmpty) return spuren;
+    return [for (final x in spuren) x.art == SpurArt.fussspur && x.station != null && v.contains(x.station) ? x.alsVerwischt() : x];
+  }
+
   /// Tutorial-Karte unten in der Mitte über der Ortsanzeige (antippen = weiter).
   void _zeichneTutorial() {
     final t = tutorial.aktuell;
@@ -267,7 +275,9 @@ class Spiel {
         c[i] = blickFilter[c[i]];
       }
       final phase = s?.fall.phase ?? 1;
-      final m = _spurMeshes.putIfAbsent('$id|$phase', () => baueSpurenMesh(spuren, id, phase, 'detektiv', TexturId.values.length));
+      final verwischt = s?.fall.verwischt ?? const <String>{};
+      final m = _spurMeshes.putIfAbsent(
+          '$id|$phase|${verwischt.join(',')}', () => baueSpurenMesh(spurenFuer(s), id, phase, 'detektiv', TexturId.values.length));
       if (m != null) {
         final alt = r.ambientCold;
         r.ambientCold = 0.6;

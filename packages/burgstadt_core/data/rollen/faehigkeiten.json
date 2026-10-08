@@ -1,0 +1,532 @@
+{
+ "version": 1,
+ "rollen": [
+  {
+   "rolle": "R01",
+   "beruf": "selbstständiger Veranstaltungstechniker („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma mit Transporter), ausgebildeter Ersthelfer",
+   "faehigkeit": "Hauptverteiler lesen",
+   "wirkung": {
+    "art": "station",
+    "details": "Am Sicherungskasten (BSO-04) kommt zusätzlicher Text aus öffentlichen Datensätzen hinzu: Der Kasten ist der historische Hauptverteiler der ganzen Oberstadt (K-005). Die Ersatzsicherungen aus dem Torhaus passen nicht in den alten Hauptverteiler; der Strom kommt erst am Morgen wieder (STADT-04).",
+    "betrifft": [
+     "BSO-04"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Leitungsblick",
+    "zeigt": "Adnan liest den Kasten als Technik: An diesem einen Verteiler hängt die Stromversorgung der Oberstadt, und die Ersatzsicherungen aus dem Torhaus passen nicht hinein.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R01-STAMM Beruf",
+    "@K-005 Tatsache",
+    "@STADT-04 Tatsache"
+   ],
+   "spoilerfrei_weil": "Nur öffentliche Tatsachen zum Verteiler. Keine Schalterstellung, keine Lastangabe, keine Uhrzeit und kein Code; der Zettel mit dem Code bleibt bei BSO-04.",
+   "ausloeser": {
+    "station": "BS-04"
+   }
+  },
+  {
+   "rolle": "R02",
+   "beruf": "Mediengestalterin Bild und Ton beim Lokalradio, Geräuschemacherin aus Leidenschaft",
+   "faehigkeit": "Hallprobe an der Box",
+   "wirkung": {
+    "art": "station",
+    "details": "An der Bluetooth-Box (BSO-08) kommt zusätzlicher Text aus öffentlichen Datensätzen hinzu: Der Testschrei um 22:05 hallte wie in einer Kathedrale (OA-09), und Jonas’ Begrüßung hallte dreifach aus der Box (OA-05). Rojda erkennt an dieser Stelle den Hall der Box als Hall.",
+    "betrifft": [
+     "BSO-08"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Hallbild",
+    "zeigt": "Der Hall der Nische wird als eigene Schicht sichtbar, getrennt von den Stimmen im Raum. Rojda hört, wo der Hall herkommt, ohne dass daraus eine Aussage über Ereignisse um Mitternacht entsteht.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R02-STAMM Beruf",
+    "@OA-09 Was alle erlebt haben",
+    "@OA-05 Was alle erlebt haben"
+   ],
+   "spoilerfrei_weil": "Nur der öffentliche Testschrei und die dreifach hallende Begrüßung. Kein Track-Ablauf, keine Startzeit, kein Hebel; die Herkunft des Schreis um Mitternacht bleibt ungedeutet.",
+   "ausloeser": {
+    "station": "BS-08"
+   }
+  },
+  {
+   "rolle": "R03",
+   "beruf": "Studienreferendarin für Geschichte und Deutsch an einem Gymnasium; im Februar ist Examen, danach soll die Verbeamtung auf Probe kommen",
+   "faehigkeit": "Spur verwischen",
+   "wirkung": {
+    "art": "werkzeug",
+    "details": "Merle kann die Abdruckspur bei BSO-01 verwischen. Die Spur wird dann als Spurenart verwischt geführt und bleibt für alle mit Detektivblick als verwischt erkennbar. Falsche Fährten sind nur im Rahmen von LR-2 und @R03-LÜGE erlaubt.",
+    "betrifft": [
+     "BSO-01"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Wischspur",
+    "zeigt": "Merle sieht, welche Abdrücke noch unverwischt sind und dass eine verwischte Spur als verwischt erkennbar bleibt.",
+    "spurarten": [
+     "verwischt"
+    ]
+   },
+   "quelle": [
+    "@R03-STAMM Beruf",
+    "@R03-LÜGE Darf lügen über",
+    "@LR-2 Regel",
+    "@BSO-01 Aussehen"
+   ],
+   "spoilerfrei_weil": "Verwischen erzeugt nur die Spurenart verwischt. Es zeigt keinen Täter, keinen Weg und keinen Gegenstand; die Lüge bleibt auf die Karte von @R03-LÜGE beschränkt.",
+   "ausloeser": {
+    "werkzeug": "BS-01"
+   }
+  },
+  {
+   "rolle": "R04",
+   "beruf": "Vertriebler für Medizintechnik (so erzählt er es)",
+   "faehigkeit": "Punkt eins, Punkt zwei",
+   "wirkung": {
+    "art": "gespraech",
+    "details": "Jonas fasst im Gespräch mit der Runde die öffentlich bekannten Zeitpunkte des Abends zusammen. Die Antwort kommt aus LISTE-ZEITEN; er deutet dabei nichts.",
+    "betrifft": [
+     "LISTE-ZEITEN"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Zeitliste",
+    "zeigt": "Eine Liste der öffentlichen Zeitpunkte in der Reihenfolge, in der der Abend sie bekannt gemacht hat: Eichentür 17:40, Begrüßung 20:30, Ultimatum 22:45 und die übrigen Anker bis Mitternacht.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R04-STAMM Beruf",
+    "@LISTE-ZEITEN Öffentlich bekannte Zeitpunkte"
+   ],
+   "spoilerfrei_weil": "Nur die öffentliche Zeitliste. Keine Telefonate, keine Miete, kein Aufenthaltsort.",
+   "ausloeser": {
+    "gespraech": null
+   }
+  },
+  {
+   "rolle": "R05",
+   "beruf": "Steuerfachangestellte in einer Kanzlei in Braunschweig",
+   "faehigkeit": "Beleg bitte",
+   "wirkung": {
+    "art": "gespraech",
+    "details": "Paulina fragt Adnan nach dem Schadensbetrag an der Eichentür. Die Antwort kommt aus R01-ÖFFENTLICH: Der Burgwart verlangte 3.800 Euro bar bis Mitternacht. Paulina erhält damit eine belegte Zahl, aber keine neue Tatsache.",
+    "betrifft": [
+     "R01-ÖFFENTLICH"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Kassenblick",
+    "zeigt": "Sie liest Forderungen als Belege mit Betrag, Frist und Zahlungsart. Eine Forderung in bar bis Mitternacht prüft sie zuerst auf den Beleg.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R05-STAMM Beruf",
+    "@R01-ÖFFENTLICH Beziehung zum Burgwart (bekannt)",
+    "@R05-STAMM Sprechweise"
+   ],
+   "spoilerfrei_weil": "Nur die öffentlich genannte Summe. Keine Stiftungsangaben, keine Vermietungszeiten, keine Stellenwechsel.",
+   "ausloeser": {
+    "gespraech": "R01"
+   }
+  },
+  {
+   "rolle": "R06",
+   "beruf": "Rettungssanitäter auf einer Rettungswache, nebenbei Sanitätsdienst bei Veranstaltungen",
+   "faehigkeit": "Befund nach Sanitäter-Art",
+   "wirkung": {
+    "art": "gespraech",
+    "details": "Diyar fragt den Burgwart nach seinem Zustand. Die Antwort kommt aus BW-ZUSTAND: eine Beule am Hinterkopf, keine offene Wunde, kurz bewusstlos, nach Mitternacht wieder wach und orientiert, mit einer Gedächtnislücke für die Sekunden vor dem Schlag. Keine Minutenangabe.",
+    "betrifft": [
+     "BW-ZUSTAND"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Befundblick",
+    "zeigt": "Diyar bewertet den Zustand des Burgwarts nach Sanitäter-Routine: ansprechbar, orientiert, Beule. Die Regel der Leitstelle bleibt: beobachten, alle fünfzehn Minuten wecken, bei Warnzeichen sofort anrufen.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R06-STAMM Beruf",
+    "@BW-ZUSTAND Zustand"
+   ],
+   "spoilerfrei_weil": "Nur der öffentliche Zustand des Burgwarts. Keine Minutenangabe zur Bewusstlosigkeit, keine Angabe zu Personen am Kamin und keine Angabe zur Erste-Hilfe-Zeit.",
+   "ausloeser": {
+    "gespraech": "BW"
+   }
+  },
+  {
+   "rolle": "R07",
+   "beruf": "Tontechniker am Stadttheater",
+   "faehigkeit": "Geschichten unter Tage",
+   "wirkung": {
+    "art": "gespraech",
+    "details": "Emre fragt den Burgwart, wie es unter Tage klingt. Die Antwort kommt aus BW-STAMM (Leben): bis 1992 Hauer im Bergbau, seit 1994 Burgwart. Emre erfährt daraus nichts über den Abend.",
+    "betrifft": [
+     "BW-STAMM"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Hörbild Bergbau",
+    "zeigt": "Emre hört im Gewölbe die Stimme des Burgwarts als Erzählung aus dem Bergbau und kann Hall und Raumklang bei Stimmen unterscheiden.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R07-STAMM Beruf",
+    "@R07-ÖFFENTLICH Beziehung zum Burgwart (bekannt)",
+    "@BW-STAMM Leben"
+   ],
+   "spoilerfrei_weil": "Nur die öffentliche Lebensgeschichte des Burgwarts. Keine Track-Angaben, keine Geräusche aus der Speisekammer und keine Besetzung des Gespensts.",
+   "ausloeser": {
+    "gespraech": "BW"
+   }
+  },
+  {
+   "rolle": "R08",
+   "beruf": "Studienreferendarin für Biologie an einem Gymnasium, im selben Seminar wie Merle",
+   "faehigkeit": "Und was folgt daraus?",
+   "wirkung": {
+    "art": "gespraech",
+    "details": "Lejla fragt Tomasz nach dem, was er öffentlich gesagt hat. Die Antwort kommt aus R09-ÖFFENTLICH (Comedy-Beteiligung): Er geht um 23:50 nach der Torte sehen und kommt um 23:51 schweigsam zurück. Lejla bekommt die öffentliche Abfolge, keine Deutung.",
+    "betrifft": [
+     "R09-ÖFFENTLICH"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Unterrichtsfrage",
+    "zeigt": "Lejla ordnet öffentliche Aussagen nach ihrer Uhrzeit, ohne sie zu bewerten. Sie fragt nach, was daraus folgt, und sieht, wo eine Aussage ohne Beleg bleibt.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R08-STAMM Beruf",
+    "@R09-ÖFFENTLICH Comedy-Beteiligung (sichtbar)"
+   ],
+   "spoilerfrei_weil": "Nur öffentlich gesagte Aussagen in ihrer Zeitfolge. Keine Geheimnisse anderer Rollen und keine Deutung der Speisekammer.",
+   "ausloeser": {
+    "gespraech": "R09"
+   }
+  },
+  {
+   "rolle": "R09",
+   "beruf": "Koch, stellvertretender Küchenchef in einer großen Betriebskantine; am Wochenende backt er Torten für Freunde",
+   "faehigkeit": "Kantinen-Blick",
+   "wirkung": {
+    "art": "station",
+    "details": "An der Blechdose im Regal neben der Eisentür (BSO-05) kommt zusätzlicher Text hinzu: Tomasz erkennt die Dose als alte Kaffeedose. Im Regal stehen Konserven. Er nennt keine Zeit und keine Person.",
+    "betrifft": [
+     "BSO-05"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Küchenblick",
+    "zeigt": "Er liest die Speisekammer als Vorratsraum: Konserven, Torte und Kühlung, nicht als Tatort.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R09-STAMM Beruf",
+    "@BSO-05 Aussehen",
+    "@K-004 Tatsache"
+   ],
+   "spoilerfrei_weil": "Nur die öffentliche Beschreibung von Regal und Dose. Keine Uhrzeiten, keine Torten-Zeitangaben und keine Geheimnisse anderer Rollen.",
+   "ausloeser": {
+    "station": "BS-05"
+   }
+  },
+  {
+   "rolle": "R10",
+   "beruf": "freiberufliche Grafikdesignerin, gestaltet Plakate und Buchumschläge",
+   "faehigkeit": "Grundriss skizzieren",
+   "wirkung": {
+    "art": "station",
+    "details": "Am Grundriss der Burg (LISTE-ORTE) kommt zusätzlicher Text aus öffentlichen Datensätzen hinzu: Das Kamin-Gewölbe hat drei Türen (K-003), die Speisekammer hat zwei (K-004), und der Wendeltreppenturm verbindet alle Ebenen (K-005).",
+    "betrifft": [
+     "LISTE-ORTE"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Skizzenblick",
+    "zeigt": "Annika zeichnet die Türen und Wege zwischen Gewölbe, Turm und Speisekammer als Plan mit, so dass jeder Weg lesbar ist, ohne dass Zeiten eingetragen werden.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R10-STAMM Beruf",
+    "@K-003 Tatsache",
+    "@K-004 Tatsache",
+    "@K-005 Tatsache"
+   ],
+   "spoilerfrei_weil": "Nur Türen und Ebenen aus öffentlichen Tatsachen. Keine Zeiten, keine Wege einzelner Rollen und keine Geheimnisse.",
+   "ausloeser": {
+    "bereich": "hof"
+   }
+  },
+  {
+   "rolle": "R11",
+   "beruf": "Physikstudentin im Master, Schwerpunkt Astrophysik",
+   "faehigkeit": "Raureif lesen",
+   "wirkung": {
+    "art": "station",
+    "details": "Am Hof kommt an den Raureifspuren (BSO-11) zusätzlicher Text aus öffentlichen Datensätzen hinzu: Auf dem Hof liegt seit etwa 23 Uhr Raureif (K-002). Berfin sieht damit, dass Spuren im Reif erst nach Beginn des Reifs entstanden sind.",
+    "betrifft": [
+     "BSO-11",
+     "K-002"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Reifzeit",
+    "zeigt": "Sie liest die Spuren im Raureif als Spuren, die nach Beginn des Reifs gesetzt wurden. Wann genau eine einzelne Spur entstand, bleibt offen.",
+    "spurarten": [
+     "fussspur"
+    ]
+   },
+   "quelle": [
+    "@R11-STAMM Beruf",
+    "@K-002 Tatsache",
+    "@BSO-11 Aussehen"
+   ],
+   "spoilerfrei_weil": "Nur die öffentliche Zeitangabe zum Raureif. Keine Zuordnung von Stiefeln zu Personen, keine Uhrzeit einzelner Spuren und keine Angabe zu einzelnen Personen.",
+   "ausloeser": {
+    "station": "BS-11"
+   }
+  },
+  {
+   "rolle": "R12",
+   "beruf": "Bauingenieur, Statiker in einem Ingenieurbüro für Altbausanierung",
+   "faehigkeit": "Mauer benennen",
+   "wirkung": {
+    "art": "station",
+    "details": "An den Mauern der Burg benennt Dino das Material aus der öffentlichen Anker-Beschreibung (LA-01): ein kleines befestigtes Stadtschloss aus dunklem Bruchstein. Die Angabe gilt für das Mauerwerk der Burg.",
+    "betrifft": [
+     "LA-01"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Mauerblick",
+    "zeigt": "Dino benennt Stein und Mörtel der Burgmauern: dunkler Bruchstein, kein Zierstein. Er sieht die Mauern als Tragwerk, nicht als Weg.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R12-STAMM Beruf",
+    "@LA-01 Anker (EN)"
+   ],
+   "spoilerfrei_weil": "Nur die Materialangabe der Burg. Keine Maße, keine Verkeilung, keine Lüftungsschächte und keine Aussagen zu Fluchtwegen; das gehört zu Kanon-Hinweisen, nicht zur Sichtschicht.",
+   "ausloeser": {
+    "bereich": "wehrgang"
+   }
+  },
+  {
+   "rolle": "R13",
+   "beruf": "Bankkauffrau, Beraterin für Privatkredite in einer Filiale in Braunschweig",
+   "faehigkeit": "Wer zahlt die Miete?",
+   "wirkung": {
+    "art": "gespraech",
+    "details": "Selin fragt Jonas, ob von allen die 55 Euro eingesammelt wurden. Die Antwort kommt aus K-011: Der Gewölbekeller kostet die Gruppe offiziell nichts, und Jonas hat trotzdem von allen 55 Euro Miete eingesammelt.",
+    "betrifft": [
+     "K-011"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Kontoblick",
+    "zeigt": "Selin prüft Zahlungen wie Kontobewegungen: wer was gezahlt hat und wofür. Eine Zahlung ohne Gegenleistung markiert sie zuerst.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R13-STAMM Beruf",
+    "@K-011 Tatsache"
+   ],
+   "spoilerfrei_weil": "Nur die öffentliche Tatsache zur Miete. Keine Darlehen, keine Ersparnisse und keine Aussagen zu Terminen außerhalb der Burg.",
+   "ausloeser": {
+    "gespraech": "R04"
+   }
+  },
+  {
+   "rolle": "R14",
+   "beruf": "Tischlermeister mit eigener Werkstatt; restauriert nebenbei alte Türen und Fenster",
+   "faehigkeit": "Gutachten über Holz",
+   "wirkung": {
+    "art": "station",
+    "details": "An der Eichentür zur Speisekammer (K-004) kommt zusätzlicher Text aus öffentlichen Datensätzen hinzu: Die Füllung ist gesplittert und ein Scharnier gebrochen (OA-03). Kamil schätzt den Schaden fachlich auf sechshundert Euro, höchstens (ORT-04).",
+    "betrifft": [
+     "K-004"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Holzblick",
+    "zeigt": "Kamil sieht die Eichentür als Werkstück: Füllung und Scharnier. Er liest den Schaden am Holz, nicht am Preisschild.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R14-STAMM Beruf",
+    "@ORT-04 Rolle im Fall",
+    "@K-004 Tatsache"
+   ],
+   "spoilerfrei_weil": "Nur der öffentliche Schaden und der Kostenvoranschlag. Keine Zahlungen, keine Absprachen und keine Zeitangabe.",
+   "ausloeser": {
+    "bereich": "speisekammer"
+   }
+  },
+  {
+   "rolle": "R15",
+   "beruf": "Versicherungskauffrau im Außendienst; betreut vor allem kleine Betriebe und Selbstständige",
+   "faehigkeit": "Zahlung statt Versicherung",
+   "wirkung": {
+    "art": "station",
+    "details": "Am Schadenszettel (BSO-10) kommt zusätzlicher Text hinzu: Der Schaden wird bar gefordert, bis Mitternacht, nicht über eine Versicherung. Derya nennt Frist und Zahlungsart, aber nicht, wer zahlt.",
+    "betrifft": [
+     "BSO-10"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Schadensblick",
+    "zeigt": "Derya erkennt Schäden an der Zahlungsart: bar statt Versicherung, mit Frist. Sie fragt zuerst, wer hier versichert ist.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R15-STAMM Beruf",
+    "@BSO-10 Aussehen",
+    "@R15-ÖFFENTLICH Beziehung zum Burgwart (bekannt)"
+   ],
+   "spoilerfrei_weil": "Nur der öffentliche Schadenszettel. Keine Versicherungsangaben zu einzelnen Rollen, keine Betragsaufteilung und keine Angabe, wer an der Feier was bezahlt hat.",
+   "ausloeser": {
+    "gespraech": "BW"
+   }
+  },
+  {
+   "rolle": "R16",
+   "beruf": "Immobilienkaufmann; verwaltet und vermittelt Wohnungen in Wolfsburg und Braunschweig",
+   "faehigkeit": "Was ist die Burg wert?",
+   "wirkung": {
+    "art": "gespraech",
+    "details": "Amar fragt den Burgwart, was die Burg wert ist. Die Antwort kommt aus R16-ÖFFENTLICH: Der Burgwart sagt, die Burg sei nicht zu verkaufen. Amar erhält die öffentliche Antwort, keine Schätzung.",
+    "betrifft": [
+     "R16-ÖFFENTLICH"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Exposé-Blick",
+    "zeigt": "Amar beschreibt Räume wie in einem Exposé, mit Lage, Charme und Nutzen. Er merkt, wenn eine Angabe zum Preis fehlt.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R16-STAMM Beruf",
+    "@R16-ÖFFENTLICH Beziehung zum Burgwart (bekannt)"
+   ],
+   "spoilerfrei_weil": "Nur die öffentliche Antwort des Burgwarts. Keine Kreditangaben, keine Geschenke und keine Angaben zu Familienmitgliedern der Runde.",
+   "ausloeser": {
+    "gespraech": "BW"
+   }
+  },
+  {
+   "rolle": "R17",
+   "beruf": "Revierförster im Bergland, Imker im Nebenerwerb",
+   "faehigkeit": "Bienenwachs erkennen",
+   "wirkung": {
+    "art": "sicht",
+    "details": "Am Kerzenständer (BSO-09) erkennt Henrik das Wachs als Bienenwachs. Die Kerzen auf dem Fass sind Bienenwachskerzen (K-004). Er sieht die Herkunft des Wachses, nicht seinen Zeitpunkt.",
+    "betrifft": [
+     "BSO-09"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Waldblick",
+    "zeigt": "Henrik liest Wachs als Bienenwachs: Herkunft und Konsistenz, ohne Deutung zu Tat oder Zeit.",
+    "spurarten": [
+     "wachs"
+    ]
+   },
+   "quelle": [
+    "@R17-STAMM Beruf",
+    "@BSO-09 Aussehen",
+    "@K-004 Tatsache"
+   ],
+   "spoilerfrei_weil": "Nur die Herkunft des Wachses. Keine Aussage zu Schlagbewegungen, Erstarrungszeit oder Abdrücken; das gehört zu Kanon-Hinweisen.",
+   "ausloeser": {
+    "station": "BS-09"
+   }
+  },
+  {
+   "rolle": "R18",
+   "beruf": "Jurastudentin in Göttingen, jobbt als studentische Hilfskraft in einer Kanzlei",
+   "faehigkeit": "Hausrecht nachlesen",
+   "wirkung": {
+    "art": "station",
+    "details": "Am Torhaus (K-006) kommt zusätzlicher Text aus öffentlichen Datensätzen hinzu: Das Torhaus ist die Wohnung des Burgwarts, mit Festnetztelefon und Ersatzsicherungen. Elif ordnet das rechtlich als Wohnung des Hausherrn ein.",
+    "betrifft": [
+     "K-006"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Paragrafenblick",
+    "zeigt": "Elif liest Orte nach Zuständigkeit: wem ein Raum gehört, wer dort das Hausrecht hat und welche Stelle dort ein Festnetztelefon hat.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R18-STAMM Beruf",
+    "@K-006 Tatsache",
+    "@R18-ÖFFENTLICH Beziehung zum Burgwart (bekannt)"
+   ],
+   "spoilerfrei_weil": "Nur öffentliche Tatsachen zum Torhaus und zum Hausrecht. Keine Schlussfolgerung zum Verbleib von Personen und keine Angaben zum Studium.",
+   "ausloeser": {
+    "bereich": "hof"
+   }
+  },
+  {
+   "rolle": "R19",
+   "beruf": "freier Fotograf für Lokalzeitungen und Hochzeiten",
+   "faehigkeit": "Lupe am Sofortbild",
+   "wirkung": {
+    "art": "station",
+    "details": "Am Sofortbild der Burgführung (BSO-12) zeigt die Vergrößerung, was bei genauem Hinsehen auf dem Bild steht (BSO-12, Aussehen; BS-12 mit dem Hinweis bei genauem Hinsehen): die Uhrzeit 21:20 am Bildrand und die Handhaltung einer Person im Hintergrund. Die Deutung bleibt offen.",
+    "betrifft": [
+     "BSO-12"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Lupenblick",
+    "zeigt": "Azad sieht Bildausschnitte im Detail: Uhrzeit, Bildrand und Hintergrund. Er erkennt, wo ein Bild mehr zeigt als den ersten Eindruck.",
+    "spurarten": []
+   },
+   "quelle": [
+    "@R19-STAMM Beruf",
+    "@BSO-12 Aussehen",
+    "@R19-ÖFFENTLICH Beziehung zum Burgwart (bekannt)"
+   ],
+   "spoilerfrei_weil": "Nur, was das Sofortbild öffentlich zeigt. Keine Deutung der Handhaltung, keine Fotos aus dem Qualm und keine Bewerbungsangaben.",
+   "ausloeser": {
+    "station": "BS-12"
+   }
+  },
+  {
+   "rolle": "R20",
+   "beruf": "Rangerin im Naturpark; führt Wanderungen und Schulklassen",
+   "faehigkeit": "Pirsch zur Scharte",
+   "wirkung": {
+    "art": "bewegung",
+    "details": "Zofia kann sich lautlos von der Festtafel zu einer Schießscharte des Gewölbes bewegen (Schießscharten-Läden, OA-14), ohne dass die Runde ihren Weg bemerkt. Sie erfährt dort nur, was öffentlich zu sehen ist.",
+    "betrifft": [
+     "OA-14"
+    ]
+   },
+   "sichtschicht": {
+    "name": "Spurleser",
+    "zeigt": "Zofia liest die Stiefelspuren im Raureif als Spuren eines Tieres: Richtung und Verlauf, ohne Zeitangabe. Sie benennt, wohin eine Spur führt, nicht wer sie gesetzt hat.",
+    "spurarten": [
+     "fussspur"
+    ]
+   },
+   "quelle": [
+    "@R20-STAMM Beruf",
+    "@R20-STAMM Familie",
+    "@BSO-11 Aussehen",
+    "@OA-14 Was alle erlebt haben"
+   ],
+   "spoilerfrei_weil": "Nur Richtung und Verlauf der öffentlich beschriebenen Spuren. Keine Zeit, keine Zuordnung zu Personen und keine Aussagen zu Bewegungen im Hof während der Nacht.",
+   "ausloeser": {
+    "bereich": "gewoelbe"
+   }
+  }
+ ],
+ "hinweis": "Übernommen aus Auftrag A-402a (nachtlauf/auftraege/A-402a), Auslöser ergänzt von Opus. Sichtschicht-Texte enthalten nur öffentliche Tatsachen."
+}

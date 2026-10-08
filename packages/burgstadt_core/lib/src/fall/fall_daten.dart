@@ -1,4 +1,5 @@
 import '../kanon/kanon.dart';
+import 'faehigkeiten.dart';
 
 /// Typisierte Falldaten aus dem wirksamen Kanon (Original + Overlay).
 class Hinweis {
@@ -128,6 +129,9 @@ class Rolle {
 class FallDaten {
   final Kanon kanon;
   final Map<String, Hinweis> hinweise = {};
+
+  /// Rollen-Fähigkeiten (aus `data/rollen/faehigkeiten.json`, vom Lader gesetzt).
+  final Map<String, Faehigkeit> faehigkeiten = {};
   final Map<String, Gespraech> gespraeche = {};
   final Map<String, RollenEntscheidung> rollenEntscheidungen = {};
   final Map<String, DetektivEntscheidung> detektivEntscheidungen = {};

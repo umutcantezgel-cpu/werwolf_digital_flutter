@@ -15,9 +15,7 @@ import 'src/texte.dart';
 /// Lädt Kanon + Overlay, Figurenteile und Steckbriefe/Karten aus dem Repo in [spiel].
 void ladeAusRepo(Spiel spiel) {
   final w = findeRepoWurzel()!;
-  final k = kanonLesen('$w/krimidinner/spuk-im-gewoelbe/10_kanon')
-      .mitOverlay(File('$w/nachtlauf/kanon/ANPASSUNG.md').readAsStringSync(), datei: 'ANPASSUNG.md');
-  spiel.fallDaten = FallDaten(k);
+  spiel.fallDaten = ladeFallDaten(w);
   final innen = Directory('$w/packages/burgstadt_core/data/innenraeume');
   if (innen.existsSync()) {
     List<Map<String, dynamic>>? liste(String datei, String feld) {

@@ -13,6 +13,7 @@ export 'src/fall/bots.dart';
 export 'src/zufall.dart';
 export 'src/fall/simulation.dart';
 export 'src/fall/stadtleben.dart';
+export 'src/fall/faehigkeiten.dart';
 export 'src/welt/navigation.dart';
 export 'src/welt/oberstadt.dart';
 export 'src/welt/spuren.dart';

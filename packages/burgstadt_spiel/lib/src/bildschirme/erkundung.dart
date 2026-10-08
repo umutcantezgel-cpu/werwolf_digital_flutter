@@ -241,7 +241,7 @@ class Erkundung extends Bildschirm {
   Spur? _naechsteSpur(Spiel spiel) {
     Spur? best;
     var bestD = 2.5;
-    for (final s in spiel.spuren) {
+    for (final s in spiel.spurenFuer(sitzung)) {
       if (s.bereich != ort || s.abPhase > _phase || !s.sicht.contains('detektiv')) continue;
       final dx = s.x - x, dz = s.z - z;
       final d = math.sqrt(dx * dx + dz * dz);
