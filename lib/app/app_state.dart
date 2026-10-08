@@ -22,6 +22,11 @@ class DevOptions {
   const DevOptions({this.open, this.life});
 }
 
+/// Ein Session-Start wurde abgebrochen, bevor die Verbindung stand (kein Fehler für den Nutzer).
+class SessionStartCancelled implements Exception {
+  const SessionStartCancelled();
+}
+
 /// App-weiter Zustand: geladene Szenarien, aktuelle Session, Meta-Fortschritt.
 class AppState extends ChangeNotifier {
   AppState({required this.meta, required this.scenarios});
@@ -46,6 +51,10 @@ class AppState extends ChangeNotifier {
   /// Fehler-Schlüssel, wenn ein Online-Raum endgültig verloren ging (Hub zeigt ihn einmal an).
   String? lostKey;
 
+  /// Zähler für Session-Starts: Ein Start, der während seines `await` überholt oder abgebrochen
+  /// wurde, verwirft seine Session statt sie anzuhängen.
+  int _startGen = 0;
+
   GameTally _tally = GameTally();
   bool _recorded = false;
   StreamSubscription<GameEvent>? _eventSub;
@@ -69,7 +78,12 @@ class AppState extends ChangeNotifier {
       'daily' => daily.seed,
       _ => null,
     };
+    final gen = ++_startGen;
     final s = await SessionFactory.solo(scenarios: scenarios, playerName: playerName);
+    if (gen != _startGen) {
+      await s.dispose();
+      return;
+    }
     pendingConfig = ConfigureGame(scenarioId: scenario.id, mode: mode, seed: seed, bots: bots);
     _attach(s);
     if (s is FakeSession) s.debugSetPhase(Phase.lobby);
@@ -82,12 +96,17 @@ class AppState extends ChangeNotifier {
     final scenario = scenarios[scenarioId] ?? sortedScenarios.firstOrNull;
     if (scenario == null) return false;
     await leaveSession();
+    final gen = ++_startGen;
     final s = await SessionFactory.solo(
       scenarios: scenarios,
       playerName: playerName,
       autoplay: true,
       timeScale: speed.clamp(1, 20).toDouble(),
     );
+    if (gen != _startGen) {
+      await s.dispose();
+      return false;
+    }
     pendingConfig = null;
     _attach(s);
     autoplay = true;
@@ -102,12 +121,18 @@ class AppState extends ChangeNotifier {
   /// Online: [roomCode] == null → neuen Raum erstellen. Wirft bei Fehlern.
   Future<void> startOnline({String? roomCode}) async {
     await leaveSession();
+    final gen = ++_startGen;
     final s = await SessionFactory.online(
       scenarios: scenarios,
       playerName: playerName,
       roomCode: roomCode,
       serverUrl: meta.serverUrl ?? defaultServerUrl,
     );
+    if (gen != _startGen) {
+      // Bildschirm verlassen oder anderer Start: Raum sofort wieder verlassen, keine verwaiste Session.
+      await s.dispose();
+      throw const SessionStartCancelled();
+    }
     pendingConfig = null;
     _attach(s);
     notifyListeners();
@@ -115,6 +140,7 @@ class AppState extends ChangeNotifier {
 
   /// Entwickler-Einstieg: Fake-Session in einer bestimmten Phase.
   void openFake(Phase phase, {DevOptions dev = const DevOptions()}) {
+    _startGen++;
     final s = SessionFactory.fake();
     this.dev = dev;
     _attach(s);
@@ -149,7 +175,11 @@ class AppState extends ChangeNotifier {
     }
   }
 
+  /// Einen noch laufenden Start (z. B. Online-Verbindungsaufbau) verwerfen.
+  void cancelPendingStart() => _startGen++;
+
   Future<void> leaveSession() async {
+    _startGen++;
     final s = _session;
     if (s == null) return;
     _session = null;

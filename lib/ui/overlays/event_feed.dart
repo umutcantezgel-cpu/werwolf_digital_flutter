@@ -57,7 +57,13 @@ void showEventToast(GameEvent e, GameCtx g, ToastController toasts) {
     case Ev.clueEvolved:
       t(l.toast_clue_evolved(g.clueName(e.str('clue'))), Icons.science_rounded, Noir.lab, Haptic.medium);
     case Ev.clueLost:
-      t(l.toast_clue_lost(g.clueName(e.str('clue'))), Icons.local_fire_department_rounded, Noir.debuff, Haptic.heavy);
+      final clue = g.clueName(e.str('clue'));
+      final text = switch (e.str('mode')) {
+        'damaged' => l.toast_clue_lost_damaged(clue),
+        'stolen' => l.toast_clue_lost_stolen(clue),
+        _ => l.toast_clue_lost(clue),
+      };
+      t(text, Icons.local_fire_department_rounded, Noir.debuff, Haptic.heavy);
     case Ev.cluesFaded:
       t(l.toast_clues_faded(e.integer('count') ?? 1), Icons.hourglass_empty_rounded, Noir.smoke);
     case Ev.combo:

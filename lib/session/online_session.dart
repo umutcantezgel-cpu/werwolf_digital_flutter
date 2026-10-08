@@ -4,10 +4,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:mordakte_core/mordakte_core.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 import 'game_session.dart';
+import 'token_store.dart' as token_store;
 
 /// Fehler beim Aufbau einer [OnlineSession]. Die App übersetzt `error_<key>`.
 ///
@@ -38,8 +38,9 @@ class OnlineSessionException implements Exception {
 class OnlineSession implements GameSession {
   OnlineSession._(this._url, this._playerName, this.scenarios, this._token);
 
-  /// shared_preferences-Schlüssel für das Wiederverbindungs-Token.
-  static const tokenKey = 'mordakte_token';
+  /// Speicher-Schlüssel für das Wiederverbindungs-Token (Mobil: shared_preferences,
+  /// Web: sessionStorage – pro Tab, damit zwei Tabs nicht dieselbe Identität teilen).
+  static const tokenKey = token_store.tokenKey;
 
   static const connectTimeout = Duration(seconds: 8);
   static const _pingEvery = Duration(seconds: 10);
@@ -230,6 +231,9 @@ class OnlineSession implements GameSession {
       't': Msg.hello,
       'name': _playerName,
       if (_token != null) 'token': _token,
+      // Erster Aufbau: Die App schickt gleich selbst `create`/`join`; der Server
+      // soll keinen alten Raum dieses Tokens wieder aufnehmen.
+      if (_pending != null) 'resume': false,
       'proto': protocolVersion,
     });
   }
@@ -344,9 +348,16 @@ class OnlineSession implements GameSession {
   void _handle(Map<String, dynamic> msg) {
     switch (msg['t']) {
       case Msg.world:
-        _world.value = WorldSnapshot.fromJson({...msg, 't': msg[_worldTimeKey] ?? 0});
+        // Beim ersten Aufbau zählt nur der Raum, den wir selbst angefordert haben.
+        if (_awaitingOwnRoom) break;
+        final w = WorldSnapshot.fromJson({...msg, 't': msg[_worldTimeKey] ?? 0});
+        // Neue Session in einer laufenden Partie (gleiches Token): Der Server verwirft
+        // Bewegungen mit seq <= ack, also ab seinem Stand weiterzählen.
+        if (w.ackSeq > _seq) _seq = w.ackSeq;
+        _world.value = w;
         _completeIfReady();
       case Msg.caseView:
+        if (_awaitingOwnRoom) break;
         _case.value = CaseView.fromJson(msg);
         _completeIfReady();
       case Msg.events:
@@ -396,7 +407,16 @@ class OnlineSession implements GameSession {
     _sendNow({'t': Msg.join, 'code': _roomCode});
   }
 
+  /// Erster Aufbau, aber noch kein `room` zu unserem `create`/`join`.
+  bool get _awaitingOwnRoom => _pending != null && _roomCode.isEmpty;
+
   void _onRoom(String code) {
+    final joinCode = _joinCode;
+    if (_awaitingOwnRoom && joinCode != null && code != joinCode) {
+      // Älterer Server schickt nach `hello` noch den alten Raum dieses Tokens: ignorieren,
+      // die Antwort auf unser `join` folgt.
+      return;
+    }
     _rejoinTimer?.cancel();
     _rejoinTimer = null;
     _rejoining = false;
@@ -481,7 +501,7 @@ class OnlineSession implements GameSession {
 
   static Future<String?> _loadToken() async {
     try {
-      return (await SharedPreferences.getInstance()).getString(tokenKey);
+      return await token_store.loadToken();
     } catch (_) {
       return null;
     }
@@ -489,7 +509,7 @@ class OnlineSession implements GameSession {
 
   static Future<void> _saveToken(String token) async {
     try {
-      await (await SharedPreferences.getInstance()).setString(tokenKey, token);
+      await token_store.saveToken(token);
     } catch (_) {}
   }
 }

@@ -210,6 +210,18 @@ ValidationReport validateScenario(ScenarioDef s) {
       if (!s.motiveById.containsKey(mo)) err('Verdächtige ${sus.id}: Motiv $mo unbekannt');
     }
     if (sus.candidate && sus.motives.isEmpty) err('Kandidat ${sus.id} hat kein Motiv');
+    for (final w in sus.weapons) {
+      if (!s.weaponById.containsKey(w)) err('Verdächtige ${sus.id}: Waffe $w unbekannt');
+    }
+    // Eine Waffe darf den Täter nicht allein verraten: mindestens eine weitere Person braucht Zugang.
+    if (sus.candidate) {
+      for (final w in s.weapons.where((w) => sus.canAccessWeapon(w.id))) {
+        if (!s.suspects.any((o) => o.id != sus.id && o.canAccessWeapon(w.id))) {
+          err('Waffe ${w.id}: nur ${sus.id} hat Zugang – der Hinweis entlarvt den Täter');
+        }
+      }
+      if (!s.weapons.any((w) => sus.canAccessWeapon(w.id))) err('Kandidat ${sus.id} hat Zugang zu keiner Waffe');
+    }
     for (final k in const ['greet', 'alibi', 'alibiLie', 'victim', 'observation', 'rumor', 'nervous', 'annoyed']) {
       if (sus.line(k).isEmpty) err('Verdächtige ${sus.id}: Zeile $k fehlt');
     }
@@ -223,6 +235,7 @@ ValidationReport validateScenario(ScenarioDef s) {
   if (storyCulprit == null || !storyCulprit.candidate) err('story.culprit ist kein Kandidat');
   if (storyCulprit != null && !storyCulprit.motives.contains(story.motive)) err('story.motive passt nicht zum Täter');
   if (!s.weaponById.containsKey(story.weapon)) err('story.weapon unbekannt');
+  if (storyCulprit != null && !storyCulprit.canAccessWeapon(story.weapon)) err('story.weapon: Täter hatte keinen Zugang');
 
   // --- Hinweise
   final clueIds = <String>{};

@@ -129,6 +129,10 @@ class _LeadCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = g.l;
     final def = g.scenario?.leadById[leadId];
+    // Höchstens vier Plätze in der Stimmenzeile (sonst „+N“), damit „Deine Stimme“ auch bei 360 px passt.
+    final ordered = [...voters.where((v) => v == g.me), ...voters.where((v) => v != g.me)];
+    final shown = ordered.length <= 4 ? ordered : ordered.take(3).toList();
+    final hidden = ordered.length - shown.length;
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: GestureDetector(
@@ -175,7 +179,7 @@ class _LeadCard extends StatelessWidget {
                         const SizedBox(height: 10),
                         Row(
                           children: [
-                            for (final v in voters)
+                            for (final v in shown)
                               Padding(
                                 padding: const EdgeInsets.only(right: 4),
                                 child: Tooltip(
@@ -192,29 +196,59 @@ class _LeadCard extends StatelessWidget {
                                 duration: 220.ms,
                                 curve: Curves.easeOutBack,
                               ),
-                            if (voters.isEmpty) Text('—', style: Noir.text(13, color: Noir.inkSoft)),
-                            const Spacer(),
-                            if (mine)
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.how_to_vote_rounded,
-                                    size: 16,
-                                    color: Color.lerp(g.accent, Noir.ink, 0.35),
-                                  ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    l.council_your_vote,
-                                    style: Noir.label(12, color: Color.lerp(g.accent, Noir.ink, 0.35)!, spacing: 0.3),
-                                  ),
-                                ],
-                              )
-                            else
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                                decoration: BoxDecoration(color: Noir.ink, borderRadius: BorderRadius.circular(3)),
-                                child: Text(l.council_vote, style: Noir.label(12, color: Noir.paper, spacing: 0.4)),
+                            if (hidden > 0)
+                              Tooltip(
+                                message: ordered.skip(shown.length).map(g.nameOf).join(', '),
+                                child: Container(
+                                  width: 28,
+                                  height: 28,
+                                  alignment: Alignment.center,
+                                  decoration: const BoxDecoration(color: Noir.ink, shape: BoxShape.circle),
+                                  child: Text('+$hidden', style: Noir.label(11, color: Noir.paper, spacing: 0)),
+                                ),
                               ),
+                            if (voters.isEmpty) Text('—', style: Noir.text(13, color: Noir.inkSoft)),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: mine
+                                    ? Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Icon(
+                                            Icons.how_to_vote_rounded,
+                                            size: 16,
+                                            color: Color.lerp(g.accent, Noir.ink, 0.35),
+                                          ),
+                                          const SizedBox(width: 4),
+                                          Flexible(
+                                            child: Text(
+                                              l.council_your_vote,
+                                              textAlign: TextAlign.right,
+                                              style: Noir.label(
+                                                12,
+                                                color: Color.lerp(g.accent, Noir.ink, 0.35)!,
+                                                spacing: 0.3,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    : Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                                        decoration: BoxDecoration(
+                                          color: Noir.ink,
+                                          borderRadius: BorderRadius.circular(3),
+                                        ),
+                                        child: Text(
+                                          l.council_vote,
+                                          textAlign: TextAlign.center,
+                                          style: Noir.label(12, color: Noir.paper, spacing: 0.4),
+                                        ),
+                                      ),
+                              ),
+                            ),
                           ],
                         ),
                       ],

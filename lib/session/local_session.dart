@@ -1,13 +1,17 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
 import 'game_session.dart';
 
 /// Offline-Session: Die komplette RoomRuntime läuft im App-Prozess.
 /// Solo (optional mit KI-Partnern) ohne Netz, gleiche Regeln wie online.
-class LocalSession implements GameSession {
+///
+/// Im Hintergrund (App pausiert, Tab verborgen) hält die Partie an.
+class LocalSession with WidgetsBindingObserver implements GameSession {
   LocalSession({
     required this.scenarios,
     required String playerName,
@@ -20,7 +24,17 @@ class LocalSession implements GameSession {
     _clock.start();
     _timer = Timer.periodic(const Duration(milliseconds: Tuning.tickMs), (_) => _tick());
     _publish(force: true);
+    try {
+      WidgetsBinding.instance.addObserver(this);
+      _observing = true;
+    } catch (_) {
+      // Ohne Flutter-Binding (Werkzeuge/Tests): keine Pause im Hintergrund.
+    }
   }
+
+  /// Größter Wanduhr-Schritt pro Timer-Aufruf; was darüber liegt (Hänger,
+  /// angehaltene Timer), wird verworfen statt in einem Schwung nachsimuliert.
+  static const _maxStepMs = 250;
 
   @override
   final Map<String, ScenarioDef> scenarios;
@@ -34,6 +48,8 @@ class LocalSession implements GameSession {
   int _last = 0;
   int _seq = 0;
   bool _disposed = false;
+  bool _observing = false;
+  bool _paused = false;
 
   final _world = ValueNotifier<WorldSnapshot?>(null);
   final _case = ValueNotifier<CaseView?>(null);
@@ -70,10 +86,27 @@ class LocalSession implements GameSession {
   /// KI übernimmt den eigenen Detektiv (Demo/Screenshots).
   void setAutoplay(bool on) => _rt.setAutopilot(playerId, on);
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.paused || AppLifecycleState.hidden || AppLifecycleState.detached:
+        if (_paused) return;
+        _paused = true;
+        _clock.stop();
+      case AppLifecycleState.resumed:
+        if (!_paused) return;
+        _paused = false;
+        _clock.start();
+      case AppLifecycleState.inactive:
+        break;
+    }
+  }
+
   void _tick() {
-    if (_disposed) return;
+    if (_disposed || _paused) return;
     final now = _clock.elapsedMilliseconds;
-    var dt = ((now - _last) * timeScale).round();
+    final raw = math.min(now - _last, _maxStepMs);
+    var dt = (raw * timeScale).round();
     _last = now;
     while (dt > 0) {
       final step = dt > 100 ? 100 : dt;
@@ -109,6 +142,7 @@ class LocalSession implements GameSession {
   Future<void> dispose() async {
     _disposed = true;
     _timer.cancel();
+    if (_observing) WidgetsBinding.instance.removeObserver(this);
     await _events.close();
   }
 }

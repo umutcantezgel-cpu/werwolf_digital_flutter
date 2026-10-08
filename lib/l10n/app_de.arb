@@ -388,6 +388,22 @@
       }
     }
   },
+  "toast_clue_lost_damaged": "Der Schatten hat {clue} beschädigt – erneut ins Labor bringen.",
+  "@toast_clue_lost_damaged": {
+    "placeholders": {
+      "clue": {
+        "type": "String"
+      }
+    }
+  },
+  "toast_clue_lost_stolen": "Der Schatten hat {clue} gestohlen – die Spur ist noch an ihrer Quelle.",
+  "@toast_clue_lost_stolen": {
+    "placeholders": {
+      "clue": {
+        "type": "String"
+      }
+    }
+  },
   "toast_clues_faded": "{count, plural, =1{Eine Spur ist verblasst.} other{{count} Spuren sind verblasst.}}",
   "@toast_clues_faded": {
     "placeholders": {

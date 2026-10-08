@@ -1461,6 +1461,18 @@ abstract class L {
   /// **'Der Schatten hat Notizen zerstört: {clue}'**
   String toast_clue_lost(String clue);
 
+  /// No description provided for @toast_clue_lost_damaged.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Schatten hat {clue} beschädigt – erneut ins Labor bringen.'**
+  String toast_clue_lost_damaged(String clue);
+
+  /// No description provided for @toast_clue_lost_stolen.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Schatten hat {clue} gestohlen – die Spur ist noch an ihrer Quelle.'**
+  String toast_clue_lost_stolen(String clue);
+
   /// No description provided for @toast_clues_faded.
   ///
   /// In de, this message translates to:

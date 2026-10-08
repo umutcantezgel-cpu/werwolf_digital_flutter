@@ -340,12 +340,12 @@
 
     {"id": "c_rail_print", "kind": "trait", "trait": "gloves", "name": {"de": "Abdruck am Geländer"},
      "found": {"de": "Im Neuschnee auf dem Geländer: der Abdruck einer Hand, die sich hier festgehalten hat. Es schneit weiter."},
-     "reveal": {"de": "Nähte und Gewebe zeichnen sich deutlich ab: {value}."},
+     "reveal": {"de": "Nähte und Narbung zeichnen sich deutlich ab: {value}."},
      "evolve": "none", "source": {"hotspot": "h_rail"}, "chapter": 1, "expires": 1},
 
     {"id": "c_blood_fabric", "kind": "trait", "trait": "gloves", "name": {"de": "Blutstropfen im Gang"},
      "found": {"de": "Unter dem zersprungenen Wandleuchter: drei Tropfen Blut. Jemand hat sich im Dunkeln an den Scherben geschnitten."},
-     "reveal": {"de": "Im Blut klebt ein Stofffetzen. Das Gewebe verrät: {value}."},
+     "reveal": {"de": "Im Blut klebt ein winziges Stück Handschuh. Das Material verrät: {value}."},
      "evolve": "lab", "source": {"hotspot": "h_blood"}, "chapter": 1},
 
     {"id": "c_conductor_smoke", "kind": "trait", "trait": "smoke", "name": {"de": "Huber im Dunkeln"},
@@ -449,13 +449,13 @@
       "night": {"de": "Der Sturm rüttelt an den Waggons. Zwischen den Wagen schlägt Metall auf Metall, langsam wie ein Herzschlag. Bleiben Sie im Licht des Speisewagens."},
       "leads": [
         {"id": "l_baggage2", "name": {"de": "Den Gepäckwagen durchsuchen"},
-         "text": {"de": "Huber sperrt die Gepäcknetze auf. Ganz hinten steht ein Überseekoffer, den niemand vermisst."},
+         "text": {"de": "Die Gepäcknetze lassen sich mit dem Vierkantschlüssel des Zuges öffnen. Ganz hinten steht ein Überseekoffer, den niemand vermisst."},
          "unlock": {"hotspots": ["h_trunk"]}},
         {"id": "l_stove2", "name": {"de": "Den Salonofen ausräumen"},
          "text": {"de": "Der Kanonenofen im Salonwagen ist erkaltet. Jemand muss mit bloßen Händen in Asche und Schlacke wühlen."},
          "unlock": {"hotspots": ["h_stove"]}},
         {"id": "l_mail2", "name": {"de": "Den Postwagen aufbrechen"},
-         "text": {"de": "Der Postbeamte ist kurz nach dem Halt auf Skiern ins Tal aufgebrochen, um Hilfe zu holen. Mit Hubers Brecheisen springt seine Tür auf."},
+         "text": {"de": "Der Postbeamte ist kurz nach dem Halt auf Skiern ins Tal aufgebrochen, um Hilfe zu holen. Mit dem Brecheisen aus dem Werkzeugkasten springt seine Tür auf."},
          "unlock": {"hotspots": ["h_mailbag"], "doors": [[8, 2]], "items": ["i_antidote"]}}
       ]
     },
@@ -478,7 +478,7 @@
       "all": {"de": "Alle Ermittler haben die Nächte im Schnee überstanden. Im Speisewagen wird zum ersten Mal wieder gelacht."},
       "some": {"de": "Nicht alle Ermittler erreichen Paris. Ihre Plätze im Speisewagen bleiben leer, ihre Notizen nicht."},
       "lone": {"de": "Nur einer von Ihnen steigt in Paris aus. Den langen Bahnsteig entlang geht er sehr langsam."},
-      "none": {"de": "Keiner der Ermittler hat die Fahrt überlebt. Der Schaffner trägt ihre Akten selbst zur Polizei."}
+      "none": {"de": "Keiner der Ermittler hat die Fahrt überlebt. Als die Räumkolonne den Zug erreicht, liegen ihre Akten noch im Speisewagen."}
     },
     "culprit": {
       "countess": {

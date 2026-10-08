@@ -465,7 +465,9 @@ class _XpSection extends StatelessWidget {
                 children: [
                   const Icon(Icons.military_tech_rounded, color: Noir.night),
                   const SizedBox(width: 8),
-                  Text(l.ending_rank_up(l.rankName(r.rankAfter)), style: Noir.title(17, color: Noir.night)),
+                  Expanded(
+                    child: Text(l.ending_rank_up(l.rankName(r.rankAfter)), style: Noir.title(17, color: Noir.night)),
+                  ),
                 ],
               ),
             ).animate().fadeIn(delay: 2200.ms).shake(delay: 2200.ms, hz: 3, rotation: 0.02),

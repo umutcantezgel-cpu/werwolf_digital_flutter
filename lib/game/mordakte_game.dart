@@ -56,7 +56,6 @@ class _Track {
   double facing = math.pi / 4;
   double walk = 0;
   double move = 0;
-  double lastSeen = 0;
   bool init = false;
 
   void add(double t, double x, double y, double f) {
@@ -218,6 +217,9 @@ class MordakteGame extends Game with KeyboardEvents {
     if (t.isCancel) {
       session.send(const CancelAction());
     } else {
+      // Aktuelle Position zuerst senden, sonst startet der Server den Kanal an
+      // einer veralteten Stelle und bricht ihn beim nächsten Move sofort ab.
+      _flushPose();
       session.send(Interact(t.id));
     }
     _actionPulse = 1;
@@ -346,23 +348,29 @@ class MordakteGame extends Game with KeyboardEvents {
     if (w == null || identical(w, _lastWorld)) return;
     _lastWorld = w;
     _worldRecvT = _time;
+    if (w.ackSeq != _ackSeen) {
+      _ackSeen = w.ackSeq;
+      _unackedSince = null;
+    }
+    final present = <String>{};
     for (final d in w.detectives) {
       if (d.id == session.playerId) continue;
-      (_tracks['d:${d.id}'] ??= _Track())
-        ..add(_time, d.x, d.y, d.facing)
-        ..lastSeen = _time;
+      final key = 'd:${d.id}';
+      present.add(key);
+      (_tracks[key] ??= _Track()).add(_time, d.x, d.y, d.facing);
     }
     for (final n in w.npcs) {
-      (_tracks['n:${n.id}'] ??= _Track())
-        ..add(_time, n.x, n.y, 0)
-        ..lastSeen = _time;
+      final key = 'n:${n.id}';
+      present.add(key);
+      (_tracks[key] ??= _Track()).add(_time, n.x, n.y, 0);
     }
     final sh = w.shadow;
     if (sh != null) {
-      (_tracks['shadow'] ??= _Track())
-        ..add(_time, sh.x, sh.y, 0)
-        ..lastSeen = _time;
+      present.add('shadow');
+      (_tracks['shadow'] ??= _Track()).add(_time, sh.x, sh.y, 0);
     }
+    // Nur entfernen, was im Snapshot fehlt – bei Funkstille bleibt die letzte Pose stehen.
+    _tracks.removeWhere((k, _) => !present.contains(k));
     // Eigene Position: Start, Korrektur, Teleport.
     final me = w.detective(session.playerId);
     if (me != null) {
@@ -402,6 +410,12 @@ class MordakteGame extends Game with KeyboardEvents {
 
   Phase? get _phase => _world?.phase ?? session.caseView.value?.phase;
 
+  /// Interaktionen sind nur in Ermittlung und Nacht erlaubt (wie in der Engine).
+  bool get _actionPhase {
+    final p = _phase;
+    return p == Phase.investigation || p == Phase.night;
+  }
+
   bool get _canMovePhase {
     final p = _phase;
     return p == Phase.investigation || p == Phase.council || p == Phase.night || p == Phase.accusation;
@@ -424,8 +438,19 @@ class MordakteGame extends Game with KeyboardEvents {
       _moveAmt = 0;
       return;
     }
+    // Die Serverposition gilt nur, wenn der Snapshot frisch ist und der Server
+    // unsere letzten Moves bestätigt hat – sonst zieht ein Funkloch uns zurück.
+    final w = _world;
+    final unacked = _unackedSince;
+    final meTrusted = w != null &&
+        _time - _worldRecvT < 0.5 &&
+        (w.ackSeq == 0 || unacked == null || _time - unacked < 0.8);
+    if (!meTrusted) {
+      _farTimer = 0;
+      _followT = 0;
+    }
     // Sicherheitsnetz: Server sieht uns ganz woanders (Teleport ohne Korrektur).
-    if (me != null) {
+    if (me != null && meTrusted) {
       final far = dist(me.x, me.y, _px, _py) > 4;
       _farTimer = far ? _farTimer + dt : 0;
       if (_farTimer > 1.2) {
@@ -446,7 +471,7 @@ class MordakteGame extends Game with KeyboardEvents {
     if (!idle) {
       _following = false;
       _followT = 0;
-    } else if (me != null && _idleT > 0.25) {
+    } else if (me != null && meTrusted && _idleT > 0.25) {
       final d = dist(me.x, me.y, _px, _py);
       _followT = d > 0.12 ? _followT + dt : 0;
       if (_followT > 0.45) _following = true;
@@ -466,7 +491,8 @@ class MordakteGame extends Game with KeyboardEvents {
       final dir = Iso.screenDirToWorld(input.dx, input.dy);
       final dl = dir.distance;
       if (dl > 1e-6) {
-        final speed = Tuning.playerSpeed * _effectMul(me, (m) => m.speed) * mag;
+        // Geister sind wie in der Engine (PlayerState.speedMul) 10 % schneller.
+        final speed = Tuning.playerSpeed * (me.life == LifeState.ghost ? 1.1 : _effectMul(me, (m) => m.speed)) * mag;
         final step = speed * dt;
         final dx = dir.dx / dl * step, dy = dir.dy / dl * step;
         double nx, ny;
@@ -489,17 +515,30 @@ class MordakteGame extends Game with KeyboardEvents {
     // Senden: ≤ 15 Hz und nur bei Änderung.
     if (me != null && _time - _lastSendT >= 1 / 15) {
       final changed = (_px - _sentX).abs() > 0.004 || (_py - _sentY).abs() > 0.004 || (_angleDiff(_pf, _sentF)) > 0.05;
-      if (changed || _sentX.isNaN) {
-        session.move(_px, _py, _pf);
-        _sentX = _px;
-        _sentY = _py;
-        _sentF = _pf;
-        _lastSendT = _time;
-      }
+      if (changed || _sentX.isNaN) _sendPose();
     }
   }
 
+  void _sendPose() {
+    session.move(_px, _py, _pf);
+    _sentX = _px;
+    _sentY = _py;
+    _sentF = _pf;
+    _lastSendT = _time;
+    _unackedSince ??= _time;
+  }
+
+  /// Sendet die vorhergesagte Position sofort (ohne 15-Hz-Drossel), falls sie sich geändert hat.
+  void _flushPose() {
+    final me = _me;
+    if (!_hasPos || me == null || me.life == LifeState.downed || me.hidden) return;
+    final changed = (_px - _sentX).abs() > 0.004 || (_py - _sentY).abs() > 0.004 || (_angleDiff(_pf, _sentF)) > 0.05;
+    if (changed || _sentX.isNaN) _sendPose();
+  }
+
   String? _playerRoom;
+  int _ackSeen = -1;
+  double? _unackedSince;
   double _idleT = 0, _followT = 0;
   bool _following = false;
 
@@ -517,12 +556,7 @@ class MordakteGame extends Game with KeyboardEvents {
 
   void _updateTracks(double dt) {
     final rt = _time - 0.12;
-    final dead = <String>[];
     for (final e in _tracks.entries) {
-      if (_time - e.value.lastSeen > 1.0) {
-        dead.add(e.key);
-        continue;
-      }
       final isNpc = e.key.startsWith('n:');
       e.value.step(rt, dt, useReportedFacing: !isNpc && e.key != 'shadow');
       if (isNpc && e.value.move < 0.3) {
@@ -532,9 +566,6 @@ class MordakteGame extends Game with KeyboardEvents {
         final want = d < 4 && _hasPos ? math.atan2(_py - t.y, _px - t.x) : math.pi / 4;
         t.facing = _lerpAngle(t.facing, want, math.min(1.0, dt * 4));
       }
-    }
-    for (final k in dead) {
-      _tracks.remove(k);
     }
   }
 
@@ -594,7 +625,7 @@ class MordakteGame extends Game with KeyboardEvents {
     final cv = session.caseView.value;
     final s = session.scenario;
     if (me == null || cv == null || s == null || !_hasPos) return null;
-    if (!_canMovePhase) return null;
+    if (!_actionPhase) return null;
     final ch = me.channel;
     if (ch != null) {
       return ActionTarget(id: '', label: 'Abbrechen', kind: 'cancel', x: _px, y: _py, name: '');
@@ -634,8 +665,22 @@ class MordakteGame extends Game with KeyboardEvents {
     if (me.hidden) return best;
     if (!ghost) {
       final dead = cv.deadNpcs.toSet();
+      final held = <String>{for (final c in cv.notebook) c.id, for (final c in cv.board) c.id};
       for (final n in _world?.npcs ?? const <NpcView>[]) {
-        if (!n.alive || dead.contains(n.id)) continue;
+        if (!n.alive || dead.contains(n.id)) {
+          // Leiche durchsuchen (Engine: Suche nach den Hinweisen dieses NPCs),
+          // solange er noch Hinweise hat, die wir nicht kennen.
+          if (me.life != LifeState.alive) continue;
+          if (!s.clues.any((d) => d.source.npc == n.id && !held.contains(d.id))) continue;
+          final tr = _tracks['n:${n.id}'];
+          final nx = tr?.x ?? n.x, ny = tr?.y ?? n.y;
+          final sus = s.suspectById[n.id];
+          consider(
+            ActionTarget(id: n.id, label: 'Durchsuchen', kind: 'search', x: nx, y: ny, z: 0.2, name: sus?.name.resolve() ?? n.id),
+            dist(_px, _py, nx, ny),
+          );
+          continue;
+        }
         final tr = _tracks['n:${n.id}'];
         final nx = tr?.x ?? n.x, ny = tr?.y ?? n.y;
         final sus = s.suspectById[n.id];
@@ -848,11 +893,13 @@ class MordakteGame extends Game with KeyboardEvents {
     for (final n in w?.npcs ?? const <NpcView>[]) {
       if (!n.alive) deadIds.add(n.id);
     }
+    final npcPos = {for (final n in w?.npcs ?? const <NpcView>[]) n.id: n};
     for (final id in deadIds) {
       final sus = s.suspectById[id];
       if (sus == null) continue;
       final tr = _tracks['n:$id'];
-      final x = tr?.x ?? sus.x + 0.5, y = tr?.y ?? sus.y + 0.5;
+      final nv = npcPos[id];
+      final x = tr?.x ?? nv?.x ?? sus.x + 0.5, y = tr?.y ?? nv?.y ?? sus.y + 0.5;
       if (!cull.contains(Iso.toScreen(x, y))) continue;
       _fig.lying(c, x, y, FigureLook.fromLook(sus.look), rot: 2.2 + (id.length % 3) * 0.7, scale: 1.25);
     }

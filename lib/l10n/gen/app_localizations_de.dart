@@ -772,6 +772,16 @@ class LDe extends L {
   }
 
   @override
+  String toast_clue_lost_damaged(String clue) {
+    return 'Der Schatten hat $clue beschädigt – erneut ins Labor bringen.';
+  }
+
+  @override
+  String toast_clue_lost_stolen(String clue) {
+    return 'Der Schatten hat $clue gestohlen – die Spur ist noch an ihrer Quelle.';
+  }
+
+  @override
   String toast_clues_faded(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,

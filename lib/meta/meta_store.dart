@@ -104,6 +104,7 @@ class MetaStore extends ChangeNotifier {
   final Set<String> _achievements = {};
   final Map<String, int> _stats = {};
   Loadout _loadout = const Loadout();
+  bool _loadoutChosen = false;
   String? _serverUrl;
 
   // --- Lesen -----------------------------------------------------------------
@@ -115,6 +116,9 @@ class MetaStore extends ChangeNotifier {
   int get streak => _currentStreak(DateTime.now());
   int get bestStreak => _bestStreak;
   Loadout get loadout => _loadout;
+
+  /// Hat der Spieler je selbst eine Ausrüstung gewählt? Sonst gilt die Zuteilung des Raums.
+  bool get hasLoadout => _loadoutChosen;
   String? get serverUrl => _serverUrl;
   Set<String> get achievements => Set.unmodifiable(_achievements);
   Set<String> endingsFor(String scenarioId) => Set.unmodifiable(_endings[scenarioId] ?? const <String>{});
@@ -145,6 +149,7 @@ class MetaStore extends ChangeNotifier {
 
   set loadout(Loadout v) {
     _loadout = v;
+    _loadoutChosen = true;
     _put('loadout', jsonEncode(v.toJson()));
     notifyListeners();
   }
@@ -284,7 +289,10 @@ class MetaStore extends ChangeNotifier {
       final s = _get('server');
       _serverUrl = (s == null || s.isEmpty) ? null : s;
       final lo = _get('loadout');
-      if (lo != null && lo.isNotEmpty) _loadout = Loadout.fromJson(jsonDecode(lo) as Map<String, dynamic>);
+      if (lo != null && lo.isNotEmpty) {
+        _loadout = Loadout.fromJson(jsonDecode(lo) as Map<String, dynamic>);
+        _loadoutChosen = true;
+      }
       final raw = _get('progress');
       if (raw == null || raw.isEmpty) return;
       final j = jsonDecode(raw) as Map<String, dynamic>;

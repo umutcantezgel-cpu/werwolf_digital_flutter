@@ -36,21 +36,34 @@ extension _BotLogic on Engine {
       case Phase.council:
         _botShareAndCombine(p);
         if (b.voteAt < 0) b.voteAt = _now + 3000 + _rt.nextInt(7000);
-        if (_now >= b.voteAt && !_leadVotes.containsKey(p.id) && _leadOptions.isNotEmpty) {
+        if (_leadOptions.isNotEmpty) {
           final humanVotes = <String, int>{};
           for (final e in _leadVotes.entries) {
-            if (!(_players[e.key]?.bot ?? true)) humanVotes[e.value] = (humanVotes[e.value] ?? 0) + 1;
+            if (_isHumanVoter(e.key)) humanVotes[e.value] = (humanVotes[e.value] ?? 0) + 1;
           }
-          final choice = humanVotes.isNotEmpty
-              ? humanVotes.entries.reduce((a, c) => c.value > a.value ? c : a).key
-              : _rt.pick(_leadOptions);
-          applyCommand(p.id, VoteLead(choice));
+          final own = _leadVotes[p.id];
+          if (humanVotes.isNotEmpty) {
+            // Später abgegebenen Menschen-Stimmen folgen, damit die Anzeige zum Ergebnis passt.
+            final best = humanVotes.values.reduce(math.max);
+            if (_now >= b.voteAt && (own == null || humanVotes[own] != best)) {
+              applyCommand(p.id, VoteLead(humanVotes.entries.firstWhere((e) => e.value == best).key));
+            }
+          } else if (_now >= b.voteAt && own == null) {
+            applyCommand(p.id, VoteLead(_rt.pick(_leadOptions)));
+          }
         }
         return;
       case Phase.accusation:
         _botShareAndCombine(p);
         if (b.voteAt < 0) b.voteAt = _now + 4000 + _rt.nextInt(8000);
-        if (_now >= b.voteAt && !_accuse.containsKey(p.id)) _botAccuse(p);
+        if (_now >= b.voteAt) {
+          final own = _accuse[p.id];
+          if (own == null) {
+            _botAccuse(p);
+          } else if (_humanAccusations.isNotEmpty && own.culprit != _botAccuseVote().culprit) {
+            _botAccuse(p);
+          }
+        }
         return;
       case Phase.investigation:
       case Phase.night:
@@ -148,7 +161,8 @@ extension _BotLogic on Engine {
     final s = _s!;
     final claimed = <String>{
       for (final e in _brains.entries)
-        if (e.key != p.id && e.value.goal != null) e.value.goal!,
+        // Nur Gehirne, die gerade steuern – ein eingefrorenes (Mensch wieder da) beansprucht nichts.
+        if (e.key != p.id && e.value.goal != null && (_players[e.key]?.autopilot ?? false)) e.value.goal!,
     };
     bool free(String id) => !claimed.contains(id) && !b.blacklist.containsKey(id) && !b.blacklist.containsKey('npc:$id');
 
@@ -412,19 +426,20 @@ extension _BotLogic on Engine {
   }
 
   void _botAccuse(PlayerState p) {
-    // Die Menschen entscheiden: Bots schließen sich der Mehrheit der Menschen an.
-    final human = _accuse.entries.where((e) => !(_players[e.key]?.bot ?? true) && !(_players[e.key]?.autopilot ?? true));
-    if (human.isNotEmpty) {
-      final counts = <String, int>{};
-      for (final e in human) {
-        counts[e.value.culprit] = (counts[e.value.culprit] ?? 0) + 1;
-      }
-      final top = counts.entries.reduce((a, c) => c.value > a.value ? c : a).key;
-      final pick = human.firstWhere((e) => e.value.culprit == top).value;
-      applyCommand(p.id, Accuse(culprit: pick.culprit, motive: pick.motive, weapon: pick.weapon));
-      return;
-    }
-    final v = _deduce();
+    final v = _botAccuseVote();
     applyCommand(p.id, Accuse(culprit: v.culprit, motive: v.motive, weapon: v.weapon));
+  }
+
+  /// Die Menschen entscheiden: Bots schließen sich der Mehrheit der Menschen an,
+  /// sonst ziehen sie ihre eigenen Schlüsse.
+  AccuseVote _botAccuseVote() {
+    final human = _humanAccusations.values.toList();
+    if (human.isEmpty) return _deduce();
+    final counts = <String, int>{};
+    for (final v in human) {
+      counts[v.culprit] = (counts[v.culprit] ?? 0) + 1;
+    }
+    final top = counts.entries.reduce((a, c) => c.value > a.value ? c : a).key;
+    return human.firstWhere((v) => v.culprit == top);
   }
 }

@@ -23,6 +23,9 @@ abstract final class ServerError {
 
   /// Zu viele Räume auf diesem Server.
   static const full = 'server_full';
+
+  /// `create` zu schnell hintereinander (übersetzt wie die Spiel-Abklingzeit).
+  static const cooldown = 'cooldown';
 }
 
 String encodeMsg(Map<String, Object?> msg) => jsonEncode(msg);

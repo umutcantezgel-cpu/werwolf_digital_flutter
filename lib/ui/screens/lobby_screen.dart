@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -28,6 +30,7 @@ class LobbyScreen extends StatefulWidget {
 class _LobbyScreenState extends State<LobbyScreen> {
   GameSession? _session;
   bool _left = false;
+  bool _loadoutSent = false;
 
   @override
   void initState() {
@@ -36,16 +39,6 @@ class _LobbyScreenState extends State<LobbyScreen> {
     _session = app.session;
     final s = _session;
     if (s == null) return;
-    // Bevorzugte Ausrüstung setzen (nur freigeschaltete Teile).
-    final meta = app.meta;
-    final lo = meta.loadout;
-    app.send(
-      SetLoadout(
-        cls: meta.classUnlocked(lo.cls) ? lo.cls : 'forensic',
-        coat: meta.coatUnlocked(lo.coat) ? lo.coat : 0,
-        hat: meta.hatUnlocked(lo.hat) ? lo.hat : 'fedora',
-      ),
-    );
     final cfg = app.pendingConfig;
     if (cfg != null) {
       app.pendingConfig = null;
@@ -65,10 +58,32 @@ class _LobbyScreenState extends State<LobbyScreen> {
   void _onCase() {
     final cv = _session?.caseView.value;
     if (!mounted || _left || cv == null) return;
+    if (cv.phase == Phase.lobby) _applyStoredLoadout(cv);
     if (cv.phase != Phase.lobby) {
       _left = true;
       context.go(Routes.game);
     }
+  }
+
+  /// Gespeicherte Lieblingsausrüstung einmalig übernehmen – aber nur, wenn der Spieler sie je selbst
+  /// gewählt hat (sonst behält er die eindeutige Zuteilung des Raums) und ohne fremde Mantelfarben.
+  void _applyStoredLoadout(CaseView cv) {
+    if (_loadoutSent) return;
+    final me = _me(cv);
+    if (me == null) return;
+    _loadoutSent = true;
+    final app = context.read<AppState>();
+    final meta = app.meta;
+    if (!meta.hasLoadout) return;
+    final lo = meta.loadout;
+    final coatTaken = cv.lobby.any((p) => p.id != me.id && p.coat == lo.coat);
+    final next = SetLoadout(
+      cls: meta.classUnlocked(lo.cls) ? lo.cls : me.cls,
+      coat: meta.coatUnlocked(lo.coat) && !coatTaken ? lo.coat : me.coat,
+      hat: meta.hatUnlocked(lo.hat) ? lo.hat : me.hat,
+    );
+    if (next.cls == me.cls && next.coat == me.coat && next.hat == me.hat) return;
+    app.send(next);
   }
 
   Future<void> _leave() async {
@@ -107,6 +122,11 @@ class _LobbyScreenState extends State<LobbyScreen> {
         final me = _me(cv);
         final isHost = cv != null && cv.hostId == s.playerId;
         final meta = context.watch<MetaStore>();
+        // Wie die Engine beim Start: nur so viele KI-Partner, wie neben den Menschen Platz haben.
+        final humans = cv?.lobby.where((p) => !p.bot).length ?? 0;
+        final botsInLobby = cv?.lobby.where((p) => p.bot).length ?? 0;
+        final maxBots = math.max(0, maxPlayersPerRoom - humans);
+        final botSlots = math.min(cv?.bots ?? 0, maxBots);
         return PopScope(
           canPop: false,
           onPopInvokedWithResult: (didPop, _) {
@@ -136,19 +156,14 @@ class _LobbyScreenState extends State<LobbyScreen> {
                                       if (scenario != null)
                                         _CaseBanner(scenario: scenario, mode: cv.mode, accent: accent),
                                       const SizedBox(height: 18),
-                                      SectionLabel(
-                                        l.lobby_players(
-                                          cv.lobby.length + (cv.bots - cv.lobby.where((p) => p.bot).length).clamp(0, 6),
-                                        ),
-                                      ),
+                                      SectionLabel(l.lobby_players(humans + math.max(botSlots, botsInLobby))),
                                       for (final p in cv.lobby)
                                         _PlayerRow(
                                           player: p,
                                           me: p.id == s.playerId,
                                           host: p.id == cv.hostId,
                                         ).animate().fadeIn(duration: 300.ms),
-                                      for (var i = cv.lobby.where((p) => p.bot).length; i < cv.bots; i++)
-                                        _BotSlot(index: i + 1),
+                                      for (var i = botsInLobby; i < botSlots; i++) _BotSlot(index: i + 1),
                                       const SizedBox(height: 18),
                                       SectionLabel(l.lobby_loadout),
                                       _ClassPicker(
@@ -188,6 +203,7 @@ class _LobbyScreenState extends State<LobbyScreen> {
                                           cv: cv,
                                           scenarios: s.scenarios,
                                           online: s.isOnline,
+                                          maxBots: maxBots,
                                           accent: accent,
                                           onConfigure: app.send,
                                         ),
@@ -636,6 +652,7 @@ class _HostConfig extends StatelessWidget {
     required this.cv,
     required this.scenarios,
     required this.online,
+    required this.maxBots,
     required this.accent,
     required this.onConfigure,
   });
@@ -643,6 +660,7 @@ class _HostConfig extends StatelessWidget {
   final CaseView cv;
   final Map<String, ScenarioDef> scenarios;
   final bool online;
+  final int maxBots;
   final Color accent;
   final void Function(Command) onConfigure;
 
@@ -662,6 +680,7 @@ class _HostConfig extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = L.of(context);
     final ids = scenarios.keys.toList()..sort();
+    final bots = math.min(cv.bots, maxBots);
     return GlassPanel(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -706,19 +725,19 @@ class _HostConfig extends StatelessWidget {
               ),
               _StepButton(
                 icon: Icons.remove_rounded,
-                onTap: cv.bots > 0 ? () => _send(bots: cv.bots - 1) : null,
+                onTap: bots > 0 ? () => _send(bots: bots - 1) : null,
               ),
               SizedBox(
                 width: 40,
                 child: Text(
-                  '${cv.bots}',
+                  '$bots',
                   textAlign: TextAlign.center,
                   style: Noir.title(22, color: Noir.brassLight),
                 ),
               ),
               _StepButton(
                 icon: Icons.add_rounded,
-                onTap: cv.bots < 5 ? () => _send(bots: cv.bots + 1) : null,
+                onTap: bots < maxBots ? () => _send(bots: bots + 1) : null,
               ),
             ],
           ),

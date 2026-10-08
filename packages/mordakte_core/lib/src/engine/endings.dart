@@ -19,8 +19,17 @@ extension _EndingLogic on Engine {
     return strength + _deductions.length + _contradicted.length;
   }
 
+  /// Stimmen der Menschen, die selbst gewählt haben (ohne Bots und Autopilot).
+  Map<String, AccuseVote> get _humanAccusations => {
+        for (final e in _accuse.entries)
+          if (_isHumanVoter(e.key)) e.key: e.value,
+      };
+
   AccuseVote? _tallyAccusation() {
     if (_accuse.isEmpty) return null;
+    // Die Menschen entscheiden: KI-Stimmen zählen nur, wenn kein Mensch angeklagt hat.
+    final human = _humanAccusations;
+    final votes = human.isNotEmpty ? human.values : _accuse.values;
     String? plurality(Iterable<String?> values) {
       final counts = <String, int>{};
       for (final v in values) {
@@ -32,8 +41,8 @@ extension _EndingLogic on Engine {
       return top.length == 1 ? top.first : _rt.pick(top);
     }
 
-    final culprit = plurality(_accuse.values.map((v) => v.culprit))!;
-    final backing = _accuse.values.where((v) => v.culprit == culprit);
+    final culprit = plurality(votes.map((v) => v.culprit))!;
+    final backing = votes.where((v) => v.culprit == culprit);
     return AccuseVote(
       culprit: culprit,
       motive: plurality(backing.map((v) => v.motive)),
@@ -43,9 +52,9 @@ extension _EndingLogic on Engine {
 
   void _finish() {
     // KI-Stimmen nachholen, falls die Zeit abgelaufen ist.
+    // Haben Menschen gewählt, schließen sich die KI-Stimmen ihrer Mehrheit an.
     for (final p in _players.values.where((p) => p.autopilot && !_accuse.containsKey(p.id))) {
-      final v = _deduce();
-      _accuse[p.id] = v;
+      _accuse[p.id] = _botAccuseVote();
     }
     final truth = _truth!.truth;
     final accused = _tallyAccusation();
@@ -113,6 +122,7 @@ extension _EndingLogic on Engine {
           p.stats.shared * Tuning.xpClueShared +
           p.stats.combos * Tuning.xpCombo +
           p.stats.revives * Tuning.xpRevive +
+          p.stats.heals * Tuning.xpHeal +
           (p.ghost ? 0 : Tuning.xpSurvive) +
           (secret ? 100 : 0);
     }

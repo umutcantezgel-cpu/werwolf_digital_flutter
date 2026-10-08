@@ -315,7 +315,7 @@
       "look": {"coat": "#c2a878", "skin": "#e2ae88", "hair": "#5b4a3c", "hat": "none", "build": "tall"},
       "x": 18, "y": 18,
       "traits": {"shoe": "boots", "habit": "gum", "mark": "ring"},
-      "candidate": true, "motives": ["blackmail", "betrayal"], "witness": true,
+      "candidate": true, "motives": ["blackmail", "dienstverrat"], "witness": true,
       "lines": {
         "greet": {"de": "Kowalski. Sitte. War Sitte. Sparen Sie sich die Marke, ich seh an Ihren Schuhen, dass Sie ermitteln."},
         "alibi": {"de": "Ich saß im Wagen und hab den Polizeifunk mitgeschrieben. Sturmwarnungen, Unfälle. Alte Gewohnheit."},
@@ -335,7 +335,7 @@
       "traits": {"shoe": "sneaker", "habit": "cigar", "mark": "watch"},
       "candidate": false, "motives": [], "witness": true,
       "lines": {
-        "greet": {"de": "Äh, hi. Das Telefon ist tot, der Strom flackert, und Onkel Ray … Ich kann das noch gar nicht glauben."},
+        "greet": {"de": "Äh, hi. Der Strom flackert, und Onkel Ray … Ich kann das noch gar nicht glauben."},
         "alibi": {"de": "Ich war die ganze Nacht hier am Tresen, an der Vermittlung. Dale wollte nach Houston, ich hab ihn durchgestellt."},
         "alibiLie": {"de": "Ich hab den Tresen nicht verlassen. Keine Sekunde. Auf der Karte der Vermittlung steht jede Minute."},
         "victim": {"de": "Onkel Ray sagte immer: Das Haus gewinnt. Er hat nie gesagt, was passiert, wenn man selbst das Haus ist."},
@@ -348,7 +348,8 @@
   ],
   "motives": [
     {"id": "blackmail", "name": {"de": "Erpressung"}, "reveal": {"de": "Es geht um Erpressung: Lucky hatte seit Jahren etwas gegen den Täter in der Hand – und wollte den Preis erhöhen."}},
-    {"id": "betrayal", "name": {"de": "Verrat"}, "reveal": {"de": "Es geht um Verrat: Lucky wollte das Blue Palm am Montag verkaufen und damit ein Versprechen brechen, das er dem Täter gegeben hatte."}},
+    {"id": "betrayal", "name": {"de": "Verrat"}, "reveal": {"de": "Es geht um Verrat: Lucky hatte dem Täter ein Versprechen gegeben, auf das dieser sein Leben gebaut hatte – und wollte es an diesem Wochenende brechen. Der Täter erfuhr es rechtzeitig."}},
+    {"id": "dienstverrat", "name": {"de": "Dienstverrat"}, "reveal": {"de": "Es geht um Verrat: Lucky wollte den Täter bei der Dienstaufsicht mit einer eigenen Aussage ans Messer liefern – seine eigenen Umschläge sollten dabei vergessen werden."}},
     {"id": "insurance", "name": {"de": "Die Police"}, "reveal": {"de": "Es geht um eine Lebensversicherung: 250.000 Dollar, doppelt bei Unfalltod, vor drei Wochen abgeschlossen. Der Täter hätte davon profitiert."}}
   ],
   "weapons": [
@@ -489,7 +490,7 @@
       "intro": {"de": "Ein grauer, kurzer Morgen. Das Auge des Hurrikans steht über dem Motel, die Luft ist still wie Glas. Eine Neonröhre nach der anderen springt wieder an – und jemand war in der Nacht unterwegs."},
       "night": {"de": "Die zweite Hälfte des Sturms kommt mit voller Wucht. Wetterleuchten färbt das leere Becken violett, irgendwo schlägt eine Tür im Takt. Der Schatten ist wieder da."},
       "leads": [
-        {"id": "l_office2", "name": {"de": "Luckys Büro öffnen"}, "text": {"de": "Toby rückt den Generalschlüssel heraus. Die Tür hinter der Rezeption springt auf."},
+        {"id": "l_office2", "name": {"de": "Luckys Büro öffnen"}, "text": {"de": "Der Generalschlüssel hängt am Brett hinter dem Tresen. Die Tür hinter der Rezeption springt auf."},
          "unlock": {"hotspots": ["h_desk"], "doors": [[3, 6]]}},
         {"id": "l_skimmer2", "name": {"de": "Das Becken absuchen"}, "text": {"de": "Taschenlampen ins abgelassene Becken, der Skimmer wird aufgeschraubt."},
          "unlock": {"hotspots": ["h_skimmer"]}},

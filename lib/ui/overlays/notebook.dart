@@ -133,9 +133,12 @@ class _NotebookSheetState extends State<NotebookSheet> {
                   children: [
                     const Icon(Icons.hub_rounded, color: Noir.cream, size: 18),
                     const SizedBox(width: 8),
-                    Text(
-                      _first == null ? l.notebook_combine_hint : l.notebook_combine_hint_second,
-                      style: Noir.text(13.5, weight: FontWeight.w600),
+                    Flexible(
+                      child: Text(
+                        _first == null ? l.notebook_combine_hint : l.notebook_combine_hint_second,
+                        textAlign: TextAlign.center,
+                        style: Noir.text(13.5, weight: FontWeight.w600),
+                      ),
                     ),
                   ],
                 ),
@@ -309,8 +312,15 @@ class _NoteCard extends StatelessWidget {
               Row(
                 children: [
                   _KindChip(kind: clue.kind, label: t.kindLabel),
-                  const Spacer(),
-                  if (t.pending != null) _PendingChip(text: t.pending!, lab: clue.pending == 'lab'),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: t.pending == null
+                        ? const SizedBox.shrink()
+                        : Align(
+                            alignment: Alignment.centerRight,
+                            child: _PendingChip(text: t.pending!, lab: clue.pending == 'lab'),
+                          ),
+                  ),
                 ],
               ),
               const SizedBox(height: 8),
@@ -408,7 +418,9 @@ class _PendingChip extends StatelessWidget {
       children: [
         Icon(lab ? Icons.science_rounded : Icons.hourglass_bottom_rounded, size: 12, color: Noir.inkBlue),
         const SizedBox(width: 4),
-        Text(text, style: Noir.label(10.5, color: Noir.inkBlue, spacing: 0.2)),
+        Flexible(
+          child: Text(text, style: Noir.label(10.5, color: Noir.inkBlue, spacing: 0.2)),
+        ),
       ],
     ),
   );

@@ -43,7 +43,14 @@ class GameHud extends StatelessWidget {
     final pad = MediaQuery.paddingOf(context);
     final l = g.l;
     // Querformat/geringe Höhe: Knöpfe als Zeile, damit sie den Fähigkeits-Knopf nicht berühren.
-    final compact = MediaQuery.sizeOf(context).height < 560;
+    final size = MediaQuery.sizeOf(context);
+    final compact = size.height < 560;
+    // Phasen-Uhr möglichst mittig, aber nie über der Statuskarte (links 10 + 136) oder den Knöpfen rechts.
+    const cardRight = 10.0 + _statusCardWidth + 8;
+    final timerLeft = math.max(
+      (size.width - _phaseTimerWidth) / 2,
+      math.min(cardRight, size.width - 60 - _phaseTimerWidth),
+    );
     return Stack(
       children: [
         // Oben: dunkler Verlauf für Lesbarkeit
@@ -74,13 +81,10 @@ class GameHud extends StatelessWidget {
         ),
         Positioned(
           top: pad.top + 10,
-          left: 0,
-          right: 0,
-          child: Center(
-            child: ValueListenableBuilder<WorldSnapshot?>(
-              valueListenable: g.session.world,
-              builder: (context, w, _) => _PhaseTimer(world: w, phase: g.cv.phase, chapter: g.cv.chapter, l: l),
-            ),
+          left: timerLeft,
+          child: ValueListenableBuilder<WorldSnapshot?>(
+            valueListenable: g.session.world,
+            builder: (context, w, _) => _PhaseTimer(world: w, phase: g.cv.phase, chapter: g.cv.chapter, l: l),
           ),
         ),
         Positioned(
@@ -143,6 +147,9 @@ class GameHud extends StatelessWidget {
   }
 }
 
+const double _statusCardWidth = 136;
+const double _phaseTimerWidth = 112;
+
 class _StatusCard extends StatelessWidget {
   const _StatusCard({required this.me, required this.onEffect});
 
@@ -158,7 +165,7 @@ class _StatusCard extends StatelessWidget {
     final nerves = (d?.nerves ?? 100).clamp(0, 100);
     final nerveColor = Color.lerp(Noir.debuff, Noir.lab, nerves / 100)!;
     return Container(
-      width: 136,
+      width: _statusCardWidth,
       padding: const EdgeInsets.fromLTRB(10, 8, 10, 9),
       decoration: BoxDecoration(
         color: Noir.glass,
@@ -291,7 +298,7 @@ class _PhaseTimerState extends State<_PhaseTimer> {
     final sec = (rem / 1000).ceil();
     final pulse = urgent && sec <= 10 ? 1.0 + 0.08 * ((rem % 1000) / 1000) : 1.0;
     return Container(
-      width: 112,
+      width: _phaseTimerWidth,
       padding: const EdgeInsets.fromLTRB(10, 6, 10, 7),
       decoration: BoxDecoration(
         color: Noir.glass,
@@ -378,7 +385,8 @@ class _AbilityButtonState extends State<AbilityButton> {
         final charges = g.cv.abilityCharges;
         final limited = (cls?.chargesPerNight ?? 0) > 0;
         final noCharges = limited && charges <= 0;
-        final alive = w?.detective(g.me)?.life != LifeState.downed;
+        // Nur lebende Ermittler können Fähigkeiten einsetzen (Niedergeschlagene und Geister nicht).
+        final alive = (w?.detective(g.me)?.life ?? LifeState.alive) == LifeState.alive;
         final ready = remaining == 0 && !noCharges && alive;
         return Tooltip(
           message: '${g.l.abilityName(ability)} – ${g.l.classAbility(g.myClass)}',

@@ -30,6 +30,7 @@ class Connection implements ClientLink {
     required this.label,
     this.maxMessageBytes = 8 * 1024,
     this.maxMessagesPerSecond = 40,
+    this.onClosed,
   });
 
   final WebSocketChannel _channel;
@@ -39,6 +40,9 @@ class Connection implements ClientLink {
   final String label;
   final int maxMessageBytes;
   final int maxMessagesPerSecond;
+
+  /// Wird einmal aufgerufen, wenn der Socket zu ist (z. B. Verbindungszähler).
+  final void Function()? onClosed;
 
   Player? _player;
   bool _closed = false;
@@ -84,6 +88,7 @@ class Connection implements ClientLink {
   void _onDone() {
     _closed = true;
     unawaited(_sub?.cancel());
+    onClosed?.call();
     final p = _player;
     _player = null;
     if (p != null) _rooms.disconnected(p, this);
@@ -183,9 +188,14 @@ class Connection implements ClientLink {
     final token = isWellFormedToken(rawToken) ? rawToken as String : null;
     final current = player;
     if (current != null && current.token != token) {
-      // Zweites `hello` mit anderer Identität auf derselben Verbindung.
-      _rooms.disconnected(current, this);
+      // Zweites `hello` mit anderer Identität auf derselben Verbindung: abgelehnt
+      // (sonst erzeugt ein Socket beliebig viele Spieler). Die App schickt `hello`
+      // genau einmal pro Socket.
+      send(encodeError(NetError.protocol));
+      return;
     }
-    _player = _rooms.hello(this, token: token, name: sanitizeName(msg['name']));
+    // `resume: false` = erster Aufbau der App; fehlt das Feld, wie bisher fortsetzen.
+    final p = _rooms.hello(this, token: token, name: sanitizeName(msg['name']), resume: msg['resume'] != false);
+    if (p != null) _player = p;
   }
 }

@@ -59,6 +59,7 @@ abstract final class Tuning {
   static const xpClueShared = 15;
   static const xpCombo = 25;
   static const xpRevive = 40;
+  static const xpHeal = 15;
   static const xpSurvive = 50;
   static const xpVerdict = {
     'perfect': 400,

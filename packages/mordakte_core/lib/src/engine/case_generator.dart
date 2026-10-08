@@ -16,7 +16,8 @@ class CaseGenerator {
     final culprit = rng.pick(candidates);
     final motives = culprit.motives.where(s.motiveById.containsKey).toList();
     final motive = rng.pick(motives);
-    final weapon = rng.pick(s.weapons).id;
+    final reachable = s.weapons.where((w) => culprit.canAccessWeapon(w.id)).toList();
+    final weapon = rng.pick(reachable.isEmpty ? s.weapons : reachable).id;
     return CaseTruthDef(culprit: culprit.id, motive: motive, weapon: weapon);
   }
 
@@ -24,6 +25,7 @@ class CaseGenerator {
   static List<CaseTruthDef> allTruths(ScenarioDef s) => [
         for (final c in s.candidates)
           for (final m in c.motives.where(s.motiveById.containsKey))
-            for (final w in s.weapons) CaseTruthDef(culprit: c.id, motive: m, weapon: w.id),
+            for (final w in s.weapons.where((w) => c.canAccessWeapon(w.id)))
+              CaseTruthDef(culprit: c.id, motive: m, weapon: w.id),
       ];
 }

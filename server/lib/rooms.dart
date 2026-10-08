@@ -42,6 +42,16 @@ class Player {
   int? offlineSinceMs;
   Timer? _graceTimer;
 
+  /// Neuer Aufbau (`hello` mit `resume: false`) bei noch bestehender Mitgliedschaft:
+  /// Bis zum eigenen `create`/`join` gehen keine Daten des alten Raums an die App.
+  bool _held = false;
+
+  /// War schon einmal in einem Raum (sonst verfällt das Token schneller).
+  bool _wasInRoom = false;
+
+  /// Letztes `create` (Manager-Uhr, ms).
+  int? _lastCreateMs;
+
   bool get online => link != null;
 }
 
@@ -100,7 +110,7 @@ class Room {
   void _broadcast() {
     for (final p in members.toList()) {
       final link = p.link;
-      if (link == null) {
+      if (link == null || p._held) {
         // Getrennte Spieler bekommen beim Reconnect den vollen Fall-Zustand;
         // alte Toasts/Ereignisse werden verworfen.
         guard('drainEvents', () => runtime.drainEvents(p.id));
@@ -117,6 +127,16 @@ class Room {
         if (events.isNotEmpty) link.send(encodeEvents(events));
       } catch (e, st) {
         _logError('snapshot ${p.id}', e, st);
+      }
+    }
+    // Spieler, die den Raum verlassen haben, bleiben im laufenden Spiel in der
+    // Runtime: ihre Ereignisse verwerfen, sonst bekämen sie beim Wiederbeitritt
+    // den ganzen Rückstand auf einmal.
+    final humans = guard('humanPlayers', () => runtime.humanPlayers);
+    if (humans != null && humans.length > members.length) {
+      final present = {for (final m in members) m.id};
+      for (final id in humans) {
+        if (!present.contains(id)) guard('drainEvents', () => runtime.drainEvents(id));
       }
     }
   }
@@ -165,8 +185,11 @@ class RoomManager {
     this.emptyRoomTtl = const Duration(minutes: 5),
     this.finishedRoomTtl = const Duration(minutes: 10),
     this.forgetPlayerAfter = const Duration(minutes: 30),
+    this.forgetIdlePlayerAfter = const Duration(minutes: 2),
+    this.createCooldown = const Duration(seconds: 2),
     Duration janitorInterval = const Duration(seconds: 5),
     this.maxRooms = 2000,
+    this.maxPlayers = 50000,
     Logger? log,
   })  : _rng = random ?? Random.secure(),
         log = log ?? defaultLog {
@@ -190,7 +213,16 @@ class RoomManager {
   /// Getrennte Spieler ohne Raum: Token verfällt nach dieser Zeit.
   final Duration forgetPlayerAfter;
 
+  /// Getrennte Spieler, die nie in einem Raum waren: Token verfällt nach dieser Zeit.
+  final Duration forgetIdlePlayerAfter;
+
+  /// Mindestabstand zwischen zwei `create` desselben Spielers.
+  final Duration createCooldown;
+
   final int maxRooms;
+
+  /// Höchstzahl bekannter Spieler (Tokens) im Speicher.
+  final int maxPlayers;
   final Logger log;
 
   final Random _rng;
@@ -214,9 +246,19 @@ class RoomManager {
 
   /// `hello`: neuer Spieler oder Reconnect per Token. Antwortet mit `welcome`
   /// und bringt einen zurückkehrenden Spieler sofort wieder in seinen Raum.
-  Player hello(ClientLink link, {String? token, required String name}) {
+  ///
+  /// [resume] `false` (erster Aufbau der App, die gleich selbst `create`/`join`
+  /// schickt): Die Mitgliedschaft bleibt, aber `room`/`c`/`w` des alten Raums
+  /// kommen erst nach einem `join` dieses Raums.
+  ///
+  /// Gibt `null` zurück (mit `err server_full`), wenn kein neuer Spieler mehr Platz hat.
+  Player? hello(ClientLink link, {String? token, required String name, bool resume = true}) {
     var p = token == null ? null : _byToken[token];
     if (p == null) {
+      if (_byId.length >= maxPlayers) {
+        link.send(encodeError(ServerError.full));
+        return null;
+      }
       p = Player._(_newPlayerId(), newToken(_rng), name);
       _byToken[p.token] = p;
       _byId[p.id] = p;
@@ -242,13 +284,21 @@ class RoomManager {
       final r = p;
       room.guard('setConnected', () => room.runtime.setConnected(r.id, true));
       room._emptySinceMs = null;
-      room._sendRoomAndCase(p);
+      p._held = !resume;
+      if (resume) room._sendRoomAndCase(p);
     }
     return p;
   }
 
   /// `create`: neuer Raum, Spieler tritt bei, Antwort `room`.
   void create(Player p) {
+    final now = _clock.elapsedMilliseconds;
+    final last = p._lastCreateMs;
+    if (last != null && now - last < createCooldown.inMilliseconds) {
+      _reply(p, encodeError(ServerError.cooldown));
+      return;
+    }
+    p._lastCreateMs = now;
     if (_rooms.length >= maxRooms) {
       _reply(p, encodeError(ServerError.full));
       return;
@@ -290,6 +340,7 @@ class RoomManager {
     }
     if (identical(p.room, room)) {
       // Schon drin (z. B. doppelter Beitritt nach Reconnect): nur bestätigen.
+      p._held = false;
       room.guard('setConnected', () => room.runtime.setConnected(p.id, true));
       room._sendRoomAndCase(p);
       return;
@@ -300,13 +351,18 @@ class RoomManager {
       _reply(p, encodeError(NetError.roomFull));
       return;
     }
-    _leaveRoom(p, reason: 'join ${room.code}');
+    // Rückstand aus einer früheren Teilnahme verwerfen (die Runtime behält
+    // Spieler im laufenden Spiel); Ereignisse des Beitritts selbst bleiben.
+    room.guard('drainEvents', () => room.runtime.drainEvents(p.id));
+    // Erst beitreten, dann den alten Raum verlassen: Ein abgelehnter Beitritt
+    // lässt den Spieler in seinem bisherigen Raum.
     final ok = room.guard('join', () => room.runtime.join(p.id, p.name));
     if (ok == null) {
       _reply(p, encodeError(ServerError.internal));
     } else if (!ok) {
       _reply(p, encodeError(NetError.gameRunning));
     } else {
+      _leaveRoom(p, reason: 'join ${room.code}');
       log('${p.id} tritt ${room.code} bei (${room.members.length + 1} Spieler)');
       _enter(room, p);
     }
@@ -366,6 +422,8 @@ class RoomManager {
   void _enter(Room room, Player p) {
     room.members.add(p);
     p.room = room;
+    p._held = false;
+    p._wasInRoom = true;
     room._emptySinceMs = null;
     room._sendRoomAndCase(p);
   }
@@ -374,9 +432,16 @@ class RoomManager {
     final room = p.room;
     if (room == null) return;
     p.room = null;
+    p._held = false;
     room.members.remove(p);
     room.guard('leave', () => room.runtime.leave(p.id));
+    // Spieler, die den Raum verlassen haben, sammeln keine Ereignisse mehr an.
+    room.guard('drainEvents', () => room.runtime.drainEvents(p.id));
     log('${p.id} verlässt ${room.code} ($reason)');
+    if (room.members.isEmpty && room.guard('inLobby', () => room.runtime.inLobby) == true) {
+      // Leere Lobby sofort schließen (sonst hält sie 5 Min einen Platz).
+      _closeRoom(room, 'leer in Lobby');
+    }
   }
 
   void _closeRoom(Room room, String reason, {bool notify = true}) {
@@ -410,14 +475,15 @@ class RoomManager {
         _closeRoom(room, 'Partie beendet');
       }
     }
-    for (final p in _byId.values.toList()) {
+    _byId.removeWhere((id, p) {
       final since = p.offlineSinceMs;
-      if (p.link == null && p.room == null && since != null && now - since >= forgetPlayerAfter.inMilliseconds) {
-        p._graceTimer?.cancel();
-        _byId.remove(p.id);
-        _byToken.remove(p.token);
-      }
-    }
+      if (p.link != null || p.room != null || since == null) return false;
+      final ttl = p._wasInRoom ? forgetPlayerAfter : forgetIdlePlayerAfter;
+      if (now - since < ttl.inMilliseconds) return false;
+      p._graceTimer?.cancel();
+      _byToken.remove(p.token);
+      return true;
+    });
   }
 
   static String _seconds(Duration d) =>

@@ -29,6 +29,7 @@ dart run tool/smoke.dart            # -v: Server-Log zeigen, --fake-only / --rea
 | `PORT`           | `8080`                                                          | HTTP-Port (Railway setzt ihn selbst)        |
 | `SCENARIO_DIR`   | `/app/content/scenarios`, sonst `../content/scenarios`          | Alle `*.json` darin werden geladen          |
 | `INCLUDE_SAMPLE` | –                                                               | `1` = Beispiel-Szenario `sample` dazuladen  |
+| `TRUST_PROXY`    | `1`                                                             | `0` = Client-Adresse aus der TCP-Verbindung statt aus `X-Real-IP`/`X-Forwarded-For` (nur ohne Proxy davor) |
 
 Ungültige Szenario-Dateien werden geloggt und übersprungen. Ist der Ordner leer, wird
 `sample` geladen (wie in der App).
@@ -66,8 +67,16 @@ Umschläge wie in `packages/mordakte_core/lib/src/protocol/messages.dart`, mit d
 - Close-Code `4000`: Eine neuere Verbindung mit demselben Token hat übernommen.
 - Reconnect: `hello` mit bekanntem Token → gleiche Spieler-ID; war der Spieler in einem Raum,
   folgen sofort `room` und `c`. Nach 120 s ohne Reconnect → `leave`.
-- Limits: 8 KB pro Nachricht, 40 Nachrichten/s pro Socket (darüber verworfen).
-- Räume schließen 5 Min nach dem letzten verbundenen Spieler bzw. 10 Min nach Spielende.
+- `hello` mit `"resume": false` (erster Aufbau der App, danach kommt `create`/`join`): Die
+  Mitgliedschaft im alten Raum bleibt, aber `room`/`c`/`w` dieses Raums kommen erst nach einem
+  `join` mit seinem Code. Ohne das Feld wie oben.
+- Ein zweites `hello` mit anderem Token auf demselben Socket → `err protocol`.
+- Limits: 8 KB pro Nachricht (über 16 KB, auch fragmentiert, wird der Socket sofort getrennt),
+  40 Nachrichten/s pro Socket (darüber verworfen), 1 `create` pro 2 s und Spieler (`err cooldown`),
+  20 offene Sockets pro Client-Adresse, 10 000 insgesamt (darüber HTTP 503).
+- Wer einen Raum verlässt, bekommt beim Wiederbeitritt keine alten Ereignisse nachgeliefert.
+- Leere Lobbys schließen sofort; andere Räume 5 Min nach dem letzten verbundenen Spieler bzw.
+  10 Min nach Spielende. Tokens ohne Raum verfallen nach 30 Min (nie in einem Raum: 2 Min).
 
 ## Aufbau
 

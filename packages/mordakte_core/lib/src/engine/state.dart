@@ -23,6 +23,9 @@ class PlayerStats {
   int shared = 0;
   int combos = 0;
   int revives = 0;
+
+  /// Erste Hilfe (Sanitäter) – getrennt von echten Wiederbelebungen.
+  int heals = 0;
   int contradictions = 0;
   int attacks = 0;
   int ghostHelp = 0;
@@ -32,6 +35,7 @@ class PlayerStats {
         'shared': shared,
         'combos': combos,
         'revives': revives,
+        'heals': heals,
         'contradictions': contradictions,
         'attacks': attacks,
         'ghostHelp': ghostHelp,

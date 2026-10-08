@@ -137,7 +137,16 @@ class _GameScreenState extends State<GameScreen> {
       'ghost' => LifeState.ghost,
       _ => s.world.value?.detective(s.playerId)?.life ?? LifeState.alive,
     };
-    if (_life.value != life) _life.value = life;
+    if (_life.value != life) {
+      _life.value = life;
+      // Niedergeschlagen/Geist: Verhör schließen, sonst verdeckt es Hilfe-Knopf und Countdown.
+      if (life != LifeState.alive && _dialogue.open && mounted) {
+        setState(() {
+          _dialogue.close();
+          _signals = false;
+        });
+      }
+    }
   }
 
   void _onCase() {
@@ -428,7 +437,7 @@ class _GameScreenState extends State<GameScreen> {
           mapOpen: _mapSmall,
           onMap: () => setState(() => _mapSmall = !_mapSmall),
           onMapExpand: () => setState(() => _mapBig = true),
-          showBottom: phase != Phase.council && life != LifeState.downed,
+          showBottom: phase != Phase.council && life == LifeState.alive,
         ),
       ),
       if (phase == Phase.council) CouncilPanel(g: g),
@@ -442,7 +451,11 @@ class _GameScreenState extends State<GameScreen> {
       ValueListenableBuilder<LifeState>(
         valueListenable: _life,
         builder: (context, life, _) {
-          if (life == LifeState.ghost) return Stack(children: [GhostBanner(g: g)]);
+          if (life == LifeState.ghost) {
+            // In der Beratung würde das Banner die Spurkarten samt Abstimmknopf verdecken.
+            if (phase == Phase.council) return const SizedBox.shrink();
+            return Stack(children: [GhostBanner(g: g)]);
+          }
           if (life != LifeState.downed) return const SizedBox.shrink();
           return ValueListenableBuilder<WorldSnapshot?>(
             valueListenable: g.session.world,

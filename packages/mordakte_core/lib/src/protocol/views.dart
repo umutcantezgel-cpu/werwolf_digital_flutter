@@ -490,6 +490,8 @@ class CaseView {
 
   /// `story`, `random`, `daily`
   final String mode;
+
+  /// Nur im Tagesfall gesetzt (öffentlich); sonst 0, damit kein Client die Wahrheit nachrechnen kann.
   final int seed;
   final int bots;
   final List<LobbyPlayer> lobby;
@@ -505,6 +507,9 @@ class CaseView {
   /// Gefundene Kombinationen (Combo-IDs).
   final List<String> deductions;
   final int contradictions;
+
+  /// Verdächtige (NPC-IDs), die sich bereits in Widersprüche verstrickt haben.
+  final List<String> contradicted;
 
   /// Sichtbare Hotspots → [HotspotState].
   final Map<String, String> hotspots;
@@ -545,6 +550,7 @@ class CaseView {
     required this.board,
     required this.deductions,
     required this.contradictions,
+    this.contradicted = const [],
     required this.hotspots,
     required this.openDoors,
     required this.items,
@@ -586,6 +592,7 @@ class CaseView {
         'board': [for (final c in board) c.toJson()],
         'deductions': deductions,
         'contra': contradictions,
+        'contraIds': contradicted,
         'hotspots': hotspots,
         'doors': openDoors,
         'items': [for (final i in items) i.toJson()],
@@ -617,6 +624,7 @@ class CaseView {
         board: _l(j['board'], ClueView.fromJson),
         deductions: (j['deductions'] as List).cast<String>(),
         contradictions: _i(j['contra']),
+        contradicted: ((j['contraIds'] as List?) ?? const []).cast<String>(),
         hotspots: (j['hotspots'] as Map).cast<String, String>(),
         openDoors: [for (final d in (j['doors'] as List)) (d as List).cast<int>()],
         items: _l(j['items'], ItemView.fromJson),

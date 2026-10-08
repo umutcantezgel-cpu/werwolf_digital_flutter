@@ -50,6 +50,9 @@ class FakeRuntime implements GameRuntime {
   bool get finished => false;
 
   @override
+  bool get inLobby => !started;
+
+  @override
   bool join(String playerId, String name) {
     calls.add('join $playerId');
     final known = players[playerId];
@@ -314,6 +317,7 @@ Future<void> main(List<String> args) async {
   final verbose = args.contains('-v');
   if (!args.contains('--real-only')) await fakeSuite(verbose);
   if (!args.contains('--fake-only')) await realSuite(verbose);
+  if (!args.contains('--real-only')) await guardSuite(verbose);
   print('\n$_passed OK, $_failed FAIL');
   exit(_failed == 0 ? 0 : 1);
 }
@@ -618,8 +622,115 @@ Future<void> realSuite(bool verbose) async {
     await b2.close();
   });
 
+  await step('B6. Verlassen im Spiel → kein Ereignis-Rückstand beim Wiederbeitritt', () async {
+    final id = b.playerId!;
+    final b3 = await Client.connect(url, 'Ben');
+    await b3.hello(token: b.token);
+    await b3.expect(Msg.room);
+    b3.send({'t': Msg.leave});
+    await pause(300);
+    final rt = runtimes[code]!;
+    // 3 Minuten Spielzeit ohne Ben (Anna spielt per Autopilot weiter).
+    for (var i = 0; i < 1800; i++) {
+      rt.tick(100);
+    }
+    await pause(300);
+    check('Warteschlange des Abwesenden wird laufend geleert', rt.drainEvents(id).isEmpty);
+    for (var i = 0; i < 1800; i++) {
+      rt.tick(100);
+    }
+    final before = b3.inbox.length;
+    b3.send({'t': Msg.join, 'code': code});
+    await b3.expect(Msg.room);
+    await pause(150);
+    final events = [
+      for (final m in b3.inbox.skip(before))
+        if (m['t'] == Msg.events) ...(m['list'] as List),
+    ];
+    check('nach dem Wiederbeitritt nur frische Ereignisse (${events.length})', events.length < 10);
+    await b3.close();
+  });
+
   check('keine Runtime-Fehler im Server-Log', serverErrors.isEmpty, serverErrors.join('\n'));
   await a.close();
+  await rooms.close();
+  await server.close(force: true);
+}
+
+
+/// Teil C: Schutz vor Missbrauch und veralteten Raum-Daten (Fake-Runtime).
+Future<void> guardSuite(bool verbose) async {
+  print('\n=== Teil C: Schutz ===');
+  final fakes = <String, FakeRuntime>{};
+  final rooms = RoomManager(
+    runtimeFactory: (code) => fakes[code] = FakeRuntime(code),
+    createCooldown: const Duration(milliseconds: 500),
+    log: (m) {
+      if (verbose) print('        [server] $m');
+    },
+  );
+  final server = await serveMordakte(rooms, port: 0);
+  final url = 'ws://127.0.0.1:${server.port}/ws';
+
+  await step('C1. hello mit resume:false → keine Daten des alten Raums', () async {
+    final x = await Client.connect(url, 'Xaver');
+    await x.hello();
+    x.send({'t': Msg.create});
+    final old = (await x.expect(Msg.room))['code'] as String;
+    await x.close(); // ohne leave: Mitgliedschaft bleibt (Gnadenfrist)
+    await pause(600);
+    final x2 = await Client.connect(url, 'Xaver');
+    x2.send({'t': Msg.hello, 'name': 'Xaver', 'token': x.token, 'resume': false, 'proto': protocolVersion});
+    await x2.expect(Msg.welcome);
+    await pause(400);
+    check('kein room/c/w des alten Raums $old',
+        !x2.has(Msg.room) && !x2.has(Msg.caseView) && !x2.has(Msg.world));
+    x2.send({'t': Msg.join, 'code': 'ZZZZ'});
+    check('falscher Code → err room_not_found', (await x2.expect(Msg.error))['key'] == NetError.roomNotFound);
+    check('abgelehnter Beitritt lässt den alten Raum stehen', rooms.room(old)?.members.length == 1);
+    x2.send({'t': Msg.create});
+    final fresh = (await x2.expect(Msg.room))['code'] as String;
+    check('create → neuer Raum $fresh, erste Antwort', fresh != old);
+    check('leere Lobby $old sofort geschlossen', rooms.room(old) == null && rooms.roomCount == 1);
+    x2.send({'t': Msg.create});
+    check('create direkt danach → err cooldown', (await x2.expect(Msg.error))['key'] == ServerError.cooldown);
+    x2.send({'t': Msg.hello, 'name': 'Xaver', 'proto': protocolVersion});
+    check('zweites hello mit anderer Identität → err protocol',
+        (await x2.expect(Msg.error))['key'] == NetError.protocol);
+    await x2.close();
+  });
+
+  await step('C2. Übergroße Nachrichten trennen vor dem Puffern', () async {
+    final big = await Client.connect(url, 'Gross');
+    big.send('x' * 300000);
+    await big.closed.future.timeout(const Duration(seconds: 3));
+    check('300-KB-Rahmen → Verbindung getrennt', big.closed.isCompleted);
+
+    final raw = await Socket.connect('127.0.0.1', server.port);
+    final done = Completer<void>();
+    final head = Completer<void>();
+    final buf = <int>[];
+    raw.listen((d) {
+      buf.addAll(d);
+      if (!head.isCompleted && utf8.decode(buf, allowMalformed: true).contains('\r\n\r\n')) head.complete();
+    }, onDone: () {
+      if (!done.isCompleted) done.complete();
+    }, onError: (_) {});
+    raw.write('GET /ws HTTP/1.1\r\nHost: x\r\nConnection: Upgrade\r\nUpgrade: websocket\r\n'
+        'Sec-WebSocket-Version: 13\r\nSec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==\r\n\r\n');
+    await head.future.timeout(const Duration(seconds: 3));
+    for (var i = 0; i < 8 && !done.isCompleted; i++) {
+      // Fragment (FIN=0), maskiert mit Schlüssel 0, je 8 KB.
+      raw.add([i == 0 ? 0x01 : 0x00, 0x80 | 126, 0x20, 0x00, 0, 0, 0, 0, ...List.filled(8192, 0x61)]);
+      await pause(20);
+    }
+    await done.future.timeout(const Duration(seconds: 3), onTimeout: () {});
+    check('fragmentierte Nachricht über 16 KB → Verbindung getrennt', done.isCompleted);
+    raw.destroy();
+    final h = await health(server.port);
+    check('Server lebt weiter ("$h")', h.startsWith('ok'));
+  });
+
   await rooms.close();
   await server.close(force: true);
 }

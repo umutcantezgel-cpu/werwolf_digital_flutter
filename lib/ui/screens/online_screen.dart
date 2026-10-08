@@ -40,11 +40,20 @@ class _OnlineScreenState extends State<OnlineScreen> {
   late final TextEditingController _server = TextEditingController(
     text: context.read<MetaStore>().serverUrl ?? defaultServerUrl,
   );
+  late final AppState _app;
   String? _busy; // 'create' | 'join'
   String? _error;
 
   @override
+  void initState() {
+    super.initState();
+    _app = context.read<AppState>(); // in dispose() ist kein Context-Lookup mehr erlaubt
+  }
+
+  @override
   void dispose() {
+    // Verbindungsaufbau läuft noch: abbrechen, sonst bleibt eine Session ohne Bildschirm im Raum.
+    if (_busy != null) _app.cancelPendingStart();
     _code.dispose();
     _server.dispose();
     super.dispose();
@@ -62,6 +71,8 @@ class _OnlineScreenState extends State<OnlineScreen> {
     try {
       await app.startOnline(roomCode: code);
       if (mounted) context.go(Routes.lobby);
+    } on SessionStartCancelled {
+      if (mounted) setState(() => _busy = null);
     } catch (e) {
       if (!mounted) return;
       setState(() {

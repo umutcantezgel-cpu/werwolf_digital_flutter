@@ -55,6 +55,10 @@ class Engine {
   String _hostId = '';
   int _now = 0;
 
+  /// Monoton steigende Version der Fall-Ansicht (nicht die Uhr: mehrere
+  /// Ansichten im selben Tick müssen unterscheidbar bleiben).
+  int _caseVersion = 0;
+
   // Konfiguration (Lobby)
   String? _scenarioId;
   String _mode = 'story';
@@ -93,6 +97,9 @@ class Engine {
   int _nightElapsed = 0;
   int _traces = 0;
 
+  /// Spieler-ID → Schatten-Spuren, die dieser Spieler schon gesehen hat.
+  final Map<String, Set<String>> _seenTraces = {};
+
   // ---------------------------------------------------------------- Abfragen
 
   List<String> get humanPlayerIds => [for (final p in _players.values) if (!p.bot) p.id];
@@ -103,6 +110,15 @@ class Engine {
   ScenarioDef? get scenario => _s;
   CaseTruthDef? get truth => _truth?.truth;
   EndingView? get ending => _ending;
+
+  /// Nur für Tests und Werkzeuge: direkter Zugriff auf den Spielerzustand.
+  PlayerState? debugPlayer(String playerId) => _players[playerId];
+
+  /// Nur für Tests und Werkzeuge: lässt einen Spieler sterben (wird zum Geist).
+  void debugKill(String playerId) {
+    final p = _players[playerId];
+    if (p != null) _die(p);
+  }
 
   Iterable<PlayerState> get _aliveDetectives => _players.values.where((p) => p.alive);
 
@@ -153,6 +169,8 @@ class Engine {
     if (connected) {
       p.disconnectedMs = 0;
       p.autopilot = false;
+      // Eingefrorenes Autopilot-Gehirn verwerfen, sonst blockiert sein altes Ziel die Bots.
+      _brains.remove(playerId);
       _dirty[playerId] = true;
     }
     _dirtyAll();
@@ -170,7 +188,12 @@ class Engine {
     final p = _players[playerId];
     final grid = _grid;
     if (p == null || p.bot || grid == null) return;
-    if (m.seq <= p.ackSeq) return;
+    if (m.seq <= p.ackSeq) {
+      // Veraltete Sequenz (z. B. neuer Client nach Neustart): sofort zurücksetzen
+      // statt still zu verwerfen, damit der Client nicht auseinanderläuft.
+      if (_phase != Phase.lobby && _phase != Phase.ending) _correct(p);
+      return;
+    }
     p.ackSeq = m.seq;
     if (_phase == Phase.lobby || _phase == Phase.ending) return;
     if (p.downed || p.hidden) {
@@ -232,10 +255,11 @@ class Engine {
         if (!scenarios.containsKey(scenarioId)) return _err(p, 'unknown_scenario');
         _scenarioId = scenarioId;
         _mode = const {'story', 'random', 'daily'}.contains(mode) ? mode : 'random';
+        // Zufallsfälle würfelt nur der Server – ein Client-Seed würde die Wahrheit vorab festlegen.
         _seed = switch (_mode) {
           'story' => 0,
           'daily' => seed ?? _rng.nextUint32(),
-          _ => seed ?? _rng.nextUint32(),
+          _ => _rng.nextUint32(),
         };
         _botCount = bots.clamp(0, maxPlayersPerRoom - 1);
         _dirtyAll();
@@ -329,6 +353,7 @@ class Engine {
     _accuse.clear();
     _signals.clear();
     _brains.clear();
+    _seenTraces.clear();
     _shadow = null;
     _ending = null;
     _sightings = 0;
@@ -457,6 +482,7 @@ class Engine {
   void _endNight() {
     _shadow = null;
     _items.removeWhere((_, i) => i.def.type == ItemType.trace);
+    _seenTraces.clear();
     for (final p in _players.values) {
       if (p.downed) {
         p
@@ -494,8 +520,10 @@ class Engine {
 
   void _resolveLeadVote() {
     if (_leadOptions.isEmpty) return;
+    // Die Menschen entscheiden: Bot-/Autopilot-Stimmen zählen nur, wenn kein Mensch gewählt hat.
+    final humanVotes = _leadVotes.entries.where((e) => _isHumanVoter(e.key)).map((e) => e.value).toList();
     final counts = <String, int>{};
-    for (final v in _leadVotes.values) {
+    for (final v in humanVotes.isNotEmpty ? humanVotes : _leadVotes.values) {
       counts[v] = (counts[v] ?? 0) + 1;
     }
     String chosen;
@@ -507,6 +535,12 @@ class Engine {
       chosen = top.length == 1 ? top.first : _rt.pick(top);
     }
     _applyLead(chosen);
+  }
+
+  /// Stimme eines Menschen, der gerade selbst spielt (kein Bot, kein Autopilot).
+  bool _isHumanVoter(String playerId) {
+    final p = _players[playerId];
+    return p != null && !p.bot && !p.autopilot;
   }
 
   void _applyLead(String id) {
@@ -577,6 +611,7 @@ class Engine {
       _nightElapsed += dt;
       _tickShadow(dt);
     }
+    _updateSeenTraces();
 
     // Vorzeitiges Phasenende.
     final voters = _players.values.where((p) => !p.bot && p.connected && !p.downed);
@@ -639,13 +674,28 @@ class Engine {
         if (npc == null || _now > p.talkingUntil || dist(p.x, p.y, npc.x, npc.y) > 3.5) p.talkingTo = null;
       }
 
+      // Ausblutzeit und Gift laufen nur in Aktionsphasen: in Einleitung, Beratung
+      // und Anklage kann niemand helfen (Wiederbeleben, Items, Fähigkeiten gesperrt).
+      final action = _actionPhase;
       if (p.downed) {
-        p.downedLeftMs -= dt;
-        if (p.downedLeftMs <= 0) _die(p);
+        if (action) {
+          p.downedLeftMs -= dt;
+          if (p.downedLeftMs <= 0) _die(p);
+        }
         continue;
       }
       if (!p.alive) {
-        p.channel = null;
+        // Geister dürfen Geister-Hotspots durchsuchen – ihr Kanal läuft weiter.
+        final gch = p.channel;
+        if (p.ghost && gch != null) {
+          gch.elapsedMs += dt;
+          if (gch.done) {
+            p.channel = null;
+            _completeChannel(p, gch);
+          }
+        } else {
+          p.channel = null;
+        }
         continue;
       }
 
@@ -660,7 +710,7 @@ class Engine {
       }
 
       // Gift
-      if (p.hasEffect('poisoned')) {
+      if (action && p.hasEffect('poisoned')) {
         p.poisonTimerMs += dt;
         if (p.poisonTimerMs >= effectCatalog['poisoned']!.mods.hpDrainMs) {
           p.poisonTimerMs = 0;
@@ -901,10 +951,11 @@ class Engine {
     _shareInst(p, c);
   }
 
-  void _shareInst(PlayerState p, ClueInst c) {
+  /// [countStat] = false für unfreiwillige Freigaben (Tod), die nicht als eigenes Teilen zählen.
+  void _shareInst(PlayerState p, ClueInst c, {bool countStat = true}) {
     c.onBoard = true;
     c.sharedBy = p.id;
-    p.stats.shared++;
+    if (countStat) p.stats.shared++;
     _emit(GameEvent(Ev.clueShared, args: {'clue': c.id, 'by': p.id}));
     _dirtyAll();
   }
@@ -924,7 +975,10 @@ class Engine {
       _emit(GameEvent(Ev.dialogueRefused, to: p.id, args: {'npc': npcId, 'reason': 'silenced'}));
       return;
     }
-    final line = topic == Topic.alibi && npc.id == truth.truth.culprit ? 'alibiLie' : topic;
+    // Die Lügen-Variante bekommt nur, wer Lügen erkennt – sonst verriete schon der
+    // Zeilen-Schlüssel den Täter.
+    final showLie = topic == Topic.alibi && npc.id == truth.truth.culprit && p.detectiveClass.seesLies;
+    final line = showLie ? 'alibiLie' : topic;
     (_heard[npc.id] ??= {}).add(topic);
     final grants = _s!.clues
         .where((d) => d.source.npc == npc.id && d.source.topic == topic && _clueAvailable(p, d))
@@ -938,7 +992,7 @@ class Engine {
       'npc': npc.id,
       'topic': topic,
       'line': line,
-      if (line == 'alibiLie' && p.detectiveClass.seesLies) 'lie': true,
+      if (showLie) 'lie': true,
       if (grants.isNotEmpty) 'clue': grants.first.id,
     }));
     _dirtyAll();
@@ -949,6 +1003,7 @@ class Engine {
     final c = _clues[clueId];
     final truth = _truth;
     if (npc == null || c == null || truth == null || !p.alive || !npc.alive) return;
+    if (!_actionPhase) return _err(p, 'not_in_phase');
     if (!(c.onBoard || c.holder == p.id)) return;
     if (dist(p.x, p.y, npc.x, npc.y) > Tuning.interactRange + 1.5) return _err(p, 'too_far');
     if (p.silenced) {
@@ -963,6 +1018,9 @@ class Engine {
     } else if (isCulprit) {
       final relevant = c.kind != ClueKind.alibi || c.def?.subject == npc.id;
       reaction = relevant ? 'nervous' : 'annoyed';
+    } else if (c.kind == ClueKind.weapon) {
+      // Wer Zugang zur Tatwaffe hatte, wird ebenso nervös – die Waffe allein entlarvt niemanden.
+      reaction = npc.def.canAccessWeapon(value) ? 'nervous' : 'annoyed';
     } else {
       switch (c.kind) {
         case ClueKind.trait:
@@ -981,7 +1039,8 @@ class Engine {
       p.nerves = math.max(0, p.nerves - 15);
     }
     _emit(GameEvent(Ev.present, to: p.id, args: {'npc': npc.id, 'clue': clueId, 'reaction': reaction}));
-    if (reaction == 'nervous' && isCulprit && _contradicted.add(npc.id)) {
+    // Ein Waffen-Hinweis macht auch Unschuldige mit Zugang nervös und ist daher kein Widerspruch.
+    if (reaction == 'nervous' && isCulprit && c.kind != ClueKind.weapon && _contradicted.add(npc.id)) {
       p.stats.contradictions++;
       _emit(GameEvent(Ev.contradiction, args: {'npc': npc.id, 'by': p.id}));
     }
@@ -1003,7 +1062,17 @@ class Engine {
       final c = _clues[r];
       if (c != null) _reveal(c);
     }
-    if (combo.lead != null && !_chosenLeads.contains(combo.lead)) _pendingHiddenLeads.add(combo.lead!);
+    final lead = combo.lead;
+    if (lead != null && !_chosenLeads.contains(lead)) {
+      // Neue Spuren kommen zur nächsten Beratung. Gibt es keine mehr, gilt die Spur sofort,
+      // statt still zu verfallen.
+      final nextCouncilChapter = (_phase == Phase.council || _phase == Phase.night) ? _chapter + 1 : _chapter;
+      if (nextCouncilChapter >= s.chapters.length) {
+        _applyLead(lead);
+      } else {
+        _pendingHiddenLeads.add(lead);
+      }
+    }
     p.stats.combos++;
     _emit(GameEvent(Ev.combo, args: {'combo': combo.id, 'by': p.id}));
     _dirtyAll();
@@ -1033,16 +1102,13 @@ class Engine {
         _shadowFlee();
         _emit(GameEvent(Ev.shadowRepelled, args: {'by': p.id, 'reason': 'scare'}));
       case 'sources':
-        final open = _s!.clues
-            .where((d) =>
-                d.source.hotspot != null &&
-                !d.secret &&
-                !d.ghost &&
-                !_clues.containsKey(d.id) &&
-                !_expired.contains(d.id) &&
-                d.chapter <= _chapter &&
-                (d.requires.lead == null || _reqOk(p, Requirement(lead: d.requires.lead))))
-            .toList();
+        // Nur Fundorte, die der Spieler selbst sehen und durchsuchen kann.
+        final open = _s!.clues.where((d) {
+          final hid = d.source.hotspot;
+          if (hid == null || d.secret || d.ghost || !_clueAvailable(p, d)) return false;
+          final h = _s!.hotspotById[hid];
+          return h != null && _hotspotVisible(p, h);
+        }).toList();
         if (open.isEmpty) return _err(p, 'nothing_left');
         final d = _rt.pick(open);
         final h = _s!.hotspotById[d.source.hotspot]!;
@@ -1063,7 +1129,7 @@ class Engine {
         target.hp = math.min(target.maxHp, target.hp + 1);
         _removeEffect(target, 'injured');
         _removeEffect(target, 'poisoned');
-        p.stats.revives++;
+        p.stats.heals++;
     }
     p.abilityCdMs = cls.abilityCooldownMs;
     _emit(GameEvent(Ev.ability, args: {'player': p.id, 'ability': cls.ability}));
@@ -1108,10 +1174,22 @@ class Engine {
     switch (kind) {
       case 'emote':
         if (!emoteIds.contains(value)) return;
+        // Nur Pings tragen Koordinaten (unendliche Werte würden jedes Snapshot-Encoding sprengen).
+        x = null;
+        y = null;
       case 'quick':
         if (!quickChatIds.contains(value)) return;
+        x = null;
+        y = null;
       case 'ping':
         if (x == null || y == null || !x.isFinite || !y.isFinite) return;
+        // Der Wert eines Pings wird nicht gelesen – nicht ungeprüft an alle weiterreichen.
+        value = 'ping';
+        final map = _s?.map;
+        if (map != null) {
+          x = clampD(x, 0, map.width.toDouble());
+          y = clampD(y, 0, map.height.toDouble());
+        }
         if (p.ghost) {
           if (p.pingsLeft <= 0) return _err(p, 'no_pings');
           p.pingsLeft--;
@@ -1134,12 +1212,14 @@ class Engine {
     final had = p.effects.containsKey(id);
     p.effects[id] = ms ?? (def.durationMs == 0 ? -1 : def.durationMs);
     if (!had) {
+      if (id == 'poisoned') p.poisonTimerMs = 0;
       _emit(GameEvent(Ev.effect, to: p.id, args: {'player': p.id, 'effect': id, 'on': true}));
       _dirty[p.id] = true;
     }
   }
 
   void _removeEffect(PlayerState p, String id) {
+    if (id == 'poisoned') p.poisonTimerMs = 0;
     if (p.effects.remove(id) != null) {
       _emit(GameEvent(Ev.effect, to: p.id, args: {'player': p.id, 'effect': id, 'on': false}));
       _dirty[p.id] = true;
@@ -1172,7 +1252,7 @@ class Engine {
     p.effects.clear();
     p.inventory.clear();
     for (final c in _clues.values.where((c) => c.holder == p.id && !c.onBoard).toList()) {
-      _shareInst(p, c);
+      _shareInst(p, c, countStat: false);
     }
     _emit(GameEvent(Ev.died, args: {'player': p.id}));
     _dirtyAll();
@@ -1276,11 +1356,33 @@ class Engine {
   bool _shadowVisibleTo(PlayerState p) {
     final sh = _shadow;
     if (sh == null) return false;
+    return _perceives(p, sh.x, sh.y);
+  }
+
+  /// Kann [p] nachts den Punkt sehen bzw. hören (gleiche Regel wie für den Schatten)?
+  bool _perceives(PlayerState p, double x, double y) {
     if (p.ghost) return true;
-    final d = dist(p.x, p.y, sh.x, sh.y);
+    final d = dist(p.x, p.y, x, y);
     if (d <= Tuning.hearRadius) return true;
     final radius = Tuning.nightLightRadius * p.lightMul + 0.5;
-    return d <= radius && _grid!.lineOfSight(p.x, p.y, sh.x, sh.y);
+    return d <= radius && _grid!.lineOfSight(p.x, p.y, x, y);
+  }
+
+  /// Schatten-Spuren werden pro Spieler erst sichtbar, wenn er sie wahrnimmt –
+  /// sonst verriete jede neue Spur allen Clients die Position des Schattens.
+  void _updateSeenTraces() {
+    final traces = _items.entries.where((e) => e.value.def.type == ItemType.trace).toList();
+    if (traces.isEmpty) return;
+    for (final p in _players.values) {
+      final seen = _seenTraces.putIfAbsent(p.id, () => <String>{});
+      for (final t in traces) {
+        if (seen.contains(t.key)) continue;
+        if (_perceives(p, t.value.x, t.value.y)) {
+          seen.add(t.key);
+          _dirty[p.id] = true;
+        }
+      }
+    }
   }
 
   CaseView? caseFor(String playerId, {bool force = false}) {
@@ -1315,12 +1417,13 @@ class Engine {
       }
     }
     return CaseView(
-      version: _now,
+      version: ++_caseVersion,
       roomCode: roomCode,
       hostId: _hostId,
       scenarioId: _scenarioId,
       mode: _mode,
-      seed: _seed,
+      // Der Seed bestimmt die Wahrheit – nur der öffentliche Tagesfall-Seed geht raus.
+      seed: _mode == 'daily' ? _seed : 0,
       bots: _botCount,
       lobby: [
         for (final q in _players.values)
@@ -1335,9 +1438,14 @@ class Engine {
       board: [for (final c in _clues.values) if (c.onBoard) view(c)],
       deductions: List.of(_deductions),
       contradictions: _contradicted.length,
+      contradicted: List.of(_contradicted),
       hotspots: hotspots,
       openDoors: [for (final d in _grid?.openDoors ?? const <Pt>{}) [d.x, d.y]],
-      items: [for (final i in _items.entries) ItemView(id: i.key, type: i.value.def.type, x: i.value.x, y: i.value.y)],
+      items: [
+        for (final i in _items.entries)
+          if (i.value.def.type != ItemType.trace || (_seenTraces[playerId]?.contains(i.key) ?? false))
+            ItemView(id: i.key, type: i.value.def.type, x: i.value.x, y: i.value.y),
+      ],
       inventory: List.of(p.inventory),
       leadOptions: _phase == Phase.council ? List.of(_leadOptions) : const [],
       leadVotes: Map.of(_leadVotes),

@@ -13,6 +13,9 @@ abstract interface class GameRuntime {
 
   bool get finished;
 
+  /// Noch in der Lobby (Partie nicht gestartet).
+  bool get inLobby;
+
   bool join(String playerId, String name);
 
   void leave(String playerId);
@@ -46,6 +49,9 @@ class CoreRuntime implements GameRuntime {
 
   @override
   bool get finished => inner.finished;
+
+  @override
+  bool get inLobby => inner.inLobby;
 
   @override
   bool join(String playerId, String name) => inner.join(playerId, name);

@@ -402,6 +402,9 @@ class SuspectDef {
   /// Motive, die diese Person als Täter haben kann.
   final List<String> motives;
 
+  /// Waffen, zu denen diese Person Zugang hatte (leer = Zugang zu allen).
+  final List<String> weapons;
+
   /// Kann nachts vom Schatten getötet werden (wenn nicht Täter).
   final bool witness;
 
@@ -420,11 +423,15 @@ class SuspectDef {
     required this.traits,
     required this.candidate,
     required this.motives,
+    this.weapons = const [],
     required this.witness,
     required this.lines,
   });
 
   LText line(String key) => lines[key] ?? LText.empty;
+
+  /// Hatte diese Person Zugang zur Waffe [weaponId]?
+  bool canAccessWeapon(String? weaponId) => weaponId != null && (weapons.isEmpty || weapons.contains(weaponId));
 
   factory SuspectDef.fromJson(Map<String, dynamic> j) => SuspectDef(
         id: j['id'] as String,
@@ -437,6 +444,7 @@ class SuspectDef {
         traits: {for (final e in _map(j['traits']).entries) e.key: e.value as String},
         candidate: j['candidate'] as bool? ?? true,
         motives: (j['motives'] as List? ?? const []).cast<String>(),
+        weapons: (j['weapons'] as List? ?? const []).cast<String>(),
         witness: j['witness'] as bool? ?? true,
         lines: {for (final e in _map(j['lines']).entries) e.key: LText.fromJson(e.value)},
       );
