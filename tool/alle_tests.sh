@@ -27,7 +27,11 @@ if [ -f packages/burgstadt_core/bin/kanon.dart ]; then
   step "Ebene 1/10 · Kanon-Abgleich + Leitplanken"
   (cd packages/burgstadt_core && dart run bin/kanon.dart --pruefe 2>&1 | filter | tail -5)
 fi
-for t in fairness durchspiel teilen_nutzen erkundung leistung; do
+if [ -f packages/burgstadt_core/bin/durchspiel.dart ]; then
+  step "Ebene 3/4 · Durchspiel 4…20 mit Bots, Teilen-Nutzen"
+  (cd packages/burgstadt_core && dart run bin/durchspiel.dart 2>&1 | filter | grep -E "Teilen-Nutzen|DURCHSPIEL")
+fi
+for t in fairness teilen_nutzen erkundung leistung; do
   if [ -f "packages/burgstadt_core/bin/$t.dart" ] && [ "${1:-}" != "schnell" ]; then
     step "burgstadt_core: $t"
     (cd packages/burgstadt_core && dart run "bin/$t.dart" 2>&1 | filter | tail -8)

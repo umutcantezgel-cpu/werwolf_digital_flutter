@@ -95,3 +95,9 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 
 ## E14a · 09.10. 00:31 · Klassische Fälle leitplankenkonform (A-702a umgesetzt)
 - 49 Textstellen in den drei Szenarien + SCHEMA, Beispielszenario („Dunkle Spritzer“) und Oberflächentexte („verborgene Spuren“) geändert; Lösungen, IDs, validate/simulate unverändert grün. Leitplanken-Scanner prüft jetzt alle Spieltexte (Burgstadt + Klassische Fälle): 0 Fehler.
+
+## E15 · 09.10. 00:46 · Fallsystem: maßgeblicher Fallzustand + Bots, Lösungsmaß wie kanon.py
+- Fallzustand (`burgstadt_core/fall`): Phasen nach STADT-05, Wissen je Spieler, Fallakte mit Fäden, Teilen (Einzelne/Akte), Gespräche mit Ersatzregel und Zuhören (IF-1), Stationen (IF-2), Lagerunde mit Meldekarten (IF-5), Rollen-/Detektiv-Entscheidungen, Eingrenzung (AB-*), Endmatrix (EM-1…4), JSON-Speicherstand.
+- Rollen-Entscheidungen: „öffentliche“ Folgen legen genannte Hinweise in die Fallakte (IF-8); verschwiegene Optionen („behältst“, „für dich“ …) nicht. Heuristik auf dem Folge-Text – Umkehrprobe: falsch, wenn eine Folge falsch eingeordnet wird → Overlay-Feld „Wirkung“ je Option (Regelsprache, Phase 4).
+- Bots: Unschuldige teilen offen, die Täterin nur Entlastendes und wählt verschwiegene Optionen (K7). Lösungsmaß: je notwendiger Schlussfolgerung mindestens zwei bekannte Hinweise (Fairness-Regel aus kanon.py).
+- Beleg Ebene 3/4 (`bin/durchspiel.dart`): N = 4…20 jeweils gelöst, Ende EM-1; Teilen spart 72 % Schritte; ohne Teilen bleibt der Fall lösbar (fair).

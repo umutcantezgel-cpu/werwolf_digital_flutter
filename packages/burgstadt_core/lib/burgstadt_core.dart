@@ -9,3 +9,5 @@ export 'src/welt/bereich.dart';
 export 'src/welt/burg.dart';
 export 'src/fall/fall_daten.dart';
 export 'src/fall/fall_zustand.dart';
+export 'src/fall/bots.dart';
+export 'src/zufall.dart';
