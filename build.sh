@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
+# Web-Vorschau für Vercel/Netlify. Flutter-Version ist gepinnt, damit Builds reproduzierbar sind.
 set -euo pipefail
 
-# Install Flutter if not present
-if ! command -v flutter >/dev/null 2>&1; then
-  echo "Installing Flutter SDK..."
-  git clone https://github.com/flutter/flutter.git -b stable --depth 1 "$HOME/flutter"
-  export PATH="$HOME/flutter/bin:$PATH"
-  # enable web support and prefetch web artifacts
-  flutter config --enable-web
-  flutter precache --web
+FLUTTER_VERSION="3.47.6"
+FLUTTER_DIR="$HOME/flutter-$FLUTTER_VERSION"
+
+if [ ! -x "$FLUTTER_DIR/bin/flutter" ]; then
+  echo "Installiere Flutter $FLUTTER_VERSION ..."
+  mkdir -p "$FLUTTER_DIR"
+  curl -sSL "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_${FLUTTER_VERSION}-stable.tar.xz" \
+    | tar -xJ -C "$FLUTTER_DIR" --strip-components=1
 fi
+export PATH="$FLUTTER_DIR/bin:$PATH"
+git config --global --add safe.directory "$FLUTTER_DIR" || true
 
-# Ensure flutter is on PATH for the rest of the script
-export PATH="$HOME/flutter/bin:$PATH"
-
-# Fetch dependencies and build web
+flutter config --enable-web
 flutter pub get
-flutter build web --release
+# Optional: Online-Server per Umgebungsvariable MORDAKTE_SERVER (wss://…/ws)
+flutter build web --release ${MORDAKTE_SERVER:+--dart-define=MORDAKTE_SERVER=$MORDAKTE_SERVER}
