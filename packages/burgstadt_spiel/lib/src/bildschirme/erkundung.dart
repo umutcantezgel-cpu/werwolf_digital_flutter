@@ -3,9 +3,12 @@ import 'dart:math' as math;
 import 'package:burgstadt_core/burgstadt_core.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
+import '../fallsitzung.dart';
 import '../spiel.dart';
 import '../steuerung.dart';
+import 'fallakte.dart';
 import 'hauptmenue.dart';
+import 'lagerunde.dart';
 import 'optionen_bildschirm.dart';
 
 /// Ich-Perspektive in der Burg: laufen, umsehen, Türen benutzen, untersuchen.
@@ -19,10 +22,19 @@ class Erkundung extends Bildschirm {
   double _meldungZeit = 0;
   double _blende = 1; // 1 = schwarz, blendet auf
   Ding? ziel; // Ding im Blick (Tür, Möbel, Station)
+  Figur? zielFigur; // Figur im Blick
+
+  /// Laufender Fall (null = freie Erkundung ohne Fall).
+  final Fallsitzung? sitzung;
+  int _lagerundePhase = 0;
+  final List<(Ereignis, double)> _karten = []; // angezeigte Hinweiskarten mit Restzeit
+
+  /// Gerade angezeigte Hinweiskarten (für Tests und Barrierefreiheit).
+  List<Ereignis> get karten => [for (final k in _karten) k.$1];
 
   static const gehen = 1.6, rennen = 3.2, reichweite = 1.5;
 
-  Erkundung({this.ort = 'gewoelbe', String marke = 'm'}) {
+  Erkundung({this.ort = 'gewoelbe', String marke = 'm', this.sitzung}) {
     _setzeAn(ort, marke);
   }
 
@@ -82,6 +94,41 @@ class Erkundung extends Bildschirm {
       spiel.ton.spiele('schritt_${boden}_${_schrittNr++ % 4 + 1}', lautstaerke: 0.45);
     }
     ziel = _blickziel();
+    zielFigur = _blickFigur();
+    final sz = sitzung;
+    if (sz != null) {
+      sz.tick(dt);
+      sz.figuren.backe(5);
+      final det = sz.sim.detektiv
+        ..bereich = ort
+        ..x = x
+        ..z = z
+        ..yaw = yaw;
+      det.animation = 'stehen';
+      for (final ev in sz.anzeige) {
+        _karten.add((ev, ev.text.length > 90 ? 6.0 : 4.0));
+        if (ev.art == 'belauscht' || ev.art == 'teilen' || ev.art == 'fund') spiel.ton.spiele('hinweis_gefunden', lautstaerke: 0.5);
+        if (ev.art == 'phase') spiel.ton.spiele('uhrturm_schlag', lautstaerke: 0.8);
+      }
+      sz.anzeige.clear();
+      while (_karten.length > 3) {
+        _karten.removeAt(0);
+      }
+      if (sz.fall.abschnitt == Abschnitt.lagerunde && _lagerundePhase != sz.fall.phase) {
+        _lagerundePhase = sz.fall.phase;
+        spiel.ton.spiele('uhrturm_schlag');
+        spiel.oeffne(LagerundeBildschirm(sz));
+      }
+      if (e.gedrueckt(Taste.akte)) spiel.oeffne(FallakteBildschirm(sz));
+    }
+    for (var i = _karten.length - 1; i >= 0; i--) {
+      final (ev, t) = _karten[i];
+      if (t - dt <= 0) {
+        _karten.removeAt(i);
+      } else {
+        _karten[i] = (ev, t - dt);
+      }
+    }
     if (e.gedrueckt(Taste.licht)) {
       licht = !licht;
       spiel.ton.spiele('handylicht_klick');
@@ -110,7 +157,46 @@ class Erkundung extends Bildschirm {
     return null;
   }
 
+  /// Figur der Sitzung im Blick (bis 2,4 m, enger Winkel).
+  Figur? _blickFigur() {
+    final sz = sitzung;
+    if (sz == null) return null;
+    Figur? best;
+    var bestD = 2.4;
+    for (final f in sz.sim.figuren.values) {
+      if (f.id == 'DET' || f.bereich != ort) continue;
+      final dx = f.x - x, dz = f.z - z;
+      final d = math.sqrt(dx * dx + dz * dz);
+      if (d > bestD) continue;
+      var a = math.atan2(dz, dx) - yaw;
+      a = math.atan2(math.sin(a), math.cos(a));
+      if (a.abs() > 0.4) continue;
+      best = f;
+      bestD = d;
+    }
+    return best;
+  }
+
+  String _name(Figur f) {
+    if (f.id == 'BW') return 'Burgwart Eckehard';
+    return sitzung?.fall.daten.rollen[f.id]?.name ?? f.id;
+  }
+
   void _handle(Spiel spiel) {
+    final fig = zielFigur;
+    final sz = sitzung;
+    if (fig != null && sz != null) {
+      if (fig.id == 'BW') {
+        final a = sz.fall.daten.burgwartAussagen[sz.fall.phase] ?? '';
+        sz.melde([Ereignis('aussage', 'Burgwart: $a', von: 'BW', uhr: sz.fall.uhr)]);
+        if (sz.fall.phase >= 2) sz.melde(sz.fall.untersuche('DET', 'BW'));
+      } else {
+        sz.sim.detektivFragt(fig.id);
+        sz.melde(sz.sim.abholen());
+      }
+      spiel.ton.spiele('papier_rascheln', lautstaerke: 0.4);
+      return;
+    }
     final d = ziel;
     if (d == null) {
       _meldung('Hier ist nichts Besonderes.');
@@ -130,7 +216,14 @@ class Erkundung extends Bildschirm {
         betreten(spiel);
       case KachelArt.station:
       case KachelArt.objekt:
-        _meldung(l.station != null ? '${l.name}: Hier lohnt ein genauer Blick.' : l.name);
+        if (l.station != null && sz != null) {
+          final funde = sz.fall.untersuche('DET', l.station!);
+          sz.melde(funde);
+          if (funde.isEmpty) _meldung('${l.name}: nichts Neues.');
+          spiel.ton.spiele('papier_rascheln', lautstaerke: 0.5);
+        } else {
+          _meldung(l.station != null ? '${l.name}: Hier lohnt ein genauer Blick.' : l.name);
+        }
       default:
         _meldung(l.name);
     }
@@ -154,7 +247,7 @@ class Erkundung extends Bildschirm {
     var flash = licht ? 0.9 : 0.0;
     if (licht && !spiel.optionen.flackernAus) flash *= 0.97 + 0.03 * math.sin(spiel.zeit * 23);
     r.flashStrength = flash;
-    spiel.zeichneBereich(ort);
+    spiel.zeichneBereich(ort, s: sitzung);
   }
 
   @override
@@ -175,12 +268,36 @@ class Erkundung extends Bildschirm {
     ui.fb.fillRect(cx + 2, cy, 2, 1, farbe);
     ui.fb.fillRect(cx, cy - 3, 1, 2, farbe);
     ui.fb.fillRect(cx, cy + 2, 1, 2, farbe);
-    ui.text('00:25 · Phase 1', 4, 3);
+    final sz = sitzung;
+    ui.text(sz == null ? 'Freie Erkundung' : '${sz.uhrText} · Phase ${sz.fall.phase}', 4, 3);
+    // Sprechblasen über Figuren
+    if (sz != null) {
+      final cam = spiel.renderer.camera;
+      final kf = spiel.skala!.kWelt / spiel.skala!.kUi;
+      final tmp = List<double>.filled(3, 0);
+      for (final f in sz.sim.figuren.values) {
+        if (f.bereich != ort || f.blasenZeit <= 0 || f.sprechblase == null) continue;
+        cam.toView(f.x, 2.05, f.z, tmp, 0);
+        if (tmp[2] < 0.4 || tmp[2] > 9) continue;
+        final sx = (cam.cx + tmp[0] * cam.focal / tmp[2]) * kf, sy = (cam.cy - tmp[1] * cam.focal / tmp[2]) * kf;
+        final zeilen = ui.font.wrap(f.sprechblase!, 130);
+        final bh = zeilen.take(3).length * ui.zeilenHoehe + 4;
+        final bw = zeilen.take(3).map(ui.font.measure).fold(0, math.max) + 8;
+        final r = Rechteck((sx - bw / 2).round(), (sy - bh).round(), bw, bh);
+        ui.panel(r, grund: UiFarbe.grundDunkel, fangen: false);
+        for (var i = 0; i < zeilen.length && i < 3; i++) {
+          ui.text(zeilen[i], r.x + 4, r.y + 2 + i * ui.zeilenHoehe, schatten: null);
+        }
+      }
+    }
     final ortName = _bereich.name;
     ui.text(ortName, w - ui.font.measure(ortName) - 4, 3, farbe: UiFarbe.textGedimmt);
     // Blickziel benennen
     final d = ziel;
-    if (d != null) {
+    final fz = zielFigur;
+    if (fz != null) {
+      ui.textMittig('${_name(fz)} – ansprechen', cx, cy + 10, farbe: UiFarbe.akzent);
+    } else if (d != null) {
       final l = d.legende;
       final was = switch (l.art) {
         KachelArt.tuer => l.verschlossen ? '${l.name} (verschlossen)' : l.name,
@@ -191,8 +308,10 @@ class Erkundung extends Bildschirm {
     // Knöpfe rechts
     const bw = 48, bh = 17;
     var by = h - (bh + 4) * 4 - 4;
-    if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), d == null ? 'Aktion' : (d.legende.art == KachelArt.tuer ? 'Öffnen' : 'Ansehen'),
-        hervorgehoben: d != null)) {
+    if (ui.knopf(
+        Rechteck(w - bw - 4, by, bw, bh),
+        fz != null ? 'Reden' : (d == null ? 'Aktion' : (d.legende.art == KachelArt.tuer ? 'Öffnen' : 'Ansehen')),
+        hervorgehoben: d != null || fz != null)) {
       _handle(spiel);
     }
     by += bh + 4;
@@ -201,13 +320,45 @@ class Erkundung extends Bildschirm {
       spiel.ton.spiele('handylicht_klick');
     }
     by += bh + 4;
-    if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), 'Akte')) _meldung('Die Fallakte ist noch leer.');
+    final neu = sz?.neueAkte ?? 0;
+    if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), neu > 0 ? 'Akte $neu' : 'Akte', hervorgehoben: neu > 0)) {
+      if (sz != null) {
+        spiel.oeffne(FallakteBildschirm(sz));
+      } else {
+        _meldung('Ohne Fall gibt es keine Akte.');
+      }
+    }
     by += bh + 4;
     if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), 'Menü')) spiel.oeffne(_Pause());
     final j = steuerung.joystick;
     if (j != null) {
       ui.kreis(j.$1, j.$2, Steuerung.joyRadius.round(), UiFarbe.rand);
       ui.kreis(j.$3, j.$4, 6, UiFarbe.text, gefuellt: true);
+    }
+    // Hinweiskarten (neueste unten)
+    var ky = 16;
+    for (final (ev, _) in _karten) {
+      final titel = switch (ev.art) {
+        'belauscht' => 'Mitgehört',
+        'teilen' => 'Dir erzählt',
+        'fund' => 'Gefunden',
+        'akte' => 'Fallakte',
+        'aussage' => 'Aussage',
+        'erzaehler' => 'Erzähler',
+        'phase' => 'Uhrturm',
+        _ => 'Notiz',
+      };
+      final kw = math.min(w - bw - 20, 300);
+      final zeilen = ui.font.wrap(ev.text, kw - 10);
+      final kh = (math.min(zeilen.length, 4) + 1) * ui.zeilenHoehe + 4;
+      final r = Rechteck(4, ky, kw, kh);
+      ui.panel(r, grund: UiFarbe.grundDunkel, fangen: false);
+      ui.text(titel, r.x + 5, r.y + 2, farbe: ev.art == 'akte' ? UiFarbe.spuk : UiFarbe.akzent, schatten: null);
+      for (var i = 0; i < zeilen.length && i < 4; i++) {
+        ui.text(zeilen[i], r.x + 5, r.y + 2 + (i + 1) * ui.zeilenHoehe, schatten: null);
+      }
+      ky += kh + 3;
+      if (ky > h - 60) break;
     }
     if (_meldungZeit > 0 && meldung.isNotEmpty) {
       final tw = ui.font.measure(meldung);

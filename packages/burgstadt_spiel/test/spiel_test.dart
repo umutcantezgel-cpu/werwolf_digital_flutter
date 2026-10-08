@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:burgstadt_spiel/burgstadt_spiel.dart';
+import 'package:burgstadt_spiel/burgstadt_spiel_io.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 import 'package:test/test.dart';
 
@@ -149,5 +150,35 @@ void main() {
     e.tasteRunter(Taste.aktion);
     spiel.tick(1 / 30, e);
     expect(hof.ort, 'hof');
+  });
+
+  test('Fall solo: Start aus dem Menü, Figuren gebrannt und sichtbar, Ansprechen liefert Aussage', () {
+    final spiel = Spiel()..groesse(640, 360);
+    ladeAusRepo(spiel);
+    final e = Eingabe();
+    spiel.tick(1 / 30, e);
+    e.tasteRunter(Taste.runter);
+    spiel.tick(1 / 30, e);
+    e.tasteHoch(Taste.runter);
+    e.tasteRunter(Taste.bestaetigen);
+    spiel.tick(1 / 30, e);
+    e.tasteHoch(Taste.bestaetigen);
+    final erk = spiel.bildschirm as Erkundung;
+    final s = erk.sitzung!;
+    expect(s.fall.n, 4);
+    s.figuren.alleBacken();
+    expect(s.figuren.offen, 0);
+    final fig = s.sim.figuren['R01']!;
+    erk.x = fig.x - 1.2;
+    erk.z = fig.z;
+    erk.yaw = 0;
+    fig.x = erk.x + 1.2; // stillhalten
+    spiel.tick(1 / 30, e);
+    expect(erk.zielFigur?.id, 'R01');
+    expect(spiel.renderer.stats.spritesDrawn, greaterThan(0));
+    e.tasteRunter(Taste.aktion);
+    spiel.tick(1 / 30, e);
+    spiel.tick(1 / 30, e);
+    expect(erk.karten.any((x) => x.art == 'aussage' && x.von == 'R01'), isTrue);
   });
 }

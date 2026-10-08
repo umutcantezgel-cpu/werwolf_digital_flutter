@@ -43,6 +43,9 @@ if [ -d packages/burgstadt_spiel ]; then
   FOTOS="$(mktemp -d)"
   (cd packages/burgstadt_spiel && dart run bin/bildschirmfoto.dart "$FOTOS" 1280 720 2>&1 | filter | tee /dev/stderr | grep -q FEHLER && exit 1 || true)
   (cd packages/burgstadt_spiel && dart run bin/bildschirmfoto.dart "$FOTOS" 2401 1081 2>&1 | filter | tee /dev/stderr | grep -q FEHLER && exit 1 || true)
+  step "Ebene 3/5 · Spieltest: Fall solo über die echten Bildschirme bis zum Ende (Fotos geprüft)"
+  (cd packages/burgstadt_spiel && dart run bin/spieltest.dart "$FOTOS" 4 2>&1 | filter | grep -E "Ende:|SPIELTEST")
+  (cd packages/burgstadt_spiel && dart run bin/spieltest.dart "$FOTOS" 2>&1 >/dev/null; dart run bin/spieltest.dart "$FOTOS" 12 1080 2400 2>&1 | filter | grep -E "SPIELTEST")
 fi
 
 step "Kanon-Werkzeug (Original): kanon.py pruefe"

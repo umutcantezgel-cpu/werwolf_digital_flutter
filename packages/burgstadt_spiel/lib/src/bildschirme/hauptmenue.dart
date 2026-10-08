@@ -43,20 +43,28 @@ class Hauptmenue extends Bildschirm {
     ui.textMittig('Spuk im Gewölbe', cx, y, farbe: UiFarbe.text);
     y += ui.zeilenHoehe + (hoch ? 24 : 12);
     final breite = math.min(w - 32, 180);
-    final wahl = ui.menue(const [
-      'Allein spielen',
+    final wahl = ui.menue([
+      'Allein spielen (Detektiv)',
+      'Besetzung: ${spiel.besetzung} Rollen',
       'Im WLAN spielen',
       'Optionen',
       'Klassische Fälle',
     ], cx, y, breite: breite);
     switch (wahl) {
       case 0:
-        spiel.wechsle(Erkundung());
+        final s = spiel.starteFall();
+        if (s == null) {
+          spiel.wechsle(Erkundung());
+        } else {
+          spiel.wechsle(Erkundung(sitzung: s));
+        }
       case 1:
-        hinweis = 'WLAN-Spiel kommt in Phase 5 des Nachtlaufs.';
+        spiel.besetzung = spiel.besetzung >= 20 ? 4 : spiel.besetzung + 2;
       case 2:
-        spiel.oeffne(OptionenBildschirm());
+        hinweis = 'WLAN-Spiel kommt in Phase 5 des Nachtlaufs.';
       case 3:
+        spiel.oeffne(OptionenBildschirm());
+      case 4:
         spiel.beiAktion?.call('klassisch');
     }
     if (hinweis != null) ui.textMittig(hinweis!, cx, h - ui.zeilenHoehe * 3, farbe: UiFarbe.spuk);

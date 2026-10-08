@@ -7,6 +7,8 @@ import 'bildschirme/hauptmenue.dart';
 import 'optionen.dart';
 import 'skalierung.dart';
 import 'ton.dart';
+import 'fallsitzung.dart';
+import 'figuren_lager.dart';
 import 'welt_geometrie.dart';
 
 /// Ein Bildschirm des Spiels (Hauptmenü, Erkundung, Fallakte …).
@@ -43,6 +45,19 @@ class Spiel {
   final Welt stadt = Welt(baueBurg());
   final Map<String, BereichGeometrie> _geometrie = {};
   late final List<IndexedTexture> texturen = baueAlleTexturen();
+
+  /// Falldaten (Kanon), Figurenteile und -karten – setzt die App-Hülle bzw. das Werkzeug.
+  FallDaten? fallDaten;
+  final Map<String, Teil> teile = {...kTeileBasis};
+  final Map<String, Figurenkarte> karten = {};
+  int besetzung = 4;
+
+  /// Neue Solo-Fallsitzung (Detektiv = Spieler, Rollen = Bots).
+  Fallsitzung? starteFall({int seed = 7, double tempo = 65 / 480}) {
+    final d = fallDaten;
+    if (d == null) return null;
+    return Fallsitzung.starte(d, stadt, besetzung, teile, karten, seed: seed, tempo: tempo);
+  }
 
   BereichGeometrie geometrie(String id) => _geometrie.putIfAbsent(id, () => BereichGeometrie(stadt.bereiche[id]!));
 
@@ -148,8 +163,9 @@ class Spiel {
     e.bildEnde();
   }
 
-  /// Zeichnet den Bereich [id] aus der aktuellen Kamera (Himmel nur draußen).
-  void zeichneBereich(String id) {
+  /// Zeichnet den Bereich [id] aus der aktuellen Kamera (Himmel nur draußen),
+  /// dazu die Figuren der Sitzung [s] in diesem Bereich (außer dem Detektiv).
+  void zeichneBereich(String id, {Fallsitzung? s}) {
     final r = renderer;
     final b = stadt.bereiche[id]!;
     final g = geometrie(id);
@@ -170,6 +186,17 @@ class Spiel {
     }
     for (final m in g.meshes) {
       r.drawMesh(m);
+    }
+    if (s != null) {
+      final c = r.camera;
+      for (final f in s.sim.figuren.values) {
+        if (f.id == 'DET' || f.bereich != id) continue;
+        final richtung = FigurenLager.richtung(f.yaw, f.x, f.z, c.x, c.z);
+        final bild = s.figuren.bild(f.id, f.animation, f.animZeit, richtung);
+        if (bild == null) continue;
+        final (w, k) = g.licht(f.x, 1.0, f.z);
+        r.drawSprite(bild, f.x, 0, f.z, warm: w, cold: k);
+      }
     }
   }
 }
