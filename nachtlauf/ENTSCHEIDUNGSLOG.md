@@ -40,8 +40,26 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 ## E8 · Ton: prozedural erzeugte WAVs, Wiedergabe über `audioplayers`
 ## E9 · Abhängigkeiten (Begründung je Paket wird beim Einbau ergänzt)
 
-## E4a · 08.10. 23:45 · Burg bleibt verschlossener Raum in Phase 1, Oberstadt ab Phase 2
+## E4a · 08.10. 23:20 · Burg bleibt verschlossener Raum in Phase 1, Oberstadt ab Phase 2
 - Ziel: Kanon-Logik S-1 („Täter noch in der Burg“) unverändert lassen und trotzdem eine begehbare, verschlossene Burgstadt bieten.
 - Wege: (a) ganze Oberstadt als „verschlossener Raum“ (Bewohner würden Verdächtige → S-1 bricht), (b) Burgtor nur verriegelt statt verschlossen (H-01/PF-7 müssten geändert werden), (c) Burg bleibt bis Phase 2 verschlossen; der Bund (H-03) öffnet zu Phase 2 das Burgtor zur Oberstadt, die Stadttore bleiben zu.
 - Gewählt: (c). Keine Änderung an H-01…H-29, S-1…S-10, PF-1…PF-7 nötig; die Stadt wird ab Phase 2 erkundbar, Phase 1 bleibt das klassische Gewölbe-Rätsel mit Blick vom Wehrgang über die dunkle Stadt.
 - Umkehrprobe: falsch, wenn Phase 1 zu eng wirkt → Wehrgang begehbar mit Blick über die Stadt; Stadtorte tragen erst ab Phase 2 Zusatzspuren. Folgen: Durchstich (Phase 2 des Nachtlaufs) zeigt Burg + Marktplatz; im Fall ist der Marktplatz ab Fall-Phase 2 betretbar.
+
+## E1-Go · 08.10. 23:41 · Software-Rasterer bestanden (Go)
+- Messung `packages/pixel_engine/bin/web_bench.dart` (Prüfszene: 285 Meshes, ~3000 Dreiecke, Himmel, Handylicht, RGBA-Wandlung), Headless-Chrome, CPU-Drosselung per CDP – Näherung, keine Handy-Messung:
+  - dart2js: 240×135 = 13,3 ms · 320×180 = 18,7 ms · 384×216 = 27,4 ms je Bild bei 4× Drosselung (ungedrosselt 3,3 / 4,4 / 5,7 ms).
+  - wasm: 20,8 / 33,8 / 45,6 ms bei 4× (ungedrosselt 4,6 / 7,0 / 8,8 ms) – im Browser langsamer als dart2js, daher Web-Build mit dart2js.
+  - Dart-VM: 320×180 = 2,4–2,7 ms.
+- Entscheidung: Go. Standardstufe 320×180 (Mittel), 240×135 (Sparsam), 384×216 (Hoch). Budget für Logik + Figuren ≈ 10 ms bei 4× Drosselung.
+- Umkehrprobe: falsch, wenn die echte Stadt (≥150 Gebäude) das Budget sprengt → Zellen-Culling, Nebelgrenze, LOD für Häuser in > 20 m (Quader statt Details).
+
+## E10 · 08.10. 23:40 · Einheitliche Texel-Dichte 32 Texel/m
+- Ziel: Figuren mit lesbaren Gesichtern, Welt und Figuren mit gleicher Pixelgröße (keine „Mixels“).
+- Wege: 16 Texel/m (Figur 28 px, Gesicht 4 px – zu grob), 32 Texel/m (Figur ~56 px, wie klassische Ego-Spiele), 64 Texel/m (zu feine Texturen, mehr Flimmern).
+- Gewählt: 32 Texel/m für Wände, Böden und Figuren (`kTexelsPerMeter`). Mip-Stufen nach Tiefe sorgen dafür, dass in der Ferne nicht flimmert.
+- Umkehrprobe: falsch, wenn Nahsicht zu „matschig“ wirkt → Detailtexturen für Hinweis-Objekte mit 64 Texel/m erlaubt, aber nur für kleine Gegenstände.
+
+## E11 · 08.10. 23:38 · Licht: quadratische Stufen, farbtontreue Colormaps, gedämpftes Dithering
+- Befund am ersten Bild: volles Bayer-Dithering erzeugte ein Schachbrettmuster, weil benachbarte Lichtstufen in andere Farbrampen sprangen.
+- Lösung: Lichtstufen quadratisch verteilt (mehr Stufen im Dunkeln), Farbsuche bevorzugt die eigene Rampe (Faktor 1,6 für fremde Rampen), Dithering-Stärke 0,5 (schmale Übergangsbänder statt Flächen-Raster). Bild: `nachtlauf/bilder/phase1/rasterer_320.png`.
