@@ -1205,7 +1205,7 @@ class Engine {
     }
     p.lastSignalAt = _now;
     _signals.add(_Signal(p.id, kind, value, x, y, _now));
-    _emit(GameEvent(Ev.signal, args: {'by': p.id, 'kind': kind, 'value': value, 'x': ?x, 'y': ?y}));
+    _emit(GameEvent(Ev.signal, args: {'by': p.id, 'kind': kind, 'value': value, if (x != null) 'x': x, if (y != null) 'y': y}));
   }
 
   // ------------------------------------------------------- Leben & Effekte

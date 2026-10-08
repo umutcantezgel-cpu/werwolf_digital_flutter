@@ -266,7 +266,7 @@ class _EndingRow extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(verdict, style: Noir.title(15, color: Noir.ink, spacing: 0.2)),
-                  Text([l.teamLabel(k.team), ?culprit].join(' · '), style: Noir.text(11.5, color: Noir.inkSoft)),
+                  Text([l.teamLabel(k.team), if (culprit != null) culprit].join(' · '), style: Noir.text(11.5, color: Noir.inkSoft)),
                 ],
               ),
             ),

@@ -6,14 +6,15 @@ const tokenKey = 'mordakte_token';
 /// Speicher-Schlüssel des zuletzt betretenen Online-Raums (Rückkehr nach Neuladen).
 const roomKey = 'mordakte_room';
 
-@JS('sessionStorage')
-external _Storage get _sessionStorage;
-
-extension type _Storage._(JSObject _) implements JSObject {
+@JS()
+class _Storage {
   external String? getItem(String key);
   external void setItem(String key, String value);
   external void removeItem(String key);
 }
+
+@JS('sessionStorage')
+external _Storage get _sessionStorage;
 
 String? _get(String key) {
   try {

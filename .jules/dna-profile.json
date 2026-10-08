@@ -1,0 +1,7 @@
+{
+  "framework": "Flutter (Dart)",
+  "state_management": "Provider",
+  "routing": "go_router",
+  "styling": "Semantic Tokens via Noir class",
+  "linting": "flutter analyze strict rules"
+}

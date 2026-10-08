@@ -272,11 +272,11 @@ class MetaStore extends ChangeNotifier {
 
   // --- Persistenz --------------------------------------------------------------
 
-  String? _get(String k) => _prefs != null ? _prefs.getString('mordakte.$k') : _memory[k];
+  String? _get(String k) => _prefs != null ? _prefs?.getString('mordakte.$k') : _memory[k];
 
   void _put(String k, String v) {
     if (_prefs != null) {
-      _prefs.setString('mordakte.$k', v);
+      _prefs?.setString('mordakte.$k', v);
     } else {
       _memory[k] = v;
     }

@@ -799,7 +799,7 @@ class _EvidencePicker extends StatelessWidget {
                           child: ListView.separated(
                             shrinkWrap: true,
                             itemCount: clues.length,
-                            separatorBuilder: (_, _) => const SizedBox(height: 8),
+                            separatorBuilder: (_, __) => const SizedBox(height: 8),
                             itemBuilder: (context, i) {
                               final c = clues[i];
                               final t = clueTexts(g.scenario, c, l);

@@ -452,7 +452,7 @@ class _ClassPicker extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: classes.length,
-        separatorBuilder: (_, _) => const SizedBox(width: 10),
+        separatorBuilder: (_, __) => const SizedBox(width: 10),
         itemBuilder: (context, i) {
           final c = classes[i];
           final locked = rank < c.unlockRank;
@@ -598,7 +598,7 @@ class _HatPicker extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         itemCount: detectiveHats.length,
-        separatorBuilder: (_, _) => const SizedBox(width: 8),
+        separatorBuilder: (_, __) => const SizedBox(width: 8),
         itemBuilder: (context, i) {
           final h = detectiveHats[i];
           final locked = rank < hatRank(h);
@@ -829,7 +829,7 @@ class _BottomBar extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                ?reason,
+                if (reason != null) reason,
                 if (stacked) ...[
                   ready0,
                   const SizedBox(height: 10),
