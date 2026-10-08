@@ -139,6 +139,7 @@
       {"type": "puddle", "x": 15, "y": 11, "color": "#27c6d9"},
       {"type": "puddle", "x": 16, "y": 11, "color": "#27c6d9"},
       {"type": "puddle", "x": 17, "y": 11, "color": "#27c6d9"},
+      {"type": "seat", "x": 10, "y": 9, "color": "#f2f2f2"},
       {"type": "seat", "x": 19, "y": 9, "color": "#f2f2f2"},
       {"type": "seat", "x": 19, "y": 12, "color": "#f2f2f2"},
       {"type": "seat", "x": 10, "y": 12, "color": "#f2f2f2"},
@@ -173,6 +174,7 @@
       {"type": "puddle", "x": 6, "y": 17},
       {"type": "car", "x": 3, "y": 18, "color": "#f5d547"},
       {"type": "car", "x": 9, "y": 19, "color": "#e8e8e8"},
+      {"type": "car", "x": 13, "y": 19, "color": "#3fa7d6"},
       {"type": "puddle", "x": 16, "y": 19},
       {"type": "car", "x": 19, "y": 19, "color": "#2b2d42"},
       {"type": "car", "x": 24, "y": 18, "color": "#ff6fb5"},
@@ -357,7 +359,7 @@
   "story": {"culprit": "viv", "motive": "blackmail", "weapon": "cable"},
   "clues": [
     {"id": "c_body", "kind": "weapon", "name": {"de": "Befund am Toten"},
-     "found": {"de": "Keine sichtbare Ursache auf den ersten Blick. Die Rechtsmedizin in Miami bekommt die Fotos per Funk – die Antwort dauert."},
+     "found": {"de": "Lucky liegt auf dem nassen Teppich, die Augen offen. Die Rechtsmedizin in Miami bekommt die Fotos per Funk – die Antwort dauert."},
      "evolve": "time", "chapters": 1, "source": {"hotspot": "h_body"}, "chapter": 1},
 
     {"id": "c_smear", "kind": "trait", "trait": "shoe", "name": {"de": "Halber Abdruck"},
@@ -534,6 +536,6 @@
         "escaped": {"de": "Frank wird rehabilitiert und kehrt zur Sitte zurück. Manchmal, nachts, fährt er noch am Blue Palm vorbei."}
       }
     },
-    "secret": {"de": "Der Tresor verrät Luckys letzten Einsatz: Er wollte im Sturm seinen eigenen Tod inszenieren, die Police kassieren und als Raymond Lucero nach Nassau verschwinden. Jemand hat ihm die Inszenierung abgenommen."}
+    "secret": {"de": "Der Tresor verrät Luckys letzten Einsatz: Im Hurrikan wollte er seinen eigenen Tod inszenieren, die Police auszahlen lassen und als Raymond Lucero in Nassau neu anfangen. Jemand hat ihm die Inszenierung abgenommen."}
   }
 }
