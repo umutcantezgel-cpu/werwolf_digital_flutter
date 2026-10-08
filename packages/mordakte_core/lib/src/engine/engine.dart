@@ -128,6 +128,7 @@ class Engine {
     final existing = _players[playerId];
     if (existing != null) {
       existing.name = name.isEmpty ? existing.name : name;
+      _queues[playerId]?.clear();
       setConnected(playerId, true);
       return true;
     }
@@ -242,7 +243,8 @@ class Engine {
       case SetLoadout(:final cls, :final coat, :final hat):
         if (_phase != Phase.lobby && _phase != Phase.ending) return;
         if (detectiveClasses.containsKey(cls)) p.cls = cls;
-        if (coat >= 0 && coat < detectiveCoats.length) p.coat = coat;
+        final taken = _players.values.any((o) => o != p && o.coat == coat);
+        if (coat >= 0 && coat < detectiveCoats.length && !taken) p.coat = coat;
         if (detectiveHats.contains(hat)) p.hat = hat;
         _dirtyAll();
       case SetReady(:final ready):

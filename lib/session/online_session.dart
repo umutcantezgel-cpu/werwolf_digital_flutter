@@ -181,6 +181,12 @@ class OnlineSession implements GameSession {
   void send(Command command) {
     if (_disposed || _lostReason != null) return;
     if (_connected.value && _channel != null) {
+      // Ausstehende Position zuerst senden, damit z. B. Interact nicht an einer
+      // veralteten Stelle startet und durch die nachfolgende Bewegung abbricht.
+      if (_moveWanted) {
+        _moveTimer?.cancel();
+        _flushMove();
+      }
       _sendNow({'t': Msg.cmd, 'c': command.toJson()});
     } else if (_queued.length < _maxQueuedCommands) {
       // Kurz offline: nach dem Reconnect nachsenden.

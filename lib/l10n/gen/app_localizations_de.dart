@@ -816,6 +816,9 @@ class LDe extends L {
   }
 
   @override
+  String get accuse_contradicted => 'Widerspruch aufgedeckt';
+
+  @override
   String toast_contradiction(String npc) {
     return 'Widerspruch! $npc hat gelogen. Beweisstärke +1';
   }

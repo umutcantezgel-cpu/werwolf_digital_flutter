@@ -445,6 +445,7 @@
       }
     }
   },
+  "accuse_contradicted": "Widerspruch aufgedeckt",
   "toast_contradiction": "Widerspruch! {npc} hat gelogen. Beweisstärke +1",
   "@toast_contradiction": {
     "placeholders": {

@@ -29,6 +29,9 @@ class FakeSession implements GameSession {
   final _connected = ValueNotifier<bool>(true);
 
   double _x = 0, _y = 0, _f = 0;
+
+  /// Eigene Klasse (Profiler, damit die Lügen-Markierung in der Vorschau sichtbar ist).
+  String _cls = 'profiler';
   int _t = 0;
   int _version = 0;
   Phase _phase = Phase.investigation;
@@ -92,6 +95,9 @@ class FakeSession implements GameSession {
   @override
   void send(Command command) {
     switch (command) {
+      case SetLoadout(:final cls):
+        _cls = cls;
+        _publishCase();
       case Interact(:final target):
         if (_scenario.suspectById.containsKey(target)) {
           _events.add(GameEvent(Ev.dialogueOpen, to: playerId, args: {'npc': target}));
@@ -102,8 +108,9 @@ class FakeSession implements GameSession {
         _events.add(GameEvent(Ev.dialogue, to: playerId, args: {
           'npc': npc,
           'topic': topic,
-          'line': topic == Topic.alibi && npc == 'nephew' ? 'alibiLie' : topic,
-          'lie': topic == Topic.alibi && npc == 'nephew',
+          // Wie die Engine: Lügen-Zeile und Markierung nur für die Profiler-Klasse.
+          'line': topic,
+          if (topic == Topic.alibi && npc == 'nephew' && _cls == 'profiler') ...{'line': 'alibiLie', 'lie': true},
         }));
       case ShareClue(:final clue):
         final i = _notebook.indexWhere((c) => c.id == clue);
@@ -162,11 +169,11 @@ class FakeSession implements GameSession {
       phaseTotalMs: total,
       detectives: [
         DetectiveView(
-          id: 'me', name: 'Du', cls: 'forensic', coat: 0, hat: 'fedora', bot: false, connected: true,
+          id: 'me', name: 'Du', cls: _cls, coat: 0, hat: 'fedora', bot: false, connected: true,
           x: _x, y: _y, facing: _f, life: LifeState.alive, hp: 2, maxHp: 3, nerves: 64, hidden: false,
           moving: false, channel: null, effects: const ['caffeine', 'teamgeist'], downedLeftMs: 0,
         ),
-        det('p2', 'Mila', 'profiler', 1, 'cloche', 10 + 4 * math.cos(a), 7.6 + 0.6 * math.sin(a)),
+        det('p2', 'Mila', 'forensic', 1, 'cloche', 10 + 4 * math.cos(a), 7.6 + 0.6 * math.sin(a)),
         det('p3', 'Jonas', 'excop', 2, 'cap', 9 + 6 * math.cos(a * 0.7), 11 + 1 * math.sin(a * 0.7)),
       ],
       npcs: [
@@ -191,9 +198,9 @@ class FakeSession implements GameSession {
       mode: 'story',
       seed: 1,
       bots: 2,
-      lobby: const [
-        LobbyPlayer(id: 'me', name: 'Du', cls: 'forensic', coat: 0, hat: 'fedora', ready: true, bot: false, connected: true),
-        LobbyPlayer(id: 'p2', name: 'Mila', cls: 'profiler', coat: 1, hat: 'cloche', ready: true, bot: true, connected: true),
+      lobby: [
+        LobbyPlayer(id: 'me', name: 'Du', cls: _cls, coat: 0, hat: 'fedora', ready: true, bot: false, connected: true),
+        LobbyPlayer(id: 'p2', name: 'Mila', cls: 'forensic', coat: 1, hat: 'cloche', ready: true, bot: true, connected: true),
         LobbyPlayer(id: 'p3', name: 'Jonas', cls: 'excop', coat: 2, hat: 'cap', ready: true, bot: true, connected: true),
       ],
       phase: _phase,

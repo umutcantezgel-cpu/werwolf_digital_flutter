@@ -1509,6 +1509,12 @@ abstract class L {
   /// **'{npc} spricht gerade mit jemand anderem.'**
   String toast_refused_busy(String npc);
 
+  /// No description provided for @accuse_contradicted.
+  ///
+  /// In de, this message translates to:
+  /// **'Widerspruch aufgedeckt'**
+  String get accuse_contradicted;
+
   /// No description provided for @toast_contradiction.
   ///
   /// In de, this message translates to:

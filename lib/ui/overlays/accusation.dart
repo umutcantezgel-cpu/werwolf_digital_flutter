@@ -288,6 +288,24 @@ class _SuspectCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(s.role.resolve(), style: Noir.text(11, color: Noir.inkSoft, height: 1.2)),
+                      if (g.cv.contradicted.contains(s.id))
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.gpp_maybe, size: 13, color: Noir.bloodBright),
+                              const SizedBox(width: 4),
+                              Flexible(
+                                child: Text(
+                                  l.accuse_contradicted,
+                                  style: Noir.text(10.5, color: Noir.bloodBright, weight: FontWeight.w700),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       const SizedBox(height: 6),
                       if (traits == null)
                         Text(
