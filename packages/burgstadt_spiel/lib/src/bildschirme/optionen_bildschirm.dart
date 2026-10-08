@@ -13,7 +13,7 @@ class OptionenBildschirm extends Bildschirm {
   }
 
   @override
-  void zeichneWelt(Spiel spiel) => spiel.zeichneSzene();
+  bool get zeigtWelt => false;
 
   @override
   void zeichneUi(Spiel spiel, PixelUi ui) {

@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:burgstadt_spiel/burgstadt_spiel.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 import 'package:test/test.dart';
@@ -58,7 +60,7 @@ void main() {
     for (var i = 0; i < 30; i++) {
       spiel.tick(1 / 30, e);
     }
-    final weg = (erk.z - z0).abs() + (erk.x - x0).abs();
+    final weg = math.sqrt(math.pow(erk.z - z0, 2) + math.pow(erk.x - x0, 2));
     expect(weg, closeTo(Erkundung.gehen, 0.2));
   });
 
@@ -83,7 +85,7 @@ void main() {
     spiel.tick(1 / 30, e);
     expect(spiel.bildschirm, isA<Erkundung>());
     final erk = spiel.bildschirm as Erkundung;
-    final z0 = erk.z, yaw0 = erk.yaw;
+    final z0 = erk.z, x0 = erk.x, yaw0 = erk.yaw;
     e.zeiger.add(const ZeigerEreignis(2, ZeigerArt.runter, 100, 250));
     spiel.tick(1 / 30, e);
     for (var i = 0; i < 20; i++) {
@@ -92,7 +94,7 @@ void main() {
     }
     e.zeiger.add(const ZeigerEreignis(2, ZeigerArt.hoch, 100, 200));
     spiel.tick(1 / 30, e);
-    expect((erk.z - z0).abs(), greaterThan(0.5));
+    expect(math.sqrt(math.pow(erk.z - z0, 2) + math.pow(erk.x - x0, 2)), greaterThan(0.5));
     e.zeiger.add(const ZeigerEreignis(3, ZeigerArt.runter, 500, 150));
     spiel.tick(1 / 30, e);
     e.zeiger.add(const ZeigerEreignis(3, ZeigerArt.bewegt, 560, 150));
@@ -118,11 +120,34 @@ void main() {
     spiel.tick(1 / 30, e);
     e.tasteHoch(Taste.bestaetigen);
     expect(ton.gespielt, contains('ui_klick'));
-    expect(ton.gespielt, contains('uhrturm_schlag'));
+    expect(ton.kanaele['musik'], 'musik_gewoelbe_schleife');
     e.tasteRunter(Taste.hoch);
     for (var i = 0; i < 60; i++) {
       spiel.tick(1 / 30, e);
     }
-    expect(ton.gespielt.where((n) => n.startsWith('schritt_pflaster_')).length, greaterThanOrEqualTo(3));
+    expect(ton.gespielt.where((n) => n.startsWith('schritt_')).length, greaterThanOrEqualTo(3));
+  });
+
+  test('Türen: Turmtür führt zum Turm-Fuß, verschlossenes Burgtor bleibt zu', () {
+    final spiel = Spiel()..groesse(640, 360);
+    final e = Eingabe();
+    final erk = Erkundung(ort: 'gewoelbe', marke: 't');
+    spiel.wechsle(erk);
+    // Blick nach Norden zur Turmtür (Marke t liegt direkt davor)
+    erk.yaw = -math.pi / 2;
+    spiel.tick(1 / 30, e);
+    expect(erk.ziel?.legende.name, 'Turmtür');
+    e.tasteRunter(Taste.aktion);
+    spiel.tick(1 / 30, e);
+    e.tasteHoch(Taste.aktion);
+    expect(erk.ort, 'turmfuss');
+    final hof = Erkundung(ort: 'hof', marke: 'b');
+    spiel.wechsle(hof);
+    hof.yaw = math.pi / 2; // nach Süden zum Burgtor
+    spiel.tick(1 / 30, e);
+    expect(hof.ziel?.legende.name, startsWith('Burgtor'));
+    e.tasteRunter(Taste.aktion);
+    spiel.tick(1 / 30, e);
+    expect(hof.ort, 'hof');
   });
 }

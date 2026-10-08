@@ -138,7 +138,6 @@ class Bereich {
   bool begehbar(int x, int z) {
     final a = art(x, z);
     if (a == KachelArt.boden || a == KachelArt.station) return true;
-    if (a == KachelArt.tuer) return true;
     return false;
   }
 

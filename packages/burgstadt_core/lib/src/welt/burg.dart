@@ -1,0 +1,210 @@
+import 'bereich.dart';
+
+const _l = Legende.new;
+
+Legende _tuer(String name, String ziel, String marke, {bool zu = false, String textur = 'eichenTuer'}) =>
+    _l(KachelArt.tuer, name, ziel: ziel, zielMarke: marke, verschlossen: zu, textur: textur, hoehe: 2.2);
+
+Legende _ding(String name, String form, double hoehe, {String? textur, String? station, double warm = 0, double kalt = 0, double weite = 0}) =>
+    _l(KachelArt.objekt, name, form: form, hoehe: hoehe, textur: textur, station: station, lichtWarm: warm, lichtKalt: kalt, lichtWeite: weite);
+
+Legende _station(String name, String station, {String form = 'boden'}) =>
+    _l(KachelArt.station, name, station: station, form: form, hoehe: 0.05);
+
+/// Burg Schartenfels nach Kanon (K-003 bis K-006, BSO-01 bis BSO-12, LISTE-ORTE).
+/// Ebenen des Wendeltreppenturms sind eigene Bereiche, verbunden über Treppen.
+Map<String, Bereich> baueBurg() {
+  final b = <Bereich>[
+    Bereich(
+      id: 'gewoelbe',
+      name: 'Kamin-Gewölbe',
+      innen: true,
+      raumHoehe: 3.4,
+      grundWarm: 0.18,
+      grundKalt: 0.04,
+      karte: const [
+        '########################TT##',
+        '#KKKK..PP...............t..#',
+        '#KKKK..PP..................#',
+        '#..........................#',
+        '#.....FFFFFFFFFFFFFF.......#',
+        '#.....FFFFFFFFFFFFFF....NNN#',
+        '#.........................eE',
+        '#..........................E',
+        '#..........................#',
+        '#.....m....................#',
+        '#..........................#',
+        'Hk.....................WWWW#',
+        'H......................WWWW#',
+        '############################',
+      ],
+      legende: {
+        'T': _tuer('Turmtür', 'turmfuss', 'g'),
+        'E': _tuer('alte Eichentür', 'speisekammer', 'e'),
+        'H': _tuer('Kellerhals', 'hof', 'k', textur: 'holzBohlen'),
+        'K': _ding('Kamin', 'kamin', 1.6, textur: 'quaderMauer', warm: 0.95, weite: 7),
+        'P': _ding('Punschkessel (warm, alkoholfrei)', 'kessel', 0.9, textur: 'eichenTuerEisen', warm: 0.35, weite: 2.5),
+        'F': _ding('Festtafel', 'tisch', 0.78, textur: 'holzDielen', warm: 0.45, weite: 4.5),
+        'N': _ding('Nische neben der Eichentür', 'nische', 1.2, textur: 'quaderMauer', station: 'BS-08'),
+        'W': _ding('Fotowand', 'wand', 1.8, textur: 'holzVertaefelung', station: 'BS-12'),
+      },
+    ),
+    Bereich(
+      id: 'speisekammer',
+      name: 'Speisekammer',
+      innen: true,
+      raumHoehe: 2.6,
+      grundWarm: 0.0,
+      grundKalt: 0.02,
+      karte: const [
+        '####SS####',
+        '#RR1s...K#',
+        '#3......K#',
+        '#...FF...#',
+        'Ee..FF...#',
+        'E......9.#',
+        '#TT...OO.#',
+        '##########',
+      ],
+      legende: {
+        'S': _tuer('Eisentür (quietscht)', 'turmfuss', 's', textur: 'eisenGitter'),
+        'E': _tuer('alte Eichentür', 'gewoelbe', 'e'),
+        'R': _ding('Regal mit Konserven', 'regal', 1.9, textur: 'regalBuecher', station: 'BS-05'),
+        '1': _station('Wachsspritzer neben der Eisentür', 'BS-01'),
+        '3': _station('unter dem Regal', 'BS-03'),
+        '9': _station('Kerzenständer am Boden', 'BS-09'),
+        'F': _ding('Fass', 'fass', 0.9, textur: 'holzBohlen'),
+        'K': _ding('Kartoffelkisten', 'kiste', 0.6, textur: 'holzDielen'),
+        'T': _ding('Tiefkühltruhe', 'truhe', 0.9, textur: 'putzKalkweiss'),
+        'O': _ding('Regal mit der Geburtstagstorte', 'regal', 1.9, textur: 'regalBuecher'),
+      },
+    ),
+    Bereich(
+      id: 'turmfuss',
+      name: 'Turm-Fuß',
+      innen: true,
+      raumHoehe: 3.0,
+      karte: const [
+        '###AA#####',
+        '#..a.....#',
+        '#........#',
+        '#.......4X',
+        'Gg.......X',
+        'G........#',
+        '#........#',
+        '#.CC.....#',
+        '#.CC..s..#',
+        '#####SS###',
+      ],
+      legende: {
+        'A': _tuer('Wendeltreppe hinauf', 'absatz', 'd', textur: 'stufenStein'),
+        'G': _tuer('Turmtür', 'gewoelbe', 't'),
+        'S': _tuer('Eisentür (quietscht)', 'speisekammer', 's', textur: 'eisenGitter'),
+        'X': _ding('Sicherungskasten mit Zahlenschloss', 'kasten', 1.7, textur: 'eisenGitter'),
+        '4': _station('unter dem Sicherungskasten', 'BS-04'),
+        'C': _ding('alte Holztruhe', 'truhe', 0.7, textur: 'eichenTuerEisen', station: 'BS-06'),
+      },
+    ),
+    Bereich(
+      id: 'absatz',
+      name: 'Erster Turmabsatz',
+      innen: true,
+      raumHoehe: 3.0,
+      karte: const [
+        '###AA###',
+        '#..u...#',
+        '#......#',
+        '#......R',
+        '#......R',
+        '#..d...#',
+        '###BB###',
+      ],
+      legende: {
+        'A': _tuer('Wendeltreppe hinauf', 'hofebene', 'd', textur: 'stufenStein'),
+        'B': _tuer('Wendeltreppe hinab', 'turmfuss', 'a', textur: 'stufenStein'),
+        'R': _ding('Ritterrüstung „Kunibert“', 'ruestung', 1.9, station: 'Kunibert'),
+      },
+    ),
+    Bereich(
+      id: 'hofebene',
+      name: 'Hofebene des Turms',
+      innen: true,
+      raumHoehe: 3.0,
+      karte: const [
+        '###AA#####',
+        '#..u.....#',
+        '#........V',
+        'Hh.......V',
+        'H........#',
+        '#........W',
+        '#..d.....W',
+        '###BB#####',
+      ],
+      legende: {
+        'A': _tuer('Wendeltreppe hinauf zum Wehrgang', 'wehrgang', 'd', textur: 'stufenStein'),
+        'B': _tuer('Wendeltreppe hinab', 'absatz', 'u', textur: 'stufenStein'),
+        'H': _tuer('Hoftür', 'hof', 'h'),
+        'V': _ding('Schauvitrine', 'vitrine', 1.3, textur: 'fensterDunkel', station: 'Vitrine'),
+        'W': _ding('Toilette', 'tuerdeko', 2.2, textur: 'fensterLaden'),
+      },
+    ),
+    Bereich(
+      id: 'wehrgang',
+      name: 'Wehrgang',
+      innen: false,
+      raumHoehe: 1.1,
+      wandTextur: 'bruchsteinMauer',
+      bodenTextur: 'holzBohlen',
+      grundKalt: 0.28,
+      karte: const [
+        'ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ',
+        'P..........3.......................P',
+        'P...........d.............v........P',
+        '############BB######################',
+      ],
+      legende: {
+        'Z': _ding('Zinnen', 'zinnen', 1.3, textur: 'bruchsteinMauer'),
+        'P': _tuer('Turmpforte zur Stadt (nachts verschlossen)', 'hof', 'h', zu: true, textur: 'eichenTuerEisen'),
+        'B': _tuer('Wendeltreppe hinab', 'hofebene', 'u', textur: 'stufenStein'),
+        '3': _station('dritte Zinne (Handyempfang)', 'Zinne3'),
+      },
+    ),
+    Bereich(
+      id: 'hof',
+      name: 'Burghof',
+      innen: false,
+      raumHoehe: 7,
+      wandTextur: 'burgBruchstein',
+      bodenTextur: 'pflasterGross',
+      grundKalt: 0.24,
+      karte: const [
+        '################################',
+        '#UUUUUU........................#',
+        '#UUUUUU........................#',
+        '#UUHHUU........................#',
+        '#...h..........................#',
+        '#..........QQQQ................#',
+        '#..........QQQQ.......YYYYYYYYYY',
+        '#..........QQQQ.......YYYYYYYYYY',
+        '#..........QQQQ.......YYYYYYYYYY',
+        '#....RRRRRR...........YYYYYYYYYY',
+        '#....RRRRRR....................#',
+        '#..k...........................#',
+        '#.KK...........................#',
+        '#..............................#',
+        '#..............b...............#',
+        '##############BBBB##############',
+      ],
+      legende: {
+        'U': _ding('Wendeltreppenturm', 'turm', 9, textur: 'burgBruchstein'),
+        'H': _tuer('Hoftür', 'hofebene', 'h'),
+        'Q': _ding('Brunnen mit dem „Geleucht“', 'brunnen', 0.9, textur: 'quaderMauer', kalt: 0.55, weite: 6),
+        'Y': _ding('Torhaus (Wohnung des Burgwarts)', 'haus', 4.5, textur: 'putzKalkweiss'),
+        'R': _station('Raureif auf dem Hof', 'BS-11', form: 'raureif'),
+        'K': _tuer('Kellerhals', 'gewoelbe', 'k', textur: 'holzBohlen'),
+        'B': _tuer('Burgtor (Kastenschloss)', 'hof', 'b', zu: true, textur: 'eichenTuerEisen'),
+      },
+    ),
+  ];
+  return {for (final x in b) x.id: x};
+}

@@ -1,11 +1,13 @@
 import 'dart:math' as math;
 
+import 'package:burgstadt_core/burgstadt_core.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
 import 'bildschirme/hauptmenue.dart';
 import 'optionen.dart';
 import 'skalierung.dart';
 import 'ton.dart';
+import 'welt_geometrie.dart';
 
 /// Ein Bildschirm des Spiels (Hauptmenü, Erkundung, Fallakte …).
 abstract class Bildschirm {
@@ -37,8 +39,12 @@ class Spiel {
   late Bildschirm bildschirm;
   final List<Bildschirm> _stapel = [];
 
-  /// Prüfszene, bis die echte Welt (Phase 2) steht.
-  late final DemoScene szene = DemoScene.build();
+  /// Die Welt (Burg-Komplex; Stadt folgt) und ihre Geometrie je Bereich.
+  final Welt stadt = Welt(baueBurg());
+  final Map<String, BereichGeometrie> _geometrie = {};
+  late final List<IndexedTexture> texturen = baueAlleTexturen();
+
+  BereichGeometrie geometrie(String id) => _geometrie.putIfAbsent(id, () => BereichGeometrie(stadt.bereiche[id]!));
 
   /// Tonausgabe (App-Hülle setzt die echte).
   Tonausgabe ton = MerkendeTonausgabe();
@@ -72,7 +78,7 @@ class Spiel {
     skala = s;
     welt = PixelBuffer(s.weltW, s.weltH);
     ui = PixelBuffer(s.uiW, s.uiH);
-    _renderer = Renderer(welt, licht, szene.textures);
+    _renderer = Renderer(welt, licht, texturen);
     _sichtfeld();
   }
 
@@ -129,8 +135,11 @@ class Spiel {
     pixelUi.navigation = b.menueNavigation;
     pixelUi.beginne(ui, e);
     b.tick(this, dt, e);
+    final unten = _stapel.isEmpty ? null : _stapel.last;
     if (b.zeigtWelt) {
       bildschirm.zeichneWelt(this);
+    } else if (unten != null && unten.zeigtWelt) {
+      unten.zeichneWelt(this); // Menü über dem Spiel: Welt bleibt sichtbar
     } else {
       welt.clear(Pal.black);
     }
@@ -139,12 +148,27 @@ class Spiel {
     e.bildEnde();
   }
 
-  /// Standard-Welt: Himmel + Szene aus der aktuellen Kamera.
-  void zeichneSzene({List<Mesh>? meshes}) {
+  /// Zeichnet den Bereich [id] aus der aktuellen Kamera (Himmel nur draußen).
+  void zeichneBereich(String id) {
     final r = renderer;
+    final b = stadt.bereiche[id]!;
+    final g = geometrie(id);
+    if (b.innen) {
+      r.fogStart = 3;
+      r.fogEnd = 20;
+      r.groundFog = 0;
+    } else {
+      r.fogStart = 8;
+      r.fogEnd = 46;
+      r.groundFog = 0.25;
+    }
     r.begin();
-    r.drawSky();
-    for (final m in meshes ?? szene.meshes) {
+    if (b.innen) {
+      welt.clear(Pal.black);
+    } else {
+      r.drawSky();
+    }
+    for (final m in g.meshes) {
       r.drawMesh(m);
     }
   }

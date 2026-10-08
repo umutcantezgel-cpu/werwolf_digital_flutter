@@ -18,16 +18,17 @@ class Hauptmenue extends Bildschirm {
 
   @override
   void zeichneWelt(Spiel spiel) {
+    // Langsamer Schwenk über den nächtlichen Burghof
     final c = spiel.renderer.camera;
-    final a = spiel.zeit * 0.05;
+    final a = spiel.zeit * 0.04;
     c
-      ..x = math.cos(a) * 9
-      ..z = math.sin(a) * 9
-      ..y = 2.2
-      ..yaw = a + math.pi * 0.62
-      ..pitch = 0.05;
+      ..x = 8 + math.cos(a) * 3
+      ..z = 6.5 + math.sin(a) * 1.5
+      ..y = 2.4
+      ..yaw = 0.9 + 0.5 * math.sin(a * 0.7)
+      ..pitch = 0.08;
     spiel.renderer.flashStrength = 0;
-    spiel.zeichneSzene();
+    spiel.zeichneBereich('hof');
   }
 
   @override
