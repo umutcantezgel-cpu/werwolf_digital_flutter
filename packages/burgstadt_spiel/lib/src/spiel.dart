@@ -42,7 +42,13 @@ class Spiel {
   final List<Bildschirm> _stapel = [];
 
   /// Die Welt (Burg-Komplex; Stadt folgt) und ihre Geometrie je Bereich.
-  final Welt stadt = Welt(baueBurg());
+  Welt stadt = Welt(baueBurg());
+
+  /// Welt aus Daten setzen (Burg + Innenräume + Marktplatz); Geometrie wird neu gebaut.
+  void setzeWelt(Map<String, Bereich> bereiche) {
+    stadt = Welt(bereiche);
+    _geometrie.clear();
+  }
   final Map<String, BereichGeometrie> _geometrie = {};
   late final List<IndexedTexture> texturen = baueAlleTexturen();
 

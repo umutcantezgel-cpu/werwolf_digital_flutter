@@ -7,6 +7,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
+import 'daten_laden.dart';
 import 'frame_sink.dart';
 import 'gamepad_eingabe.dart';
 import 'tasten.dart';
@@ -58,6 +59,15 @@ class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerPr
     spiel.beiAktion = (a) => widget.beiAktion?.call(a);
     spiel.ton = _ton;
     spiel.starteTon();
+    ladeSpielDaten(spiel).then((_) {
+      if (!mounted) return;
+      if (widget.start == 'fall') {
+        final s = spiel.starteFall();
+        if (s != null) spiel.wechsle(Erkundung(sitzung: s));
+      }
+    }).catchError((Object e) {
+      debugPrint('Spieldaten konnten nicht geladen werden: $e');
+    });
     if (widget.start == 'erkundung') spiel.wechsle(Erkundung());
     _ticker = createTicker(_takt)..start();
   }

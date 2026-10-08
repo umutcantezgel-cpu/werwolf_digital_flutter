@@ -52,6 +52,87 @@ class BereichGeometrie {
     return (w.clamp(0.0, 1.0), k.clamp(0.0, 1.0));
   }
 
+  /// Giebelhaus: Putzwände, Fensterreihen, Satteldach mit Dachgauben-„Augen“.
+  void _haus(MeshBuilder m, Ding d, double x0, double z0, double x1, double z1, double h, int putz) {
+    final (w, k) = licht((x0 + x1) / 2, h / 2, (z0 + z1) / 2);
+    m.box(x0, 0, z0, x1, h, z1, putz, warm: w, cold: k);
+    final fenster = TexturId.fensterDunkel.index, kerze = TexturId.fensterKerze.index;
+    var nr = d.x0 * 7 + d.z0 * 13;
+    // Fenster auf allen vier Seiten (leicht vor der Wand)
+    void reihe(double ax, double az, double bx, double bz, double nx, double nz) {
+      final len = (bx - ax).abs() + (bz - az).abs();
+      final anzahl = (len / 2.2).floor();
+      if (anzahl < 1) return;
+      for (var stock = 0; stock < (h / 3).floor(); stock++) {
+        final y0 = 1.3 + stock * 3.0, y1 = y0 + 1.1;
+        if (y1 > h - 0.4) break;
+        for (var i = 0; i < anzahl; i++) {
+          final f = (i + 0.5) / anzahl;
+          final mx = ax + (bx - ax) * f, mz = az + (bz - az) * f;
+          final dx = (bx - ax) / len * 0.45, dz = (bz - az) / len * 0.45;
+          final tex = (nr++ % 9 == 0) ? kerze : fenster;
+          final warmF = tex == kerze ? 0.8 : w;
+          m.wall(mx - dx + nx * 0.03, mz - dz + nz * 0.03, mx + dx + nx * 0.03, mz + dz + nz * 0.03, y0, y1, tex, warm: warmF, cold: k);
+        }
+      }
+    }
+
+    reihe(x0, z1, x1, z1, 0, 1); // Süd
+    reihe(x1, z0, x0, z0, 0, -1); // Nord
+    reihe(x1, z1, x1, z0, 1, 0); // Ost
+    reihe(x0, z0, x0, z1, -1, 0); // West
+    // Satteldach entlang der längeren Seite, steil (Burgstadt-Stil)
+    final dach = TexturId.dachBiberschwanz.index;
+    final entlangX = (x1 - x0) >= (z1 - z0);
+    final halb = entlangX ? (z1 - z0) / 2 : (x1 - x0) / 2;
+    final first = h + halb * 1.5;
+    final hang = (halb * halb + (first - h) * (first - h));
+    final hv = math.sqrt(hang) * kTexelsPerMeter;
+    if (entlangX) {
+      final zm = (z0 + z1) / 2, len = (x1 - x0) * kTexelsPerMeter;
+      var a = m.vertex(x0 - 0.2, h, z1 + 0.2, 0, hv, cold: k);
+      var b2 = m.vertex(x1 + 0.2, h, z1 + 0.2, len, hv, cold: k);
+      var c = m.vertex(x1 + 0.2, first, zm, len, 0, cold: k + 0.08);
+      var e = m.vertex(x0 - 0.2, first, zm, 0, 0, cold: k + 0.08);
+      m.quad(a, b2, c, e, dach);
+      a = m.vertex(x1 + 0.2, h, z0 - 0.2, 0, hv, cold: k * 0.7);
+      b2 = m.vertex(x0 - 0.2, h, z0 - 0.2, len, hv, cold: k * 0.7);
+      c = m.vertex(x0 - 0.2, first, zm, len, 0, cold: k);
+      e = m.vertex(x1 + 0.2, first, zm, 0, 0, cold: k);
+      m.quad(a, b2, c, e, dach);
+      for (final (gx, s1, s2) in [(x1, z1, z0), (x0, z0, z1)]) {
+        final p = m.vertex(gx, h, s1, 0, (first - h) * kTexelsPerMeter, warm: w, cold: k);
+        final q = m.vertex(gx, h, s2, (z1 - z0) * kTexelsPerMeter, (first - h) * kTexelsPerMeter, warm: w, cold: k);
+        final tt = m.vertex(gx, first, zm, (z1 - z0) * kTexelsPerMeter / 2, 0, warm: w, cold: k);
+        m.triangle(p, q, tt, putz);
+      }
+      // Dachgauben-„Augen“: zwei dunkle Schlitze auf der Südseite
+      for (final f in const [0.33, 0.67]) {
+        final ex = x0 + (x1 - x0) * f;
+        final ey = h + (first - h) * 0.45, ez = z1 - halb * 0.45 + 0.05;
+        m.wall(ex - 0.45, ez, ex + 0.45, ez, ey, ey + 0.35, fenster, warm: 0, cold: k * 0.5);
+      }
+    } else {
+      final xm = (x0 + x1) / 2, len = (z1 - z0) * kTexelsPerMeter;
+      var a = m.vertex(x1 + 0.2, h, z1 + 0.2, 0, hv, cold: k);
+      var b2 = m.vertex(x1 + 0.2, h, z0 - 0.2, len, hv, cold: k);
+      var c = m.vertex(xm, first, z0 - 0.2, len, 0, cold: k + 0.08);
+      var e = m.vertex(xm, first, z1 + 0.2, 0, 0, cold: k + 0.08);
+      m.quad(a, b2, c, e, dach);
+      a = m.vertex(x0 - 0.2, h, z0 - 0.2, 0, hv, cold: k * 0.7);
+      b2 = m.vertex(x0 - 0.2, h, z1 + 0.2, len, hv, cold: k * 0.7);
+      c = m.vertex(xm, first, z1 + 0.2, len, 0, cold: k);
+      e = m.vertex(xm, first, z0 - 0.2, 0, 0, cold: k);
+      m.quad(a, b2, c, e, dach);
+      for (final (gz, s1, s2) in [(z1, x0, x1), (z0, x1, x0)]) {
+        final p = m.vertex(s1, h, gz, 0, (first - h) * kTexelsPerMeter, warm: w, cold: k);
+        final q = m.vertex(s2, h, gz, (x1 - x0) * kTexelsPerMeter, (first - h) * kTexelsPerMeter, warm: w, cold: k);
+        final tt = m.vertex(xm, first, gz, (x1 - x0) * kTexelsPerMeter / 2, 0, warm: w, cold: k);
+        m.triangle(p, q, tt, putz);
+      }
+    }
+  }
+
   void _bauen() {
     final b = bereich;
     const s = kKachel;
@@ -141,9 +222,19 @@ class BereichGeometrie {
           for (var xx = d.x0; xx <= d.x1; xx += 4) {
             m.box(xx * s, 0.9, d.z0 * s, xx * s + 1.0, l.hoehe + 0.5, (d.z1 + 1) * s, t, warm: w, cold: k);
           }
-        case 'turm':
         case 'haus':
+          _haus(m, d, x0 - 0.04, z0 - 0.04, x1 + 0.04, z1 + 0.04, l.hoehe, t);
+        case 'turm':
           m.box(x0 - 0.04, 0, z0 - 0.04, x1 + 0.04, l.hoehe, z1 + 0.04, t, warm: w, cold: k, texTop: TexturId.dachBiberschwanz.index);
+          // Spitzhelm
+          final cx = (x0 + x1) / 2, cz = (z0 + z1) / 2, top = l.hoehe + (x1 - x0) * 1.2;
+          final dach = TexturId.dachBiberschwanz.index;
+          for (final (ax, az, bx, bz) in [(x0, z1, x1, z1), (x1, z1, x1, z0), (x1, z0, x0, z0), (x0, z0, x0, z1)]) {
+            final a = m.vertex(ax, l.hoehe, az, 0, (top - l.hoehe) * kTexelsPerMeter, cold: k + 0.05);
+            final b2 = m.vertex(bx, l.hoehe, bz, (x1 - x0) * kTexelsPerMeter, (top - l.hoehe) * kTexelsPerMeter, cold: k + 0.05);
+            final c = m.vertex(cx, top, cz, (x1 - x0) * kTexelsPerMeter / 2, 0, cold: k + 0.1);
+            m.triangle(a, b2, c, dach);
+          }
         case 'kamin':
           m.box(x0, 0, z0, x1, l.hoehe, z1, t, warm: w, cold: k);
           // Glut: warmes Feld vor der Öffnung

@@ -17,6 +17,13 @@ void ladeAusRepo(Spiel spiel) {
   final k = kanonLesen('$w/krimidinner/spuk-im-gewoelbe/10_kanon')
       .mitOverlay(File('$w/nachtlauf/kanon/ANPASSUNG.md').readAsStringSync(), datei: 'ANPASSUNG.md');
   spiel.fallDaten = FallDaten(k);
+  final innen = Directory('$w/packages/burgstadt_core/data/innenraeume');
+  if (innen.existsSync()) {
+    spiel.setzeWelt(baueWelt([
+      for (final f in innen.listSync().whereType<File>())
+        if (f.path.endsWith('.json')) jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
+    ]));
+  }
   final fig = '$w/packages/pixel_engine/data/figuren';
   for (final name in ['teile_koepfe.json', 'teile_kleidung.json']) {
     final f = File('$fig/$name');

@@ -36,8 +36,15 @@ class Fallsitzung {
     _uebernimm(sim.abholen());
   }
 
+  final Set<String> _gezeigt = {};
+
   void _uebernimm(List<Ereignis> es) {
     for (final e in es) {
+      // Denselben Hinweis nicht zweimal als Karte zeigen (erst mitgehört, dann in der Akte)
+      if (e.hinweis != null && !_gezeigt.add(e.hinweis!)) {
+        if (e.art == 'akte') neueAkte++;
+        continue;
+      }
       final fuerMich = switch (e.art) {
         'belauscht' || 'teilen' || 'fund' => e.von == 'DET' || e.an == 'DET',
         'akte' || 'erzaehler' || 'phase' || 'aussage' || 'meldekarte' || 'detektiv' || 'eingrenzung' || 'ende' => true,

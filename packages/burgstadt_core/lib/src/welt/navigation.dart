@@ -8,7 +8,10 @@ typedef Ort = (String bereich, int x, int z);
 /// Wegsuche über Kacheln (4er-Nachbarschaft) und offene Türen zwischen Bereichen.
 class Navigation {
   final Welt welt;
-  Navigation(this.welt);
+
+  /// Aktuelle Fallphase (für Türen mit `offenAbPhase`).
+  int phase;
+  Navigation(this.welt, {this.phase = 1});
 
   /// Kürzester Weg von [start] zu einer Kachel, für die [ziel] wahr ist (Breitensuche).
   /// Türübergänge springen auf die Zielmarke. Liefert null, wenn unerreichbar.
@@ -36,7 +39,7 @@ class Navigation {
         } else {
           final d = b.dingAn(nx, nz);
           final l = d?.legende;
-          if (l != null && l.art == KachelArt.tuer && !l.verschlossen) {
+          if (l != null && Bereich.offen(l, phase)) {
             final zb = welt.bereiche[l.ziel];
             final m = zb?.marken[l.zielMarke];
             if (m != null) nach = (zb!.id, m.$1, m.$2);

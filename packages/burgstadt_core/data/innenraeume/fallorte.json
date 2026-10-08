@@ -1,0 +1,943 @@
+{
+  "version": 1,
+  "bereiche": [
+    {
+      "id": "innen-uhrturm",
+      "name": "Uhrwerk-Kammer im Uhrturm",
+      "innen": true,
+      "raumHoehe": 3.2,
+      "wandTextur": "burgBruchstein",
+      "bodenTextur": "holzDielen",
+      "deckenTextur": "gewoelbeDecke",
+      "grundWarm": 0.0,
+      "grundKalt": 0.05,
+      "karte": [
+        "##############",
+        "#ZZZ..WW.YYY.#",
+        "#ZZZ..WW.YYY.#",
+        "#ZZZ..WW.YYY.#",
+        "#............#",
+        "#............N",
+        "#............#",
+        "#KK.....LLL..#",
+        "#KK..........#",
+        "#............#",
+        "#......t.....#",
+        "#######D######"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Turmtür zum Marktplatz",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-uhrturm",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "Z": {
+          "art": "objekt",
+          "name": "großes Räderwerk",
+          "form": "wand",
+          "hoehe": 2.4,
+          "textur": "eisenGitter"
+        },
+        "Y": {
+          "art": "objekt",
+          "name": "mittleres Räderwerk",
+          "form": "wand",
+          "hoehe": 2.0,
+          "textur": "eisenGitter"
+        },
+        "W": {
+          "art": "objekt",
+          "name": "Hauptwelle",
+          "form": "saeule",
+          "hoehe": 2.8,
+          "textur": "eisenGitter"
+        },
+        "K": {
+          "art": "objekt",
+          "name": "Gewichtskasten",
+          "form": "kasten",
+          "hoehe": 1.1,
+          "textur": "holzBohlen"
+        },
+        "L": {
+          "art": "objekt",
+          "name": "Werkbank mit Kerze",
+          "form": "tisch",
+          "hoehe": 0.95,
+          "textur": "holzDielen",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        },
+        "N": {
+          "art": "objekt",
+          "name": "Notleuchte",
+          "form": "wand",
+          "hoehe": 2.2,
+          "textur": "putzKalkweiss",
+          "lichtKalt": 0.45,
+          "lichtWeite": 3.0
+        }
+      }
+    },
+    {
+      "id": "innen-museum",
+      "name": "Stadtmuseum am Marktplatz",
+      "innen": true,
+      "raumHoehe": 3.0,
+      "wandTextur": "putzCreme",
+      "bodenTextur": "schieferPlatten",
+      "deckenTextur": "holzBohlen",
+      "grundWarm": 0.0,
+      "grundKalt": 0.06,
+      "karte": [
+        "####################",
+        "#..................#",
+        "#..VV..VV..VV..VV..#",
+        "#..........SS......#",
+        "#..................#",
+        "#..................#",
+        "#CC......PP........#",
+        "#CC......PP........#",
+        "#CC................#",
+        "#CC................N",
+        "#..................#",
+        "#..................#",
+        "#........t.........#",
+        "#########D##########"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Museumstür zum Marktplatz",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-museum",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "V": {
+          "art": "objekt",
+          "name": "Vitrine mit Stadtgeschichte",
+          "form": "vitrine",
+          "hoehe": 1.3,
+          "textur": "fensterDunkel"
+        },
+        "C": {
+          "art": "objekt",
+          "name": "Katalogschrank",
+          "form": "regal",
+          "hoehe": 2.0,
+          "textur": "holzVertaefelung"
+        },
+        "P": {
+          "art": "objekt",
+          "name": "Pult mit Kerze",
+          "form": "tisch",
+          "hoehe": 1.0,
+          "textur": "holzDielen",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        },
+        "S": {
+          "art": "station",
+          "name": "vor der Vitrine",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-02"
+        },
+        "N": {
+          "art": "objekt",
+          "name": "Notleuchte",
+          "form": "wand",
+          "hoehe": 2.2,
+          "textur": "putzKalkweiss",
+          "lichtKalt": 0.45,
+          "lichtWeite": 3.0
+        }
+      }
+    },
+    {
+      "id": "innen-pension",
+      "name": "Pension „Zum Uhrturm“",
+      "innen": true,
+      "raumHoehe": 2.6,
+      "wandTextur": "putzOcker",
+      "bodenTextur": "holzDielen",
+      "deckenTextur": "holzBohlen",
+      "grundWarm": 0.0,
+      "grundKalt": 0.05,
+      "karte": [
+        "######################",
+        "#########..#.BBK...WW#",
+        "#########..G.BB....WW#",
+        "#########..........SS#",
+        "#########..#.........#",
+        "#########..#....T....#",
+        "#########..#.........#",
+        "#########..#.........#",
+        "#########..###########",
+        "#.......#..###########",
+        "#.......#..###########",
+        "#.EEEE..#..###########",
+        "#..........###########",
+        "#.QQQ...#..###########",
+        "#...t...#..###########",
+        "####D#################"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Haustür zum Marktplatz",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-pension",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "E": {
+          "art": "objekt",
+          "name": "Empfangstheke mit Kerze",
+          "form": "tisch",
+          "hoehe": 1.1,
+          "textur": "holzVertaefelung",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        },
+        "Q": {
+          "art": "objekt",
+          "name": "Wartebank",
+          "form": "bank",
+          "hoehe": 0.5,
+          "textur": "holzBohlen"
+        },
+        "B": {
+          "art": "objekt",
+          "name": "Bett",
+          "form": "bett",
+          "hoehe": 0.6,
+          "textur": "holzBohlen"
+        },
+        "K": {
+          "art": "objekt",
+          "name": "Nachttisch mit Kerze",
+          "form": "tisch",
+          "hoehe": 0.7,
+          "textur": "holzDielen",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        },
+        "W": {
+          "art": "objekt",
+          "name": "Wäscheschrank",
+          "form": "regal",
+          "hoehe": 2.0,
+          "textur": "holzVertaefelung"
+        },
+        "T": {
+          "art": "objekt",
+          "name": "Stuhl",
+          "form": "stuhl",
+          "hoehe": 0.9,
+          "textur": "holzDielen"
+        },
+        "G": {
+          "art": "objekt",
+          "name": "Zimmernummer 7",
+          "form": "tuerdeko",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "S": {
+          "art": "station",
+          "name": "am Wäscheschrank",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-03"
+        }
+      }
+    },
+    {
+      "id": "innen-schreinerei",
+      "name": "Schreinerei an der Mauergasse",
+      "innen": true,
+      "raumHoehe": 2.7,
+      "wandTextur": "putzSandstein",
+      "bodenTextur": "holzDielen",
+      "deckenTextur": "holzBohlen",
+      "grundWarm": 0.0,
+      "grundKalt": 0.04,
+      "karte": [
+        "##################",
+        "#................#",
+        "#.HHHHH..GGGGG...#",
+        "#................#",
+        "#..............BB#",
+        "#.PPS..........BB#",
+        "#.PPS..........BB#",
+        "#..............BB#",
+        "#..............BB#",
+        "#................#",
+        "#....t...........#",
+        "#####D############"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Werkstatttür zur Mauergasse",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-schreinerei",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "H": {
+          "art": "objekt",
+          "name": "Hobelbank",
+          "form": "tisch",
+          "hoehe": 0.9,
+          "textur": "holzDielen"
+        },
+        "G": {
+          "art": "objekt",
+          "name": "Hobelbank mit Kerze",
+          "form": "tisch",
+          "hoehe": 0.9,
+          "textur": "holzDielen",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        },
+        "B": {
+          "art": "objekt",
+          "name": "Bretterstapel",
+          "form": "kasten",
+          "hoehe": 1.8,
+          "textur": "holzBohlen"
+        },
+        "P": {
+          "art": "objekt",
+          "name": "Schreibpult",
+          "form": "tisch",
+          "hoehe": 1.1,
+          "textur": "holzVertaefelung"
+        },
+        "S": {
+          "art": "station",
+          "name": "am Pult",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-04"
+        }
+      }
+    },
+    {
+      "id": "innen-fundus",
+      "name": "Kostümfundus der Volksbühne",
+      "innen": true,
+      "raumHoehe": 3.0,
+      "wandTextur": "putzInnenWarm",
+      "bodenTextur": "holzDielen",
+      "deckenTextur": "holzBohlen",
+      "grundWarm": 0.0,
+      "grundKalt": 0.05,
+      "karte": [
+        "######################",
+        "#....................#",
+        "#..KKKKKKK..KKKKKKK..#",
+        "#....................#",
+        "#...................M#",
+        "#...................M#",
+        "#...................M#",
+        "#....................#",
+        "#.TT....TT...........#",
+        "#.SS...........ZZ....#",
+        "#..............ZZ....#",
+        "#....................#",
+        "#..t.................#",
+        "###D##################"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Fundustür zur Gasse",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-fundus",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "K": {
+          "art": "objekt",
+          "name": "Kleiderstange",
+          "form": "regal",
+          "hoehe": 1.9,
+          "textur": "holzBohlen"
+        },
+        "T": {
+          "art": "objekt",
+          "name": "bemalte Truhe",
+          "form": "truhe",
+          "hoehe": 0.8,
+          "textur": "eichenTuerEisen"
+        },
+        "S": {
+          "art": "station",
+          "name": "vor der Truhe",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-05"
+        },
+        "M": {
+          "art": "objekt",
+          "name": "Spiegel",
+          "form": "wand",
+          "hoehe": 1.9,
+          "textur": "fensterDunkel"
+        },
+        "Z": {
+          "art": "objekt",
+          "name": "Schminktisch mit Kerzen",
+          "form": "tisch",
+          "hoehe": 0.8,
+          "textur": "holzDielen",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        }
+      }
+    },
+    {
+      "id": "innen-stromhaus",
+      "name": "Stromhaus am Obertor",
+      "innen": true,
+      "raumHoehe": 2.8,
+      "wandTextur": "putzKalkweiss",
+      "bodenTextur": "schieferPlatten",
+      "deckenTextur": "holzBohlen",
+      "grundWarm": 0.0,
+      "grundKalt": 0.04,
+      "karte": [
+        "##############",
+        "#..PPPP......#",
+        "#...SS.....AA#",
+        "#..........AA#",
+        "#..........AA#",
+        "#............#",
+        "N..........AA#",
+        "#..LL......AA#",
+        "#..LL......AA#",
+        "#............#",
+        "#.....t......#",
+        "######D#######"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Tür zum Obertor",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-stromhaus",
+          "hoehe": 2.2,
+          "textur": "eichenTuerEisen"
+        },
+        "P": {
+          "art": "objekt",
+          "name": "Schaltplan an der Wand",
+          "form": "wand",
+          "hoehe": 1.8,
+          "textur": "putzCreme"
+        },
+        "S": {
+          "art": "station",
+          "name": "am Schaltplan",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-06"
+        },
+        "A": {
+          "art": "objekt",
+          "name": "Schalttafel",
+          "form": "kasten",
+          "hoehe": 1.9,
+          "textur": "eisenGitter"
+        },
+        "N": {
+          "art": "objekt",
+          "name": "Notleuchte",
+          "form": "wand",
+          "hoehe": 2.2,
+          "textur": "putzKalkweiss",
+          "lichtKalt": 0.45,
+          "lichtWeite": 3.0
+        },
+        "L": {
+          "art": "objekt",
+          "name": "Tisch mit Kerze",
+          "form": "tisch",
+          "hoehe": 0.9,
+          "textur": "holzDielen",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        }
+      }
+    },
+    {
+      "id": "innen-teestube",
+      "name": "Teestube „Zur Laterne“",
+      "innen": true,
+      "raumHoehe": 2.9,
+      "wandTextur": "fachwerkPutz",
+      "bodenTextur": "holzDielen",
+      "deckenTextur": "holzBohlen",
+      "grundWarm": 0.04,
+      "grundKalt": 0.05,
+      "karte": [
+        "####################",
+        "#..................#",
+        "#...RRRRKKRRRRRR...#",
+        "#..................#",
+        "#OO...............B#",
+        "#OO...............B#",
+        "#..CC....TT....CC.B#",
+        "#..CC....TT....CC.B#",
+        "#.................B#",
+        "#.....CC....TT....B#",
+        "#.....CC....TT....B#",
+        "#..................#",
+        "#........t.........#",
+        "#########D##########"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Tür zum Marktplatz",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-teestube",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "R": {
+          "art": "objekt",
+          "name": "Theke",
+          "form": "theke",
+          "hoehe": 1.0,
+          "textur": "holzDielen"
+        },
+        "K": {
+          "art": "objekt",
+          "name": "Teekessel",
+          "form": "kessel",
+          "hoehe": 0.9,
+          "textur": "eichenTuerEisen"
+        },
+        "O": {
+          "art": "objekt",
+          "name": "Kachelofen",
+          "form": "ofen",
+          "hoehe": 2.0,
+          "textur": "kachelOfen",
+          "lichtWarm": 0.6,
+          "lichtWeite": 4.0
+        },
+        "B": {
+          "art": "objekt",
+          "name": "Wandbank",
+          "form": "bank",
+          "hoehe": 0.5,
+          "textur": "holzBohlen"
+        },
+        "C": {
+          "art": "objekt",
+          "name": "Tisch mit Kerze",
+          "form": "tisch",
+          "hoehe": 0.8,
+          "textur": "holzDielen",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        },
+        "T": {
+          "art": "objekt",
+          "name": "Tisch",
+          "form": "tisch",
+          "hoehe": 0.8,
+          "textur": "holzDielen"
+        }
+      }
+    },
+    {
+      "id": "innen-baeckerei",
+      "name": "Bäckerei am Untertor",
+      "innen": true,
+      "raumHoehe": 2.8,
+      "wandTextur": "putzCreme",
+      "bodenTextur": "holzDielen",
+      "deckenTextur": "holzBohlen",
+      "grundWarm": 0.05,
+      "grundKalt": 0.04,
+      "karte": [
+        "####################",
+        "#OOOO..........MM..#",
+        "#OOOO..KKKKKK..MM..#",
+        "#..................#",
+        "#..................#",
+        "#..................#",
+        "#..................#",
+        "##########.#########",
+        "#................RR#",
+        "#..TTTTTTTTTTTT..RR#",
+        "#................RR#",
+        "#..................#",
+        "#...t..............#",
+        "####D###############"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Ladentür zum Untertor",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-baeckerei",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "O": {
+          "art": "objekt",
+          "name": "Backofen",
+          "form": "ofen",
+          "hoehe": 1.6,
+          "textur": "ziegelKamin",
+          "lichtWarm": 0.6,
+          "lichtWeite": 4.0
+        },
+        "K": {
+          "art": "objekt",
+          "name": "Knetbank",
+          "form": "tisch",
+          "hoehe": 0.9,
+          "textur": "holzDielen"
+        },
+        "M": {
+          "art": "objekt",
+          "name": "Mehlkiste",
+          "form": "kiste",
+          "hoehe": 0.6,
+          "textur": "holzDielen"
+        },
+        "T": {
+          "art": "objekt",
+          "name": "Ladentheke",
+          "form": "theke",
+          "hoehe": 1.0,
+          "textur": "holzDielen"
+        },
+        "R": {
+          "art": "objekt",
+          "name": "Brotregal",
+          "form": "regal",
+          "hoehe": 1.9,
+          "textur": "holzBohlen"
+        }
+      }
+    },
+    {
+      "id": "innen-rathaus",
+      "name": "Ratssaal im Rathaus",
+      "innen": true,
+      "raumHoehe": 3.3,
+      "wandTextur": "putzOcker",
+      "bodenTextur": "teppichRot",
+      "deckenTextur": "holzVertaefelung",
+      "grundWarm": 0.0,
+      "grundKalt": 0.05,
+      "karte": [
+        "##########WWWW##########",
+        "#......................#",
+        "#......................#",
+        "#......................#",
+        "#......................N",
+        "#....U..U..U..U..U.....#",
+        "#...LLLLLLMMMMLLLLLL...#",
+        "#...LLLLLLMMMMLLLLLL...#",
+        "#....U..U..U..U..U.....#",
+        "#......................#",
+        "#......................#",
+        "#......................#",
+        "#OO....................#",
+        "#OO....................#",
+        "#..........t...........#",
+        "###########D############"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Tür zum Marktplatz",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-rathaus",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "L": {
+          "art": "objekt",
+          "name": "Ratstisch",
+          "form": "tisch",
+          "hoehe": 0.8,
+          "textur": "holzDielen"
+        },
+        "M": {
+          "art": "objekt",
+          "name": "Ratstisch mit Kerzen",
+          "form": "tisch",
+          "hoehe": 0.8,
+          "textur": "holzDielen",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        },
+        "U": {
+          "art": "objekt",
+          "name": "Ratsstuhl",
+          "form": "stuhl",
+          "hoehe": 0.95,
+          "textur": "holzDielen"
+        },
+        "W": {
+          "art": "objekt",
+          "name": "Wappen an der Wand",
+          "form": "wand",
+          "hoehe": 2.4,
+          "textur": "holzVertaefelung"
+        },
+        "O": {
+          "art": "objekt",
+          "name": "Kachelofen",
+          "form": "ofen",
+          "hoehe": 2.0,
+          "textur": "kachelOfen",
+          "lichtWarm": 0.6,
+          "lichtWeite": 4.0
+        },
+        "N": {
+          "art": "objekt",
+          "name": "Notleuchte",
+          "form": "wand",
+          "hoehe": 2.2,
+          "textur": "putzKalkweiss",
+          "lichtKalt": 0.45,
+          "lichtWeite": 3.0
+        }
+      }
+    },
+    {
+      "id": "innen-bibliothek",
+      "name": "Bibliothek mit Archiv",
+      "innen": true,
+      "raumHoehe": 3.2,
+      "wandTextur": "putzSandstein",
+      "bodenTextur": "holzDielen",
+      "deckenTextur": "gewoelbeDecke",
+      "grundWarm": 0.0,
+      "grundKalt": 0.04,
+      "karte": [
+        "####################",
+        "#...............AAA#",
+        "#...RR...RR...RR...#",
+        "#...RR...RR...RR...#",
+        "#...RR...RR...RR...#",
+        "#...RR...RR...RR...#",
+        "N...RR...RR...RR...#",
+        "#...RR...RR...RR...#",
+        "#...RR...RR...RR...#",
+        "#...RR...RR...RR...#",
+        "#...RR...RR...RR...#",
+        "#..................#",
+        "#.PP.......QQ......#",
+        "#..................#",
+        "#..t...............#",
+        "###D################"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Eingangstür zur Gasse",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-bibliothek",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "R": {
+          "art": "objekt",
+          "name": "Bücherregal",
+          "form": "regal",
+          "hoehe": 2.1,
+          "textur": "regalBuecher"
+        },
+        "A": {
+          "art": "objekt",
+          "name": "Archivschrank",
+          "form": "kasten",
+          "hoehe": 2.2,
+          "textur": "eisenGitter"
+        },
+        "P": {
+          "art": "objekt",
+          "name": "Lesepult",
+          "form": "tisch",
+          "hoehe": 1.0,
+          "textur": "holzVertaefelung"
+        },
+        "Q": {
+          "art": "objekt",
+          "name": "Lesepult mit Kerze",
+          "form": "tisch",
+          "hoehe": 1.0,
+          "textur": "holzVertaefelung",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        },
+        "N": {
+          "art": "objekt",
+          "name": "Notleuchte",
+          "form": "wand",
+          "hoehe": 2.2,
+          "textur": "putzKalkweiss",
+          "lichtKalt": 0.45,
+          "lichtWeite": 3.0
+        }
+      }
+    },
+    {
+      "id": "innen-apotheke",
+      "name": "Apotheke",
+      "innen": true,
+      "raumHoehe": 2.5,
+      "wandTextur": "putzKalkweiss",
+      "bodenTextur": "schieferPlatten",
+      "deckenTextur": "holzBohlen",
+      "grundWarm": 0.0,
+      "grundKalt": 0.05,
+      "karte": [
+        "#######N########",
+        "#H............H#",
+        "#H............H#",
+        "#H..TTTTTTTT..H#",
+        "#H............H#",
+        "#H............H#",
+        "#H............H#",
+        "#H............H#",
+        "#H............H#",
+        "#..............#",
+        "#......t.......#",
+        "#######D########"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Apothekentür zur Gasse",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-apotheke",
+          "hoehe": 2.2,
+          "textur": "eichenTuer"
+        },
+        "H": {
+          "art": "objekt",
+          "name": "Holzregal mit Schubladen",
+          "form": "regal",
+          "hoehe": 2.1,
+          "textur": "holzVertaefelung"
+        },
+        "T": {
+          "art": "objekt",
+          "name": "Theke",
+          "form": "theke",
+          "hoehe": 1.0,
+          "textur": "holzDielen"
+        },
+        "N": {
+          "art": "objekt",
+          "name": "Notdienstlampe",
+          "form": "wand",
+          "hoehe": 2.2,
+          "textur": "putzKalkweiss",
+          "lichtKalt": 0.5,
+          "lichtWeite": 3.0
+        }
+      }
+    },
+    {
+      "id": "innen-kirche",
+      "name": "Kirchenburg",
+      "innen": true,
+      "raumHoehe": 3.4,
+      "wandTextur": "bruchsteinMauer",
+      "bodenTextur": "schieferPlatten",
+      "deckenTextur": "gewoelbeDecke",
+      "grundWarm": 0.0,
+      "grundKalt": 0.06,
+      "karte": [
+        "########################",
+        "#......................#",
+        "#.OO.....KKAAAA........#",
+        "#.OO.....KKAAAA........#",
+        "#......................#",
+        "#.BBBBBBB......BBBBBBB.#",
+        "#........S....S........#",
+        "#.BBBBBBB......BBBBBBB.#",
+        "#......................#",
+        "#.BBBBBBB......BBBBBBB.#",
+        "#......................#",
+        "#.BBBBBBB......BBBBBBB.#",
+        "#........S....S........#",
+        "#.BBBBBBB......BBBBBBB.#",
+        "#......................#",
+        "#......................#",
+        "#......................#",
+        "#......................#",
+        "#..........t...........#",
+        "###########D############"
+      ],
+      "legende": {
+        "D": {
+          "art": "tuer",
+          "name": "Portal zum Friedhof",
+          "ziel": "stadt",
+          "zielMarke": "tuer-innen-kirche",
+          "hoehe": 2.2,
+          "textur": "eichenTuerEisen"
+        },
+        "B": {
+          "art": "objekt",
+          "name": "Bankreihe",
+          "form": "bank",
+          "hoehe": 0.9,
+          "textur": "holzBohlen"
+        },
+        "S": {
+          "art": "objekt",
+          "name": "Säule",
+          "form": "saeule",
+          "hoehe": 3.2,
+          "textur": "quaderMauer"
+        },
+        "O": {
+          "art": "objekt",
+          "name": "Opfertisch mit Kerzen",
+          "form": "tisch",
+          "hoehe": 0.9,
+          "textur": "holzBohlen",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        },
+        "K": {
+          "art": "objekt",
+          "name": "Altar mit Kerzen",
+          "form": "tisch",
+          "hoehe": 1.0,
+          "textur": "putzKalkweiss",
+          "lichtWarm": 0.3,
+          "lichtWeite": 2.5
+        },
+        "A": {
+          "art": "objekt",
+          "name": "Altar",
+          "form": "tisch",
+          "hoehe": 1.0,
+          "textur": "putzKalkweiss"
+        }
+      }
+    }
+  ]
+}

@@ -177,6 +177,8 @@ class Erkundung extends Bildschirm {
     return best;
   }
 
+  int get _phase => sitzung?.fall.phase ?? 1;
+
   String _name(Figur f) {
     if (f.id == 'BW') return 'Burgwart Eckehard';
     return sitzung?.fall.daten.rollen[f.id]?.name ?? f.id;
@@ -205,9 +207,11 @@ class Erkundung extends Bildschirm {
     final l = d.legende;
     switch (l.art) {
       case KachelArt.tuer:
-        if (l.verschlossen) {
+        if (!Bereich.offen(l, _phase)) {
           spiel.ton.spiele('schluessel_klimpern', lautstaerke: 0.4);
-          _meldung('${l.name}: verschlossen.');
+          _meldung(l.offenAbPhase != null
+              ? '${l.name}: Der Burgwart schließt erst in Phase ${l.offenAbPhase} auf.'
+              : '${l.name}: verschlossen.');
           return;
         }
         spiel.ton.spiele(l.textur == 'eisenGitter' ? 'tuer_eisen' : (l.textur == 'stufenStein' ? 'schritt_stein_1' : 'tuer_eiche_auf'), lautstaerke: 0.7);
@@ -219,7 +223,15 @@ class Erkundung extends Bildschirm {
         if (l.station != null && sz != null) {
           final funde = sz.fall.untersuche('DET', l.station!);
           sz.melde(funde);
-          if (funde.isEmpty) _meldung('${l.name}: nichts Neues.');
+          if (funde.isEmpty) {
+            final ort = sz.fall.daten.kanon.datensaetze[l.station!];
+            final rolle = ort?.feld('Rolle im Fall');
+            if (rolle != null) {
+              sz.melde([Ereignis('aussage', '${ort!.feld('Ort') ?? l.name}: ${rolle.replaceFirst(RegExp(r'^(Farbe|bestätigend|entlastend[^(]*)\s*'), '')}', uhr: sz.fall.uhr)]);
+            } else {
+              _meldung('${l.name}: nichts Neues.');
+            }
+          }
           spiel.ton.spiele('papier_rascheln', lautstaerke: 0.5);
         } else {
           _meldung(l.station != null ? '${l.name}: Hier lohnt ein genauer Blick.' : l.name);
@@ -300,7 +312,7 @@ class Erkundung extends Bildschirm {
     } else if (d != null) {
       final l = d.legende;
       final was = switch (l.art) {
-        KachelArt.tuer => l.verschlossen ? '${l.name} (verschlossen)' : l.name,
+        KachelArt.tuer => Bereich.offen(l, _phase) ? l.name : '${l.name} (verschlossen)',
         _ => l.name,
       };
       ui.textMittig(was, cx, cy + 10, farbe: UiFarbe.akzent);

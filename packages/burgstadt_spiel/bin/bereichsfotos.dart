@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'dart:math' as math;
 
 import 'package:burgstadt_spiel/burgstadt_spiel.dart';
+import 'package:burgstadt_spiel/burgstadt_spiel_io.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
 /// Fotos jedes Bereichs (Ich-Sicht von einer Marke zur Raummitte) mit Paletten- und
@@ -11,10 +11,11 @@ void main(List<String> args) {
   final w = args.length > 2 ? int.parse(args[1]) : 1280, h = args.length > 2 ? int.parse(args[2]) : 720;
   Directory(ordner).createSync(recursive: true);
   final spiel = Spiel()..groesse(w, h);
+  ladeAusRepo(spiel);
   final e = Eingabe();
   var fehler = 0;
   for (final b in spiel.stadt.bereiche.values) {
-    final marke = b.marken.keys.first;
+    final marke = b.marken.containsKey('t') ? 't' : (b.marken.containsKey('b') ? 'b' : b.marken.keys.first);
     final erk = Erkundung(ort: b.id, marke: marke);
     spiel.wechsle(erk);
     for (var i = 0; i < 12; i++) {
@@ -30,5 +31,4 @@ void main(List<String> args) {
     stdout.writeln('${b.id}: Marke $marke · ${spiel.renderer.stats} · Palette ${pal == 0 ? 'OK' : 'FEHLER'} · Block $blk');
   }
   exitCode = fehler == 0 ? 0 : 1;
-  math.max(0, 0);
 }

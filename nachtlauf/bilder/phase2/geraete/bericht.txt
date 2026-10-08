@@ -1,0 +1,12 @@
+desktop · 1280x720 @1 · Drosselung 1× · Bildrate Start 35.0 / Spiel 32.8 · Konsole 2 · fremde Abrufe 0 · Gamepad wirkt
+  BSMESS Welt 320x180 ×4 · UI 640x360 ×2 · Spiel 11.09 ms · RGBA+Übergabe 0.97 ms · Weg asynchron · verworfen 2
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  warning: Error while trying to load an asset: Flutter Web engine failed to fetch "assets/packages/pixel_engine/data/figuren/karten.json". HTTP request succeeded, but the server responded with HTTP status 404.
+handy-quer · 800x360 @3 · Drosselung 1× · Bildrate Start 15.7 / Spiel 16.6 · Konsole 2 · fremde Abrufe 0
+  BSMESS Welt 400x180 ×6 · UI 800x360 ×3 · Spiel 18.29 ms · RGBA+Übergabe 2.51 ms · Weg asynchron · verworfen 6
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  warning: Error while trying to load an asset: Flutter Web engine failed to fetch "assets/packages/pixel_engine/data/figuren/karten.json". HTTP request succeeded, but the server responded with HTTP status 404.
+handy-hoch · 360x800 @3 · Drosselung 1× · Bildrate Start 17.3 / Spiel 17.5 · Konsole 2 · fremde Abrufe 0
+  BSMESS Welt 180x400 ×6 · UI 360x800 ×3 · Spiel 14.43 ms · RGBA+Übergabe 2.04 ms · Weg asynchron · verworfen 7
+  error: Failed to load resource: the server responded with a status of 404 (Not Found)
+  warning: Error while trying to load an asset: Flutter Web engine failed to fetch "assets/packages/pixel_engine/data/figuren/karten.json". HTTP request succeeded, but the server responded with HTTP status 404.

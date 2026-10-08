@@ -1,4 +1,8 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:burgstadt_core/burgstadt_core.dart';
+import 'package:burgstadt_core/burgstadt_core_io.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -40,7 +44,7 @@ void main() {
           offen.add((id, nx, nz));
         } else {
           final d = b.dingAn(nx, nz);
-          if (d != null && d.legende.art == KachelArt.tuer && !d.legende.verschlossen) {
+          if (d != null && Bereich.offen(d.legende, 2)) {
             final ziel = burg.bereiche[d.legende.ziel]!;
             final (mx, mz) = ziel.marken[d.legende.zielMarke]!;
             offen.add((ziel.id, mx, mz));
@@ -83,5 +87,23 @@ void main() {
         expect(neben, isTrue, reason: '${b.id} → ${ziel.id}: Marke ${d.legende.zielMarke} liegt nicht an einer Tür');
       }
     }
+  });
+
+  test('Ganze Welt mit Innenräumen: gültig, Marktplatz-Türen führen in die Räume und zurück', () {
+    final w = findeRepoWurzel()!;
+    final dateien = [
+      for (final f in Directory('$w/packages/burgstadt_core/data/innenraeume').listSync().whereType<File>())
+        if (f.path.endsWith('.json')) jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
+    ];
+    final welt = Welt(baueWelt(dateien));
+    expect(welt.pruefe(), isEmpty);
+    final stadt = welt.bereiche['stadt']!;
+    final tueren = stadt.dinge.where((d) => d.legende.art == KachelArt.tuer && !d.legende.verschlossen).toList();
+    expect(tueren.length, greaterThanOrEqualTo(5)); // Burgtor + 4 Fall-Orte am Markt
+    final nav = Navigation(welt, phase: 2);
+    final (bx, bz) = welt.bereiche['hof']!.marken['b']!;
+    final weg = nav.weg(('hof', bx, bz), (o) => o.$1 == 'innen-teestube');
+    expect(weg, isNotNull, reason: 'Vom Burghof durch das Burgtor in die Teestube');
+    expect(Navigation(welt, phase: 1).weg(('hof', bx, bz), (o) => o.$1 == 'stadt'), isNull, reason: 'Phase 1: Burgtor zu');
   });
 }

@@ -38,6 +38,10 @@ flutter:
   assets:
     - content/scenarios/
     - assets/burgstadt/ton/
+    - krimidinner/spuk-im-gewoelbe/10_kanon/
+    - nachtlauf/kanon/ANPASSUNG.md
+    - packages/pixel_engine/data/figuren/
+    - packages/burgstadt_core/data/innenraeume/
   fonts:
     - family: SpecialElite
       fonts:

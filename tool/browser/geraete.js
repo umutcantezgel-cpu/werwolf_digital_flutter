@@ -69,7 +69,7 @@ async function wischen(cdp, x0, y0, x1, y1, schritte, haltenMs) {
     page.on('console', (m) => { if (m.text().startsWith('BSMESS')) { mess.push(m.text()); return; } if (m.type() === 'error' || m.type() === 'warning') konsole.push(`${m.type()}: ${m.text()}`); });
     page.on('pageerror', (e) => konsole.push(`pageerror: ${e.message}`));
     page.on('request', (r) => { const u = new URL(r.url()); if (!['127.0.0.1', 'localhost'].includes(u.hostname) && u.protocol !== 'data:' && u.protocol !== 'blob:') fremd.push(r.url()); });
-    const start = (p.name === 'desktop' ? '?' : '?bs=erkundung&') + 'bsmess=1';
+    const start = (p.name === 'desktop' ? '?' : '?bs=fall&') + 'bsmess=1';
     await page.goto(basis + start, { waitUntil: 'load' });
     await page.waitForSelector('flutter-view, flt-glass-pane', { timeout: 60000 });
     await warte(5000 * Math.max(1, drossel / 2));

@@ -79,6 +79,7 @@ class Simulation {
 
   /// Ein Zeitschritt (Echtsekunden).
   void tick(double dt) {
+    nav.phase = fall.phase;
     if (fall.abschnitt == Abschnitt.ermittlung) {
       _melde(fall.zeitVergeht(dt * tempo));
     }

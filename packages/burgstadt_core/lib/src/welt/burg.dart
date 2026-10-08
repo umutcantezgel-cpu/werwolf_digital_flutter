@@ -1,9 +1,10 @@
 import 'bereich.dart';
+import 'oberstadt.dart';
 
 const _l = Legende.new;
 
-Legende _tuer(String name, String ziel, String marke, {bool zu = false, String textur = 'eichenTuer'}) =>
-    _l(KachelArt.tuer, name, ziel: ziel, zielMarke: marke, verschlossen: zu, textur: textur, hoehe: 2.2);
+Legende _tuer(String name, String ziel, String marke, {bool zu = false, String textur = 'eichenTuer', int? abPhase}) =>
+    _l(KachelArt.tuer, name, ziel: ziel, zielMarke: marke, verschlossen: zu, offenAbPhase: abPhase, textur: textur, hoehe: 2.2);
 
 Legende _ding(String name, String form, double hoehe, {String? textur, String? station, double warm = 0, double kalt = 0, double weite = 0}) =>
     _l(KachelArt.objekt, name, form: form, hoehe: hoehe, textur: textur, station: station, lichtWarm: warm, lichtKalt: kalt, lichtWeite: weite);
@@ -202,9 +203,34 @@ Map<String, Bereich> baueBurg() {
         'Y': _ding('Torhaus (Wohnung des Burgwarts)', 'haus', 4.5, textur: 'putzKalkweiss'),
         'R': _station('Raureif auf dem Hof', 'BS-11', form: 'raureif'),
         'K': _tuer('Kellerhals', 'gewoelbe', 'k', textur: 'holzBohlen'),
-        'B': _tuer('Burgtor (Kastenschloss)', 'hof', 'b', zu: true, textur: 'eichenTuerEisen'),
+        'B': _tuer('Burgtor zur Oberstadt', 'stadt', 'b', zu: true, abPhase: 2, textur: 'eichenTuerEisen'),
       },
     ),
   ];
-  return {for (final x in b) x.id: x};
+  final burg = {for (final x in b) x.id: x};
+  final stadt = baueMarktplatz(const {});
+  burg[stadt.id] = stadt;
+  return burg;
+}
+
+/// Ganze Welt: Burg, Innenräume aus Daten (`{"bereiche":[…]}`-Dateien) und der
+/// Marktplatz mit Türen zu den vorhandenen Innenräumen.
+Map<String, Bereich> baueWelt(Iterable<Map<String, dynamic>> innenraumDateien) {
+  final w = baueBurg();
+  final innen = <String, Bereich>{};
+  for (final datei in innenraumDateien) {
+    for (final b in datei['bereiche'] as List) {
+      final x = Bereich.ausJson(b as Map<String, dynamic>);
+      innen[x.id] = x;
+    }
+  }
+  final stadt = baueMarktplatz(innen.keys.toSet());
+  w['stadt'] = stadt;
+  // Nur Innenräume aufnehmen, deren Haus schon in der Stadt steht (der Stadtgenerator
+  // verteilt später alle); alle Türen eines Raums müssen ihre Zielmarke finden.
+  for (final b in innen.values) {
+    final passt = b.dinge.where((d) => d.legende.art == KachelArt.tuer).every((d) => d.legende.ziel != 'stadt' || stadt.marken.containsKey(d.legende.zielMarke));
+    if (passt) w[b.id] = b;
+  }
+  return w;
 }

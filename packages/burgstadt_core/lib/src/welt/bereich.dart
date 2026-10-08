@@ -18,6 +18,9 @@ class Legende {
   final String? zielMarke;
   final bool verschlossen;
 
+  /// Tür öffnet sich ab dieser Fallphase (z. B. Burgtor ab Phase 2, Kanon STADT-03).
+  final int? offenAbPhase;
+
   /// Objekt: Form (z. B. tisch, fass, kamin, regal, truhe, brunnen, kasten) und Höhe in m.
   final String form;
   final double hoehe;
@@ -33,6 +36,7 @@ class Legende {
       {this.ziel,
       this.zielMarke,
       this.verschlossen = false,
+      this.offenAbPhase,
       this.form = '',
       this.hoehe = 1,
       this.textur,
@@ -47,6 +51,7 @@ class Legende {
         ziel: j['ziel'] as String?,
         zielMarke: j['zielMarke'] as String?,
         verschlossen: j['verschlossen'] as bool? ?? false,
+        offenAbPhase: (j['offenAbPhase'] as num?)?.toInt(),
         form: j['form'] as String? ?? '',
         hoehe: (j['hoehe'] as num?)?.toDouble() ?? 1,
         textur: j['textur'] as String?,
@@ -86,6 +91,10 @@ class Bereich {
   final List<Ding> dinge = [];
   final Map<String, (int, int)> marken = {};
 
+  /// Ist die Tür [l] in Fallphase [phase] offen?
+  static bool offen(Legende l, int phase) =>
+      l.art == KachelArt.tuer && (l.offenAbPhase != null ? phase >= l.offenAbPhase! : !l.verschlossen);
+
   Bereich({
     required this.id,
     required this.name,
@@ -98,8 +107,10 @@ class Bereich {
     this.grundKalt = 0.1,
     required this.karte,
     required this.legende,
+    Map<String, (int, int)> namensMarken = const {},
   }) {
     _finde();
+    marken.addAll(namensMarken);
   }
 
   factory Bereich.ausJson(Map<String, dynamic> j) => Bereich(
@@ -115,6 +126,10 @@ class Bereich {
         karte: [for (final z in j['karte'] as List) z as String],
         legende: {
           for (final e in (j['legende'] as Map).entries) e.key as String: Legende.ausJson(e.value as Map<String, dynamic>),
+        },
+        namensMarken: {
+          for (final e in ((j['marken'] as Map?) ?? const {}).entries)
+            e.key as String: (((e.value as List)[0] as num).toInt(), ((e.value as List)[1] as num).toInt()),
         },
       );
 
