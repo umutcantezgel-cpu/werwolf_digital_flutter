@@ -5,9 +5,9 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 LOG="$(mktemp)"
 bash tool/alle_tests.sh schnell > "$LOG" 2>&1
-if ! grep -q "ALLE TESTS GRÜN" "$LOG"; then
+if ! grep -aq "ALLE TESTS GRÜN" "$LOG"; then
   echo "NICHT GRÜN – kein Commit. Letzte Zeilen:"
-  grep -v -E 'Woah|superuser|📎|^  /$' "$LOG" | tail -15
+  grep -a -v -E 'Woah|superuser|📎|^  /$' "$LOG" | tail -15
   exit 1
 fi
 git add -A
