@@ -17,6 +17,10 @@ class Erkundung extends Bildschirm {
   double x = 0, z = 0, yaw = -math.pi / 2, pitch = 0;
   double _wippen = 0;
   bool licht = true;
+
+  /// Detektivblick (Sichtschicht mit Spuren).
+  bool blick = false;
+  Spur? zielSpur;
   final Steuerung steuerung = Steuerung();
   String meldung = '';
   double _meldungZeit = 0;
@@ -133,6 +137,8 @@ class Erkundung extends Bildschirm {
       licht = !licht;
       spiel.ton.spiele('handylicht_klick');
     }
+    if (e.gedrueckt(Taste.blick)) _blickUmschalten(spiel);
+    zielSpur = blick ? _naechsteSpur(spiel) : null;
     if (e.gedrueckt(Taste.menue) || e.gedrueckt(Taste.zurueck)) spiel.oeffne(_Pause());
     if (steuerung.tippAktion || e.gedrueckt(Taste.aktion)) _handle(spiel);
     _meldungZeit -= dt;
@@ -178,6 +184,29 @@ class Erkundung extends Bildschirm {
   }
 
   int get _phase => sitzung?.fall.phase ?? 1;
+
+  void _blickUmschalten(Spiel spiel) {
+    blick = !blick;
+    spiel.ton.spiele(blick ? 'detektivblick_an' : 'detektivblick_aus', lautstaerke: 0.6);
+  }
+
+  /// Nächste Spur im Blickfeld (bis 2,5 m), deren Beschreibung angezeigt wird.
+  Spur? _naechsteSpur(Spiel spiel) {
+    Spur? best;
+    var bestD = 2.5;
+    for (final s in spiel.spuren) {
+      if (s.bereich != ort || s.abPhase > _phase || !s.sicht.contains('detektiv')) continue;
+      final dx = s.x - x, dz = s.z - z;
+      final d = math.sqrt(dx * dx + dz * dz);
+      if (d > bestD) continue;
+      var a = math.atan2(dz, dx) - yaw;
+      a = math.atan2(math.sin(a), math.cos(a));
+      if (a.abs() > 0.5) continue;
+      best = s;
+      bestD = d;
+    }
+    return best;
+  }
 
   String _name(Figur f) {
     if (f.id == 'BW') return 'Burgwart Eckehard';
@@ -259,7 +288,7 @@ class Erkundung extends Bildschirm {
     var flash = licht ? 0.9 : 0.0;
     if (licht && !spiel.optionen.flackernAus) flash *= 0.97 + 0.03 * math.sin(spiel.zeit * 23);
     r.flashStrength = flash;
-    spiel.zeichneBereich(ort, s: sitzung);
+    spiel.zeichneBereich(ort, s: sitzung, blick: blick);
   }
 
   @override
@@ -307,7 +336,11 @@ class Erkundung extends Bildschirm {
     // Blickziel benennen
     final d = ziel;
     final fz = zielFigur;
-    if (fz != null) {
+    final sp = zielSpur;
+    if (blick) ui.textMittig('Detektivblick', cx, 3, farbe: UiFarbe.spuk);
+    if (sp != null && fz == null && d == null) {
+      ui.textMittig(sp.beschreibung, cx, cy + 10, farbe: UiFarbe.spuk);
+    } else if (fz != null) {
       ui.textMittig('${_name(fz)} – ansprechen', cx, cy + 10, farbe: UiFarbe.akzent);
     } else if (d != null) {
       final l = d.legende;
@@ -319,7 +352,7 @@ class Erkundung extends Bildschirm {
     }
     // Knöpfe rechts
     const bw = 48, bh = 17;
-    var by = h - (bh + 4) * 4 - 4;
+    var by = h - (bh + 4) * 5 - 4;
     if (ui.knopf(
         Rechteck(w - bw - 4, by, bw, bh),
         fz != null ? 'Reden' : (d == null ? 'Aktion' : (d.legende.art == KachelArt.tuer ? 'Öffnen' : 'Ansehen')),
@@ -331,6 +364,8 @@ class Erkundung extends Bildschirm {
       licht = !licht;
       spiel.ton.spiele('handylicht_klick');
     }
+    by += bh + 4;
+    if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), 'Blick', hervorgehoben: blick)) _blickUmschalten(spiel);
     by += bh + 4;
     final neu = sz?.neueAkte ?? 0;
     if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), neu > 0 ? 'Akte $neu' : 'Akte', hervorgehoben: neu > 0)) {

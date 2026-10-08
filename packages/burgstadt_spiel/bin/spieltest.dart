@@ -76,6 +76,24 @@ void main(List<String> args) {
   druecke(Taste.aktion);
   tick(5);
   foto('03_station');
+  // Detektivblick: Wachs und Absatzabdruck leuchten
+  erk.pitch = -0.7;
+  druecke(Taste.blick);
+  tick(2);
+  foto('03b_detektivblick');
+  // Raureif im Hof
+  final hof = spiel.stadt.bereiche['hof']!;
+  final (kx, kz) = hof.markePos('k');
+  erk.ort = 'hof';
+  erk.x = kx;
+  erk.z = kz;
+  erk.yaw = 0.15;
+  erk.pitch = -0.45;
+  erk.betreten(spiel);
+  tick(2);
+  foto('03c_raureif');
+  druecke(Taste.blick);
+  erk.pitch = 0;
   // Fallakte öffnen
   druecke(Taste.akte);
   tick(2);

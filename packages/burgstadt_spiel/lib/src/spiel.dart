@@ -9,6 +9,7 @@ import 'skalierung.dart';
 import 'ton.dart';
 import 'fallsitzung.dart';
 import 'figuren_lager.dart';
+import 'spuren_geometrie.dart';
 import 'welt_geometrie.dart';
 
 /// Ein Bildschirm des Spiels (Hauptmenü, Erkundung, Fallakte …).
@@ -48,9 +49,15 @@ class Spiel {
   void setzeWelt(Map<String, Bereich> bereiche) {
     stadt = Welt(bereiche);
     _geometrie.clear();
+    spuren = burgSpuren(stadt.bereiche);
+    _spurMeshes.clear();
   }
   final Map<String, BereichGeometrie> _geometrie = {};
-  late final List<IndexedTexture> texturen = baueAlleTexturen();
+  late final List<IndexedTexture> texturen = [...baueAlleTexturen(), ...baueSpurTexturen()];
+
+  /// Spuren der Sichtschichten (Detektivblick) und ihre Meshes je Bereich/Phase.
+  late List<Spur> spuren = burgSpuren(stadt.bereiche);
+  final Map<String, Mesh?> _spurMeshes = {};
 
   /// Falldaten (Kanon), Figurenteile und -karten – setzt die App-Hülle bzw. das Werkzeug.
   FallDaten? fallDaten;
@@ -171,7 +178,7 @@ class Spiel {
 
   /// Zeichnet den Bereich [id] aus der aktuellen Kamera (Himmel nur draußen),
   /// dazu die Figuren der Sitzung [s] in diesem Bereich (außer dem Detektiv).
-  void zeichneBereich(String id, {Fallsitzung? s}) {
+  void zeichneBereich(String id, {Fallsitzung? s, bool blick = false}) {
     final r = renderer;
     final b = stadt.bereiche[id]!;
     final g = geometrie(id);
@@ -202,6 +209,21 @@ class Spiel {
         if (bild == null) continue;
         final (w, k) = g.licht(f.x, 1.0, f.z);
         r.drawSprite(bild, f.x, 0, f.z, warm: w, cold: k);
+      }
+    }
+    if (blick) {
+      // Detektivblick: Welt entsättigen, dann Spuren leuchtend darüber (mit Tiefentest)
+      final c = welt.color;
+      for (var i = 0; i < c.length; i++) {
+        c[i] = blickFilter[c[i]];
+      }
+      final phase = s?.fall.phase ?? 1;
+      final m = _spurMeshes.putIfAbsent('$id|$phase', () => baueSpurenMesh(spuren, id, phase, 'detektiv', TexturId.values.length));
+      if (m != null) {
+        final alt = r.ambientCold;
+        r.ambientCold = 0.6;
+        r.drawMesh(m);
+        r.ambientCold = alt;
       }
     }
   }

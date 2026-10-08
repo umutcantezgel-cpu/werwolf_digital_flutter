@@ -14,3 +14,4 @@ export 'src/zufall.dart';
 export 'src/fall/simulation.dart';
 export 'src/welt/navigation.dart';
 export 'src/welt/oberstadt.dart';
+export 'src/welt/spuren.dart';
