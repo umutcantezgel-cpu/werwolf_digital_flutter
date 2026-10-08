@@ -8,4 +8,5 @@ export 'src/optionen.dart';
 export 'src/skalierung.dart';
 export 'src/spiel.dart';
 export 'src/steuerung.dart';
+export 'src/ton.dart';
 export 'src/komposition.dart';

@@ -55,6 +55,9 @@ class PixelUi {
   /// Pfeiltasten/Gamepad bewegen den Fokus (in Menüs an, im Spiel-HUD aus).
   bool navigation = true;
 
+  /// Anzahl ausgelöster Knöpfe in diesem Bild (für Klickgeräusche).
+  int ausgeloestImBild = 0;
+
   PixelUi(this.font);
 
   int get zeilenHoehe => font.height + 2;
@@ -66,6 +69,7 @@ class PixelUi {
     _bild++;
     if (leeren) fb.color.fillRange(0, fb.color.length, kTransparent);
     _tips.clear();
+    ausgeloestImBild = 0;
     for (final z in ein.zeiger) {
       switch (z.art) {
         case ZeigerArt.runter:
@@ -156,6 +160,7 @@ class PixelUi {
       }
       if (hatFokus && _ein.gedrueckt(Taste.bestaetigen)) ausgeloest = true;
     }
+    if (ausgeloest) ausgeloestImBild++;
     final grund = !aktiv
         ? UiFarbe.grundDunkel
         : (gedrueckt ? UiFarbe.akzentDunkel : (hervorgehoben ? 51 : UiFarbe.grund));

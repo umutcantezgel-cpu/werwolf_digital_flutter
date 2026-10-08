@@ -101,4 +101,28 @@ void main() {
     spiel.tick(1 / 30, e);
     expect(erk.yaw, isNot(closeTo(yaw0, 0.01)));
   });
+
+  test('Ton: Musik im Menü, Uhrturm beim Betreten, Schritte beim Gehen, Klick bei Knöpfen', () {
+    final ton = MerkendeTonausgabe();
+    final spiel = Spiel()
+      ..ton = ton
+      ..groesse(1280, 720)
+      ..starteTon();
+    expect(ton.kanaele['musik'], 'musik_gassen_schleife');
+    final e = Eingabe();
+    spiel.tick(1 / 30, e);
+    e.tasteRunter(Taste.runter);
+    spiel.tick(1 / 30, e);
+    e.tasteHoch(Taste.runter);
+    e.tasteRunter(Taste.bestaetigen);
+    spiel.tick(1 / 30, e);
+    e.tasteHoch(Taste.bestaetigen);
+    expect(ton.gespielt, contains('ui_klick'));
+    expect(ton.gespielt, contains('uhrturm_schlag'));
+    e.tasteRunter(Taste.hoch);
+    for (var i = 0; i < 60; i++) {
+      spiel.tick(1 / 30, e);
+    }
+    expect(ton.gespielt.where((n) => n.startsWith('schritt_pflaster_')).length, greaterThanOrEqualTo(3));
+  });
 }

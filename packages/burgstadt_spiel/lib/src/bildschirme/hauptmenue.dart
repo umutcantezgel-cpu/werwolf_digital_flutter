@@ -11,6 +11,12 @@ class Hauptmenue extends Bildschirm {
   String? hinweis;
 
   @override
+  void betreten(Spiel spiel) {
+    spiel.ton.schleife('musik', 'musik_gassen_schleife', lautstaerke: 0.5);
+    spiel.ton.schleife('umgebung', 'wind_schleife', lautstaerke: 0.35);
+  }
+
+  @override
   void zeichneWelt(Spiel spiel) {
     final c = spiel.renderer.camera;
     final a = spiel.zeit * 0.05;

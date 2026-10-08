@@ -5,6 +5,7 @@ import 'package:pixel_engine/pixel_engine.dart';
 import 'bildschirme/hauptmenue.dart';
 import 'optionen.dart';
 import 'skalierung.dart';
+import 'ton.dart';
 
 /// Ein Bildschirm des Spiels (Hauptmenü, Erkundung, Fallakte …).
 abstract class Bildschirm {
@@ -14,6 +15,9 @@ abstract class Bildschirm {
   /// Menü-Navigation per Pfeiltasten/Gamepad (im Spiel-HUD aus, dort steuern die Tasten das Gehen).
   bool get menueNavigation => true;
   void tick(Spiel spiel, double dt, Eingabe e) {}
+
+  /// Beim Wechsel auf diesen Bildschirm (Musik, Umgebungston).
+  void betreten(Spiel spiel) {}
   void zeichneWelt(Spiel spiel) {}
   void zeichneUi(Spiel spiel, PixelUi ui);
 }
@@ -36,6 +40,9 @@ class Spiel {
   /// Prüfszene, bis die echte Welt (Phase 2) steht.
   late final DemoScene szene = DemoScene.build();
 
+  /// Tonausgabe (App-Hülle setzt die echte).
+  Tonausgabe ton = MerkendeTonausgabe();
+
   /// Wird bei Aktionen gerufen, die die App-Hülle ausführt: `klassisch`, `beenden`.
   void Function(String aktion)? beiAktion;
 
@@ -44,6 +51,12 @@ class Spiel {
 
   Spiel({Optionen? optionen}) : optionen = optionen ?? Optionen() {
     bildschirm = Hauptmenue();
+  }
+
+  /// Startet Ton des aktuellen Bildschirms (nach dem Setzen von [ton]).
+  void starteTon() {
+    ton.gesamt(optionen.lautstaerke / 10);
+    bildschirm.betreten(this);
   }
 
   Renderer get renderer => _renderer!;
@@ -91,11 +104,13 @@ class Spiel {
   void wechsle(Bildschirm b) {
     _stapel.clear();
     bildschirm = b;
+    b.betreten(this);
   }
 
   void oeffne(Bildschirm b) {
     _stapel.add(bildschirm);
     bildschirm = b;
+    b.betreten(this);
   }
 
   void schliesse() {
@@ -120,6 +135,7 @@ class Spiel {
       welt.clear(Pal.black);
     }
     bildschirm.zeichneUi(this, pixelUi);
+    if (pixelUi.ausgeloestImBild > 0) ton.spiele('ui_klick', lautstaerke: 0.6);
     e.bildEnde();
   }
 

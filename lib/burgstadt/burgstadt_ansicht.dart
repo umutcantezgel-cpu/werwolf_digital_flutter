@@ -9,6 +9,7 @@ import 'package:pixel_engine/pixel_engine.dart';
 
 import 'frame_sink.dart';
 import 'tasten.dart';
+import 'ton_audioplayers.dart';
 
 /// Vollbild-Pixelansicht des Spiels: Takt, Bildausgabe (ganzzahlig skaliert in
 /// physischen Pixeln, ohne Glättung) und Eingabe (Touch, Maus, Tastatur).
@@ -26,6 +27,7 @@ class BurgstadtAnsicht extends StatefulWidget {
 
 class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerProviderStateMixin {
   final Spiel spiel = Spiel();
+  final AudioplayersTon _ton = AudioplayersTon();
   final Eingabe eingabe = Eingabe();
   final FrameSink _welt = FrameSink(), _ui = FrameSink();
   final FocusNode _fokus = FocusNode(debugLabel: 'burgstadt');
@@ -52,6 +54,8 @@ class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerPr
   void initState() {
     super.initState();
     spiel.beiAktion = (a) => widget.beiAktion?.call(a);
+    spiel.ton = _ton;
+    spiel.starteTon();
     if (widget.start == 'erkundung') spiel.wechsle(Erkundung());
     _ticker = createTicker(_takt)..start();
   }
@@ -59,6 +63,7 @@ class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerPr
   @override
   void dispose() {
     _ticker.dispose();
+    _ton.dispose();
     _welt.dispose();
     _ui.dispose();
     _fokus.dispose();

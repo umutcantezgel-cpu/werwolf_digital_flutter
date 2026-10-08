@@ -21,6 +21,16 @@ class Erkundung extends Bildschirm {
   @override
   bool get menueNavigation => false;
 
+  double _schrittWeg = 0;
+  int _schrittNr = 0;
+
+  @override
+  void betreten(Spiel spiel) {
+    spiel.ton.schleife('musik', null);
+    spiel.ton.schleife('umgebung', 'wind_schleife', lautstaerke: 0.45);
+    spiel.ton.spiele('uhrturm_schlag', lautstaerke: 0.8);
+  }
+
   @override
   void tick(Spiel spiel, double dt, Eingabe e) {
     final s = spiel.skala!;
@@ -32,11 +42,20 @@ class Erkundung extends Bildschirm {
     final rx = -fz, rz = fx;
     final gx = steuerung.gehenX, gy = steuerung.gehenY;
     final nx = x + (fx * gy + rx * gx) * v * dt, nz = z + (fz * gy + rz * gx) * v * dt;
+    final x0 = x, z0 = z;
     if (_frei(nx, z)) x = nx;
     if (_frei(x, nz)) z = nz;
+    _schrittWeg += math.sqrt((x - x0) * (x - x0) + (z - z0) * (z - z0));
+    if (_schrittWeg > 0.72) {
+      _schrittWeg = 0;
+      spiel.ton.spiele('schritt_pflaster_${_schrittNr++ % 4 + 1}', lautstaerke: 0.5);
+    }
     final bewegt = (gx.abs() + gy.abs()) > 0.05;
     if (bewegt) _wippen += dt * v * 3.2;
-    if (e.gedrueckt(Taste.licht)) licht = !licht;
+    if (e.gedrueckt(Taste.licht)) {
+      licht = !licht;
+      spiel.ton.spiele('handylicht_klick');
+    }
     if (e.gedrueckt(Taste.menue) || e.gedrueckt(Taste.zurueck)) spiel.oeffne(_Pause());
     if (steuerung.tippAktion || e.gedrueckt(Taste.aktion)) _meldung('Hier ist nichts Besonderes.');
     _meldungZeit -= dt;
