@@ -2,6 +2,11 @@ import '../kanon/kanon.dart';
 
 /// Typisierte Falldaten aus dem wirksamen Kanon (Original + Overlay).
 class Hinweis {
+  /// Sortierschlüssel einer Hinweis-Kennung: Kanon H-1…H-257 zuerst, dann die
+  /// Stadt-Hinweise H-S01… aus der Anpassung.
+  static int reihenfolge(String id) =>
+      id.startsWith('H-S') ? 100000 + (int.tryParse(id.substring(3)) ?? 0) : (int.tryParse(id.substring(2)) ?? 0);
+
   final String id;
   final Sicht sicht;
   final String inhalt, form, quelle;
@@ -141,11 +146,14 @@ class FallDaten {
 
   static int _zahl(String s, int ersatz) => int.tryParse(RegExp(r'\d+').firstMatch(s)?.group(0) ?? '') ?? ersatz;
 
-  static List<String> _hs(String s) => [for (final m in RegExp(r'\bH-\d+\b').allMatches(s)) m.group(0)!];
+  static List<String> _hs(String s) => [for (final m in RegExp(r'\bH-S?\d+\b').allMatches(s)) m.group(0)!];
 
   /// Ordnet eine Hinweis-Quelle einer Station in der Welt zu.
   static String? stationFuer(String quelle) {
     if (quelle.contains('Sohlenkarten')) return 'BW';
+    // Stadt-Hinweise der Oberstadt (Overlay H-S…): Station am Fall-Ort ORT-nn
+    final ort = RegExp(r'\bORT-\d\d\b').firstMatch(quelle);
+    if (ort != null) return ort.group(0);
     final bs = RegExp(r'BS-(\d+)').firstMatch(quelle);
     if (bs != null) {
       final n = bs.group(0)!;
@@ -165,7 +173,7 @@ class FallDaten {
     final k = kanon;
     for (final d in k.datensaetze.values) {
       final id = d.id;
-      if (RegExp(r'^H-\d+$').hasMatch(id)) {
+      if (RegExp(r'^H-S?\d+$').hasMatch(id)) {
         final hw = k.datensaetze['HW-${id.substring(2)}'];
         final quelle = _f(d, 'Quelle');
         final g = RegExp(r'\b(G\d-\d+)\b').firstMatch(quelle)?.group(1);

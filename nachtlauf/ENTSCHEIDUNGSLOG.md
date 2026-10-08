@@ -101,3 +101,9 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - Rollen-Entscheidungen: „öffentliche“ Folgen legen genannte Hinweise in die Fallakte (IF-8); verschwiegene Optionen („behältst“, „für dich“ …) nicht. Heuristik auf dem Folge-Text – Umkehrprobe: falsch, wenn eine Folge falsch eingeordnet wird → Overlay-Feld „Wirkung“ je Option (Regelsprache, Phase 4).
 - Bots: Unschuldige teilen offen, die Täterin nur Entlastendes und wählt verschwiegene Optionen (K7). Lösungsmaß: je notwendiger Schlussfolgerung mindestens zwei bekannte Hinweise (Fairness-Regel aus kanon.py).
 - Beleg Ebene 3/4 (`bin/durchspiel.dart`): N = 4…20 jeweils gelöst, Ende EM-1; Teilen spart 72 % Schritte; ohne Teilen bleibt der Fall lösbar (fair).
+
+## E16 · 09.10. 01:24 · Stadtgenerator als Grundlage der Oberstadt; Stadt-Hinweise A-401a übernommen
+- Oberstadt kommt aus `generiereStadt` (Seed 1752, deterministisch): ovale Mauer mit Toren, Gassen, Marktplatz mit Uhrturm, Kirchenburg, Laube, 156 Häuser aus `haeuser.json`, 53 Innenräume (12 Fall-Orte von Hand, Rest als Kopien der 30 Hausvorlagen). Umkehrprobe: falsch, wenn Türen ins Leere führen → `stadt_test` prüft jede Tür auf Erreichbarkeit (Ebene 6).
+- Geometrie in 16-m-Blöcken (Boden/Decke) und 16-m-Wandblöcken, damit das Kegel-Culling greift: 35–118 von 374 Meshes je Ansicht, 3–5 ms je Bild auf der VM.
+- Befund „Stadt zu dunkel“ war ein Messfehler: Die Foto-Werkzeuge knipsten mitten in der Einblendung (Schwarz-Bayer über der UI). Werkzeuge warten jetzt 0,4 s; die Phase-2-Belegbilder sind neu erzeugt.
+- A-401a: 24 Stadt-Hinweise (H-S01…24, je Fall-Ort zwei, Phase 2/3, Min 4) in ANPASSUNG.md übernommen; 7 bestätigend, 1 entlastend (ORT-04 für Adnan, wie in ORT-04 festgelegt), 16 Farbe, Stützt nie S-1…S-7. Korrigiert: HW-S18 (Spruch statt Inschrift). Jeder Fall-Ort hat jetzt eine Station im Innenraum; FallDaten liest H-S-Kennungen und ordnet „Station ORT-nn“ zu. Kanon-Proben 0 Befunde, Leitplanken 0.

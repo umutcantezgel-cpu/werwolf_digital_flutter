@@ -255,7 +255,7 @@ void main() {
     test('alle Proben am wirksamen Kanon (Original + Overlay): 0 Befunde', () {
       final befunde = alleProben(wirksam);
       expect(befunde.values.expand((x) => x), isEmpty);
-      expect(wirksam.datensaetze.length, 1224);
+      expect(wirksam.datensaetze.length, 1272); // 1224 + 48 Stadt-Hinweise (A-401a)
     });
 
     test('mitPraefix liefert die Datensätze mit dem Präfix', () {
@@ -286,9 +286,9 @@ void main() {
       },
     );
 
-    test('am echten Kanon: 17 neue Datensätze', () {
+    test('am echten Kanon: 65 neue Datensätze (17 + 48 Stadt-Hinweise)', () {
       final diff = overlayDiff(original, wirksam);
-      expect(diff.where((z) => z.startsWith('+ ')).length, 17);
+      expect(diff.where((z) => z.startsWith('+ ')).length, 65);
       expect(diff, contains('+ ORT-12'));
     });
   });

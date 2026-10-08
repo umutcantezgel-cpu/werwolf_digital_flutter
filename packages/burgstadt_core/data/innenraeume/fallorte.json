@@ -19,7 +19,7 @@
         "#............#",
         "#............N",
         "#............#",
-        "#KK.....LLL..#",
+        "#KK....SLLL..#",
         "#KK..........#",
         "#............#",
         "#......t.....#",
@@ -79,6 +79,13 @@
           "textur": "putzKalkweiss",
           "lichtKalt": 0.45,
           "lichtWeite": 3.0
+        },
+        "S": {
+          "art": "station",
+          "name": "am Uhrwerk",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-01"
         }
       }
     },
@@ -491,7 +498,7 @@
         "####################",
         "#..................#",
         "#...RRRRKKRRRRRR...#",
-        "#..................#",
+        "#.........S........#",
         "#OO...............B#",
         "#OO...............B#",
         "#..CC....TT....CC.B#",
@@ -557,6 +564,13 @@
           "form": "tisch",
           "hoehe": 0.8,
           "textur": "holzDielen"
+        },
+        "S": {
+          "art": "station",
+          "name": "an der Theke",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-07"
         }
       }
     },
@@ -573,7 +587,7 @@
       "karte": [
         "####################",
         "#OOOO..........MM..#",
-        "#OOOO..KKKKKK..MM..#",
+        "#OOOOS.KKKKKK..MM..#",
         "#..................#",
         "#..................#",
         "#..................#",
@@ -631,6 +645,13 @@
           "form": "regal",
           "hoehe": 1.9,
           "textur": "holzBohlen"
+        },
+        "S": {
+          "art": "station",
+          "name": "vor dem Kachelofen",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-08"
         }
       }
     },
@@ -653,7 +674,7 @@
         "#....U..U..U..U..U.....#",
         "#...LLLLLLMMMMLLLLLL...#",
         "#...LLLLLLMMMMLLLLLL...#",
-        "#....U..U..U..U..U.....#",
+        "#....U..U..US.U..U.....#",
         "#......................#",
         "#......................#",
         "#......................#",
@@ -718,6 +739,13 @@
           "textur": "putzKalkweiss",
           "lichtKalt": 0.45,
           "lichtWeite": 3.0
+        },
+        "S": {
+          "art": "station",
+          "name": "vor der Bürgermeistertafel",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-09"
         }
       }
     },
@@ -734,7 +762,7 @@
       "karte": [
         "####################",
         "#...............AAA#",
-        "#...RR...RR...RR...#",
+        "#...RR...RR...RRS..#",
         "#...RR...RR...RR...#",
         "#...RR...RR...RR...#",
         "#...RR...RR...RR...#",
@@ -796,6 +824,13 @@
           "textur": "putzKalkweiss",
           "lichtKalt": 0.45,
           "lichtWeite": 3.0
+        },
+        "S": {
+          "art": "station",
+          "name": "am Archivpult",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-10"
         }
       }
     },
@@ -814,7 +849,7 @@
         "#H............H#",
         "#H............H#",
         "#H..TTTTTTTT..H#",
-        "#H............H#",
+        "#H......S.....H#",
         "#H............H#",
         "#H............H#",
         "#H............H#",
@@ -854,6 +889,13 @@
           "textur": "putzKalkweiss",
           "lichtKalt": 0.5,
           "lichtWeite": 3.0
+        },
+        "S": {
+          "art": "station",
+          "name": "am Tresen",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-11"
         }
       }
     },
@@ -877,7 +919,7 @@
         "#........S....S........#",
         "#.BBBBBBB......BBBBBBB.#",
         "#......................#",
-        "#.BBBBBBB......BBBBBBB.#",
+        "#.BBBBBBB.....QBBBBBBB.#",
         "#......................#",
         "#.BBBBBBB......BBBBBBB.#",
         "#........S....S........#",
@@ -936,6 +978,13 @@
           "form": "tisch",
           "hoehe": 1.0,
           "textur": "putzKalkweiss"
+        },
+        "Q": {
+          "art": "station",
+          "name": "an der Holztreppe",
+          "form": "boden",
+          "hoehe": 0.05,
+          "station": "ORT-12"
         }
       }
     }

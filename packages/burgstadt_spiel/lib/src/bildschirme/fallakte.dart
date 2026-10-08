@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:burgstadt_core/burgstadt_core.dart' show Hinweis;
 import 'package:pixel_engine/pixel_engine.dart';
 
 import '../fallsitzung.dart';
@@ -24,7 +25,7 @@ class FallakteBildschirm extends Bildschirm {
   List<String> get _liste {
     final f = s.fall;
     final l = akteZeigen ? f.akte.toList() : f.wissen['DET']!.where((h) => !f.akte.contains(h)).toList();
-    l.sort((a, b) => int.parse(a.substring(2)).compareTo(int.parse(b.substring(2))));
+    l.sort((a, b) => Hinweis.reihenfolge(a).compareTo(Hinweis.reihenfolge(b)));
     return l;
   }
 

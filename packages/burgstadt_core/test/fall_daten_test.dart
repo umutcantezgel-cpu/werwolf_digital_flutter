@@ -15,7 +15,8 @@ void main() {
   final f = ladeFall();
 
   test('Zahlen wie im Kanon', () {
-    expect(f.hinweise.length, 257);
+    expect(f.hinweise.keys.where((h) => !h.startsWith('H-S')).length, 257);
+    expect(f.hinweise.keys.where((h) => h.startsWith('H-S')).length, 24); // Stadt-Hinweise (Anpassung)
     expect(f.gespraeche.length, 180);
     expect(f.rollenEntscheidungen.length, 60);
     expect(f.detektivEntscheidungen.length, 9);

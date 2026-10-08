@@ -12,13 +12,20 @@ const _ids = <String>[
   'innen-rathaus', 'innen-bibliothek', 'innen-apotheke', 'innen-kirche',
 ];
 
-/// Fundstellen: Kennung → Raum. Nur fünf Fall-Orte haben eine Station.
+/// Fundstellen: Kennung → Raum. Jeder Fall-Ort hat eine Station (Stadt-Hinweise H-S, A-401a).
 const _stationen = <String, String>{
+  'ORT-01': 'innen-uhrturm',
   'ORT-02': 'innen-museum',
   'ORT-03': 'innen-pension',
   'ORT-04': 'innen-schreinerei',
   'ORT-05': 'innen-fundus',
   'ORT-06': 'innen-stromhaus',
+  'ORT-07': 'innen-teestube',
+  'ORT-08': 'innen-baeckerei',
+  'ORT-09': 'innen-rathaus',
+  'ORT-10': 'innen-bibliothek',
+  'ORT-11': 'innen-apotheke',
+  'ORT-12': 'innen-kirche',
 };
 
 /// Objektformen laut FORMAT-BEREICHE.md.
@@ -219,7 +226,7 @@ void main() {
     }
   });
 
-  test('Fundstellen: genau ORT-02 bis ORT-06 in den vorgesehenen Räumen, begehbar', () {
+  test('Fundstellen: genau ORT-01 bis ORT-12 in den vorgesehenen Räumen, begehbar', () {
     final gefunden = <String, String>{};
     for (final b in bereiche) {
       for (final d in b.dinge) {

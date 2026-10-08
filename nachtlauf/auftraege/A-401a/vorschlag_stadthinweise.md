@@ -1,138 +1,75 @@
 [ENTHÄLT LÖSUNG]
-# ANPASSUNG · Kanon-Overlay für das Spiel „Burgstadt Schartenfels“
+# Vorschlag A-401a · Stadt-Hinweise an den Fall-Orten der Oberstadt
 
-Format wie `10_kanon/FORMAT.md`: ein Datensatz pro Zeile, `@ID [O|G|L] | Feld: Wert | …`.
-Regeln für das Overlay:
-- Gleiche ID wie im Kanon: Die hier genannten Felder ersetzen die Originalfelder; nicht genannte Felder bleiben. `Löschen: Feld1, Feld2` entfernt Felder.
-- Neue ID: neuer Datensatz.
-- `@ERSETZE-nn`: Begriffsersetzung in allen Textfeldern aller Datensätze (nach dem feldweisen Mergen), exakt und groß/klein-genau.
-- Notwendige Schlussfolgerungen S-1…S-7 und ihre Hinweise bleiben inhaltlich unverändert. Neue Stadt-Hinweise tragen nur die Einstufung Farbe, entlastend oder bestätigend.
+Format wie `10_kanon/FORMAT.md`. Je Fall-Ort zwei Hinweise (`H-S`, Sichtklasse O) mit Wahrheitsdatensatz (`HW-S`, Sichtklasse L). Nur Farbe, entlastend oder bestätigend; keine notwendigen Schlussfolgerungen. Wirkt als Overlay über Kanon und ANPASSUNG und wird nicht in den Kanon übernommen.
 
-## Begriffsersetzungen
-@ERSETZE-01 [O] | Von: Silberhauer Ausbeutetaler | Nach: Schartenfelser Ausbeutetaler
-@ERSETZE-02 [O] | Von: Silberhauer | Nach: Schartenfelser
-@ERSETZE-03 [O] | Von: aus der Zeit des Harzer Silberbergbaus | Nach: aus der Zeit des Silberbergbaus unter Schartenfels
-@ERSETZE-04 [O] | Von: dem Brockengespenst | Nach: dem Nebelriesen
-@ERSETZE-05 [O] | Von: über das Brockengespenst | Nach: über den Nebelriesen
-@ERSETZE-06 [O] | Von: mit seinem Brockengespenst | Nach: mit seinem Nebelriesen
-@ERSETZE-07 [O] | Von: Das Brockengespenst ist | Nach: Der Nebelriese ist
-@ERSETZE-08 [O] | Von: Das Brockengespenst: | Nach: Der Nebelriese:
-@ERSETZE-09 [O] | Von: Brockengespenst | Nach: Nebelriese
-@ERSETZE-10 [O] | Von: Nationalpark Harz | Nach: Naturpark
-@ERSETZE-11 [O] | Von: Nationalpark | Nach: Naturpark
-@ERSETZE-12 [O] | Von: Oberharz | Nach: Bergland
-@ERSETZE-13 [O] | Von: Harzwald | Nach: Bergwald
-@ERSETZE-14 [O] | Von: in the Harz mountains | Nach: in high wooded mountains
-@ERSETZE-15 [O] | Von: from the Harz mountains | Nach: from the mountains
-@ERSETZE-16 [O] | Von: im Harz | Nach: im Bergland
-
-## Ort und Rahmen
-@K-001 [O] | Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist die kleine, renovierte Stadtburg am höchsten Punkt der erfundenen, ummauerten Oberstadt Schartenfels: Gassen mit Kopfsteinpflaster, Häuser mit Dachgauben, die wie Augen schauen, eine Stadtmauer mit Wehrgang und Zunfttürmen, ein Uhrturm am Marktplatz und eine Kirchenburg auf dem Hügel. Unten im Tal liegt das erfundene Bergstädtchen Silberhau (SIL-ber-hau). Burg und Heimatmuseum gehören einer Stiftung; Burgwart ist Eckehard Lüddecke.
-@K-005 [O] | Tatsache: Der Wendeltreppenturm verbindet alle Ebenen. Unten am Turm-Fuß: Turmtür zum Gewölbe, Eisentür zur Speisekammer, der Sicherungskasten mit Zahlenschloss und eine alte Holztruhe. Der Sicherungskasten ist zugleich der historische Hauptverteiler der ganzen Oberstadt. Acht Stufen höher, auf dem ersten Absatz: die Ritterrüstung „Kunibert“. Darüber die Hofebene mit der Hoftür, der Schauvitrine und der Toilette. Ganz oben der Wehrgang, der als Teil der Stadtmauer weiterläuft; die Turmpforten vom Mauerweg hinunter in die Stadt sind nachts verschlossen.
-@K-007 [O] | Tatsache: Am Schlüsselbund des Burgwarts hängen die großen Buntbartschlüssel für Burgtor und Torhaus, die beiden Schlüssel der Stadttore (Obertor und Untertor), der Schlüssel für die Turmpforten des Mauerwegs sowie der kleine Vitrinenschlüssel. Er trägt den Bund an einem Karabinerhaken am Gürtel.
-@K-010 [O] | Tatsache: In der Burg sind in dieser Nacht nur die Festgesellschaft (alle besetzten Rollen und das Geburtstagskind) und der Burgwart. Seine Frau Gerda ist bei ihrer Schwester in Osterode; die Aushilfe ist um 18:00 gegangen. In den Häusern der Oberstadt schlafen oder wachen einige Bewohner; in die Burg kommt seit 23:00 niemand von ihnen, denn das Burgtor ist abgeschlossen.
-@STADT-01 [O] | Tatsache: Die Stadttore der Oberstadt, Obertor und Untertor, schließt der Burgwart jeden Abend um 22:00 ab. Die Stadtmauer ist rundum mindestens sechs Meter hoch; wer nachts die Oberstadt verlassen will, braucht den Bund.
-@STADT-02 [O] | Tatsache: Seit dem Knall um 23:58 ist die ganze Oberstadt dunkel: keine Straßenlaternen, keine Fenster, kein Licht am Uhrturm. Es leuchten nur Kerzen, Handylichter, Notleuchten mit Batterie, das Geleucht im Burghof und der Mond. Der Uhrturm schlägt mechanisch weiter.
-@STADT-03 [O] | Tatsache: Zu Beginn von Phase 2 schließt der Burgwart mit dem wiedergefundenen Bund das Burgtor zur Oberstadt auf: „Sucht meinetwegen in der ganzen Oberstadt – aber vor dem Morgengrauen kommt hier keiner raus.“ Die Stadttore bleiben zu, den Bund behält er am Gürtel.
-@STADT-04 [O] | Tatsache: Die Ersatzsicherungen aus dem Torhaus passen nicht in den alten Hauptverteiler; der Strom kommt erst am Morgen wieder, wenn das Stadtwerk aus Silberhau heraufkommt.
-@STADT-05 [O] | Tatsache: Der Uhrturm am Marktplatz schlägt die Nacht: Phase 1 beginnt um 00:25 und endet mit dem Schlag um 01:30, Phase 2 endet um 03:00, Phase 3 um 04:30. Die Auflösung folgt im Morgengrauen.
-@OA-17 [O] | Was alle erlebt haben: Ein lauter Knall. Die Hauptsicherung fliegt raus, die ganze Burg und mit ihr die ganze Oberstadt sind stockdunkel; nur die Kaminglut und das Geleucht im Hof leuchten. Aus der Box kommen im Dunkeln weiter unheimliche Geräusche: Wind, Kettenrasseln, Schritte.
-@OA-25 [O] | Was alle erlebt haben: Adnan und Jonas prüfen das Burgtor: abgeschlossen. Das Torhaus auch, und die Turmpforten vom Wehrgang in die Stadt ebenfalls. Ohne Bund kommt niemand hinaus – weder aus der Burg noch aus der Oberstadt.
-@OA-27 [O] | Was alle erlebt haben: Der Burgwart lehnt Krankenwagen und Polizei ab: „Bei Eisnebel kommt vor sechs eh keiner die Serpentinen rauf. Und wer mir eins übergezogen hat, sagt's mir ins Gesicht. Bis zum Morgengrauen.“
-@BW-STAMM [O] | Herkunft: Schartenfels, Bergland | Leben: Bis 1992 war er Hauer im Silberbergwerk unter dem Burgberg, seit 1994 ist er Burgwart von Burg und Oberstadt. Er wohnt im Torhaus; seine Frau Gerda ist dieses Wochenende bei ihrer Schwester in Osterode.
-@BW-AUSSAGE-0 [O] | Aussage: „Glück auf … wer hat mir das Licht ausgeknipst?“ – „Mein Bund! Wo ist mein Bund?“ – „Da ist er ja, der Taler. Wenigstens einer mit Anstand.“ – „Wer mir eins übergezogen hat, sagt's mir ins Gesicht. Bis zum Morgengrauen. Polizei kommt bei Eisnebel vor sechs eh keiner rauf.“
-@GL-01 [O] | Begriff: Burg Schartenfels | Schreibweise: Burg Schartenfels (die Stadtburg) · die Oberstadt Schartenfels | Aussprache: SCHAR-ten-fels
-@GL-03 [O] | Begriff: Bergland | Schreibweise: das Bergland | Aussprache: BERK-lant
-@GL-15 [O] | Begriff: Legende | Schreibweise: der Nebelriese | Aussprache: NE-bel-rie-se
-@LA-01 [O] | Ort: Burg außen | Anker (EN): a small fortified town castle of dark grey rubble stone at the highest point of a walled hilltop old town with steep red tile roofs and dormer windows like eyes, one round stair tower with a crenellated wall walk that continues as the town wall, a gatehouse with a heavy arched wooden gate, fir forest and drifting night fog around it
-@LA-05 [O] | Ort: Wehrgang | Anker (EN): a narrow crenellated wall walk on top of the tower and town wall, frost on the stone, wind, a wide view over dark roofs, the clock tower and the fortified church on the hill
-
-## Stadt-Orte der Motivstränge (neu; nur Farbe / entlastend / bestätigend)
-@ORT-01 [O] | Ort: Marktplatz mit Uhrturm | Viertel: Marktviertel | Rolle im Fall: Treffpunkt, Uhrturm schlägt die Phasen
-@ORT-02 [O] | Ort: Stadtmuseum am Marktplatz | Viertel: Marktviertel | Strang: b | Rolle im Fall: Farbe (Katalogkarte des Talers, Leihgabe an die Burg)
-@ORT-03 [O] | Ort: Pension „Zum Uhrturm“ | Viertel: Marktviertel | Strang: a, c | Rolle im Fall: Farbe (Übernachtung der Clique; Wäschezeichen „Schartenfels 7“ ist das Zeichen der Pensionswäsche, Zimmer 7)
-@ORT-04 [O] | Ort: Schreinerei an der Mauergasse | Viertel: Handwerkergasse | Strang: d | Rolle im Fall: entlastend für Adnan (Kostenvoranschlag „sechshundert, höchstens“, bestätigt R14)
-@ORT-05 [O] | Ort: Kostümfundus der Volksbühne | Viertel: Kirchhügel | Strang: c | Rolle im Fall: Farbe (im Fundus fehlt kein Laken – das Gespensterlaken stammt aus der Pension)
-@ORT-06 [O] | Ort: Stromhaus am Obertor | Viertel: Mauerviertel | Strang: c | Rolle im Fall: bestätigend (Schaltplan: der Hauptverteiler im Burgturm speist die ganze Oberstadt)
-@ORT-07 [O] | Ort: Teestube „Zur Laterne“ | Viertel: Marktviertel | Rolle im Fall: Treffpunkt
-@ORT-08 [O] | Ort: Bäckerei am Untertor | Viertel: Untere Stadt | Rolle im Fall: Farbe (Bäckerin beginnt um 03:00)
-@ORT-09 [O] | Ort: Rathaus | Viertel: Marktviertel | Rolle im Fall: Farbe
-@ORT-10 [O] | Ort: Bibliothek mit Archiv | Viertel: Kirchhügel | Rolle im Fall: Farbe (alte Inschriften, Stadtgeschichte)
-@ORT-11 [O] | Ort: Apotheke | Viertel: Untere Stadt | Rolle im Fall: Farbe (Kühlpack, Ersthilfe)
-@ORT-12 [O] | Ort: Kirchenburg mit Friedhof und überdachter Holztreppe | Viertel: Kirchhügel | Rolle im Fall: Farbe
-@LISTE-ORTE [O] | Orte: Kamin-Gewölbe (mit Kamin, Festtafel, Punschkessel, Nische neben der Eichentür) · Speisekammer (Tatort) · Wendeltreppenturm mit Turm-Fuß (Sicherungskasten, Holztruhe, Eisentür, Turmtür), erstem Absatz (Rüstung Kunibert), Hofebene (Hoftür, Schauvitrine, Toilette), Wehrgang (dritte Zinne) · Hof (Brunnen mit Geleucht, Burgtor, Torhaus, Kellerhals) · Burgweg (Zufahrt, außerhalb) · Oberstadt (ab Phase 2): Marktplatz mit Uhrturm, Stadtmuseum, Pension „Zum Uhrturm“, Schreinerei an der Mauergasse, Kostümfundus der Volksbühne, Stromhaus am Obertor, Teestube „Zur Laterne“, Bäckerei am Untertor, Rathaus, Bibliothek mit Archiv, Apotheke, Kirchenburg mit Friedhof, Stadtmauer mit Wehrgang, Gewölbegänge unter der Stadt
-
-## Stadt-Hinweise an den Fall-Orten (Auftrag A-401a, geprüft von Opus)
-
-Je Fall-Ort zwei Hinweise (`H-S`, Sichtklasse O) mit Wahrheitsdatensatz (`HW-S`, L). Nur Farbe, entlastend oder bestätigend; Stützt nie S-1…S-7. Quelle ist die Station am Fall-Ort (Innenraum in `fallorte.json`), Phase 2 oder 3.
-
-### ORT-01 · Marktplatz mit Uhrturm
+## ORT-01 · Marktplatz mit Uhrturm
 @H-S01 [O] | Inhalt: Du hörst den Uhrturm weiterschlagen, als hätte es nie einen Stromausfall gegeben. Über dem Zifferblatt steht eingemeißelt: „Ich zähle die Stunden, nicht die Schuld.“ | Form: Erzähler | Quelle: Station ORT-01 | Phase: 2 | Min: 4
 @HW-S01 [L] | Wahrheit: Das Uhrwerk läuft mechanisch und ohne Strom; es schlägt die Phasen weiter (STADT-02, STADT-05). | Stützt: – | Einstufung: bestätigend (STADT-02: der Uhrturm schlägt mechanisch weiter) | Blockierbar durch: nein | Unabhängig von: –
 @H-S02 [O] | Inhalt: Auf dem Marktplatz steht eine Frau mit Thermoskanne und zählt jeden Schlag laut mit. „Bis zum Morgen sind es noch ein paar Schläge“, seufzt sie. | Form: Erzähler | Quelle: Station ORT-01 | Phase: 3 | Min: 4
 @HW-S02 [L] | Wahrheit: Farbe. Die Bewohner stehen am Marktplatz, dem Treffpunkt (ORT-01); sie waren nie in der Burg. | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-02 · Stadtmuseum am Marktplatz
+## ORT-02 · Stadtmuseum am Marktplatz
 @H-S03 [O] | Inhalt: Eine Katalogkarte im Stadtmuseum vermerkt: Der Schartenfelser Ausbeutetaler ist eine Leihgabe an die Burg. Der Sammlerwert steht daneben: etwa dreitausend Euro. | Form: Karte | Quelle: Station ORT-02 | Phase: 2 | Min: 4
 @HW-S03 [L] | Wahrheit: Die Katalogkarte bestätigt K-008: Der Taler in der Schauvitrine der Burg ist eine Leihgabe des Stadtmuseums, Sammlerwert etwa dreitausend Euro. | Stützt: – | Einstufung: bestätigend (K-008: der Taler liegt in der Schauvitrine der Burg) | Blockierbar durch: nein | Unabhängig von: –
 @H-S04 [O] | Inhalt: Unter Glas liegt ein Stück Silbererz, daneben ein Schild: „Glück auf!“ Der Bergmannsgruß stammt aus der Zeit unter dem Burgberg. | Form: Erzähler | Quelle: Station ORT-02 | Phase: 3 | Min: 4
 @HW-S04 [L] | Wahrheit: Farbe. „Glück auf“ ist der Gruß des Burgwarts aus seiner Zeit als Hauer im Silberbergwerk unter dem Burgberg (BW-STAMM). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-03 · Pension „Zum Uhrturm“
+## ORT-03 · Pension „Zum Uhrturm“
 @H-S05 [O] | Inhalt: Im Wäschebuch der Pension steht: Zimmer sieben, Bettwäsche, Zeichen „Schartenfels 7“. Am Rand steht: Das Zeichen gehört zur Pensionswäsche. | Form: Karte | Quelle: Station ORT-03 | Phase: 2 | Min: 4
 @HW-S05 [L] | Wahrheit: Das Zeichen „Schartenfels 7“ gehört zur Pensionswäsche (ORT-03, Zimmer 7). Das Gespensterlaken stammt aus der Pension; das Wäschezeichen auf dem Stofffetzen bestätigt es. | Stützt: – | Einstufung: bestätigend (BS-02: Stofffetzen mit dem Zeichen „Schartenfels 7“) | Blockierbar durch: nein | Unabhängig von: –
 @H-S06 [O] | Inhalt: Von der Pension aus siehst du den Uhrturm so nah, dass du die Zeiger zählen kannst. Am Eingang hängt ein Schild: Gäste willkommen, Betten gewärmt. | Form: Erzähler | Quelle: Station ORT-03 | Phase: 3 | Min: 4
 @HW-S06 [L] | Wahrheit: Farbe. Die Pension „Zum Uhrturm“ ist die Übernachtung der Clique (ORT-03); der Uhrturm steht nah am Haus, und die Schildinschrift stimmt. | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-04 · Schreinerei an der Mauergasse
+## ORT-04 · Schreinerei an der Mauergasse
 @H-S07 [O] | Inhalt: Im Schaufenster der Schreinerei liegt ein Kostenvoranschlag für eine alte Eichentür. Als Summe steht da: sechshundert Euro, höchstens. | Form: Karte | Quelle: Station ORT-04 | Phase: 2 | Min: 4
 @HW-S07 [L] | Wahrheit: Der Kostenvoranschlag der Schreinerei für eine alte Eichentür nennt höchstens sechshundert Euro; der Tischler bestätigt die Summe (ORT-04, R14). Der Burgwart verlangte dreitausendachthundert Euro. | Stützt: – | Einstufung: entlastend (für Adnan: der Kostenvoranschlag nennt höchstens sechshundert Euro, die Forderung wirkt damit übertrieben) | Blockierbar durch: nein | Unabhängig von: –
 @H-S08 [O] | Inhalt: In der Werkstatt hobelt der Meister seit vierzig Jahren an derselben Bank. Die Späne liegen so hoch, dass du die ganze Gasse nach Eiche riechst. | Form: Erzähler | Quelle: Station ORT-04 | Phase: 3 | Min: 4
 @HW-S08 [L] | Wahrheit: Farbe. Der Meister hobelt seit vierzig Jahren an derselben Bank (ORT-04). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-05 · Kostümfundus der Volksbühne
+## ORT-05 · Kostümfundus der Volksbühne
 @H-S09 [O] | Inhalt: Die Inventarliste der Volksbühne ist vollständig: Jeder Kittel ist gezählt, und kein Laken fehlt. | Form: Karte | Quelle: Station ORT-05 | Phase: 2 | Min: 4
 @HW-S09 [L] | Wahrheit: Im Fundus fehlt kein Laken; das Gespensterlaken stammt aus der Pension (ORT-05, Strang c). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 @H-S10 [O] | Inhalt: Im Fundus hängen Kostüme aus drei Jahrhunderten, nach Farben sortiert. Die Schneiderin flickt abends die Säume, weil die Bühne am Samstag wieder spielt. | Form: Erzähler | Quelle: Station ORT-05 | Phase: 3 | Min: 4
 @HW-S10 [L] | Wahrheit: Farbe. Die Schneiderin flickt die Säume, weil die Bühne am Samstag wieder spielt (ORT-05). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-06 · Stromhaus am Obertor
+## ORT-06 · Stromhaus am Obertor
 @H-S11 [O] | Inhalt: Auf dem Schaltplan im Stromhaus laufen alle Leitungen der Oberstadt am Fuß des Burgturms zusammen. Der Wärter hat den Weg mit Rotstift nachgezogen. | Form: Karte | Quelle: Station ORT-06 | Phase: 2 | Min: 4
 @HW-S11 [L] | Wahrheit: Der Hauptverteiler im Burgturm speist die ganze Oberstadt; der Schaltplan bestätigt das (ORT-06). | Stützt: – | Einstufung: bestätigend (K-005: der Sicherungskasten am Turm-Fuß ist der Hauptverteiler der Oberstadt) | Blockierbar durch: nein | Unabhängig von: –
 @H-S12 [O] | Inhalt: An der Wand hängt ein Zettel: Die Ersatzsicherungen passen nicht in den alten Hauptverteiler. Der Strom kommt erst am Morgen wieder, wenn das Stadtwerk aus Silberhau heraufkommt. | Form: Karte | Quelle: Station ORT-06 | Phase: 3 | Min: 4
 @HW-S12 [L] | Wahrheit: Die Ersatzsicherungen aus dem Torhaus passen nicht in den alten Hauptverteiler; der Strom kommt erst am Morgen, wenn das Stadtwerk aus Silberhau heraufkommt (ORT-06). | Stützt: – | Einstufung: bestätigend (STADT-04: die Ersatzsicherungen passen nicht, der Strom kommt am Morgen) | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-07 · Teestube „Zur Laterne“
+## ORT-07 · Teestube „Zur Laterne“
 @H-S13 [O] | Inhalt: Die Laterne über der Theke brennt heute mit einem Kerzenstummel. Der Tee dampft, und an jedem Tisch geht es nur um den Stromausfall. | Form: Erzähler | Quelle: Station ORT-07 | Phase: 2 | Min: 4
 @HW-S13 [L] | Wahrheit: Farbe. Die Teestube „Zur Laterne“ ist der Treffpunkt im Marktviertel; dort reden die Leute über den Stromausfall (ORT-07). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 @H-S14 [O] | Inhalt: Die Inhaberin stellt dir eine Kanne Kräutertee hin: „Trink, bevor er kalt wird. Bei uns bleibt es bis zum Morgen dunkel.“ | Form: mündlich | Quelle: Station ORT-07 | Phase: 3 | Min: 4
 @HW-S14 [L] | Wahrheit: Der Strom bleibt bis zum Morgen aus (STADT-04); die Teestube „Zur Laterne“ ist der Treffpunkt (ORT-07). | Stützt: – | Einstufung: bestätigend (STADT-04: der Strom kommt erst am Morgen wieder) | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-08 · Bäckerei am Untertor
+## ORT-08 · Bäckerei am Untertor
 @H-S15 [O] | Inhalt: Die Bäckerin sagt: Der Ofen wird jeden Morgen um drei Uhr angeheizt, auch heute. Der Duft zieht durch die ganze Untere Stadt. | Form: mündlich | Quelle: Station ORT-08 | Phase: 2 | Min: 4
 @HW-S15 [L] | Wahrheit: Farbe. Die Bäckerin beginnt um 03:00 (ORT-08). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 @H-S16 [O] | Inhalt: Der Kachelofen wird mit Holz geheizt und bleibt deshalb auch ohne Strom warm. Wenn du dich an die Kacheln lehnst, kommt das Gefühl zurück in die Finger. | Form: Erzähler | Quelle: Station ORT-08 | Phase: 3 | Min: 4
 @HW-S16 [L] | Wahrheit: Farbe. Der Kachelofen wird mit Holz geheizt und bleibt im Stromausfall warm (ORT-08). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-09 · Rathaus
+## ORT-09 · Rathaus
 @H-S17 [O] | Inhalt: Im Rathaus hängt eine Tafel mit allen Bürgermeistern, seit Jahrhunderten. Seit dem Stromausfall verriegelt der Nachtpförtner jede Tür einzeln, obwohl dort niemand etwas zu holen hat. | Form: Erzähler | Quelle: Station ORT-09 | Phase: 2 | Min: 4
 @HW-S17 [L] | Wahrheit: Farbe. Im Rathaus verriegelt der Nachtpförtner seit dem Stromausfall jede Tür einzeln (ORT-09). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 @H-S18 [O] | Inhalt: Der Nachtpförtner rüttelt an jeder Tür und murmelt: „Recht ist Recht, auch bei Kerzenlicht.“ | Form: mündlich | Quelle: Station ORT-09 | Phase: 3 | Min: 4
-@HW-S18 [L] | Wahrheit: Farbe. „Recht ist Recht, auch bei Kerzenlicht“ ist der Spruch über der Rathaustür, den der Nachtpförtner bei jeder Runde murmelt (ORT-09). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
+@HW-S18 [L] | Wahrheit: Farbe. Die Inschrift des Rathauses lautet „Recht ist Recht, auch bei Kerzenlicht“ (ORT-09). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-10 · Bibliothek mit Archiv
+## ORT-10 · Bibliothek mit Archiv
 @H-S19 [O] | Inhalt: Auf einer Seite der Chronik der Oberstadt steht die Torordnung: Der Burgwart schließt die Stadttore jeden Abend um zehn Uhr ab. Wer nachts hinaus will, braucht seinen Schlüsselbund. | Form: Karte | Quelle: Station ORT-10 | Phase: 2 | Min: 4
 @HW-S19 [L] | Wahrheit: Obertor und Untertor schließt der Burgwart jeden Abend um 22:00 ab; wer nachts die Oberstadt verlässt, braucht den Bund (STADT-01). | Stützt: – | Einstufung: bestätigend (STADT-01: die Stadttore schließt der Burgwart um 22:00 ab) | Blockierbar durch: nein | Unabhängig von: –
 @H-S20 [O] | Inhalt: Im Archiv liegen alte Inschriften auf Pergament. Die Bibliothekarin lüftet regelmäßig, damit das Pergament nicht wellt. | Form: Erzähler | Quelle: Station ORT-10 | Phase: 3 | Min: 4
 @HW-S20 [L] | Wahrheit: Farbe. Das Archiv der Bibliothek hat alte Inschriften auf Pergament und die Chronik der Oberstadt (ORT-10). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-11 · Apotheke
+## ORT-11 · Apotheke
 @H-S21 [O] | Inhalt: Im vorderen Regal stehen Kühlpacks, Pflaster und ein Bronzemörser, der jeden Winter gebraucht wird. | Form: Erzähler | Quelle: Station ORT-11 | Phase: 2 | Min: 4
 @HW-S21 [L] | Wahrheit: Farbe. Kühlpacks und Pflaster liegen im vorderen Regal der Apotheke (ORT-11). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 @H-S22 [O] | Inhalt: Hinter dem Tresen wartet der Apotheker im Notdienst, weil das Telefon schweigt. „Eine Beule kühlt man“, sagt er, „den Rest erzählt mir heute niemand.“ | Form: mündlich | Quelle: Station ORT-11 | Phase: 3 | Min: 4
 @HW-S22 [L] | Wahrheit: Farbe. Der Apotheker hat den Notdienst übernommen, weil das Telefon schweigt (ORT-11). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
-### ORT-12 · Kirchenburg mit Friedhof und Holztreppe
+## ORT-12 · Kirchenburg mit Friedhof und Holztreppe
 @H-S23 [O] | Inhalt: Auf dem Friedhof erzählt man sich die Legende vom Nebelriesen: ein Riesenschatten im Nebel, der sich bewegt, wenn du dich bewegst. | Form: Erzähler | Quelle: Station ORT-12 | Phase: 3 | Min: 4
 @HW-S23 [L] | Wahrheit: Farbe. Der Nebelriese ist eine Legende der Kirchenburg (GL-15) und hat mit der Tat nichts zu tun. | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 @H-S24 [O] | Inhalt: Eine überdachte Holztreppe führt zur Kirche hinauf. Bei Eisnebel hältst du dich besser am Geländer fest, sonst findest du die Stufen nicht. | Form: Erzähler | Quelle: Station ORT-12 | Phase: 2 | Min: 4
