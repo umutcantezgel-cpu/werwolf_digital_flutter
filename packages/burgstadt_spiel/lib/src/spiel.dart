@@ -10,6 +10,7 @@ import 'ton.dart';
 import 'fallsitzung.dart';
 import 'figuren_lager.dart';
 import 'spuren_geometrie.dart';
+import 'texte.dart';
 import 'welt_geometrie.dart';
 
 /// Ein Bildschirm des Spiels (Hauptmenü, Erkundung, Fallakte …).
@@ -20,6 +21,9 @@ abstract class Bildschirm {
   /// Menü-Navigation per Pfeiltasten/Gamepad (im Spiel-HUD aus, dort steuern die Tasten das Gehen).
   bool get menueNavigation => true;
   void tick(Spiel spiel, double dt, Eingabe e) {}
+
+  /// Tutorial-Karten über diesem Bildschirm zeigen (nur im laufenden Spiel).
+  bool get zeigtTutorial => false;
 
   /// Beim Wechsel auf diesen Bildschirm (Musik, Umgebungston).
   void betreten(Spiel spiel) {}
@@ -64,6 +68,16 @@ class Spiel {
   final Map<String, Teil> teile = {...kTeileBasis};
   final Map<String, Figurenkarte> karten = {};
   int besetzung = 4;
+
+  /// Erzähler-Texte und Tutorial (aus `data/texte/`).
+  Erzaehler? erzaehler;
+  Tutorial tutorial = Tutorial(const []);
+
+  /// Schon betretene Bereiche (Ortsansage nur beim ersten Mal).
+  final Set<String> besucht = {};
+
+  /// Letzte Eingabe kam vom Touchscreen (für die Tutorial-Bedienzeile).
+  bool touchZuletzt = false;
 
   /// Stadtbewohner und Häuser (für das Stadtleben in der Simulation).
   List<Map<String, dynamic>> bewohnerDaten = const [], haeuserDaten = const [];
@@ -176,8 +190,39 @@ class Spiel {
       welt.clear(Pal.black);
     }
     bildschirm.zeichneUi(this, pixelUi);
+    if (e.zeiger.any((z) => !z.maus)) {
+      touchZuletzt = true;
+    } else if (e.neu.isNotEmpty || e.zeiger.isNotEmpty) {
+      touchZuletzt = false;
+    }
+    tutorial.tick(dt);
+    if (bildschirm.zeigtTutorial) _zeichneTutorial();
     if (pixelUi.ausgeloestImBild > 0) ton.spiele('ui_klick', lautstaerke: 0.6);
     e.bildEnde();
+  }
+
+  /// Tutorial-Karte unten in der Mitte über der Ortsanzeige (antippen = weiter).
+  void _zeichneTutorial() {
+    final t = tutorial.aktuell;
+    if (t == null) return;
+    final ui = pixelUi;
+    final w = ui.fb.width;
+    final bw = math.min(w - 16, 300);
+    final eingabe = touchZuletzt
+        ? (t.eingabe['touch'] ?? '')
+        : [if (t.eingabe['tastatur'] != null) 'Tastatur: ${t.eingabe['tastatur']}', if (t.eingabe['gamepad'] != null) 'Gamepad: ${t.eingabe['gamepad']}']
+            .join(' · ');
+    final zText = ui.font.wrap(t.text, bw - 12).length, zEin = eingabe.isEmpty ? 0 : ui.font.wrap(eingabe, bw - 12).length;
+    final bh = (1 + zText + zEin) * ui.zeilenHoehe + 10;
+    final r = Rechteck((w - bw) ~/ 2, math.max(16, ui.fb.height - bh - 44), bw, bh);
+    ui.panel(r, grund: UiFarbe.grundDunkel);
+    ui.text('Tutorial · ${t.titel}', r.x + 6, r.y + 3, farbe: UiFarbe.akzent);
+    ui.absatz(t.text, Rechteck(r.x + 6, r.y + 3 + ui.zeilenHoehe, bw - 12, zText * ui.zeilenHoehe));
+    if (eingabe.isNotEmpty) {
+      ui.absatz(eingabe, Rechteck(r.x + 6, r.y + 3 + (1 + zText) * ui.zeilenHoehe, bw - 12, zEin * ui.zeilenHoehe),
+          farbe: UiFarbe.textGedimmt);
+    }
+    if (ui.tippflaeche(r)) tutorial.weiter();
   }
 
   /// Zeichnet den Bereich [id] aus der aktuellen Kamera (Himmel nur draußen),

@@ -10,6 +10,7 @@ import 'package:pixel_engine/pixel_engine.dart';
 
 import 'src/figuren_lager.dart';
 import 'src/spiel.dart';
+import 'src/texte.dart';
 
 /// Lädt Kanon + Overlay, Figurenteile und Steckbriefe/Karten aus dem Repo in [spiel].
 void ladeAusRepo(Spiel spiel) {
@@ -31,6 +32,13 @@ void ladeAusRepo(Spiel spiel) {
       for (final f in innen.listSync().whereType<File>())
         if (f.path.endsWith('.json')) jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
     ], haeuser: haeuser));
+  }
+  final texte = '$w/packages/burgstadt_spiel/data/texte';
+  if (File('$texte/erzaehler.json').existsSync()) {
+    spiel.erzaehler = Erzaehler.ausJson(jsonDecode(File('$texte/erzaehler.json').readAsStringSync()) as Map<String, dynamic>);
+  }
+  if (File('$texte/tutorial.json').existsSync()) {
+    spiel.tutorial = Tutorial.ausJson(jsonDecode(File('$texte/tutorial.json').readAsStringSync()) as Map<String, dynamic>);
   }
   final fig = '$w/packages/pixel_engine/data/figuren';
   for (final name in ['teile_koepfe.json', 'teile_kleidung.json']) {

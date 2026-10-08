@@ -14,6 +14,9 @@ class LagerundeBildschirm extends Bildschirm {
   String? ergebnis;
   bool fertig = false;
 
+  @override
+  bool get zeigtTutorial => true;
+
   LagerundeBildschirm(this.s) {
     final f = s.fall;
     for (final e in f.protokoll.where((e) => e.art == 'meldekarte' && e.uhr == f.uhr)) {
@@ -50,6 +53,7 @@ class LagerundeBildschirm extends Bildschirm {
         s.melde(f.weiter());
         spiel.ton.spiele('uhrturm_schlag', lautstaerke: 0.9);
         if (f.abschnitt == Abschnitt.eingrenzung) {
+          spiel.tutorial.ausloesen('anklage', an: spiel.optionen.tutorial);
           spiel.wechsle(AnklageBildschirm(s));
         } else {
           spiel.schliesse();

@@ -62,7 +62,24 @@ class Erkundung extends Bildschirm {
   @override
   bool get menueNavigation => false;
 
+  @override
+  bool get zeigtTutorial => true;
+
   double _schrittWeg = 0;
+  double _gelaufen = 0;
+
+  void _tutorial(Spiel spiel, String ausloeser) {
+    if (sitzung != null) spiel.tutorial.ausloesen(ausloeser, an: spiel.optionen.tutorial);
+  }
+
+  /// Schlüssel der Ortsansage: Fall-Ort (Station ORT-nn) oder Bereichs-ID.
+  String _ortSchluessel() {
+    for (final d in _bereich.dinge) {
+      final st = d.legende.station;
+      if (st != null && st.startsWith('ORT-')) return st;
+    }
+    return _bereich.id;
+  }
   int _schrittNr = 0;
 
   @override
@@ -72,6 +89,13 @@ class Erkundung extends Bildschirm {
     spiel.ton.schleife('musik', _bereich.innen ? 'musik_gewoelbe_schleife' : null, lautstaerke: 0.3);
     spiel.ton.schleife('umgebung', _bereich.innen ? 'kaminglut_schleife' : 'wind_schleife', lautstaerke: _bereich.innen ? 0.2 : 0.45);
     if (_meldungZeit <= 0) _meldung(_bereich.name);
+    // Ortsansage des Erzählers beim ersten Betreten
+    final sz = sitzung;
+    if (sz != null && spiel.besucht.add(ort)) {
+      final t = spiel.erzaehler?.ort(_ortSchluessel(), spiel.besucht.length);
+      if (t != null) _karten.add((Ereignis('erzaehler', t, uhr: sz.fall.uhr), 5.0));
+      if (ort == 'stadt') _tutorial(spiel, 'stadt');
+    }
   }
 
   @override
@@ -92,6 +116,8 @@ class Erkundung extends Bildschirm {
     final weg = math.sqrt((x - x0) * (x - x0) + (z - z0) * (z - z0));
     if (weg > 0.0005) _wippen += weg * 5.5;
     _schrittWeg += weg;
+    _gelaufen += weg;
+    if (_gelaufen > 2) _tutorial(spiel, 'erste_bewegung');
     if (_schrittWeg > 0.72) {
       _schrittWeg = 0;
       final boden = _bereich.innen ? 'stein' : (_bereich.id == 'wehrgang' ? 'holz' : 'pflaster');
@@ -101,6 +127,13 @@ class Erkundung extends Bildschirm {
     zielFigur = _blickFigur();
     final sz = sitzung;
     if (sz != null) {
+      if (spiel.besucht.add('#einfuehrung')) {
+        _tutorial(spiel, 'start');
+        final t = spiel.erzaehler?.uhr('einfuehrung', 0);
+        if (t != null) _karten.add((Ereignis('erzaehler', t, uhr: sz.fall.uhr), 6.0));
+      }
+      if (zielFigur != null) _tutorial(spiel, 'erste_figur');
+      if (ziel?.legende.station != null) _tutorial(spiel, 'erste_station');
       sz.tick(dt);
       sz.figuren.backe(5);
       final det = sz.sim.detektiv
@@ -112,7 +145,15 @@ class Erkundung extends Bildschirm {
       for (final ev in sz.anzeige) {
         _karten.add((ev, ev.text.length > 90 ? 6.0 : 4.0));
         if (ev.art == 'belauscht' || ev.art == 'teilen' || ev.art == 'fund') spiel.ton.spiele('hinweis_gefunden', lautstaerke: 0.5);
-        if (ev.art == 'phase') spiel.ton.spiele('uhrturm_schlag', lautstaerke: 0.8);
+        if (ev.art == 'fund') _tutorial(spiel, 'erster_fund');
+        if (ev.art == 'teilen') _tutorial(spiel, 'teilen');
+        if (ev.art == 'phase') {
+          spiel.ton.spiele('uhrturm_schlag', lautstaerke: 0.8);
+          final p = sz.fall.phase;
+          final t = spiel.erzaehler?.uhr('phase$p', p);
+          if (t != null) _karten.add((Ereignis('erzaehler', t, uhr: sz.fall.uhr), 6.0));
+          if (p == 2) _tutorial(spiel, 'phase2');
+        }
       }
       sz.anzeige.clear();
       while (_karten.length > 3) {
@@ -121,9 +162,13 @@ class Erkundung extends Bildschirm {
       if (sz.fall.abschnitt == Abschnitt.lagerunde && _lagerundePhase != sz.fall.phase) {
         _lagerundePhase = sz.fall.phase;
         spiel.ton.spiele('uhrturm_schlag');
+        _tutorial(spiel, 'lagerunde');
         spiel.oeffne(LagerundeBildschirm(sz));
       }
-      if (e.gedrueckt(Taste.akte)) spiel.oeffne(FallakteBildschirm(sz));
+      if (e.gedrueckt(Taste.akte)) {
+        _tutorial(spiel, 'akte');
+        spiel.oeffne(FallakteBildschirm(sz));
+      }
     }
     for (var i = _karten.length - 1; i >= 0; i--) {
       final (ev, t) = _karten[i];
@@ -136,8 +181,10 @@ class Erkundung extends Bildschirm {
     if (e.gedrueckt(Taste.licht)) {
       licht = !licht;
       spiel.ton.spiele('handylicht_klick');
+      _tutorial(spiel, 'licht');
     }
     if (e.gedrueckt(Taste.blick)) _blickUmschalten(spiel);
+    if (blick) _tutorial(spiel, 'blick');
     zielSpur = blick ? _naechsteSpur(spiel) : null;
     if (e.gedrueckt(Taste.menue) || e.gedrueckt(Taste.zurueck)) spiel.oeffne(_Pause());
     if (steuerung.tippAktion || e.gedrueckt(Taste.aktion)) _handle(spiel);
@@ -226,6 +273,7 @@ class Erkundung extends Bildschirm {
       } else {
         sz.sim.detektivFragt(fig.id);
         sz.melde(sz.sim.abholen());
+        _tutorial(spiel, 'gespraech');
       }
       spiel.ton.spiele('papier_rascheln', lautstaerke: 0.4);
       return;
@@ -372,6 +420,7 @@ class Erkundung extends Bildschirm {
     final neu = sz?.neueAkte ?? 0;
     if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), neu > 0 ? 'Akte $neu' : 'Akte', hervorgehoben: neu > 0)) {
       if (sz != null) {
+        _tutorial(spiel, 'akte');
         spiel.oeffne(FallakteBildschirm(sz));
       } else {
         _meldung('Ohne Fall gibt es keine Akte.');

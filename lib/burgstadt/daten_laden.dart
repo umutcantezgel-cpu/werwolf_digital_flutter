@@ -58,4 +58,11 @@ Future<void> ladeSpielDaten(Spiel spiel) async {
     ];
   }
   spiel.setzeWelt(baueWelt(innen, haeuser: haeuser));
+  const texte = 'packages/burgstadt_spiel/data/texte/';
+  if (da.contains('${texte}erzaehler.json')) {
+    spiel.erzaehler = Erzaehler.ausJson(jsonDecode(await rootBundle.loadString('${texte}erzaehler.json')) as Map<String, dynamic>);
+  }
+  if (da.contains('${texte}tutorial.json')) {
+    spiel.tutorial = Tutorial.ausJson(jsonDecode(await rootBundle.loadString('${texte}tutorial.json')) as Map<String, dynamic>);
+  }
 }

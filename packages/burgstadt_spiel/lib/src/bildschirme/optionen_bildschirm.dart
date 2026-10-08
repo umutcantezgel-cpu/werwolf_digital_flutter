@@ -20,7 +20,7 @@ class OptionenBildschirm extends Bildschirm {
     final o = spiel.optionen;
     final w = ui.fb.width, h = ui.fb.height;
     final pw = math.min(w - 16, 260);
-    final ph = math.min(h - 16, 220);
+    final ph = math.min(h - 16, 240);
     final p = Rechteck((w - pw) ~/ 2, (h - ph) ~/ 2, pw, ph);
     ui.panel(p);
     ui.textMittig('Optionen', w ~/ 2, p.y + 6, farbe: UiFarbe.akzent);
@@ -31,6 +31,7 @@ class OptionenBildschirm extends Bildschirm {
       'Flackern: ${o.flackernAus ? 'aus' : 'an'}',
       'Neigen zum Umsehen: ${o.neigen ? 'an' : 'aus'}',
       'Lautstärke: ${o.lautstaerke}',
+      'Tutorial: ${o.tutorial ? 'an' : 'aus'}',
       'Zurück',
     ];
     final wahl = ui.menue(eintraege, w ~/ 2, p.y + 6 + ui.zeilenHoehe + 6, breite: pw - 24, hoehe: ui.font.height + 6);
@@ -49,6 +50,8 @@ class OptionenBildschirm extends Bildschirm {
       case 5:
         o.lautstaerke = (o.lautstaerke + 2) % 12;
       case 6:
+        o.tutorial = !o.tutorial;
+      case 7:
         spiel.schliesse();
     }
   }

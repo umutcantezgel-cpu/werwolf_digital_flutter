@@ -11,6 +11,9 @@ class AnklageBildschirm extends Bildschirm {
   AnklageBildschirm(this.s);
 
   @override
+  bool get zeigtTutorial => true;
+
+  @override
   bool get zeigtWelt => false;
 
   @override

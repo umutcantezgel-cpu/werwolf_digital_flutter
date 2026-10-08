@@ -9,6 +9,7 @@ class Optionen {
   double sichtfeldGrad = 62;
   double blickEmpfindlichkeit = 1.0;
   int lautstaerke = 8; // 0..10
+  bool tutorial = true;
 
   Map<String, Object> zuJson() => {
         'qualitaet': qualitaet.name,
@@ -18,6 +19,7 @@ class Optionen {
         'sichtfeldGrad': sichtfeldGrad,
         'blickEmpfindlichkeit': blickEmpfindlichkeit,
         'lautstaerke': lautstaerke,
+        'tutorial': tutorial,
       };
 
   void ausJson(Map<String, dynamic> j) {
@@ -25,6 +27,7 @@ class Optionen {
     kopfwippen = j['kopfwippen'] as bool? ?? kopfwippen;
     flackernAus = j['flackernAus'] as bool? ?? flackernAus;
     neigen = j['neigen'] as bool? ?? neigen;
+    tutorial = j['tutorial'] as bool? ?? tutorial;
     sichtfeldGrad = (j['sichtfeldGrad'] as num?)?.toDouble() ?? sichtfeldGrad;
     blickEmpfindlichkeit = (j['blickEmpfindlichkeit'] as num?)?.toDouble() ?? blickEmpfindlichkeit;
     lautstaerke = (j['lautstaerke'] as num?)?.toInt() ?? lautstaerke;

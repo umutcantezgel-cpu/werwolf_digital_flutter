@@ -16,3 +16,4 @@ export 'src/bildschirme/lagerunde.dart';
 export 'src/fallsitzung.dart';
 export 'src/figuren_lager.dart';
 export 'src/welt_geometrie.dart';
+export 'src/texte.dart';

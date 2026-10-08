@@ -43,6 +43,9 @@ class FallakteBildschirm extends Bildschirm {
   bool get menueNavigation => false;
 
   @override
+  bool get zeigtTutorial => true;
+
+  @override
   void zeichneUi(Spiel spiel, PixelUi ui) {
     final w = ui.fb.width, h = ui.fb.height;
     final f = s.fall;
@@ -105,6 +108,7 @@ class FallakteBildschirm extends Bildschirm {
       if (ui.knopf(Rechteck(dr.x + 4, by, 130, 15), 'An die Akte heften')) {
         s.melde(f.teile('DET', 'akte', hid));
         spiel.ton.spiele('fallakte_heften');
+        spiel.tutorial.ausloesen('heften', an: spiel.optionen.tutorial);
         meldung = 'Angeheftet.';
       }
     } else {
@@ -118,6 +122,7 @@ class FallakteBildschirm extends Bildschirm {
           meldung = '';
         } else {
           s.melde(f.verbinde('DET', fadenStart!, hid));
+        spiel.tutorial.ausloesen('faden', an: spiel.optionen.tutorial);
           meldung = 'Faden: $fadenStart ↔ $hid';
           fadenStart = null;
           spiel.ton.spiele('papier_rascheln');

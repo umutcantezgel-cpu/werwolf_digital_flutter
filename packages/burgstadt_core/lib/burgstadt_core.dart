@@ -16,4 +16,5 @@ export 'src/fall/stadtleben.dart';
 export 'src/welt/navigation.dart';
 export 'src/welt/oberstadt.dart';
 export 'src/welt/spuren.dart';
+export 'src/welt/erkunder.dart';
 export 'src/welt/stadtgenerator.dart';

@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "schritte": [
+    {
+      "id": "T01",
+      "ausloeser": "start",
+      "titel": "Erste Schritte in der Burg",
+      "text": "Du bist das Geburtstagskind. Der Strom ist weg, das Gewölbe liegt im Dunkeln. Sieh dich in Ruhe um.",
+      "eingabe": {
+        "touch": "Linker Daumen laufen, rechter Daumen umsehen. Menü über den Knopf rechts.",
+        "tastatur": "WASD oder Pfeile laufen, Maus umsehen, Esc öffnet das Menü.",
+        "gamepad": "Linker Stick laufen, rechter Stick umsehen, Start öffnet das Menü."
+      }
+    },
+    {
+      "id": "T02",
+      "ausloeser": "erste_bewegung",
+      "titel": "Gehen und Schauen",
+      "text": "Geh langsam, dann hörst du mehr. Mit Umschalt rennst du, aber die Stille hört jeden deiner Schritte.",
+      "eingabe": {
+        "touch": "Linker Daumen laufen, rechter Daumen umsehen.",
+        "tastatur": "WASD oder Pfeile laufen, Umschalt rennen, Maus umsehen.",
+        "gamepad": "Linker Stick laufen, rechter Stick umsehen."
+      }
+    },
+    {
+      "id": "T03",
+      "ausloeser": "licht",
+      "titel": "Licht ins Dunkel",
+      "text": "Das Handylicht zeigt dir Kanten und Ecken, die im Dunkel verschwinden. Nutze es mit Bedacht.",
+      "eingabe": {
+        "touch": "Knopf Licht rechts antippen.",
+        "tastatur": "F für Licht.",
+        "gamepad": "X für Licht."
+      }
+    },
+    {
+      "id": "T04",
+      "ausloeser": "erste_figur",
+      "titel": "Die Ersten im Schein",
+      "text": "Im Kaminlicht steht jemand aus der Clique. Geh hin und sieh genau hin, bevor du sprichst.",
+      "eingabe": {
+        "touch": "Linker Daumen zur Figur laufen, dann Knopf Aktion drücken.",
+        "tastatur": "WASD zur Figur, dann E für Aktion.",
+        "gamepad": "Linker Stick zur Figur, dann A für Aktion."
+      }
+    },
+    {
+      "id": "T05",
+      "ausloeser": "gespraech",
+      "titel": "Ein Gespräch führen",
+      "text": "Hör zu, frag nach und merk dir jede Antwort. In dieser Nacht vergisst niemand etwas, das man ihm sagt.",
+      "eingabe": {
+        "touch": "Knopf Aktion rechts antippen, dann eine Antwort wählen.",
+        "tastatur": "E für Aktion und Antwort.",
+        "gamepad": "A für Aktion und Antwort."
+      }
+    },
+    {
+      "id": "T06",
+      "ausloeser": "erste_station",
+      "titel": "Die erste Station",
+      "text": "Manche Orte geben ihr Wissen nur preis, wenn du davorstehst. Bleib stehen und sieh genau hin.",
+      "eingabe": {
+        "touch": "Vor dem Ort stehen, dann Knopf Aktion drücken.",
+        "tastatur": "Vor dem Ort stehen, dann E für Aktion.",
+        "gamepad": "Vor dem Ort stehen, dann A für Aktion."
+      }
+    },
+    {
+      "id": "T07",
+      "ausloeser": "erster_fund",
+      "titel": "Der erste Fund",
+      "text": "Du findest etwas. Nimm es in die Hand und betrachte es in Ruhe, bevor du weitergehst.",
+      "eingabe": {
+        "touch": "Knopf Aktion an einem Fund drücken.",
+        "tastatur": "E an einem Fund.",
+        "gamepad": "A an einem Fund."
+      }
+    },
+    {
+      "id": "T08",
+      "ausloeser": "blick",
+      "titel": "Der Detektivblick",
+      "text": "Mit Blick siehst du, was sonst verborgen bleibt. Jede Rolle sieht und findet anderes.",
+      "eingabe": {
+        "touch": "Knopf Blick rechts antippen.",
+        "tastatur": "Q für Blick.",
+        "gamepad": "Y für Blick."
+      }
+    },
+    {
+      "id": "T09",
+      "ausloeser": "akte",
+      "titel": "Die Fallakte",
+      "text": "Alles, was du siehst und hörst, landet in deiner Akte. Öffne sie, wann immer du den Überblick brauchst.",
+      "eingabe": {
+        "touch": "Knopf Akte rechts antippen.",
+        "tastatur": "Tab für Akte.",
+        "gamepad": "Select für Akte."
+      }
+    },
+    {
+      "id": "T10",
+      "ausloeser": "heften",
+      "titel": "Hinweise heften",
+      "text": "Ein Hinweis, der dir wichtig ist, heftest du an die Fallakte. Dann bleibt er griffbereit.",
+      "eingabe": {
+        "touch": "In der Akte den Hinweis wählen und heften.",
+        "tastatur": "Tab öffnet die Akte, dort den Hinweis heften.",
+        "gamepad": "Select öffnet die Akte, dort den Hinweis heften."
+      }
+    },
+    {
+      "id": "T11",
+      "ausloeser": "faden",
+      "titel": "Den Faden spinnen",
+      "text": "Zwei Hinweise, die zusammengehören, verbindest du zu einem Faden. So siehst du, was zu was passt.",
+      "eingabe": {
+        "touch": "In der Akte zwei Hinweise für den Faden wählen.",
+        "tastatur": "Tab öffnet die Akte, dort zwei Hinweise verbinden.",
+        "gamepad": "Select öffnet die Akte, dort zwei Hinweise verbinden."
+      }
+    },
+    {
+      "id": "T12",
+      "ausloeser": "teilen",
+      "titel": "Hinweise teilen",
+      "text": "Du kannst einen Hinweis mit der Runde teilen. Dann sehen ihn alle, und ihr denkt gemeinsam weiter.",
+      "eingabe": {
+        "touch": "In der Akte den Hinweis wählen und teilen.",
+        "tastatur": "Tab öffnet die Akte, dort den Hinweis teilen.",
+        "gamepad": "Select öffnet die Akte, dort den Hinweis teilen."
+      }
+    },
+    {
+      "id": "T13",
+      "ausloeser": "lagerunde",
+      "titel": "Die Lagerunde",
+      "text": "Die Runde kommt zusammen. Achte auf Stimmen, Blicke und Pausen, bevor du eine Antwort gibst.",
+      "eingabe": {
+        "touch": "Knopf Aktion drücken, wenn eine Antwort gefragt ist.",
+        "tastatur": "E, wenn eine Antwort gefragt ist.",
+        "gamepad": "A, wenn eine Antwort gefragt ist."
+      }
+    },
+    {
+      "id": "T14",
+      "ausloeser": "phase2",
+      "titel": "Das Burgtor öffnet sich",
+      "text": "Der Burgwart schließt das Burgtor auf. Die Oberstadt liegt vor dir, dunkel und still. Geh hinaus.",
+      "eingabe": {
+        "touch": "Linker Daumen laufen, rechter Daumen umsehen.",
+        "tastatur": "WASD oder Pfeile laufen, Maus umsehen.",
+        "gamepad": "Linker Stick laufen, rechter Stick umsehen."
+      }
+    },
+    {
+      "id": "T15",
+      "ausloeser": "stadt",
+      "titel": "Die Oberstadt",
+      "text": "Gassen, Plätze und Häuser mit Dachgauben. Jeder Ort erzählt etwas anderes. Lass dir Zeit.",
+      "eingabe": {
+        "touch": "Linker Daumen laufen, Knopf Aktion an Orten drücken.",
+        "tastatur": "WASD oder Pfeile laufen, E an Orten.",
+        "gamepad": "Linker Stick laufen, A an Orten."
+      }
+    },
+    {
+      "id": "T16",
+      "ausloeser": "anklage",
+      "titel": "Die Anklage",
+      "text": "Am Morgen wird aufgelöst. Du wählst, wen du anklagst, und die Nacht findet ihr Ende. Wähle mit Bedacht.",
+      "eingabe": {
+        "touch": "Knopf Aktion drücken, um zu wählen.",
+        "tastatur": "E zum Wählen.",
+        "gamepad": "A zum Wählen."
+      }
+    }
+  ]
+}
