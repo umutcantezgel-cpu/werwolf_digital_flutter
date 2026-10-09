@@ -16,7 +16,7 @@ Der Freigabeabschnitt im Plan lautet:
 |---|---|---|
 | Leitstand-Sitzung | `session_01Aix28JmFAfTMVcF4Z8bgqP` | aktiv |
 | Herzschlag-Routine | `trig_01UrDrhXFjttzCW1tkXFPGVr` (Name `BOLLWERK-LEITSTAND-session_01Aix28JmFAfTMVcF4Z8bgqP`, stündlich zur Minute 38) | aktiv |
-| Kinder-Probe | `session_01NqNiTSMXk6qK5FVbNAbkrF` (Branch `bollwerk-probe`) | gestartet 20:59 UTC |
+| Kinder-Probe | `session_01NqNiTSMXk6qK5FVbNAbkrF` (Branch `bollwerk-probe`) | fertig 21:03 UTC |
 | Meta-Sitzung | – | – |
 | Nachtlauf-Generationen | – | – |
 | Merge-Bau | – | – |
@@ -28,7 +28,7 @@ Der Freigabeabschnitt im Plan lautet:
 |---|---|
 | L0 v4 bauen | läuft |
 | L1 Leitstand | fertig (Routine aktiv) |
-| L1b Kinder-Probe | läuft |
+| L1b Kinder-Probe | fertig |
 | L2 Meta-Lauf | offen |
 | L3 Generationen | offen |
 | L4 main | offen |
@@ -66,6 +66,21 @@ Letzte Prüfung: 2026-10-09 ~20:30 UTC · Finalisierung F4 von F7, Abnahme 9/17,
 | Weckruf + 30 min ohne Ereignis und ohne Commit, an 2 Herzschlägen in Folge | Hänger | einmal `send_message`; danach `interrupt_session`, LEASE übernehmen, neue Generation |
 | `failed` | Fehler | neue Generation; beim zweiten Fehler in Folge Pause und Meldung |
 | `NACHT-ENDE` / `ZIEL ERREICHT` / `VORLAUF FERTIG` | Ende | nächster Schritt nach Plan L3/L4 |
+
+## Ergebnis Kinder-Probe (L1b, 09.10. 21:00–21:03 UTC)
+- `outcome_branch` auf bestehendem Branch: Kind startet auf dessen Spitze (flacher Klon, Tiefe 50) und pusht per Fast-Forward (`e937ae2..b8b74fa`). Kein automatischer PR.
+- Kennung: `CLAUDE_CODE_REMOTE_SESSION_ID=cse_01NqNi…` ↔ `session_01NqNi…` (gleicher Rest).
+- Modus Auto vererbt (`permission_mode: auto`). Vorhanden: Agent, SendUserFile, `send_later`, Workflow (sichtbar).
+- Haiku-Hintergrund-Agent läuft ohne Rückfrage (Modell im Protokoll `claude-haiku-5-5`).
+- **Workflow startet das Kind nicht:** Das Werkzeug verlangt die Anfrage des Nutzers in eigenen Worten in derselben Sitzung; eine Peer-Nachricht oder Startnachricht genügt nicht. → Meta und Nachtlauf arbeiten mit direkten Hintergrund-Agenten (v4.1 angepasst).
+- Die Startnachricht gilt dem Kind als automatischer Auftrag; es führt ihn aus, weil er nur den eigenen Branch beschreibt.
+- `send_message` kommt an und wird als Peer-Nachricht behandelt.
+- Nicht geprüft: 60-KiB-Prompt (die Startnachricht verweist deshalb auf die Datei), Verhalten am Nutzungslimit.
+
+## Prüfliste für Kindsitzungen (Reihenfolge)
+1. `failed` → 2. `rate_limit_info` / letztes Ereignis Limitfehler → 3. `blocked` (nur der Nutzer kann lösen; Wortlaut melden) → 4. Zugende-Zeile mit SHA = origin/bollwerk → 5. Hänger (kein Limit, Weckruf + 30 min überschritten, LEASE-Herzschlag > 90 min).
+ZUSTAND → Handlung: NICHT BEGONNEN → G1 starten · LÄUFT → nichts · VORLAUF FERTIG → nach B-02 `send_message` oder neue Generation · NACHT-ENDE → G n+1 zum nächsten Fenster · BEREIT FÜR MAIN → Merge-Bau · ABBRUCH → Meldung, keine neue Generation · ZIEL ERREICHT setzt nur der Leitstand.
+Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `=== BOLLWERK-META-ENDE · BEREIT|HALT · Runde <k> · <sha40> ===` = Übergabe.
 
 ## Abbruch- und Pausenregeln
 - Meta-Lauf nach 1 Nachbesserung unter 23/26: Halt vor L3.
