@@ -651,3 +651,48 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Danach zwei Folgeläufe und eine gezielte Farbsuche für B43 (Kleid rot 4). Ergebnis: `karten_test` 0 Paare, `tool/mass5a.py` 0 Paare.
   - `mass5a.py` liest jetzt Palette v1 und v2 (E53).
   - Neuer Kartenstand 6e6584163c; neue Sichtprüfung A-605w/x und Inhaltsrunde A-702u. Der Figurenstand des HD-Strangs ändert sich (E53).
+
+## E55 · 09.10. 20:39 · Sichtrunde A-605w/x und Inhaltsrunde A-702u (Prüfer 28–30) mit Gegenproben; Auswertung
+- **Sicht (Kartenstand 6e6584163c):** Kein Prüfer gibt die Abnahme.
+  - Sichtprüfer 25 findet 1 Paar: B22/B40 (gleich groß, Hut, ockerfarbener Mantel, Beine wirken blau).
+  - Sichtprüfer 26 findet 0 Paare und 1 Verstoß: R20 trägt die Kapuze des grauen Pullis auf dem Kopf, der Zopf aus `rollen.json` ist nicht zu sehen.
+  - Behoben:
+    - B22 trägt jetzt eine steingraue Hose, B40 einen holzbraunen Mantel und eine steingraue Hose.
+    - Die Karte von R20 hat keine Kapuze mehr; `rollen.json` nennt für R20 `kopf: keine`.
+    - Neuer Test in `rollen_daten_test`, mit roter Gegenprobe: Eine Rollenkarte hat genau dann eine Kopfbedeckung, wenn `rollen.json` eine nennt.
+- **Inhalt (Stand 2777e28):** Alle drei Prüfer urteilen „Leitplanken nein · Kanontreu ja · Plagiatsfrei ja“ (28: mittel 2, gering 6; 29: hoch 1, mittel 1, gering 4; 30: mittel 5, gering 6).
+  - Zu allen 9 Befunden „hoch“ und „mittel“ lief eine unabhängige Gegenprobe (`auftraege/A-702/gegenproben_a702u.md`). **2 von 9 sind haltbar.**
+  - **Haltbar 1: „bordeauxroter Blazer“ in `rollen.json` (R15).** E50 hatte den Weinnamen nur im wirksamen Kanon ersetzt (ERSETZE-32/33), nicht in den Figurendaten. Jetzt steht dort „dunkelroter Blazer“. Neuer Test in `rollen_daten_test`, mit roter Gegenprobe: keine Weinnamen (bordeaux, burgund, weinrot) in `rollen.json` und `karten.json`.
+  - **Haltbar 2: Hausarbeit in den Haustexten nur bei Frauen.** Ausgeglichen sind:
+    - H-054 (poliert), H-080 (staubt ab), H-117 (strickt) und H-120 (spült): jetzt der Hausherr.
+    - H-093, H-127 und H-154: jetzt „die Hausleute“.
+    - H-116: „die Nachbarn“ treffen sich zum Flicken.
+    - H-118: „Wer zuerst aufsteht“.
+    - H-136 (misst den Grenzstein nach): jetzt die Hausherrin.
+    - H-103: Der Hausherrin wird nicht mehr widersprochen. Zusammen mit H-157 entstand sonst das Muster „der Mann behält recht, die Frau nicht“.
+    - Damit ist auch der Punkt H-117, H-118 und H-120 aus FÜR DEN NUTZER (E44) erledigt.
+  - **Nicht haltbar (7):**
+    - Haarfarbe nach Namensmuster (zweimal): Die Mischung je Herkunftsgruppe ist die Nutzerentscheidung aus E54, und die Gruppen decken sich mit dem Namensklang.
+    - Altersmuster bei älteren Frauen: Die Prämisse stimmt nicht, denn Gedächtniszüge tragen auch Männer und Jüngere.
+    - Burgwart „grantig“: Das ist ein Einzelzug aus dem Kanon, an Wärme gebunden, kein Gruppenbild (E34, E37).
+    - Kräuterfrau-Andeutung bei Ruth Köhler (B31): Die Bausteine sind neutral (E27, E34), und es gibt keine Hexenmerkmale.
+    - Geld-Färbungen: abgewogen in E47 und E50.
+    - Hausarbeit (Befund von Prüfer 28): eine Doppelung zu Haltbar 2, das umgesetzt ist.
+  - **Kleine Punkte umgesetzt** (aus den Gegenproben und den geringen Befunden):
+    - B13 erinnert sich „an fast jedes Lied“ statt „an fast jeden Streit“; B05 „korrigiert gern und meint es immer gut“.
+    - B08 „erzählt gern vom Berg“ statt „redet nur über … die alten Zeiten“.
+    - B12s Nachtplan nennt die Hosentasche statt einer Schürze, die sie nicht trägt.
+    - H-090 „seit der Hochzeit der Großeltern“ statt „seit der Auswanderung eines Großonkels“.
+    - H-111 „die Gärtnerin“ (Bewohnerin B31).
+    - Die Inschrift von H-077 klingt nicht mehr an einen Bibelvers an („Der Hahn hält still, der Wind nicht · 1798“).
+  - **Bleibt (gering, mit Grund):**
+    - B35 hat kein Arbeitshaus. Eintragen würde die Layout-Prüfsumme des HD-Strangs ändern; der Beruf steht im Text.
+    - „Frau Lang“ bei B15 ist eine Person im Pflegehaus, keine Stadtfigur.
+    - Gehstock, Strickzeug, Häkelbeutel und Lesebrille sind Einzelrequisiten auf den Figurenkarten; eine Änderung würde die Karten neu erzeugen. Stricken hat jetzt auch ein Mann (H-117).
+    - Kanon-Punkte gehen an die Kanon-Autoren (FÜR DEN NUTZER): Burgwart „grantig/brummt“; Wolle- und Grünspur R03/R04 seit v1.0; R13 Granatapfel-Brosche; R06 Färbung.
+- **Figurenkarten:** Neu erzeugt (`bin/bewohnerkarten.dart`, zwei Läufe). Neuer Kartenstand 88600ae6c9, Figurenstand add31ccee3. `karten_test` 0 Paare, `tool/mass5a.py` 0 Paare. Der Generator hat dabei die erfundenen Hosenstufen von R03, R09 und R17 in `rollen.json` nachgezogen; die R03-Jeans steht damit wieder wie in E41 auf blau [6,4] (geringer Befund der Prüfer 28 und 29).
+- **Warum Test und Bildprüfung bisher verschieden urteilten:** `tool/mass5a.py` wich zweimal von `_mitteFarben`/`vergleiche` ab.
+  - Es schnitt die Zonen eine Zeile anders. Bei knappen Mehrheiten (B43: rot 75 gegen dunkel 71 Pixel) kippte die Farbfamilie.
+  - Es schnitt mit „−30“ unten auch die Füße großer Figuren ab und maß deren Höhe zu klein.
+  - Jetzt rundet es die Zonen wie Dart, nimmt Δh ≤ 5 Figurenpixel und schneidet nur die Beschriftung ab. Abgleich über alle 66 Figuren: Höhe, Ober- und Unterfarbe sind gleich. Die frühere Handsuche nach Farben (E54) jagte also zum Teil Scheinpaaren nach.
+- Neue Runden: Sicht A-605y/z (Prüfer 27/28) und Inhalt A-702v (Prüfer 31–33).

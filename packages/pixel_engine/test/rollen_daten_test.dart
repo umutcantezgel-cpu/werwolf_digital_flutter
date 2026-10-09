@@ -162,6 +162,26 @@ void main() {
     });
   });
 
+  test('Kopfbedeckung der Rollenkarte genau dann, wenn rollen.json eine nennt (E55)', () {
+    final karten = {
+      for (final k in (jsonDecode(File('data/figuren/karten.json').readAsStringSync()) as Map)['karten'] as List)
+        (k as Map)['id']: k,
+    };
+    for (final f in figuren) {
+      final teile = ((karten[f['id']] as Map)['teile'] as List).cast<String>();
+      expect(teile.any((t) => t.startsWith('kopf-')), f['kopf'] != 'keine', reason: f['id'] as String);
+    }
+  });
+
+  test('Keine Weinnamen als Farbe in den Figurendaten (E50, E55)', () {
+    for (final datei in ['data/figuren/rollen.json', 'data/figuren/karten.json']) {
+      final text = File(datei).readAsStringSync().toLowerCase();
+      for (final w in ['bordeaux', 'burgund', 'weinrot']) {
+        expect(text.contains(w), isFalse, reason: '$datei: $w');
+      }
+    }
+  });
+
   test('Grün (Rampe 5) tragen nur R03 Merle und R04 Jonas', () {
     for (final f in figuren) {
       final id = f['id'];

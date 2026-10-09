@@ -3,6 +3,9 @@
 # gleicher Farbfamilie an Rumpf und Beinen, gleicher Kopfbedeckung (ja/nein) und kleinem Größenunterschied.
 # Hilfsskript, kein Test. Braucht Python 3 und Pillow. Aufruf aus der Repo-Wurzel:
 #   python3 tool/mass5a.py [<aufstellung.png>] [<max. Größenunterschied in Bildpixeln, Standard 10>]
+# Zonen und Höhengrenze wie `_mitteFarben`/`vergleiche` in bewohner_karten.dart (E55): Zonengrenzen in
+# Figurenpixeln gerundet, Δh ≤ 5 Figurenpixel (= 10 Bildpixel bei Skala 2). Vorher schnitt das Skript die
+# Zonen um eine Zeile anders als der Test und kippte bei knappen Mehrheiten ins Gegenteil.
 import json, re, sys
 from collections import Counter
 from PIL import Image
@@ -29,14 +32,16 @@ def fam(i):
     return ['neutral','stein','holz','rot','bernstein','gruen','blau'][r]
 def info(n):
     r,c=divmod(n,9)
-    x0,x1=int(c*cw),int(c*cw+cw/3); y0,y1=int(r*rh),int((r+1)*rh)-30
+    x0,x1=int(c*cw),int(c*cw+cw/3); y0,y1=int(r*rh),int((r+1)*rh)-20  # Zelle 94 Figurenpixel, Figur 2..81, Beschriftung ab 85 (mit -30 fehlten die Füße)
     pts=[(x,y) for y in range(y0,y1,2) for x in range(x0,x1,2) if px[x,y]!=bg]
     top=min(p[1] for p in pts); bot=max(p[1] for p in pts); h=bot-top+2
     xs=[p[0] for p in pts]; w=max(xs)-min(xs)+2
+    hs=h//2  # Höhe in Figurenpixeln
+    def rnd(v): return int(v+0.5)  # wie Dart round() bei positiven Werten
     def zone(a,b):
         cnt=Counter()
         for x,y in pts:
-            if top+a*h<=y<top+b*h:
+            if top+2*rnd(a*hs)<=y<top+2*rnd(b*hs):
                 if any(px[x+dx,y+dy]==bg for dx,dy in ((2,0),(-2,0),(0,2),(0,-2))): continue
                 f=fam(idx.get(px[x,y],7*STUFEN+STUFEN-1))
                 if f: cnt[f]+=1
@@ -49,7 +54,7 @@ for a in range(len(ids)):
     for b in range(a+1,len(ids)):
         x,y=I[ids[a]],I[ids[b]]
         dh=abs(x['h']-y['h'])
-        if dh<int(sys.argv[2]) if len(sys.argv)>2 else dh<10:
+        if dh<=(int(sys.argv[2]) if len(sys.argv)>2 else 10):
             if x['ober']==y['ober'] and x['unter']==y['unter'] and hut(ids[a])==hut(ids[b]):
                 paare.append((dh,ids[a],ids[b],x,y))
 for p in sorted(paare): print(f"{p[1]}/{p[2]} Δh {p[0]} · ober {p[3]['ober']} · unter {p[3]['unter']} · Hut {hut(p[1])} · h {p[3]['h']}/{p[4]['h']} w {p[3]['w']}/{p[4]['w']}")

@@ -250,7 +250,7 @@
       "beruf": "Ruhestandslehrerin",
       "wohnhaus": "H-091",
       "arbeitshaus": null,
-      "wesen": "Eine Frau mit Kreide im Ärmel und einem scharfen Blick für Ausreden, sie weiß alles besser und meint es trotzdem gut.",
+      "wesen": "Eine Frau mit Kreide im Ärmel und einem scharfen Blick für Ausreden, sie korrigiert gern und meint es immer gut.",
       "aussehen": {
         "haar": "weiß",
         "frisur": "locken",
@@ -258,13 +258,13 @@
         "kleidung": [
           {
             "teil": "Pullover",
-            "rampe": "blau",
-            "stufe": 6
+            "rampe": "holz",
+            "stufe": 2
           },
           {
             "teil": "Rock",
-            "rampe": "rot",
-            "stufe": 2
+            "rampe": "blau",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -323,8 +323,8 @@
           },
           {
             "teil": "Hose",
-            "rampe": "rot",
-            "stufe": 2
+            "rampe": "holz",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -445,7 +445,7 @@
       "beruf": "Rentner, früher Hauer",
       "wohnhaus": "H-139",
       "arbeitshaus": null,
-      "wesen": "Ruhig und treu, er redet nur über den Berg und die alten Zeiten, zieht aber vor jedem Fremden den Hut.",
+      "wesen": "Ruhig und treu, er erzählt gern vom Berg und zieht vor jedem Fremden den Hut.",
       "aussehen": {
         "haar": "weiß",
         "frisur": "glatze",
@@ -719,7 +719,7 @@
           "bis": "05:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Sie legt sich für eine Stunde hin, das Glasmaß noch in der Schürze."
+          "tut": "Sie legt sich für eine Stunde hin, das Glasmaß noch in der Hosentasche."
         }
       ],
       "saetze": [
@@ -738,7 +738,7 @@
       "beruf": "Rentnerin, früher Handarbeitslehrerin",
       "wohnhaus": "H-102",
       "arbeitshaus": null,
-      "wesen": "Klein, zäh und ein wenig eigensinnig, sie erinnert sich an jede Hochzeit der Gasse und an fast jeden Streit.",
+      "wesen": "Klein, zäh und ein wenig eigensinnig, sie erinnert sich an jede Hochzeit der Gasse und an fast jedes Lied.",
       "aussehen": {
         "haar": "weiß",
         "frisur": "dutt",
@@ -746,13 +746,13 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "rot",
+            "rampe": "stein",
             "stufe": 4
           },
           {
             "teil": "Umhang",
-            "rampe": "holz",
-            "stufe": 2
+            "rampe": "rot",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -993,13 +993,13 @@
         "kleidung": [
           {
             "teil": "Overall",
-            "rampe": "holz",
-            "stufe": 3
+            "rampe": "rot",
+            "stufe": 2
           },
           {
             "teil": "Jacke",
             "rampe": "bernstein",
-            "stufe": 4
+            "stufe": 5
           }
         ],
         "zubehoer": [
@@ -1054,7 +1054,7 @@
           {
             "teil": "Mantel",
             "rampe": "rot",
-            "stufe": 5
+            "stufe": 4
           },
           {
             "teil": "Hemd",
@@ -1305,8 +1305,8 @@
           },
           {
             "teil": "Hose",
-            "rampe": "blau",
-            "stufe": 4
+            "rampe": "stein",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -1480,13 +1480,13 @@
         "kleidung": [
           {
             "teil": "Bluse",
-            "rampe": "rot",
+            "rampe": "bernstein",
             "stufe": 5
           },
           {
             "teil": "Rock",
-            "rampe": "neutral",
-            "stufe": 3
+            "rampe": "holz",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -1713,13 +1713,13 @@
         "kleidung": [
           {
             "teil": "Schürze",
-            "rampe": "neutral",
-            "stufe": 4
+            "rampe": "bernstein",
+            "stufe": 3
           },
           {
             "teil": "Jacke",
-            "rampe": "bernstein",
-            "stufe": 3
+            "rampe": "neutral",
+            "stufe": 6
           }
         ],
         "zubehoer": [
@@ -1833,13 +1833,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "blau",
-            "stufe": 4
+            "rampe": "bernstein",
+            "stufe": 5
           },
           {
             "teil": "Rock",
             "rampe": "neutral",
-            "stufe": 2
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2200,13 +2200,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "bernstein",
-            "stufe": 3
+            "rampe": "rot",
+            "stufe": 5
           },
           {
             "teil": "Hemd",
-            "rampe": "rot",
-            "stufe": 3
+            "rampe": "bernstein",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2394,12 +2394,12 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "bernstein",
-            "stufe": 4
+            "rampe": "holz",
+            "stufe": 3
           },
           {
             "teil": "Hose",
-            "rampe": "holz",
+            "rampe": "stein",
             "stufe": 2
           }
         ],
@@ -2528,13 +2528,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "blau",
+            "rampe": "bernstein",
             "stufe": 5
           },
           {
             "teil": "Hemd",
-            "rampe": "rot",
-            "stufe": 4
+            "rampe": "holz",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -2589,7 +2589,7 @@
           {
             "teil": "Kleid",
             "rampe": "rot",
-            "stufe": 4
+            "stufe": 2
           },
           {
             "teil": "Umhang",
