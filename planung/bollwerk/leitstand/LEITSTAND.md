@@ -15,8 +15,8 @@ Der Freigabeabschnitt im Plan lautet:
 | Was | Kennung | Stand |
 |---|---|---|
 | Leitstand-Sitzung | `session_01Aix28JmFAfTMVcF4Z8bgqP` | aktiv |
-| Herzschlag-Routine | (noch nicht angelegt) | – |
-| Kinder-Probe | – | – |
+| Herzschlag-Routine | `trig_01UrDrhXFjttzCW1tkXFPGVr` (Name `BOLLWERK-LEITSTAND-session_01Aix28JmFAfTMVcF4Z8bgqP`, stündlich zur Minute 38) | aktiv |
+| Kinder-Probe | `session_01NqNiTSMXk6qK5FVbNAbkrF` (Branch `bollwerk-probe`) | gestartet 20:59 UTC |
 | Meta-Sitzung | – | – |
 | Nachtlauf-Generationen | – | – |
 | Merge-Bau | – | – |
@@ -27,8 +27,8 @@ Der Freigabeabschnitt im Plan lautet:
 | Phase | Stand |
 |---|---|
 | L0 v4 bauen | läuft |
-| L1 Leitstand | läuft |
-| L1b Kinder-Probe | offen |
+| L1 Leitstand | fertig (Routine aktiv) |
+| L1b Kinder-Probe | läuft |
 | L2 Meta-Lauf | offen |
 | L3 Generationen | offen |
 | L4 main | offen |
@@ -87,3 +87,6 @@ Letzte Prüfung: 2026-10-09 ~20:30 UTC · Finalisierung F4 von F7, Abnahme 9/17,
 
 ## Protokoll
 - 2026-10-09 ~20:35 UTC · Plan freigegeben · Branch `bollwerk-leitstand` angelegt.
+- 2026-10-09 20:38 UTC · Herzschlag-Routine angelegt.
+- 2026-10-09 20:52 UTC · v4 auf `claude/pensive-gates-ajtp7x` (666d569); Gegenprüfung mit 10 Linsen läuft.
+- 2026-10-09 20:59 UTC · Sitzung im Modus Auto; Kinder-Probe gestartet.
