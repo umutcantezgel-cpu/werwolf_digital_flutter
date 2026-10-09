@@ -29,3 +29,4 @@ Format: Entscheidung · Standard · Folge, wenn der Nutzer sie kippt.
 | A-23 | Weißliste | neutrale Bonus-Sätze und Lacher 20:15 heraus (Entwurf D); `spur_stirnlampe` als Kandidat | L-4 prüft am Kanon |
 | A-24 | Generationsform | eine Generation je Nacht (≤ 12 h); Startnachricht verweist auf die Datei statt den Text mitzuschicken | Text in der Nachricht, wenn 60 KiB belegt ist |
 | A-25 | Pech-Szenen an Bogentür und Rüstung | entfallen (Spurenträger, Bund-Versteck) | nur mit Kanon-Prüfung |
+| A-26 | X2 zählt Stufentexte mit | X2 misst Lesebreite: alle Texte der Schicht, auch Stufentexte von X1-Einheiten (Basis zählt symmetrisch); Morgenbericht zeigt zusätzlich U_streng ohne sie (Skeptiker-Befund ROT-1b#2: Doppelzählung) | X2 nur eigenständige Texte; Planziel neu rechnen (U sinkt bei gleicher Arbeit, mehr Erzähltexte nötig) |
