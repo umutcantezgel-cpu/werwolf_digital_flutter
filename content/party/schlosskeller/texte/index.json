@@ -185,6 +185,18 @@
     {
       "datei": "ui-npc.json",
       "bereich": "ui"
+    },
+    {
+      "datei": "ui-druck-spielleitung.json",
+      "bereich": "ui"
+    },
+    {
+      "datei": "ui-druck-rollen.json",
+      "bereich": "ui"
+    },
+    {
+      "datei": "ui-druck-karten.json",
+      "bereich": "ui"
     }
   ]
 }
