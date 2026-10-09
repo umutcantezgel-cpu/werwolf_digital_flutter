@@ -31,6 +31,8 @@
   - **LISTE-ZEITEN** nennt „00:01 der Burgwart wird … gefunden und kommt zu sich“; BS-01 und PF-3 nennen 00:00:25 bzw. 00:00:50. Vorschlag: „kurz nach Mitternacht“.
   - **Phase 1 beginnt** im Spiel jetzt wie in Z-0030 um 00:30. Vorher war es 00:25, der Zeitpunkt des Auftrags des Burgwarts.
   - **Das Gespensterlaken** ist jetzt wie im Kanon (Z-2140) Burgwäsche „Schartenfels 7“. Die Pension der Stadt hat einen eigenen blauen Stempel.
+  - **Auffinden des Burgwarts:** OA-20 nennt 00:01 und „nach einer halben Minute“, Rollenwissen und Lösung nennen 00:00:25 und 00:00:50. Im Spiel steht „kurz nach Mitternacht“ (E44); im Kanon sollte eine Zeit festgelegt werden.
+  - **„HODŽIĆ VT · 3“:** Zwei Inhaltsprüfer regen an, die Eigentumsmarke an R01s Lampe ohne Nachnamen zu führen (z. B. „VT · 3“), samt Aussprache in GL-19 und Ergebnis A von DW1-1. Beide urteilten trotzdem „Leitplanken ja“; die Entscheidung liegt bei den Kanon-Autoren.
 - **„Spur verwischen“ (R03):** Nur die Täterin kann eine Spur verwischen, und „verwischt“ sehen alle mit Detektivblick. Wer die Fähigkeit hat, bleibt geheim. Ein Prüfer schlug vor, sie zusätzlich einer unschuldigen Rolle zu geben. Das wäre eine neue falsche Fährte und damit eine Kanon-Entscheidung (E42).
 - **Kleine Textpunkte aus Inhaltsrunde 12 (A-702m, Urteil ja · ja · ja):** Nach der Abbruchregel in E40 sind sie gesammelt statt umgesetzt; jeder ist eine Ein-Satz-Änderung in `bewohner.json` bzw. `haeuser.json`.
   - B24 nennt „den Brunnen“ der Oberstadt, der nicht in LISTE-ORTE steht. Vorschlag: „Pferdebrunnen“ (H-002) oder „Marktplatz“.
@@ -38,5 +40,11 @@
   - B18 nennt die Eule über der Tür „aus Holz“, H-004 eine steinerne Eule über dem Dachfenster. Angleichen.
   - B44 (Gerücht): „der Riese sei damit ins Tal gerutscht“ streichen, wie schon bei H-034.
   - Inschriften H-053 und H-132 („wer nicht gesehen werden will“, „was sie verbirgt“): neutraler fassen, damit nichts nach Verstecken klingt.
+- **Geringe Punkte aus Inhaltsrunde 17 (A-702p, ja · ja · ja):**
+  - Dienstberufe sind bei den Bewohnerinnen häufiger (8 von 21 Frauen, 3 von 23 Männern); Hausarbeitssätze in H-117, H-118, H-120. Ausgleichen ist eine Datenänderung plus neue Prüfung.
+  - Inschriften mit „Bock“ (H-073, H-123) könnten an Teufelsbilder erinnern.
+  - Der Schornsteinfeger B17 trägt einen Kehrbesen; ein Prüfer sieht ein Hexenbild. Der Besen ist Teil der Figur, eine Änderung braucht eine neue Sichtprüfung.
+  - Die Rüstung „Kunibert“ (Kanon) hat Namensvettern in einer alten Fernsehserie und einem Kinderspiel; keine Übernahme von Handlung oder Figur.
+  - B34 schläft mit Handschuhen an den Händen; ein Prüfer sieht ein Spurenvermeidungs-Bild.
 - **Figuren:** Die ersten Sichtprüfer bewerteten sehr unterschiedlich (E30). Seitdem gilt ein fester Maßstab, und `karten_test` prüft die Unterscheidbarkeit zusätzlich automatisch. Ein menschlicher Blick auf `bilder/phase3/figuren_aufstellung.png` ist trotzdem sinnvoll.
 - **Rote Pakettests in drei Commits (E28):** Ein Fehler im Testskript hat bei 02ab9b5, d511fac und 7574641 einen roten Datentest verschluckt. Behoben und belegt; die Geschichte ist nicht umgeschrieben.

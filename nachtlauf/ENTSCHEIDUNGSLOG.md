@@ -452,3 +452,18 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - **Ziffern in vorlesbaren Texten (R15 G4):** Die Stilblatt-Regel gilt für das Vorlesen beim Krimidinner. Das Spiel zeigt Texte an und liest nicht vor.
   - **R04-Uhr (R15 G6):** Kleinteile unter einem Figurenpixel werden nicht gezeichnet (E37 H1).
 - **R05-Frisur (R15 G5), umgesetzt:** Die Karte zeigte schon den Bob aus LF-R05 (`frisur-bob`); nur das Feld in `rollen.json` sagte „schulterlang“. Es heißt jetzt „bob“; Ersatzpfad und Datentest kennen den Wert. Das Bild bleibt gleich (Kartenstand unverändert).
+
+## E44 · 09.10. 13:46 · Inhaltsrunden 17/18 (A-702p)
+- **Urteile:** Prüfer 17: ja · ja · ja (mittel 2, gering 5). Prüfer 18: Kanontreu **nein** (mittel 2, gering 4). Das „nein“ wird umgesetzt, nicht übergangen.
+- **Umgesetzt:**
+  - **LA-01 (R18-1):** Der Bild-Anker im Overlay sprach noch von „drifting night fog around it“. Jetzt heißt es „under a clear frosty night sky, valley mist far below“, passend zu K-002.
+  - **Auffinden des Burgwarts (R18-2):** Die öffentliche Liste sagte „00:01 … gefunden und kommt zu sich“. OA-20 sagt etwa 00:01:30, Rollenwissen und Lösung sagen 00:00:25 und 00:00:50. Unsere Kopie von LISTE-ZEITEN sagt jetzt „kurz nach Mitternacht“; das ist mit allen Quellen vereinbar und wird über R04s Fähigkeit wörtlich ausgegeben. OA-20 und die genaue Festlegung bleiben Sache der Kanon-Autoren (FÜR DEN NUTZER).
+  - **Familienfelder (R18-3):** Die Beschreibung im Overlay-Abschnitt nennt jetzt alle tatsächlichen Änderungen statt „nur ein Satzteil“. Die Kanon-Dateien und ihr PROTOKOLL.md bleiben unberührt; unsere Anpassungen stehen im Overlay und in diesem Log.
+  - **B03 (R18-4):** „wollte nur der Frost ein Brötchen“ statt Nebel.
+  - **R13 (R18-5):** Statt Haushaltsbuch (Sparsamkeits-Anklang) der Gartenkalender der Großmutter.
+  - **Code-Kommentar (R18-6):** Phase 1 = 60 Spielminuten.
+  - **B35 (R17 B2):** Die Reinigungskraft ist keine Wisch- und Schweigefigur mehr. Sie ist fröhlich, kennt jeden Namen und jede knarrende Stufe und war um die Zeit schon zu Hause.
+- **Bewusst so:**
+  - **R09 (R18-5):** „bei ihr hat Tomasz kochen gelernt“ erklärt seinen Beruf (Koch, Kanon); das Fest ist schon gestrichen (E38).
+  - **„HODŽIĆ VT · 3“ (R17 B1, wie R15 M1):** Beide Prüfer urteilen „Leitplanken ja“. Die Eigentumsmarke mit Nachnamen ist Kanon-Lösungskette (BSO-03, H-28, DW1-1, GL-19). Ein Umbau gehört zur Kanon-Verantwortung; der Vorschlag (neutrale Kennung) steht in FÜR DEN NUTZER.
+  - **Geringe Befunde R17 G1–G5** (Geschlechterrollen in Dienstberufen, Bock-Inschriften, Besen des Schornsteinfegers, Name „Kunibert“, Handschuhe bei B34): nach der Abbruchregel (E40) in FÜR DEN NUTZER.

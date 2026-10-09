@@ -45,7 +45,7 @@ class Simulation {
   final Map<String, Figur> figuren = {};
   final List<Ereignis> neu = []; // seit dem letzten Abholen
 
-  /// Spielminuten je Echtsekunde (Phase 1 = 65 Spielminuten).
+  /// Spielminuten je Echtsekunde (Phase 1 = 60 Spielminuten, 00:30–01:30).
   double tempo;
 
   /// Hörweite für Gespräche (m).

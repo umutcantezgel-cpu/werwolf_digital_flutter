@@ -179,7 +179,7 @@
         "Wenn du etwas über die Nacht wissen willst, frag den Uhrmacher, der hat den besseren Überblick.",
         "Die Hoftür klemmt bei Frost, aber der Ofen hält die Küche warm, und das ist die Hauptsache."
       ],
-      "gerede": "Man sagt, der Nebelriese habe sich vor der Backstube gezeigt, aber wahrscheinlich wollte nur der Nebel ein Brötchen."
+      "gerede": "Man sagt, der Nebelriese habe sich vor der Backstube gezeigt, aber wahrscheinlich wollte nur der Frost ein Brötchen."
     },
     {
       "id": "B04",
@@ -2065,7 +2065,7 @@
       "beruf": "Reinigungskraft im Rathaus",
       "wohnhaus": "H-125",
       "arbeitshaus": null,
-      "wesen": "Fleißig und verschwiegen, sie putzt jeden Flur so gründlich, dass sie hinterher jeden Winkel kennt.",
+      "wesen": "Fleißig und fröhlich, sie kennt im Rathaus jeden Namen und jede knarrende Treppenstufe.",
       "aussehen": {
         "haar": "braun",
         "frisur": "dutt",
@@ -2112,10 +2112,10 @@
       "saetze": [
         "Du willst im Rathaus etwas erfahren? Ich mache dort sauber, wenn alle weg sind. Dabei höre ich mehr, als man denkt.",
         "Der Nachtpförtner hat mir gesagt, ich soll die Türen nicht anfassen, bis er sie verriegelt hat. Das mache ich gern.",
-        "Der Eimer steht noch im Flur, weil nach dem Knall niemand Lust hatte zu wischen. Das verstehst du?",
-        "Ich kann nicht viel sagen, ich habe immer nur geputzt. Den Staub erzählt man nicht, der erzählt sich selbst."
+        "Der Eimer steht noch im Flur, weil nach dem Knall alle nur noch Kerzen gesucht haben. Das verstehst du?",
+        "Ich kann nicht viel sagen, ich war um die Zeit schon zu Hause. Frag im Rathaus, die waren länger da."
       ],
-      "gerede": "Im Rathaus flüstert man, die Reinigungskraft habe den Nebelriesen beim Wischen gesehen, aber sie hat nur gelacht und weitergewischt."
+      "gerede": "Im Rathaus flüstert man, Anneliese habe den Nebelriesen auf der Treppe getroffen und ihm einen guten Abend gewünscht."
     },
     {
       "id": "B36",
