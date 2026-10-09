@@ -487,3 +487,26 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - „Burgweg“ für zwei Abschnitte (R19 G3): Das ist Kanon-Wortlaut ohne Widerspruch.
   - Texte der „Klassischen Fälle“ (R19 G4): Bestand außerhalb der Burgstadt (E14a).
   - „kurz nach Mitternacht“ (R20-4): bleibt, E44.
+
+## E46 · 09.10. 15:13 · Prüfrunde nach E45 (A-605u/v, A-702r): Lampenmarke ohne Nachnamen
+- **Urteile:**
+  - Sichtprüfer 23 und 24 melden am Kartenstand b60891cc2b je Paare 0 und Verstöße 0; damit ist Z-03 erfüllt.
+  - Inhaltsprüfer 21: Leitplanken **nein**, Kanontreu ja, Plagiatsfrei ja.
+  - Inhaltsprüfer 22: ja · ja · ja.
+- **Umgesetzt:**
+  - **Lampenmarke (R21 M-1, R22-2):** „HODŽIĆ VT · 3“ wird im Spiel zu „VT · 3“ (ERSETZE-23), die Aussprache in GL-19 zu „fau-te drei“ (ERSETZE-24).
+    - Neuer Grund gegenüber E43–E45: Der Nachname ist das einzige Eigentumsmerkmal auf dem Beweisstück. Für die Zuordnung zu R01 braucht man ihn nicht, denn „VT“ steht für R01s Firma (Beruf in R01-STAMM), und die Rollentexte sagen „deine Lampe 3“ bzw. „Adnans Lampe 3“.
+    - Vier Prüfer haben das angeregt, einer mit „nein“. Die Änderung kostet eine Overlay-Zeile.
+    - H-28 trägt keine notwendige Schlussfolgerung (S-1…S-7) und ist die falsche Fährte (DW1-1). Inhalt und Spielwirkung bleiben gleich: Die Lampe zeigt auf R01.
+    - `kanon_test` prüft, dass H-28 sich nur in der Marke vom Original unterscheidet und kein „HODŽIĆ VT“ mehr im wirksamen Kanon steht. Die Kanon-Dateien bleiben unverändert; der Hinweis an die Kanon-Autoren steht in FÜR DEN NUTZER.
+  - **„Herkunft des Schreis“ (R22-3):** im Spiel „Quelle des Schreis“ (ERSETZE-25; R02-LÜGE, LR-7), wie schon in `faehigkeiten.json` (E45).
+- **Bewusst so:**
+  - **Herkunft auf der R01-Karte (R21 M-1, Teil 2):** Das Spiel liest aus den Stammdaten nur Name, Aussprache, Geschlecht, Alter, Beruf, Kleidung und Sprechweise (`fall_daten.dart`). „Wurzeln“ und „Familie“ zeigt es nirgends an. Herkunft ist im Spiel also weder sichtbar noch Teil einer Spur.
+  - **Ziffern in vorgelesenen Texten (R21 M-2, K8 §5):** Die Regel des Stilblatts gilt für Texte, die die Spielleitung beim Krimidinner vorliest. Die App liest nichts vor, sie zeigt alle Texte als Karten an, und für Karten erlaubt K8 §5 Ziffern. Eine Ersetzung von Uhrzeiten in Worte würde zudem die Zeitprüfungen gegen LISTE-ZEITEN umgehen. Für die Kanon-Autoren steht der Punkt in FÜR DEN NUTZER.
+  - **FM-1 (R22-1, hoch, [L]):** wie E45, Nutzerentscheidung. Dass die Verteilung der Funktionen im Overlay gleich bleibt, ist gewollt: Sie ist der Fall selbst (Täterin, Hauptverdächtiger, Zeugin). Ohne Herkunftsangabe und ohne sichtbare Herkunft im Spiel ist sie kein Herkunftsmuster mehr.
+  - **„in einem der Abdruck“ (R21 G-1):** Ellipse („in einem [der Spritzer] der Abdruck“), grammatisch richtig, Kanon-Wortlaut.
+  - **Gleiche Familienangaben bei R06 und R18, Sonntagsmotiv (R21 G-2):** Das steht so im Kanon (Eltern in Celle, Vater Lokführer; „sonntags“ bei R05, R09, R12, R15, R18). Das Overlay ändert Familienfelder nur aus Leitplanken-Gründen (E38). Hinweis an die Kanon-Autoren in FÜR DEN NUTZER.
+  - **Lüftungsschacht nur in G-Daten (R21 G-3):** ein Bauteil, kein Ort und kein Lösungsgegenstand; kein Widerspruch zu den O-Zeilen. Kanon-Verantwortung, in FÜR DEN NUTZER.
+  - **„Punschkessel“ ohne „alkoholfrei“ (R22-4):** Der Kessel ist im Kanon öffentlich als alkoholfrei festgelegt (OA-04, GL-14). Wo im Spieltext jemand Punsch trinkt, steht „alkoholfrei“ (ERSETZE-19…21).
+  - **Wortliste des Scanners (R22-5):** „bewusstlos“ und „Herkunft“ stehen in den Rohdateien rechtmäßig, als ERSETZE-Quelle bzw. in L-Daten. Den wirksamen Kanon prüft `kanon_test` darauf (kein „bewusstlos“ über ERSETZE-17, kein „Herkunft des Schreis“, keine Lampenmarke mit Nachnamen).
+- Neue Inhaltsrunde A-702s (Prüfer 23 und 24), weil sich der Textpfad `nachtlauf/kanon` geändert hat. Die Figuren sind unverändert; Z-03 bleibt erfüllt.

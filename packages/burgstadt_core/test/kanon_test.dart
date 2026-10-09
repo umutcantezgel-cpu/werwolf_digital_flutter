@@ -212,7 +212,7 @@ void main() {
       () {
         expect(enthaelt(wirksam, 'Brockengespenst'), isFalse);
         expect(enthaelt(wirksam, 'Nebelriese'), isTrue);
-        expect(wirksam.ersetzungen.length, 22); // 16 Harz-Bezüge + „bewusstlos“ (A-702d) + Osterode (E42) + 3 × Punsch alkoholfrei + R02-Anrede (E43)
+        expect(wirksam.ersetzungen.length, 25); // 16 Harz-Bezüge + „bewusstlos“ (A-702d) + Osterode (E42) + 3 × Punsch alkoholfrei + R02-Anrede (E43) + Lampenmarke, Aussprache, „Quelle des Schreis“ (E46)
         // Genus: der Nebelriese (männlich) – keine sächlichen Reste aus „das Brockengespenst“.
         for (final falsch in ['das Nebelriese', 'Das Nebelriese', 'dem Nebelriese ', 'seinem Nebelriese ']) {
           expect(enthaelt(wirksam, falsch), isFalse, reason: falsch);
@@ -231,14 +231,30 @@ void main() {
           for (var n = 1; n <= 29; n++) 'H-${n.toString().padLeft(2, '0')}',
           for (var n = 1; n <= 7; n++) 'S-$n',
         ];
+        // Einzige Ausnahme (E46): Die Eigentumsmarke der Lampe in H-28 steht ohne Nachnamen.
+        String ohneNachname(String v) => v.replaceAll('HODŽIĆ VT · 3', 'VT · 3');
         for (final id in ids) {
           final o = original.datensaetze[id]!;
           final w = wirksam.datensaetze[id]!;
           expect(w.sicht, o.sicht, reason: id);
-          expect(gleicheFelder(w.felder, o.felder), isTrue, reason: id);
+          final erwartet = {for (final e in o.felder.entries) e.key: ohneNachname(e.value)};
+          expect(gleicheFelder(w.felder, erwartet), isTrue, reason: id);
         }
       },
     );
+
+    test('Lampenmarke ohne Nachnamen, „Quelle des Schreis“, kein „bewusstlos“ (E46, ERSETZE-17)', () {
+      for (final weg in ['HODŽIĆ VT', 'HOD-schitsch fau-te', 'Herkunft des Schreis', 'bewusstlos']) {
+        expect(enthaelt(wirksam, weg), isFalse, reason: weg);
+      }
+      for (final id in ['H-28', 'BSO-03', 'E1-01', 'GL-19', 'DW1-1', 'BS-03']) {
+        expect(wirksam.datensaetze[id]!.felder.values.any((v) => v.contains('„VT · 3“')), isTrue, reason: id);
+      }
+      expect(wirksam.datensaetze['GL-19']!.feld('Aussprache'), 'fau-te drei');
+      expect(wirksam.datensaetze['R02-LÜGE']!.felder.values.any((v) => v.contains('Quelle des Schreis')), isTrue);
+      // Die Lampe bleibt R01 zugeordnet: Firma im Beruf, „deine Lampe“ in den Rollentexten.
+      expect(wirksam.datensaetze['R01-STAMM']!.feld('Beruf'), contains('Veranstaltungstechnik'));
+    });
 
     test(
       'Sicht bleibt beim Original; eine abweichende Sicht wird gemeldet',

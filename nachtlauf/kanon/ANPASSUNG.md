@@ -31,6 +31,9 @@ Regeln für das Overlay:
 @ERSETZE-20 [O] | Von: seinen Becher Punsch | Nach: seinen Becher alkoholfreien Punsch
 @ERSETZE-21 [O] | Von: warmem Punsch | Nach: warmem, alkoholfreiem Punsch
 @ERSETZE-22 [O] | Von: vor Schreck fällt dir das Handy | Nach: vor Schreck fällt ihr das Handy
+@ERSETZE-23 [O] | Von: HODŽIĆ VT · 3 | Nach: VT · 3
+@ERSETZE-24 [O] | Von: HOD-schitsch fau-te drei | Nach: fau-te drei
+@ERSETZE-25 [O] | Von: Herkunft des Schreis | Nach: Quelle des Schreis
 
 ## Ort und Rahmen
 @K-001 [O] | Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist die kleine, renovierte Stadtburg am höchsten Punkt der erfundenen, ummauerten Oberstadt Schartenfels: Gassen mit Kopfsteinpflaster, Häuser mit Dachgauben, die wie Augen schauen, eine Stadtmauer mit Wehrgang und Zunfttürmen, ein Uhrturm am Marktplatz und eine Kirchenburg auf dem Hügel. Unten im Tal liegt das erfundene Bergstädtchen Silberhau (SIL-ber-hau). Burg und Heimatmuseum gehören einer Stiftung; Burgwart ist Eckehard Lüddecke.
