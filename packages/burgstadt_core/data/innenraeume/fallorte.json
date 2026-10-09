@@ -956,7 +956,7 @@
         },
         "O": {
           "art": "objekt",
-          "name": "Opfertisch mit Kerzen",
+          "name": "Gabentisch mit Kerzen",
           "form": "tisch",
           "hoehe": 0.9,
           "textur": "holzBohlen",

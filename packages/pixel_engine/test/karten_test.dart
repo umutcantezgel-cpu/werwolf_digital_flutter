@@ -125,6 +125,19 @@ void main() {
     expect(befunde, isEmpty, reason: befunde.join('\n'));
   });
 
+  test('Kopfbedeckung der Bewohner nie in Haarfarben (liest sich sonst als Haar, Sichtprüfer 13/16)', () {
+    for (final k in karten.where((k) => RegExp(r'^B\d').hasMatch(k.id))) {
+      expect(kopfbedeckungLesbar(k), isTrue, reason: '${k.id}: Kopfbedeckung ${k.materialien['kopfbedeckung']}');
+    }
+  });
+
+  test('Farbfamilie wie bei den Sichtprüfern: dunkel, grau (neutral + stein), sonst Rampe', () {
+    expect(farbFamilie(0 * 8 + 1), 'dunkel');
+    expect(farbFamilie(6 * 8 + 0), 'dunkel');
+    expect(farbFamilie(0 * 8 + 5), farbFamilie(1 * 8 + 4));
+    expect(farbFamilie(6 * 8 + 3), isNot(farbFamilie(2 * 8 + 3)));
+  });
+
   test('Keine Materialien auf [0,1] (Augenfarbe liegt auf Rampe 0 Stufe 1)', () {
     for (final k in karten) {
       for (final e in k.materialien.entries) {

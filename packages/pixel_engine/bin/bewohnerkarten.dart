@@ -59,7 +59,12 @@ void main() {
     ids.add(id);
     if (RegExp(r'^B\d').hasMatch(id)) {
       final b = bewohnerNach[id]!;
-      final liste = <(Figurenkarte, Figurenbild)?>[for (var v = 0; v < _varianten; v++) mit(bewohnerKarte(b, v))];
+      // Die Karte aus der Datei ist Kandidat 0 (mit kleiner Vorliebe): Was geprüft ist, bleibt,
+      // solange es kein Paar bildet.
+      final liste = <(Figurenkarte, Figurenbild)?>[
+        if (kopfbedeckungLesbar(ausDatei[i])) mit(ausDatei[i]),
+        for (var v = 0; v < _varianten; v++) mit(bewohnerKarte(b, v)),
+      ];
       for (var v = 0; v < _farbVarianten; v++) {
         final f = umfaerbung(b, v);
         final k = mit(bewohnerKarte(b, v, farben: f));
@@ -77,7 +82,7 @@ void main() {
   stdout.writeln('${ids.length} Figuren, ${kandidaten.fold<int>(0, (n, l) => n + l.length)} gültige Kandidaten (${uhr.elapsed.inSeconds} s)');
 
   final wahl = List<int?>.generate(ids.length, (i) => kandidaten[i].length == 1 ? 0 : null);
-  for (var durchgang = 0; durchgang < 4; durchgang++) {
+  for (var durchgang = 0; durchgang < 10; durchgang++) {
     var geaendert = 0;
     for (var i = 0; i < ids.length; i++) {
       if (kandidaten[i].length == 1) continue;

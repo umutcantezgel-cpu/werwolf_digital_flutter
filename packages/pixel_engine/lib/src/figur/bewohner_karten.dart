@@ -78,9 +78,12 @@ const _frisurenAlle = {
 };
 
 const _baerte = [null, null, 'bart-kurz', 'bart-schnurr', 'bart-voll', 'bart-walross', 'bart-kinnbart', 'bart-dreitage'];
-const _kopfFarben = [Material(3, 3), Material(6, 3), Material(0, 3), Material(2, 2), Material(4, 4), Material(1, 3), Material(3, 5), Material(6, 4)];
+// Mützen und Hüte nie in Haarfarben (Holz, Rot, Bernstein) und nie in der Rampe des eigenen Haars:
+// sonst liest sich die Kopfbedeckung auf Abstand als Haar (Sichtprüfer 16: B14, B34, B39).
+const _kopfFarben = [Material(6, 3), Material(0, 3), Material(1, 3), Material(6, 4), Material(6, 5)];
 // keine Bernstein-/Hauttöne: sonst wirkt die Haube wie blondes Haar
-const _haubenFarben = [Material(0, 6), Material(6, 5), Material(1, 6), Material(3, 5)];
+// Keine rote Haube: Sie liest sich auf Abstand wie rotes Haar (Sichtprüfer 13, B13).
+const _haubenFarben = [Material(0, 6), Material(6, 5), Material(1, 6)];
 const _hosen = [Material(0, 2), Material(1, 3), Material(0, 3), Material(6, 3), Material(1, 2)];
 const _hemden = [Material(0, 6), Material(4, 6), Material(6, 5), Material(0, 5), Material(1, 6)];
 // kein Gold/Bernstein: Beiwerk in Gold wirkt wie ein Taler (K9 §8)
@@ -218,10 +221,10 @@ Figurenkarte bewohnerKarte(Map<String, dynamic> b, int variante, {Map<String, (S
   switch (a['kopf'] as String?) {
     case 'mütze':
       teile.add(z.waehle(const ['kopf-muetze', 'kopf-wollmuetze-bommel', 'kopf-schiebermuetze']));
-      mats['kopfbedeckung'] = z.waehle(_kopfFarben);
+      mats['kopfbedeckung'] = z.waehle([for (final f in _kopfFarben) if (f.rampe != hm?.rampe) f]);
     case 'hut':
       teile.add(z.waehle(const ['kopf-hut', 'kopf-filzhut']));
-      mats['kopfbedeckung'] = z.waehle(_kopfFarben);
+      mats['kopfbedeckung'] = z.waehle([for (final f in _kopfFarben) if (f.rampe != hm?.rampe) f]);
     case 'haube':
       teile.add(beruf.contains('Bäck') ? 'kopf-haube-baeckerin' : 'kopf-haube');
       mats['kopfbedeckung'] = beruf.contains('Bäck') ? const Material(0, 7) : z.waehle(_haubenFarben);
@@ -358,42 +361,44 @@ class Figurenbild {
   late final List<double> _koerperHisto = _histogramm(ansichten.first);
   late final Uint32List _form = _formMaske(ansichten.first);
 
-  /// Häufigste Farbe in der Körpermitte oben (Rumpf) und unten (Beine) und die Höhe in
-  /// Pixeln – so vergleichen Sichtprüfer Figuren auf Abstand (A-605j).
-  late final (int, int, int) _mitte = _mitteFarben(ansichten.first);
+  /// Häufigste Farbfamilie ([farbFamilie]) am Rumpf und an den Beinen über die ganze Breite
+  /// (ohne Umriss und Haut) und die Höhe in Pixeln – so vergleichen Sichtprüfer Figuren auf
+  /// Abstand (A-605j, Maßstab 5a).
+  late final (String, String, int) _mitte = _mitteFarben(ansichten.first);
 
-  static (int, int, int) _mitteFarben(SpriteImage s) {
-    var y0 = s.height, y1 = -1, sx = 0, n = 0;
+  static (String, String, int) _mitteFarben(SpriteImage s) {
+    var y0 = s.height, y1 = -1;
     for (var i = 0; i < s.pixels.length; i++) {
       if (s.pixels[i] == kTransparent) continue;
       final y = i ~/ s.width;
       if (y < y0) y0 = y;
       if (y > y1) y1 = y;
-      sx += i % s.width;
-      n++;
     }
-    if (n == 0) return (-1, -1, 0);
-    final h = y1 - y0 + 1, cx = sx ~/ n;
-    int haeufigste(double von, double bis) {
-      final zaehl = <int, int>{};
-      for (var y = y0 + (h * von).round(); y <= y0 + (h * bis).round(); y++) {
-        for (var x = cx - 2; x <= cx + 2; x++) {
-          if (x < 0 || x >= s.width || y < 0 || y >= s.height) continue;
+    if (y1 < 0) return ('', '', 0);
+    final h = y1 - y0 + 1;
+    bool frei(int x, int y) => x < 0 || y < 0 || x >= s.width || y >= s.height || s.pixels[y * s.width + x] == kTransparent;
+    String haeufigste(double von, double bis) {
+      final zaehl = <String, int>{};
+      for (var y = y0 + (h * von).round(); y < y0 + (h * bis).round(); y++) {
+        for (var x = 0; x < s.width; x++) {
           final p = s.pixels[y * s.width + x];
-          if (p != kTransparent) zaehl[p] = (zaehl[p] ?? 0) + 1;
+          if (p == kTransparent || p ~/ 8 == kRampeNamen['haut']) continue;
+          if (frei(x - 1, y) || frei(x + 1, y) || frei(x, y - 1) || frei(x, y + 1)) continue; // Umriss
+          final f = farbFamilie(p);
+          zaehl[f] = (zaehl[f] ?? 0) + 1;
         }
       }
-      var best = -1, bestN = 0;
-      zaehl.forEach((p, c) {
+      var best = '', bestN = 0;
+      zaehl.forEach((f, c) {
         if (c > bestN) {
-          best = p;
+          best = f;
           bestN = c;
         }
       });
       return best;
     }
 
-    return (haeufigste(0.28, 0.45), haeufigste(0.62, 0.85), h);
+    return (haeufigste(0.28, 0.50), haeufigste(0.62, 0.88), h);
   }
 
   /// Häufigste Farbklasse am Körper (Hauptfarbe der Kleidung).
@@ -406,11 +411,15 @@ class Figurenbild {
   }();
   late final int _formFlaeche = _bits(_form);
 
-  Figurenbild(this.ansichten);
+  /// Trägt eine Kopfbedeckung (Hut, Mütze, Haube): nach Maßstab 5a ein deutlicher Unterschied
+  /// am Kopf gegenüber einer Figur ohne.
+  final bool hut;
+
+  Figurenbild(this.ansichten, {this.hut = false});
 
   factory Figurenbild.backe(FigurBaker baker, Figurenkarte k) {
     final stehen = kAnimationen['stehen']!.first;
-    return Figurenbild([baker.backeEinzel(k, stehen, 0), baker.backeEinzel(k, stehen, 2)]);
+    return Figurenbild([baker.backeEinzel(k, stehen, 0), baker.backeEinzel(k, stehen, 2)], hut: k.teile.any((t) => t.startsWith('kopf-')));
   }
 
   static Uint32List _maske(SpriteImage s) {
@@ -535,8 +544,10 @@ class Aehnlichkeit {
   /// Gleiche Hauptfarbe der Kleidung (häufigste Farbklasse am Körper).
   final bool hauptfarbeGleich;
 
-  /// Gleiche Farbe in der Körpermitte oben und unten (Rampe gleich, Stufe ±1) bei fast
-  /// gleicher Höhe (±3 Pixel) – auf Abstand das stärkste Verwechslungszeichen (A-605j).
+  /// Gleiche Farbfamilie in der Körpermitte oben und unten bei fast gleicher Höhe (±5 Pixel,
+  /// in der Aufstellung bis 10 Bildpixel; die Prüfer trennen ab 8) – auf Abstand das stärkste Verwechslungszeichen
+  /// (A-605j). Farbfamilie wie bei den Sichtprüfern: Grau und Steingrau sind eine Familie,
+  /// die zwei dunkelsten Stufen jeder Rampe zählen als „dunkel“ (Maßstab 5a, A-605o).
   final bool mitteGleich;
   const Aehnlichkeit(this.iou, this.farbe, this.koerper, this.form, this.hauptfarbeGleich, [this.mitteGleich = false]);
 
@@ -544,7 +555,7 @@ class Aehnlichkeit {
   /// Farbunterschied – oder ähnliche Silhouette mit gleichfarbigem Körper.
   /// (Gleiche Hauptfarbe allein macht noch nicht verwechselbar, wirkt aber in [wert] als
   /// Druck auf die Variantenwahl.)
-  bool get verwechselbar => (iou >= 0.84 && farbe <= 46) || (math.max(iou, form) >= 0.80 && koerper >= 0.62);
+  bool get verwechselbar => (iou >= 0.84 && farbe <= 46) || (math.max(iou, form) >= 0.80 && koerper >= 0.62) || mitteGleich;
 
   /// Je größer, desto ähnlicher (für die Variantenwahl).
   double get wert => math.max(iou, form) + 0.5 * koerper + (hauptfarbeGleich ? 0.3 : 0) + (mitteGleich ? 0.5 : 0) - farbe / 160;
@@ -552,6 +563,26 @@ class Aehnlichkeit {
   @override
   String toString() =>
       'IoU ${iou.toStringAsFixed(2)} · Farbabstand ${farbe.toStringAsFixed(0)} · Körper gleich ${(koerper * 100).round()} % · Form ${form.toStringAsFixed(2)}${hauptfarbeGleich ? ' · gleiche Hauptfarbe' : ''}${mitteGleich ? ' · gleiche Körpermitte' : ''}';
+}
+
+/// Kopfbedeckung eines Bewohners auf Abstand als solche lesbar: nicht in einer Haarfarben-Rampe
+/// (Holz, Rot, Bernstein) und – bei Mütze und Hut – nicht in der Rampe des eigenen Haars.
+/// Die weiße Haube der Bäckerin ist Berufskleidung.
+bool kopfbedeckungLesbar(Figurenkarte k) {
+  final kb = k.materialien['kopfbedeckung'];
+  if (kb == null || k.teile.contains('kopf-haube-baeckerin')) return true;
+  if (kb.rampe == 2 || kb.rampe == 3 || kb.rampe == 4) return false;
+  final haar = k.materialien['haar'];
+  return k.teile.contains('kopf-haube') || haar == null || haar.rampe != kb.rampe;
+}
+
+/// Farbfamilie eines Palettenindex, wie Sichtprüfer Farben benennen: 'dunkel' (Stufe 0–1 jeder
+/// Rampe), 'grau' (neutral und stein), sonst die Rampe.
+String farbFamilie(int index) {
+  final rampe = index ~/ 8, stufe = index % 8;
+  if (stufe <= 1) return 'dunkel';
+  if (rampe <= 1) return 'grau';
+  return 'r$rampe';
 }
 
 Aehnlichkeit vergleiche(Figurenbild a, Figurenbild b) {
@@ -583,9 +614,8 @@ Aehnlichkeit vergleiche(Figurenbild a, Figurenbild b) {
     schnitt += Figurenbild._zaehl16[w & 0xFFFF] + Figurenbild._zaehl16[w >> 16];
   }
   final vereint = a._formFlaeche + b._formFlaeche - schnitt;
-  bool nah(int p, int q) => p >= 0 && q >= 0 && p ~/ 8 == q ~/ 8 && (p % 8 - q % 8).abs() <= 1;
   final (ao, au, ah) = a._mitte;
   final (bo, bu, bh) = b._mitte;
-  final mitte = nah(ao, bo) && nah(au, bu) && (ah - bh).abs() <= 3;
+  final mitte = a.hut == b.hut && ao.isNotEmpty && au.isNotEmpty && ao == bo && au == bu && (ah - bh).abs() <= 5;
   return Aehnlichkeit(iou, farbe, koerper, vereint == 0 ? 1 : schnitt / vereint, a._hauptfarbe == b._hauptfarbe, mitte);
 }

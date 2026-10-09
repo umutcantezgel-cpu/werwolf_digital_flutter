@@ -137,13 +137,13 @@
         "kleidung": [
           {
             "teil": "Kittel",
-            "rampe": "neutral",
-            "stufe": 6
+            "rampe": "stein",
+            "stufe": 5
           },
           {
             "teil": "Schürze",
             "rampe": "blau",
-            "stufe": 4
+            "stufe": 6
           }
         ],
         "zubehoer": [
@@ -197,13 +197,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "bernstein",
-            "stufe": 5
+            "rampe": "rot",
+            "stufe": 4
           },
           {
             "teil": "Hose",
             "rampe": "neutral",
-            "stufe": 4
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -258,12 +258,12 @@
         "kleidung": [
           {
             "teil": "Pullover",
-            "rampe": "rot",
-            "stufe": 3
+            "rampe": "bernstein",
+            "stufe": 4
           },
           {
             "teil": "Rock",
-            "rampe": "holz",
+            "rampe": "rot",
             "stufe": 2
           }
         ],
@@ -318,8 +318,8 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "blau",
-            "stufe": 6
+            "rampe": "bernstein",
+            "stufe": 4
           },
           {
             "teil": "Hose",
@@ -573,13 +573,13 @@
         "kleidung": [
           {
             "teil": "Schürze",
-            "rampe": "neutral",
-            "stufe": 6
+            "rampe": "stein",
+            "stufe": 5
           },
           {
             "teil": "Hemd",
-            "rampe": "blau",
-            "stufe": 4
+            "rampe": "bernstein",
+            "stufe": 5
           }
         ],
         "zubehoer": [
@@ -626,8 +626,8 @@
         "kleidung": [
           {
             "teil": "Weste",
-            "rampe": "blau",
-            "stufe": 3
+            "rampe": "holz",
+            "stufe": 2
           },
           {
             "teil": "Rock",
@@ -679,13 +679,13 @@
         "kleidung": [
           {
             "teil": "Hemd",
-            "rampe": "neutral",
-            "stufe": 6
+            "rampe": "bernstein",
+            "stufe": 3
           },
           {
             "teil": "Hose",
-            "rampe": "holz",
-            "stufe": 4
+            "rampe": "stein",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -746,12 +746,12 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "holz",
-            "stufe": 2
+            "rampe": "rot",
+            "stufe": 5
           },
           {
             "teil": "Umhang",
-            "rampe": "bernstein",
+            "rampe": "stein",
             "stufe": 5
           }
         ],
@@ -783,7 +783,7 @@
         }
       ],
       "saetze": [
-        "Du fragst, ob ich etwas gesehen habe? Ich bin achtundachtzig, junger Mann. Ich sehe nur Nebel und Erinnerungen.",
+        "Du fragst, ob ich etwas gesehen habe? Ich bin achtundachtzig. Ich sehe nur Nebel und Erinnerungen.",
         "Früher klapperten in der Gasse die Webstühle. Heute klappert nichts außer den Fensterläden bei Wind.",
         "Der Nebelriese, sagt meine Mutter, bleibt stehen, wenn du stehen bleibst. Ich habe es nie probiert.",
         "Setz dich hin, du wirkst müde. Mein Enkel rennt immer, als hätte er Eile, und weiß selbst nicht wohin."
@@ -866,13 +866,13 @@
         "kleidung": [
           {
             "teil": "Kittel",
-            "rampe": "blau",
-            "stufe": 5
+            "rampe": "stein",
+            "stufe": 6
           },
           {
             "teil": "Hose",
-            "rampe": "neutral",
-            "stufe": 2
+            "rampe": "blau",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -922,7 +922,7 @@
       "name": "Irmgard Roth",
       "alter": 77,
       "geschlecht": "w",
-      "beruf": "Witwe und Nachbarin",
+      "beruf": "Nachbarin, früher Standesbeamtin",
       "wohnhaus": "H-023",
       "arbeitshaus": null,
       "wesen": "Aufmerksam und herzlich, sie kennt jede Familie der Gasse und weiß zu jeder Hochzeit das Datum.",
@@ -933,13 +933,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "bernstein",
-            "stufe": 4
+            "rampe": "stein",
+            "stufe": 5
           },
           {
             "teil": "Rock",
             "rampe": "holz",
-            "stufe": 2
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -973,9 +973,9 @@
         "Ich weiß nicht, was du willst, aber ich weiß, wer hier wann geheiratet hat. Das ist mehr wert als ein Zeugnis.",
         "Der Nebelriese! Mein Mann hat ihn einmal am Fuß der Mauer gesehen, und seither geht er nachts nicht mehr allein.",
         "Unten in der Gasse klappert nur der Wind mit den Fensterläden. Mehr kann ich dir nicht sagen.",
-        "Setz dich hin und trink einen Tee, Junge. Die Tassen im Schrank sind noch vom Hochzeitstag meiner Schwester."
+        "Setz dich hin und trink einen Tee. Die Tassen im Schrank sind noch vom Hochzeitstag meiner Schwester."
       ],
-      "gerede": "Man erzählt, Irmgard habe den Nebelriesen gerufen, aber sie ruft nur ihre Katze, und die kommt nie."
+      "gerede": "Man erzählt, Irmgard führe ein Buch über den Nebelriesen, aber darin stehen nur die Hochzeitstage der Gasse."
     },
     {
       "id": "B17",
@@ -993,13 +993,13 @@
         "kleidung": [
           {
             "teil": "Overall",
-            "rampe": "rot",
-            "stufe": 2
+            "rampe": "holz",
+            "stufe": 3
           },
           {
             "teil": "Jacke",
             "rampe": "bernstein",
-            "stufe": 5
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1053,13 +1053,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "bernstein",
-            "stufe": 3
+            "rampe": "holz",
+            "stufe": 4
           },
           {
             "teil": "Hemd",
             "rampe": "neutral",
-            "stufe": 4
+            "stufe": 6
           }
         ],
         "zubehoer": [
@@ -1106,13 +1106,13 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "rot",
+            "rampe": "bernstein",
             "stufe": 5
           },
           {
             "teil": "Schal",
-            "rampe": "blau",
-            "stufe": 5
+            "rampe": "stein",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1173,13 +1173,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "bernstein",
-            "stufe": 4
+            "rampe": "rot",
+            "stufe": 2
           },
           {
             "teil": "Hemd",
-            "rampe": "rot",
-            "stufe": 3
+            "rampe": "bernstein",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1245,7 +1245,7 @@
           },
           {
             "teil": "Rock",
-            "rampe": "neutral",
+            "rampe": "holz",
             "stufe": 2
           }
         ],
@@ -1360,13 +1360,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "blau",
-            "stufe": 5
+            "rampe": "neutral",
+            "stufe": 6
           },
           {
             "teil": "Rock",
-            "rampe": "stein",
-            "stufe": 4
+            "rampe": "holz",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -1413,13 +1413,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "neutral",
+            "rampe": "blau",
             "stufe": 6
           },
           {
             "teil": "Hose",
-            "rampe": "stein",
-            "stufe": 3
+            "rampe": "neutral",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -1540,13 +1540,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "bernstein",
-            "stufe": 3
+            "rampe": "neutral",
+            "stufe": 6
           },
           {
             "teil": "Hose",
-            "rampe": "holz",
-            "stufe": 2
+            "rampe": "blau",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1594,12 +1594,12 @@
           {
             "teil": "Pullover",
             "rampe": "blau",
-            "stufe": 5
+            "stufe": 4
           },
           {
             "teil": "Hose",
-            "rampe": "rot",
-            "stufe": 2
+            "rampe": "holz",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1773,12 +1773,12 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "bernstein",
-            "stufe": 4
+            "rampe": "holz",
+            "stufe": 2
           },
           {
             "teil": "Hose",
-            "rampe": "neutral",
+            "rampe": "rot",
             "stufe": 2
           }
         ],
@@ -1833,13 +1833,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "neutral",
-            "stufe": 6
+            "rampe": "bernstein",
+            "stufe": 4
           },
           {
             "teil": "Rock",
-            "rampe": "holz",
-            "stufe": 4
+            "rampe": "neutral",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -1942,10 +1942,10 @@
       "name": "Elfriede Ahrens",
       "alter": 79,
       "geschlecht": "w",
-      "beruf": "Witwe",
+      "beruf": "Rentnerin, früher Weberin",
       "wohnhaus": "H-040",
       "arbeitshaus": null,
-      "wesen": "Freundlich und langsam, sie hat eine Stimme wie Honig und ein Gedächtnis wie ein gut sortiertes Archiv.",
+      "wesen": "Freundlich und bedächtig, sie hat ein Gedächtnis wie ein gut sortiertes Archiv.",
       "aussehen": {
         "haar": "weiß",
         "frisur": "dutt",
@@ -1972,7 +1972,7 @@
           "bis": "04:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Sie schläft im Ohrensessel, die Decke mit den Häkelkanten über den Beinen."
+          "tut": "Sie schläft im Ohrensessel, die Wolldecke über den Beinen."
         },
         {
           "von": "04:00",
@@ -1990,12 +1990,12 @@
         }
       ],
       "saetze": [
-        "Du bist so ein junger Mann, der Fragen stellt. Setz dich, und ich erzähle dir, was ich hier gesehen habe.",
+        "Du stellst also die Fragen hier. Setz dich, und ich erzähle dir, was ich hier gesehen habe.",
         "Der Webstuhl im Obergeschoss steht seit dem Hochwasser still. Er vermisst den Schuss, genau wie ich den Mann.",
-        "Im Winter liegt die Oberstadt still wie ein Kuchen unter Schnee. Heute Nacht war er ohne Zucker.",
+        "Im Winter liegt die Oberstadt still unter Schnee. Heute Nacht war es so still, dass ich die Turmuhr gehört habe.",
         "Wenn du Trost willst, nimm den Tee. Wenn du Wahrheit willst, nimm den Nebel. Beides gibt's hier umsonst."
       ],
-      "gerede": "Man erzählt, Elfriede Ahrens häkle dem Nebelriesen einen Schal, aber der Schal ist für den Briefträger."
+      "gerede": "Man erzählt, Elfriede Ahrens webe dem Nebelriesen einen Mantel, aber ihr Webstuhl steht seit dem Hochwasser still."
     },
     {
       "id": "B34",
@@ -2074,12 +2074,12 @@
           {
             "teil": "Kittel",
             "rampe": "neutral",
-            "stufe": 5
+            "stufe": 6
           },
           {
             "teil": "Hose",
-            "rampe": "rot",
-            "stufe": 2
+            "rampe": "blau",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2115,7 +2115,7 @@
         "Der Eimer steht noch im Flur, weil nach dem Knall niemand Lust hatte zu wischen. Das verstehst du?",
         "Ich kann nicht viel sagen, ich habe immer nur geputzt. Den Staub erzählt man nicht, der erzählt sich selbst."
       ],
-      "gerede": "Im Rathaus flüstert man, die Putzfrau habe den Nebelriesen beim Wischen gesehen, aber sie hat nur gelacht und weitergewischt."
+      "gerede": "Im Rathaus flüstert man, die Reinigungskraft habe den Nebelriesen beim Wischen gesehen, aber sie hat nur gelacht und weitergewischt."
     },
     {
       "id": "B36",
@@ -2133,13 +2133,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "rot",
+            "rampe": "bernstein",
             "stufe": 4
           },
           {
             "teil": "Hose",
-            "rampe": "neutral",
-            "stufe": 4
+            "rampe": "rot",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -2200,13 +2200,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "bernstein",
-            "stufe": 3
+            "rampe": "blau",
+            "stufe": 4
           },
           {
             "teil": "Hemd",
-            "rampe": "neutral",
-            "stufe": 5
+            "rampe": "bernstein",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -2268,11 +2268,11 @@
           {
             "teil": "Kleid",
             "rampe": "blau",
-            "stufe": 3
+            "stufe": 5
           },
           {
             "teil": "Schürze",
-            "rampe": "holz",
+            "rampe": "bernstein",
             "stufe": 4
           }
         ],
@@ -2327,13 +2327,13 @@
         "kleidung": [
           {
             "teil": "Weste",
-            "rampe": "neutral",
-            "stufe": 6
+            "rampe": "rot",
+            "stufe": 4
           },
           {
             "teil": "Hose",
             "rampe": "blau",
-            "stufe": 4
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -2394,13 +2394,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "rot",
-            "stufe": 4
+            "rampe": "bernstein",
+            "stufe": 3
           },
           {
             "teil": "Hose",
-            "rampe": "holz",
-            "stufe": 3
+            "rampe": "blau",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2461,13 +2461,13 @@
         "kleidung": [
           {
             "teil": "Bluse",
-            "rampe": "bernstein",
-            "stufe": 5
+            "rampe": "blau",
+            "stufe": 6
           },
           {
             "teil": "Schürze",
-            "rampe": "rot",
-            "stufe": 5
+            "rampe": "bernstein",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -2580,7 +2580,7 @@
       "beruf": "Rentnerin, Stammgast der Bibliothek",
       "wohnhaus": "H-103",
       "arbeitshaus": null,
-      "wesen": "Hellwach im Kopf und langsam im Gang, sie liest jeden Abend zwei Bücher, auch wenn die Lampe nur noch flackert.",
+      "wesen": "Hellwach und belesen, sie liest jeden Abend zwei Bücher, auch wenn die Lampe nur noch flackert.",
       "aussehen": {
         "haar": "weiß",
         "frisur": "dutt",
@@ -2637,7 +2637,7 @@
         "In der Bibliothek gibt es eine Kammer voll Briefe von Schreibern, die längst still sind. Die reden lauter als wir.",
         "Der Nebelriese in den Büchern trägt eine Laterne aus Mondlicht. Der echte ist sicher bescheidener, sagt meine Enkelin."
       ],
-      "gerede": "Man sagt, die alte Schöning lese dem Nebelriesen aus den Büchern vor, aber er schläft lieber, wenn es um Liebesbriefe geht."
+      "gerede": "Man sagt, Frau Schöning lese dem Nebelriesen aus den Büchern vor, aber er schläft lieber, wenn es um Liebesbriefe geht."
     },
     {
       "id": "B44",
@@ -2655,12 +2655,12 @@
         "kleidung": [
           {
             "teil": "Weste",
-            "rampe": "neutral",
+            "rampe": "rot",
             "stufe": 5
           },
           {
             "teil": "Hose",
-            "rampe": "rot",
+            "rampe": "holz",
             "stufe": 2
           }
         ],

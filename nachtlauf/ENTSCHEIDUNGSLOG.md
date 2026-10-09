@@ -357,3 +357,26 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Die Hose von R08 ist erfunden. Jede andere Hosenfarbe erzeugte in `karten_test` neue enge Paare (R11, R13, R18, R20, B20).
   - Deshalb ist R08 jetzt kleiner: 1,55 statt 1,63 m (Größe erfunden). In der Aufstellung sind es 108 statt 116 px gegen 122 px bei R06 (Δ 14). Zu R11 (106 px) trennt die Hose: braun gegen hellgraue Jeans.
   - Neuer Kartenstand 901192c463. Er braucht zwei neue Sichtprüfungen (A-605o/p); Sichtprüfer 16 prüft noch den alten Stand.
+
+## E40 · 09.10. 08:45 · Figuren: Maßstab 5a im Generator; Politur nach Inhaltsrunde 11
+- **Lage:**
+  - Sichtprüfer 16 (Stand e4624201af): 0 Paare. Er sah bei B14, B34 und B39 keine Mütze, sondern Haar, weil die Kopfbedeckungen in Haarfarben gefärbt waren.
+  - Sichtprüfer 17 (Stand 901192c463): 2 Paare, BW/B12 und DET/B24, beide bei früheren Prüfern Grenzfälle.
+  - Sichtprüfer 18 (gleicher Stand): 0 Paare.
+  - Muster: Was knapp an der Schwelle liegt, wertet jeder Prüfer anders. Einzelne Handkorrekturen verschoben das Problem nur zum nächsten Nachbarn.
+- **Lösung:** Der Maßstab 5a steckt jetzt im Figurenvergleich selbst, und der Generator verteilt die Bewohner danach neu.
+  - **Verwechselbar** (`vergleiche`) ist zusätzlich jedes Paar mit gleicher Farbfamilie an Rumpf und Beinen, Größenunterschied bis 5 Sprite-Pixel (in der Aufstellung bis 10 Bildpixel, die Prüfer trennen erst ab 8) und gleichem Kopf (beide mit oder beide ohne Kopfbedeckung).
+  - **Farbfamilie** wie bei den Prüfern (`farbFamilie`): Die zwei dunkelsten Stufen jeder Rampe sind „dunkel“, neutral und stein sind „grau“, sonst zählt die Rampe. Gemessen wird über die volle Breite, ohne Umriss und Haut.
+  - **Kopfbedeckungen der Bewohner** sind nie in Haarfarben (Holz, Rot, Bernstein) und nie in der Rampe des eigenen Haars; die rote Haube ist entfernt. `karten_test` prüft das (`kopfbedeckungLesbar`).
+  - **Generator** (`bin/bewohnerkarten.dart`): Die geprüfte Karte aus der Datei ist Kandidat 0, solange sie die Regeln erfüllt. Er hat bis zu 10 Durchgänge; dieser Lauf kam nach 6 zur Ruhe. Er hat 14 Bewohner umgefärbt (Datensatz in `bewohner.json` angepasst) und die erfundenen Hosenfarben von R02, R03, R04, R07, R08 und R09 gewählt (R03: Jeans hellgrau, der Kanon nennt nur „Jeans“).
+  - **Von Hand, nur erfundene Werte:** R05 Jeans ocker und 1,82 m, R14 Hose dunkelrot, R16 1,88 m (1,93 besteht die Sprite-Prüfung nicht), B11 1,50 m, B15 1,52 m, B40 1,60 m.
+  - **Gegenprobe:** Eine unabhängige Näherung direkt auf der Aufstellung (`scratchpad/mass5a`, gleiche Familienregel, Höhe in Bildpixeln) findet unter 10 px Größenunterschied 0 Kandidaten, unter 12 px noch 4. `karten_test` ist ohne Paar.
+  - Neuer Kartenstand fc94af9295; zwei neue Sichtprüfer (A-605q/r).
+- **Politur nach Inhaltsrunde 11** (Urteil ja · ja · ja, 7 geringe Befunde):
+  - G1/G2/G3/G5: Bei B16 und B33 entfällt „Witwe“ als Beruf; sie sind jetzt „Nachbarin, früher Standesbeamtin“ bzw. „Rentnerin, früher Weberin“. Entfernt sind auch die Katzen- und Kuchenpointe, die Häkelbilder, „Stimme wie Honig“, „die alte Schöning“, „langsam im Gang“, „ältere Dame“ (H-088), „niemand widerspricht ihr“ (H-115) und „Witwe“ (H-110).
+  - G4: „die Reinigungskraft“ statt „die Putzfrau“.
+  - G6: H-134 ohne nächtliche Tätigkeit des Pflasterers.
+  - G7: „Gabentisch mit Kerzen“ statt „Opfertisch“.
+  - Selbst gefunden: Drei Bewohner sprachen die spielende Person als „Junge“ bzw. „junger Mann“ an, obwohl ihr Geschlecht offen ist (B16, B33 und ein weiterer). Die Anrede ist jetzt neutral.
+  - Bewusst offen: Dutt-Frisur bei mehreren älteren Bewohnerinnen. Sie kommt aus dem Datensatz (`frisur: dutt`); eine Änderung braucht eine neue Sichtprüfung und steht in FÜR DEN NUTZER.
+- **Abbruchregel für die Inhaltsprüfung:** Runde 12 prüft diesen Stand. Hat sie das Urteil ja · ja · ja, werden ihre geringen Befunde gesammelt (FÜR DEN NUTZER) statt weiter gedreht; nur ein „nein“ führt zu einer weiteren Runde.
