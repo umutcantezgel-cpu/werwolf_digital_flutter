@@ -20,7 +20,7 @@
 3. Stelle in `/config` **„Dynamic workflow size“** auf `unrestricted` (oder `large`).
 4. Wähle als Berechtigungsmodus **„Auto“** im Menü neben dem Eingabefeld. Sonst hält jede Rückfrage zu einem Werkzeug den Lauf an, bis du antwortest.
 5. Sende diese Nachricht:
-   > Hole den Branch `claude/pensive-gates-ajtp7x` (`git fetch origin claude/pensive-gates-ajtp7x`), lies `planung/bollwerk/META-PROMPT.md` und die drei Anhänge daneben vollständig und führe den Meta-Prompt aus. Danach direkt START BOLLWERK.
+   > Führe `git fetch origin claude/pensive-gates-ajtp7x` aus, lies mit `git show origin/claude/pensive-gates-ajtp7x:planung/bollwerk/META-PROMPT.md` den Meta-Prompt und ebenso die drei Anhänge `META-ANHANG-A-MASTERPROMPT.md`, `META-ANHANG-B-FAKTEN.md` und `META-ANHANG-C-MECHANIK.md` aus demselben Ordner vollständig und führe den Meta-Prompt aus. Danach direkt START BOLLWERK.
 
    Dann gelten alle Standardwahlen, und Claude macht nach M8 ohne Pause mit dem Nachtlauf weiter (§4 M8). Willst du den Master-Prompt erst selbst lesen, lass den letzten Satz weg.
 6. **Was heute Nacht passiert:** Der Lauf „Finalisierung Schlosskeller“ in der anderen Sitzung steht bei F4 von F7 und braucht voraussichtlich noch Tage. Solange er läuft, baut BOLLWERK nur vor: Werkzeuge, Würfelkern, Texte, Posen- und Würfelbühnen-Proben, Bilder in den Chat. Auf main kommt dann nichts. Soll BOLLWERK heute Nacht schon am Spiel selbst bauen, **halte die Finalisierungs-Sitzung an** und hänge zusätzlich an: **„FREIGABE BOLLWERK“**. Dann übernimmt BOLLWERK deren Stand und Rest (Anhang A, MP-2).
@@ -78,10 +78,10 @@ Die harten Regeln für den Nachtlauf stehen in Anhang A4. Für den Meta-Lauf gil
 
 1. **Schreiben:**
    - Auf dem Branch `bollwerk` schreibst du nur `planung/bollwerk/**`; Proben und Zählskripte liegen unter `planung/bollwerk/proben/`.
-   - Sonst schreibst du nur in eigene Wegwerf-Worktrees (`git -C /home/user/bollwerk worktree add --detach /home/user/bw-meta/<name> <sha>`) und ins Scratchpad.
+   - Sonst schreibst du nur in eigene Wegwerf-Worktrees (`git -C /home/user/bollwerk worktree add --detach /home/user/bw-meta/<name> <sha>`), nach `/home/user/bw-meta/**` (Pilot, M4), in frische Klone `/tmp/frisch-<n>` (M7) und ins Scratchpad.
    - Kein anderer Checkout und kein anderer Worktree wird angefasst.
 2. **Git:**
-   - Gepusht wird nur `git push origin <sha>:refs/heads/bollwerk`; vorher läuft `bash tool/secret_scan.sh`.
+   - Gepusht wird nur `git push origin <sha>:refs/heads/bollwerk`; vorher läuft `bash tool/secret_scan.sh`. Der Scan zeigt nicht an, dass er die Passagenprüfung überspringt; prüfe deshalb zusätzlich `test -f quellen/schlosskeller-teamchat.txt || echo "Passagenprüfung übersprungen"`. Bei „übersprungen“ vermerkst du das einmal je Sitzung im ENTSCHEIDUNGSLOG und in FUER-DEN-NUTZER; gepusht wird trotzdem, wenn der Scan mit „Secret-Scan: sauber“ endet.
    - Staging nur mit `git add -- <pfade>`.
    - Verboten:
      - Force-Push in jeder Form
@@ -90,14 +90,14 @@ Die harten Regeln für den Nachtlauf stehen in Anhang A4. Für den Meta-Lauf gil
      - Pushes auf andere Branches, auch nicht auf `claude/pensive-gates-ajtp7x`, das du nur liest
      - `-s ours`, Squash, Rebase
      - Ausführen von `tool/abnahme.dart`
-3. **Werkzeuge der Agenten (Haiku und Opus-Unteragenten):** nur Read, Grep, Glob, Write, Edit und Bash; Git nur `status`, `diff`, `log`, `show`. Nie:
+3. **Werkzeuge der Agenten (Haiku und Opus-Unteragenten):** nur Read, Grep, Glob, Write, Edit und Bash; Git nur lesend (`status`, `diff`, `log`, `show`, `ls-tree`, `merge-tree`), in Pool-Kopien unter `/home/user/bw-meta/pool-<NN>` gar nicht. Nie:
    - `mcp__claude-code-remote__*`, `mcp__github__*`
    - Agent, Workflow, SendMessage, TaskStop, Monitor, EnterWorktree, ExitWorktree, Skill
    - WebFetch, WebSearch, Artifact, `mcp__Claude_Docs__*`
 
    Du selbst nutzt neben den Datei-, Such- und Shell-Werkzeugen nur Agent, Workflow und SendUserFile. Keine Routinen, keine Sitzungen, keine GitHub-API.
 4. **Netz:** nur Git mit `origin` und Paketinstallationen für Abhängigkeiten, die das Projekt schon hat. Nichts systemweit installieren. `build.sh` nie ausführen.
-5. **Rechenlast:** Web-Build, Chromium, Simulationen und voller Testlauf laufen nur über `flock /tmp/bw-schwer.lock <befehl>`. Jeder Bash-Befehl beginnt mit `source /home/user/bollwerk/planung/bollwerk/proben/env.sh &&`; die Datei setzt PATH auf Flutter und Node.
+5. **Rechenlast:** Web-Build, Chromium, Simulationen und voller Testlauf laufen nur über `flock /tmp/bw-schwer.lock <befehl>`. Jeder Bash-Befehl beginnt mit `source /home/user/bollwerk/planung/bollwerk/proben/env.sh &&`; die Datei setzt PATH auf Flutter und Node. Ausnahme: M0 Schritte 1–4 beginnen mit `export PATH=/opt/flutter/bin:/opt/node22/bin:$PATH &&`.
 6. **Umgehungsverbot:** Wird etwas blockiert (Berechtigung, Sandbox, Push), lässt du es weg und trägst es in `FUER-DEN-NUTZER.md` ein. Kein `dangerouslyDisableSandbox`. Keine Änderung an `.claude/**`, `settings*.json`, `CLAUDE.md`, Git-Konfiguration oder Hooks.
 7. **Rückfragen:** keine (BE-10). Denkprotokoll ins `ENTSCHEIDUNGSLOG.md`; Gestalterisches mit Standardwahl in `FUER-DEN-NUTZER.md`.
 8. **Bilder:** Nur du schickst sie mit SendUserFile in den Chat, als Kontaktbogen mit ≤ 48 Kacheln. Jedes erzeugte Bild ist in einem Bogen.
@@ -119,7 +119,7 @@ Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Promp
 **Gleichzeitig (BE-11):**
 - Unabhängige Agenten startest du in **einer** Nachricht als Hintergrund-Agenten oder in mehreren Workflows nebeneinander.
 - Ein einzelner Workflow lässt auf diesem Container nur **2** Agenten gleichzeitig laufen (Anhang B9). Direkte Hintergrund-Agenten liefen zu 8–9 gleichzeitig.
-- M2 und M3 laufen gleichzeitig. M4 misst **erst nach** der M3-Synthese, in einem exklusiven Fenster.
+- M2 und M3 laufen gleichzeitig. M4 beginnt erst, wenn M2 und M3 **vollständig** fertig sind (einschließlich M3.4 und aller Proben aus M2.3); dann läuft nur M4.
 
 **Ablage** in `planung/bollwerk/`:
 - `bilder/`
@@ -127,12 +127,13 @@ Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Promp
 - `pruefung/` (M6-Befunde, M7-Protokolle)
 - `anhang/` (Anhänge des Master-Prompts)
 - `belege/`
+- `meta/` (Zustand des Meta-Laufs: `meta/PRUEFPUNKT.md`, `meta/STATUS.md`; getrennt von den Startdateien des Nachtlaufs)
 
 ### M0 · Einrichten
 1. `git fetch origin` und Linien mit SHA notieren.
-2. `git worktree add -b bollwerk /home/user/bollwerk origin/main`.
+2. Gibt es `origin/bollwerk` schon (`git ls-remote --exit-code origin refs/heads/bollwerk`), ist das ein Wiedereinstieg: `git worktree add --no-track -b bollwerk /home/user/bollwerk origin/bollwerk`, dann `planung/bollwerk/meta/PRUEFPUNKT.md` lesen und dort fortsetzen; M0.3–M0.5 entfallen. Sonst: `git worktree add --no-track -b bollwerk /home/user/bollwerk origin/main`.
 3. Darin `git checkout origin/claude/pensive-gates-ajtp7x -- planung/bollwerk`. Damit kommen dieser Meta-Prompt, die Anhänge und das Scratchpad-Archiv auf `bollwerk`.
-4. `proben/env.sh`, `ENTSCHEIDUNGSLOG.md`, `STATUS.md`, `PRUEFPUNKT.md` und `FUER-DEN-NUTZER.md` anlegen.
+4. `proben/env.sh`, `ENTSCHEIDUNGSLOG.md`, `FUER-DEN-NUTZER.md`, `ANNAHMEN.md` sowie `meta/STATUS.md` und `meta/PRUEFPUNKT.md` anlegen.
 5. Commit und Push.
 
 ### M1 · Bestand, Startbedingung, Archiv, Umfangsbasis
@@ -147,7 +148,7 @@ Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Promp
    - Umfangszählung
    - Plattform und Berechtigungen
 
-   Jeder prüft Anhang B für seinen Bereich und meldet Abweichungen mit Beleg.
+   Jeder prüft Anhang B für seinen Bereich und meldet Abweichungen mit Beleg. Achtung: `origin/main` bewegt sich (der Nachtlauf Burgstadt pusht weiter), und `origin/finalisierung-schlosskeller` ist schon weit in F4 (Partymodus mit `PartyKartenSession`, Nebel, Ruhe-Animation). Gezählt und beschrieben wird der **aktuelle** Stand von `fin`.
 2. Prüfe selbst 10 % der gemeldeten Fakten nach, mindestens 3 je Bereich. Findest du einen Fehler, wird der Bereich neu erfasst.
 3. Prüfe die Startbedingung B-02 mit dem Befehl aus Anhang A6 (MP-2) und notiere den Stand des Finalisierungs-Laufs.
 4. Ergebnisse:
@@ -155,13 +156,17 @@ Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Promp
    - `BESTAND.md`
    - `HOHEIT.md` (vor und nach B-02)
    - `KANON-LUECKEN.md`: je Lücke Beleg, Bestand und Standardwahl
-   - `UMFANG-BASIS.md`: Zählskripte in `proben/`, vorläufige Werte, Gewichte g mit Begründung
+   - `UMFANG-BASIS.md`: Zählskripte in `proben/`, vorläufige Werte am `fin`-Stand, Gewichte g mit Begründung
+   - `belege/probe_merges.txt`: je Linie der Klasse *zusammenführen* `git merge-tree --write-tree --name-only origin/main <sha>` mit Exit-Code und Konfliktliste, dazu `git diff --stat` gegen die Nie-Liste (A4.8)
 
 ### M2 · Look-Vertrag, Referenzbilder, Design-Turnier
-1. **Referenzbilder:**
-   - Wegwerf-Worktree auf `origin/finalisierung-schlosskeller`.
-   - Bauen: `flock … flutter build web -t lib/game/dev/preview_main.dart --no-web-resources-cdn -o build/web_party_preview` (≈ 50 s).
-   - Fotografieren mit einer Kopie von `foto.mjs` in `proben/` (Import per `createRequire('/opt/node22/lib/node_modules/playwright')`): 7 Räume (`at=` aus der Raummitte in `raeume.json`) × 1280×800 und 390×844 × `phase=investigation|night`.
+1. **Referenzbilder** (Vorher = was Spieler nach F4 sehen):
+   - Wegwerf-Worktree auf `origin/finalisierung-schlosskeller` (SHA ins Log).
+   - Bauen: `flock /tmp/bw-schwer.lock flutter build web --no-web-resources-cdn -o build/web` (Einstieg `lib/main.dart`, ≈ 50–90 s).
+   - Fotografieren mit Kopien von `tool/e2e/raeume.mjs` **und** `tool/e2e/server.mjs` in `proben/`; Playwright per `createRequire('/opt/node22/lib/node_modules/playwright')`, Build-Ordner als absoluter Pfad.
+   - URL: `/?party=schlosskeller&pfad=<pfad>&n=<n>&bis=entscheidungen&at=<x,y>&zoom=1.05`; warten auf die Konsolenzeile `PARTY foto=entscheidungen`.
+   - Umfang: 7 Räume (begehbare Raummitte wie in `raeume.mjs`) × 1280×800 und 390×844 × die Lichtzustände des Partymodus (Ermittlung, Rückblende; Einstieg aus `lib/party/skript.dart`).
+   - Zusätzlich je Raum ein Brückenbild aus `preview_main.dart?party=schlosskeller&at=…`, nur zum Vergleich mit dem alten Referenzbild (ohne Nebel und Partylicht).
    - Die Bilder gehen als Kontaktbogen in den Chat.
 2. **Look-Anker-Probe** nach MP-14 L6: Paket in `proben/look_anker/`, 1 Raum, 2 Läufe bytegleich. Ebenso eine **Stilprüf-Probe** (`stil.py`, S1–S5) an zwei Referenzbildern.
 3. **Design-Turnier:**
@@ -197,7 +202,7 @@ Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Promp
    - Simulationszahlen
 
 ### M4 · Durchsatzmessung (Stufenpilot, allein auf dem Rechner)
-1. **Bedingung:** Nach der M3-Synthese laufen keine Builds, Simulationen oder anderen Agenten mehr. Im Schwerlast-Slot läuft durchgehend `tool/alle_tests.sh schnell`; das stellt die Nachtlast nach.
+1. **Bedingung:** M2 und M3 sind vollständig fertig; es laufen keine Builds, Simulationen oder anderen Agenten mehr. Im Schwerlast-Slot läuft durchgehend `tool/alle_tests.sh schnell`; das stellt die Nachtlast nach.
 2. **Stufen von je 20 min:**
    - (1) 6 direkte Agenten + 2 Workflows à 8 Agenten
    - (2) 12 + 4
@@ -210,7 +215,7 @@ Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Promp
    - B: eine Posen-Variante mit Bildlauf
    - U: ein Urteilsbündel über 25 Varianten
 
-   Alle schreiben in Dateien und geben nur eine KURZ-Zeile zurück (A4.9).
+   Alle schreiben in Dateien und geben nur eine KURZ-Zeile zurück (A4.9). Im Meta-Lauf liegen Code-Aufträge in `/home/user/bw-meta/pool-<NN>`, Ausgaben in `/home/user/bw-meta/varianten/<stufe>/`; beides wird nach M4 gelöscht.
 4. **Messen je Typ:**
    - Aufträge/h, Varianten/h
    - Dauer (Median, p90)
@@ -247,11 +252,12 @@ Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Promp
 - Schreibe außerdem:
   - `KERNKARTE.md` (≤ 1.500 Wörter)
   - `VORSCHLAG-FREIGABEN.md`: eine mögliche Freigabeliste für `.claude/settings.json`, falls „Auto“ fehlt. Nur als Vorschlag für den Nutzer, nie angewendet.
-  - die Startdateien des Nachtlaufs: `PRUEFPUNKT.md`, `FLUG.md` und `STATUS.md` als Vorlagen
+  - die Startdateien des Nachtlaufs in `planung/bollwerk/`: `PRUEFPUNKT.md`, `FLUG.md` und `STATUS.md`, erste Zeile jeweils `PHASE: NICHT BEGONNEN`
+  - Zähl- und Prüfbefehle im Master-Prompt nennen nur `tool/bollwerk/…`; `proben/` ist Vorlage, die der Vorlauf dorthin überträgt
 - **Stil:** Deutsch, „du“, kurze Sätze, jede Regel an genau einer Stelle, jedes Kürzel beim ersten Auftreten erklärt, jede Quelle mit Ref und Pfad. Im Master-Prompt heißt MP-n einfach §n. Prüfe jeden §-Verweis mit `grep`.
 
 ### M6 · Gegenprüfung bis zur Ruhe
-1. **Prüfer:** Je Runde starten **gleichzeitig 10 Prüfer**, jeder mit einer Linse, die den Master-Prompt zu brechen versucht:
+1. **Prüfer:** Je Runde starten **gleichzeitig 11 Prüfer**, jeder mit einer Linse, die den Master-Prompt zu brechen versucht:
    1. Ausführbarkeit (jeder Pfad, Befehl und erste Schritt)
    2. Regeln und Sicherheit (A4 vollständig, Schlupflöcher, Hoheit vor und nach B-02)
    3. Spielentwurf und Fairness (WÜ, Kanon, C1–C8)
@@ -261,7 +267,8 @@ Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Promp
    7. Umfang und Füllstoff (U, Pflichtziele, keine längeren Abende)
    8. main und Archiv (MP-16, Burgstadt-Schutz)
    9. Spieler und Veröffentlichung (Barrierefreiheit, Fortsetzen, Datenschutz, Einstieg, Store-Liste)
-   10. Vollständigkeitskritiker („Was fehlt?“)
+   10. Widerspruch (dieselbe Zahl, Schwelle oder Regel an zwei Stellen verschieden; zwei Lesarten mit verschiedener Handlung)
+   11. Vollständigkeitskritiker („Was fehlt?“)
 
    Jeder Befund nennt Schwere (BLOCKER, MAJOR, MINOR), Beleg und Ersatztext.
 2. **Bündeln:** Gleiche Befunde legst du zusammen. Befunde, die eine frühere Runde schon bestätigt oder verworfen hat, streichst du.
@@ -269,11 +276,12 @@ Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Promp
 4. **Schluss:** nach Runde 1, wenn sie keinen bestätigten BLOCKER hatte; sonst nach Runde 2 (Zeitbox). Bleibt ein BLOCKER offen, ist M-12 nicht erfüllt, und er steht in der Übergabe ganz oben.
 
 ### M7 · Trockenlauf
-Jeder Trockenlauf läuft in einem **frischen Klon** (`git clone --branch bollwerk <origin-url> /tmp/frisch-<n>`), ohne Zugriff auf Scratchpad, `/home/user/wt`, `/home/user/feinkorn` oder lokale Branches.
+Jeder Trockenlauf läuft in einem **frischen Klon** (`git clone --no-checkout <origin-url> /tmp/frisch-<n>/repo`; das ist sein Arbeitsverzeichnis, und `worktree add -b bollwerk` aus MP-19 legt `$BW` daneben an), ohne Zugriff auf Scratchpad, `/home/user/wt`, `/home/user/feinkorn` oder lokale Branches.
 
 1. Ein frischer Agent bekommt nur die Startnachricht aus MP-0:
    - Er spielt die ersten 90 Minuten auf dem Papier durch.
-   - Er führt die Starthandlungen 1, 2, 4, 5, 6 (mit 1 Pool-Platz statt 6), 8 und 9 aus MP-19 in einem Wegwerf-Worktree wirklich aus, ohne Push.
+   - Er führt MP-19 mit `BW=/tmp/frisch-<n>/wt` und dem Pool `/tmp/frisch-<n>/bw/<NN>` aus (MP-0 und MP-19 führen alle Pfade über `$BW` aus `env.sh`): die Starthandlungen 1, 2, 4, 5, 6 (mit 1 Pool-Platz statt 6), 8 und 9 wirklich, ohne Push.
+   - Er ruft nie `create_trigger`, `send_later`, Agent oder Workflow auf und schreibt nie unter `/home/user/bollwerk` oder `/home/user/bw*`. Am Ende `rm -rf /tmp/frisch-<n>`.
    - Die Handlungen 3, 7 und 10 (Herzschlag, Agenten-Welle, Zugende) schreibt er nur als wörtlichen Werkzeugaufruf in den Beleg; du prüfst sie gegen die Werkzeugschemas. Kein Unteragent legt Routinen an oder startet Agenten.
    - Beleg: `belege/meta_trockenlauf.txt`.
 2. Ein frischer Agent spielt einen Haiku-Auftrag aus dem Vorrat durch: Vorlage, Werkzeuge, Rückgabe, Paketprüfung.
@@ -296,7 +304,8 @@ Nach einem Blocker-Fix prüft ein **neuer** frischer Agent (Zeitbox). Der Rest k
    - A-09 Gewichte g
    - A-10 Design und Umfang gleichrangig
    - A-11 Zwischenziel je Nacht für U, falls eine Nacht nicht reicht
-2. **Sichern:** Commit und Push von `bollwerk`. Eigene Wegwerf-Worktrees entfernen, nur die aus `PRUEFPUNKT.md`.
+   - A-12 HD-Linie `caf1d61`: nur mergen, wenn die Burgstadt-Bilder bytegleich bleiben (Standard); sonst nur archivieren, bis der Nutzer „A12: ja“ sagt (mit Vorher/Nachher-Bogen)
+2. **Sichern:** Commit und Push von `bollwerk`. Eigene Wegwerf-Worktrees und `/home/user/bw-meta/**` entfernen, nur die aus `meta/PRUEFPUNKT.md`.
 3. **Chat, in Alltagssprache, ohne Kürzel:**
    1. **Was du bekommst** (5 Zeilen): was das Spiel danach kann, wie stark es wächst, wie es aussieht. Dazu die Kontaktbögen Vorher und Design-Proben.
    2. **Was heute Nacht passiert** (2 Zeilen): Ist die Finalisierung fertig? Wenn nein: „Heute Nacht nur Vorbereitung; das große Wachstum beginnt, sobald schlosskeller-1.0 steht.“
@@ -306,7 +315,7 @@ Nach einem Blocker-Fix prüft ein **neuer** frischer Agent (Zeitbox). Der Rest k
    4. **Was du ändern kannst:** die Annahmen als nummerierte Liste. „Antworte z. B. ‚A2: lieber …‘. Ohne Antwort gilt die Standardwahl.“
    5. Dateiliste.
 4. **Ist ein BLOCKER offen,** steht er ganz oben.
-5. **Autostart (Standard, außer der Nutzer hat „Danach direkt START BOLLWERK“ weggelassen):** PRUEFPUNKT schreiben, den Master-Prompt vollständig neu lesen und ohne Pause mit dessen §19 in dieser Sitzung beginnen. Ab jetzt gelten nur seine Regeln; §3 dieses Meta-Prompts endet. Steht `/home/user/bollwerk` schon auf `bollwerk`, ersetzt `git -C /home/user/bollwerk pull --ff-only origin bollwerk` das `worktree add`. Hat der Nutzer „FREIGABE BOLLWERK“ angehängt, gilt der FREIGABE-Weg (MP-2).
+5. **Autostart (Standard, außer der Nutzer hat „Danach direkt START BOLLWERK“ weggelassen)** nur, wenn M-01 und M-12 erfüllt sind und kein BLOCKER offen ist. Sonst gibt es keinen Start, und ganz oben in der Übergabe steht „Autostart ausgesetzt: <Grund>“. In der ersten Nacht mit Autostart gilt BW8 nur, wenn die M6-Linsen 2 und 8 in der letzten Runde 0 offene MAJOR hatten; sonst endet der Lauf spätestens mit BEREIT ZUR INTEGRATION. Ablauf: PRUEFPUNKT schreiben, den Master-Prompt vollständig neu lesen und ohne Pause mit dessen §19 in dieser Sitzung beginnen. Ab jetzt gelten nur seine Regeln; §3 dieses Meta-Prompts endet. Steht `/home/user/bollwerk` schon auf `bollwerk`, ersetzt `git -C /home/user/bollwerk pull --ff-only origin bollwerk` das `worktree add`. Hat der Nutzer „FREIGABE BOLLWERK“ angehängt, gilt der FREIGABE-Weg (MP-2).
 
 ---
 
@@ -342,7 +351,7 @@ Jede Antwort im Meta-Lauf beginnt mit:
 
 `STAND · Meta-Lauf [laufende Schritte, z. B. M2+M3] · Prüfrunde [r] · Agenten aktiv [k] · Varianten [v] · nächster Schritt: […]`
 
-**`PRUEFPUNKT.md` enthält:**
+**`meta/PRUEFPUNKT.md` enthält:**
 - laufende Schritte
 - Ergebnisse mit Datei
 - laufende Agenten und Workflows mit Kennung, Ausgabedatei und Startzeit
@@ -353,7 +362,7 @@ Jede Antwort im Meta-Lauf beginnt mit:
 Du aktualisierst ihn nach jedem Teilschritt und vor jedem großen Agentenstart.
 
 **Nach einer Verdichtung:**
-1. `PRUEFPUNKT.md` lesen.
+1. `meta/PRUEFPUNKT.md` lesen. Fehlt `/home/user/bollwerk` (neuer Container), gilt M0.2.
 2. In diesem Meta-Prompt §3 und die Abschnitte der laufenden Schritte lesen; bei M5 auch Anhang A6.
 3. Laufende Agenten prüfen; nichts doppelt starten.
 4. Weitermachen.

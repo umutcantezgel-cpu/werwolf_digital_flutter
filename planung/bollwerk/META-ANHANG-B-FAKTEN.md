@@ -16,11 +16,11 @@ Eine Linie ist ein Arbeitsstrang mit eigener Ref oder eigenem Ordner.
 
 | Linie | Ref · SHA | Stand | Vorschlag Klasse |
 |---|---|---|---|
-| Veröffentlicht | `origin/main` e7e4219 (= `origin/nachtlauf/burgstadt`, = `claude/nifty-gauss-s82y27`) | Der Nachtlauf Burgstadt ist gemergt. Die App startet in `/burgstadt` (`lib/main.dart:73`, `_ => Routes.burgstadt`; einen Schlüssel `burgstadt` gibt es nicht). Der Schlosskeller ist nur über `lib/game/dev/preview_main.dart?party=schlosskeller` erreichbar. | Basis |
-| Finalisierung Schlosskeller | `fin`, um 19:25 UTC bei **5b07e09**, **aktiv** | Letzte Commits: F4-ORCH-02 (Hub-Kachel „Partyabend“), F4-TEST-01/02 (Figurenkonsistenz, Karte pfadgleich), F5 (Druckgerüst, `party_druck`). Der Lauf ist auf mehrere Tage angelegt. STATUS meldete zuvor „F4 von F7 · Abnahme 9 von 17 · Aufträge 115 von 175“. Die Freigabe für main kommt in F7: Tag `schlosskeller-1.0` (F-17) oder der PR-Weg. | läuft – Startbedingung B-02 |
+| Veröffentlicht | `origin/main` **bewegt sich**: e7e4219, um 19:33 UTC a991a3a (= `origin/nachtlauf/burgstadt`, = `claude/nifty-gauss-s82y27`); der Nachtlauf Burgstadt pusht weiter über `commit_gruen.sh` auf `nachtlauf/burgstadt` und main (u. a. `packages/pixel_engine/data/figuren/*.json`) | Der Nachtlauf Burgstadt ist gemergt. Die App startet in `/burgstadt` (`lib/main.dart:73`, `_ => Routes.burgstadt`; einen Schlüssel `burgstadt` gibt es nicht). Der Schlosskeller ist nur über `lib/game/dev/preview_main.dart?party=schlosskeller` erreichbar. | Basis |
+| Finalisierung Schlosskeller | `fin`, um 19:25 UTC bei **5b07e09**, um 19:50 UTC bei bc9df94, **aktiv**; PR #43 offen; auf origin gibt es noch keine Tags | Letzte Commits: F4-ORCH-02 (Hub-Kachel „Partyabend“), F4-TEST-01/02 (Figurenkonsistenz, Karte pfadgleich), F5 (Druckgerüst, `party_druck`). Der Lauf ist auf mehrere Tage angelegt. STATUS meldete zuvor „F4 von F7 · Abnahme 9 von 17 · Aufträge 115 von 175“. Die Freigabe für main kommt in F7: Tag `schlosskeller-1.0` (F-17) oder der PR-Weg. | läuft – Startbedingung B-02 |
 | Burgstadt HD | `origin/claude/pensive-gates-ajtp7x`. **Inhaltsstand caf1d61.** Die Spitze trägt nur BOLLWERK-Planungscommits (2eb8175, 6927582, Archiv-Commit) und wird **nie** gemergt. | Pausiert: 49 von 306 Paketen, HZ 0/14. 9 Commits gibt es nur hier (82b5b58 … caf1d61): Lichttabelle v2, HD-Texturen, Formen stuhl/bank/tisch v2, Sprechblasen-Layout mit `ui_test`, Anklage v2. Unfertiges liegt als Patch in `hd/wip/`. merge-base mit main: 96e9e5b. | zusammenführen (nur caf1d61) |
 | FEINKORN | `origin/kern-feinkorn` 1145cb9 | Archiviert (E-F021: Nutzerentscheid „Bild-Look + Leben“). Die Bibliothek `package:pixel_engine/feinkorn.dart` hat 37 Tests. Messwerkzeuge in `tool/feinkorn/{bestand.dart,messen.mjs}`. Die Planung umfasst Messbasis, Szenenvertrag, Kanon-Auszug und Bildbestand. Rein additiv auf e7e4219. | zusammenführen (Leben) |
-| Nachtlauf | `nachtlauf/` auf main | `belege/abnahme.txt` (Stand 2777e28): 12 von 14, offen sind Z-03 und Z-12. STATUS sagt veraltet „13 von 14“. | eingefroren |
+| Nachtlauf Burgstadt | `nachtlauf/` auf main | **aktiv**: pusht auf `main` = `nachtlauf/burgstadt` = `claude/nifty-gauss-s82y27` (Commits um 18:43, 19:24 und 19:33 UTC) und ändert textPfade und Burgstadt-Code (Z-03, Z-12 warten auf Prüfrunden A-605y/z, A-702v). `belege/abnahme.txt` (Stand 2777e28): 12 von 14. `tool/abnahme.dart:209` erlaubt ihm Pushes auf main. | kommt nur über `origin/main` herein; BOLLWERK ändert nichts davon |
 | Krimidinner | `krimidinner/spuk-im-gewoelbe/` auf main | Anderer Fall (Täterin Merle, Burgwart Lüddecke). Welle 0, 0 von 204. `10_kanon/` ist App-Asset. | eingefroren |
 | Jules-Optimierung | 41 × `origin/loop/epoch-*` (eine Linie) | Alle Vorfahren von main (Octopus-Merge 7b8dfa0 „ours“ und d92a675). Ihr Code wurde verworfen. | nur archivieren |
 | Krimidinner-Kanon-PR | `origin/claude/ecstatic-cerf-7kzi1c` d92a675 | gemergt | nur archivieren |
@@ -39,8 +39,8 @@ Eine Linie ist ein Arbeitsstrang mit eigener Ref oder eigenem Ordner.
 | Merge in main | Konflikte | Löschungen | Umfang |
 |---|---|---|---|
 | ← caf1d61 | 0 | 0 | +167 Dateien |
-| ← kern-feinkorn | Fast-forward | 0 | +52 Dateien |
-| ← fin | Fast-forward | 0 | – |
+| ← kern-feinkorn | 0 (kein Fast-forward mehr, main ist weitergelaufen) | 0 | +52 Dateien |
+| ← fin | 0 | 0 | – |
 
 Zwischen den Linien sind alle Schnittmengen geänderter Dateien leer. Die Party-Dateien von main (`bildprompts.dart`, `textpruefer.dart`) bleiben beim HD-Merge erhalten.
 
@@ -48,7 +48,7 @@ Zwischen den Linien sind alle Schnittmengen geänderter Dateien leer. Die Party-
 
 ## B2 · Spielkern (reines Dart, `core/lib/src/party/`)
 
-Der Spielkern ist schon **rundenbasiert**. Bis F4 war er in `lib/` nicht angeschlossen.
+Der Spielkern ist schon **rundenbasiert**. Auf `fin` ist er seit F4 angeschlossen: Route `/party` (`lib/main.dart:60`), `lib/party/karte_session.dart` (`PartyKartenSession implements GameSession, SzenenErweiterung`), Nebel, Partylicht, Ruhe-Animation, kleine Effekte, Detektivfarbe aus dem Kanon; `tool/e2e/raeume.mjs` fotografiert den Partymodus. **Die Abschnitte B3, B4 und B10 beschreiben `origin/main`; M1 zählt und beschreibt am aktuellen `fin`-Stand.**
 
 **Ablauf** (`ablauf.dart`)
 - `Spiel` mit `PartyPhase` {titel, einrichtung, rollen, intro, gespraeche, entscheidungen, gruppenwahl, bonus, resuemee, anklage, finale, aufloesung, ende}.
@@ -218,6 +218,7 @@ Solange der Finalisierungs-Lauf läuft, gilt diese Zuordnung (`P/PLAN.md`, `P/MA
 | `krimidinner/**`, `nachtlauf/**` | eingefroren | nie |
 | Burgstadt-Pakete, `lib/burgstadt/**`, `tool/{abnahme.dart,alle_tests.sh,commit_gruen.sh,browser,ton,layout_pruefsumme.dart,hd_*}` | Nachtlauf / HD | nie (ausführen erlaubt außer `abnahme.dart`) |
 | `content/scenarios/**`, `server/**`, Deploy-Dateien | Bestand Mordakte | nie |
+| `origin/main`-Pushes, `nachtlauf/**`, Burgstadt-Pakete, `pixel_engine/data/figuren` | Nachtlauf Burgstadt (aktiv) | nie |
 
 **textPfade von Burgstadt** (nie ändern):
 - `packages/burgstadt_core/data`
@@ -251,7 +252,7 @@ Solange der Finalisierungs-Lauf läuft, gilt diese Zuordnung (`P/PLAN.md`, `P/MA
   - startet `alle_tests.sh` voll und überschreibt `nachtlauf/belege/*`
   - Z-13 kennt nur feste Push-Ziele
   - **nie ausführen**, muss aber weiter analysieren
-- `tool/hd_migbeleg.sh` (Bildsatz byte-gleich), `tool/layout_pruefsumme.dart --pruefe` (`--schreibe` verboten), `bin/erkundung.dart` (Türen 134/134).
+- `tool/hd_migbeleg.sh` (Bildsatz byte-gleich), `tool/layout_pruefsumme.dart --pruefe` (`--schreibe` verboten), `packages/burgstadt_core/bin/erkundung.dart` (Türen 134/134).
 
 **Foto und Messung**
 - `tool/e2e/foto.mjs`:
@@ -369,7 +370,7 @@ Solange der Finalisierungs-Lauf läuft, gilt diese Zuordnung (`P/PLAN.md`, `P/MA
 
 ---
 
-## B10 · Umfang heute (vorläufig; verbindlich zählt der Nachtlauf in B0 am B-02-Stand)
+## B10 · Umfang heute (Stand main, vorläufig; M1 zählt am `fin`-Stand, verbindlich zählt der Nachtlauf in BW0 am B-02-Stand)
 
 | Achse | Heute | Art |
 |---|---|---|

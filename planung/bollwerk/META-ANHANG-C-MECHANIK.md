@@ -62,7 +62,7 @@
 - **Reserve-Regel:** Abstecher sperren, sobald die Restzeit die schlechtesten Kosten aller offenen Pflichtzüge nicht mehr deckt. Keine Kanon-Entscheidung verfällt je.
 - **Budget-Ungleichung je Runde:** Σ der schlechtesten Kosten aller Pflichtzüge ≤ 45 Nachtminuten. M3 belegt sie mit Zahlen.
 - **Rundenschranke:** Läuft die Uhr ab, gilt jede offene Untersuchung als Teilerfolg. Erst dann folgen Gruppenwahl und Resümee.
-- **Kettensperre:** Eine Kanon- oder Folgeentscheidung öffnet erst, wenn jedes Fakt-Glied ihrer Begründungskette aufgedeckt ist. Bekannte Ketten:
+- **Kettensperre (pfadunabhängig, auf Entscheidungsebene):** Eine Kanon- oder Folgeentscheidung öffnet, sobald jede Vorgänger-Entscheidung ihrer Liste gespielt und ihr Anlauf abgeschlossen ist (Wissen aufgedeckt oder per Rundenschranke Teilerfolg). Welche Option gewählt wurde, spielt keine Rolle; nie öffnet eine Entscheidung nach einem pfadabhängigen Fakt. Die Liste ist die Vereinigung aller `fakt:`-Quellen aus `begruendung.*.kette` über alle 4 Pfade:
   - e2_1 ← e1_1, e1_2, e1_3
   - e2_2 ← e1_2
   - e2_3 ← e1_3
@@ -76,7 +76,7 @@
 - Annahme A-03 (ANNAHMEN.md): Die Alternative „Würfel darf Kanon-Punkte kosten“ bricht F-06 und §7.7 und ist deshalb nicht Standard.
 
 **Würfelart (Startwert, M3 stimmt ab)**
-- 2W6 + Modifikator, Modifikator von −1 bis +2.
+- 2W6 + Gesamtmodifikator. Gesamtmodifikator je Wurf = Summe aus Werkzeug, Helfer, „gründlich“ (+2) und Marke, danach begrenzt auf 0 bis +2. −1 nur, wenn M3 eine pfadgleiche Quelle festlegt.
 - Startschwellen 9+ Erfolg, 6–8 Teilerfolg, ≤ 5 Pech. Damit liegt Pech bei +0 bei 10/36 ≈ 28 %.
 - **Bänder (bindend):**
   - Züge mit Wurf über das Gelingen je Partie: 30–60 % („manchmal“), in jeder Besetzung 4–20, je Runde ≥ 1 Wurf, nie jede Entscheidung
@@ -93,10 +93,10 @@
     - Marek, Lejla, Damir: Buffet und Tee
     - Pawel, Emine, Can: Befragen
     - Zeynep: Wege
-  - Seifenblasen-Marken: höchstens 3, je +1
+  - Seifenblasen-Marken: je Wurf höchstens 1 (+1), je Partie höchstens 3
 - Kernrollen helfen **nur beim Befragen**. Helfer-Boni hängen nie daran, ob der Helfer Täter ist. Der Täter kann keinen Wurf sabotieren; Sabotage gibt es nur in der Gruppenwahl (G-1).
 - Befragungen **besetzter** Rollen (ein Mensch am Tisch) würfeln nur über Tempo und Zusatz, nicht über das Gelingen.
-- Pech-Ausgleich: nach zwei Pech in Folge (je Spieler) ist der nächste Wurf mindestens Teilerfolg. Insgesamt höchstens zwei Dämpfer (Marken + Ausgleich).
+- Pech-Ausgleich: nach zwei Pech in Folge ist der nächste Wurf mindestens Teilerfolg. Je Wissensziel höchstens zwei Dämpfer (Marke oder Pech-Ausgleich).
 
 **Seed (WÜ-1, eine Formel)**
 - `Rng(Rng.hashString('wuerfel:<code>:<entscheidungsId|abstecherId>:<anlauf>'))`
@@ -211,6 +211,7 @@
   - `zustandFuer(spieler)` liefert nur, was diese Rolle wissen darf: das eigene Dossier, die Täterfassung nur an die Täterrolle.
   - Pfad, Täter, Gruppenwahl-Qualität und Stimmenzahl kommen erst in der Auflösung.
   - Mitschnitt-Test: Vor dem Finale enthält der Verkehr zu Unschuldigen 0-mal Pfad oder Täterkennung.
+- **Dauer:** wie Party.
 - **Abbrüche:**
   - Gast weg: nach 90 s vertritt ihn ein Bot; mit seinem Token kehrt er in dieselbe Rolle zurück.
   - Gastgeber weg: „Warte auf Gastgeber“. Der Gastgeber setzt aus dem Spielstand fort; die Gäste treten mit dem neuen Code bei.
