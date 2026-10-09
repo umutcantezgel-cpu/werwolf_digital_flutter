@@ -378,7 +378,7 @@
       "groesse": 1.68,
       "statur": "schmal",
       "haut": 2,
-      "haar": { "rampe": 2, "stufe": 6, "frisur": "kurz", "bart": "kurz" },
+      "haar": { "rampe": 2, "stufe": 6, "frisur": "kurz", "bart": "kinnbart" },
       "oberteil": { "typ": "jacke", "rampe": 0, "stufe": 0 },
       "darunter": { "typ": "hemd", "rampe": 6, "stufe": 1 },
       "unterteil": { "typ": "jeans", "rampe": 0, "stufe": 3 },

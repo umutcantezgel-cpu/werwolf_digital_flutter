@@ -747,3 +747,17 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Drei Inhaltsrunden in Folge (A-702t, u, v; neun Berichte) urteilen „Leitplanken nein“. Von 34 Gegenproben waren 3 haltbar, alle sind umgesetzt (E55, E57).
   - Die übrigen Gründe wiederholen sich und sind abgewogen.
   - Eine weitere Runde würde nach diesem Muster wieder „nein“ ergeben. Deshalb liegt die Entscheidung über Z-12 jetzt beim Nutzer (FÜR DEN NUTZER).
+
+## E58 · 09.10. 22:31 · Sichtrunde A-605aa/ab (Prüfer 29/30): Bartart von R19 im Datensatz angeglichen
+- **Ergebnis (Kartenstand 850245deb6):** Beide Prüfer finden 0 Paare und je 1 Verstoß, beide denselben: Bei R19 nennt `rollen.json` `bart: "kurz"`, das Merkmal heißt aber „Kinnbart (Goatee)“. Karte und Look-Anker (ERSETZE-38) zeigen einen Kinnbart.
+- **Behoben:**
+  - Das Datenfeld heißt jetzt `bart: "kinnbart"`. Bild und Kartenstand bleiben gleich.
+  - Die Übergangs-Steckbriefkarte (`karteAusSteckbrief`) kennt „kinnbart“.
+  - Neuer Test in `rollen_daten_test`, mit roter Gegenprobe: Die Bartart in `rollen.json` passt bei allen 21 Rollen zum Bartteil der Karte (keiner, stoppel = Dreitagebart, kurz, voll, schnurrbart, kinnbart).
+  - Frisur und Kopfbedeckung sind dabei ebenfalls abgeglichen: keine weitere Abweichung.
+- **R06** (E57) bestätigen beide Prüfer: Dreitagebart als Bartschatten.
+- **Hinweise ohne Verstoß:**
+  - Prüfer 29 sah bei B12 einen Bart. Die Karte hat aber kein Bartteil; der Pagenkopf rahmt das Gesicht.
+  - Prüfer 29 sah bei B32 einen kleinen Knoten (Frisur „kurz-wuschel“) und bei B34 die Mütze nur als Band.
+  - Prüfer 29 nennt die Grenzfälle B14/B20 und B22/B40, Prüfer 30 acht Grenzfälle. Grenzfälle zählen nach Maßstab 5a nicht.
+- Weil das Bild gleich bleibt, gilt der Kartenstand 850245deb6 weiter; für Z-03 läuft eine neue Sichtrunde A-605ac/ad (Prüfer 31/32) mit korrigiertem Datensatz.

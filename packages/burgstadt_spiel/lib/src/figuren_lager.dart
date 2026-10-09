@@ -32,6 +32,8 @@ Figurenkarte karteAusSteckbrief(Map<String, dynamic> s) {
       teile.add('bart-kurz');
     case 'schnurrbart':
       teile.add('bart-schnurr');
+    case 'kinnbart':
+      teile.add('bart-kinnbart');
   }
   final typ = ober['typ'] as String? ?? '';
   final mats = <String, Material>{

@@ -8,7 +8,7 @@ const _frisuren = {
   'kurz', 'kurz-locken', 'bob', 'schulterlang', 'schulterlang-spange', 'lang-offen', 'zopf', 'dutt',
   'pferdeschwanz', 'glatze', 'stoppel', 'seitenscheitel',
 };
-const _baerte = {'keiner', 'stoppel', 'kurz', 'voll', 'schnurrbart'};
+const _baerte = {'keiner', 'stoppel', 'kurz', 'voll', 'schnurrbart', 'kinnbart'};
 const _statur = {'schmal', 'normal', 'kräftig'};
 const _geschlechter = {'w', 'm'};
 const _oberteile = {
@@ -170,6 +170,19 @@ void main() {
     for (final f in figuren) {
       final teile = ((karten[f['id']] as Map)['teile'] as List).cast<String>();
       expect(teile.any((t) => t.startsWith('kopf-')), f['kopf'] != 'keine', reason: f['id'] as String);
+    }
+  });
+
+  test('Bartart in rollen.json passt zum Bartteil der Rollenkarte (Sichtprüfer 29/30, E58)', () {
+    const teil = {'keiner': null, 'stoppel': 'bart-dreitage', 'kurz': 'bart-kurz', 'voll': 'bart-voll', 'schnurrbart': 'bart-schnurr', 'kinnbart': 'bart-kinnbart'};
+    final karten = {
+      for (final k in (jsonDecode(File('data/figuren/karten.json').readAsStringSync()) as Map)['karten'] as List)
+        (k as Map)['id']: k,
+    };
+    for (final f in figuren) {
+      final baerte = ((karten[f['id']] as Map)['teile'] as List).cast<String>().where((t) => t.startsWith('bart-')).toList();
+      final soll = teil[(f['haar'] as Map)['bart']];
+      expect(baerte, soll == null ? isEmpty : equals([soll]), reason: '${f['id']}: bart ${(f['haar'] as Map)['bart']}, Karte $baerte');
     }
   });
 
