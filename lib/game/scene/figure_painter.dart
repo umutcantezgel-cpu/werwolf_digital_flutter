@@ -34,7 +34,7 @@ class FigureLook {
       coat: coat,
       skin: parseHex(l.skin) ?? const Color(0xFFE0B89A),
       hair: parseHex(l.hair) ?? const Color(0xFF3B2A20),
-      hatColor: mix(coat, const Color(0xFF16151A), 0.55),
+      hatColor: (l.headColor == null ? null : parseHex(l.headColor!)) ?? mix(coat, const Color(0xFF16151A), 0.55),
       hat: l.hat,
       build: l.build,
       dress: l.dress,
@@ -247,6 +247,8 @@ class FigurePainter {
   }
 
   void _hair(Canvas c, Offset h, double r, FigureLook look, bool front, bool side, double dir) {
+    // Unter dem Kopftuch ist kein Haar zu sehen.
+    if (look.hat == 'kopftuch') return;
     final p = Paint()..color = look.hair;
     if (!front) {
       c.drawCircle(h.translate(0, -0.3), r + 0.3, p);
@@ -335,10 +337,38 @@ class FigurePainter {
             ..strokeWidth = 1.5,
         );
         c.drawCircle(h.translate(side ? -dir * 4.5 : 4.5, -3.8), 1.6, Paint()..color = const Color(0xFFB8955A));
+      case 'kopftuch':
+        _kopftuch(c, h, r, look.hatColor, front, side, dir);
       default:
         break;
     }
   }
+  /// Kopftuch: umschließt Kopf und Hals, das Gesicht bleibt frei, fällt bis auf die Schultern.
+  void _kopftuch(Canvas c, Offset h, double r, Color col, bool front, bool side, double dir) {
+    final tuch = Paint()..shader = Gradient.linear(h.translate(-r, -r), h.translate(r, r), [shade(col, 0.14), col, shade(col, -0.22)], const [0, 0.5, 1]);
+    final aussen = Path()
+      ..moveTo(h.dx - r - 1.6, h.dy + r + 3.8)
+      ..quadraticBezierTo(h.dx - r - 2.2, h.dy - r - 1.6, h.dx, h.dy - r - 1.6)
+      ..quadraticBezierTo(h.dx + r + 2.2, h.dy - r - 1.6, h.dx + r + 1.6, h.dy + r + 3.8)
+      ..quadraticBezierTo(h.dx, h.dy + r + 5.6, h.dx - r - 1.6, h.dy + r + 3.8)
+      ..close();
+    if (!front) {
+      c.drawPath(aussen, tuch);
+      return;
+    }
+    final gx = side ? h.dx + dir * 1.8 : h.dx;
+    final gesicht = Path()..addOval(Rect.fromCenter(center: Offset(gx, h.dy + 0.9), width: side ? r * 1.25 : r * 1.55, height: r * 1.7));
+    final form = Path.combine(PathOperation.difference, aussen, gesicht);
+    c.drawPath(form, tuch);
+    c.drawPath(
+      gesicht,
+      Paint()
+        ..color = shade(col, -0.3)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 0.9,
+    );
+  }
+
 
   /// Liegende Figur (Leiche, niedergeschlagen) – zentriert auf Welt-Position.
   void lying(

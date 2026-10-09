@@ -29,6 +29,8 @@ flutter:
   generate: true
   assets:
     - content/scenarios/
+    - content/party/schlosskeller/
+    - content/party/schlosskeller/tatmatrix/
   fonts:
     - family: SpecialElite
       fonts:

@@ -29,7 +29,14 @@
     },
     "tatnacht": "Ab 23:55 sitzt das Geburtstagskind mit verbundenen Augen und Kopfhörern im Ost-Saal auf dem Ehrenplatz. Die Musik läuft laut. Durch die Musik hört es nur den Knall, Herrn Schneiders lauten Ruf „Hab ich dich!“ und später ein Scheppern.",
     "auftrag": "Um 0:20 bittet Herr Schneider das Geburtstagskind: „Finde raus, wer das war. Bis zum Morgen.“",
-    "nieVerdaechtig": true
+    "nieVerdaechtig": true,
+    "look": {
+      "haut": "#d9a983",
+      "haar": "#4a3222",
+      "kopf": "detektivhut",
+      "statur": "normal",
+      "schnitt": "suit"
+    }
   },
   "opfer": {
     "id": "schneider",
@@ -57,7 +64,15 @@
     "warmeSeite": "Er hat den Messingkerzenständer selbst poliert, weil er Geburtstage mag. Kleine Schäden zahlt er oft aus eigener Tasche.",
     "erinnerung": "Knall, Dunkelheit, der Weg zur Notlaterne, ein leuchtendes Gespenstergesicht. Er packt eine Kapuze und ruft „Hab ich dich!“. Danach ist alles weg.",
     "schluesselbund": "bund_schneider",
-    "gedaechtnisLueckeAb": "23:58:14"
+    "gedaechtnisLueckeAb": "23:58:14",
+    "look": {
+      "haut": "#e8c9b0",
+      "haar": "#9a9a9a",
+      "kopf": "none",
+      "statur": "broad",
+      "schnitt": "suit",
+      "glatze": true
+    }
   },
   "figuren": [
     {
@@ -117,6 +132,13 @@
         "crimeExecution": "Kauert erst am Ostende der Theke neben Damir. Dann geht er zum Kerzenlicht an der Anrichte, um Herrn Schneider zu bitten. Herr Schneider packt ihn am Arm. In Panik greift Ahmet den Kerzenständer und schlägt einmal zu. Er reißt den Bund vom Gürtel, hält ihn fest in der Faust, steckt ihn im Ost-Saal in seine eigene Jacke und kauert danach wieder neben Damir.",
         "smokingGun": "Schneiders Schlüsselbund steckt in Ahmets schwarzer Jacke am Jackenständer im Ost-Saal.",
         "zusatzindiz": "Rote Wachstropfen auf dem leeren Umschlag im Ascheneimer am Kamin."
+      },
+      "look": {
+        "haut": "#d9a983",
+        "haar": "#1a1412",
+        "kopf": "none",
+        "statur": "slim",
+        "schnitt": "suit"
       }
     },
     {
@@ -176,6 +198,14 @@
         "crimeExecution": "Beim Knall bleibt sie erschrocken vor der Theke stehen. Dann sieht sie das Kerzenlicht an der Anrichte und geht durch die Klappe hin, um die Schatulle zurückzugeben. Herr Schneider packt den Gurt ihrer Tasche. In Panik greift sie den Kerzenständer und schlägt einmal zu. Sie nimmt den Bund mit, steckt ihn in die Brottasche auf dem linken Buffettisch und kauert sich zu Emine.",
         "smokingGun": "Frischer Messingabrieb an ihrem breiten Silberring, passend zum Kerzenständer.",
         "zusatzindiz": "Rote Wachstropfen auf der Münzschatulle in ihrer Tasche."
+      },
+      "look": {
+        "haut": "#e6be9e",
+        "haar": "#2b1d14",
+        "kopf": "kopftuch",
+        "statur": "slim",
+        "schnitt": "dress",
+        "kopftuchFarbe": "#3b3436"
       }
     },
     {
@@ -231,6 +261,13 @@
         "crimeExecution": "Er bleibt erst am Eiskübel stehen. Dann geht er vor der Theke entlang und durch die Klappe zum Kerzenlicht, weil er mit Herrn Schneider reden will. Herr Schneider packt ihn am Ärmel. In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. Er nimmt den Bund mit, wirft ihn in den Eiskübel und kauert um 23:59:05 außer Atem neben Azra.",
         "smokingGun": "Holzsplitter und weißer Kalk von seinen Ärmeln kleben im erstarrten Wachs am Fuß des Kerzenständers.",
         "zusatzindiz": "Der Schlüsselbund liegt im Eiskübel vor der Theke."
+      },
+      "look": {
+        "haut": "#f1d3bc",
+        "haar": "#7a5638",
+        "kopf": "none",
+        "statur": "broad",
+        "schnitt": "suit"
       }
     },
     {
@@ -290,6 +327,13 @@
         "crimeExecution": "Herr Schneider hält ihn an der Kapuze fest. In Panik greift Can den Kerzenständer von der Anrichte und schlägt einmal zu. Er reißt den Bund vom Gürtel und rennt nach dem Scheppern durch den Durchgang und den Kaminsaal. An der Bogentür stopft er die Maske in die Bauchtasche, steckt den Bund in den Helm der Ritterrüstung und versteckt sich auf der Toilette im Turm.",
         "smokingGun": "Nachleuchtende Maskenfarbe am Griff des Kerzenständers.",
         "zusatzindiz": "Rote Wachstropfen auf der Leuchtmaske."
+      },
+      "look": {
+        "haut": "#c69270",
+        "haar": "#1a1412",
+        "kopf": "none",
+        "statur": "slim",
+        "schnitt": "suit"
       }
     },
     {
@@ -331,7 +375,14 @@
         "zu": "ahmet",
         "grund": "Ahmet ist ihr Cousin; sie hat ihm versprochen, nichts über die Rechnung zu sagen."
       },
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#e6be9e",
+        "haar": "#2b1d14",
+        "kopf": "bun",
+        "statur": "small",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "tim",
@@ -368,7 +419,14 @@
         "text": "Hat trotz Warnung die alte Mehrfachsteckdose benutzt und den Kurzschluss verursacht."
       },
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#e6be9e",
+        "haar": "#4a3222",
+        "kopf": "none",
+        "statur": "normal",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "emine",
@@ -405,7 +463,15 @@
         "zu": "fatma",
         "grund": "Fatma ist ihre beste Freundin; sie glaubt ihr."
       },
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#d9a983",
+        "haar": "#2b1d14",
+        "kopf": "kopftuch",
+        "statur": "normal",
+        "schnitt": "dress",
+        "kopftuchFarbe": "#d8c6a5"
+      }
     },
     {
       "id": "johanna",
@@ -446,7 +512,14 @@
         "zu": "ahmet",
         "grund": "Ahmet hat sie gebeten, das Streitfoto zu löschen."
       },
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#f1d3bc",
+        "haar": "#c9a86a",
+        "kopf": "none",
+        "statur": "slim",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "murat",
@@ -487,7 +560,14 @@
         "text": "Hat auf Herrn Schneiders reserviertem Platz geparkt."
       },
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#d9a983",
+        "haar": "#2b1d14",
+        "kopf": "none",
+        "statur": "broad",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "zeynep",
@@ -527,7 +607,14 @@
         "zu": "can",
         "grund": "Can ist ihr Bruder."
       },
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#c69270",
+        "haar": "#2b1d14",
+        "kopf": "cap",
+        "statur": "small",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "baran",
@@ -561,7 +648,14 @@
       "persoenlichesZiel": "Seine Box soll nicht einkassiert werden.",
       "nebendelikt": null,
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#a87655",
+        "haar": "#1a1412",
+        "kopf": "none",
+        "statur": "tall",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "meryem",
@@ -599,7 +693,14 @@
       "persoenlichesZiel": "Sich bei Herrn Schneider für den Ruß entschuldigen, ohne dass alle wieder lachen.",
       "nebendelikt": null,
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#f1d3bc",
+        "haar": "#8a3b1e",
+        "kopf": "none",
+        "statur": "normal",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "serkan",
@@ -633,7 +734,14 @@
       "persoenlichesZiel": "Alle so schnell wie möglich sicher nach Hause fahren.",
       "nebendelikt": null,
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#c69270",
+        "haar": "#2b1d14",
+        "kopf": "cap",
+        "statur": "broad",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "aylin",
@@ -667,7 +775,15 @@
       "persoenlichesZiel": "Ihr Geld zurückbekommen, ohne Ahmet vor allen bloßzustellen.",
       "nebendelikt": null,
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#d9a983",
+        "haar": "#1a1412",
+        "kopf": "kopftuch",
+        "statur": "slim",
+        "schnitt": "suit",
+        "kopftuchFarbe": "#c9c9c4"
+      }
     },
     {
       "id": "kaan",
@@ -711,7 +827,14 @@
         "zu": "olli",
         "grund": "Olli ist sein Kumpel vom Tragen und hat ihm Eis geholt."
       },
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#e6be9e",
+        "haar": "#c9a86a",
+        "kopf": "none",
+        "statur": "broad",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "dilara",
@@ -749,7 +872,14 @@
       "persoenlichesZiel": "Niemand soll denken, sie hätte Fatma zu etwas angestiftet.",
       "nebendelikt": null,
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#c69270",
+        "haar": "#1a1412",
+        "kopf": "none",
+        "statur": "tall",
+        "schnitt": "dress"
+      }
     },
     {
       "id": "enes",
@@ -787,7 +917,14 @@
       "persoenlichesZiel": "Sein Ärger mit Herrn Schneider über das Teegeschirr soll nicht zur Sprache kommen.",
       "nebendelikt": null,
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#d9a983",
+        "haar": "#4a3222",
+        "kopf": "none",
+        "statur": "slim",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "selin",
@@ -821,7 +958,14 @@
       "persoenlichesZiel": "Nicht wieder ausgelacht werden.",
       "nebendelikt": null,
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#e6be9e",
+        "haar": "#7a5638",
+        "kopf": "none",
+        "statur": "small",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "hakan",
@@ -859,7 +1003,14 @@
       "persoenlichesZiel": "Herrn Schneider in Schutz nehmen, ohne seine Geldsorgen auszuplaudern.",
       "nebendelikt": null,
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#a87655",
+        "haar": "#2b1d14",
+        "kopf": "none",
+        "statur": "normal",
+        "schnitt": "suit"
+      }
     },
     {
       "id": "tugba",
@@ -893,7 +1044,15 @@
       "persoenlichesZiel": "Den Abend retten: Torte um halb eins, egal was passiert.",
       "nebendelikt": null,
       "loyalitaet": null,
-      "luegen": []
+      "luegen": [],
+      "look": {
+        "haut": "#d9a983",
+        "haar": "#1a1412",
+        "kopf": "none",
+        "statur": "normal",
+        "schnitt": "suit"
+      }
     }
-  ]
+  ],
+  "lookHinweis": "Haut- und Haarfarben sind über alle Herkunftsgruppen gestreut und folgen keiner Herkunft (TON-LEITFADEN §7). kopf: Renderer-Kopfbedeckung (none, bun, cap, kopftuch, detektivhut); statur und schnitt wie im Renderer (slim/normal/broad/tall/small, suit/dress)."
 }

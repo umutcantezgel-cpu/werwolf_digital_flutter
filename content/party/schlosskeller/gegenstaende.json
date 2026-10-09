@@ -699,6 +699,29 @@
           }
         }
       ]
+    },
+    {
+      "id": "stirnlampe_tim",
+      "name": "Tims Stirnlampe",
+      "beschreibung": "Kleine Stirnlampe, die Tim um den Hals trägt. Im Dunkeln fand er sie erst um 23:59:40 in der Hemdtasche.",
+      "lage": {
+        "traeger": "tim",
+        "stelle": "um den Hals"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_stirnlampe",
+          "stelle": "Lampe",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Funktioniert. Damit hat Tim um Mitternacht den Sicherungskasten gefunden.",
+          "rolle": {
+            "alle": "ausgangslage"
+          }
+        }
+      ]
     }
   ],
   "nebendelikte": [

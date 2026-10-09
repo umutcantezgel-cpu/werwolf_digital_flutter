@@ -180,7 +180,7 @@ class RaumGraph {
       ],
       props: [
         for (final e in einrichtung.values)
-          if (e.blockiert) PropDef(type: propCatalog.containsKey(e.typ) ? e.typ : 'crate', x: e.x, y: e.y),
+          if (e.blockiert) PropDef(type: e.darstellung ?? (propCatalog.containsKey(e.typ) ? e.typ : 'crate'), x: e.x, y: e.y),
       ],
       spawn: const [],
       councilRoom: raeume.keys.first,
@@ -272,7 +272,10 @@ class Einrichtung {
   final int x, y;
   final bool blockiert;
 
-  Einrichtung({required this.id, required this.name, required this.typ, required this.x, required this.y, required this.blockiert});
+  /// Prop-Typ für den 2.5D-Renderer (Katalog in `catalog.dart`), falls abweichend von [typ].
+  final String? darstellung;
+
+  Einrichtung({required this.id, required this.name, required this.typ, required this.x, required this.y, required this.blockiert, this.darstellung});
 
   factory Einrichtung.fromJson(Map j) => Einrichtung(
         id: j['id'] as String,
@@ -281,6 +284,7 @@ class Einrichtung {
         x: (j['x'] as num).toInt(),
         y: (j['y'] as num).toInt(),
         blockiert: j['blockiert'] as bool,
+        darstellung: j['darstellung'] as String?,
       );
 }
 

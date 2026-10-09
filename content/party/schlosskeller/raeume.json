@@ -285,7 +285,8 @@
       "typ": "counter",
       "x": 12,
       "y": 7,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "sink"
     },
     {
       "id": "anrichte",
@@ -293,7 +294,8 @@
       "typ": "counter",
       "x": 13,
       "y": 7,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "candles"
     },
     {
       "id": "teekocher",
@@ -301,7 +303,8 @@
       "typ": "counter",
       "x": 15,
       "y": 7,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "stove"
     },
     {
       "id": "kaffeemaschine",
@@ -309,7 +312,8 @@
       "typ": "counter",
       "x": 16,
       "y": 7,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "stove"
     },
     {
       "id": "anrichte_ost",
@@ -317,7 +321,8 @@
       "typ": "counter",
       "x": 17,
       "y": 7,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "counter"
     },
     {
       "id": "theke_12",
@@ -461,7 +466,8 @@
       "typ": "crate",
       "x": 8,
       "y": 8,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "crate"
     },
     {
       "id": "kamin",
@@ -469,7 +475,8 @@
       "typ": "fireplace",
       "x": 1,
       "y": 13,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "fireplace"
     },
     {
       "id": "west_tafel_3_11",
@@ -581,7 +588,8 @@
       "typ": "ruestung",
       "x": 1,
       "y": 5,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "statue"
     },
     {
       "id": "vitrine",
@@ -589,7 +597,8 @@
       "typ": "vitrine",
       "x": 3,
       "y": 3,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "cabinet"
     },
     {
       "id": "wendeltreppe",
@@ -597,7 +606,8 @@
       "typ": "treppe",
       "x": 1,
       "y": 1,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "bookshelf"
     },
     {
       "id": "jackenstaender",
@@ -605,7 +615,8 @@
       "typ": "jackenstaender",
       "x": 20,
       "y": 8,
-      "blockiert": true
+      "blockiert": true,
+      "darstellung": "wardrobe"
     },
     {
       "id": "ost_tafel_22_11",

@@ -16,3 +16,14 @@ export 'src/protocol/messages.dart';
 export 'src/runtime/room_runtime.dart';
 export 'src/engine/case_generator.dart';
 export 'src/scenario/validator.dart';
+
+// Partymodus (Finalisierung Schlosskeller)
+export 'src/party/zeit.dart';
+export 'src/party/raumgraph.dart';
+export 'src/party/tatmatrix.dart';
+export 'src/party/wahrnehmung.dart';
+export 'src/party/kanon/kanon.dart';
+export 'src/party/kanon/schema.dart';
+export 'src/party/kanon/verweise.dart';
+export 'src/party/plausibilitaet.dart';
+export 'src/party/szenario_export.dart';
