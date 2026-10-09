@@ -8,22 +8,6 @@
 >
 > Im Master-Prompt heißt MP-n einfach §n. Kürzel und §-Nummern des Finalisierungs-Laufs werden mit „F:“ zitiert (z. B. F:F-06, F:§7.7, F:§7.13). Kanonregeln behalten ihre Namen ohne Präfix (W-1, S-1, D-1, G-1, K-1, P-1). Die Umfangsachsen heißen X1–X6. `P/` steht für `planung/finalisierung-schlosskeller/` auf `origin/finalisierung-schlosskeller`; B1–B10 sind Abschnitte von Anhang B, C1–C8 von Anhang C.
 
-
-> **Vorrang v4 (gilt vor jeder Stelle dieses Anhangs).** Dieser Anhang stammt aus v2.3. Für den Dauerlauf mit Leitstand gelten diese Änderungen; sie gehen so in den Master-Prompt ein (META-PROMPT v4 §8.2):
->
-> | # | Thema | gilt jetzt |
-> |---|---|---|
-> | V-1 | main | Der Nachtlauf pusht nie auf main. Er endet mit `ZUSTAND: BEREIT FÜR MAIN` (MAIN-REIFE nach v4 §8.2 Abschnitt 6). MP-16 „Push auf main“ ist das Verfahren des **Leitstands** und des Merge-Baus (`bollwerk-mc`). |
-> | V-2 | Tags | Der Git-Proxy lehnt Tags ab (BELEGE C3). Es gibt keine Tags. Archive (`archiv/<linie>-<sha7>`, `archiv/vor-bollwerk`) sind **Branches** und gehören dem Leitstand. `bollwerk-1.0` wird als fertiger Befehl unter FUER-DEN-NUTZER notiert. |
-> | V-3 | Push-Ziel | Der Nachtlauf pusht ausschließlich `git push origin HEAD:refs/heads/bollwerk`. |
-> | V-4 | B-02 | ohne Tag, nach v4 §8.2 Abschnitt 2.2; K (Kanon-1.0-Bezug, L0.3) ist der B-02-Commit, notiert in LAUF.md. „FREIGABE BOLLWERK“ kommt nur als Eintrag in STEUERUNG.md. |
-> | V-5 | Herzschlag | Der Nachtlauf legt **keine** Routine an (`create_trigger` nie). Er weckt sich nur mit `send_later` (Name `BOLLWERK-G<n>-<session_id>`). Die stündliche Routine gehört dem Leitstand. |
-> | V-6 | Lauf-Sperre | statt „Orchestrator … · Herzschlag“ gilt LEASE `gen=<n> session=<id> herzschlag=<UTC>` in `planung/bollwerk/LAUF.md`; die höhere Generation gewinnt. |
-> | V-7 | Steuerung | Bei jedem Prüfpunkt `origin/bollwerk-leitstand:planung/bollwerk/leitstand/STEUERUNG.md` und `BEFUNDE.md` lesen und quittieren. „A<n>: …“ des Nutzers kommt über STEUERUNG.md. |
-> | V-8 | Bilder | Kontaktbögen als Dateien unter `planung/bollwerk/bilder/<datum>/`; der Leitstand zeigt sie im Chat. SendUserFile im Nachtlauf nur zusätzlich. |
-> | V-9 | Ende | Zugende-Zeile `=== BOLLWERK-ZUG-ENDE · <ZUSTAND> · Weckruf <UTC> ===`; Generationsfenster ≤ 12 h; Morgenbericht als Datei bis 06:30. |
-> | V-10 | Einstellungen | Keine Sperrdatei, keine Umgebungsvariablen, keine Änderung an `.claude/**`. Jeder Agentenaufruf nennt sein Modell. |
-> | V-11 | Autostart | Den Autostart aus v2.3 gibt es nicht mehr; Generationen startet der Leitstand. |
 ---
 
 ## A1 · Wortlaut des Nutzers (2026-10-09; unverändert übernehmen)
@@ -110,9 +94,9 @@ Weitere Aussagen des Nutzers:
 - **Verboten** sind Force-Push, umgeschriebene Geschichte auf geteilten Branches, gelöschte Remote-Branches und überschriebene Tags. Das schließt ein: `--force`, `--force-with-lease`, `+ref`, `--all`, `--mirror`, `--tags`, `--follow-tags`, `--delete` bzw. `:ref`, gelöschte oder verschobene Tags.
 - **Push-Ziele (abschließende Liste):**
   - `refs/heads/bollwerk`: jederzeit
-  - Nachtlauf: nur `refs/heads/bollwerk` (V-3)
-  - Leitstand: `refs/heads/archiv/*` (neu, nie verschoben), `refs/heads/bollwerk-leitstand`, am Ende `refs/heads/main` nach MP-16 (V-1, V-2)
-  - Tags gibt es nicht (V-2)
+  - `refs/tags/archiv/<linie>-<sha7>`: neu, nie verschoben
+  - `refs/tags/vor-bollwerk`: nur zusammen mit dem ersten Push auf main, Ziel `MC^1` (MP-16 Schritt 6)
+  - `refs/heads/main` und `refs/tags/bollwerk-1.0`: nur nach MP-16
 - **Form:** `git push origin <sha>:refs/heads/<ziel>`. Nie ein Push auf `finalisierung-schlosskeller`, `kern-feinkorn`, `claude/*`, `nachtlauf/*` oder `loop/*`.
 - **Abgelehnter Push:** „Lehnt origin einen Push ab, weil jemand anderes gepusht hat: holen, zusammenführen, alles neu testen, erneut pushen. Höchstens drei Anläufe.“ Für `bollwerk` heißt „alles neu testen“: das Tor der laufenden Phase (`bollwerk.dart schnell` bzw. `phase`). Für main gilt nur MP-16 Schritt 5.
 - **Schutzregel:** „Erzwingt eine Schutzregel Pull Requests, pushst du den Arbeitsbranch und öffnest einen Pull Request mit dem Abschlussbericht.“ Der Hinweis „nur Merge-Commit, kein Squash oder Rebase“ steht darin. Es gibt keinen Tag, und der Lauf endet mit BEREIT ZUR INTEGRATION.
@@ -130,7 +114,7 @@ Weitere Aussagen des Nutzers:
 - **Opus** nutzt:
   - Agent und Workflow für eigene Aufträge
   - **Herzschlag:**
-    - **Nachtlauf (V-5):** keine Routine. Weckruf nur mit `send_later`, Name `BOLLWERK-G<n>-<session_id>`. (Die frühere Routinen-Regel gilt nur noch für den Leitstand.)
+    - genau eine `create_trigger`-Routine **ohne** `create_new_session_on_fire` und ohne `persistent_session_id` (sie feuert in diese Sitzung), Name `BOLLWERK-HZ-<eigene session_id>`
     - `send_later` mit Name `BOLLWERK-SL-<eigene session_id>`
     - Die ID kommt sofort aus dem Ergebnis in den PRUEFPUNKT.
     - `update_trigger` und `delete_trigger` nur für IDs aus dem PRUEFPUNKT, und nur, wenn `get_trigger` genau diesen Namen zeigt.
@@ -437,7 +421,7 @@ Andere Signale reichen nicht: ein Merge ohne Tag, ein Tag nur auf dem Arbeitsbra
 ### MP-5 · ARCHIV UND WIEDERVERWERTUNG
 - Tabelle aus `ARCHIV.md` (M1).
 - Übernahme nur per Commit mit Vermerk `aus <ref>@<sha>:<pfad>`. Nichts wird gelöscht oder verschoben.
-- Archiv-Branches `archiv/<linie>-<sha7>` (V-2, angelegt vom Leitstand auf Bitte in STEUERUNG/FUER-DEN-NUTZER) für Linien der Klasse *nur archivieren*, die nicht schon Vorfahr von main sind.
+- Archiv-Tags `archiv/<linie>-<sha7>` für Linien der Klasse *nur archivieren*, die nicht schon Vorfahr von main sind.
 - **Wiederverwertung belegt:** Jede Zeile der Klasse *zusammenführen* oder *teilweise übernehmen* hat einen Übernahme-Commit oder eine begründete Absage. Die Liste steht im Morgenbericht.
 - Das Scratchpad-Archiv `planung/bollwerk/archiv/scratchpad/` (MANIFEST mit sha256) wird mitgeführt.
 
@@ -854,7 +838,7 @@ Je Linie gilt genau eine Art: echter Merge **oder** Kopie mit Vermerk plus Archi
 - Code löst nur Opus; danach ein voller Lauf, und `git diff --cc` kommt ins Log.
 - Bei mehr als 5 Konfliktdateien oder mehr als 30 min wird die Linie nur archiviert (FUER-DEN-NUTZER).
 
-**Push auf main** (Verfahren des **Leitstands** und des Merge-Baus, V-1; der Nachtlauf führt es nie aus; Tags entfallen nach V-2, `archiv/vor-bollwerk` ist ein Branch; jede Ausgabe geht nach `planung/bollwerk/belege/main.txt`):
+**Push auf main** (nur Opus, nur in BW8; jede Ausgabe geht nach `planung/bollwerk/belege/main.txt`):
 1. `git fetch origin`; `V=$(git rev-parse origin/main)`. Ist `bollwerk` kein Nachfahre von V, zuerst `bollwerk` ← V nach den BW0-Regeln.
 2. `git -C /home/user/bollwerk worktree add --detach /home/user/bw-int $V`, dann `git -C /home/user/bw-int merge --no-ff <bollwerk-sha> -m "Merge bollwerk@<sha7> (BOLLWERK)"`. Das ergibt MC. Prüfe `test "$(git -C /home/user/bw-int rev-parse HEAD^1)" = "$V"`.
 3. An MC: B-02 erfüllt, BW4 bestanden, `bollwerk.dart phase` meldet „BOLLWERK GRÜN · phase · <MC>“. Unfertige Teile sind hinter Schaltern mit altem Standard.
@@ -894,7 +878,7 @@ Mindestens 20 Risiken mit Frühzeichen und Gegenmaßnahme, darunter:
 - **PRUEFPUNKT.md**: spätestens alle 30 min und bei jedem Tor. Inhalt: laufende Phase, nächster Schritt, Startbild der fremden Checkouts, Herzschlag-IDs, Liste der eigenen Worktrees.
 - **FLUG.md** (MP-11), STATUS, NACHTPROTOKOLL (stündlich, echte Uhrzeit).
 
-**Lauf-Sperre (ersetzt durch V-6, LEASE in LAUF.md):** Früher trug der PRUEFPUNKT auf `origin/bollwerk` die Zeile `Orchestrator <session_id> · Herzschlag <UTC>`; jetzt gilt LEASE.
+**Lauf-Sperre:** Der PRUEFPUNKT auf `origin/bollwerk` trägt die Zeile `Orchestrator <session_id> · Herzschlag <UTC>`.
 - Eine Sitzung arbeitet nur, wenn dort ihre eigene Kennung steht oder der letzte Herzschlag älter als 90 min ist. Dann schreibt sie ihre Kennung, pusht und beginnt erst danach.
 - Findet ein Herzschlag eine fremde, frischere Kennung, startet die Sitzung nichts mehr, löscht nur ihre eigenen Herzschlag-IDs und endet.
 

@@ -270,8 +270,3 @@
     - je Partie im Median ≥ 2 sichtbare Pech-Szenen und ≥ 2 Erfolge mit Zusatzfund
     - das untere Glücksquartil schafft im Mittel ≥ 25 % weniger Abstecher und ≥ 25 % weniger Zusatzfunde als das obere
     - Nr. 2 (Wertung unantastbar) gilt unverändert
-
-## C9 · Nachtrag v4 (aus v3 übernommen)
-- **WLAN-Nachrechnung:** Jeder Gast rechnet jeden Wurf aus Seed-Formel (WÜ-1) und Zugdaten nach und zeigt bei Abweichung „Wurf nicht nachvollziehbar“. Kein einzelnes Gerät kann einen Wurf beeinflussen.
-- **Partie-Überschneidung:** Maß für Spieltiefe. Zwei Zufallspartien gleicher Personenzahl teilen höchstens einen in M2 festgelegten Anteil ihrer Szenenfolge (Jaccard über Szenen-IDs); gemessen über 1.000 Paare.
-- **Bot-Lösungsquote:** Einfache Detektiv-Bots lösen jede Täter-Fassung in einem Zielband aus M2. Das Band ist Annahme; die Lösbarkeit selbst bleibt per Beweis (C8 Nr. 1) bei 100 %.

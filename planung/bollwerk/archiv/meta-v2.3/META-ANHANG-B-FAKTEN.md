@@ -11,14 +11,6 @@ Kürzel:
 
 ---
 
-
-> **Nachtrag v4 (09.10.2026, ~21:00 UTC), geht den Zeilen unten vor:**
-> - `origin/finalisierung-schlosskeller` steht bei **83d6758** (20:33 UTC), F4 von F7, Abnahme 9/17, Aufträge 132/175. Teile der Finalisierung sind über den Nachtlauf Burgstadt in main gemergt (6718650, Stand 68cd35f); die Spitze von fin ist **kein** Vorfahr von main.
-> - Der Nachtlauf Burgstadt merget auch `claude/pensive-gates-ajtp7x` (0304eb2, Stand 96e9e5b) und führt diesen Branch als erlaubtes Push-Ziel (`tool/abnahme.dart:209`). `caf1d61` und `1145cb9` sind **nicht** in main.
-> - origin/main steht bei e937ae2 (20:08 UTC) und bewegt sich weiter.
-> - Neue Branches: `bollwerk-leitstand` (Leitstand, nur Planungsdateien), `bollwerk-probe` (Kinder-Probe). Auf origin gibt es keine Tags; der Git-Proxy lehnt Tag-Pushes ab (BELEGE C3).
-> - Leitstand: Sitzung `session_01Aix28JmFAfTMVcF4Z8bgqP`, Routine `trig_01UrDrhXFjttzCW1tkXFPGVr` (stündlich, Minute 38).
-
 ## B1 · Linien
 Eine Linie ist ein Arbeitsstrang mit eigener Ref oder eigenem Ordner.
 

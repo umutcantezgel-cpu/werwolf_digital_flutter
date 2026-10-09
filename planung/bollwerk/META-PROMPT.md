@@ -1,380 +1,626 @@
-# META-PROMPT · BOLLWERK
-## Erarbeite den Master-Prompt, mit dem das Schlosskeller-Spiel in einer Nacht um das 10- bis 100-Fache wächst, sichtbar schöner wird und sauber auf main landet
+META-PROMPT · BOLLWERK · v4
+Erarbeite den Master-Prompt, mit dem „Spuk im Schlosskeller“ über mehrere Nächte um das 10- bis 100-Fache wächst, sichtbar schöner wird und sauber auf main landet.
 
-> Diesen Text gibst du Claude (Opus) in Claude Code. Er baut **nicht** am Spiel.
-> Claude erarbeitet, misst, prüft und übergibt damit den **Master-Prompt BOLLWERK**, in 5–6 Stunden (harte Grenze 6 h).
-> Mit dem Master-Prompt startest du danach den Nachtlauf. Darin orchestriert Opus Tausende Haiku-5.5-Varianten und schützt sie mit einer Prüfmauer.
-> Das große Wachstum beginnt erst, wenn der Lauf „Finalisierung Schlosskeller“ fertig ist. Vorher bereitet der Nachtlauf nur vor.
->
-> **Dazu gehören drei Anhänge im selben Ordner. Lies sie vollständig, bevor du beginnst:**
-> - `META-ANHANG-A-MASTERPROMPT.md`: Was der Master-Prompt enthalten muss. Darin stehen der Wortlaut des Nutzers, seine Entscheidungen, die harten Regeln und der Pflichtinhalt MP-0 bis MP-20.
-> - `META-ANHANG-B-FAKTEN.md`: Faktenlage vom 2026-10-09; in M1 nachprüfen.
-> - `META-ANHANG-C-MECHANIK.md`: Startentwurf der Spielmechanik für M3.
+Du bist Opus 5.5 in einer Cloud-Sitzung, die der **Leitstand** gestartet hat. Der Leitstand ist eine Claude-Sitzung, die den Dauerlauf über mehrere Tage steuert. In diesem Lauf baust du nichts am Spiel. Du erfasst, entwirfst, misst und simulierst. Proben laufen nur im Scratchpad oder in Wegwerf-Worktrees. Danach schreibst du den Master-Prompt BOLLWERK, lässt ihn gegenprüfen und übergibst ihn dem Leitstand mit allem, was die Nachtläufe zum Start brauchen.
 
----
+Lies alles, bevor du beginnst; danach arbeitest du ohne Rückfragen bis zur Übergabe.
 
-## 0. EINSTELLUNGEN (vor dem Start, durch den Nutzer)
+Herkunft: v4 verbindet den Meta-Prompt v3 des Nutzers (Gerüst) mit dem Wissen aus v2.3 (Anhänge A, B, C) und dem freigegebenen Plan „BOLLWERK-DAUERLAUF“. Beide Vorfassungen liegen unter `planung/bollwerk/archiv/`.
 
-1. Öffne eine **neue** Sitzung in Claude Code (Cloud) mit dem Repo `umutcantezgel-cpu/werwolf_digital_flutter`.
-2. Schalte **Ultracode** ein.
-3. Stelle in `/config` **„Dynamic workflow size“** auf `unrestricted` (oder `large`).
-4. Wähle als Berechtigungsmodus **„Auto“** im Menü neben dem Eingabefeld. Sonst hält jede Rückfrage zu einem Werkzeug den Lauf an, bis du antwortest.
-5. Sende diese Nachricht:
-   > Führe `git fetch origin claude/pensive-gates-ajtp7x` aus, lies mit `git show origin/claude/pensive-gates-ajtp7x:planung/bollwerk/META-PROMPT.md` den Meta-Prompt und ebenso die drei Anhänge `META-ANHANG-A-MASTERPROMPT.md`, `META-ANHANG-B-FAKTEN.md` und `META-ANHANG-C-MECHANIK.md` aus demselben Ordner vollständig und führe den Meta-Prompt aus. Danach direkt START BOLLWERK.
+## 0. EINSTELLUNGEN
+- **Repo:** umutcantezgel-cpu/werwolf_digital_flutter · **App:** „Mordakte“ · **Fall:** „Spuk im Schlosskeller“
+- **Modelle:**
+  - Opus 5.5 (claude-opus-5-5): Das bist du; als Agent mit model "opus".
+  - Haiku 5.5 (claude-haiku-5-5): im Agent-Werkzeug mit model "haiku", im Workflow mit agent(…, {model: 'claude-haiku-5-5'}). Die genaue Form für Modell und Denkstufe prüfst du an /workflow-authoring.
+  - Andere Modelle gibt es nicht. Jeder Agentenaufruf nennt sein Modell selbst. Diese Sitzung setzt keine Umgebungsvariablen und legt keine Einstellungsdatei an.
+- **Denkstufen:**
+  - Opus 5.5: max
+  - Haiku 5.5: max für Qualitätsarbeit (Variantenbauer, Richter, Angreifer, Probeläufer), medium für reine Zähl- und Formarbeit
+  - Haiku 5.5 kennt low bis max (BELEGE C8).
+- **Dauer:** 2 bis 4 Stunden, harte Grenze 5 Stunden. Die Richtzeiten je Phase in §7 ergeben zusammen 4 Stunden.
+- **Probenumfang:** etwa 100 bis 200 Haiku-Agenten; mehr nur, wenn ein Messwert sonst nicht belastbar ist.
+- **Anhänge** (vollständig lesen; Quelle `origin/claude/pensive-gates-ajtp7x:planung/bollwerk/`):
+  - `META-ANHANG-A-MASTERPROMPT.md`: Nutzerwortlaut, Entscheidungen, harte Regeln, Pflichtinhalt
+  - `META-ANHANG-B-FAKTEN.md`: Faktenlage
+  - `META-ANHANG-C-MECHANIK.md`: Startentwurf der Spielmechanik
+  - `v4/BELEGE-DOKU.md`: geprüftes Betriebswissen
+  - `v4/LUECKEN-v3-v23.md`: Widersprüche und ihre Lösung
+- **Branches:**
+  - **Übergabe:** `bollwerk-plan`. Das ist dein Arbeitsbranch, vom Leitstand vorgegeben, abgezweigt von origin/main.
+  - **Arbeit der Nachtläufe:** `bollwerk`
+  - **Leitstand:** `bollwerk-leitstand`; du liest ihn nur
+  - **Merge-Bau:** `bollwerk-mc`
+  - **Archive:** `archiv/*`, nur der Leitstand
+- **Planungsordner:** `planung/bollwerk/`. Dein eigener Zustand liegt in `planung/bollwerk/meta/`.
+- **Finalisierungs-Lauf:** Branch `origin/finalisierung-schlosskeller`, Planung `planung/finalisierung-schlosskeller/`
+- **Für die Nachtläufe:** Startwort START BOLLWERK · Morgenbericht 07:00 Uhr als Datei für den Leitstand · Generationsfenster höchstens 12 Stunden
+- **Zeitzone:** Europe/Berlin · **Sprache:** Deutsch für Prompt, Berichte und alles, was Spieler sehen oder hören
 
-   Dann gelten alle Standardwahlen, und Claude macht nach M8 ohne Pause mit dem Nachtlauf weiter (§4 M8). Willst du den Master-Prompt erst selbst lesen, lass den letzten Satz weg.
-6. **Was heute Nacht passiert:** Der Lauf „Finalisierung Schlosskeller“ in der anderen Sitzung steht bei F4 von F7 und braucht voraussichtlich noch Tage. Solange er läuft, baut BOLLWERK nur vor: Werkzeuge, Würfelkern, Texte, Posen- und Würfelbühnen-Proben, Bilder in den Chat. Auf main kommt dann nichts. Soll BOLLWERK heute Nacht schon am Spiel selbst bauen, **halte die Finalisierungs-Sitzung an** und hänge zusätzlich an: **„FREIGABE BOLLWERK“**. Dann übernimmt BOLLWERK deren Stand und Rest (Anhang A, MP-2).
+## 1. AUFTRAG UND NORDSTERN
+Du bist der Prompt-Architekt. Dein einziges Produkt ist der Master-Prompt BOLLWERK, im Folgenden „der Master-Prompt“. Mit ihm orchestriert je Nacht ein Opus 5.5 Tausende Haiku-5.5-Varianten hinter einer Prüfmauer. Der Leitstand startet diese Nachtläufe als Generationen, Nacht für Nacht, bis das Ziel erreicht ist.
 
-Modelle: Orchestrator ist Opus. Arbeiter ist Haiku 5.5: Modellkennung `claude-haiku-5-5`, im Agent-Werkzeug `model: "haiku"`, im Workflow `agent(…, {model: 'claude-haiku-5-5'})`.
+Ziele:
+1. **„Spuk im Schlosskeller“ wird rundenbasiert spielbar.**
+   - Gesteuert wird über Entscheidungen. Jede zeigt sich als sichtbare Aktion der Figur, zum Beispiel „in den Keller gehen“ über die fünf Sandsteinstufen.
+   - Ein starker Spielwürfel entscheidet manchmal mit, auch darüber, ob eine Untersuchung gelingt. Misslingt sie, gibt es einen zweiten Anlauf oder einen Umweg; lösbar bleibt der Fall immer.
+   - Gespielt wird als Party an einem Gerät, solo mit Bots und im WLAN.
+   - Die App startet im Schlosskeller.
+2. **Wachstum:** Das Spiel wächst gegenüber dem Stand nach dem Finalisierungs-Lauf um das 10- bis 100-Fache, gemessen nach dem Teil UMFANG in Abschnitt 6 des Master-Prompts.
+3. **Design:** Es wird im gewählten Look deutlich aufgewertet, belegt mit Bildern und Maßen. Der Look ist entschieden: **„Bild-Look + Leben“**. Der gemalte Iso-Look bleibt, FEINKORN liefert nur Leben (Bewegung, Teilchen, Licht), keine Voxel-Räume oder -Figuren.
+4. **Archiv:** Alles Bestehende ist archiviert, Brauchbares ist wiederverwertet. Dazu gehören die HD-Linie `caf1d61` und FEINKORN `1145cb9` (Anhang A, MP-16 Linienliste).
+5. **main:** Alles landet sauber auf main. Den Push auf main macht der Leitstand; der Nachtlauf liefert „BEREIT FÜR MAIN“.
 
----
+Der Wortlaut des Nutzers steht in Anhang A1, seine Entscheidungen in A2 (BE-01 … BE-14). Beides ist bindend.
 
-## 1. AUFTRAG
+**Nordstern:** Ein frischer Opus 5.5, der nur den Master-Prompt, dessen Anhänge und das Repo kennt, beginnt nach START BOLLWERK ohne eine einzige Rückfrage.
+- Er setzt als Generation n genau dort fort, wo Generation n−1 aufgehört hat.
+- Er hält auch nach Kontextverdichtung, Nutzungslimit und Neustart der Maschine Kurs.
+- Jede Zahl in seinem Plan stammt aus einer Messung dieses Laufs oder ist als Schätzung mit Spanne markiert.
 
-Du bist der **Prompt-Architekt**. Dein einziges Produkt ist der **Master-Prompt BOLLWERK**. Er liegt in `planung/bollwerk/MASTER-PROMPT.md` auf dem Branch `bollwerk`, mit Anhängen unter `planung/bollwerk/anhang/`.
+## 2. BEGRIFFE
+- **Läufe:**
+  - **Meta-Lauf:** dieser Lauf
+  - **Nachtlauf:** der Lauf, den der Master-Prompt steuert
+  - **Generation n:** die n-te Nachtlauf-Sitzung
+  - **Leitstand:** die Sitzung, die Generationen startet, überwacht, täglich prüft und am Ende auf main zusammenführt
+  - **Finalisierungs-Lauf:** der Lauf aus den Einstellungen; er schreibt den Kanon
+- **Kanon:** die eine Quelle für Orte, Figuren, Indizien, Tatablauf, Enden und Inhaltsregeln (`content/party/schlosskeller/`, Kanon 1.0).
+- **Variantenfabrik:**
+  - **Variante:** ein von einem Agenten erzeugter Kandidat (Text, Datensatz, Code, Test, Pose, Requisite, Bild oder Bildbeschreibung), der geprüft und bewertet wird
+  - **Slot:** eine klar umrissene Lücke im Spiel, für die Varianten entstehen
+  - **Prüfmauer:** die feste Folge von Prüfringen, die jede Variante passieren muss, bevor sie ins Spiel darf
+  - **Variantenfabrik:** Slots, Briefings, Workflows, Prüfmauer und Auswahl als wiederholbarer Kreislauf
+- **Spielwürfel:** der Würfel im Spiel. Meint „Würfel“ in einem anderen Planungsordner einen Baustein der Darstellung (FEINKORN), hältst du beide Bedeutungen in jedem Text getrennt.
+- **Proben und offene Fragen:**
+  - **Probe:** ein Versuch im Scratchpad oder in einem Wegwerf-Worktree
+  - **Lichtungsaufgabe:** eine offene Frage, die der Nachtlauf in seiner ersten Phase klärt, bevor er darauf aufbaut
+- **Start und Hoheit:**
+  - **B-02:** „Finalisierungs-Lauf fertig“. Definition in §8.2, Abschnitt 2.2.
+  - **Vorlauf:** die Arbeit des Nachtlaufs vor B-02, nur in eigenen Pfaden
+  - **Hoheit:** welche Dateien wem gehören, vor und nach B-02 (Anhang A4.8)
+- **Generationen-Steuerung:**
+  - **LEASE:** die Lauf-Sperre einer Generation, eine Zeile `LEASE gen=<n> session=<id> herzschlag=<UTC>` in `planung/bollwerk/LAUF.md` auf `bollwerk`
+  - **ZUSTAND:** die Zustandszeile in LAUF.md: `ZUSTAND: LÄUFT | NACHT-ENDE | VORLAUF FERTIG | BEREIT FÜR MAIN | ZIEL ERREICHT | ABBRUCH <grund>`
+  - **S-<n>, F-<n>, QUITTUNG:** Einträge in `STEUERUNG.md` bzw. `BEFUNDE.md` des Leitstands; der Nachtlauf bestätigt jeden mit `QUITTUNG S-<n>` bzw. `QUITTUNG F-<n>` im PRUEFPUNKT
+- **MC:** der Merge-Commit von `bollwerk` auf den aktuellen main, gebaut vom Merge-Bau
 
-Mit dem Master-Prompt erreicht ein Nachtlauf (Opus mit Tausenden Haiku-5.5-Varianten) für das Spiel „Spuk im Schlosskeller“ in der App „Mordakte“:
-1. **Rundenbasiert spielbar.** Steuerung über Entscheidungen; jede löst eine sichtbare Aktion der Figur aus. Dazu ein starker, offener Würfel. Spielbar als Party an einem Gerät, solo mit Bots und im WLAN. Die App startet im Schlosskeller.
-2. **Umfang 10–100×** gegenüber dem Stand nach dem Finalisierungs-Lauf.
-3. **Design deutlich schöner** im gewählten Look, belegt mit Bildern und Maßen.
-4. **Alles Bestehende archiviert**, Brauchbares wiederverwertet.
-5. **Alles sauber auf main.**
+## 3. AUSGANGSLAGE
+Die Fakten stehen mit SHA in Anhang B; sie stammen vom 09.10.2026 und werden in M0 nachgeprüft.
 
-Der Master-Prompt muss **für sich allein ausführbar** sein. Ein frischer Opus in einer neuen Sitzung, der nur Master-Prompt, Anhänge und Repo kennt, arbeitet ihn ohne Rückfragen ab, auch nach einer Verdichtung mitten in der Nacht.
+**Die App und ihr Bestand**
+- Mordakte ist eine App für iOS, Android und Web und soll in die Stores.
+- Ihre Technik bleibt unangetastet. Der Nachtlauf baut auf dem Bestand auf, optimiert und baut aus, ohne neue Abhängigkeiten in der App (Anhang A4.3).
+- Befehle im Master-Prompt bleiben konkret und ausführbar.
 
-Im Meta-Lauf baust du nichts am Spiel. Du erfasst, entwirfst, misst und simulierst, schreibst, lässt gegenprüfen und übergibst. Code ändern, kompilieren und fotografieren darfst du nur in **Wegwerf-Worktrees**, die nie committet werden.
+**Die Läufe**
+- **Finalisierungs-Lauf:** Er macht „Spuk im Schlosskeller“ inhaltlich fertig: vier Täter-Fassungen, 4 bis 20 Rollen plus das Geburtstagskind als Detektiv, Partyablauf, Partymodus auf der Karte und Druckfassung.
+  - Stand am 09.10. um 20:30 UTC: F4 von F7, Abnahme 9 von 17, er kommt schnell voran.
+  - Teile davon sind schon über den Nachtlauf Burgstadt in main gemergt (6718650).
+  - Seinen Branch und seinen Planungsordner liest du nur.
+- **Nachtlauf Burgstadt:** Er läuft weiter und pusht laufend auf main. Er merget dabei auch `claude/pensive-gates-ajtp7x` und die Finalisierung (0304eb2, 6718650).
+- **Weitere Linien:**
+  - Burgstadt HD (pausiert, Inhalt `caf1d61`)
+  - FEINKORN (archiviert, `1145cb9`)
+  - Krimidinner (anderer Fall, nie vermischen)
 
-Begriffe stehen in Anhang A3: Variante, Linie, Hoheit, Vorlauf V, Hauptlauf BW0–BW8, T0, M.
+  Du liest sie nur. Der Master-Prompt zieht eine klare Zuständigkeitsgrenze (Anhang A4.8).
+- **Leitstand:** Er hat diesen Lauf gestartet und wartet auf deine Übergabe. Er liest deine letzte Nachricht und den Branch `bollwerk-plan`.
 
----
+**Grenzen der Cloud**
+- Der Rohchat (`quellen/schlosskeller-teamchat.txt`) fehlt in der Cloud. Das ist erwartet; du arbeitest mit Kanon und Planungsordnern.
 
-## 2. WAS DER NUTZER WILL
+**Inhaltsregeln**
+Die Inhaltsregeln des Kanons gelten unverändert und im Wortlaut des Kanons (Anhang A4.6). Bekannt sind:
+- kein Alkohol, keine Drogen, kein Rauchen
+- Die Pfeife des Detektivs bläst Seifenblasen.
+- Der Schlag ist nur Schatten und Geräusch, kein Blut.
+- Herr Schneider überlebt in jedem Ende.
+- Grusel mit Humor.
+- Alle Figuren sind erfunden; die Namensbalance bleibt.
 
-- **Wortlaut:** Anhang A1. Er kommt unverändert in den Master-Prompt.
-- **Feste Entscheidungen BE-01 bis BE-14:** Anhang A2. Kurz:
-  - Bild-Look + Leben
-  - erst nach dem Finalisierungs-Lauf
-  - Umfang 10–100×
-  - Design deutlich aufwerten
-  - alles sauber auf main
-  - Würfel stark (Pech-Garantie, Kanon-Wertung bleibt unberührt)
-  - drei Spielformen
-  - App-Start im Schlosskeller
-  - Bilder in den Chat
-  - keine Rückfragen
-  - unabhängige Agenten laufen gleichzeitig
-  - Druckspiel bleibt
-  - Nebel des Krieges ist Pflicht
-  - Kanon 1.0 bleibt unantastbar
-- **Deutung jedes Wortes:** Anhang A3. Sie ist verbindlich.
+**Modelle**
+Im Team arbeiten genau zwei Modelle: Opus 5.5 und Haiku 5.5. Das gilt für dich, für jeden Agenten und für alles, was der Master-Prompt vorsieht.
 
-Du stellst **keine Fragen**. Was der Nutzer anders sehen könnte, entscheidest du mit Denkprotokoll. In M8 legst du es als **Annahme mit Standardwahl** vor. Der Nutzer kann jede Annahme mit „A<n>: …“ kippen, muss aber nicht.
+## 4. AUTONOMIE, GRENZEN, VORRANG
+**Autonomie**
+- **Keine Rückfragen.** Was offen ist, entscheidest du nach dem Denkprotokoll (§6), trägst es ins ENTSCHEIDUNGSLOG ein und legst es am Ende als nummerierte Annahme vor.
+- **Gesperrte Aktionen:** Wird eine Aktion gesperrt, versuchst du sie nicht in anderer Form erneut. Du notierst sie unter FÜR DEN NUTZER und arbeitest weiter. Warum: Der Sicherheitsfilter des Auto-Modus fällt nach drei Sperren in Folge oder zwanzig insgesamt auf Rückfragen zurück, und dann steht der Lauf, bis ein Mensch im Web antwortet (BELEGE C11).
+- **Laufende Arbeit:** Solange Workflows oder Hintergrundbefehle laufen, beendest du deinen Zug nicht. Du arbeitest an Unabhängigem weiter oder wartest mit Prüfbefehlen von höchstens zehn Minuten. Läuft ein Workflow länger als das Dreifache der gemessenen Agentendauer, mindestens aber 30 Minuten, brichst du ihn ab und wertest das Teilergebnis aus. Warum: Eine Cloud-Maschine ohne Aktivität pausiert, und laufende Agenten gehen beim Neuaufbau verloren (BELEGE C5).
+- **Steuerung:** Zu Beginn jeder Phase liest du `git fetch origin bollwerk-leitstand && git show origin/bollwerk-leitstand:planung/bollwerk/leitstand/STEUERUNG.md` und befolgst neue Einträge S-<n>, soweit sie §4 nicht widersprechen. Jeden Eintrag quittierst du in `meta/STATUS.md`.
 
----
+**Grenzen**
+- **Am Spiel änderst du nichts:** kein Spielcode, keine Spieldaten, keine Assets, keine Tests im Repo. Proben laufen im Scratchpad oder in Wegwerf-Worktrees, die du am Ende entfernst.
+- **Git:**
+  - Du pushst nur `bollwerk-plan`, darauf nur `planung/bollwerk/`, und nur als Fast-Forward mit `git push origin HEAD:refs/heads/bollwerk-plan`.
+  - main, alle anderen Branches, Tags, `.claude/**` und Einstellungsdateien fasst du nicht an.
+  - Kein Force-Push, keine umgeschriebene Geschichte. Staging nur mit `git add -- <pfade>`. Vor jedem Push läuft `bash tool/secret_scan.sh`.
+  - Commits und Pushes führst du selbst in der Hauptsitzung aus, nie ein Agent.
+  - Scheitert ein Push technisch, versuchst du ihn am nächsten Phasenende erneut. Wird er gesperrt, gilt die Sperrregel oben. In beiden Fällen gilt der lokale Commit als Phasenausgang.
+- **Netzwerk:** Git mit origin, die Paketquellen der Abhängigkeiten, die das Projekt schon hat, und lesende Recherche in der offiziellen Claude-Code-Dokumentation (nur du, nicht die Agenten). Keine Uploads, keine fremden Dienste, nichts systemweit installieren.
+- **Daten:** Keine Schlüssel, Zugangsdaten oder persönlichen Daten in Dateien, Commits oder Prompts. Der Rohchat kommt nie in den Verlauf.
+- **Fremde Sitzungen:** Sitzungen und Routinen anderer Läufe fasst du nie an. Du startest keine Sitzungen und legst keine Routinen an.
 
-## 3. REGELN DES META-LAUFS
+**Vorrang bei Widersprüchen:** Grenzen → Modellregel → Kanon → Nutzerentscheidungen (A1/A2) → Abnahme (§10) → Bauplan (§8) → Stil. Widerspricht ein Anhang diesem Meta-Prompt, gilt dieser Meta-Prompt; der Fall kommt ins ENTSCHEIDUNGSLOG.
 
-Die harten Regeln für den Nachtlauf stehen in Anhang A4. Für den Meta-Lauf gilt:
+## 5. ROLLEN UND MODELLE
+- **Du (Opus 5.5):** Lagebild, Spielkern, Entwurf von Prüfmauer und Variantenfabrik, Kapazitätsrechnung, Master-Prompt, Annahmen, Abnahme.
+- **Haiku-5.5-Rollen:**
+  - Kundschafter: inventarisiert genau einen Bereich
+  - Messer: zählt nach festem Verfahren, mit Fundstellen
+  - Variantenbauer: Varianten für einen Slot
+  - Prüfer: ein Ring der Prüfmauer nach Checkliste
+  - Richter: bewertet Varianten oder Bildpaare nach Rubrik, ohne die Herkunft zu kennen
+  - Angreifer: sucht Wege, wie der Nachtlauf abkürzen, schönrechnen oder Regeln brechen könnte
+  - Probeläufer: spielt Abläufe und Simulationen durch
+- **Opus-5.5-Agenten** nur für die unabhängige Prüfung, die Kaltstart-Probe (§9) und höchstens einen Mechanik-Entwurf in M2. Sie starten frisch und sehen nur, was ihr Auftrag nennt.
+- **Modell und Denkstufe in jedem Auftrag:** Jeder Agentenauftrag nennt beides nach §0. Warum: Ohne Angabe läuft ein Agent auf dem Sitzungsmodell und dessen Denkstufe, und Opus-Kontingent geht für Fleißarbeit verloren. Die eingebauten Erkundungs- und Planungsagenten laufen auf dem Hauptmodell; für Erkundung startest du deshalb Haiku-Agenten.
+- **Haiku-Aufträge:**
+  - Jeder ist selbsttragend nach dem Paket-Bauplan (§8.6).
+  - Agenten schreiben nur in ihren eigenen Ergebnispfad im Scratchpad und führen nur die Befehle aus, die ihr Auftrag nennt. Git, Installationen und Netzwerk gehören nicht dazu.
+  - Gemeinsame Dateien schreibst nur du.
+- **Werkzeuge der Agenten:** nur Read, Grep, Glob, Write, Edit und Bash. Nie:
+  - `mcp__claude-code-remote__*`, `mcp__github__*`
+  - Agent, Workflow, SendMessage, TaskStop, Monitor, EnterWorktree, ExitWorktree, Skill
+  - WebFetch, WebSearch, Artifact, `mcp__Claude_Docs__*`
 
-1. **Schreiben:**
-   - Auf dem Branch `bollwerk` schreibst du nur `planung/bollwerk/**`; Proben und Zählskripte liegen unter `planung/bollwerk/proben/`.
-   - Sonst schreibst du nur in eigene Wegwerf-Worktrees (`git -C /home/user/bollwerk worktree add --detach /home/user/bw-meta/<name> <sha>`), nach `/home/user/bw-meta/**` (Pilot, M4), in frische Klone `/tmp/frisch-<n>` (M7) und ins Scratchpad.
-   - Kein anderer Checkout und kein anderer Worktree wird angefasst.
-2. **Git:**
-   - Gepusht wird nur `git push origin <sha>:refs/heads/bollwerk`; vorher läuft `bash tool/secret_scan.sh`. Der Scan zeigt nicht an, dass er die Passagenprüfung überspringt; prüfe deshalb zusätzlich `test -f quellen/schlosskeller-teamchat.txt || echo "Passagenprüfung übersprungen"`. Bei „übersprungen“ vermerkst du das einmal je Sitzung im ENTSCHEIDUNGSLOG und in FUER-DEN-NUTZER; gepusht wird trotzdem, wenn der Scan mit „Secret-Scan: sauber“ endet.
-   - Staging nur mit `git add -- <pfade>`.
-   - Verboten:
-     - Force-Push in jeder Form
-     - gelöschte oder verschobene Tags
-     - neue Remotes
-     - Pushes auf andere Branches, auch nicht auf `claude/pensive-gates-ajtp7x`, das du nur liest
-     - `-s ours`, Squash, Rebase
-     - Ausführen von `tool/abnahme.dart`
-3. **Werkzeuge der Agenten (Haiku und Opus-Unteragenten):** nur Read, Grep, Glob, Write, Edit und Bash; Git nur lesend (`status`, `diff`, `log`, `show`, `ls-tree`, `merge-tree`), in Pool-Kopien unter `/home/user/bw-meta/pool-<NN>` gar nicht. Nie:
-   - `mcp__claude-code-remote__*`, `mcp__github__*`
-   - Agent, Workflow, SendMessage, TaskStop, Monitor, EnterWorktree, ExitWorktree, Skill
-   - WebFetch, WebSearch, Artifact, `mcp__Claude_Docs__*`
+  Dieser Absatz steht wortgleich in jedem Auftrag.
+- **Vor dem ersten Workflow:**
+  - Lade /workflow-authoring und prüfe daran Modell- und Denkstufenangabe, Schema und Grenzen.
+  - Die Modellprobe läuft zweimal: als einzelner Haiku-Agent und als Workflow mit einem Agenten; beide nennen ihr Modell.
+  - Weicht eines ab, korrigierst du die Aufrufe, bevor weitere Agenten starten.
+  - Verlangt der erste Workflow-Start eine Zustimmung, die niemand geben kann, notierst du das im LAGEBILD und arbeitest mit direkten Hintergrund-Agenten weiter. Dieser Befund ist für die Nachtläufe entscheidend (§8.7).
 
-   Du selbst nutzt neben den Datei-, Such- und Shell-Werkzeugen nur Agent, Workflow und SendUserFile. Keine Routinen, keine Sitzungen, keine GitHub-API.
-4. **Netz:** nur Git mit `origin` und Paketinstallationen für Abhängigkeiten, die das Projekt schon hat. Nichts systemweit installieren. `build.sh` nie ausführen.
-5. **Rechenlast:** Web-Build, Chromium, Simulationen und voller Testlauf laufen nur über `flock /tmp/bw-schwer.lock <befehl>`. Jeder Bash-Befehl beginnt mit `source /home/user/bollwerk/planung/bollwerk/proben/env.sh &&`; die Datei setzt PATH auf Flutter und Node. Ausnahme: M0 Schritte 1–4 beginnen mit `export PATH=/opt/flutter/bin:/opt/node22/bin:$PATH &&`.
-6. **Umgehungsverbot:** Wird etwas blockiert (Berechtigung, Sandbox, Push), lässt du es weg und trägst es in `FUER-DEN-NUTZER.md` ein. Kein `dangerouslyDisableSandbox`. Keine Änderung an `.claude/**`, `settings*.json`, `CLAUDE.md`, Git-Konfiguration oder Hooks.
-7. **Rückfragen:** keine (BE-10). Denkprotokoll ins `ENTSCHEIDUNGSLOG.md`; Gestalterisches mit Standardwahl in `FUER-DEN-NUTZER.md`.
-8. **Bilder:** Nur du schickst sie mit SendUserFile in den Chat, als Kontaktbogen mit ≤ 48 Kacheln. Jedes erzeugte Bild ist in einem Bogen.
-9. **Rohchat:** `quellen/` kommt nie in den Verlauf. „Passagenprüfung übersprungen“ gilt nicht als bestanden; das kommt ins Log.
-10. **Sichern:** Jeder Schritt M0–M7 endet mit Secret-Scan, Commit mit Pfadliste, Push von `bollwerk` und aktualisiertem `PRUEFPUNKT.md`.
+## 6. DENKPROTOKOLL
+Für folgenreiche Entscheidungen (Spielkern, Spielwürfel, Modi, Prüfmauer, Umfangsmaß, Zielfaktor, Generationenplan, Start- und Übergaberegeln):
+1. Ziel und Messgröße klären.
+2. Mindestens drei echte Wege.
+3. Bewerten nach Wirkung im Spiel, Messbarkeit, Risiko für die Nacht und Aufwand.
+4. Umkehrprobe: Was müsste wahr sein, damit die Wahl falsch ist? Wo möglich mit Probe oder Simulation prüfen.
+5. Folgen zweiter Ordnung für Nachtlauf, Kanon, Leitstand und andere Läufe bedenken.
+6. Eintrag ins ENTSCHEIDUNGSLOG. Was der Nutzer anders sehen könnte, wird Annahme.
 
----
+## 7. ABLAUF
+**Richtzeiten in Minuten:** M0 45 · M1 30 · M2 30 · M3 45 · M4 15 · M5 30 · M6 30 · M7 15.
+- Überschreitet eine Phase ihre Richtzeit um die Hälfte, schließt du sie mit dem Erreichten ab, markierst Fehlendes als Schätzung mit Spanne und machst es zur Lichtungsaufgabe für den Nachtlauf.
+- Bei Zeitnot gehen M5 bis M7 vor Tiefe in M2 und M3.
 
-## 4. ABLAUF (M0–M8)
+**Phasenende:** Eine Phase endet, wenn ihr Ausgang mit Beleg im Planungsordner liegt und nach §4 committet und gepusht ist. Zu Beginn jeder Phase liest du `meta/META-AUFTRAG.md`, `meta/STATUS.md`, `meta/ABNAHME-META.md` und STEUERUNG.md neu.
 
-**Zeitbox (hart): höchstens 6 h ab M0** (Startzeit im PRUEFPUNKT).
-- M1–M4 zusammen ≤ 2,5 h, M5 ≤ 1 h.
-- M6: genau 1 Runde. Eine 2. Runde nur, wenn Runde 1 einen bestätigten BLOCKER hatte.
-- M7: genau 1 Durchgang. Ein 2. nur bei einem Blocker und nur vor M0 + 5,25 h.
-- Um M0 + 5,5 h beginnt M8, egal wo der Lauf steht.
+### M0 Lage
+In dieser Reihenfolge:
+1. Branch prüfen: `git branch --show-current` ist `bollwerk-plan`, und `git merge-base --is-ancestor origin/main HEAD` gilt, sonst `git merge --ff-only origin/main`.
+   - Liegt auf `origin/bollwerk-plan` schon `planung/bollwerk/meta/STATUS.md`, ist das ein Wiedereinstieg: Lies STATUS und setze dort fort.
+2. Diesen Auftrag wortgleich als `planung/bollwerk/meta/META-AUFTRAG.md` ablegen, mit der Kopfzeile „Gilt nur für den Meta-Lauf“.
+3. `meta/ABNAHME-META.md` und `meta/STATUS.md` anlegen.
+4. Modellprobe (§5).
+5. Committen und pushen.
 
-Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Prompts, nie eine weitere Runde.
+**Stand des Finalisierungs-Laufs** aus seinem Planungsordner und Branch: Endkriterien, erfüllte Kriterien, offene Punkte, erwarteter Abschluss. Dazu alle weiteren Läufe. Die B-02-Definition aus §8.2 wird gegen diesen Stand geprüft.
 
-**Gleichzeitig (BE-11):**
-- Unabhängige Agenten startest du in **einer** Nachricht als Hintergrund-Agenten oder in mehreren Workflows nebeneinander.
-- Ein einzelner Workflow lässt auf diesem Container nur **2** Agenten gleichzeitig laufen (Anhang B9). Direkte Hintergrund-Agenten liefen zu 8–9 gleichzeitig.
-- M2 und M3 laufen gleichzeitig. M4 beginnt erst, wenn M2 und M3 **vollständig** fertig sind (einschließlich M3.4 und aller Proben aus M2.3); dann läuft nur M4.
+**Faktenprüfung:** 9 Haiku-Kundschafter prüfen Anhang B abschnittsweise gegen das Repo. Jede Abweichung kommt mit Beleg; 10 % der Belege prüfst du selbst nach.
 
-**Ablage** in `planung/bollwerk/`:
-- `bilder/`
-- `proben/` (Skripte mit eigener `pubspec.yaml`)
-- `pruefung/` (M6-Befunde, M7-Protokolle)
-- `anhang/` (Anhänge des Master-Prompts)
-- `belege/`
-- `meta/` (Zustand des Meta-Laufs: `meta/PRUEFPUNKT.md`, `meta/STATUS.md`; getrennt von den Startdateien des Nachtlaufs)
+**Umgebung**, jede Antwort mit Beleg (Befehl und Ausgabe-Auszug oder Doku-Link):
+1. Läuft die Werkzeugkette in der Version, die das Repo festlegt, und wie lange dauert das Einrichten?
+2. Laufen Bauen, Analysieren und alle Tests, und wie lange?
+3. Entstehen ohne Gerät echte Bildschirmbilder der App mit echten Schriften (Web-Build + Chromium, Anhang B9)?
+4. Läuft die Spiellogik ohne Oberfläche, etwa für Simulationen mit Tausenden Partien?
+5. Lassen sich mehrere App-Instanzen über die lokale Schleife verbinden, als Probe für WLAN (`room_host`)?
+6. Gibt es Schutzregeln für main oder CI, und ist ihr Status aus der Sitzung lesbar? Tags lehnt der Proxy ab (BELEGE C3).
+7. Wie viele Workflow-Agenten laufen auf dieser Maschine gleichzeitig, und verlangt ein Workflow-Start in dieser Kindsitzung eine Zustimmung?
+8. Hat diese Sitzung `send_later`, und setzt sie nach einem Nutzungslimit von selbst fort? Gibt es keinen eindeutigen Beleg, markierst du die Frage als nicht klärbar und planst für beide Fälle.
 
-### M0 · Einrichten
-1. `git fetch origin` und Linien mit SHA notieren.
-2. Gibt es `origin/bollwerk` schon (`git ls-remote --exit-code origin refs/heads/bollwerk`), ist das ein Wiedereinstieg: `git worktree add --no-track -b bollwerk /home/user/bollwerk origin/bollwerk`, dann `planung/bollwerk/meta/PRUEFPUNKT.md` lesen und dort fortsetzen; M0.3–M0.5 entfallen. Sonst: `git worktree add --no-track -b bollwerk /home/user/bollwerk origin/main`.
-3. Darin `git checkout origin/claude/pensive-gates-ajtp7x -- planung/bollwerk`. Damit kommen dieser Meta-Prompt, die Anhänge und das Scratchpad-Archiv auf `bollwerk`.
-4. `proben/env.sh`, `ENTSCHEIDUNGSLOG.md`, `FUER-DEN-NUTZER.md`, `ANNAHMEN.md` sowie `meta/STATUS.md` und `meta/PRUEFPUNKT.md` anlegen.
-5. Commit und Push.
+**Abbruchregel:** Scheitert die Werkzeugkette nach zwei Versuchen oder 30 Minuten, markierst du die Fragen 1 bis 5 als nicht klärbar. Du simulierst dann im Scratchpad mit einem eigenen Modell der Spielregeln weiter und machst Bild- und Technikproben zur Lichtungsaufgabe für den Nachtlauf.
 
-### M1 · Bestand, Startbedingung, Archiv, Umfangsbasis
-1. Starte **gleichzeitig mindestens 9 Leser**, einen je Bereich:
-   - Archiv und Linien
-   - Look
-   - Steuerung und Sitzung
-   - Spielkern und Zufall
-   - Kanon und Hoheit
-   - Prüfwerkzeuge
-   - Wiederverwertung
-   - Umfangszählung
-   - Plattform und Berechtigungen
+**Ausgang:** LAGEBILD.
 
-   Jeder prüft Anhang B für seinen Bereich und meldet Abweichungen mit Beleg. Achtung: `origin/main` bewegt sich (der Nachtlauf Burgstadt pusht weiter), und `origin/finalisierung-schlosskeller` ist schon weit in F4 (Partymodus mit `PartyKartenSession`, Nebel, Ruhe-Animation). Gezählt und beschrieben wird der **aktuelle** Stand von `fin`.
-2. Prüfe selbst 10 % der gemeldeten Fakten nach, mindestens 3 je Bereich. Findest du einen Fehler, wird der Bereich neu erfasst.
-3. Prüfe die Startbedingung B-02 mit dem Befehl aus Anhang A6 (MP-2) und notiere den Stand des Finalisierungs-Laufs.
-4. Ergebnisse:
-   - `ARCHIV.md`: Linie, Ref, SHA, Inhalt, Klasse, Begründung (vier Klassen nach A3)
-   - `BESTAND.md`
-   - `HOHEIT.md` (vor und nach B-02)
-   - `KANON-LUECKEN.md`: je Lücke Beleg, Bestand und Standardwahl
-   - `UMFANG-BASIS.md`: Zählskripte in `proben/`, vorläufige Werte am `fin`-Stand, Gewichte g mit Begründung
-   - `belege/probe_merges.txt`: je Linie der Klasse *zusammenführen* `git merge-tree --write-tree --name-only origin/main <sha>` mit Exit-Code und Konfliktliste, dazu `git diff --stat` gegen die Nie-Liste (A4.8)
+### M1 Bestand und Messbasis
+- **Inventar** aller Spielteile mit Fundstelle: Modi, Fälle, Bildschirme, Inhalte, Assets, Tests, Druckfassung. Gezählt wird am aktuellen Stand von `origin/finalisierung-schlosskeller`.
+- **Archivkarte:** je Teil übernehmen, umbauen oder archivieren, mit Grund.
+  - „Archivieren“ heißt nach Anhang A3: an Ort und Stelle erhalten, hinter Schalter oder Archiv-Branch, nie löschen.
+  - Kanon 1.0 und Druckspiel bleiben unverändert.
+  - Andere Fälle und Spiele der App laufen unverändert weiter.
+- **Umfangsmaß** nach §8.3 als Messskript in `planung/bollwerk/proben/`; Basiswerte heute und Hochrechnung für den Stand nach dem Finalisierungs-Lauf, je mit Spanne.
+- **Designmaße** nach §8.4 und das Bildverfahren:
+  - fotografiert wird der echte Partymodus der Finalisierung
+  - Web-Build eines festen SHA in einem Wegwerf-Worktree
+  - Kopien von `tool/e2e/raeume.mjs` und `server.mjs` in `proben/`
+  - URL-Schema nach Anhang B9
+  - erprobt an mindestens drei Bildschirmen in allen drei Ansichten (Handy hoch, Handy quer, Tablet)
 
-### M2 · Look-Vertrag, Referenzbilder, Design-Turnier
-1. **Referenzbilder** (Vorher = was Spieler nach F4 sehen):
-   - Wegwerf-Worktree auf `origin/finalisierung-schlosskeller` (SHA ins Log).
-   - Bauen: `flock /tmp/bw-schwer.lock flutter build web --no-web-resources-cdn -o build/web` (Einstieg `lib/main.dart`, ≈ 50–90 s).
-   - Fotografieren mit Kopien von `tool/e2e/raeume.mjs` **und** `tool/e2e/server.mjs` in `proben/`; Playwright per `createRequire('/opt/node22/lib/node_modules/playwright')`, Build-Ordner als absoluter Pfad.
-   - URL: `/?party=schlosskeller&pfad=<pfad>&n=<n>&bis=entscheidungen&at=<x,y>&zoom=1.05`; warten auf die Konsolenzeile `PARTY foto=entscheidungen`.
-   - Umfang: 7 Räume (begehbare Raummitte wie in `raeume.mjs`) × 1280×800 und 390×844 × die Lichtzustände des Partymodus (Ermittlung, Rückblende; Einstieg aus `lib/party/skript.dart`).
-   - Zusätzlich je Raum ein Brückenbild aus `preview_main.dart?party=schlosskeller&at=…`, nur zum Vergleich mit dem alten Referenzbild (ohne Nebel und Partylicht).
-   - Die Bilder gehen als Kontaktbogen in den Chat.
-2. **Look-Anker-Probe** nach MP-14 L6: Paket in `proben/look_anker/`, 1 Raum, 2 Läufe bytegleich. Ebenso eine **Stilprüf-Probe** (`stil.py`, S1–S5) an zwei Referenzbildern.
-3. **Design-Turnier:**
-   - Mindestens 4 Aufwertungsrichtungen im selben Stil (Anhang A6 MP-8, Qualitätsstufe), je eine Probe als Vorher/Nachher-Ausschnitt im Wegwerf-Worktree, höchstens 60 min je Probe.
-   - Alle Proben gehen in den Chat.
-   - Ein Gremium mit 5 Linsen bewertet: Look-Treue (Stilprüfung S1–S5), Lesbarkeit am Handy, Atmosphäre, Leistungskosten, Bauaufwand.
-4. **Eichsatz** für D3: 18 Bilder, davon 12 mit bekanntem Fehler. Die Lösung bleibt in einer eigenen Datei.
-5. **Ergebnis:** `LOOK-VERTRAG.md` und `DESIGN-AUFWERTUNG.md` mit den Zahlen für D1, den Schwellen für S1–S5 (an den Proben geeicht) und der Rangfolge der Richtungen. Die Wahl der Richtung wird **Annahme A-01**, mit Bild.
+  Die vollständige Vorher-Galerie erhebt der Nachtlauf beim Start. Probebilder legst du als Kontaktbogen unter `planung/bollwerk/bilder/meta/` ab; der Leitstand zeigt sie dem Nutzer.
+- **Ausgang:** BESTAND, MESSBASIS mit Messskript, Bildverfahren mit Probebildern.
 
-### M3 · Spielmechanik-Turnier
-1. **Entwürfe:**
-   - **4 Opus-Agenten** (`model: "opus"`), die einander nicht sehen, schreiben je einen vollständigen Entwurf. Einer davon baut auf Anhang C auf.
-   - Dazu mindestens 30 Haiku-Varianten zu Teilfragen: Abstecher-Katalog, Ketten, Würfelschwellen, Pech-Szenen nach C6, Würfelbühne, Rollen-Bots, WLAN-Protokoll, Einstieg.
-2. **Richter mit 6 Linsen**, je 0–10:
-   - Partyspaß (4–20 Spieler)
-   - Solo-Spaß
-   - Fairness und Pech-Garantie
-   - Kanon-Treue
-   - Umsetzbarkeit im Look
-   - Wachstum ohne längere Abende
-3. **Synthese:** Grundlage ist der Sieger; die besten Ideen der anderen kommen dazu, jeweils mit Begründung. Alle **bindenden** Punkte aus C1–C8 gelten.
-4. **Simulationsprobe** in `proben/simulation/` (reines Dart, importiert `mordakte_core` auf `origin/finalisierung-schlosskeller`, ändert nichts):
-   - Lösbarkeitsbeweis nach C8 Nr. 1 (a)–(c)
-   - Spürbarkeit nach C8 Nr. 13
-   - Messung aller Schwellen aus C8
-   - Verfehlt eine Schwelle, änderst du die Regeln und simulierst neu.
-5. **Ergebnis:** `SPIELMECHANIK.md` mit
-   - Regeln
-   - JSON-Schemas
-   - vollständiger Weißliste
-   - Aktionskatalog (Aktion → Kanon-Beleg → Animation)
-   - drei Beispielrunden, darunter der Abstieg in den Keller
-   - Simulationszahlen
+### M2 Spielkern
+- **Entwurf:** Runde, Entscheidungsarten, sichtbare Aktionen, Spielwürfel, Gruppenentscheidungen und Enden für Party an einem Gerät, Solo mit Bots und WLAN.
+  - Startentwurf ist Anhang C.
+  - Daneben entwerfen 3 Haiku-Agenten auf max und höchstens 1 Opus-Agent je einen eigenständigen Gegenentwurf. Richter bewerten blind; du übernimmst den besten und pfropfst die stärksten Ideen der anderen auf.
+- **Geheimnisschutz in jedem Modus:** Kein Gerät und kein Bot erfährt, was seine Rolle nicht wissen darf.
+- **WLAN:** Alle Geräte zeigen dasselbe Würfelergebnis. Kein einzelnes Gerät kann es beeinflussen, und Gäste können den Wurf aus Seed und Zugdaten nachrechnen (WÜ-1).
+- **„Stark“ ist entschieden (BE):**
+  - Der Würfel entscheidet auch, ob eine Untersuchung gelingt.
+  - Misslingt sie, gibt es einen zweiten Anlauf oder einen Umweg zur selben Kanon-Quelle.
+  - Lösbar bleibt der Fall immer; WÜ-1 bis WÜ-6 sind bindend.
 
-### M4 · Durchsatzmessung (Stufenpilot, allein auf dem Rechner)
-1. **Bedingung:** M2 und M3 sind vollständig fertig; es laufen keine Builds, Simulationen oder anderen Agenten mehr. Im Schwerlast-Slot läuft durchgehend `tool/alle_tests.sh schnell`; das stellt die Nachtlast nach.
-2. **Stufen von je 20 min:**
-   - (1) 6 direkte Agenten + 2 Workflows à 8 Agenten
-   - (2) 12 + 4
-   - (3) 18 + 6, nur wenn (2) ohne Einbruch lief
+  Die Simulation stellt nur Bänder ein: Anteil der Züge mit Wurf, Gewicht von Entscheidung und Würfel am Ausgang, Pech-Garantie.
+- **Simulationen im Scratchpad**, mindestens:
+  - Würfelverteilungen
+  - der Anteil von Entscheidung und Würfel am Ausgang
+  - die Spieldauer je Personenzahl
+  - die Überschneidung zweier Zufallspartien
+  - die Lösbarkeit je Täter-Fassung: erschöpfend über alle Entscheidungsfolgen nach Anhang C8, dazu einfache Detektiv-Bots
+- **Ausgang:** SPIELKERN als nummerierte Kern-Aussagen für den Master-Prompt, jede mit Begründung und, wo möglich, Simulationszahl.
 
-   Einbruch heißt: Ausfälle über 5 %, Dauer-Median 50 % über Stufe 1, Last über 6 oder weniger als 3 GB freier Speicher.
-3. **Ein Auftragstyp je Agent:**
-   - T: 15 Entscheidungskarten
-   - C: ein Code-Paket mit Test und Rot-Probe im Pool-Worktree
-   - B: eine Posen-Variante mit Bildlauf
-   - U: ein Urteilsbündel über 25 Varianten
+### M3 Fabrikprobe und Design-Probe
+- **Entwurf:** Prüfmauer (§8.5) und Variantenfabrik (§8.6).
+- **Echte Probe:** mindestens drei Slot-Arten, etwa Ereignis, Entscheidung mit sichtbarer Aktion und Bildschirmelement. Je Art mehrere Slots mit mehreren Varianten, durch alle Ringe.
+- **Design-Probe:**
+  - mindestens zwei Aufwertungsrichtungen im Bild-Look an je einem Raum, mit Vorher/Nachher-Bild
+  - Richter bewerten blind
+  - die Rangfolge wird Annahme A-01, mit Bild
+- **Messen:**
+  - erreichte Parallelität, Dauer je Agent, Annahmequote je Ring und je Denkstufe
+  - Fehlerbilder und Nachbesserungsbedarf
+  - Speicher und Rechenlast der Maschine
+  - Tokens je Agent und Denkstufe, soweit die Umgebung sie zeigt
 
-   Alle schreiben in Dateien und geben nur eine KURZ-Zeile zurück (A4.9). Im Meta-Lauf liegen Code-Aufträge in `/home/user/bw-meta/pool-<NN>`, Ausgaben in `/home/user/bw-meta/varianten/<stufe>/`; beides wird nach M4 gelöscht.
-4. **Messen je Typ:**
-   - Aufträge/h, Varianten/h
-   - Dauer (Median, p90)
-   - Tokens
-   - verwertbar (≥ 8/10 ohne 0; Filterskript `proben/varianten_pruefen.dart` mit `Textpruefer` und `textregeln.json`)
-   - Ausfälle (Agenten ohne verwertbare Rückgabe)
-5. **Zusätzlich messen:**
-   - Opus-Sekunden und Kontextzuwachs je Rückgabe
-   - GB je Worktree
-   - ob Workflows im Hintergrund laufen, während du arbeitest
-   - Berechtigungsnachfragen (Soll 0; jede mit Befehl notieren)
-   - Kosten gegen Erwartung
-   - Limit-Pausen
-6. **Ergebnis:** `DURCHSATZ.md` mit
-   - Kapazität je Typ = 0,7 × min(E, F, U, O, S, P, K) (MP-11)
-   - Engpass je Typ
-   - Nachtziel (Aufträge und Varianten)
-   - Tokenrahmen (Haiku und Opus getrennt)
-   - **Umfangsplan:** welche Kombination der Achsenfaktoren U ≥ 10 erfüllt (40-%-Regel, ≥ 3× je Achse), wie viele Aufträge und Vorlauf- bzw. Hauptlauf-Stunden sie braucht, und ob dafür mehr als eine Nacht nötig ist (dann Zwischenziel je Nacht, Annahme A-11)
-   - höchste sichere Stufe
+  Was du nicht messen kannst, schätzt du mit Spanne.
+- **Nachschärfen:** Briefings und Schemas; höchstens zwei Proberunden.
+- **Ausgang:** FABRIKPROBE mit Zahlen; DESIGN-PROBE mit Kontaktbogen.
 
-### M5 · Master-Prompt schreiben
-- Schreibe `MASTER-PROMPT.md` genau nach Anhang A6 (MP-0 bis MP-20):
-  - Hauptteil ≤ 7.000 Wörter, gezählt mit `wc -w`
-  - KERN ≤ 400 Wörter oben
-  - Anhänge unter `anhang/A-<n>-*.md`, darunter:
-    - Wortlaut
-    - Schemas, Weißliste
-    - Rollenbriefings, Auftragsvorlage
-    - Vorrat als Schablonen mit Parameterlisten
-    - Kanon-Auszug mit Ketten und Namen
-    - TON-LEITFADEN §1–§10
-    - Glossar
-- Schreibe außerdem:
-  - `KERNKARTE.md` (≤ 1.500 Wörter)
-  - `VORSCHLAG-FREIGABEN.md`: eine mögliche Freigabeliste für `.claude/settings.json`, falls „Auto“ fehlt. Nur als Vorschlag für den Nutzer, nie angewendet.
-  - die Startdateien des Nachtlaufs in `planung/bollwerk/`: `PRUEFPUNKT.md`, `FLUG.md` und `STATUS.md`, erste Zeile jeweils `PHASE: NICHT BEGONNEN`
-  - Zähl- und Prüfbefehle im Master-Prompt nennen nur `tool/bollwerk/…`; `proben/` ist Vorlage, die der Vorlauf dorthin überträgt
-- **Stil:** Deutsch, „du“, kurze Sätze, jede Regel an genau einer Stelle, jedes Kürzel beim ersten Auftreten erklärt, jede Quelle mit Ref und Pfad. Im Master-Prompt heißt MP-n einfach §n. Prüfe jeden §-Verweis mit `grep`.
+### M4 Plan
+- **Mengengerüst** je Kategorie und Anteil von Opus und Haiku.
+- **Kapazität** ist das Minimum aus erreichter Parallelität, Maschinenlast und Nutzungskontingent je Limitfenster.
+  - Das Kontingent schätzt du aus den Tokens je Agent der Fabrikprobe, mit Spanne; dazu 20 % Puffer.
+  - Bis B-02 gilt die halbe Wellengröße (Steuerung S-1), damit der Finalisierungs-Lauf nicht ausgebremst wird.
+- **Zielfaktor F:** Lege ihn zwischen 10 und 100 fest und begründe ihn.
+  - Plane in Generationen: Zwischenziel je Nacht, Gesamtziel über höchstens 7 Nächte ab B-02.
+  - Trägt die Woche nicht einmal 10, sagst du das, nennst den realistischen Faktor und nimmst den Grund in die Annahmen auf.
+- **Wellenplan mit kritischem Pfad:** zuerst der Vorlauf (vor B-02), dann der Durchstich, also eine vollständige Runde in allen drei Modi mit wenig Inhalt, dann die Breite.
+- **Betriebsort:** Cloud-Kindsitzungen des Leitstands. Zeigt das LAGEBILD, dass sie eine Nacht nicht tragen, schreibst du den Master-Prompt für kürzere Generationen und machst das zur Annahme.
+- **Ausgang:** PLAN.
 
-### M6 · Gegenprüfung bis zur Ruhe
-1. **Prüfer:** Je Runde starten **gleichzeitig 11 Prüfer**, jeder mit einer Linse, die den Master-Prompt zu brechen versucht:
-   1. Ausführbarkeit (jeder Pfad, Befehl und erste Schritt)
-   2. Regeln und Sicherheit (A4 vollständig, Schlupflöcher, Hoheit vor und nach B-02)
-   3. Spielentwurf und Fairness (WÜ, Kanon, C1–C8)
-   4. Durchhalten (Kapazität, Herzschlag, Verdichtung, Platte, Limits)
-   5. Messbarkeit und Bollwerk (Befehl und Schwelle je Kriterium)
-   6. Look und Design (Stil-Konstanten, D1–D3)
-   7. Umfang und Füllstoff (U, Pflichtziele, keine längeren Abende)
-   8. main und Archiv (MP-16, Burgstadt-Schutz)
-   9. Spieler und Veröffentlichung (Barrierefreiheit, Fortsetzen, Datenschutz, Einstieg, Store-Liste)
-   10. Widerspruch (dieselbe Zahl, Schwelle oder Regel an zwei Stellen verschieden; zwei Lesarten mit verschiedener Handlung)
-   11. Vollständigkeitskritiker („Was fehlt?“)
+### M5–M7
+- **M5 Schreiben:** Master-Prompt und Startpaket nach §8.
+- **M6 Prüfen:** nach §9, höchstens drei Runden.
+- **M7 Übergeben:** nach §12.
 
-   Jeder Befund nennt Schwere (BLOCKER, MAJOR, MINOR), Beleg und Ersatztext.
-2. **Bündeln:** Gleiche Befunde legst du zusammen. Befunde, die eine frühere Runde schon bestätigt oder verworfen hat, streichst du.
-3. **Skeptiker:** Nur BLOCKER gehen an Skeptiker: 3 je betroffener Linse, gleichzeitig, alle BLOCKER der Linse in einem Auftrag. Ein BLOCKER gilt bei 2 von 3 Stimmen. MAJOR bestätigst oder verwirfst du selbst mit Denkprotokoll. MINOR arbeitest du ein oder vermerkst sie.
-4. **Schluss:** nach Runde 1, wenn sie keinen bestätigten BLOCKER hatte; sonst nach Runde 2 (Zeitbox). Bleibt ein BLOCKER offen, ist M-12 nicht erfüllt, und er steht in der Übergabe ganz oben.
+## 8. BAUPLAN DES MASTER-PROMPTS
+### 8.1 Form
+- **Stil:** Deutsch, ruhig und präzise, ohne Druck durch Großbuchstaben. Jede Regel genau einmal. Platzhalter nur in den Einstellungen. Beispiele als Illustration gekennzeichnet und vielfältig.
+- **Format:**
+  - Der Master-Prompt ist **ein** Text ohne verschachtelte Codeblöcke, höchstens 55.000 Byte (UTF-8, `wc -c`). Der Leitstand übergibt ihn als Startnachricht einer neuen Sitzung.
+  - Umfangreiche Daten (Kanon-Auszüge, Listen, Wortlaut des Nutzers, Mechanik-Tabellen) liegen als Anhänge unter `planung/bollwerk/anhang/A-<n>-<name>.md` auf `bollwerk`. Der Prompt nennt sie mit Pfad und liest sie beim Start.
+- **Für sich allein:** Der Master-Prompt verweist nie auf diesen Meta-Prompt. Jede Regel, die er braucht, steht in ihm oder in seinen eigenen Anhängen.
+- **Auslösewort:** Das Auslösewort der Workflow-Automatik steht nirgends darin, auch nicht als Beispiel. Den Wortlaut des Nutzers in A1 übernimmst du mit geschwärztem Auslösewort.
+- **Abläufe statt bedingter Verbote:** Reihenfolgen stehen als Ablauf, nicht nach dem Muster „nicht …, bis …“. Als Verbot steht nur, was die ganze Nacht gilt. Warum: Der Sicherheitsfilter liest Verbote aus dem Gespräch bei jeder Prüfung neu als bindend (BELEGE C11).
+- **Zuschnitt je Modell:** Opus bekommt Ziele, Gründe und Freiraum; Haiku bekommt exakte Formate, Schemas und kleine Pakete.
+- **Länge:** so lang wie nötig. Jede Zeile verbessert das Ergebnis der Nacht.
 
-### M7 · Trockenlauf
-Jeder Trockenlauf läuft in einem **frischen Klon** (`git clone --no-checkout <origin-url> /tmp/frisch-<n>/repo`; das ist sein Arbeitsverzeichnis, und `worktree add -b bollwerk` aus MP-19 legt `$BW` daneben an), ohne Zugriff auf Scratchpad, `/home/user/wt`, `/home/user/feinkorn` oder lokale Branches.
+### 8.2 Abschnitte
+Die Nummern 2.2 und 6 sind feste Verweise, denn Leitstand und Startpaket nennen sie. Die Quelle je Abschnitt steht in `v4/LUECKEN-v3-v23.md` §5.
 
-1. Ein frischer Agent bekommt nur die Startnachricht aus MP-0:
-   - Er spielt die ersten 90 Minuten auf dem Papier durch.
-   - Er führt MP-19 mit `BW=/tmp/frisch-<n>/wt` und dem Pool `/tmp/frisch-<n>/bw/<NN>` aus (MP-0 und MP-19 führen alle Pfade über `$BW` aus `env.sh`): die Starthandlungen 1, 2, 4, 5, 6 (mit 1 Pool-Platz statt 6), 8 und 9 wirklich, ohne Push.
-   - Er ruft nie `create_trigger`, `send_later`, Agent oder Workflow auf und schreibt nie unter `/home/user/bollwerk` oder `/home/user/bw*`. Am Ende `rm -rf /tmp/frisch-<n>`.
-   - Die Handlungen 3, 7 und 10 (Herzschlag, Agenten-Welle, Zugende) schreibt er nur als wörtlichen Werkzeugaufruf in den Beleg; du prüfst sie gegen die Werkzeugschemas. Kein Unteragent legt Routinen an oder startet Agenten.
-   - Beleg: `belege/meta_trockenlauf.txt`.
-2. Ein frischer Agent spielt einen Haiku-Auftrag aus dem Vorrat durch: Vorlage, Werkzeuge, Rückgabe, Paketprüfung.
-3. Ein frischer Agent spielt den Vorlauf durch, dazu „B-02 bleibt die ganze Nacht falsch“, „B-02 wird um 05:00 wahr“ und „FREIGABE BOLLWERK um 23:00“.
+- **0 EINSTELLUNGEN:** alle veränderlichen Werte mit Standard:
+  - Modelle und Denkstufen als feste Zeilen
+  - Parallelität aus M3, Wellengröße, halbe Wellengröße bis B-02
+  - Zielfaktor F und Zwischenziel je Nacht
+  - Generationsfenster 12 h, Morgenbericht 07:00
+  - Branches, Planungsordner
+- **1 AUSGANGSLAGE UND NORDSTERN:** Nordstern als erreichter Zustand in einem Satz. Die Ziele nennen App-Start im Schlosskeller, Nebel, Druckspiel unverändert und „stark“ im Wortlaut.
+- **2 START UND AUTONOMIE:**
+  - **2.1** Der Lauf beginnt, sobald eine Nachricht das Startwort enthält, auch die Startnachricht des Leitstands.
+  - **2.2 Startbedingungen** B-01 und folgende, je mit Prüfweg:
+    - B-01: Werkzeugkette bereit.
+    - B-02 lautet „Finalisierungs-Lauf fertig“ und ist ohne Tag prüfbar. Wahr ist sie nur, wenn alles zutrifft:
+      - `origin/finalisierung-schlosskeller:planung/finalisierung-schlosskeller/ABSCHLUSSBERICHT.md` (oder STATUS) meldet „ZIEL ERREICHT“
+      - `git merge-base --is-ancestor origin/finalisierung-schlosskeller origin/main` gilt
+      - seit 60 Minuten gibt es keinen Commit auf `origin/finalisierung-schlosskeller` und keinen Commit auf origin/main, der Finalisierungs-Pfade berührt
+      - **oder** STEUERUNG.md enthält einen Eintrag „B-02 erfüllt“ bzw. „FREIGABE BOLLWERK“
 
-**Blocker** heißt: ohne Rückfrage nicht ausführbar. Dazu zählen ein fehlender Pfad oder Befehl, ein Exit ≠ 0, zwei Lesarten mit verschiedener Handlung oder ein fehlender Fakt.
+      Ist B-02 offen, arbeitet der Lauf im Vorlauf (Anhang A, MP-2); das ist kein Halt.
+  - **2.3 Startschritte, idempotent:** Jeder Schritt prüft zuerst, ob er schon erledigt ist.
+    - `git fetch origin bollwerk`. Ist HEAD ungleich `origin/bollwerk`: `git checkout -B bollwerk origin/bollwerk`.
+    - LAUF.md lesen und LEASE übernehmen (2.5).
+    - Messbasis und Vorher-Galerie erheben, falls nicht vorhanden; Basis ist der B-02-Commit, eingefroren.
+    - Lichtungsaufgaben zuerst.
+  - **2.4** Autonomie (Regeln wie §4, angepasst an den Nachtlauf).
+  - **2.5 Generationen** (neu, Pflicht):
+    - LEASE übernehmen: Wenn `gen` in LAUF.md kleiner als die eigene Generation ist, schreibst du deine Zeile und pushst, bevor du etwas anderes tust. Deine Generation steht in der Startnachricht.
+    - Wird ein Push abgelehnt, liest du zuerst LEASE auf origin. Steht dort eine höhere Generation, endest du sofort ohne Merge und ohne weiteren Push.
+    - ZUSTAND bei jedem Prüfpunkt setzen.
+    - Jeder Zug endet mit der Zeile `=== BOLLWERK-ZUG-ENDE · <ZUSTAND> · Weckruf <UTC> ===`. Zum angekündigten Weckruf weckt sich der Lauf selbst mit `send_later` (Name `BOLLWERK-G<n>-<session_id>`), sofern M0 das Werkzeug belegt hat.
+    - Bei jedem Prüfpunkt STEUERUNG.md und BEFUNDE.md vom Branch `bollwerk-leitstand` lesen und jeden neuen Eintrag mit `QUITTUNG S-<n>` bzw. `QUITTUNG F-<n>` im PRUEFPUNKT bestätigen. Ein offener BLOCKER aus BEFUNDE.md stoppt neue Wellen, bis er behoben ist.
+- **3 GRENZEN UND VORRANG:** aus Anhang A4.1–A4.10, mit diesen Änderungen:
+  - Der Nachtlauf pusht ausschließlich `bollwerk` (`git push origin HEAD:refs/heads/bollwerk`).
+  - Archive, Tags und main gehören dem Leitstand.
+  - Keine Routinen (`create_trigger`), nur `send_later` für den eigenen Weckruf.
+  - Keine Änderung an `.claude/**` und Einstellungsdateien.
+- **4 KERN:** nummerierte Kern-Aussagen aus Kanon, A2 und SPIELKERN, mit Version und Änderungsverfahren.
+- **5 ROLLEN, MODELLE UND VARIANTENFABRIK:**
+  - Opus 5.5 für Urteil, Kernsysteme, Integration und Abnahme.
+  - Opus-5.5-Agenten nur für Pakete der Stufe 3 und unabhängige Prüfungen; Haiku 5.5 für alles Übrige.
+  - Jeder Agentenauftrag nennt Modell und Denkstufe, die Stufe je Rolle aus der Fabrikprobe.
+- **6 ZIELFORMEL:**
+  - Z-Kriterien mit Methode, Schwelle und Beleg, gegliedert in SPIEL, UMFANG, DESIGN, MODI, BESTAND, ARCHIV und MAIN-REIFE. Dazu die Abschlussregel.
+  - **MAIN-REIFE** umfasst mindestens:
+    - alle übrigen Z-Kriterien belegt
+    - origin/main ist in `bollwerk` hereingeholt
+    - ein Probe-Merge `git merge-tree --write-tree origin/main bollwerk` endet ohne Konflikt
+    - das volle Tor ist grün
+    - der Secret-Scan ist leer
+    - die Burgstadt-Schutzprüfungen sind grün
+  - Dann setzt der Lauf `ZUSTAND: BEREIT FÜR MAIN` und meldet jedes Z-Kriterium mit einer Belegzeile in `planung/bollwerk/ABSCHLUSSBERICHT.md` und im Gespräch. Den Push auf main macht der Leitstand.
+- **7 PRÜFMAUER · 8 PHASEN** mit Toren, Vorlauf und Durchstich zuerst, Zwischenziel je Nacht.
+- **9 REGELKREISE** mit Höchstzahlen.
+- **10 NEBELKARTE** mit Frühwarnzeichen und Gegenmaßnahme; Kontingent, Limits, Sperren, Generationswechsel.
+- **11 GEDÄCHTNIS, STATUS UND BERICHTE:** LAUF.md, PRUEFPUNKT, STATUS, ENTSCHEIDUNGSLOG, REGISTER, NACHTPROTOKOLL, FÜR DEN NUTZER; MORGENBERICHT.md bis 06:30 Uhr für den Leitstand.
+- **12 BEREIT FÜR MAIN:** die Schritte bis MAIN-REIFE und die Übergabe an den Leitstand. Die Ausführung des main-Push steht in Anhang A, MP-16, als Verfahren des Leitstands.
+- **13 START:** die ersten Handlungen als Befehle, idempotent.
 
-Nach einem Blocker-Fix prüft ein **neuer** frischer Agent (Zeitbox). Der Rest kommt als Annahme in die Übergabe.
+Der Pflichtinhalt aus Anhang A (MP-0 bis MP-20) geht vollständig in diese Abschnitte ein. Die Zuordnung steht in `v4/LUECKEN-v3-v23.md` §5. Wo Anhang A noch einen Push auf main, Tags, Routinen im Nachtlauf oder B-02 mit Tag nennt, gilt die Vorrangtabelle am Kopf von Anhang A.
 
-### M8 · Übergabe
-1. **`ANNAHMEN.md`:** die 8 wichtigsten oben, der Rest darunter, je mit Standardwahl und Folge. Mindestens:
-   - A-01 Design-Richtung (mit Bild)
-   - A-02 Lichtzustand der Runden (Standard: Kanon)
-   - A-03 Würfel nie auf Kanon-Punkte
-   - A-04 nur Schichten statt neuer Fälle
-   - A-05 Spieldauern
-   - A-06 Joystick (Standard: im Partymodus aus, sonst unverändert)
-   - A-07 WLAN-Host = Detektiv
-   - A-08 keine Musik
-   - A-09 Gewichte g
-   - A-10 Design und Umfang gleichrangig
-   - A-11 Zwischenziel je Nacht für U, falls eine Nacht nicht reicht
-   - A-12 HD-Linie `caf1d61`: nur mergen, wenn die Burgstadt-Bilder bytegleich bleiben (Standard); sonst nur archivieren, bis der Nutzer „A12: ja“ sagt (mit Vorher/Nachher-Bogen)
-2. **Sichern:** Commit und Push von `bollwerk`. Eigene Wegwerf-Worktrees und `/home/user/bw-meta/**` entfernen, nur die aus `meta/PRUEFPUNKT.md`.
-3. **Chat, in Alltagssprache, ohne Kürzel:**
-   1. **Was du bekommst** (5 Zeilen): was das Spiel danach kann, wie stark es wächst, wie es aussieht. Dazu die Kontaktbögen Vorher und Design-Proben.
-   2. **Was heute Nacht passiert** (2 Zeilen): Ist die Finalisierung fertig? Wenn nein: „Heute Nacht nur Vorbereitung; das große Wachstum beginnt, sobald schlosskeller-1.0 steht.“
-   3. **Was du jetzt tun musst** (≤ 3 Schritte zum Kopieren):
-      - neue Sitzung, Ultracode, `/config`, Modus „Auto“
-      - Startnachricht: „START BOLLWERK. Führe `git fetch origin` aus, lege den Worktree `/home/user/bollwerk` auf `origin/bollwerk` an, lies `planung/bollwerk/MASTER-PROMPT.md` vollständig und arbeite ihn ab §19 ab.“
-   4. **Was du ändern kannst:** die Annahmen als nummerierte Liste. „Antworte z. B. ‚A2: lieber …‘. Ohne Antwort gilt die Standardwahl.“
-   5. Dateiliste.
-4. **Ist ein BLOCKER offen,** steht er ganz oben.
-5. **Autostart (Standard, außer der Nutzer hat „Danach direkt START BOLLWERK“ weggelassen)** nur, wenn M-01 und M-12 erfüllt sind und kein BLOCKER offen ist. Sonst gibt es keinen Start, und ganz oben in der Übergabe steht „Autostart ausgesetzt: <Grund>“. In der ersten Nacht mit Autostart gilt BW8 nur, wenn die M6-Linsen 2 und 8 in der letzten Runde 0 offene MAJOR hatten; sonst endet der Lauf spätestens mit BEREIT ZUR INTEGRATION. Ablauf: PRUEFPUNKT schreiben, den Master-Prompt vollständig neu lesen und ohne Pause mit dessen §19 in dieser Sitzung beginnen. Ab jetzt gelten nur seine Regeln; §3 dieses Meta-Prompts endet. Steht `/home/user/bollwerk` schon auf `bollwerk`, ersetzt `git -C /home/user/bollwerk pull --ff-only origin bollwerk` das `worktree add`. Hat der Nutzer „FREIGABE BOLLWERK“ angehängt, gilt der FREIGABE-Weg (MP-2).
+### 8.3 Umfang (Teil UMFANG in Abschnitt 6)
+- **Was zählt:** Einheiten je Kategorie, etwa
+  - Orte und Unterorte, interaktive Gegenstände, Ereignisse
+  - Entscheidungen mit Optionen, sichtbare Aktionen der Figur, Würfelproben mit Ausgängen
+  - Hinweise und Fehlfährten, Erzähler- und Dialogbausteine
+  - Bot-Charaktere und Abendvarianten
 
----
+  Die endgültige Liste legst du in M1 fest, abgeglichen mit den Achsen X1–X6 aus Anhang A, MP-7.
+- **Gültig** ist eine Einheit nur, wenn sie:
+  - die Prüfmauer passiert hat
+  - in Simulationen tatsächlich erreicht wird
+  - kein Beinahe-Duplikat ist
+  - zum Kanon passt
+  - die Füllstoff-Prüfung F1–F5 besteht
+- **Zuwachsfaktor:** das gewichtete geometrische Mittel der Faktoren je Kategorie.
+  - Keine Kategorie trägt mehr als 40 % des Logarithmus.
+  - Jede Kernkategorie hat eine Untergrenze von 3×.
+  - Kategorien mit Basis 0 bekommen absolute Pflichtziele (Anhang A, MP-7).
+  - Warum: So lässt sich der Faktor nicht durch das Aufblähen einer einzigen Kategorie erreichen.
+- **Spieltiefe aus Simulationen:** unterscheidbare Partieverläufe, sinnvolle Entscheidungen je Partie, Überschneidung zweier Zufallspartien.
+- **Basis** ist der B-02-Commit, gemessen mit demselben Messskript und danach eingefroren.
 
-## 5. ABNAHME DES META-LAUFS
+### 8.4 Design
+- **Bilder:** Vorher-nachher-Bilder jedes Bildschirms als Handy hoch, Handy quer und Tablet.
+- **Maße**, kalibriert in M1: Kontrast, Tippflächen, Abstands- und Schriftraster, Einhaltung der Palette, Bildzeit und Ruckler, Anteil ersetzter Platzhalter. Dazu Look-Vertrag, D1–D3 und Stilprüfung S1–S5 aus Anhang A, MP-8.
+- **Blindvergleich:** Mehrere Richter bewerten Paare aus alt und neu, ohne die Herkunft zu kennen. Die Schwelle legst du in M1 fest.
+- **Look:** „Bild-Look + Leben“ ist entschieden (BE-01). FEINKORN nur als Leben (Anhang A, K7).
+- **Herkunft der Bilder:** Bilder entstehen nur mit Mitteln ohne fremde Dienste. Was ein Mensch mit einem Bildgenerator erzeugen müsste, landet als fertige Bildbeschreibung unter FÜR DEN NUTZER.
+- **Ablage:** Jedes Bild kommt als Kontaktbogen nach `planung/bollwerk/bilder/<datum>/` und wird im NACHTPROTOKOLL genannt. Der Leitstand zeigt es dem Nutzer, denn der Nutzer will Bilder immer im Chat sehen.
 
-Je Zeile stehen Befehl, Ausgabeauszug und SHA in `planung/bollwerk/ABNAHME-META.md`.
+### 8.5 Prüfmauer – Mindestringe, billig vor teuer
+1. **Form:** Schema, Pflichtfelder, Kennungen, Länge, Sprache, keine Platzhalter.
+2. **Regeln:** Inhaltsregeln, Sperrliste, Namensbalance, Spoiler- und Geheimnisschutz, keine echten Personen oder Marken.
+3. **Kanon und Logik:** kein Widerspruch zum Kanon; Kanon 1.0 bytegleich. Jede Täter-Fassung bleibt lösbar (Beweis nach Anhang C8), und die Lösungsquote der Detektiv-Bots bleibt im Zielband aus M2.
+4. **Technik:** Bauen, Analysieren, Tests, Bildschirmbilder, Leistungs- und Größenbudget, keine Verbindung zu fremden Servern, Burgstadt-Schutz.
+5. **Spiel:** in Simulationen erreichbar, keine Sackgasse, Balance im Band, alle drei Modi.
+6. **Neuheit:** kein Beinahe-Duplikat einer vorhandenen Einheit.
+7. **Qualität:** Rubrik mit mehreren unabhängigen Richtern; weichen sie stark ab, entscheidet Opus.
+8. **Stichprobe:** Je Welle prüft Opus zufällig mindestens 10 % und mindestens 20 Einheiten, bei großen Wellen ein frischer Opus-5.5-Agent. Liegt die Fehlerquote über der Schwelle, geht die ganze Welle zurück.
+9. **Mutanten und Rot-Proben** für neuen Code (Anhang A, MP-14 L9).
 
-| Nr. | Kriterium | Prüfung |
+**Zu jedem Ring gehören:**
+- Messgröße, Schwelle, Werkzeug und eine Statistik je Welle.
+- Die Ringe sind Schichten des Torwerkzeugs `tool/bollwerk/bollwerk.dart [schnell|phase|nacht|ziel]` (Anhang A, MP-14).
+- Teure Ringe laufen gebündelt je Welle, nicht je Variante. Warum: Die Cloud-Maschine hat 4 Kerne.
+
+### 8.6 Variantenfabrik
+- **Slots und Auswahl:** Slots kommen aus dem Plan. Je Slot entstehen mehrere Varianten mit unterschiedlicher Vorgabe; die Auswahl folgt einer dokumentierten Regel.
+- **Rückgabe:** Jeder Agent schreibt seine Variante in einen eigenen Pfad des Ablageordners, den der Plan festlegt. Über das Schema im agent()-Aufruf gibt er nur Kennung, Pfad, Status und Selbstprüfung zurück. Warum: Was ein Workflow zurückgibt, landet im Kontext von Opus, und der muss eine ganze Generation reichen.
+- **Code-Aufträge:** Sie arbeiten in Pool-Kopien ohne Git (Anhang A4.9). Den Patch erzeugt Opus.
+- **Was Agenten nicht dürfen:** weder Git-Befehle noch Installationen oder Netzwerkzugriffe. Sie rufen nur die Werkzeuge und Prüfskripte auf, die ihr Paket nennt. Warum: Der Sicherheitsfilter zählt Sperren, und nach zu vielen fragt er wieder; nachts antwortet niemand.
+- **Nachbesserung:** Abgelehnte Varianten bekommen höchstens zwei Nachbesserungsrunden mit Befund. Danach übernimmt Opus oder schneidet den Slot neu.
+- **Gleiche Welle, gleiche Einstellungen:** Agenten einer Welle teilen Modell, Denkstufe, Werkzeuge und Schema. Warum: So lesen sie den Zwischenspeicher der ersten Anfrage mit und sparen Kontingent.
+- **Zusammenführen:** Angenommene Varianten führt ein Skript ins Spiel zusammen, das Opus in der Hauptsitzung ausführt; von Hand führt Opus nichts zusammen.
+- **Register:** eine kompakte Tabelle mit Kennung, Slot, Status, Ringergebnissen und Punkten. Opus liest Statistiken und Stichproben, keine Rohtexte.
+- **Paket-Bauplan für Haiku** in fester Reihenfolge:
+  1. Kopfzeile: Kennung · Rolle · Modell · Denkstufe · Welle · Kern-Version · Umfang · Schwierigkeit 1 bis 3
+  2. Rollenbriefing
+  3. Aufgabe in einem Satz
+  4. das Projekt in fünf Sätzen, wortgleich in jedem Paket
+  5. Kern-Auszug
+  6. Qualitätsmaßstab
+  7. Grenzen, mit dem Werkzeugabsatz aus §5 wortgleich
+  8. nummerierte Schritte mit Mengen
+  9. Muster als Illustration
+  10. Ausgabeschema
+  11. Selbstprüfung
+  12. als letzte Zeile `=== ENDE [Kennung] · BEREIT ZUR RÜCKGABE ===`
+
+  Bei Schema-Ausgabe ersetzt ein Pflichtfeld status mit dem Wert BEREIT die Endmarke. Pakete der Stufe 3 gehen an Opus.
+- **Zufall** nur über Startwerte, die das Skript als Eingabe bekommt. Warum: Workflow-Skripte erlauben weder Zeitstempel noch Zufallszahlen.
+
+### 8.7 Betrieb über mehrere Nächte
+- **Wellen:** höchstens 1.000 Agenten je Workflow-Lauf, so bemessen, dass ein hängender Agent höchstens eine Welle kostet.
+  - Verlangt ein Workflow-Start in der Kindsitzung eine Zustimmung (M0 Frage 7), nutzt der Master-Prompt direkte Hintergrund-Agenten statt Workflows.
+- **Nutzungslimit:** Der Lauf rechnet mit beiden Fällen aus M0 Frage 8.
+  - Er wartet selbst und setzt fort, oder er steht, bis der Leitstand nach dem Zurücksetzen „WEITER BOLLWERK“ schickt.
+  - Die wertvollste Arbeit läuft zuerst, jeder gesicherte Stand ist brauchbar, und jede Welle ist so geschnitten, dass sie höchstens zwei Limitfenster braucht.
+  - Ein Limit ist nie ein Grund, eine neue Generation zu starten.
+- **Laufende Arbeit:** Solange Hintergrundarbeit läuft, beendet der Lauf seinen Zug nicht. Er arbeitet an Unabhängigem weiter oder wartet mit Prüfbefehlen von höchstens zehn Minuten. Eine Welle, die länger als das Dreifache ihrer geplanten Dauer läuft, bricht er ab und wertet das Teilergebnis aus.
+- **Wiederaufnahme:** Nach jeder Pause, jedem Limit und jedem Neuaufbau der Maschine prüft der Lauf zuerst Branch, LEASE, Werkzeugkette und offene Wellen und startet Unvollständiges neu, und zwar denselben Workflow mit `resumeFromRunId`.
+- **Sicherung:** Mindestens stündlich Commit und Push von `bollwerk`; jeder Commit baut und testet grün. LEASE-Herzschlag bei jedem Push.
+- **main-Stand hereinholen:** Nach B-02 holt der Lauf an jedem Phasentor origin/main in `bollwerk`, nach der Konfliktregel aus Anhang A, MP-16. Die Konfliktzahl kommt in den Bericht.
+- **Generationsende:** Nach höchstens 12 Stunden oder bei erreichtem Nachtziel setzt der Lauf `ZUSTAND: NACHT-ENDE`, sichert, schreibt den Morgenbericht und beendet den Zug mit der Zugende-Zeile. Die nächste Generation startet der Leitstand.
+- **Gedächtnis** in Dateien des Planungsordners: KERN, ABNAHME, PLAN, LAUF, STATUS, PRUEFPUNKT, ENTSCHEIDUNGSLOG, REGISTER, NACHTPROTOKOLL, FÜR DEN NUTZER. Nach jeder Kontextverdichtung liest der Lauf zuerst LAUF, STATUS und KERN.
+- **Morgenbericht:** täglich um 06:30 Uhr als `planung/bollwerk/MORGENBERICHT.md`, mit Kontaktbögen. Der Leitstand prüft ab 06:00 und zeigt um 07:00 dem Nutzer.
+
+### 8.8 Startpaket (für den Leitstand)
+- **Startnachricht je Generation:** der Master-Prompt-Text, davor eine Kopfzeile, danach das Startwort:
+
+  > Generation <n> · LEASE übernehmen nach 2.5 · Kindsitzung des Leitstands session_01Aix28JmFAfTMVcF4Z8bgqP
+
+  danach `START BOLLWERK`.
+- **Parameter für `create_session`:**
+  - Repo-URL
+  - `source_revision: bollwerk`
+  - `outcome_branch: bollwerk`
+  - `model: claude-opus-5-5`
+  - `permission_mode: auto`
+  - Titel `BOLLWERK G<n>`
+  - Tag `bollwerk`
+
+  Für Generation 1 legt der Leitstand vorher `bollwerk` auf `origin/bollwerk-plan` an.
+- **Gebrauchsanleitung für den Nutzer** mit höchstens zehn Zeilen:
+  - was der Loop tut
+  - welche Steuerworte es gibt (STOPP, WEITER, FREIGABE, MAIN BOLLWERK, „A<n>: …“)
+  - was nur Menschen tun können
+  - eine ehrliche Erwartung zu Dauer, Faktor und Kosten
+- **Prüfliste für den Leitstand:** woran er „fertig“, „hängt“ und „Limit“ erkennt, also ZUSTAND, Zugende-Zeile, Weckruf und `rate_limit_info`.
+- **Keine Sperrdatei und keine Umgebungsvariablen.** Warum:
+  - Die Umgebung „Default“ teilen sich mehrere Läufe.
+  - Ob `availableModels` aus der Repo-Datei in der Cloud wirkt, ist nicht belegt (BELEGE C14).
+  - Änderungen an Einstellungsdateien sind gesperrt (Anhang A4.4).
+
+  Die Modellreinheit sichert stattdessen: jeder Aufruf nennt sein Modell, und M0 macht die Modellprobe.
+
+## 9. PRÜFUNG DES MASTER-PROMPTS
+**Rubrik** mit 0, 1 oder 2 Punkten je Prüfung:
+
+| Prüfung | Inhalt |
+|---|---|
+| P1 | Ziel |
+| P2 | Kontext |
+| P3 | Ende: Kriterien mit Methode, Schwelle und Beleg |
+| P4 | Steuerung: Regelkreise mit Ausgang und Höchstzahl |
+| P5 | Widerspruchsfreiheit, auch gegenüber den Anhängen |
+| P6 | Grenzen konkret und abhakbar |
+| P7 | Umgebungstreue: nur Funktionen, die die Umgebung wirklich hat (BELEGE, LAGEBILD); Unsicheres markiert |
+| P8 | Ausführbarkeit ohne Rückfrage |
+| P9 | Robustheit gegen frühen Stopp, Endlosschleife, Abdriften und Schönrechnen |
+| P10 | Dichte |
+| P11 | Modellgerechtheit |
+| P12 | Startbarkeit und Generationswechsel |
+| P13 | Modellreinheit: nur Opus 5.5 und Haiku 5.5, jeder Agentenauftrag mit Modell |
+
+Freigabe ab 23 von 26 Punkten ohne eine 0.
+- Die Rubrik bewertet ein frischer Opus-5.5-Agent, der die Entstehung nicht gesehen hat. Er bekommt die Rubrik, Master-Prompt, Anhänge, Startpaket, LAGEBILD sowie §1, §3, §8 und §11 dieses Auftrags.
+- Danach prüfen 10 Haiku-Gegenprüfer mit je einer Linse den Master-Prompt: Ausführbarkeit, Sicherheit und Hoheit, Spiel und Würfel, Durchhalten über Tage, Messbarkeit, Look, Umfang und Füllstoff, main-Reife und Archiv, Widerspruch, Loop-Schnittstelle. Jeder Befund hat Schwere, Beleg und Ersatztext. Nur BLOCKER gehen an je 3 Skeptiker; ein BLOCKER gilt bei 2 von 3 Stimmen.
+
+**Proben**, jede mit Befund und Folge im PRUEFBERICHT:
+1. **Probelauf:** Was tut der Nachtlauf in seinen ersten drei Schritten nach START BOLLWERK?
+2. **Rotes Team:** Drei Haiku-Angreifer suchen unabhängig, wie der Nachtlauf abkürzen, Einheiten doppelt zählen, Tests umgehen, Schwellen still senken oder die Hoheit verletzen könnte. Jede gefundene Lücke wird geschlossen.
+3. **Stopp-Probe:** Wo könnte der Lauf zu früh aufhören oder auf eine Antwort warten, die nie kommt?
+4. **Schleifen-Probe:** Hat jeder Kreis eine Höchstzahl?
+5. **Drift-Probe:** Was hält den Lauf nach zwölf Stunden und in Generation 5 auf Kurs?
+6. **Fremdleser-Probe:** Versteht ein Mensch ohne Vorwissen, was der Prompt will?
+7. **Umgebungs-Probe:** Jede genannte Funktion gegen LAGEBILD, BELEGE und §11.
+8. **Modell-Probe:** Prompt und Startpaket nach Modellnamen durchsuchen; erlaubt sind nur Opus 5.5 und Haiku 5.5.
+9. **Kaltstart-Probe:** Ein frischer Opus-5.5-Agent bekommt nur den Master-Prompt, dessen Anhänge und einen Wegwerf-Worktree von `bollwerk-plan`, so wie ihn der Nachtlauf vorfindet.
+   - Er spielt START BOLLWERK dreimal als Trockenlauf durch:
+     - mit offener B-02
+     - mit unterstellt erfüllter B-02
+     - als Generation 2, die eine LEASE von Generation 1, einen offenen Eintrag S-<n> und ein gerade abgelaufenes Limit vorfindet
+   - Jeder Durchgang geht bis zum ersten Phasentor.
+   - Dabei gilt: nur lesende Befehle, keine Installation, keine Agenten, Workflows, Routinen oder `send_later`; teure Schritte nur beschrieben; höchstens 20 Minuten je Durchgang.
+   - Er listet jede Stelle, an der er hätte fragen müssen. Bestanden bei null blockierenden Fragen.
+10. **Verdichtungs-Probe:** Du legst LAUF, STATUS, KERN und PLAN eines gedachten Zwischenstands um 03:00 Uhr in Generation 2 an. Ein frischer Haiku-Agent bekommt nur diese vier Dateien und muss sagen, wo der Lauf steht und was als Nächstes kommt. Bestanden, wenn beides mit dem Plan übereinstimmt.
+
+Höchstens drei Prüfrunden; danach lieferst du mit offen benannter Schwäche.
+
+## 10. ABNAHME DES META-LAUFS
+Lege die Kriterien in M0 als `meta/ABNAHME-META.md` an und hake nur mit Beleg ab.
+
+| Nr. | Kriterium | Beleg |
 |---|---|---|
-| M-01 | Für sich allein ausführbar | Letzter M7-Durchgang mit 0 Blockern; die Starthandlungen nach M7.1 sind ausgeführt bzw. als Werkzeugaufruf geprüft (`belege/meta_trockenlauf.txt`). |
-| M-02 | Fakten stimmen | Jede Pfad- und Ref-Angabe im Master-Prompt wird per `git cat-file -e <ref>:<pfad>` bzw. `test -e` geprüft: 0 fehlend (neu markierte ausgenommen). Dazu 20 Zahlenfakten, gezogen per `Rng(Rng.hashString('M-02'))`: 0 Fehler. |
-| M-03 | Regeln vollständig | Abgleich gegen namentlich genannte Quellen: `origin/finalisierung-schlosskeller:planung/finalisierung-schlosskeller/MASTER-PROMPT.md` §3, `origin/kern-feinkorn:planung/feinkorn/MASTER-PROMPT.md` §3, `hd/KERN.md` + `hd/rollen/KOPF.md` (auf `origin/claude/pensive-gates-ajtp7x`), `krimidinner/spuk-im-gewoelbe/00_steuerung/MASTER-PROMPT.md`. Ergebnis: 0 fehlende Regeln. |
-| M-04 | Nutzerwunsch abgedeckt | Anforderungsmatrix: jeder Satzteil aus A1 und jede BE-Entscheidung → Abschnitt im Master-Prompt; 0 Lücken. |
-| M-05 | Spielmechanik belegt | Die Simulation aus M3 erfüllt alle Schwellen aus C8 (Lösbarkeit 100 % mit Würfelbeweis, Wertung unverändert, Bänder, Geiz-Bot, Pfadgleichheit). |
-| M-06 | Design-Richtung belegt | ≥ 4 Proben im Chat; Stilprüfung S1–S5 an den Proben gemessen; Gremium geeicht (D3 bestanden) oder Strukturmaße als Ersatz vermerkt. |
-| M-07 | Umfang messbar | Zählbefehl je Achse läuft; Gewichte und Pflichtziele festgelegt; Formel MP-7 im Master-Prompt. |
-| M-08 | Durchsatz gemessen | `DURCHSATZ.md` mit Werten je Typ, Engpass, Nachtziel, Tokenrahmen und höchster sicherer Stufe. |
-| M-09 | Vorrat reicht | Σ Schablonen × Parameter ≥ 1,5 × Nachtkapazität in Aufträgen je Typ; Vorlauf-Vorrat ≥ 8 h; Nachschubwerkzeug beschrieben. |
-| M-10 | Bollwerk prüfbar | Jede Schicht L0–L10 hat Befehl, Schwelle, Fallzahl je Modus und Budget. Die Summe je Modus liegt unter dem Modusbudget, gerechnet aus gemessenen Laufzeiten. |
-| M-11 | Kriterien messbar | Ein Skript prüft jede BK-Zeile: Befehl in Backticks und Schwelle mit Zahl oder Vergleich. 0 Treffer für „signifikant/deutlich/angemessen/ausreichend/sinnvoll/hochwertig/schön“ ohne Maß im selben Satz. |
-| M-12 | Gegenprüfung abgeschlossen | M6 endet mit 0 offenen bestätigten BLOCKERN; offene MAJOR stehen mit Folge in ANNAHMEN. |
-| M-13 | Hoheit gewahrt | Kein Auftrag im Vorrat berührt vor B-02 einen Pfad außerhalb der Vorlauf-Pfade (Skriptprüfung gegen `HOHEIT.md`). |
-| M-14 | Zusammenführung geplant | Je Linie Klasse, Kriterien K1–K7, Reihenfolge, Konfliktregel und Vorfahrtests im Master-Prompt; Probe-Merges aus M1 belegt. |
-| M-15 | Form | Hauptteil `wc -w` ≤ 7.000; die Linse „Widerspruch“ in M6 bestätigt 0 Befunde; jede Schwelle steht genau einmal. |
-| M-16 | Gesichert | Push auf `bollwerk`; Secret-Scan sauber (übersprungene Passagenprüfung vermerkt); eigene Wegwerf-Worktrees entfernt. |
-| M-17 | Übergabe verständlich | Die Chat-Übergabe folgt M8.3, mit kopierbarer Startnachricht und Annahmenliste. |
+| M-01 | Lage | Alle acht Fragen aus M0 sind mit Beleg beantwortet oder als nicht klärbar markiert, je mit Folge für die Nacht. Die Faktenprüfung von Anhang B ist abgeschlossen. |
+| M-02 | Läufe | B-02 ist aus den Endkriterien des Finalisierungs-Laufs abgeleitet und ohne Tag prüfbar. Stand und erwarteter Abschluss dieses Laufs sowie alle weiteren Läufe mit ihrer Zuständigkeit sind dokumentiert. |
+| M-03 | Messbasis | Das Messskript liefert in zwei Durchläufen dieselben Zahlen, und eine Gegenzählung von 20 Einheiten durch einen Haiku-Messer stimmt mit ihm überein. Basiswerte heute und Hochrechnung nach der Finalisierung liegen mit Spanne vor. |
+| M-04 | Bestand und Nutzerwille | Jedes Spielteil hat Fundstelle und Schicksal mit Grund. Jeder Satz aus A1 und jede Entscheidung aus A2 ist einer Stelle im Master-Prompt zugeordnet (Anforderungsmatrix). |
+| M-05 | Spielkern | Kern-Aussagen zu Runde, Entscheidungen, sichtbaren Aktionen, Spielwürfel, Party, Solo, WLAN und Geheimnisschutz liegen vor. Würfel, Dauer und Lösbarkeit sind simuliert, mit Zahlen; die Bänder stehen als Annahme. |
+| M-06 | Design | Das Bildverfahren ist an mindestens drei Bildschirmen in allen drei Ansichten erprobt; die Designmaße haben Basiswerte. Das Richterverfahren ist kalibriert: Bei Kontrollpaaren aus Original und absichtlich verschlechterter Fassung wählen die Richter in mindestens 90 % das Original, und drei Richter stimmen in mindestens 80 % überein. |
+| M-07 | Fabrik | Mindestens drei Slot-Arten liefen in echter Probe durch alle Ringe. Parallelität, Annahmequoten, Dauern, Tokens je Denkstufe oder ihre Schätzung und Fehlerbilder sind erfasst. Briefings und Schemas sind danach geschärft. |
+| M-08 | Plan | Mengengerüst, Kapazitätsrechnung nach M4 mit 20 % Puffer, Zielfaktor F mit Begründung, Zwischenziel je Nacht, Wellenplan mit Vorlauf, Durchstich und kritischem Pfad. |
+| M-09 | Master-Prompt | Vollständig nach §8; ein Text ohne verschachtelte Codeblöcke, höchstens 55.000 Byte; kein Auslösewort; kein Verweis auf diesen Meta-Prompt; jeder Agentenauftrag mit Modell und Denkstufe; die Verweise auf 2.2 B-02 und auf UMFANG in Abschnitt 6 stimmen. |
+| M-10 | Prüfung | Rubrik mindestens 23 von 26 ohne 0 durch einen frischen Opus-5.5-Agenten; alle zehn Proben mit Befund und Folge im PRUEFBERICHT; 0 bestätigte BLOCKER offen. |
+| M-11 | Startpaket | Startnachricht, Parameter für `create_session`, Gebrauchsanleitung mit höchstens zehn Zeilen, Prüfliste für den Leitstand. |
+| M-12 | Übergabe | `bollwerk-plan` ist gepusht und enthält gegenüber origin/main nur `planung/bollwerk/` (belegt durch `git diff --stat origin/main...origin/bollwerk-plan`). Das Protokoll aller Pushes dieses Laufs nennt nur `bollwerk-plan`. Wegwerf-Worktrees sind entfernt. Die letzte Nachricht folgt §12. |
+| M-13 | Loop-Schnittstelle | LEASE, ZUSTAND, Zugende-Zeile, Weckruf, STEUERUNG/BEFUNDE mit Quittung, B-02 ohne Tag, „BEREIT FÜR MAIN“ und das Generationsfenster stehen im Master-Prompt und sind in der Kaltstart-Probe (Durchgang 3) bestanden. |
 
----
+**Abschlussregel:**
+- Erledigt ist, was mit Beleg abgehakt ist. Kriterien sinken nie still.
+- Ist eines von M-01 bis M-08 unerreichbar, steht es mit Grund und bester Ersatzlösung in den Annahmen.
+- M-09 bis M-11 und M-13 haben keine Ersatzlösung.
+- Für M-12 gibt es genau eine: Ist der Push nachweislich unmöglich, stehen Master-Prompt und Startpaket vollständig in der letzten Nachricht und der Grund unter FÜR DEN NUTZER.
 
-## 6. STAND-ZEILE UND WIEDEREINSTIEG
+## 11. BETRIEBSWISSEN
+Stand 9. Oktober 2026, geprüft gegen die offizielle Claude-Code-Dokumentation (Belege mit Zitat und Link in `v4/BELEGE-DOKU.md`). Unsicheres prüfst du in M0 nach und hältst Abweichungen im LAGEBILD fest.
 
-Jede Antwort im Meta-Lauf beginnt mit:
+**Maschine und Befehle**
+- **Maschine:** Cloud-Sitzungen laufen auf einer frischen Ubuntu-Maschine mit etwa 4 Kernen, 16 GB Speicher und 30 GB Platte. Das Einrichtungsskript der Umgebung wird als Dateisystem-Abbild zwischengespeichert, wenn es in etwa fünf Minuten fertig ist. (C1)
+- **Einstellungen:** Eine Cloud-Sitzung mit genau einem Repo liest dessen `.claude/settings.json`, aber keine Benutzer- oder lokalen Einstellungen. Den Auto-Modus wählt man im Modus-Menü oder beim Erzeugen der Sitzung; eine Projektdatei kann ihn nicht setzen. (C2)
+- **Git-Proxy:** Er lehnt das Pushen von Tags und das Löschen von Branches ab. Branch-Pushes, auch auf main, lässt er zu. GraphQL ist gesperrt, `gh pr` scheitert daher; REST geht. (C3)
+- **Befehlsdauer:**
+  - im Vordergrund standardmäßig 2 Minuten, höchstens 10; danach wird der Befehl in den Hintergrund verschoben und hat dort bis zu 30 weitere Minuten
+  - ein direkt im Hintergrund gestarteter Befehl hat bis zu 2 Stunden
+  - Befehle, die mit `sleep` beginnen, werden nicht verschoben (C4)
+- **Pausen:** Ohne Aktivität pausiert die Maschine nach wenigen Minuten. Bei einem Neuaufbau sind laufende Agenten, Befehle und geplante Weckrufe von /loop verloren. Ergebnisse fertiger Workflow-Agenten bleiben mit dem Verlauf erhalten; ein Neustart desselben Workflows liefert sie wieder. (C5)
 
-`STAND · Meta-Lauf [laufende Schritte, z. B. M2+M3] · Prüfrunde [r] · Agenten aktiv [k] · Varianten [v] · nächster Schritt: […]`
+**Workflows und Agenten**
+- **Workflows** (C6):
+  - höchstens 1.000 Agenten je Lauf und 4.096 Einträge je pipeline() oder parallel()
+  - gleichzeitig bis zu 16 Agenten, auf Maschinen mit wenigen Kernen weniger; hier wurden 2 gemessen
+  - `CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS` setzt 1 bis 256
+  - kein Zeitstempel, kein Zufall
+  - ein Agent ohne Ausgabe startet bis zu fünfmal neu; das Zeitfenster beträgt 10 Minuten und lässt sich über `stallMs` setzen
+- **Modellwahl für Agenten** (C7):
+  - Reihenfolge: Angabe im Aufruf → Agentendefinition → `CLAUDE_CODE_SUBAGENT_MODEL` → Sitzungsmodell
+  - Erkundungs- und Planungsagenten laufen auf dem Hauptmodell
+  - Ersatzwarnungen erscheinen nur interaktiv
+- **Denkstufen** (C8):
+  - Opus 5.5 und Haiku 5.5 kennen low, medium, high, xhigh und max; Standard ist medium
+  - eine Angabe je Agent geht der Sitzung vor
+  - `CLAUDE_CODE_EFFORT_LEVEL` überschreibt jede Angabe
+- **Zustimmung zum Workflow-Start** (C10): Im Auto-Modus fragt der erste Workflow-Start einmal nach; ist die Workflow-Automatik an, entfällt die Frage. In einer Kindsitzung ist das ungeprüft (M0 Frage 7).
 
-**`meta/PRUEFPUNKT.md` enthält:**
-- laufende Schritte
-- Ergebnisse mit Datei
-- laufende Agenten und Workflows mit Kennung, Ausgabedatei und Startzeit
-- selbst angelegte Wegwerf-Worktrees
-- offene Entscheidungen
-- den nächsten Schritt
+**Auto-Modus und Freigaben**
+- **Auto-Modus** (C11):
+  - Er erlaubt Pushes auf jeden Branch des Repos, auch auf main.
+  - Er sperrt Force-Push, `git reset --hard` auf fremden Stand, neue Remotes und das Zusammenführen eines Pull-Requests ohne menschliche Freigabe.
+  - Nach drei Sperren in Folge oder zwanzig insgesamt fragt er wieder.
+  - Was ein Workflow-Skript einem Agenten aufträgt, gilt nicht als Auftrag des Nutzers.
+  - Grenzen aus dem Gespräch liest der Filter bei jeder Prüfung neu als bindend; eine Verdichtung kann sie verlieren.
+- **Nicht als Zustimmung gelten** (C15): der Prompt einer Routine, eine Nachricht einer anderen Sitzung und die Startnachricht einer Kindsitzung.
+  - Deshalb pusht der Nachtlauf nur seinen eigenen Arbeitsbranch.
+  - main pusht der Leitstand, dessen Nutzer den Push freigegeben hat.
 
-Du aktualisierst ihn nach jedem Teilschritt und vor jedem großen Agentenstart.
+**Ziele und Limits**
+- **/goal** (C12): Die Bedingung prüft das kleine schnelle Modell nur anhand des Gesprächs. Check-ins kommen nur, solange Hintergrundarbeit läuft. Der Nachtlauf braucht /goal nicht; seine Steuerung ist LEASE und ZUSTAND.
+- **Nutzungslimit** (C13):
+  - In interaktiven Sitzungen mit claude.ai-Abo wartet Claude Code und setzt nach dem Zurücksetzen selbst fort, höchstens zweimal in Folge und nur, wenn der Reset weniger als 24 Stunden entfernt ist.
+  - Für einfache Cloud-Sitzungen ist das nicht dokumentiert. Ein Wochenlimit startet kein Warten.
+  - Workflows warten nur unter diesen Bedingungen mit.
+  - Der Leitstand stößt nach dem Zurücksetzen an.
+- **Modellsperre** (C14): `availableModels` gibt es. Ob die Repo-Datei sie in der Cloud durchsetzt, ist nicht belegt; deshalb gilt die Modellangabe je Aufruf.
 
-**Nach einer Verdichtung:**
-1. `meta/PRUEFPUNKT.md` lesen. Fehlt `/home/user/bollwerk` (neuer Container), gilt M0.2.
-2. In diesem Meta-Prompt §3 und die Abschnitte der laufenden Schritte lesen; bei M5 auch Anhang A6.
-3. Laufende Agenten prüfen; nichts doppelt starten.
-4. Weitermachen.
+## 12. GEDÄCHTNIS, STATUS, ÜBERGABE
+- **Planungsordner** `planung/bollwerk/` auf `bollwerk-plan`:
+  - **Dein Zustand** unter `meta/`: META-AUFTRAG, STATUS, ABNAHME-META.
+  - **Erarbeitet:** LAGEBILD, BESTAND, MESSBASIS mit Messskript, SPIELKERN, FABRIKPROBE, DESIGN-PROBE, PLAN, ENTSCHEIDUNGSLOG, ANNAHMEN, PRUEFBERICHT, FÜR DEN NUTZER.
+  - **Übergabe:** MASTER-PROMPT.md, `anhang/A-<n>-<name>.md`, STARTPAKET.md.
+  - **Startdateien der Nachtläufe:** `LAUF.md` mit `LEASE gen=0` und `ZUSTAND: NICHT BEGONNEN`, PRUEFPUNKT.md und STATUS.md.
+  - **Probeskripte** als Referenz unter `proben/`.
+  - **Bilder** unter `bilder/meta/`.
+- **STATUS** hält Phase, abgehakte Kriterien, Quittungen und nächsten Schritt. Nach einer Kontextverdichtung liest du zuerst META-AUFTRAG, STATUS und ABNAHME-META.
+- **Statuszeile:** Jede Antwort beginnt mit `STAND · Meta-Phase M[n] von M7 · Abnahme [a] von 13 · Agenten aktiv [x] · nächster Schritt: […]`
+- **Die letzte Nachricht** enthält in dieser Reihenfolge:
+  1. Annahmen, nummeriert: Entscheidung · Standard · Folge, wenn der Nutzer sie kippt. Mindestens A-01 Design-Richtung (mit Bild) bis A-12, wie in Anhang A genannt.
+  2. Prognose: erwarteter Zuwachsfaktor mit Spanne, Zahl der Nächte, die drei größten Risiken.
+  3. Pfad, SHA und Größe des Master-Prompts. Der Text selbst liegt im Branch, denn der Leitstand liest ihn dort.
+  4. Das Startpaket: Startnachricht, Parameter, Gebrauchsanleitung, Prüfliste.
+  5. Was nur Menschen tun können.
+  6. Den Stand von M-01 bis M-13 mit je einem Beleg.
 
----
+  Die letzte Zeile lautet `=== BOLLWERK-META-ENDE · <BEREIT|HALT> · <sha> ===`. BEREIT nur, wenn M-09 bis M-13 erfüllt sind.
+- **Danach** bleibt die Sitzung offen. Schickt der Leitstand Befunde (höchstens eine Nachbesserungsrunde), arbeitest du sie ein, prüfst die betroffenen Teile nach §9 und übergibst neu.
 
-## 7. START
+## 13. START
+Beginne sofort mit M0 in der dort genannten Reihenfolge:
+1. Statuszeile
+2. Branch prüfen
+3. META-AUFTRAG, ABNAHME-META und STATUS
+4. Modellprobe
+5. Commit und Push
+6. Lagebild
 
-1. M0 ausführen.
-2. M1 starten: alle Leser **gleichzeitig**.
-3. Während M1 läuft:
-   - den Wegwerf-Worktree für M2 anlegen und bauen
-   - die Simulationsprobe für M3 vorbereiten
-   - die Pilotaufträge für M4 entwerfen
-4. Danach M2 und M3 gleichzeitig, dann M4, M5, M6, M7, M8.
+Danach arbeitest du alle Phasen ohne Rückfragen bis zur Übergabe ab.
