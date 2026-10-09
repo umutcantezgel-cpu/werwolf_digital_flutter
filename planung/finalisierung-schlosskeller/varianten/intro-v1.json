@@ -1,0 +1,43 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "bereich": "erzaehler",
+  "hinweis": "Intro-Fassung 1",
+  "eintraege": [
+    {
+      "id": "intro.start",
+      "text": "Ich bin ein altes Schloss, etwas abgelegen vor der Stadt. An diesem Abend feiert ihr einen Geburtstag in meinem großen Gewölbekeller unter meinem Turm. Der Wind pfeift durch meine Lichtschächte. Schwere Holztüren quietschen im Luftzug, und elektrische Kerzen flackern auf den Tafeln. Nur im Messingkerzenständer brennen echte Kerzen. Am Buffet gibt es warmes Essen, Brot, Dips, Gebäck und schwarzen Tee aus dem großen Teekocher. Kurz vor zwölf wird es dunkel. Im Vorratsraum hinter der Theke liegt Herr Schneider bewusstlos. Der Schlüsselbund ist weg, und das Außentor ist zu. Hinter meinen dicken Mauern gibt es keinen Handyempfang, und ihr sitzt bis zum Morgen fest."
+    },
+    {
+      "id": "intro.lacher.lacher_ruestung.besetzt",
+      "text": "Um neun Uhr abends hielt Sibel die alte Ritterrüstung im Turmgang für einen Menschen. Sibel schrie auf und stolperte rückwärts gegen die Schauvitrine. Die Scheibe bekam einen feinen Sprung."
+    },
+    {
+      "id": "intro.lacher.lacher_ruestung.npc",
+      "text": "Um neun Uhr abends hielt ein Gast die alte Ritterrüstung im Turmgang für einen Menschen. Der Gast schrie auf und stolperte rückwärts gegen die Schauvitrine. Die Scheibe bekam einen feinen Sprung."
+    },
+    {
+      "id": "intro.lacher.lacher_verlaufen.besetzt",
+      "text": "Um Viertel nach acht suchte Olli die Toilette. Olli nahm die falsche Tür hinter der Theke und stand im dunklen Vorratsraum vor der Geburtstagstorte. „Ich wollte nur aufs Klo!“"
+    },
+    {
+      "id": "intro.lacher.lacher_verlaufen.npc",
+      "text": "Um Viertel nach acht suchte ein Gast die Toilette. Der Gast nahm die falsche Tür hinter der Theke und stand im dunklen Vorratsraum vor der Geburtstagstorte. „Ich wollte nur aufs Klo!“"
+    },
+    {
+      "id": "intro.lacher.lacher_kamin.besetzt",
+      "text": "Um halb zwölf abends feuerte Hana den Kamin an, ohne die Kaminklappe zu öffnen. Dichter Qualm füllte den Kaminsaal, alle husteten, und die Klappen der Lichtschächte wurden aufgerissen. Dann wurde das Feuer gelöscht."
+    },
+    {
+      "id": "intro.lacher.lacher_kamin.npc",
+      "text": "Um halb zwölf abends feuerte ein Gast den Kamin an, ohne die Kaminklappe zu öffnen. Dichter Qualm füllte den Kaminsaal, alle husteten, und die Klappen der Lichtschächte wurden aufgerissen. Dann wurde das Feuer gelöscht."
+    },
+    {
+      "id": "intro.auftrag.m",
+      "text": "Du bist jetzt der Detektiv, und Herr Schneider hat eine Bitte an dich. „Finde raus, wer das war. Bis zum Morgen.“"
+    },
+    {
+      "id": "intro.auftrag.w",
+      "text": "Du bist jetzt die Detektivin, und Herr Schneider hat eine Bitte an dich. „Finde raus, wer das war. Bis zum Morgen.“"
+    }
+  ]
+}
