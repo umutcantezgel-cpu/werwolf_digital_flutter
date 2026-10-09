@@ -140,10 +140,16 @@ class FigurenLager {
   /// Längster Aufruf von [backe] gemessen in Prozessorzeit des Spielthreads (ms).
   double maxBackCpuMs = 0;
 
+  /// Nur mit [prozessorZeitMs] (Messwerkzeug): die [kSpitzenSchritte] teuersten Aufrufe von
+  /// [backe] nach Prozessorzeit, absteigend, je mit ihrer Arbeit (Figur, Animation, Pose, Richtung).
+  final List<(double, List<(String, String, int, int)>)> spitzenSchritte = [];
+  static const kSpitzenSchritte = 8;
+
   /// Brennt höchstens [budgetMs] Millisekunden lang weiter (je Schritt eine Richtung).
   void backe(double budgetMs) {
     if (_warteschlange.isEmpty) return;
     final cpu0 = prozessorZeitMs?.call();
+    final arbeit = cpu0 == null ? null : <(String, String, int, int)>[];
     final uhr = Stopwatch()..start();
     while (_warteschlange.isNotEmpty && uhr.elapsedMicroseconds < budgetMs * 1000) {
       final w = _warteschlange.first;
@@ -154,6 +160,7 @@ class FigurenLager {
         continue;
       }
       final bilder = _teilweise.putIfAbsent(w, () => []);
+      arbeit?.add((id, anim, nr, bilder.length));
       bilder.add(baker.backeEinzel(k, kAnimationen[anim]![nr], bilder.length));
       if (bilder.length < 8) continue;
       _warteschlange.removeAt(0);
@@ -169,11 +176,40 @@ class FigurenLager {
     if (cpu0 != null) {
       final cpu = prozessorZeitMs!() - cpu0;
       if (cpu > maxBackCpuMs) maxBackCpuMs = cpu;
+      if (spitzenSchritte.length < kSpitzenSchritte || cpu > spitzenSchritte.last.$1) {
+        spitzenSchritte
+          ..add((cpu, arbeit!))
+          ..sort((a, b) => b.$1.compareTo(a.$1));
+        if (spitzenSchritte.length > kSpitzenSchritte) spitzenSchritte.removeLast();
+      }
     }
     backVerteilung[ms.floor().clamp(0, 63)]++;
   }
 
   void alleBacken() => backe(1e9);
+
+  /// Misst die [spitzenSchritte] nach: dieselbe Arbeit [wiederholungen]-mal, je Schritt das
+  /// Minimum der Prozessorzeit; geliefert wird das größte dieser Minima. Die Arbeit ist
+  /// deterministisch. Eine einzelne Unterbrechung der Maschine, die eine VM dem laufenden Thread
+  /// als Rechenzeit anrechnet (E56), fällt so heraus; echte Mehrarbeit des Codes bleibt.
+  double nachmessen({int wiederholungen = 5}) {
+    final uhr = prozessorZeitMs;
+    if (uhr == null) return maxBackCpuMs;
+    var groesste = 0.0;
+    for (final (_, arbeit) in spitzenSchritte) {
+      var beste = double.infinity;
+      for (var w = 0; w < wiederholungen; w++) {
+        final c0 = uhr();
+        for (final (id, anim, nr, richtung) in arbeit) {
+          final k = karten[id];
+          if (k != null) baker.backeEinzel(k, kAnimationen[anim]![nr], richtung);
+        }
+        beste = math.min(beste, uhr() - c0);
+      }
+      groesste = math.max(groesste, beste);
+    }
+    return groesste;
+  }
 
   /// Sprite für Figur [id] in [animation] zur Zeit [t] (s), Richtung relativ zum Betrachter.
   SpriteImage? bild(String id, String animation, double t, int richtung) {

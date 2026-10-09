@@ -696,3 +696,19 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Es schnitt mit „−30“ unten auch die Füße großer Figuren ab und maß deren Höhe zu klein.
   - Jetzt rundet es die Zonen wie Dart, nimmt Δh ≤ 5 Figurenpixel und schneidet nur die Beschriftung ab. Abgleich über alle 66 Figuren: Höhe, Ober- und Unterfarbe sind gleich. Die frühere Handsuche nach Farben (E54) jagte also zum Teil Scheinpaaren nach.
 - Neue Runden: Sicht A-605y/z (Prüfer 27/28) und Inhalt A-702v (Prüfer 31–33).
+
+## E56 · 09.10. 21:19 · Z-09: Ausreißer der Prozessorzeit kommen von der VM; teuerste Back-Schritte werden nachgemessen
+- **Befund:** Der volle Abnahmelauf am Stand e13255f war rot, nur wegen Z-09. Ein einzelner Back-Schritt der Figuren kostete 40,8 ms Prozessorzeit (× 4 = 163 ms, Grenze 50 ms). In 14 früheren vollen Läufen lag der Wert zwischen 4,1 und 6,3 ms.
+- **Untersuchung:**
+  - Fünf Einzelläufe von `bin/leistung.dart` ergaben 5,7 / 4,2 / 13,5 / 4,4 / 5,1 ms. Die Ausreißer kommen also nur ab und zu.
+  - Das GC-Protokoll (`--verbose_gc`) zeigt keine Pause von 5 ms oder mehr.
+  - Alle 6864 Einzel-Backvorgänge der 66 Karten, 40 Läufe, gemessen mit `getrusage(RUSAGE_THREAD)`: In 5 Läufen fiel je ein Aufruf mit 10–40 ms auf, sonst lagen sie bei etwa 0,6 ms. Getroffen wurden jedes Mal eine andere Figur und Pose, und zwar mit Nutzerzeit, ohne Seitenfehler und ohne Kontextwechsel. In umgekehrter Reihenfolge trifft es andere Aufrufe.
+  - **Gegenprobe ohne Spielcode:** Eine reine Rechenschleife ohne Allokation (Schritte von 0,8 ms) zeigte in 200 s sechs Ausreißer von 9 bis 90 ms Prozessorzeit.
+  - Damit ist die Ursache die VM: Unterbrechungen durch den Wirt rechnet sie dem laufenden Thread als Rechenzeit an, nicht als „steal“. E36 hatte das für die Wanduhr gezeigt; es gilt auch für die Thread-Prozessorzeit.
+- **Entscheidung:**
+  - `FigurenLager` merkt sich im Messbetrieb (nur mit `prozessorZeitMs`) die 8 teuersten Back-Schritte samt ihrer Arbeit (Figur, Animation, Pose, Richtung).
+  - `bin/leistung.dart` misst diese Schritte mit derselben Arbeit fünfmal nach. Maßgeblich ist je Schritt das Minimum, über die Schritte das größte. Grenze und Faktor bleiben gleich.
+  - Echte Mehrarbeit des Codes bleibt sichtbar, weil die Arbeit deterministisch ist. Ein einzelner Aussetzer der Maschine fällt heraus. Der einzeln gemessene Wert steht im Beleg daneben.
+  - Drei Läufe danach: 4,2 / 4,6 / 4,1 ms (einzeln gemessen 4,4 / 5,1 / 4,1 ms).
+  - Neuer Test `figuren_lager_test`, mit roter Gegenprobe: Ein eingespeister Aussetzer von 60 ms zählt nicht als Arbeit, und die Arbeit wird wirklich noch einmal getan.
+- Der rote Lauf ist nicht committet (Belege zurückgesetzt); der neue volle Lauf folgt am neuen Stand.
