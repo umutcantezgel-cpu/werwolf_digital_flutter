@@ -33,11 +33,16 @@ Future<void> main(List<String> args) async {
   final i = args.indexOf('--log');
   if (i >= 0 && i + 1 < args.length && File(args[i + 1]).existsSync()) {
     final l = File(args[i + 1]).readAsStringSync();
-    if (sauber && l.startsWith('HEAD $head')) {
+    // Gültig, wenn sich seit dem Commit des Protokolls außerhalb von nachtlauf/ (Berichte,
+    // Belege) nichts geändert hat und der Baum sauber ist
+    final m = RegExp(r'^HEAD ([0-9a-f]+) · .* · Exit 0\n').firstMatch(l);
+    final gleich = m != null &&
+        Process.runSync('git', ['diff', '--quiet', m[1]!, 'HEAD', '--', '.', ':!nachtlauf'], workingDirectory: wurzel).exitCode == 0;
+    if (sauber && gleich) {
       log = l;
-      stdout.writeln('Protokoll wiederverwendet: ${args[i + 1]} (HEAD $head)');
+      stdout.writeln('Protokoll wiederverwendet: ${args[i + 1]} (Lauf auf ${m[1]}, Code seither unverändert)');
     } else {
-      stdout.writeln('Protokoll ${args[i + 1]} gehört nicht zum aktuellen Stand – neuer Lauf.');
+      stdout.writeln('Protokoll ${args[i + 1]} passt nicht zum aktuellen Code-Stand – neuer Lauf.');
     }
   }
   if (log == null) {
