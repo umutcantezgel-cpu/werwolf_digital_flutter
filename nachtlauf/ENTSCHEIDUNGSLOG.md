@@ -546,3 +546,18 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Danach sind die Partytests (170), die Plausibilität, der Simulator und der Scanner grün.
   - Die Auftragsdateien des Strangs (`planung/…/auftraege/F3-AUTOR-*.md`) nennen noch „Weinrot“; der Hinweis an den Strang steht in FÜR DEN NUTZER. Dort steht auch der Farbname „Bordeaux mit Gold“, den der Scanner nicht meldet, der aber ebenfalls ein Weinname ist.
 - **Abgrenzung:** Die Abnahme Z-01 bis Z-14 gilt für den Nachtlauf. Die Partytexte des Schlosskellers prüft der eigene Strang (seine Abnahme F-01…F-17); sie gehören nicht zu den Textpfaden von Z-12.
+
+## E48 · 09.10. 16:31 · Herkunft ist nicht Teil der Spieldaten (Nutzerentscheidung N-02)
+- **Anlass:** Die Inhaltsrunde 23/24 urteilte „Leitplanken nein“, weil die Fallfunktionen mit der Herkunft der Rollen zusammenfallen (E47). Der Nutzer hat entschieden: Die Herkunftsangaben kommen aus den Spieldaten heraus, der Kanon des Krimidinners bleibt unverändert.
+- **Umgesetzt (Overlay, Abschnitt Familienfelder):**
+  - Das Feld „Wurzeln“ ist bei allen 20 Rollen gelöscht (`Löschen: Wurzeln`). Für R02, R03, R04, R10, R11 und R17 gibt es dafür eigene Zeilen; bei R20 steht es in einer neuen Familienzeile.
+  - Die Familienfelder nennen keine Herkunftsorte mehr: R01, R05 und R16 beginnen mit „Die Eltern leben in …“ (Salzgitter, Gifhorn, Wolfsburg), bei R20 fährt die Familie „an einen See“ statt an die Masurischen Seen. Der Rest jedes Feldes bleibt wörtlich.
+  - Namen und Aussprache bleiben, denn sie sind die Identität der Figuren, keine Herkunftsangabe. Die Burgwart-Angabe „Herkunft: Schartenfels, Bergland“ bleibt; sie ist ein Ort der Spielwelt.
+- **Belegt:**
+  - Neuer Test in `kanon_test`: Kein Rollen-Steckbrief im wirksamen Kanon hat „Wurzeln“, der Kanon selbst hat sie weiterhin. Kein angezeigter Text (O, G, DW-Ergebnisse) nennt bosnisch, kurdisch, türkisch, polnisch, Tuzla, Opole, Zenica oder Masur.
+  - Gegenprobe: Ohne die Löschzeile für R02 oder mit „Tuzla“ wird der Test rot.
+  - `kanon.dart --pruefe`: 0 Befunde, 1276 Datensätze.
+- **Wirkung im Spiel:** keine sichtbare. Das Spiel liest „Wurzeln“ und „Familie“ nicht (`fall_daten.dart`). Die Verteilung der Fallfunktionen bleibt die des Kanons, ist aber im Spiel an kein Herkunftsmerkmal mehr gebunden.
+- **Zurücknehmen:** Die `Löschen: Wurzeln`-Angaben und die vier Ortsänderungen im Overlay entfernen.
+- Neue Inhaltsrunde A-702t mit drei Prüfern (25 gesamter Spieltext, 26 wirksamer Kanon, 27 Herkunft und Klischee).
+

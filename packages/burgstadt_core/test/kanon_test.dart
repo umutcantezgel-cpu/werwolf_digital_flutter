@@ -256,6 +256,22 @@ void main() {
       expect(wirksam.datensaetze['R01-STAMM']!.feld('Beruf'), contains('Veranstaltungstechnik'));
     });
 
+    test('Herkunft ist nicht Teil der Spieldaten (E48, Nutzerentscheidung N-02)', () {
+      for (var n = 1; n <= 20; n++) {
+        final id = 'R${n.toString().padLeft(2, '0')}-STAMM';
+        expect(wirksam.datensaetze[id]!.felder.containsKey('Wurzeln'), isFalse, reason: id);
+        // Der Kanon des Krimidinners behält die Angabe; nur das Spiel lässt sie weg.
+        expect(original.datensaetze[id]!.felder.containsKey('Wurzeln'), isTrue, reason: '$id im Kanon');
+      }
+      final herkunft = RegExp(r'bosnisch|kurdisch|türkisch|polnisch|Tuzla|Opole|Zenica|Masur', caseSensitive: false);
+      for (final d in wirksam.datensaetze.values) {
+        if (d.sicht == Sicht.l && !d.id.startsWith('DW')) continue;
+        for (final e in d.felder.entries) {
+          expect(herkunft.hasMatch(e.value), isFalse, reason: '${d.id} · ${e.key}: ${e.value}');
+        }
+      }
+    });
+
     test('Punsch ist in jedem angezeigten Text alkoholfrei (O, G und Detektiv-Ergebnisse DW, E47)', () {
       for (final d in wirksam.datensaetze.values) {
         if (d.sicht == Sicht.l && !d.id.startsWith('DW')) continue;

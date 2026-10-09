@@ -17,14 +17,10 @@
 - **Sprachausgabe:** Das Projekt hat keine. Erzählertexte werden angezeigt, nicht vorgelesen.
 
 ## Bitte entscheiden
-- **Herkunft und Fallfunktionen – davon hängt Z-12 ab (E47):**
-  - Zwei unabhängige Inhaltsprüfer (Runde 23 und 24) urteilen „Leitplanken nein“. Ihr Grund: Die Täterin (R03) und der Mietbetrüger (R04) haben deutsche Wurzeln, die falsche Fährte (R01, bosnisch) und die Hauptzeugin mit dem Streich (R02, kurdisch) nicht.
-  - Das ist die Anlage des Falls nach FM-1 und GROBPLAN F-07. Diese Regel sollte gerade verhindern, dass eine Minderheitsgruppe Schuld trägt. 16 der 20 Rollen haben nichtdeutsche Wurzeln.
-  - Im Spiel sind die Felder „Wurzeln“ und „Familie“ nicht zu sehen; Namen und Berufe schon. Was der Nachtlauf ohne Eingriff in den Fall tun konnte, ist getan: neutrale Färbungen, Lampe und Firma ohne Nachnamen (E46, E47).
-  - **Möglichkeiten:**
-    1. **So lassen.** Dann bleibt Z-12 offen, bis eine Inhaltsrunde anders urteilt.
-    2. **Herkunftsangaben aus den Spieldaten nehmen.** Das Overlay würde „Wurzeln“ und die Herkunftsorte in „Familie“ bei allen Rollen löschen; das Spiel zeigt sie ohnehin nicht. Der Kanon des Krimidinners bliebe unverändert.
-    3. **Fall neu besetzen** (Kanon-Autoren): Falsche Fährte und Streich an Rollen ohne Herkunftsbezug oder mit gemischter Verteilung.
+- **Herkunft und Fallfunktionen (E47, E48) – entschieden und umgesetzt:** Auf deine Entscheidung hin enthält das Spiel keine Herkunftsangaben mehr. Das Overlay löscht „Wurzeln“ bei allen 20 Rollen und die Herkunftsorte in den Familienfeldern. Der Kanon des Krimidinners in `krimidinner/` behält sie. Zurücknehmen: die `Löschen: Wurzeln`-Angaben im Overlay entfernen (E48). Für die Kanon-Autoren bleibt die Frage, ob die Fallfunktionen im Krimidinner selbst anders verteilt werden sollen.
+- **Strang „Finalisierung Schlosskeller“ (E49):** Auf deinen Wunsch ist der Stand f5190ac in `main` gemergt. Die Sitzung dort arbeitet weiter; ihre späteren Commits müssen wieder zusammengeführt werden.
+  - Beim Merge fand unser Leitplanken-Scanner „Weinrot“ als Farbe der Partyfigur Fatma. Sie heißt jetzt „Beerenrot“, nach dem eigenen Ton-Leitfaden des Strangs (kein „Wein“).
+  - Die Auftragsdateien des Strangs (`planung/finalisierung-schlosskeller/auftraege/F3-AUTOR-*.md`) nennen noch „Weinrot“, und der Farbname „Bordeaux mit Gold“ ist ebenfalls ein Weinname. Beides sollte der Strang selbst angleichen.
 - **Kanon-Anpassung „bewusstlos“ → „benommen“ (E29):** Die Leitplanken erlauben als Verletzungsbeschreibung nur „Beule“, „benommen“ und „Kühlpack“. Deshalb ersetzt das Overlay das Kanonwort „bewusstlos“ im ganzen Spiel durch „benommen“. Die Dateien in `krimidinner/` sind unverändert. Wenn der Kanon des Krimidinners selbst angepasst werden soll, sollte das dort geschehen.
 - **Familienfelder der Rollen (E38):**
   - Im Kanon hatten fast alle Rollen mit nichtdeutschen Wurzeln ein Fest, eine Speise oder ein Instrument als Familienmerkmal (z. B. Pierogi, Newroz, Revani), die Rollen mit deutschen Wurzeln kaum.
