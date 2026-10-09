@@ -153,17 +153,17 @@
       "nacht": [
         {
           "von": "00:25",
-          "bis": "02:40",
+          "bis": "02:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Sie schläft im Obergeschoss über dem Laden, den Wecker auf halb drei gestellt."
+          "tut": "Sie schläft im Obergeschoss über dem Laden, den Wecker auf zwei gestellt."
         },
         {
-          "von": "02:40",
+          "von": "02:00",
           "bis": "03:00",
-          "wo": "wohnhaus",
+          "wo": "arbeitshaus",
           "zustand": "wach",
-          "tut": "Sie steht auf, wäscht sich kalt und zieht die Schürze über, bevor sie hinuntergeht."
+          "tut": "Sie ist schon unten in der Backstube, wiegt Mehl ab und sagt jedem, der klopft, dass um drei der Ofen angeheizt wird."
         },
         {
           "von": "03:00",
@@ -224,7 +224,7 @@
           "bis": "04:30",
           "wo": "arbeitshaus",
           "zustand": "wach",
-          "tut": "Er mischt in Ruhe ein Pulver im Mörser, weil die Nachfrage nach Hustensaft gestiegen ist."
+          "tut": "Er mischt in Ruhe Kräuter für Erkältungstee, weil in diesen kalten Nächten jeder danach fragt."
         },
         {
           "von": "04:30",
@@ -235,12 +235,12 @@
         }
       ],
       "saetze": [
-        "Du fragst nach der Nacht? Ich zähle Tabletten und die Minuten, bis das Telefon wieder klingelt.",
+        "Du fragst nach der Nacht? Ich zähle Pflaster und die Minuten, bis das Telefon wieder klingelt.",
         "Kühlpacks habe ich genug, falls du dir an der Tür den Kopf stößt. Die liegen vorn im Regal.",
         "Hier ist die Apotheke, kein Laden für Neugierige. Ich rate dir, nicht zu drängeln.",
         "Was ich gehört habe? Wind, Holz und einen Knall. Mehr sage ich nicht, und das nur einmal."
       ],
-      "gerede": "Angeblich hat der Nebelriese neulich eine Apotheke ausgeräumt, aber die Zahlen stimmen nicht, und ich hätte es gemerkt."
+      "gerede": "Angeblich hat der Nebelriese neulich alle Pfefferminzbonbons der Apotheke genascht, seitdem zähle ich sie jeden Abend."
     },
     {
       "id": "B05",
@@ -375,7 +375,7 @@
       "name": "Monika Reich",
       "alter": 54,
       "geschlecht": "w",
-      "beruf": "Wirtin der Teestube",
+      "beruf": "Inhaberin der Teestube",
       "wohnhaus": "H-005",
       "arbeitshaus": "H-029",
       "wesen": "Herzlich und geduldig, mit einem Ohr für jede Geschichte, sie hört lieber zu, als selbst zu reden.",
@@ -409,17 +409,24 @@
         },
         {
           "von": "01:30",
-          "bis": "04:30",
+          "bis": "02:50",
           "wo": "wohnhaus",
           "zustand": "schläft",
           "tut": "Sie legt sich mit dem Mantel über dem Bett hin, die Thermoskanne neben dem Kopfkissen."
         },
         {
-          "von": "04:30",
+          "von": "02:50",
+          "bis": "03:20",
+          "wo": "gasse:Marktviertel",
+          "zustand": "unterwegs",
+          "tut": "Sie steht mit der Thermoskanne auf dem Marktplatz und zählt die drei Schläge des Uhrturms laut mit."
+        },
+        {
+          "von": "03:20",
           "bis": "05:30",
-          "wo": "wohnhaus",
-          "zustand": "wach",
-          "tut": "Sie steht auf, heizt den Ofen an und wartet, bis die Gasse wieder Leben zeigt."
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Sie öffnet die Teestube für alle, die nicht schlafen können, und stellt Kräutertee auf."
         }
       ],
       "saetze": [
@@ -589,17 +596,10 @@
         },
         {
           "von": "03:00",
-          "bis": "04:15",
-          "wo": "wohnhaus",
-          "zustand": "wach",
-          "tut": "Er ist wach, weil die Stille seltsam ist, und geht in die Küche, um Wasser zu trinken."
-        },
-        {
-          "von": "04:15",
           "bis": "05:30",
-          "wo": "wohnhaus",
-          "zustand": "schläft",
-          "tut": "Er schläft wieder ein, den Zollstock auf dem Nachttisch."
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Er kann nicht schlafen und hobelt in der Werkstatt an derselben Bank wie seit vierzig Jahren."
         }
       ],
       "saetze": [
@@ -1280,7 +1280,7 @@
         "Setz dich auf den Stuhl, ich mache dir die Haare, während du erzählst. Das beruhigt die Leute immer.",
         "Ich frisiere die halbe Stadt, und heute Nacht hat niemand bei mir geklopft, der mir etwas Gutes wollte.",
         "Wer Angst hat, wackelt beim Schneiden. Du hast ein ruhiges Händchen, das merke ich dir an.",
-        "Klopfen an der Tür? Das war vielleicht der Wind. Oder jemand, der sich verlaufen hat."
+        "Klopfen an der Tür? Das war vielleicht der Wind. Oder jemand, der spät heimkommt."
       ],
       "gerede": "Man sagt, der Nebelriese sei unter der Dachrinne vorbeigezogen und habe die Locken von der Wäscheleine geholt, aber das ist Unsinn."
     },
@@ -1690,7 +1690,7 @@
         }
       ],
       "saetze": [
-        "Du willst die Glocken hören? Die Kirchenglocken sind stumm, seit der Strom weg ist. Nur der Uhrturm schlägt noch, der braucht keinen Strom.",
+        "Die Kirchenglocken sind stumm, seit der Strom weg ist. Nur der Uhrturm schlägt noch, der braucht keinen Strom.",
         "Eine Glocke braucht Erz, Feuer und Geduld. Was zu schnell fertig wird, klingt später falsch.",
         "Ich habe den Guss der großen Glocke erlebt, damals gab es keinen Nebelriesen, den man fürchten musste.",
         "Hast du die Glockenhalle gesehen? Dann weißt du, wie leise eine Stadt werden kann, wenn sie Angst hat."
@@ -2306,7 +2306,7 @@
       "saetze": [
         "Du bist zu zerzaust für einen Anzug. Setz dich hin, ich messe dich, dann redest du besser.",
         "Hochzeitskleider nähe ich seit vierzig Jahren. Die halten, wenn die Naht richtig sitzt, sonst nicht.",
-        "Den Saum habe ich heute Nacht zweimal aufgetrennt, weil die Hand nicht ruhig war. Das passiert, wenn man Angst hat.",
+        "Den Knopf habe ich heute Nacht zweimal angenäht, weil die Hand nicht ruhig war. Das passiert, wenn man Angst hat.",
         "Der Nebelriese, sagt man, hat keine Schneiderin. Deshalb läuft er zerlumpt durch die Gassen. Da hast du's."
       ],
       "gerede": "Im Viertel flüstert man, die Schneiderin habe dem Nebelriesen einen Mantel geschneidert, aber sie hat ihn nie gesehen, nur das Maß genommen."
@@ -2440,7 +2440,7 @@
       "saetze": [
         "Du fragst nach der Nacht auf dem Friedhof? Ruhig war sie. Die Toten machen keinen Lärm, nur die Lebenden.",
         "Die Holztreppe zur Kirche ist glatt bei Eisnebel. Halt dich am Geländer fest, bevor du stürzt.",
-        "Ich pflege die Gräber seit dreißig Jahren. Auf einem steht ein Name aus dem Bergland, mehr sage ich nicht.",
+        "Ich pflege die Gräber seit dreißig Jahren. Auf einem wächst der schönste Efeu der ganzen Stadt.",
         "Wenn der Nebelriese auf dem Friedhof stünde, würde er den Kies nicht knirschen hören. Das ist seine Stärke."
       ],
       "gerede": "Man erzählt, der Friedhofsgärtner habe den Nebelriesen zwischen den Kreuzen gesehen, aber er hat nur den eigenen Schatten erschreckt."
@@ -2695,7 +2695,7 @@
         "Du willst einen Strick? Nein? Dann sag mir wenigstens, wo du dich festhältst. Ein guter Griff ist alles in dieser Nacht.",
         "Ein gutes Seil verträgt Nebel besser als Menschen. Er wird nicht schlaff, egal wie kalt es wird.",
         "Mein Speicher hat Seilstränge bis zur Decke. Du kannst daran ziehen, aber nicht an mir.",
-        "Wer sich verirrt, folgt dem Seil. Das hat mir mein Großvater gesagt, und der Riese hat keinen Faden in der Hand."
+        "Wer im Nebel steht, folgt dem Seil. Das hat mir mein Großvater gesagt, und der Riese hat keinen Faden in der Hand."
       ],
       "gerede": "Man erzählt, der Seiler habe dem Nebelriesen ein Seil gedreht, und der Riese sei damit ins Tal gerutscht, aber das hat niemand gesehen."
     }

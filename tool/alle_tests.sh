@@ -14,7 +14,9 @@ step "Ebene 11 · Bestand: mordakte_core"
 for p in pixel_engine burgstadt_core burgstadt_spiel room_host; do
   if [ -d "packages/$p" ]; then
     step "Paket $p: analyze + test"
-    (cd "packages/$p" && dart pub get >/dev/null 2>&1 && dart analyze --fatal-infos 2>&1 | filter | tail -1 && { [ -d test ] && dart test 2>&1 | filter | tail -1 || echo "keine Tests"; })
+    # Achtung: kein „test && … || echo“ – das würde einen roten Testlauf als „keine Tests“ verschlucken
+    (cd "packages/$p" && dart pub get >/dev/null 2>&1 && dart analyze --fatal-infos 2>&1 | filter | tail -1
+     if [ -d test ]; then dart test 2>&1 | filter | tail -1; else echo "keine Tests"; fi)
   fi
 done
 
@@ -55,8 +57,12 @@ done
 if [ -d packages/burgstadt_spiel ]; then
   step "Ebene 5 · Pixel: alle Bildschirme headless (Palette + Blocktest)"
   FOTOS="$(mktemp -d)"
-  (cd packages/burgstadt_spiel && dart run bin/bildschirmfoto.dart "$FOTOS" 1280 720 2>&1 | filter | tee /dev/stderr | grep -q FEHLER && exit 1 || true)
-  (cd packages/burgstadt_spiel && dart run bin/bildschirmfoto.dart "$FOTOS" 2401 1081 2>&1 | filter | tee /dev/stderr | grep -q FEHLER && exit 1 || true)
+  # Absturz bricht ab (set -e), „FEHLER“ in der Ausgabe ebenso
+  BF="$(cd packages/burgstadt_spiel && dart run bin/bildschirmfoto.dart "$FOTOS" 1280 720 2>&1 | filter)"; echo "$BF"
+  if echo "$BF" | grep -q FEHLER; then exit 1; fi
+  # Absturz bricht ab (set -e), „FEHLER“ in der Ausgabe ebenso
+  BF="$(cd packages/burgstadt_spiel && dart run bin/bildschirmfoto.dart "$FOTOS" 2401 1081 2>&1 | filter)"; echo "$BF"
+  if echo "$BF" | grep -q FEHLER; then exit 1; fi
   step "Ebene 3/5 · Spieltest: Fall solo über die echten Bildschirme bis zum Ende (Fotos geprüft)"
   (cd packages/burgstadt_spiel && dart run bin/spieltest.dart "$FOTOS" 4 2>&1 | filter | grep -E "Ende:|SPIELTEST")
   (cd packages/burgstadt_spiel && dart run bin/spieltest.dart "$FOTOS" 12 1080 2400 2>&1 | filter | grep -E "SPIELTEST")

@@ -183,3 +183,32 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Z-12 zählt nur einen Gegenprüfer-Bericht mit „ja · ja · ja“, der jünger ist als die letzte Textänderung.
 - **Z-13:** Es gibt nur den Remote `origin`, und seit Beginn gingen keine Pushes außer auf `nachtlauf/burgstadt`. Belegt wird das über die Reflogs der Remote-Refs. Im Browser gab es keine fremden Abrufe.
 - Nur dieses Werkzeug darf „ZIEL ERREICHT“ ausgeben.
+
+## E27 · 09.10. 04:05 · Gegenprüfung Inhalt Runde 2 (A-702c): Umsetzung und Abwägungen
+- **Umgesetzt:**
+  - **M3:** Die Nachtpläne von B03, B07 und B10 passen jetzt zu den Stationshinweisen ihrer Phase. Die Bäckerin steht ab 02:00 in der Backstube. Die Inhaberin der Teestube zählt um 03:00 auf dem Marktplatz die Schläge und öffnet danach die Teestube. Der Schreinermeister hobelt ab 03:00.
+  - **M4:** Die Saum-Andeutung ist gestrichen; es geht jetzt um einen Knopf.
+  - **G1:** Das Apotheken-Umfeld ist entschärft: Kräutertee, Pflaster, Pfefferminzbonbons.
+  - **G2:** „Blaues Faß“ heißt jetzt „Blaues Tuch“. Die Teestube ohne Schild ist jetzt eine Flickstube.
+  - **G6:** „Stadtburg“.
+  - **G8:** „Sitzungssaal“.
+  - **G9:** Der Grabstein ohne Hinweischarakter.
+  - **G10:** Drei „verlaufen/verirren“-Echos umformuliert.
+  - **G12:** „Wirtin“ heißt jetzt „Inhaberin“ (wie in H-S14), „gelagert“ jetzt „aufbewahrt“. Beide Scanner-Ausnahmen für Spieltext sind entfernt.
+  - **M1 (teilweise):** Die erfundene Taschenuhr bei R04 ist entfernt. Die Kanon-Armbanduhr ist bei 2,5D-Auflösung nicht darstellbar.
+  - **H2:** `@LISTE-ORTE` im Overlay um die Häuser, Gassen und Inschriften der sechs Viertel erweitert, ausdrücklich nur als Farbe: nie Ort eines Hinweises oder lösungsrelevanten Gegenstands. Der Master-Prompt verlangt eine riesige Stadt mit Hausgeschichten; die Liste deckt sie jetzt ab.
+- **Nicht umgesetzt, mit Begründung:**
+  - **H1 (Fähigkeit von R03 „Spur verwischen“):** Das Gegenspiel des Täters ist im Master-Prompt verlangt (Phase 4). Fähigkeit und Sichtschicht sieht nur die Spielerin von R03; sie kennt ihr Geheimnis laut Kanon (@R03-GEHEIM [G]). Mitspieler bekommen das Ereignis nie (`BurgstadtRaum.sichtbar`: `sicht` nur an die Rolle). Den Gegenstand des Verwischens sieht der Detektiv nur als „verwischter Abdruck“, eine Spurenart. Das Feld `wirkung.details` ist Entwicklerbeschreibung und wird nicht angezeigt.
+  - **M2 (Teil-IDs „nicht definiert“):** Die Teile stehen im Code (`kTeileBasis`, teile_basis.dart), nicht in den JSON-Dateien. `pruefeKarte` im karten_test belegt, dass jede Karte nur vorhandene Teile nutzt.
+  - **M5 (Kanon-Spuren zeigen auf die Täterin):** Das sind die O-Hinweise des verbindlichen Kanons, also das Rätsel selbst; sie sind durch Gegenspuren ausgeglichen (Lügenregel, Ersatzziele, Fairness-Löser). Die Leitplanke „kein Text, der die Täterin nahelegt“ gilt für unsere zusätzlichen Texte (Stadt, Bewohner, Häuser), nicht für die Spuren des Falls.
+  - **G3 („Einspruch!“ bei R18):** Wortlaut aus dem Kanon (K2-ROLLEN-13-20), ein allgemeines Gerichtswort.
+  - **G4 (ungenutztes Kopftuch-Teil):** Wird von keiner Figur benutzt. Ein Kopftuch ist neutrale Kleidung; die Regel verbietet Klischees, nicht Kleidungsstücke.
+  - **G5:** Kleidungstypen als Näherung, siehe E23/G12.
+  - **G7:** Die Uhrzeiten der Nachtpläne werden nicht als Text ausgegeben.
+  - **G11:** wie E23/M5.
+
+## E28 · 09.10. 04:05 · Fehler im Gesamttest: rote Pakettests wurden verschluckt
+- **Befund:** In `tool/alle_tests.sh` stand je Paket `{ [ -d test ] && dart test … || echo "keine Tests"; }`. Schlug `dart test` fehl, griff `|| echo` und der Lauf blieb grün. Die Bildschirmfoto-Zeile hatte dieselbe Lücke: Ein Absturz fiel in `|| true`.
+- **Gefunden:** beim Einbau von A-702c. `stadtdaten_test` war seit Commit 02ab9b5 rot, weil zwei Bewohner-Sätze zu lang waren. `commit_gruen.sh` hatte trotzdem „ALLE TESTS GRÜN“ gemeldet.
+- **Behoben:** `if [ -d test ]; then dart test …; else echo "keine Tests"; fi`. Die Bildschirmfotos laufen jetzt über eine Variable, damit ein Absturz mit `set -e` abbricht.
+- **Aufarbeitung:** Ein Hintergrundlauf prüft jeden Nachtlauf-Commit einzeln (eigener Arbeitsbaum im Scratchpad). Das Ergebnis steht in `belege/historie_pakettests.txt`, und betroffene Commits werden im Abschlussbericht genannt. Die Geschichte wird nicht umgeschrieben.

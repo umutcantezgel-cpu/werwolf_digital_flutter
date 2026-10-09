@@ -297,7 +297,7 @@
    "faehigkeit": "Mauer benennen",
    "wirkung": {
     "art": "station",
-    "details": "An den Mauern der Burg benennt Dino das Material aus der öffentlichen Anker-Beschreibung (LA-01): ein kleines befestigtes Stadtschloss aus dunklem Bruchstein. Die Angabe gilt für das Mauerwerk der Burg.",
+    "details": "An den Mauern der Burg benennt Dino das Material aus der öffentlichen Anker-Beschreibung (LA-01): eine kleine befestigte Stadtburg aus dunklem Bruchstein. Die Angabe gilt für das Mauerwerk der Burg.",
     "betrifft": [
      "LA-01"
     ]
