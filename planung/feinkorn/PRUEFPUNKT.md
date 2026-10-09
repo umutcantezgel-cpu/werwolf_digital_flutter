@@ -1,9 +1,18 @@
-# FEINKORN · PRÜFPUNKT (zuerst lesen; exakt hier fortsetzen)
+# FEINKORN · PRÜFPUNKT (zuerst lesen)
 
-- **Ordner:** /home/user/feinkorn (Worktree), Branch kern-feinkorn (kein Upstream; Push nur `git push -u origin kern-feinkorn`). Hauptordner /home/user/werwolf_digital_flutter = Burgstadt HD (pausiert), nicht anfassen.
-- **Phase:** K0. Erledigt: Messbasis Browser, Bestandsprüfung-Werkzeug, drei Prototypen, Entscheidungen, Budget, Szenenvertrag v1, PLAN, Rollenbriefings, Nebelkarte, Bildbestand, Kanon-Auszug, ABNAHME-Entwurf.
-- **Offen in K0:** Rückgaben K0-TESTSCHREIBER-01 und K0-LEISTUNGSPRUEFER-01 abnehmen; ABNAHME mit K0-Festlegungen ergänzen; Plan-Schleife (K0-GEGENPRUEFER-01..03); Commit und Push kern-feinkorn.
-- **Danach:** K1-OPUS-01 (Blockdaten final) und K1-MATERIALMACHER-01..04 parallel.
-- **Werkzeuge:** `dart run tool/feinkorn/bestand.dart --vergleiche planung/feinkorn/messbasis/bestand.txt` · `node tool/feinkorn/messen.mjs <build> <aus.json> [--ansichten …] [--klassen …] [--warten ms]` · Prototypen `packages/pixel_engine/bin/feinkorn_k0*.dart`, Bühne `lib/game/dev/feinkorn_k0_main.dart` (`flutter build web -t …`).
-- **Aufträge:** Briefe im Scratchpad unter `feinkorn/auftraege/`; Vorlage `planung/feinkorn/AUFTRAGSVORLAGE.md`.
-- **Regeln:** Jede Antwort mit STAND-Zeile; jedes Bild sofort an den Nutzer; Dateihoheit Finalisierungs-Lauf (E-F012) wahren.
+**FEINKORN ist beendet und archiviert (E-F021).** Der Nutzer hat am 2026-10-09 entschieden: Der heutige Look der App bleibt, FEINKORN-Technik wird nur noch als „Leben“-Schicht (Physik, Teilchen, Skelett, Klang, Messwerkzeuge) weiterverwendet. Nachfolger: Master-Prompt „Look-alike-Finalisierung“ (rundenbasierte Entscheidungen + Würfelglück), erzeugt über einen Meta-Prompt.
+
+## Was hier liegt und weiterverwendbar ist
+- `packages/pixel_engine/lib/feinkorn.dart` – reine Dart-Bibliothek ohne Spielinhalt:
+  - `daten/` Material (14), Blockkörper (32³-Abschnitte), Format FKB1 (verlustfrei, Tafel + Lauflänge), Rezeptformat v1, Muster-Gerüst.
+  - `physik/` Physikwelt 120 Hz deterministisch, Starrkörper, Partikel mit Ablagerung, Prüfsumme.
+  - `bewegung/` Skelett (FK), Figurenaufbau mit Gelenkweg „rück“.
+  - `darstellung/` Iso-Backen mit Schattenkarte, Wolke für Teilchen.
+  - `werkzeuge/` Testraum, Lückenprüfung.
+- Tests: `packages/pixel_engine/test/feinkorn_*` (37 grün), Trennungsprüfung.
+- Messwerkzeuge: `tool/feinkorn/bestand.dart` (Bestandsprüfsumme), `tool/feinkorn/messen.mjs` (Chromium-Messung mit CPU-Drosselung).
+- Messbasis: `planung/feinkorn/MESSBASIS.md`, `messbasis/`.
+- Entscheidungen E-F001…E-F021, Plan, Nebelkarte, Rollenbriefings, Auftragsvorlage (Lernnotiz L-01).
+
+## Offen gelassen (nicht fortsetzen ohne neuen Auftrag)
+K0-Plan-Schleife, K1 ab K1-OPUS-02, Materialmuster 01–04 (nur Stubs).

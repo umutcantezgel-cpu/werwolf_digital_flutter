@@ -89,3 +89,11 @@ K-07 zählt 20 Rollen, den Detektiv in m- und w-Fassung und Herrn Schneider: 23 
 - ABNAHME-Entwurf: Schwellen festgelegt in E-F016, E-F018, BUDGET.md; Fallformel t = √(2h/g) mit g = 9,81; Stapel-Drift gemessen am Schwerpunkt der obersten Kiste; Speicher-Schwankung bezogen auf das Mittel der Durchquerung; „gedimmtes Licht“ = Lichtvorlage Stromausfall; Detail-Bezugszoom = Standardzoom der Szene.
 - Kanon-Auszug: Detektiv-Name aus `title`, Geschlecht wählbar (E-F017); Toilette und Außenraum als Zusatzwerte (E-F013).
 - Bildbestand: Der Schlosskeller läuft heute nur in der Vorschau – FEINKORN zeigt ihn dort und in der F4-Partysitzung, sobald sie hereingemergt ist; Vorlagenreste und fehlende Zeichnungen sind Sache des Finalisierungs-Laufs (FÜR DEN NUTZER).
+
+## E-F020 · Antworten zur Messbasis
+App-Größe wird am Web-Build gemessen (`web_app_basis`); die 46 Analysefehler in `tool/ton` sind ein Umgebungsfehler (fehlendes `dart pub get`), kein Bestandsfehler; die Darstellungsweg-Messung `k0_darstellungswege.json` ist ein Prototypbeleg, nicht Teil der Messbasis.
+
+## E-F021 · Richtungswechsel durch den Nutzer: Bild-Look + Leben (2026-10-09)
+Der Nutzer hat die K0-Bilder (Testraum, Rohfigur) neben dem Vorher-Foto des Buffetsaals gesehen und entschieden: **Der heutige Look der App bleibt die Grundlage.** Räume und Figuren werden nicht aus Blöcken gebaut. Weiterverwendet werden Physik, Teilchen, Ablagerung, Skelett, Materialtabelle, Klangfamilien, Messwerkzeuge (`tool/feinkorn/*`) und das Speicherformat – als „Leben“-Schicht im bestehenden Stil (Splitter und Staub dürfen Pixel-Teilchen sein).
+Begründung: Bei Standardzoom ist eine Figur ≈ 60 px hoch; 1-cm-Blöcke verschwimmen dort, die gezeichneten Figuren sind für diese Größe gemacht.
+Folge: FEINKORN in dieser Form ist beendet. Der Stand (Blockdaten, Format FKB1, Rezeptformat v1, Muster-Gerüst, Prototypen) bleibt als Archiv auf `kern-feinkorn`. Nachfolger ist ein neuer Master-Prompt („Look-alike-Finalisierung“ mit rundenbasierter Entscheidungssteuerung und Würfelglück), den der Nutzer über einen Meta-Prompt erzeugen lässt.

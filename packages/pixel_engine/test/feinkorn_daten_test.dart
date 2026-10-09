@@ -391,4 +391,17 @@ void main() {
       expect([for (final m in schuettgut) if (!(m.boeschungGrad > 0)) m.name], isEmpty);
     });
   });
+
+  group('Blockkoerper: einheitlicher Randabschnitt wird voll (Befund K1-OPUS-01)', () {
+    test('setze in einheitlichen Randabschnitt: außerhalb des Körpers bleibt Luft, bloecke stimmt', () {
+      final k = _koerper(40, 32, 4);
+      k.fuelle(0, 0, 0, 40, 32, 4, 7);
+      expect(k.bloecke, 40 * 32 * 4);
+      k.setze(35, 3, 2, 0);
+      expect(k.bloecke, 40 * 32 * 4 - 1);
+      var n = 0;
+      k.jederBlock((x, y, z, w) => n++);
+      expect(n, 40 * 32 * 4 - 1);
+    });
+  });
 }

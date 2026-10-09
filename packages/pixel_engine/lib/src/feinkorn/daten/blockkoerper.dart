@@ -84,9 +84,26 @@ class Blockkoerper {
     var v = _voll[a];
     if (v == null) {
       if (_einheitlich[a] == w) return;
-      v = _voll[a] = Uint8List(kAbschnitt * kAbschnitt * kAbschnitt)..fillRange(0, kAbschnitt * kAbschnitt * kAbschnitt, _einheitlich[a]);
+      v = _voll[a] = _ausEinheitlich(a, _einheitlich[a]);
     }
     v[((z & _abschnittMaske) << 10) | ((y & _abschnittMaske) << 5) | (x & _abschnittMaske)] = w;
+  }
+
+  /// Volle Fassung eines einheitlichen Abschnitts: der Wert nur an Stellen innerhalb des Körpers
+  /// (Randabschnitte ragen über den Körper hinaus; dort bleibt Luft).
+  Uint8List _ausEinheitlich(int a, int u) {
+    final v = Uint8List(kAbschnitt * kAbschnitt * kAbschnitt);
+    if (u == 0) return v;
+    final cx = a % _ax, cy = (a ~/ _ax) % _ay, cz = a ~/ (_ax * _ay);
+    final nx = breite - (cx << _abschnittBits), ny = tiefe - (cy << _abschnittBits), nz = hoehe - (cz << _abschnittBits);
+    final mx = nx < kAbschnitt ? nx : kAbschnitt, my = ny < kAbschnitt ? ny : kAbschnitt, mz = nz < kAbschnitt ? nz : kAbschnitt;
+    for (var z = 0; z < mz; z++) {
+      for (var y = 0; y < my; y++) {
+        final o = (z << 10) | (y << 5);
+        v.fillRange(o, o + mx, u);
+      }
+    }
+    return v;
   }
 
   /// Füllt den Quader [x0, x1) × [y0, y1) × [z0, z1) mit [w]; ganze Abschnitte werden einheitlich.
@@ -150,6 +167,20 @@ class Blockkoerper {
 
   /// Speicherbedarf der Blockdaten in Bytes (volle Abschnitte zu 32 KB, einheitliche zu 1 Byte).
   int get speicherBytes => _voll.whereType<Uint8List>().length * kAbschnitt * kAbschnitt * kAbschnitt + _einheitlich.length;
+
+  /// Zahl der Abschnitte (x, y, z) – für das Speicherformat.
+  (int, int, int) get abschnitte => (_ax, _ay, _az);
+
+  /// Rohzugriff auf Abschnitt [a] (Index (cz · ay + cy) · ax + cx): volle Daten oder null und der
+  /// einheitliche Wert. Nur für Speicherformat und Werkzeuge.
+  (Uint8List?, int) abschnittRoh(int a) => (_voll[a], _einheitlich[a]);
+
+  /// Setzt Abschnitt [a] roh: [voll] (32³ Werte, wird übernommen) oder einheitlich [wert].
+  void setzeAbschnittRoh(int a, Uint8List? voll, int wert) {
+    if (voll != null && voll.length != kAbschnitt * kAbschnitt * kAbschnitt) throw ArgumentError('Abschnitt braucht 32³ Werte');
+    _voll[a] = voll;
+    _einheitlich[a] = voll == null ? wert : 0;
+  }
 
   /// Ruft [besuch] für jeden belegten Block auf (Reihenfolge: Abschnitte, darin z, y, x).
   void jederBlock(void Function(int x, int y, int z, int w) besuch) {

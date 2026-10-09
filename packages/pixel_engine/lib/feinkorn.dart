@@ -3,7 +3,11 @@
 library;
 
 export 'src/feinkorn/daten/blockkoerper.dart';
+export 'src/feinkorn/daten/format.dart';
+export 'src/feinkorn/daten/rezept.dart';
 export 'src/feinkorn/daten/material.dart';
+export 'src/feinkorn/daten/muster.dart';
+export 'src/feinkorn/daten/muster/alle.dart';
 export 'src/feinkorn/darstellung/iso_backen.dart';
 export 'src/feinkorn/darstellung/schattenkarte.dart';
 export 'src/feinkorn/werkzeuge/testraum.dart';

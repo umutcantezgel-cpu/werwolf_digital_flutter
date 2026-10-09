@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import '../daten/blockkoerper.dart';
 import '../daten/material.dart';
+import '../daten/muster.dart';
 import 'schattenkarte.dart';
 
 /// Isometrische Ansicht wie die Spielszene (2:1): je Meter Welt `x` → (+[halbB], +[halbH]),
@@ -122,7 +123,10 @@ IsoBild backe(Platzierung p, IsoAnsicht ansicht,
   final hellOben = seite(l[2]), hellSued = seite(l[1]), hellOst = seite(l[0]);
 
   // Abfrage eine halbe Blockgröße vor der Fläche (Normalenversatz), Toleranz eine Blockgröße
-  bool imSchatten(double wx, double wy, double wz) => licht.schatten && schatten != null && schatten.imSchatten(wx, wy, wz, s);
+  // Toleranz mit der Neigung der Fläche zum Licht (flach einfallendes Licht braucht mehr Abstand gegen
+  // Schatten-Akne): Oberseiten 1,5 Blöcke, senkrechte Seiten 3,5 Blöcke.
+  bool imSchatten(double wx, double wy, double wz, [double faktor = 1.5]) =>
+      licht.schatten && schatten != null && schatten.imSchatten(wx, wy, wz, s * faktor);
 
   var flaechen = 0;
   // Parallelogramm ab Bildpunkt (px, py) mit Kanten (e1, e2) zeichnen, wo es näher ist als der Puffer
@@ -181,6 +185,7 @@ IsoBild backe(Platzierung p, IsoAnsicht ansicht,
     return n;
   }
 
+  final ort = MusterOrt(), wert = MusterWert();
   k.jederBlock((x, y, z, wTafel) {
     final obenFrei = k.wert(x, y, z + 1) == 0;
     final suedFrei = k.wert(x, y + 1, z) == 0;
@@ -188,13 +193,23 @@ IsoBild backe(Platzierung p, IsoAnsicht ansicht,
     if (!obenFrei && !suedFrei && !ostFrei) return;
     final e = k.tafel[wTafel]!;
     final m = materialVon(e.material)!;
-    final hsh = blockHash(x, y, z, saat);
-    final streu = 1 + m.streuung * (hsh / 65535 - 0.5);
-    final r0 = ((e.farbe >> 16) & 0xFF) * streu, g0 = ((e.farbe >> 8) & 0xFF) * streu, b0 = (e.farbe & 0xFF) * streu;
+    final muster = musterVon(m.id);
     final wx = p.x + x * s, wy = p.y + y * s, wz = p.z + z * s;
-    void male(double hell, double px, double py, double e1x, double e1y, double e2x, double e2y, double cx, double cy, double cz) {
-      final f = m.leuchten > 0 ? math.max(hell, 0.6 + m.leuchten * 0.6) : hell;
-      int c(double v) => (v * f).round().clamp(0, 255);
+    ort
+      ..x = x
+      ..y = y
+      ..z = z
+      ..s = s
+      ..wx = wx
+      ..wy = wy
+      ..wz = wz
+      ..hash = blockHash(x, y, z, saat);
+    void male(Seite seite, double hell, double px, double py, double e1x, double e1y, double e2x, double e2y, double cx, double cy, double cz) {
+      ort.seite = seite;
+      muster(ort, m, wert);
+      final r0 = ((e.farbe >> 16) & 0xFF) + wert.dr, g0 = ((e.farbe >> 8) & 0xFF) + wert.dg, b0 = (e.farbe & 0xFF) + wert.db;
+      final f = (m.leuchten > 0 ? math.max(hell, 0.6 + m.leuchten * 0.6) : hell) * wert.hell;
+      int c(num v) => (v * f).round().clamp(0, 255);
       final aus = flaecheAus;
       if (aus != null) {
         flaechen++;
@@ -207,17 +222,17 @@ IsoBild backe(Platzierung p, IsoAnsicht ansicht,
     if (obenFrei) {
       var hell = hellOben * (1 - licht.verdeckung * nachbarn(x, y, z, 0, 0, 1));
       if (imSchatten(wx + s / 2, wy + s / 2, wz + s * 1.5)) hell = licht.grund * (1 - licht.verdeckung * nachbarn(x, y, z, 0, 0, 1));
-      male(hell, ansicht.sx(wx, wy), ansicht.sy(wx, wy, wz + s), uxX, uxY, uyX, uyY, wx + s / 2, wy + s / 2, wz + s);
+      male(Seite.oben, hell, ansicht.sx(wx, wy), ansicht.sy(wx, wy, wz + s), uxX, uxY, uyX, uyY, wx + s / 2, wy + s / 2, wz + s);
     }
     if (suedFrei) {
       var hell = hellSued * (1 - licht.verdeckung * nachbarn(x, y, z, 0, 1, 0));
-      if (l[1] > 0 && imSchatten(wx + s / 2, wy + s * 1.5, wz + s / 2)) hell = licht.grund * (1 - licht.verdeckung * nachbarn(x, y, z, 0, 1, 0));
-      male(hell, ansicht.sx(wx, wy + s), ansicht.sy(wx, wy + s, wz), uxX, uxY, uzX, uzY, wx + s / 2, wy + s, wz + s / 2);
+      if (l[1] > 0 && imSchatten(wx + s / 2, wy + s * 1.5, wz + s / 2, 3.5)) hell = licht.grund * (1 - licht.verdeckung * nachbarn(x, y, z, 0, 1, 0));
+      male(Seite.sued, hell, ansicht.sx(wx, wy + s), ansicht.sy(wx, wy + s, wz), uxX, uxY, uzX, uzY, wx + s / 2, wy + s, wz + s / 2);
     }
     if (ostFrei) {
       var hell = hellOst * (1 - licht.verdeckung * nachbarn(x, y, z, 1, 0, 0));
-      if (l[0] > 0 && imSchatten(wx + s * 1.5, wy + s / 2, wz + s / 2)) hell = licht.grund * (1 - licht.verdeckung * nachbarn(x, y, z, 1, 0, 0));
-      male(hell, ansicht.sx(wx + s, wy), ansicht.sy(wx + s, wy, wz), uyX, uyY, uzX, uzY, wx + s, wy + s / 2, wz + s / 2);
+      if (l[0] > 0 && imSchatten(wx + s * 1.5, wy + s / 2, wz + s / 2, 3.5)) hell = licht.grund * (1 - licht.verdeckung * nachbarn(x, y, z, 1, 0, 0));
+      male(Seite.ost, hell, ansicht.sx(wx + s, wy), ansicht.sy(wx + s, wy, wz), uyX, uyY, uzX, uzY, wx + s, wy + s / 2, wz + s / 2);
     }
   });
   // Lage des Bildes in logischen Pixeln relativ zum Bildpunkt des Weltursprungs
