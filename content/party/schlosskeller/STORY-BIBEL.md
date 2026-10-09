@@ -764,7 +764,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Schnitt: suit
 - **Motiv:** Um 21:00 hielt sie die Ritterrüstung im Turmgang für einen Menschen, schrie auf und stieß gegen die Vitrine. Seitdem macht sie einen Bogen um den Turmgang.
 - **Alibi:** Kauerte auf der Wandbank im Kaminsaal.
-- **Geheimnis:** Im Dunkeln huschte ein leuchtendes Gesicht unter einer Kapuze vom Durchgang quer durch den Kaminsaal zur Bogentür.
+- **Geheimnis:** Im Dunkeln huschte ein leuchtendes Gesicht vom Durchgang quer durch den Kaminsaal zur Bogentür.
 - **Persönliches Ziel:** Die Rüstung soll aus dem Turmgang verschwinden.
 - **Lügen:**
 
@@ -1202,8 +1202,8 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | b_serkan_tor | Serkan (serkan) | alle | pflichtgespraech | Von kurz vor zwölf bis nach zwölf stand er am Außentor. Es war abgeschlossen; niemand ist hinaus. | – | – | – |
 | b_wojtek_olli_satz | Wojtek (kaan) | alle | pflichtgespraech | Um 23:52 sagte Olli: „Ich hol dir Eis. Und dann red ich mit Schneider.“ | – | Olli (olli) | – |
 | b_wojtek_vorbei | Wojtek (kaan) | alle | pflichtgespraech | Im Dunkeln drängte sich jemand an ihm vorbei durch die Bogentür in den Turm. | – | – | – |
-| b_wojtek_tuer | Wojtek (kaan) | alle | verborgen | Er weiß: Olli hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt zweitausend Euro dafür. Das Möbelwachs zum Verdecken kam von ihm. | – | Olli (olli) | – |
-| b_pawel_schneider | Pawel (hakan) | alle | pflichtgespraech | Herr Schneider muss jeden Schaden der Stiftung melden und zahlt kleine Schäden oft aus eigener Tasche. Darum ist er beim Geld so streng. | – | – | – |
+| b_wojtek_tuer | Wojtek (kaan) | alle | verborgen | Er weiß: Olli hat am Abend die Bogentür beschädigt. Das Möbelwachs zum Verdecken kam von ihm. | – | Olli (olli) | – |
+| b_pawel_schneider | Pawel (hakan) | alle | pflichtgespraech | Herr Schneider muss jeden Schaden der Stiftung melden. Darum ist er beim Geld so streng. | – | – | – |
 | b_aylin_quittung | Aylin (aylin) | alle | pflichtgespraech | Sie hat Herrn Schneiders Quittungszettel: „Miete: 0 Euro.“ | luege_ahmet_miete | Ahmet (ahmet) | – |
 | b_tugba_notiz | Tugba (tugba) | alle | pflichtgespraech | Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute nach eigener Auskunft gerade sind. | luege_olli_tafel | – | – |
 | b_detektiv_gehoert | Detektiv (detective) | alle | erzaehler | Durch die Musik hast du nur einen Knall gehört, dann Herrn Schneiders Rufe „Hab ich dich!“ und „Stehen bleiben!“ und später ein Scheppern. | – | – | – |
@@ -1566,7 +1566,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | h_olli_1_wahr | Olli | 1 | wahr | Beim Scheppern war Olli nicht bei Azra am rechten Buffettisch. | belastet Olli (olli) |  |
 | h_olli_1_neutral | Olli | 1 | neutral | Beim Scheppern war Tim am Sicherungskasten im Kaminsaal. | neutral |  |
 | h_olli_1_falsch | Olli | 1 | falsch | Beim Scheppern war Fatma nicht bei Emine am linken Buffettisch. | belastet Fatma (fatma) | e1_2_emine |
-| h_olli_2_wahr | Olli | 2 | wahr | Olli hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt zweitausend Euro dafür. | belastet Olli (olli) |  |
+| h_olli_2_wahr | Olli | 2 | wahr | Olli hat am Abend die Bogentür beschädigt und die Schramme mit Möbelwachs verdeckt. | belastet Olli (olli) |  |
 | h_olli_2_neutral | Olli | 2 | neutral | Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt. | neutral |  |
 | h_olli_2_falsch | Olli | 2 | falsch | Fatma hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt Geld dafür. | belastet Fatma (fatma) | e2_3_olli |
 | h_olli_3_wahr | Olli | 3 | wahr | Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang. | entlastet Can (can) |  |

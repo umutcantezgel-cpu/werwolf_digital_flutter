@@ -8,13 +8,13 @@
       "wer": "Du bist Ahmet, der Organisator, und arbeitest in einer Agentur, die Stadtfeste und Märkte plant. Mit Lejla bist du zusammen aufgewachsen. Man erkennt dich an deiner Brille, dem kurzen Bart und dem schwarzen Strickpulli. Ein blaues Schlüsselband schaut aus deiner Hosentasche.",
       "weiss": [
         {
-          "text": "Um 23:51 Uhr hat Herr Schneider dir an der Theke gesagt: „Um zwölf sag ich allen, was der Keller gekostet hat.“"
-        },
-        {
           "text": "Um 23:55 Uhr hast du deine schwarze Jacke an den Jackenständer im Ost-Saal gehängt."
         }
       ],
       "verbirgt": [
+        {
+          "text": "Um 23:51 Uhr hat Herr Schneider dir an der Theke gesagt: „Um zwölf sag ich allen, was der Keller gekostet hat.“"
+        },
         {
           "text": "Beim Knall duckst du dich hinter der Theke am Ostende neben Damir."
         },
@@ -59,7 +59,7 @@
           "ref": "luege:luege_fatma_tasche"
         },
         {
-          "text": "Du schweigst, weil du dich schämst. Du wolltest die Münzen nur abzeichnen und die Schatulle am Montag zurückbringen."
+          "text": "Du schweigst, weil es dir peinlich ist und die Schatulle still zurück soll. Du wolltest nur die Reliefs auf dem Deckel abzeichnen und die Schatulle am Montag zurückbringen."
         }
       ],
       "ziel": "Du willst die Schatulle still zurückbringen, ohne dass es die anderen erfahren.",

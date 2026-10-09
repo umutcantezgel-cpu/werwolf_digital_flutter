@@ -5,7 +5,7 @@
   "eintraege": [
     {
       "rolle": "ahmet",
-      "tarnung": "Du sagst: Als der Knall kommt und es dunkel wird, bist du hinter der Theke. „Ich hab hinter der Theke nur Servietten gesucht.“ Den Umschlag in deiner Hand erklärst du so: „Das Geld war für die Miete.“ Bleib dabei ruhig und freundlich, als hättest du nur helfen wollen.",
+      "tarnung": "Du sagst: Als der Knall kommt und es dunkel wird, bist du hinter der Theke. „Ich hab hinter der Theke nur Servietten gesucht.“ Den Umschlag in deiner Hand erklärst du so: „Die hundertfünfzig Euro waren für die Miete.“ Bleib dabei ruhig und freundlich, als hättest du nur helfen wollen.",
       "tatwissen": [
         {
           "text": "Neun vor zwölf sagt Herr Schneider an der Theke zu dir: „Um zwölf sag ich allen, was der Keller gekostet hat.“ Joanna fotografiert den Streit. Fünf vor zwölf hängst du deine schwarze Jacke an den Jackenständer im Ost-Saal. Drei vor zwölf schlüpfst du mit dem Umschlag voller Mietgeld hinter die Theke."
@@ -26,7 +26,7 @@
           "ref": "spur:spur_jacke_bund"
         },
         {
-          "text": "Zwölf nach zwölf leerst du den Umschlag mit dem Mietgeld und wirfst ihn in den Ascheneimer am Kamin. Hana sieht es."
+          "text": "Zwölf nach zwölf leerst du den Umschlag mit dem Mietgeld und wirfst ihn in den Ascheneimer am Kamin. Hana sieht es. Das Bündel mit dem Mietgeld steckst du in deine Hosentasche."
         },
         {
           "ref": "spur:spur_umschlag_wachs"

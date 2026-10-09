@@ -42,16 +42,25 @@ Die Kennungen der Erzählerbausteine kommen aus `Erzaehler.katalog()`; andere Ke
 - **Nur die eigene Rolle:** `weiss`, `verbirgt`, `ziel` (Dossier und Pflichtgespräch), Täterfassung, Wahltexte.
 - **Nur der Detektiv:** `detektiv.*` und `ermittlungsbogen.*`.
 - **Was der Detektiv findet:** Fundtexte (`zeigt` und `harmlos` der Spuren in `gegenstaende.json`) und Ergebnisse der Entscheidungen erscheinen, sobald eine Entscheidung sie aufdeckt. Ab dann gehören sie zum Wissen des Detektivs und dürfen am Tisch stehen. Fundtexte sind unpersönlich, ohne „du“, und verneinen nichts („kein Messing“ schlösse jemanden aus).
-- **Spoilerregel (S-1):**
+- **Spoilerregel (S-1):** Sie gilt für alles, was die App oder der Erzähler am Tisch zeigt. Was eine Rolle unter `weiss` kennt, darf ihre Spielerin selbst erzählen; das ist Spiel, kein Spoiler.
+  - Einzelregeln:
   - Nichts, was am Tisch steht, verrät den Täter-Pfad oder geht über das Wissen des Detektivs hinaus.
   - `resuemee.rest.eins` nennt keinen Namen.
   - `bonus.rahmen` sagt nie, ob ein Hinweis stimmt.
+
+## Regeln für Finale und Ausgang (E-029)
+- Das Finale kennt nur Täterpfad, Ende und Punkte, nicht den Verlauf. Kein Finaltext sagt deshalb, ob das Geburtstagskind den Bund in der Nacht gefunden hat.
+- **Richtige Anklage** (`ende_meister`, `ende_teilerfolg`): Die Täterperson gesteht und gibt den Bund heraus. Herr Schneider schließt noch in der Nacht das Außentor auf.
+- **Falsche Anklage** (`ende_justizirrtum`, `ende_eskalation`): Der Bund bleibt verschwunden. Um sieben Uhr schließt Herrn Schneiders Kollegin mit dem Ersatzschlüssel auf (`z_morgen`). Die Täterperson gesteht erst danach.
+- Eine falsch angeklagte Person wird nie beim Namen genannt; der Text passt für jede.
+- Die Rückblende erzählt die Tat nach der Tatmatrix des Pfads: Weg zur Tat, Schlag, die Spuren, die dabei entstehen, und das Versteck des Bunds.
+- Anrede: Das Geburtstagskind heißt in Finaltexten „du“ (TON-LEITFADEN §3).
 
 ## Regeln für Dossiers
 - Dossiers sprechen die Spielerin oder den Spieler mit „du“ an.
 - `wer`: Vorstellung in zwei bis vier Sätzen. Öffentlich bekannte Beziehungen (Geschwister, Cousins, beste Freundinnen) dürfen hier stehen; was jemand für einen anderen tut oder verschweigt, nicht. Name, Alltag, Bezug zur Gruppe, sichtbares Merkmal. Kein Geheimnis.
 - `weiss`: was die Rolle sicher weiß und am Tisch sagen darf. Nichts, was ein eigenes oder fremdes Geheimnis verrät. Verweise nur auf eigene Beobachtungen der Rolle (Feld `wer` der Beobachtung). Eigene Sätze nur ohne neue Tatsachen.
-- `verbirgt`: verborgene Beobachtungen der Rolle, Nebendelikt, eigene Lügen. Eine Lüge erscheint mit Behauptung und Wahrheit. Ein Satz dazu, warum die Rolle schweigt (aus `grundVerborgen` oder `loyalitaet`).
+- `verbirgt`: verborgene Beobachtungen der Rolle, Nebendelikt, eigene Lügen. Eine Lüge erscheint mit Behauptung und Wahrheit. Ein Satz dazu, warum die Rolle schweigt (aus `grundVerborgen`, `loyalitaet` oder `persoenlichesZiel`, E-029). Was das eigene Motiv verrät, steht hier und nicht unter `weiss`.
 - `ziel`: das persönliche Ziel aus `figuren.json`, in eigenen Worten.
 - `besetzung`: ein Satz, wie die Rolle von jedem Geschlecht gespielt wird.
 - **Täterfassung:**

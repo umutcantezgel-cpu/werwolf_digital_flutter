@@ -645,3 +645,38 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
 - **Nachbesserung der Pflichtgespräche (AUTOR-70 bis -74, je 10/10):**
   - Alle 180 Gespräche sind partnerneutral. Jede Pflichtgespräch-Beobachtung und jede Lüge kommt über die drei Runden mindestens einmal vor. Kein Text ist doppelt, kein Platzhalter steht im Text.
   - Bestätigt: Kurze Behauptungen wie „Ich hab keine Maske“ dürfen in mehreren Texten stehen (P-4 meint ganze Texte). Ahmets Umschlag und Cans Maske bleiben aus den Eröffnungen, weil sie Geheimnisse der Rolle sind (P-3). Pawel lässt „zahlt aus eigener Tasche“ weg; der Kern seiner Beobachtung bleibt.
+
+## E-029 · F3-Prüfrunde: Entscheidungen zu F3-KONT-01..10, F3-SENS-01..05, F3-TEST-01
+- **Wiederaufnahme:** Nach einem Container-Neustart kam der UNIVERSAL-PROMPT erneut. Der Nutzer hat entschieden: Schlosskeller fortsetzen. Prüfstapel A lief aus dem Zwischenspeicher weiter (KONT-01, -02, -05 schon fertig), Prüfstapel B neu.
+- **KONT-01 (Dossiers):**
+  - **Ahmet:** Schneiders Satz um 23:51 („Um zwölf sag ich allen, was der Keller gekostet hat“) verrät Ahmets Motiv. Er steht jetzt unter `verbirgt`.
+  - **Pawel:** Seine Pflichtgespräch-Beobachtung enthielt Schneiders Geldsorgen, die er laut Ziel nicht ausplaudern will. Getrennt:
+    - Am Tisch sagt er nur noch: „muss jeden Schaden der Stiftung melden, darum streng“.
+    - „Zahlt kleine Schäden aus eigener Tasche“ steht unter `verbirgt`.
+  - **Wojtek:** Er konnte von den zweitausend Euro nichts wissen, denn beim Streit um 23:00 war er nicht dabei. Gestrichen in `b_wojtek_tuer` und in seiner Auflösung.
+    - Der wahre Hinweis `h_olli_2_wahr` nennt jetzt Schaden und Möbelwachs; beides ist durch Wojteks Beobachtung belegt.
+  - Fatmas Schweigegrund nennt die Reliefs wie der Kanon.
+  - Sibels `roleSecret` ohne „unter einer Kapuze“ (wie `b_selin_gesicht`).
+  - Neue Regeln in SCHLUESSEL.md:
+    - Schweigegründe dürfen aus `persoenlichesZiel` kommen.
+    - S-1 gilt für das, was App und Erzähler zeigen. Was eine Rolle unter `weiss` kennt, darf ihre Spielerin erzählen.
+  - Nicht übernommen:
+    - Eigene Geheimnisse der Kernrollen unter `weiss` (Vorschlag Nr. 10). Sie gehören unter `verbirgt`.
+    - Barans Box-Musik als neue Beobachtung. Sie ist ein harmloses Geheimnis ohne Spielwirkung und bleibt Text aus `roleSecret`.
+- **KONT-02 (Täter, Detektiv):**
+  - Ahmets Tarnung nennt die hundertfünfzig Euro wie die Lüge.
+  - Sein Tatwissen endet mit dem Mietgeld in der Hosentasche (`gegenstaende.json`).
+  - Detektiv in Jeans.
+  - Der Ermittlungsbogen sagt „beim Scheppern“ wie R-ENTLASTET.
+  - Der Folgesatz am Ende von `verbirgt` bleibt; der Auftrag hat ihn verlangt.
+- **KONT-05 und Ausgang (Denkprotokoll):**
+  - Befund: Finaltexte behaupten einen Bund-Fund in der Nacht (Meister) oder dass niemand ihn findet (Teilerfolg). Das Finale kennt aber nur Pfad, Ende und Punkte. Mit 7 Punkten kann die Bund-Suche falsch gewesen sein, mit 3 richtig.
+  - Wege:
+    - (a) Je Ende zwei Fassungen, mit Bund gefunden und ohne: 32 statt 16 Texte, und der Erzähler müsste den Verlauf kennen.
+    - (b) Der Bund kommt im Finale über das Geständnis.
+    - (c) Den Bund in Finaltexten nie nennen.
+  - Gewählt ist (b). Bei richtiger Anklage gesteht die Täterperson und gibt den Bund heraus; das Tor geht noch in der Nacht auf. Bei falscher Anklage öffnet um sieben Uhr die Kollegin (`z_morgen`), und das Geständnis folgt später.
+  - Umkehrprobe: Falsch wäre (b), wenn ein Spiel mit gefundenem Bund und falscher Anklage endet. Dann liegt der Bund schon da, und trotzdem wartet die Gruppe bis sieben. Das kann vorkommen.
+    - Darum sagt die Regel bei falscher Anklage nur: „Der Bund bleibt verschwunden“ heißt, das Tor geht nicht auf, weil niemand den Bund herausgibt.
+    - Texte formulieren das neutral: „Das Tor bleibt zu bis zum Morgen.“
+  - Regel in SCHLUESSEL.md (Finale und Ausgang). Umsetzung mit den Befunden aus KONT-04, KONT-05 und SENS-02 in einer Nachbesserung der vier Finaldateien.
