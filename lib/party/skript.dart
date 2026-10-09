@@ -14,6 +14,7 @@ import 'sitzung.dart';
 ///   `gemischt`), Anklage (`richtig`, `falsch` oder eine Kennung)
 /// - `takt`: Pause zwischen zwei Schritten in Millisekunden
 /// - `zeitraffer`: Spielsekunden je echter Sekunde in der Rückblende
+/// - `fotos=0`: Fotostellen nur melden, ohne auf den Fotografen zu warten
 class PartyDev {
   final String fall;
   final String? code;
@@ -24,6 +25,7 @@ class PartyDev {
   final int? dauerSekunden;
   final int takt;
   final double? zeitraffer;
+  final bool fotos;
 
   const PartyDev({
     this.fall = 'schlosskeller',
@@ -35,6 +37,7 @@ class PartyDev {
     this.dauerSekunden,
     this.takt = 700,
     this.zeitraffer,
+    this.fotos = true,
   });
 
   /// Aus den URL-Parametern; `null` ohne `party=`.
@@ -51,6 +54,7 @@ class PartyDev {
       dauerSekunden: int.tryParse(q['dauer'] ?? ''),
       takt: int.tryParse(q['takt'] ?? '') ?? 700,
       zeitraffer: double.tryParse(q['zeitraffer'] ?? ''),
+      fotos: q['fotos'] != '0',
     );
   }
 
@@ -76,7 +80,7 @@ class PartySkript {
   /// Fotostelle melden und dem Fotografen Zeit lassen (mindestens 1,2 s).
   Future<void> _foto(String name) {
     debugPrint('PARTY foto=$name');
-    return Future<void>.delayed(Duration(milliseconds: dev.takt < 1200 ? 1200 : dev.takt));
+    return Future<void>.delayed(Duration(milliseconds: dev.fotos && dev.takt < 1200 ? 1200 : dev.takt));
   }
 
   Future<void> starten() async {
