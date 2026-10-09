@@ -1124,7 +1124,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Seite 23:57 | immer: ja | „Fehlen für die Torte: Ahmet (Theke, Servietten), Fatma (Theke), Olli (Eis), Can (?), Emine und Azra (Buffet), Damir und Tim (Kaffee), Marek (Saft), Zeynep, Hana, Wojtek, Sibel (Kaminsaal), Serkan (Auto).“ | null | alle: ueberblick |
+| Seite 23:57 | immer: ja | „Fehlen für die Torte: Ahmet (Theke, Servietten), Fatma (Theke), Olli (Eis), Can (?).“ Darunter: „Emine und Azra (Buffet), Damir und Tim (Kaffee), Marek (Saft), Zeynep, Hana, Wojtek, Sibel (Kaminsaal), Serkan (Auto).“ | null | alle: ueberblick |
 
 ### Handykorb (`handykorb`)
 

@@ -2,5 +2,106 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "dossier",
   "hinweis": "Dossiers der Besetzungsplätze 9 bis 12.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "rolle": "murat",
+      "wer": "Du bist Marek, der Caterer. Mit deiner Schwester führst du einen kleinen Catering-Betrieb. Du hast das Essen für die Feier geliefert. Man erkennt dich an deiner dunkelbraunen Lederjacke und am Autoschlüssel mit glänzendem Anhänger, den du um den Zeigefinger kreisen lässt.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_marek_gesicht"
+        },
+        {
+          "text": "Um 18:30 Uhr hast du das Essen über den Schlosshof geliefert."
+        }
+      ],
+      "verbirgt": [
+        {
+          "ref": "beobachtung:b_marek_vor"
+        },
+        {
+          "ref": "beobachtung:b_marek_nach"
+        },
+        {
+          "ref": "nebendelikt:nd_parken"
+        },
+        {
+          "text": "Du schweigst, weil du im Dunkeln nicht sicher bist und niemanden falsch belasten willst."
+        }
+      ],
+      "ziel": "Du willst verhindern, dass dein Lieferwagen abgeschleppt wird.",
+      "besetzung": "Jede Person kann Marek spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "zeynep",
+      "wer": "Du bist Zeynep, die Fußballtrainerin. Du studierst Sport und trainierst eine Mädchen-Fußballmannschaft. Man erkennt dich an den weißen Kopfhörern um deinen Hals und an der Kappe, die verkehrt herum sitzt. Can ist dein Bruder.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_zeynep_gesicht"
+        }
+      ],
+      "verbirgt": [
+        {
+          "ref": "beobachtung:b_zeynep_vorrat"
+        },
+        {
+          "ref": "nebendelikt:nd_schmiere"
+        },
+        {
+          "text": "Du schweigst, weil Can dein Bruder ist."
+        }
+      ],
+      "ziel": "Du willst deinen Bruder Can schützen.",
+      "besetzung": "Jede Person kann Zeynep spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "baran",
+      "wer": "Du bist Baran, der Mann für die Musik. Du studierst Tontechnik und legst bei Freunden auf. Man erkennt dich an deinem anthrazitfarbenen Kapuzenpulli mit neongrünen Kordeln und an der Musikbox unter deinem Arm.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_baran_rufe"
+        },
+        {
+          "text": "Um 22:00 Uhr hat Herr Schneider leise Musik verlangt und gedroht, deine Box einzukassieren."
+        },
+        {
+          "text": "Um 23:55 Uhr hat das Geburtstagskind deine Kopfhörer mit lauter Musik bekommen."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Die Musik in den Kopfhörern lief über deine Box weiter, als der Strom weg war."
+        },
+        {
+          "text": "Du schweigst darüber, weil Herr Schneider sonst deine Box einkassiert."
+        }
+      ],
+      "ziel": "Du willst verhindern, dass deine Box einkassiert wird.",
+      "besetzung": "Jede Person kann Baran spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "meryem",
+      "wer": "Du bist Hana, die Kamin-Heizerin. Du bist Försterin und kennst Holz besser als Kaminzüge. Man erkennt dich an den Rußflecken auf der linken Wange und an den Händen.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_hana_wachs"
+        },
+        {
+          "ref": "beobachtung:b_hana_umschlag"
+        },
+        {
+          "text": "Du feuerst den Kamin an, ohne die Kaminklappe zu öffnen."
+        },
+        {
+          "text": "Um 23:30 Uhr füllt dichter Qualm den Kaminsaal, und alle husten."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Du verbirgst nichts. Nur der Qualm aus dem Kamin ist dir noch peinlich."
+        }
+      ],
+      "ziel": "Du willst den Kamin wieder zum Ziehen bringen. Außerdem willst du dich bei Herrn Schneider für den Ruß entschuldigen.",
+      "besetzung": "Jede Person kann Hana spielen, egal welches Geschlecht sie hat."
+    }
+  ]
 }

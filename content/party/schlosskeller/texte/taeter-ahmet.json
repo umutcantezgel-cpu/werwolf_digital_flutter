@@ -2,5 +2,51 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "taeter",
   "hinweis": "Täterfassung ahmet.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "rolle": "ahmet",
+      "tarnung": "Du sagst: Als der Knall kommt und es dunkel wird, bist du hinter der Theke. „Ich hab hinter der Theke nur Servietten gesucht.“ Den Umschlag in deiner Hand erklärst du so: „Das Geld war für die Miete.“ Bleib dabei ruhig und freundlich, als hättest du nur helfen wollen.",
+      "tatwissen": [
+        {
+          "text": "Neun vor zwölf sagt Herr Schneider an der Theke zu dir: „Um zwölf sag ich allen, was der Keller gekostet hat.“ Joanna fotografiert den Streit. Fünf vor zwölf hängst du deine schwarze Jacke an den Jackenständer im Ost-Saal. Drei vor zwölf schlüpfst du mit dem Umschlag voller Mietgeld hinter die Theke."
+        },
+        {
+          "text": "Du kauerst dich erst am Ostende der Theke neben Damir. Herr Schneider packt Can an der Kapuze. Can reißt sich los und rennt mit der leuchtenden Maske in der Hand davon. Dann gehst du zum Kerzenlicht an der Anrichte. Du willst Herrn Schneider bitten, um zwölf nichts zu sagen."
+        },
+        {
+          "text": "Herr Schneider ist noch außer sich wegen Can. Er packt dich am Arm und zischt: „Um zwölf erfahren's alle.“ Mit der Hand, in der du den Umschlag hältst, greifst du in Panik nach dem Kerzenständer. Du schlägst einmal zu. Es gibt einen dumpfen Schlag und Poltern. Heißes Wachs tropft auf den Umschlag, und eine Ecke reißt ab und bleibt am Griff kleben."
+        },
+        {
+          "ref": "spur:spur_griff_papier"
+        },
+        {
+          "text": "In Panik reißt du Herrn Schneiders Schlüsselbund vom Gürtel. Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkst du: Flucht macht alles schlimmer. Im Ost-Saal steckst du den Bund in deine eigene Jacke. Dann kauerst du dich wieder neben Damir."
+        },
+        {
+          "ref": "spur:spur_jacke_bund"
+        },
+        {
+          "text": "Zwölf nach zwölf leerst du den Umschlag mit dem Mietgeld und wirfst ihn in den Ascheneimer am Kamin. Hana sieht es."
+        },
+        {
+          "ref": "spur:spur_umschlag_wachs"
+        }
+      ],
+      "verbirgt": [
+        {
+          "ref": "luege:luege_ahmet_servietten"
+        },
+        {
+          "ref": "luege:luege_ahmet_miete"
+        },
+        {
+          "ref": "nebendelikt:nd_mietgeld"
+        },
+        {
+          "text": "Kommt es heraus, erfahren es alle vor dem Morgen."
+        }
+      ],
+      "ziel": "Niemand soll vor dem Morgen erfahren, dass die Miete erfunden war. Du willst unentdeckt bleiben, ohne einen Unschuldigen ins Unglück zu stürzen."
+    }
+  ]
 }

@@ -40,3 +40,4 @@ export 'src/party/ablauf.dart';
 export 'src/party/erzaehler.dart';
 export 'src/party/simulator.dart';
 export 'src/party/texte.dart';
+export 'src/party/textpruefer.dart';

@@ -2,5 +2,100 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "dossier",
   "hinweis": "Dossiers der Besetzungsplätze 5 bis 8.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "rolle": "leyla",
+      "wer": "Du bist Lejla, die Buffet-Chefin. Du bist Apothekerin und Ahmets Cousine. Du hast das Buffet für heute Abend geplant. Du trägst eine türkise Latzschürze und hältst einen Holzlöffel.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_lejla_ahmet_theke"
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Du hast Ahmet versprochen, nichts über die Rechnung zu sagen."
+        }
+      ],
+      "ziel": "Du willst Ahmet beschützen, bis er von selbst mit der Sprache rausrückt.",
+      "besetzung": "Jede Person kann Lejla spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "emine",
+      "wer": "Du bist Emine, die Grundschullehrerin. Fatma ist deine beste Freundin. Du trägst einen olivgrünen Steppmantel und schwarze Stiefel. Du hältst eine silberne Thermosflasche mit beiden Händen.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_emine_versteck"
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Um 23:56 Uhr kündigt Herr Schneider an, um Punkt zwölf die Polizei zu rufen."
+        },
+        {
+          "ref": "beobachtung:b_emine_schatulle"
+        },
+        {
+          "ref": "beobachtung:b_emine_fatma_frueh"
+        },
+        {
+          "ref": "beobachtung:b_emine_fatma_spaet"
+        },
+        {
+          "text": "Du hast Fatma versprochen zu schweigen."
+        }
+      ],
+      "ziel": "Du willst Fatma auf keinen Fall verraten.",
+      "besetzung": "Jede Person kann Emine spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "tim",
+      "wer": "Du bist Tim, der Hobby-Elektriker. Du bist Mechatroniker und reparierst gern alles selbst, manchmal zu gern. Hinter deinem Ohr steckt ein Spannungsprüfer-Schraubenzieher. Um deinen Hals hängt eine kleine Stirnlampe.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_tim_gesicht"
+        },
+        {
+          "text": "Um 00:00 Uhr schaltest du die Hauptsicherung wieder ein."
+        }
+      ],
+      "verbirgt": [
+        {
+          "ref": "beobachtung:b_tim_kurzschluss"
+        },
+        {
+          "ref": "nebendelikt:nd_kurzschluss"
+        },
+        {
+          "text": "Du schämst dich, weil Herr Schneider dich gewarnt hatte."
+        }
+      ],
+      "ziel": "Niemand soll merken, dass deine alte Mehrfachsteckdose am Ausfall schuld ist.",
+      "besetzung": "Jede Person kann Tim spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "johanna",
+      "wer": "Du bist Joanna, die Fotografin des Abends. Du studierst Medienwissenschaft und fotografierst Hochzeiten als Nebenjob. Du trägst eine violette Strickjacke über einem weißen Oberteil. Dein Handy sitzt auf einem kleinen Handyhalter mit Aufsteckleuchte.",
+      "weiss": [
+        {
+          "text": "Du hast den ganzen Abend Fotos gemacht."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Um 23:51 Uhr streitet Herr Schneider mit Ahmet an der Theke."
+        },
+        {
+          "text": "Du fotografierst den Streit."
+        },
+        {
+          "ref": "beobachtung:b_joanna_foto"
+        },
+        {
+          "text": "Ahmet hat dich gebeten, das Streitfoto zu löschen."
+        }
+      ],
+      "ziel": "Du willst dein Versprechen an Ahmet halten. Das Geburtstagskind willst du aber nicht belügen.",
+      "besetzung": "Jede Person kann Joanna spielen, egal welches Geschlecht sie hat."
+    }
+  ]
 }

@@ -1,0 +1,43 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "bereich": "erzaehler",
+  "hinweis": "Intro-Fassung 3",
+  "eintraege": [
+    {
+      "id": "intro.start",
+      "text": "Erinnerst du dich noch an deinen Geburtstag im alten, etwas abgelegenen Schloss vor der Stadt? Um sechs seid ihr über die fünf Sandsteinstufen in den großen Gewölbekeller gekommen. Herr Schneider hat alle knapp begrüßt und den Weg gezeigt. Dann gab es das Buffet mit warmem Essen, Brot, Dips und Gebäck. Dazu gab es schwarzen Tee aus dem großen Teekocher, Kaffee, alkoholfreien Apfelpunsch, Wasser und Säfte. Der Wind pfeift durch die Lichtschächte, und die schweren Holztüren quietschen im Luftzug. Kurz vor zwölf ein Knall, dann Dunkelheit. Herr Schneider liegt bewusstlos im Vorratsraum, gleich hinter der Tür. Der Schlüsselbund ist weg, das Außentor ist zu, und hinter den dicken Mauern gibt es keinen Handyempfang. Die Gruppe sitzt bis zum Morgen fest."
+    },
+    {
+      "id": "intro.lacher.lacher_ruestung.besetzt",
+      "text": "Weißt du noch, wie Sibel im Turmgang erschrak? Um neun hielt sie die alte Ritterrüstung für einen Menschen. Sie schrie auf, stolperte rückwärts gegen die Schauvitrine, und die Scheibe bekam einen feinen Sprung."
+    },
+    {
+      "id": "intro.lacher.lacher_ruestung.npc",
+      "text": "Weißt du noch, wie eine Freundin im Turmgang erschrak? Um neun hielt sie die alte Ritterrüstung für einen Menschen. Sie schrie auf, stolperte rückwärts gegen die Schauvitrine, und die Scheibe bekam einen feinen Sprung."
+    },
+    {
+      "id": "intro.lacher.lacher_verlaufen.besetzt",
+      "text": "Um Viertel nach acht war Olli auf der Suche nach dem Klo. Er nahm die falsche Tür hinter der Theke und stand im dunklen Vorratsraum vor der Geburtstagstorte. „Ich wollte nur aufs Klo!“"
+    },
+    {
+      "id": "intro.lacher.lacher_verlaufen.npc",
+      "text": "Um Viertel nach acht war ein Gast auf der Suche nach dem Klo. Er nahm die falsche Tür hinter der Theke und stand im dunklen Vorratsraum vor der Geburtstagstorte. „Ich wollte nur aufs Klo!“"
+    },
+    {
+      "id": "intro.lacher.lacher_kamin.besetzt",
+      "text": "Und dann war da noch Hana am Kamin. Sie hatte den Kamin angefeuert, ohne die Kaminklappe zu öffnen. Um halb zwölf füllte dichter Qualm den Kaminsaal, alle husteten, die Lichtschacht-Klappen wurden aufgerissen und das Feuer gelöscht."
+    },
+    {
+      "id": "intro.lacher.lacher_kamin.npc",
+      "text": "Und dann war da noch eine Freundin am Kamin. Sie hatte den Kamin angefeuert, ohne die Kaminklappe zu öffnen. Um halb zwölf füllte dichter Qualm den Kaminsaal, alle husteten, die Lichtschacht-Klappen wurden aufgerissen und das Feuer gelöscht."
+    },
+    {
+      "id": "intro.auftrag.m",
+      "text": "Herr Schneider bittet dich: „Finde raus, wer das war. Bis zum Morgen.“ Eigentlich feierst du Geburtstag, und jetzt bist du auch noch der Detektiv."
+    },
+    {
+      "id": "intro.auftrag.w",
+      "text": "Herr Schneider bittet dich: „Finde raus, wer das war. Bis zum Morgen.“ Eigentlich feierst du Geburtstag, und jetzt bist du auch noch die Detektivin."
+    }
+  ]
+}

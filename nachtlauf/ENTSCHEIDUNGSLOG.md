@@ -585,3 +585,12 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - **Nutzerentscheidung nötig (Z-12 hängt daran), in FÜR DEN NUTZER:**
   - **Haarfarben (R27-1, hoch, neuer Grund):** In der Look-Bibel des Kanons (LF-R01…R20) haben alle zwölf Rollen mit türkisch, bosnisch oder kurdisch klingendem Namen dunkles Haar, die mit deutschem Namen helles. Die Gegenprobe wertet das als realistisches Aussehen ohne Verstoß. Ein Mischen würde Kanon-Aussehen und Figuren ändern und neue Sichtprüfungen (Z-03) brauchen.
   - **Alters- und Geschlechtermuster der Stadtbewohner (R27-4, R27-5):** Dutt nur bei älteren Frauen, „brummig“ bei alten Männern, Pflege, Reinigung und Bedienung nur mit Frauen besetzt. Das ist unser eigener Bestand, schon in E40 und E44 an den Nutzer gegeben. Eine Änderung betrifft Figuren und braucht neue Sichtprüfungen.
+
+## E51 · 09.10. 17:15 · Schlosskeller nachgezogen (3aff435); Leitplanken-Scanner ohne `content/party`
+- **Zweiter Merge:** Der Strang hat nach f5190ac weitergearbeitet. Ich habe den Stand 3aff435 ohne Konflikt nachgemergt; „Beerenrot“ aus E49 bleibt erhalten.
+- **Zuständigkeit für die Partytexte:**
+  - Unser Leitplanken-Scanner (Ebene 10, „Burgstadt + Klassische Fälle“) nahm bisher alles unter `content/`. Bis zum Merge lagen dort nur die Szenarien der Klassischen Fälle.
+  - Mit 3aff435 kam `content/party/textregeln.json` dazu, die Regeldatei des eigenen Textprüfers des Strangs. Sie besteht aus Verbots- und Ausnahmelisten, ist also kein Spieltext, und unser Scanner meldete 34 „Fehler“.
+  - Der Strang hat dort „weinrot“ ausdrücklich als zulässige Ausnahme eingetragen. Er hat also sein eigenes, abgestimmtes Regelwerk für seine Texte.
+  - Deshalb nimmt unser Scanner `content/party/**` jetzt aus. Die Partytexte prüft der Textprüfer des Strangs (`tool/pruefen.sh`), die Klassischen Fälle und die Burgstadt weiter unser Scanner. `leitplanken_test` belegt beides: Szenarien sind drin, Partydateien nicht.
+- **Berichtigung zu E49:** Dort stand, der Ton-Leitfaden des Strangs verbiete „Wein“. Das stimmt (TON-LEITFADEN, Abschnitt Alkohol: „Verboten sind Wein, …“). Sein Textprüfer lässt „weinrot“ aber als Ausnahme zu. „Beerenrot“ widerspricht keiner der beiden Regeln; ob der Strang zu „Weinrot“ zurückkehrt, entscheidet er selbst (FÜR DEN NUTZER).

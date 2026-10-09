@@ -2,5 +2,48 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "taeter",
   "hinweis": "Täterfassung olli.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "rolle": "olli",
+      "tarnung": "Du sagst: „Ich saß die ganze Zeit am Tisch im Ost-Saal.“ Als das Licht ausgeht, bleibst du am Kopf der Tafel sitzen. Du reibst dir den Nacken und schaust auf deine Hände. Bis das Licht wieder angeht, hast du dich nicht vom Fleck bewegt. Bleib dabei locker und ein bisschen müde, wie jemand, der den ganzen Abend gesessen hat.",
+      "tatwissen": [
+        {
+          "text": "Acht vor zwölf sagst du zu Wojtek: „Ich hol dir Eis. Und dann red ich mit Schneider.“ Drei vor zwölf holst du am Eiskübel Eis für Wojteks eingeklemmten Finger. Herr Schneider raunzt dich an: „Zweitausend, bis zwölf.“"
+        },
+        {
+          "text": "Du bleibst erst am Eiskübel stehen. Dann gehst du vor der Theke entlang und durch die Theken-Klappe zum Kerzenlicht. Du willst mit Herrn Schneider reden. Zwei vor zwölf packt Herr Schneider dich am Ärmel und zischt: „Zweitausend. Sonst Polizei.“"
+        },
+        {
+          "text": "In Panik greifst du den Kerzenständer am Fuß und schlägst einmal zu. Dann ist da nur ein dumpfer Schlag und Poltern. Holzsplitter und weißer Kalk von deinem Ärmel bleiben im noch weichen Wachs am Fuß kleben. Rote Kerzenwachstropfen fallen auf den rechten Arbeitshandschuh, der aus deiner Westentasche hängt."
+        },
+        {
+          "ref": "spur:spur_fuss_splitter"
+        },
+        {
+          "ref": "spur:spur_weste_kerzenwachs"
+        },
+        {
+          "text": "In Panik reißt du Herrn Schneiders Schlüsselbund vom Gürtel. Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkst du: Flucht macht alles schlimmer."
+        },
+        {
+          "text": "Dann wirfst du den Bund in den Eiskübel und kauerst dich zu Azra."
+        },
+        {
+          "ref": "spur:spur_eiskuebel_bund"
+        }
+      ],
+      "verbirgt": [
+        {
+          "ref": "luege:luege_olli_tafel"
+        },
+        {
+          "ref": "nebendelikt:nd_tuerschaden"
+        },
+        {
+          "text": "Kommt es heraus, weiß die ganze Runde, dass du vor der Vorratstür warst und zugeschlagen hast."
+        }
+      ],
+      "ziel": "Du willst unentdeckt bleiben, ohne einen Unschuldigen ins Unglück zu stürzen. Den Türschaden willst du selbst mit Herrn Schneider klären, ohne die Gruppe hineinzuziehen."
+    }
+  ]
 }

@@ -532,3 +532,41 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Entfallen als Schreibaufträge: F3-AUTOR-31..35. Bonus-, Indiz- und Entscheidungstexte stehen schon im Kanon und werden in den KONT- und SENS-Stapeln mitgeprüft; Korrekturen macht ORCH.
   - Varianten-Regel: F3-AUTOR-36..38 (Intro), F3-AUTOR-49..50 (Texte der vier Schlüsselbeweise als Vorschlag) und F3-AUTOR-57..58 (Wahltexte der Kernrollen, je zwei Fassungen).
   - Die übrigen Zuschnitte bleiben (Dossiers in Viererblöcken, Gespräche je Runde und Block).
+
+## E-027 · F3 Welle 1: Abnahmen und Entscheidungen (Textprüfer, Dossiers, Täterfassungen, Detektiv, Intro)
+- **Abnahmen (alle FREIGEGEBEN):**
+
+  | Bericht | Punkte | Grund für Abzug |
+  |---|---|---|
+  | BAUMEISTER-01 | 10 | – |
+  | AUTOR-10 | 10 | – |
+  | AUTOR-01 | 8 | Schweigegründe falsch zugeordnet; Cans Griff stand unter „weiß“ |
+  | AUTOR-02 | 9 | Geheimnisse unter „weiß“ |
+  | AUTOR-03 | 9 | Platzhalter-Fragen im Text |
+  | AUTOR-04 | 9 | Platzhalter-Fragen im Text |
+  | AUTOR-05 | 9 | Platzhalter-Fragen im Text |
+  | AUTOR-06 bis -09 | je 10 | – |
+  | AUTOR-36 | 9 | – |
+  | AUTOR-37 | 10 | gewählte Fassung |
+  | AUTOR-38 | 9 | – |
+
+  Die Mängel waren klein. ORCH hat sie direkt behoben statt nachbessern zu lassen; das ist schneller, und es ist keine Nachbesserung offen.
+- **Textprüfer:**
+  - `textLint` bekommt `regeln` als Parameter, weil `textregeln.json` fallneutral ist.
+  - Kontextausnahmen in der Form `wort:kontext` sind übernommen (Kater nur Katze, Rauch und Qualm nur mit Kamin).
+  - „Turm“, „Gang“, „Zugang“, „Eingang“ und „Raum“ stehen in `raumAusnahmen`: „Toilette im Turm“ ist Kanon-Wortlaut, die übrigen sind Allgemeinwörter.
+  - Der Umfang bleibt bei den Spielertexten. Figurenfelder wie `motiveAndConflict` sieht niemand am Tisch.
+  - Ob „alkoholfrei“ beim ersten Nennen steht, prüft der Sensibilitätsleser.
+- **Kanon:** `spur_notiz_fehlende.zeigt` ist in zwei Sätze geteilt (vorher 29 Wörter).
+- **Dossiers:**
+  - Schweigegründe der Kernrollen kommen aus dem eigenen Geheimnis (Ahmet: Miete; Fatma: Scham über die Schatulle; Olli: Türschaden selbst klären; Can: Streich und Zeynep).
+  - Was ein Geheimnis verrät, steht unter `verbirgt`: Cans Griff, Joannas Foto, Emines Polizeidrohung.
+  - Rollen ohne Geheimnis bekommen einen ehrlichen Satz aus ihrem Ziel.
+  - Öffentliche Beziehungen (Geschwister, Cousins, beste Freundinnen) dürfen in `wer` stehen; Zeynep: „Can ist dein Bruder.“
+  - Dossiers sprechen mit „du“ an (TON-LEITFADEN §3 ergänzt).
+- **Täterfassungen:** Spuren stehen in `tatwissen`, `verbirgt` hält Lügen und Nebendelikt (SCHLUESSEL.md angepasst). Die Fasern stehen nur bei Can, denn bei den anderen sind sie eine falsche Fährte.
+- **Detektiv:** 12 Schlüssel (der Auftrag nannte irrtümlich 13). „Zur Tatzeit“ statt „Scheppern“, „Mantel“ statt „Trenchcoat“; beides bleibt.
+- **Intro (Varianten-Regel):** Fassung 2 ist gewählt.
+  - Kriterien: vorlesbar, Grusel mit Humor, Knall wie im Kanon, nicht besetzte Rollen neutral als „ein Gast“.
+  - Fassung 1 lässt den Knall weg.
+  - Fassung 3 erzählt als Erinnerung, obwohl das Intro am Abend spielt, und verrät mit „eine Freundin“ das Geschlecht nicht besetzter Rollen.

@@ -2,5 +2,97 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "dossier",
   "hinweis": "Dossiers der Besetzungsplätze 17 bis 20.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "rolle": "enes",
+      "wer": "Du bist Damir, der Teemeister. Du arbeitest in der Kinderbetreuung und kochst für alle Tee, ob sie wollen oder nicht. Du bist aufmerksam und hast flinke Hände. Man erkennt dich an deinem weißen Hemd mit hochgekrempelten Ärmeln und an der schwarzen Schürze.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_damir_an_der_theke"
+        },
+        {
+          "text": "Zwanzig Sekunden nach Mitternacht findest du Herrn Schneider im Vorratsraum."
+        }
+      ],
+      "verbirgt": [
+        {
+          "ref": "beobachtung:b_damir_ahmet_blieb"
+        },
+        {
+          "ref": "beobachtung:b_damir_ahmet_weg"
+        },
+        {
+          "text": "Du schweigst, weil dein Ärger mit Herrn Schneider nicht zur Sprache kommen soll und du Ahmet nicht ohne Not belasten willst."
+        }
+      ],
+      "ziel": "Über den Ärger mit Herrn Schneider wegen des Teegeschirrs soll niemand reden.",
+      "besetzung": "Jede Person kann Damir spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "selin",
+      "wer": "Du bist Sibel, die Vorsichtige. Du studierst Biologie und fürchtest dich vor nichts außer alten Rüstungen. Du bist auf der Geburtstagsfeier dabei und ziehst bei lauten Geräuschen oft die Schultern hoch. Man erkennt dich an dem weißen Fransenschal, den du dir bis übers Kinn ziehst.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_selin_gesicht"
+        },
+        {
+          "text": "Um 21:00 Uhr hältst du die Ritterrüstung im Turmgang für einen Menschen."
+        },
+        {
+          "text": "Dabei stolperst du gegen die Schauvitrine, und die Scheibe bekommt einen feinen Sprung."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Du verbirgst nichts. Die Rüstung im Turmgang ist dir aber immer noch unheimlich."
+        }
+      ],
+      "ziel": "Du willst, dass die Rüstung aus dem Turmgang verschwindet.",
+      "besetzung": "Jede Person kann Sibel spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "hakan",
+      "wer": "Du bist Pawel, der Vermittler. Du machst gerade dein Referendariat in Jura und schlichtest seit der Schulzeit jeden Streit. Du sitzt ruhig und aufrecht am Tisch und beobachtest die Gruppe. Man erkennt dich an deiner schokobraunen Steppjacke, der dunkelbraunen Ledertasche neben dir und deiner Teetasse.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_pawel_schneider"
+        },
+        {
+          "text": "Um 23:00 Uhr streiten Herr Schneider und Olli laut um die 2.000 €."
+        },
+        {
+          "text": "Du versuchst zu schlichten, aber Herr Schneider weist dich barsch ab."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Du weißt, dass Herr Schneider mit Geld knapp ist. Das behältst du für dich, damit niemand über ihn lacht."
+        }
+      ],
+      "ziel": "Du willst Herrn Schneider verteidigen, ohne seine Geldsorgen auszuplaudern.",
+      "besetzung": "Jede Person kann Pawel spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "tugba",
+      "wer": "Du bist Tugba, die Geburtstags-Planerin. Du leitest Projekte bei der Arbeit und planst sogar Geburtstage mit Ablaufplan. Den Ablaufplan für diesen Abend hast du geschrieben. Man erkennt dich an deinem bordeauxroten Jackett, der schmalen Metallbrille und dem Notizbuch mit goldenem Einband.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_tugba_notiz"
+        },
+        {
+          "text": "Um 23:55 Uhr rufst du alle in den Ost-Saal."
+        },
+        {
+          "text": "Um zwölf soll das Geburtstagskind zur Torte in den Vorratsraum geführt werden."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Du verbirgst nichts. Du willst nur, dass die Torte heute noch auf den Tisch kommt."
+        }
+      ],
+      "ziel": "Du willst den Abend retten. Um halb eins soll die Torte da sein, egal was passiert.",
+      "besetzung": "Jede Person kann Tugba spielen, egal welches Geschlecht sie hat."
+    }
+  ]
 }
