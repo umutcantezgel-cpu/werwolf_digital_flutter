@@ -2,5 +2,26 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "erzaehler",
   "hinweis": "Finale im Pfad olli: finale.olli.<ende> (4) und rueckblende.olli.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "finale.olli.ende_meister",
+      "text": "Du hast alle Spuren zusammengetragen, und jetzt ist klar, wer es war. Im Wachs am Fuß des Kerzenständers stecken Holzsplitter und weißer Kalk. Auf dem Handschuh, der aus Ollis Westentasche hängt, sind rote Kerzenwachstropfen. Olli gesteht: Die Tat war Panik im Dunkeln. Dazu kommt die Schramme an der Bogentür, die er mit Möbelwachs verdecken wollte. Herr Schneider überlebt; er wacht auf, hat eine Beule und eine Gedächtnislücke, und es geht ihm bald wieder gut. Den Bund hat Olli in den Eiskübel geworfen, unter das Eis. Am Morgen holt ihr den Bund hervor, und damit kommt ihr hinaus. Wojtek hält trotzdem zu Olli, und ihr lacht erleichtert, bei Tee und alkoholfreiem Apfelpunsch."
+    },
+    {
+      "id": "finale.olli.ende_teilerfolg",
+      "text": "Du klagst Olli an, und es stimmt. Ein gutes Stück Glück war allerdings dabei. Olli gesteht: Die Tat war Panik im Dunkeln. Herr Schneider überlebt; er wacht auf, hat eine Beule und eine Gedächtnislücke, und es geht ihm bald wieder gut. Den Bund unter dem Eis findet in der Nacht niemand. Um sieben Uhr kommt Herrn Schneiders Kollegin mit dem Ersatzschlüssel und schließt das Außentor auf. Herr Schneider ist bald wieder grantig, wegen des Geldes. Zwischen euch bleibt ein kleiner Riss, und alle gehen ein bisschen stiller hinaus."
+    },
+    {
+      "id": "finale.olli.ende_justizirrtum",
+      "text": "Du klagst die falsche Person an. Wer zu Unrecht beschuldigt wurde, ist entsetzt und wütend. Die Runde sitzt danach geteilt da, und die Stimmung wird kalt. Herr Schneider überlebt; er wacht auf, hat eine Beule und eine Gedächtnislücke, und es geht ihm bald wieder gut. Erst am Morgen findet ihr den Bund unter dem Eis im Eiskübel. Olli gesteht: Die Tat war Panik im Dunkeln. Damit kommt ihr hinaus, aber zwischen euch bleibt ein tiefer Riss."
+    },
+    {
+      "id": "finale.olli.ende_eskalation",
+      "text": "Du zeigst auf die falsche Person, und plötzlich reden alle durcheinander. Wer zu Unrecht beschuldigt wurde, wehrt sich laut. Die Stimmen werden immer lauter, und keiner hört mehr zu. Die Runde zerfällt in kleine Grüppchen, und keiner glaubt dem anderen etwas. Herr Schneider überlebt; er wacht auf, hat eine Beule und eine Gedächtnislücke, und es geht ihm bald wieder gut. Olli gesteht erst später: Die Tat war Panik im Dunkeln. Um sieben Uhr schließt Herrn Schneiders Kollegin mit dem Ersatzschlüssel das Außentor auf. Alle gehen hinaus, und keiner verabschiedet sich."
+    },
+    {
+      "id": "rueckblende.olli",
+      "text": "Ein Knall, und dann ist es stockdunkel. Zwei vor zwölf packt Herr Schneider Can an der Kapuze. Can reißt sich los und rennt davon, die leuchtende Maske in der Hand. Herr Schneider packt Olli am Ärmel und zischt: „Zweitausend. Sonst Polizei.“ Dann, in Panik: ein dumpfer Schlag, Poltern, Metall scheppert über den Steinboden. Olli reißt den Bund vom Gürtel und wirft ihn in den Eiskübel, unter das Eis. Dann kauert er sich zu Azra. Um Mitternacht schaltet Tim die Hauptsicherung wieder ein, und das Licht geht an."
+    }
+  ]
 }
