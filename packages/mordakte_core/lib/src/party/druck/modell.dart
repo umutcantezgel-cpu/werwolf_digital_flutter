@@ -61,15 +61,17 @@ class BogenEntscheidung {
   const BogenEntscheidung(this.id, this.runde, this.nr, this.frage, this.optionen);
 }
 
-/// Stimmkarte einer Rolle in einer Runde. Rückseite: [wert] (A = 1, B = 0,
-/// Sabotage der Täterrolle = −1, Regel G-1).
+/// Stimmkarte einer Rolle in einer Runde. Der Abreißstreifen trägt nur den
+/// neutralen [wertCode]; den [wert] (A = 1, B = 0, Sabotage der Täterrolle = −1,
+/// Regel G-1) kennt nur die Codetabelle der Runde im Spielleitungsheft (E-035).
 class Stimmkarte {
   final String rolle;
   final int runde;
   final bool a;
   final String text;
   final int wert;
-  const Stimmkarte(this.rolle, this.runde, this.a, this.text, this.wert);
+  final String wertCode;
+  const Stimmkarte(this.rolle, this.runde, this.a, this.text, this.wert, this.wertCode);
 }
 
 /// Hinweis-Umschlag einer Runde und Qualität.
@@ -89,7 +91,13 @@ class HinweisUmschlag {
 class Auszaehlung {
   final int runde;
   final List<({int abSumme, String umschlag})> stufen;
-  const Auszaehlung(this.runde, this.stufen);
+
+  /// Wertcode → Wert aller Stimmkarten dieser Runde.
+  final Map<String, int> werte;
+  const Auszaehlung(this.runde, this.stufen, this.werte);
+
+  /// Summe der abgegebenen Streifen.
+  int summe(Iterable<String> codes) => codes.fold(0, (s, c) => s + werte[c]!);
 
   /// Umschlag zu einer Summe (unter 0 zählt wie 0).
   String umschlagBei(int summe) {
@@ -112,7 +120,8 @@ class Fassung {
 /// Spielleitungsheft (ohne Lösung): Bausteine je Abschnitt in Lesereihenfolge.
 class Spielleitungsheft {
   final List<String> intro;
-  final Map<int, String> rundenStart;
+  /// Runde → Bausteine zum Rundenstart (mit dem Wissen unbesetzter Gäste, F-09).
+  final Map<int, List<String>> rundenStart;
   final Map<int, String> resuemeeGruppe;
 
   /// Restmenge (sortierte Personen, verbunden mit `_`) → Baustein.
@@ -262,20 +271,21 @@ class DruckSatz {
     // Druckreihenfolge nach Code: Die Lage im Stapel verrät nichts.
     karten.sort((a, b) => a.code.compareTo(b.code));
 
-    // Stimmkarten (G-1): Bei der Täterrolle ist B die Sabotage.
-    final stimmen = <Stimmkarte>[];
+    // Stimmkarten (G-1): Bei der Täterrolle ist B die Sabotage. Die Wertcodes
+    // entstehen erst nach allen anderen Codes, damit diese gleich bleiben.
+    final stimmDaten = <(String, int, bool, String, int)>[];
     for (var r = 1; r <= 3; r++) {
       for (final rolle in besetzt) {
         final w = texte.sammlung.wahlen['gw_${rolle}_$r']!;
         final taeter = rolle == pfad;
-        stimmen.add(Stimmkarte(rolle, r, true, w.a, 1));
-        stimmen.add(Stimmkarte(rolle, r, false, taeter && w.sabotage != null ? w.sabotage! : w.b, taeter ? -1 : 0));
+        stimmDaten.add((rolle, r, true, w.a, 1));
+        stimmDaten.add((rolle, r, false, taeter && w.sabotage != null ? w.sabotage! : w.b, taeter ? -1 : 0));
       }
     }
 
     // Hinweis-Umschläge und Auszählung für genau diese Personenzahl
     final umschlaege = <HinweisUmschlag>[];
-    final auszaehlung = <Auszaehlung>[];
+    final auszaehlung = <({int runde, List<({int abSumme, String umschlag})> stufen})>[];
     for (var r = 1; r <= 3; r++) {
       final je = <Qualitaet, String>{};
       for (final q in Qualitaet.values) {
@@ -305,7 +315,7 @@ class DruckSatz {
         }
         fest.add((abSumme: ab, umschlag: stufen[i].umschlag));
       }
-      auszaehlung.add(Auszaehlung(r, fest));
+      auszaehlung.add((runde: r, stufen: fest));
       umschlaege.sort((a, b) => a.code.compareTo(b.code));
     }
 
@@ -316,6 +326,13 @@ class DruckSatz {
       bedeutung[c] = 'fassung:$p${p == pfad ? ':taeter' : ''}';
       fassungen.add(Fassung(c, p, texte.dossier(p, pfad, rollen)));
     }
+
+    // Wertcodes der Stimmkarten und die Codetabelle je Runde
+    final stimmen = [for (final (rolle, r, a, text, wert) in stimmDaten) Stimmkarte(rolle, r, a, text, wert, codes.neu())];
+    final zaehlung = [
+      for (final a in auszaehlung)
+        Auszaehlung(a.runde, a.stufen, {for (final s in stimmen.where((s) => s.runde == a.runde)) s.wertCode: s.wert}),
+    ];
 
     // Spielleitungsheft
     final erz = spiel.erzaehler;
@@ -329,14 +346,14 @@ class DruckSatz {
     ];
     final heft = Spielleitungsheft(
       intro: erz.intro(spiel),
-      rundenStart: {for (var r = 1; r <= 3; r++) r: erz.rundenStart(r).single},
+      rundenStart: {for (var r = 1; r <= 3; r++) r: erz.rundenStart(r, besetzt: (f) => spiel.besetzung.istBesetzt(f, rollen))},
       resuemeeGruppe: {for (var r = 1; r <= 3; r++) r: 'resuemee.gruppe.$r'},
       resuemeeRest: {for (final m in restmengen) _restSchluessel(kern, m): erz.restSchluessel(m)},
       resuemeeLage: {
         for (var r = 1; r <= 3; r++) r: {for (final st in ['offen', 'spur', 'klar']) st: 'resuemee.lage.$r.$st'},
       },
       anklage: erz.anklage().single,
-      auszaehlung: auszaehlung,
+      auszaehlung: zaehlung,
     );
 
     final ende = Enden(kanon);
@@ -364,7 +381,8 @@ class DruckSatz {
         kern,
         [for (final t in ['alibi', 'nebendelikt', 'spaetankunft', 'zusatzindiz', 'fundort', 'schluesselbeweis']) if (bogenTypen.contains(t)) t],
         ermittlung.regeln,
-        {for (final r in kanon.entscheidungenJson['regeln'] as List) (r as Map)['id'] as String: r['text'] as String},
+        // Spielertext der Regel (F-10: wortgleich mit dem Ermittlungsbogen im Kanon).
+        {for (final r in ermittlung.regeln) r.id: texte.baustein('ermittlungsbogen.${r.folge}')},
         Erzaehler.belastend,
       ),
       rollenhefte: {for (final r in besetzt) r: texte.dossier(r, pfad, rollen)},

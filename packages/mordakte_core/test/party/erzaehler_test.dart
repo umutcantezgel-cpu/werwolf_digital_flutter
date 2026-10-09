@@ -136,7 +136,7 @@ List<String> _kennungFehler(
   return f;
 }
 
-const _vorFinale = ['intro.', 'runde.', 'bonus.rahmen', 'hinweis.', 'resuemee.', 'anklage.'];
+const _vorFinale = ['intro.', 'runde.', 'npc.', 'bonus.rahmen', 'hinweis.', 'resuemee.', 'anklage.'];
 
 /// Schritt 11: Vor dem ersten finale.-Baustein steht nichts aus Finale, Rückblende oder Auflösung.
 List<String> _vorFinaleFehler(List<String> bausteine) {
@@ -181,6 +181,37 @@ void main() {
       ).map((x) => '${l.wo}: $x'));
     }
     expect(f, isEmpty, reason: f.join('\n'));
+  });
+
+  test('Wissen unbesetzter Gäste (W1, E-035): nur bei unbesetzter Figur, gleich in allen Pfaden', () {
+    final e = Erzaehler(kanon);
+    expect(e.npcPlan, isNotEmpty);
+    final f = <String>[];
+    for (var n = 4; n <= 20; n++) {
+      final b = Besetzung(kanon);
+      for (var r = 1; r <= 3; r++) {
+        final bloecke = e.npcWissen(r, besetzt: (x) => b.istBesetzt(x, n));
+        for (final k in bloecke) {
+          final figur = k.split('.')[1];
+          if (b.istBesetzt(figur, n)) f.add('$n/$r: $k, obwohl $figur besetzt ist');
+          if (!_textsammlung.bausteine.containsKey(k)) f.add('$n/$r: $k fehlt in der Textsammlung');
+        }
+        // Gespielte Abende: der Rundenstart ist in jedem Pfad derselbe.
+        final je = {
+          for (final p in kanon.pfade)
+            p: (Spiel(kanon)..einrichten(Einstellungen(rollen: n, detektiv: 'w', code: FallCode.fuerPfad(p, kanon.pfade)))).erzaehler.rundenStart(
+              r,
+              besetzt: (x) => b.istBesetzt(x, n),
+            ),
+        };
+        if (je.values.map((l) => l.join(',')).toSet().length != 1) f.add('$n/$r: Rundenstart hängt am Pfad: $je');
+      }
+    }
+    expect(f, isEmpty, reason: f.join('\n'));
+    // Bei voller Besetzung spricht der Erzähler kein Gästewissen.
+    for (var r = 1; r <= 3; r++) {
+      expect(e.npcWissen(r, besetzt: (_) => true), isEmpty);
+    }
   });
 
   test('Vor dem Finale nichts aus Finale, Rückblende oder Auflösung', () {

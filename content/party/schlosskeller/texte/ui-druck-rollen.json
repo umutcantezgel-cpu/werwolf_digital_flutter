@@ -81,11 +81,11 @@
     },
     {
       "id": "ui.druck.fassung.aussen",
-      "text": "Umschlag für {name}. Nur {name} öffnet ihn."
+      "text": "Versiegelt. Erst öffnen, wenn die Spielleitung diesen Code nennt."
     },
     {
       "id": "ui.druck.fassung.tafel",
-      "text": "Nur für dich: Du warst es"
+      "text": "Was nur du weißt"
     },
     {
       "id": "ui.druck.fassung.tarnung",
@@ -97,15 +97,11 @@
     },
     {
       "id": "ui.druck.fassung.sabotage",
-      "text": "Deine heimliche Wahl statt B"
+      "text": "B, deine heimliche Wahl: Für die anderen klingt sie harmlos. Sie schwächt den Hinweis dieser Runde."
     },
     {
       "id": "ui.druck.fassung.notizen",
       "text": "Notizen"
-    },
-    {
-      "id": "ui.druck.stimme.name",
-      "text": "Name"
     },
     {
       "id": "ui.druck.stimme.runde",
@@ -113,11 +109,11 @@
     },
     {
       "id": "ui.druck.stimme.wert",
-      "text": "Wert: {wert}"
+      "text": "Code {code}"
     },
     {
       "id": "ui.druck.stimme.falz",
-      "text": "Hier falten. Der Wert bleibt bis zur Zählung verdeckt."
+      "text": "Abreißen, falten und in die Schüssel legen."
     }
   ]
 }

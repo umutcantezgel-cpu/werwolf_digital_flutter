@@ -12,9 +12,11 @@ import 'satz_stil.dart';
 // Rollenhefte, versiegelte Fassungen der Kernrollen, Stimmkarten (F5-BAUMEISTER-02, Master 7.11, 7.14, G-1).
 // Texte kommen aus Bausteinen `ui.druck.*` oder aus den Daten des Satzes. Außen stehen nur Codes.
 
-/// Stimmkarte: 90 × 60 mm, längs gefaltet, acht je Blatt.
+/// Stimmkarte: 90 × 60 mm, acht je Blatt. Unten ein Streifen zum Abreißen, der nur den Wertcode trägt (E-035).
 const _kartenBreite = PdfPageFormat.mm * 90;
 const _kartenHoehe = PdfPageFormat.mm * 60;
+const _streifenHoehe = PdfPageFormat.mm * 17;
+const _vorneHoehe = _kartenHoehe - _streifenHoehe;
 
 void rollenhefte(pw.Document doc, DruckKontext k) {
   for (final rolle in k.satz.besetzt) {
@@ -35,9 +37,10 @@ void fassungen(pw.Document doc, DruckKontext k) {
     return probe.document.pdfPageList.pages.length;
   }
 
-  // Alle vier Fassungen gleich lang: die kürzeren bekommen Notizseiten.
+  // Alle vier Fassungen gleich lang und gleich gebaut: Jede endet mit mindestens
+  // einer Notizseite, die kürzeren bekommen weitere (E-035).
   final laengen = [for (final f in k.satz.fassungen) seitenVon(f)];
-  final ziel = laengen.reduce(max);
+  final ziel = laengen.reduce(max) + 1;
   for (var i = 0; i < k.satz.fassungen.length; i++) {
     _fassung(doc, k, k.satz.fassungen[i]);
     for (var n = laengen[i]; n < ziel; n++) {
@@ -247,12 +250,12 @@ Fassung? _fassungVon(DruckKontext k, String rolle) {
 
 // ---------------------------------------------------------------- Fassungen
 
+/// Außen nur der Code, kein Name: Verteilt wird über den Code im Rollenheft (E-035).
 void _fassung(pw.Document doc, DruckKontext k, Fassung f) {
-  final name = k.figurName(f.rolle);
   doc.addPage(pw.Page(
     pageFormat: DruckStil.format,
     margin: DruckStil.rand,
-    build: (c) => k.stil.aussenseite(f.code, k.ui('ui.druck.fassung.aussen', {'name': name})),
+    build: (c) => k.stil.aussenseite(f.code, k.ui('ui.druck.fassung.aussen')),
   ));
   doc.addPage(pw.MultiPage(
     pageFormat: DruckStil.format,
@@ -266,32 +269,23 @@ List<pw.Widget> _innen(DruckKontext k, Fassung f) {
   final d = f.dossier;
   return [
     k.stil.kopf(k.ui('ui.druck.fassung.marke'), k.figurName(f.rolle)),
-    if (d.taeter) ..._zusammen(k, () => _tafel(k, d)),
     ..._zusammen(k, () => k.stil.abschnitt(k.ui('ui.druck.rollen.ziel'), [d.ziel])),
+    if (d.taeter) ..._zusammen(k, () => _tafel(k, d)),
     ..._weissUndVerberge(k, d),
     ..._rundenwahl(k, d),
   ];
 }
 
 /// Nur in der Täterfassung: die Tarnung für die anderen und das wahre Geschehen.
+/// Gesetzt wie jeder andere Abschnitt, ohne Rahmen und ohne auffällige Überschrift:
+/// Wer beim Drucken auf die Seite blickt, erkennt die Täterfassung nicht (E-035).
 pw.Widget _tafel(DruckKontext k, Dossier d) => pw.Column(
       crossAxisAlignment: pw.CrossAxisAlignment.start,
       children: [
-        pw.Container(
-          width: DruckStil.breite,
-          padding: const pw.EdgeInsets.all(14),
-          decoration: pw.BoxDecoration(border: pw.Border.all(color: DruckStil.tinte, width: 1.2)),
-          child: pw.Column(
-            crossAxisAlignment: pw.CrossAxisAlignment.start,
-            children: [
-              pw.Text(k.ui('ui.druck.fassung.tafel'), style: k.stil.titel(17)),
-              pw.SizedBox(height: 10),
-              k.stil.abschnitt(k.ui('ui.druck.fassung.tarnung'), [d.tarnung!]),
-              k.stil.abschnitt(k.ui('ui.druck.fassung.tatwissen'), [for (final z in d.tatwissen) z.text]),
-            ],
-          ),
-        ),
-        pw.SizedBox(height: 14),
+        pw.Text(k.ui('ui.druck.fassung.tafel'), style: k.stil.ueberschrift(12.5)),
+        pw.SizedBox(height: 6),
+        k.stil.abschnitt(k.ui('ui.druck.fassung.tarnung'), [d.tarnung!]),
+        k.stil.abschnitt(k.ui('ui.druck.fassung.tatwissen'), [for (final z in d.tatwissen) z.text]),
       ],
     );
 
@@ -324,7 +318,7 @@ double _kartenSchrift(DruckKontext k, List<Stimmkarte> karten) {
     final g = k.stil.passendeGroesse(
       (groesse) => _vorderseite(k, s, groesse),
       _kartenBreite,
-      _kartenHoehe / 2,
+      _vorneHoehe,
       wo: 'Stimmkarte ${s.rolle} Runde ${s.runde}',
     );
     schrift = min(schrift, g);
@@ -332,7 +326,7 @@ double _kartenSchrift(DruckKontext k, List<Stimmkarte> karten) {
   return schrift;
 }
 
-/// Vorderseite (obere Hälfte): Name, Figur, Runde, A oder B und der Text der Karte.
+/// Karte (oberer Teil): Figur, Runde, A oder B und der Text der Karte. Kein Wert, kein Namensfeld.
 /// Ohne feste Höhe, damit die Messung die echte Höhe liefert.
 pw.Widget _vorderseite(DruckKontext k, Stimmkarte s, double schrift) => pw.Container(
       width: _kartenBreite,
@@ -346,14 +340,6 @@ pw.Widget _vorderseite(DruckKontext k, Stimmkarte s, double schrift) => pw.Conta
               pw.Text('  ·  ', style: k.stil.klein()),
               pw.Text(k.ui('ui.druck.stimme.runde', {'nr': '${s.runde}'}), style: k.stil.klein()),
               pw.Spacer(),
-              pw.Text(k.ui('ui.druck.stimme.name'), style: k.stil.klein()),
-              pw.SizedBox(width: 6),
-              pw.Container(
-                width: 70,
-                height: 10,
-                decoration: pw.BoxDecoration(border: pw.Border(bottom: pw.BorderSide(color: DruckStil.linie, width: 0.6))),
-              ),
-              pw.SizedBox(width: 8),
               pw.Text(s.a ? 'A' : 'B', style: k.stil.ueberschrift(12)),
             ],
           ),
@@ -364,38 +350,30 @@ pw.Widget _vorderseite(DruckKontext k, Stimmkarte s, double schrift) => pw.Conta
       ),
     );
 
-pw.Widget _karte(DruckKontext k, Stimmkarte s, double schrift) {
-  final wert = switch (s.wert) {
-    1 => '+1',
-    0 => '0',
-    _ => '−1',
-  };
-  return pw.Container(
-    width: _kartenBreite,
-    height: _kartenHoehe,
-    decoration: k.stil.schnitt(),
-    child: pw.Column(
-      children: [
-        // Vorderseite: obere Hälfte.
-        pw.SizedBox(width: _kartenBreite, height: _kartenHoehe / 2, child: _vorderseite(k, s, schrift)),
-        // Rückseite: untere Hälfte, nach der Faltlinie umgeknickt.
-        pw.Container(
-          width: _kartenBreite,
-          height: _kartenHoehe / 2,
-          padding: const pw.EdgeInsets.fromLTRB(9, 6, 9, 6),
-          decoration: pw.BoxDecoration(
-            border: pw.Border(top: pw.BorderSide(color: DruckStil.linie, width: 0.6, style: pw.BorderStyle.dotted)),
+pw.Widget _karte(DruckKontext k, Stimmkarte s, double schrift) => pw.Container(
+      width: _kartenBreite,
+      height: _kartenHoehe,
+      decoration: k.stil.schnitt(),
+      child: pw.Column(
+        children: [
+          pw.SizedBox(width: _kartenBreite, height: _vorneHoehe, child: _vorderseite(k, s, schrift)),
+          // Streifen zum Abreißen: nur der neutrale Wertcode, kein Name, kein Wert.
+          pw.Container(
+            width: _kartenBreite,
+            height: _streifenHoehe,
+            padding: const pw.EdgeInsets.fromLTRB(9, 4, 9, 4),
+            decoration: pw.BoxDecoration(
+              border: pw.Border(top: pw.BorderSide(color: DruckStil.linie, width: 0.8, style: pw.BorderStyle.dashed)),
+            ),
+            child: pw.Column(
+              mainAxisAlignment: pw.MainAxisAlignment.center,
+              children: [
+                pw.Text(k.ui('ui.druck.stimme.wert', {'code': s.wertCode}), style: k.stil.ueberschrift(14)),
+                pw.SizedBox(height: 2),
+                pw.Text(k.ui('ui.druck.stimme.falz'), style: k.stil.klein(), textAlign: pw.TextAlign.center),
+              ],
+            ),
           ),
-          child: pw.Column(
-            mainAxisAlignment: pw.MainAxisAlignment.center,
-            children: [
-              pw.Text(k.ui('ui.druck.stimme.wert', {'wert': wert}), style: k.stil.ueberschrift(12)),
-              pw.SizedBox(height: 4),
-              pw.Text(k.ui('ui.druck.stimme.falz'), style: k.stil.klein(), textAlign: pw.TextAlign.center),
-            ],
-          ),
-        ),
-      ],
-    ),
-  );
-}
+        ],
+      ),
+    );

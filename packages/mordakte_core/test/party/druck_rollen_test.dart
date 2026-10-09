@@ -71,21 +71,23 @@ void main() {
     }
   });
 
-  test('Außenseite zeigt nur Code und neutralen Hinweis, nie Täter oder Nur für dich', () async {
+  test('Außenseite zeigt nur Code und neutralen Hinweis, keinen Namen, nie Täter oder Nur für dich (E-035)', () async {
     final k = druckKontext(pfad: 'fatma', n: 12);
     final b = await _teil(fassungen, k);
     final l = b.seiten ~/ 4;
     for (var i = 0; i < 4; i++) {
       final f = k.satz.fassungen[i];
-      final name = k.figurName(f.rolle);
       final aussen = _seiten(b, i * l, i * l + 1);
-      expect(aussen, '${f.code} Umschlag für $name. Nur $name öffnet ihn.', reason: f.rolle);
+      expect(aussen, '${f.code} ${flach(k.ui('ui.druck.fassung.aussen'))}', reason: f.rolle);
+      for (final p in k.kanon.kernverdaechtige) {
+        expect(aussen, isNot(contains(k.figurName(p))), reason: f.rolle);
+      }
       expect(aussen, isNot(contains('Nur für dich')), reason: f.rolle);
       expect(aussen, isNot(contains('Du warst es')), reason: f.rolle);
     }
   });
 
-  test('Täterfassung von fatma enthält „Nur für dich“ und die Tarnung, die anderen nicht', () async {
+  test('Täterfassung von fatma enthält die Tarnung, die anderen nicht; keine Fassung verrät sich durch Überschrift (E-035)', () async {
     final k = druckKontext(pfad: 'fatma', n: 12);
     final b = await _teil(fassungen, k);
     final l = b.seiten ~/ 4;
@@ -94,8 +96,11 @@ void main() {
       final f = k.satz.fassungen[i];
       final text = _seiten(b, i * l, (i + 1) * l);
       final taeterin = f.rolle == 'fatma';
-      expect(text.contains('Nur für dich'), taeterin, reason: f.rolle);
       expect(text.contains(tarnung), taeterin, reason: f.rolle);
+      expect(text, isNot(contains('Nur für dich')), reason: f.rolle);
+      expect(text, isNot(contains('Du warst es')), reason: f.rolle);
+      // Jede Fassung endet mit einer Notizseite: Kein Satz fällt durch fehlende Notizen auf.
+      expect(flach(b.seitenText[(i + 1) * l - 1]), contains(k.ui('ui.druck.fassung.notizen')), reason: f.rolle);
     }
   });
 
@@ -157,11 +162,11 @@ void main() {
     for (var i = 0; i < 4; i++) {
       final f = k.satz.fassungen[i];
       final text = _seiten(b, i * l, (i + 1) * l);
-      expect(_zaehle(text, 'Deine heimliche Wahl statt B'), f.rolle == 'fatma' ? 3 : 0, reason: f.rolle);
+      expect(_zaehle(text, flach(k.ui('ui.druck.fassung.sabotage'))), f.rolle == 'fatma' ? 3 : 0, reason: f.rolle);
     }
   });
 
-  test('Stimmkarten: 8 je Blatt, jeder Kartentext steht im PDF, je Runde genau eine −1', () async {
+  test('Stimmkarten: 8 je Blatt, jeder Kartentext und Wertcode steht im PDF, kein Wert und kein Namensfeld (E-035)', () async {
     final k = druckKontext(pfad: 'ahmet', n: 12);
     final doc = k.stil.neuesDokument('Test');
     stimmkarten(doc, k);
@@ -173,13 +178,14 @@ void main() {
     for (final s in k.satz.stimmkarten) {
       expect(text, contains(_anfang(s.text, 40)), reason: '${s.rolle} Runde ${s.runde} ${s.a ? 'A' : 'B'}');
     }
-    // Eine Runde sind 24 Karten, also drei Blätter: auf jedem Abschnitt genau eine −1.
-    for (var r = 0; r < 3; r++) {
-      expect(_zaehle(seiten.sublist(r * 3, r * 3 + 3).join(' '), 'Wert: −1'), 1, reason: 'Runde ${r + 1}');
+    // Auf dem Papier steht nur der Code, nie ein Wert: Wer druckt, sieht keine Sabotage.
+    for (final s in k.satz.stimmkarten) {
+      expect(text, contains(flach(k.ui('ui.druck.stimme.wert', {'code': s.wertCode}))), reason: '${s.rolle} Runde ${s.runde}');
     }
-    expect(_zaehle(text, 'Wert: −1'), 3);
-    expect(_zaehle(text, 'Wert: +1'), 36);
-    expect(_zaehle(text, 'Wert: 0'), 33);
+    for (final verboten in ['Wert', '−1', '+1', 'Name']) {
+      expect(text, isNot(contains(verboten)), reason: verboten);
+    }
+    expect(_zaehle(text, 'Code '), 72);
     expect([for (final s in k.satz.stimmkarten.where((s) => s.wert == -1)) (s.rolle, s.runde)], [('ahmet', 1), ('ahmet', 2), ('ahmet', 3)]);
   });
 
@@ -191,8 +197,8 @@ void main() {
     }
     final karten = await _teil(stimmkarten, k);
     expect(karten.seiten, 15, reason: '120 Karten zu acht je Blatt');
-    expect(_zaehle(karten.text, 'Wert: −1'), 3);
-    expect(_zaehle(karten.text, 'Wert: +1'), 60);
+    expect(_zaehle(flach(karten.text), 'Code '), 120);
+    expect(flach(karten.text), isNot(contains('−1')));
   });
 
   test('Täterziel steht nur in der versiegelten Fassung, nie im Rollenheft (E-033)', () async {

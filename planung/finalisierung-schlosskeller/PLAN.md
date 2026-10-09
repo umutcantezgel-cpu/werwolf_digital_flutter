@@ -144,9 +144,9 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 | F5-ORCH-01 | ORCH | NPC-Karten im Druck; Druck-Datenmodell mit neutralen Codes; Kernrollen-Fassungen versiegelt mit Schlüsselkarte; Ermittlungsbogen mit Ausschlussregeln; Stimmkarten-Auszählung | `party/druck/modell.dart` | F3 | erledigt (E-031, E-033: Modell, Gerüst, CLI; Fassungen tragen Rollenname und Code außen) |
 | F5-BAUMEISTER-01..03 | Baumeister | PDF-Layouts: Spielleitungsheft, Detektivbogen, Rollenhefte · Indiz- und Stimmkarten · Umschläge und versiegeltes Auflösungsheft | `party/druck/<teil>.dart` | F5-ORCH-01 | abgenommen (10, 9, 10 von 10; E-033) |
 | F5-BAUMEISTER-04 | Baumeister | CLI `party_druck` und App-Download | `bin/party_druck.dart`, `lib/party/druck_tafel.dart`, `lib/party/druck_speichern*.dart` | F5-BAUMEISTER-01..03 | erledigt (ORCH, E-034) |
-| F5-TEST-01 | TEST | Besetzungsprüfer 4–20 (F-09) | `test/party/besetzung_test.dart` | F5-ORCH-01 | offen |
-| F5-TEST-02 | TEST | Druck gegen Simulator (100 Spiele), Überlaufmessung, Wortgleichheit (F-14, F-10) | `test/party/druck_test.dart` | F5-BAUMEISTER-04 | offen |
-| F5-DRUCK-01..02 | DRUCK | gerenderte Seiten prüfen | – (Bericht) | F5-BAUMEISTER-04 | offen |
+| F5-TEST-01 | TEST | Besetzungsprüfer 4–20 (F-09) | `test/party/besetzung_test.dart` | F5-ORCH-01 | erledigt (9/10, E-035) |
+| F5-TEST-02 | TEST | Druck gegen Simulator (100 Spiele), Überlaufmessung, Wortgleichheit (F-14, F-10) | `test/party/druck_test.dart` | F5-BAUMEISTER-04 | erledigt (9/10, E-035) |
+| F5-DRUCK-01..02 | DRUCK | gerenderte Seiten prüfen | – (Bericht) | F5-BAUMEISTER-04 | erledigt (9/10 und 10/10, E-035; Nachprüfung F5-DRUCK-03/04) |
 | F5-ORCH-02 | ORCH | Befunde, Tor, Commit, Push | – | alle F5 | offen |
 
 ## F6 – Härtung (Tor F-16, alle Kriterien erneut)

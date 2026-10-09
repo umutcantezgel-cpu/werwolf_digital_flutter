@@ -83,7 +83,7 @@ class Spiel {
       case PartyPhase.intro:
         runde = 1;
         phase = PartyPhase.gespraeche;
-        bausteine.addAll(erzaehler.rundenStart(runde));
+        bausteine.addAll(erzaehler.rundenStart(runde, besetzt: (f) => besetzung.istBesetzt(f, einstellungen.rollen)));
       case PartyPhase.gespraeche:
         phase = PartyPhase.entscheidungen;
       case PartyPhase.entscheidungen:
@@ -101,7 +101,7 @@ class Spiel {
         if (runde < 3) {
           runde++;
           phase = PartyPhase.gespraeche;
-          bausteine.addAll(erzaehler.rundenStart(runde));
+          bausteine.addAll(erzaehler.rundenStart(runde, besetzt: (f) => besetzung.istBesetzt(f, einstellungen.rollen)));
         } else {
           phase = PartyPhase.anklage;
           bausteine.addAll(erzaehler.anklage());

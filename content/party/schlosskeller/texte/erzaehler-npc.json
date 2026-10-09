@@ -1,0 +1,27 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "bereich": "erzaehler",
+  "hinweis": "Wissen unbesetzter Gäste (W1, F-09, E-035): npc.<figur>.<runde>. Der Erzähler spricht den Baustein zum Rundenstart, wenn die Figur nicht besetzt ist. Ohne Namen, wie die Lacher im Intro.",
+  "eintraege": [
+    {
+      "id": "npc.leyla.2",
+      "text": "Ein Gast, den heute niemand spielt, nimmt dich kurz zur Seite. „Drei Minuten vor zwölf schlüpfte Ahmet mit einem dicken Umschlag hinter die Theke.“"
+    },
+    {
+      "id": "npc.murat.2",
+      "text": "Ein Gast, den heute niemand spielt, erzählt dir leise davon. „Im Dunkeln rannte ein leuchtendes Gespenstergesicht an mir vorbei. Es lief durch den Durchgang zum Kaminsaal.“"
+    },
+    {
+      "id": "npc.meryem.2",
+      "text": "Am Kamin flüstert dir ein Gast zu, den heute niemand spielt. „Kurz nach zwölf warf Ahmet etwas Raschelndes in den Ascheneimer neben dem Kamin.“"
+    },
+    {
+      "id": "npc.kaan.3",
+      "text": "Ein Gast, den heute niemand spielt, hat zwei Dinge für dich. „Acht Minuten vor zwölf sagte Olli: ‚Ich hol dir Eis. Und dann red ich mit Schneider.‘ Im Dunkeln drängte sich dann jemand an mir vorbei, durch die Bogentür in den Turm.“"
+    },
+    {
+      "id": "npc.selin.3",
+      "text": "Ein Gast, den heute niemand spielt, erzählt dir davon. „Im Dunkeln huschte ein leuchtendes Gesicht quer durch den Kaminsaal zur Bogentür.“"
+    }
+  ]
+}

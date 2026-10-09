@@ -83,6 +83,8 @@ pw.Widget _indizkarte(DruckKontext k, Indizkarte x) {
       pw.Container(
         width: halb,
         height: _karte.height,
+        // Innenabstand wie auf der Fundseite, damit der Hinweis nicht an die Schnittkante läuft.
+        padding: const pw.EdgeInsets.all(_innenRand),
         decoration: pw.BoxDecoration(border: pw.Border(right: _falz)),
         child: pw.Center(child: k.stil.aussenseite(x.code, k.ui('ui.druck.karte.aussen'))),
       ),

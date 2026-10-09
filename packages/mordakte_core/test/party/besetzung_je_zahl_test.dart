@@ -1,0 +1,238 @@
+// F5-TEST-01 (F-09 je Zahl, Besetzung 4 bis 20): je Zahl n prüft ein Test, dass jede besetzte Rolle je Runde genau drei
+// Pflichtgespräche mit den Nummern 1 bis 3 hat, jeder Partner besetzt oder der Detektiv ist, kein Gesprächstext eine
+// unbesetzte Figur nennt, das beste Spiel in jedem Pfad als ende_meister endet und jede Quelle einer Begründungskette,
+// die bei n Rollen unbesetzt ist, den Detektiv erreicht (Indizkarte, Fakt oder Erzähler, E-035). Rot-Proben laufen an Kopien im Test, keine Kanon-Datei wird verändert.
+import 'package:mordakte_core/mordakte_core.dart';
+import 'package:test/test.dart';
+
+import 'kanon_hilfe.dart';
+
+String _datei(String rel) => '$repoWurzel/content/party/schlosskeller/$rel';
+
+Texte? _texte;
+Texte get texte => _texte ??= Texte(kanon, Textsammlung.lade((p) => leseJson(_datei(p))));
+
+Ermittlung? _ermittlung;
+Ermittlung get ermittlung => _ermittlung ??= Ermittlung(kanon);
+
+Erzaehler? _erzaehler;
+Erzaehler get erzaehler => _erzaehler ??= Erzaehler(kanon);
+
+PartyKarte? _karte;
+PartyKarte get karte => _karte ??= PartyKarte(kanon, ermittlung: ermittlung);
+
+/// Eine Pflichtgesprächszeile, wie der Dossier-Text sie zeigt: Rolle, Runde, Nummer, Partner und Gespräch.
+typedef Zeile = ({String rolle, int runde, int nr, String partner, Gespraech gespraech});
+
+/// Kurze Fehlermeldung: Anzahl und die ersten Fälle.
+String befund(List<String> f) => f.isEmpty ? 'keine Verstöße' : '${f.length} Verstöße, z. B.:\n${f.take(10).join('\n')}';
+
+/// Alle Zeilen der besetzten Rollen bei [n] Rollen im Pfad [pfad], so wie die Dossiers sie liefern.
+List<Zeile> zeilen(int n, String pfad) {
+  final out = <Zeile>[];
+  for (final r in texte.besetzung.besetzt(n)) {
+    final d = texte.dossier(r, pfad, n);
+    for (final runde in d.gespraeche.keys) {
+      for (final (g, partner) in d.gespraeche[runde]!) {
+        out.add((rolle: r, runde: runde, nr: g.nr, partner: partner, gespraech: g));
+      }
+    }
+  }
+  return out;
+}
+
+/// (a) Jede besetzte Rolle hat in den Runden 1 bis 3 genau drei Gespräche mit den Nummern 1, 2, 3.
+List<String> anzahlFehler(Iterable<String> besetzt, List<Zeile> z) {
+  final f = <String>[];
+  for (final r in besetzt) {
+    for (var runde = 1; runde <= 3; runde++) {
+      final nrs = [for (final x in z) if (x.rolle == r && x.runde == runde) x.nr]..sort();
+      if (nrs.join(',') != '1,2,3') f.add('$r, Runde $runde: Gespräche mit Nummern $nrs statt 1,2,3');
+    }
+  }
+  return f;
+}
+
+/// (b) Jeder Partner ist besetzt oder der Detektiv, nie der Sprecher selbst.
+List<String> partnerFehler(Besetzung b, int n, List<Zeile> z) => [
+      for (final x in z)
+        if (!b.istBesetzt(x.partner, n))
+          '${x.rolle}, Runde ${x.runde}, Nr ${x.nr}: Partner ${x.partner} ist bei $n Rollen nicht besetzt'
+        else if (x.partner == x.rolle)
+          '${x.rolle}, Runde ${x.runde}, Nr ${x.nr}: Partner ist der Sprecher selbst',
+    ];
+
+/// Name [name] als ganzes Wort in [text]: Buchstaben und Umlaute zählen zum Wort.
+bool nennt(String name, String text) => RegExp('(?<!\\p{L})${RegExp.escape(name)}(?!\\p{L})', unicode: true).hasMatch(text);
+
+/// (c) Kein Gesprächstext (Thema, Ziel, Text) nennt den Namen einer unbesetzten Figur.
+List<String> namenFehler(Kanon k, Iterable<String> unbesetzt, List<Zeile> z) {
+  final namen = {for (final id in unbesetzt) id: k.figur(id)!['name'] as String};
+  final f = <String>[];
+  for (final x in z) {
+    final g = x.gespraech;
+    final felder = {'Thema': g.thema, 'Ziel': g.ziel, 'Text': g.text};
+    for (final feld in felder.entries) {
+      for (final e in namen.entries) {
+        if (nennt(e.value, feld.value)) {
+          f.add('${x.rolle}, Gespräch ${g.id}, ${feld.key}: nennt unbesetzte Figur ${e.key} (${e.value})');
+        }
+      }
+    }
+  }
+  return f;
+}
+
+/// Spielt bis zur Anklage: je Entscheidung die richtige Option ([beste]) oder die erste falsche,
+/// Gruppenwahl mit n - 1 kooperativen Stimmen.
+Spiel bisAnklage(int n, String pfad, {required bool beste}) {
+  final s = Spiel(kanon, ermittlung: ermittlung)
+    ..einrichten(Einstellungen(rollen: n, detektiv: 'm', code: FallCode.fuerPfad(pfad, kanon.pfade)));
+  while (s.phase != PartyPhase.anklage) {
+    if (s.phase == PartyPhase.entscheidungen) {
+      for (final x in ermittlung.runde(s.runde)) {
+        final richtig = x.richtig[pfad]!;
+        s.waehle(x.id, beste ? richtig : x.optionen.firstWhere((o) => o.id != richtig).id);
+      }
+    }
+    if (s.phase == PartyPhase.gruppenwahl) s.abstimmen(kooperativ: n - 1, taeterSabotiert: false);
+    s.weiter();
+  }
+  return s;
+}
+
+/// (d) Mit bestem Spiel bleibt im Pfad [pfad] genau die Täterperson, und die Anklage endet als ende_meister.
+List<String> loeseFehler(int n, String pfad) {
+  final s = bisAnklage(n, pfad, beste: true);
+  final f = <String>[];
+  final rest = s.restmenge();
+  if (rest.length != 1 || !rest.contains(pfad)) f.add('$pfad: Restmenge $rest statt {$pfad}');
+  s.anklagen(pfad);
+  if (s.ende.id != 'ende_meister') f.add('$pfad: Ende ${s.ende.id} statt ende_meister');
+  return f;
+}
+
+/// Entscheidungen bis einschließlich [x] in Spielreihenfolge.
+Iterable<Entscheidung> bisEinschliesslich(Entscheidung x) =>
+    ermittlung.entscheidungen.where((y) => y.runde < x.runde || (y.runde == x.runde && y.nr <= x.nr));
+
+/// (3) Jede Quelle einer Begründungskette (`beobachtung:<id>`), deren Figur bei [n] Rollen unbesetzt ist, erreicht
+/// den Detektiv bis zu den Entscheidungen [bis]: als Ziel einer Option (NPC-Karte) oder als Fakt einer Option,
+/// der im Pfad [pfad] entsteht.
+List<String> erreichFehler(String wo, String pfad, int n, Iterable<Entscheidung> bis, Iterable<String> kette, {int runde = 0}) {
+  final optionen = [for (final y in bis) ...y.optionen];
+  final ziele = {
+    for (final o in optionen)
+      if (karte.ziele[o.id]?.person != null) karte.ziele[o.id]!.person!,
+  };
+  final fakten = {for (final o in optionen) ...o.fakten};
+  final f = <String>[];
+  for (final k in kette) {
+    if (!k.startsWith('beobachtung:')) continue;
+    final id = k.substring('beobachtung:'.length);
+    final b = ermittlung.beobachtungJson(id);
+    if (b == null) {
+      f.add('$wo: $k ist unbekannt');
+      continue;
+    }
+    final wer = b['wer'] as String;
+    if (texte.besetzung.istBesetzt(wer, n)) continue;
+    final alsZiel = ziele.contains(wer);
+    final alsFakt = fakten.any((fid) => ermittlung.fakten[fid]!.beobachtung == id && ermittlung.gibtEs(fid, pfad));
+    // Erzähler (W1, E-035): zum Rundenstart einer Runde bis zur Entscheidung, bei unbesetzter Figur.
+    final alsErzaehler = [
+      for (var r = 1; r <= runde; r++) ...erzaehler.npcWissen(r, besetzt: (x) => texte.besetzung.istBesetzt(x, n)),
+    ].any((b) => b.startsWith('npc.$wer.') && (erzaehler.npcPlan[int.parse(b.split('.').last)]![wer] ?? const []).contains(id));
+    if (!alsZiel && !alsFakt && !alsErzaehler) f.add('$wo: $k stammt von $wer, bei $n Rollen unbesetzt, und erreicht den Detektiv nicht');
+  }
+  return f;
+}
+
+void main() {
+  for (var n = 4; n <= 20; n++) {
+    test('Besetzung $n: Gespräche, Partner, Namen, Lösbarkeit und Quellen stimmen', () {
+      final f = <String>[];
+      final b = texte.besetzung;
+      final besetzt = b.besetzt(n);
+      final unbesetzt = b.npc(n);
+      for (final p in kanon.pfade) {
+        final z = zeilen(n, p);
+        f.addAll([for (final x in anzahlFehler(besetzt, z)) '$p: $x']);
+        f.addAll([for (final x in partnerFehler(b, n, z)) '$p: $x']);
+        f.addAll([for (final x in namenFehler(kanon, unbesetzt, z)) '$p: $x']);
+        f.addAll(loeseFehler(n, p));
+        for (final x in ermittlung.entscheidungen) {
+          f.addAll(erreichFehler('$p, ${x.id}', p, n, bisEinschliesslich(x), x.begruendungFuer(p)!.kette, runde: x.runde));
+        }
+      }
+      expect(f, isEmpty, reason: befund(f));
+    });
+  }
+
+  test('Die Last jeder Person bleibt in den Grenzen: texte.lastVerstoesse() ist leer', () {
+    final f = texte.lastVerstoesse();
+    expect(f, isEmpty, reason: befund(f));
+  });
+
+  test('Namensprüfung trifft nur ganze Wörter: „Can“ nennt sich in „Cancan“ nicht, wohl aber als eigenes Wort', () {
+    expect(nennt('Can', 'Cancan war da.'), isFalse);
+    expect(nennt('Can', 'Can, komm her.'), isTrue);
+    expect(nennt('Can', 'Sag das Can.'), isTrue);
+  });
+
+  test('Rot-Probe: fehlt eine Pflichtgesprächszeile, meldet die Anzahlprüfung die Rolle', () {
+    final besetzt = texte.besetzung.besetzt(4);
+    final r = besetzt.first;
+    final z = zeilen(4, 'ahmet');
+    final kopie = <Zeile>[for (final x in z) if (!(x.rolle == r && x.runde == 1 && x.nr == 2)) x];
+    expect(kopie, hasLength(z.length - 1), reason: 'Probe muss genau eine Zeile entfernen');
+    final f = anzahlFehler(besetzt, kopie);
+    expect(f.any((x) => x.startsWith('$r, Runde 1')), isTrue, reason: befund(f));
+  });
+
+  test('Rot-Probe: Gesprächsplan mit einem unbesetzten Partner wird gemeldet', () {
+    final r = texte.besetzung.besetzt(4).first;
+    final ohne = texte.besetzung.npc(4).first;
+    final z = zeilen(4, 'ahmet');
+    final kopie = <Zeile>[
+      for (final x in z)
+        if (x.rolle == r && x.runde == 1 && x.nr == 1) (rolle: x.rolle, runde: x.runde, nr: x.nr, partner: ohne, gespraech: x.gespraech) else x,
+    ];
+    final f = partnerFehler(texte.besetzung, 4, kopie);
+    expect(f.any((x) => x.contains('Partner $ohne ist bei 4 Rollen nicht besetzt')), isTrue, reason: befund(f));
+  });
+
+  test('Rot-Probe: Gesprächstext mit dem Namen einer unbesetzten Figur wird gemeldet', () {
+    final ohne = texte.besetzung.npc(4).first;
+    final name = kanon.figur(ohne)!['name'] as String;
+    final g = Gespraech({
+      'id': 'probe',
+      'rolle': 'ahmet',
+      'runde': 1,
+      'nr': 1,
+      'partner': 'fatma',
+      'thema': 'Probe',
+      'ziel': 'Probe',
+      'text': 'Du hast $name gesehen.',
+      'preisgabe': <String>[],
+    });
+    final z = <Zeile>[...zeilen(4, 'ahmet'), (rolle: 'ahmet', runde: 1, nr: 1, partner: 'fatma', gespraech: g)];
+    final f = namenFehler(kanon, texte.besetzung.npc(4), z);
+    expect(f.any((x) => x.contains('nennt unbesetzte Figur $ohne')), isTrue, reason: befund(f));
+  });
+
+  test('Rot-Probe: Quelle einer Begründung, die bei keinem Weg zum Detektiv führt, wird gemeldet', () {
+    final unbesetzt = texte.besetzung.npc(4);
+    final probe = kanon.beobachtungen.firstWhere((b) => unbesetzt.contains(b['wer']));
+    final f = erreichFehler('Probe', 'ahmet', 4, const <Entscheidung>[], ['beobachtung:${probe['id']}']);
+    expect(f, hasLength(1), reason: befund(f));
+  });
+
+  test('Rot-Probe: falsche Antworten führen in keinem Pfad zu ende_meister', () {
+    for (final p in kanon.pfade) {
+      final s = bisAnklage(4, p, beste: false);
+      s.anklagen(p);
+      expect(s.ende.id, isNot('ende_meister'), reason: p);
+    }
+  });
+}

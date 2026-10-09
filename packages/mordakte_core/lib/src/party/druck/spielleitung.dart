@@ -123,12 +123,18 @@ List<pw.Widget> _vorbereitung(DruckKontext k) => [
     ],
   ),
   pw.SizedBox(height: 10),
+  _unterlabel(k, k.ui('ui.druck.spielleitung.teile')),
+  for (final t in ['indiz', 'umschlag', 'fassung', 'stimme', 'aufloesung']) _absatz(k, k.ui('ui.druck.spielleitung.teile.$t')),
 ];
 
 /// Jede Runde und die Anklage beginnen auf einer neuen Seite, damit keine Überschrift am Seitenende hängt.
 List<pw.Widget> _ablauf(DruckKontext k, Spielleitungsheft heft) => [
   _titel(k, k.ui('ui.druck.spielleitung.ablauf')),
   _absatz(k, k.ui('ui.druck.spielleitung.ablauf.einleitung')),
+  // Die Kernrollen öffnen ihre Fassung, wenn die Spielleitung die Codes nennt (alphabetisch, ohne Namen).
+  ..._block(k, k.ui('ui.druck.spielleitung.fassungen.titel'), [
+    _absatz(k, k.ui('ui.druck.spielleitung.fassungen', {'codes': ([for (final f in k.satz.fassungen) f.code]..sort()).join(', ')})),
+  ]),
   ..._block(k, k.ui('ui.druck.spielleitung.intro'), [
     for (final b in heft.intro) _vorlesen(k, k.text(b)),
   ]),
@@ -140,7 +146,7 @@ List<pw.Widget> _ablauf(DruckKontext k, Spielleitungsheft heft) => [
 List<pw.Widget> _runde(DruckKontext k, Spielleitungsheft heft, int r) => [
   _titel(k, k.ui('ui.druck.spielleitung.runde', {'nr': '$r'})),
   ..._block(k, k.ui('ui.druck.spielleitung.schritt.start'), [
-    _vorlesen(k, k.text(heft.rundenStart[r]!)),
+    for (final b in heft.rundenStart[r]!) _vorlesen(k, k.text(b)),
   ]),
   ..._block(k, k.ui('ui.druck.spielleitung.schritt.gespraeche'), [
     _absatz(
@@ -156,6 +162,7 @@ List<pw.Widget> _runde(DruckKontext k, Spielleitungsheft heft, int r) => [
   ..._block(k, k.ui('ui.druck.spielleitung.schritt.gruppenwahl'), [
     _absatz(k, k.ui('ui.druck.spielleitung.gruppenwahl')),
     _absatz(k, k.ui('ui.druck.spielleitung.wertseite')),
+    _codetabelle(k, heft.auszaehlung.firstWhere((a) => a.runde == r)),
     _auszaehlung(k, heft.auszaehlung.firstWhere((a) => a.runde == r)),
     _absatz(k, k.ui('ui.druck.spielleitung.auszaehlung.unter0')),
   ]),
@@ -227,6 +234,39 @@ List<pw.Widget> _anhang(DruckKontext k, Spielleitungsheft heft) => [
     ],
   ),
 ];
+
+/// Codetabelle der Runde: jeder Wertcode mit seinem Wert, nach Code sortiert, vier Paare je Zeile.
+pw.Widget _codetabelle(DruckKontext k, Auszaehlung a) {
+  const proZeile = 4;
+  final codes = [...a.werte.keys]..sort();
+  String wert(int w) => w > 0 ? '+$w' : (w < 0 ? '−${-w}' : '0');
+  return pw.Padding(
+    padding: const pw.EdgeInsets.only(bottom: 8),
+    child: pw.Table(
+      border: _gitter(),
+      children: [
+        pw.TableRow(
+          decoration: _kopfFarbe(),
+          children: [
+            for (var i = 0; i < proZeile; i++) ...[
+              _zelle(pw.Text(k.ui('ui.druck.spielleitung.auszaehlung.code'), style: k.stil.ueberschrift(10))),
+              _zelle(pw.Text(k.ui('ui.druck.spielleitung.auszaehlung.wert'), style: k.stil.ueberschrift(10))),
+            ],
+          ],
+        ),
+        for (var z = 0; z < codes.length; z += proZeile)
+          pw.TableRow(
+            children: [
+              for (var i = z; i < z + proZeile; i++) ...[
+                _zelle(pw.Text(i < codes.length ? codes[i] : '', style: k.stil.ueberschrift(10))),
+                _zelle(pw.Text(i < codes.length ? wert(a.werte[codes[i]]!) : '', style: k.stil.text(10))),
+              ],
+            ],
+          ),
+      ],
+    ),
+  );
+}
 
 pw.Widget _auszaehlung(DruckKontext k, Auszaehlung a) => pw.Padding(
   padding: const pw.EdgeInsets.only(bottom: 6),
@@ -451,12 +491,21 @@ pw.Widget _fuss(DruckKontext k, String links, pw.Context c) => pw.Row(
 );
 
 /// Abschnitt mit kleiner Marke als Überschrift (wie `stil.kopf`, aber 9 pt).
+/// Die Marke bleibt mit dem ersten Inhalt zusammen: keine Überschrift allein am Seitenende.
 List<pw.Widget> _block(DruckKontext k, String label, List<pw.Widget> inhalt) =>
     [
       pw.SizedBox(height: 4),
-      _marke(k, label),
-      pw.SizedBox(height: 3),
-      ...inhalt,
+      pw.Inseparable(
+        child: pw.Column(
+          crossAxisAlignment: pw.CrossAxisAlignment.start,
+          children: [
+            _marke(k, label),
+            pw.SizedBox(height: 3),
+            if (inhalt.isNotEmpty) inhalt.first,
+          ],
+        ),
+      ),
+      ...inhalt.skip(1),
       pw.SizedBox(height: 8),
     ];
 

@@ -194,14 +194,17 @@ List<pw.Widget> _fuerAlle(DruckKontext k) {
     ],
     pw.Text(k.ui('ui.druck.aufloesung.rollen'), style: s.ueberschrift(12.5)),
     pw.SizedBox(height: 6),
+    // Name und Text bleiben zusammen: keine Überschrift allein am Seitenende.
     for (final baustein in a.rollen)
-      pw.Padding(
-        padding: const pw.EdgeInsets.only(bottom: 10),
-        child: pw.Column(crossAxisAlignment: pw.CrossAxisAlignment.start, children: [
-          pw.Text(k.figurName(baustein.split('.')[1]), style: s.ueberschrift(11)),
-          pw.SizedBox(height: 2),
-          pw.Text(k.text(baustein), style: s.text(11)),
-        ]),
+      pw.Inseparable(
+        child: pw.Padding(
+          padding: const pw.EdgeInsets.only(bottom: 10),
+          child: pw.Column(crossAxisAlignment: pw.CrossAxisAlignment.start, children: [
+            pw.Text(k.figurName(baustein.split('.')[1]), style: s.ueberschrift(11)),
+            pw.SizedBox(height: 2),
+            pw.Text(k.text(baustein), style: s.text(11)),
+          ]),
+        ),
       ),
   ];
 }

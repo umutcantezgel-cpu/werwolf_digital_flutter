@@ -17,7 +17,7 @@
     },
     {
       "id": "ui.druck.spielleitung.personen",
-      "text": "{anzahl} Personen am Tisch"
+      "text": "{anzahl} Rollen und das Geburtstagskind"
     },
     {
       "id": "ui.druck.spielleitung.willkommen",
@@ -33,7 +33,7 @@
     },
     {
       "id": "ui.druck.spielleitung.vorbereitung.einleitung",
-      "text": "Drucke alle Dateien aus. Die Nummer vorn sagt, wofür sie da ist."
+      "text": "Drucke alle Dateien einseitig aus und lies dabei nichts. Sortiert wird nur nach Nummern und Codes."
     },
     {
       "id": "ui.druck.spielleitung.datei.00",
@@ -49,11 +49,11 @@
     },
     {
       "id": "ui.druck.spielleitung.datei.11",
-      "text": "Fassungen. Für jede der vier Verdächtigen ein versiegelter Umschlag."
+      "text": "Fassungen. Vier versiegelte Umschläge, außen steht nur ein Code."
     },
     {
       "id": "ui.druck.spielleitung.datei.12",
-      "text": "Stimmkarten. Je Runde zwei Karten pro Rolle, A und B."
+      "text": "Stimmkarten. Je Runde zwei Karten pro Rolle, A und B, mit einem Streifen zum Abreißen."
     },
     {
       "id": "ui.druck.spielleitung.datei.20",
@@ -97,7 +97,7 @@
     },
     {
       "id": "ui.druck.spielleitung.gespraeche",
-      "text": "Stell die Uhr auf {minuten} Minuten. Die Rollen führen ihre Gespräche zu zweit."
+      "text": "Stell die Uhr auf {minuten} Minuten. Jede Rolle beginnt die drei Gespräche aus ihrem Heft. Wer angesprochen wird, antwortet aus der eigenen Rolle."
     },
     {
       "id": "ui.druck.spielleitung.schritt.entscheidung",
@@ -113,7 +113,7 @@
     },
     {
       "id": "ui.druck.spielleitung.gruppenwahl",
-      "text": "Sammle die Stimmkarten verdeckt ein und mische sie. Zähle die Werte auf den Rückseiten zusammen. Die Summe sagst du nie laut."
+      "text": "Jede Person wählt eine ihrer zwei Karten dieser Runde. Sie reißt den Streifen mit dem Code ab, faltet ihn und legt ihn in eine Schüssel. Die Karte selbst behält sie."
     },
     {
       "id": "ui.druck.spielleitung.auszaehlung.summe",
@@ -313,7 +313,47 @@
     },
     {
       "id": "ui.druck.spielleitung.wertseite",
-      "text": "Leg die gefalteten Karten mit der Wertseite nach oben und zähl, ohne sie umzudrehen. So weiß niemand, wer welche Karte gegeben hat."
+      "text": "Nimm die Streifen einzeln heraus und such jeden Code in der Tabelle. Zähl die Werte zusammen und sag die Summe nie laut. Danach kommen die Streifen weg."
+    },
+    {
+      "id": "ui.druck.spielleitung.teile",
+      "text": "So bereitest du die Teile vor"
+    },
+    {
+      "id": "ui.druck.spielleitung.teile.indiz",
+      "text": "Indizkarten: Schneide jede Karte aus und falte sie an der gestrichelten Mittellinie. Vorn steht dann der Code, hinten der Fund. Leg sie mit dem Code nach oben bereit."
+    },
+    {
+      "id": "ui.druck.spielleitung.teile.umschlag",
+      "text": "Hinweis-Umschläge: Falte jedes Blatt an der gestrichelten Linie, sodass vorn der Code steht und hinten der Text. Wer mag, steckt es in einen echten Umschlag und schreibt den Code darauf."
+    },
+    {
+      "id": "ui.druck.spielleitung.teile.fassung",
+      "text": "Fassungen: Leg die Seiten jeder Fassung aufeinander, das Blatt mit dem Code obenauf. Falte sie zweimal und klebe sie zu."
+    },
+    {
+      "id": "ui.druck.spielleitung.teile.stimme",
+      "text": "Stimmkarten: Schneide die Karten aus und leg sie zu den Rollenheften mit demselben Namen."
+    },
+    {
+      "id": "ui.druck.spielleitung.teile.aufloesung",
+      "text": "Auflösungsheft: Falte es zusammen und klebe es zu, ohne hineinzusehen."
+    },
+    {
+      "id": "ui.druck.spielleitung.fassungen.titel",
+      "text": "Rollen und Fassungen"
+    },
+    {
+      "id": "ui.druck.spielleitung.fassungen",
+      "text": "Gib jeder Person ihr Rollenheft und ihre Stimmkarten. Leg dann die vier versiegelten Fassungen aus und nenne ihre Codes: {codes}. Wer einen dieser Codes im eigenen Heft findet, nimmt den Umschlag und liest ihn allein."
+    },
+    {
+      "id": "ui.druck.spielleitung.auszaehlung.code",
+      "text": "Code"
+    },
+    {
+      "id": "ui.druck.spielleitung.auszaehlung.wert",
+      "text": "Wert"
     }
   ]
 }

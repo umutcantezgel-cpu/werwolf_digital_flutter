@@ -53,7 +53,7 @@ void main() {
     expect(heft, contains(flach(k.fallTitel)));
     expect(heft, contains(_anfang(k.ui('ui.druck.spielleitung.titel'))));
     expect(heft, contains('Fall-Code: ${k.satz.code.code}'));
-    expect(heft, contains('${k.satz.rollen} Personen am Tisch'));
+    expect(heft, contains(flach(k.ui('ui.druck.spielleitung.personen', {'anzahl': '${k.satz.rollen}'}))));
     expect(heft, contains(flach(k.ui('ui.druck.spielleitung.aufloesung'))));
   });
 
@@ -62,7 +62,7 @@ void main() {
       expect(heft, contains(_anfang(k.text(id))), reason: id);
     }
     expect(k.satz.spielleitung.rundenStart, hasLength(3));
-    for (final id in k.satz.spielleitung.rundenStart.values) {
+    for (final id in k.satz.spielleitung.rundenStart.values.expand((l) => l)) {
       expect(heft, contains(_anfang(k.text(id))), reason: id);
     }
   });
@@ -191,7 +191,7 @@ void main() {
         expect(b.a4, isTrue, reason: 'Bogen $n');
         expect(
           flach(h.text),
-          contains('$n Personen am Tisch'),
+          contains('$n Rollen und das Geburtstagskind'),
           reason: 'Heft $n',
         );
         expect(

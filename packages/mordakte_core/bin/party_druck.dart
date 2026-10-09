@@ -46,5 +46,5 @@ Future<void> main(List<String> args) async {
     File('${aus.path}/${f.name}').writeAsBytesSync(f.bytes);
     stdout.writeln('${f.name.padRight(30)} ${(f.bytes.length / 1024).toStringAsFixed(0).padLeft(6)} KB');
   }
-  stdout.writeln('Druckspiel ${code.code} für $n Personen in ${aus.path}');
+  stdout.writeln('Druckspiel ${code.code} für $n Rollen und das Geburtstagskind in ${aus.path}');
 }

@@ -39,20 +39,22 @@ void main() {
         }
         expect(satz.restmengeAus(kreuze), s.restmenge(r), reason: 'Runde $r $code');
         s.weiter();
-        // Stimmen: jede Rolle A oder B
-        var summe = 0;
+        // Stimmen: jede Rolle A oder B; in die Schüssel kommt nur der Streifen mit dem Wertcode,
+        // die Spielleitung zählt über die Codetabelle der Runde (E-035).
+        final streifen = <String>[];
         var kooperativ = 0;
         var sabotiert = false;
         for (final rolle in s.besetzt) {
           final a = rng.nextInt(3) > 0;
           final k = satz.stimmkarten.firstWhere((x) => x.rolle == rolle && x.runde == r && x.a == a);
-          summe += k.wert;
+          streifen.add(k.wertCode);
           if (rolle == s.pfad) {
             sabotiert = !a;
           } else if (a) {
             kooperativ++;
           }
         }
+        final summe = satz.spielleitung.auszaehlung[r - 1].summe(streifen);
         final q = s.abstimmen(kooperativ: kooperativ, taeterSabotiert: sabotiert);
         final u = satz.umschlag(satz.spielleitung.auszaehlung[r - 1].umschlagBei(summe));
         expect(u.qualitaet, q, reason: 'Runde $r, Summe $summe, $n Rollen, $code');
@@ -88,6 +90,32 @@ void main() {
       // Alle vier Fassungen gibt es immer; nur die eigene ist die Täterfassung.
       expect({for (final f in satz.fassungen) f.rolle}, kanon.kernverdaechtige.toSet());
       expect([for (final f in satz.fassungen) if (f.dossier.taeter) f.rolle], [p]);
+    }
+  });
+
+  test('Stimmkarten tragen nur Wertcodes; die Codetabelle der Runde kennt die Werte (E-035)', () {
+    for (final p in kanon.pfade) {
+      for (final n in [4, 20]) {
+        final satz = DruckSatz.aus(kanon, texte, FallCode.fuerPfad(p, kanon.pfade), rollen: n, detektiv: 'w');
+        final andere = {for (final k in satz.indizkarten) k.code, for (final u in satz.umschlaege) u.code, for (final f in satz.fassungen) f.code};
+        final wertCodes = [for (final s in satz.stimmkarten) s.wertCode];
+        expect(wertCodes.toSet(), hasLength(wertCodes.length), reason: '$p/$n: Wertcodes eindeutig');
+        expect(wertCodes.toSet().intersection(andere), isEmpty, reason: '$p/$n: keine Überschneidung mit anderen Codes');
+        for (final c in wertCodes) {
+          expect(c, matches(RegExp(r'^[A-Z]{2}[3479]$')));
+        }
+        // Wertcodes stehen nicht in der Codeliste des Auflösungshefts: Sie verraten keine Rolle.
+        expect(satz.aufloesung.codes.keys.toSet().intersection(wertCodes.toSet()), isEmpty);
+        for (var r = 1; r <= 3; r++) {
+          final tabelle = satz.spielleitung.auszaehlung[r - 1].werte;
+          final runde = satz.stimmkarten.where((s) => s.runde == r);
+          expect(tabelle.keys.toSet(), {for (final s in runde) s.wertCode}, reason: '$p/$n Runde $r');
+          for (final s in runde) {
+            expect(tabelle[s.wertCode], s.a ? 1 : (s.rolle == p ? -1 : 0), reason: '$p/$n ${s.rolle} Runde $r');
+          }
+          expect(tabelle.values.where((w) => w == -1), hasLength(1), reason: 'genau eine Sabotagekarte je Runde');
+        }
+      }
     }
   });
 

@@ -1405,8 +1405,8 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 ## 9. Entscheidungen des Detektivs
 
-- **R-ENTLASTET:** Wer beim Scheppern nachweislich woanders war und wessen Heimlichtuerei belegt ist, scheidet aus.
-- **R-UEBERFUEHRT:** Ein Schlüsselbeweis überführt eine Person, wenn auch Herrn Schneiders Schlüsselbund an ihrem Versteck gefunden ist. Alle anderen scheiden aus.
+- **R-ENTLASTET:** Wer beim Scheppern nachweislich woanders war und zusätzlich eine bewiesene Heimlichtuerei hat, scheidet aus. Beides muss zusammenkommen.
+- **R-UEBERFUEHRT:** Ein Schlüsselbeweis überführt eine Person, wenn man auch Herrn Schneiders Schlüsselbund an ihrem Versteck findet. Alle anderen scheiden aus.
 
 | Fakt | Art | Personen | Quelle |
 |---|---|---|---|

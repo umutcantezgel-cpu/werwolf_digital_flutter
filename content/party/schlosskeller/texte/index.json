@@ -11,6 +11,10 @@
       "bereich": "erzaehler"
     },
     {
+      "datei": "erzaehler-npc.json",
+      "bereich": "erzaehler"
+    },
+    {
       "datei": "erzaehler-finale-ahmet.json",
       "bereich": "erzaehler"
     },

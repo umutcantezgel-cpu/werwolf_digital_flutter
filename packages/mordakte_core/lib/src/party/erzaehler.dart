@@ -24,7 +24,58 @@ class Erzaehler {
     ];
   }
 
-  List<String> rundenStart(int runde) => ['runde.$runde.start'];
+  /// Rundenstart; dazu das Wissen unbesetzter Gäste, das eine Runde braucht ([npcWissen]).
+  List<String> rundenStart(int runde, {required bool Function(String figur) besetzt}) => [
+        'runde.$runde.start',
+        ...npcWissen(runde, besetzt: besetzt),
+      ];
+
+  /// Wissen unbesetzter Gäste (W1, F-09): Beobachtungen aus Pflichtgesprächen,
+  /// die eine Begründungskette braucht und die keine Indizkarte liefert,
+  /// spricht der Erzähler zu Beginn der Runde, in der sie zuerst gebraucht
+  /// werden – aber nur, wenn die Figur nicht besetzt ist. Die Auswahl hängt
+  /// an Runde und Besetzung, nie am Pfad (S-1): Die Ketten aller Pfade zählen.
+  List<String> npcWissen(int runde, {required bool Function(String figur) besetzt}) => [
+        for (final f in npcPlan[runde]?.keys ?? const <String>[])
+          if (!besetzt(f)) 'npc.$f.$runde',
+      ];
+
+  /// Runde → Figur → Beobachtungen, die der Erzähler bei unbesetzter Figur spricht.
+  late final Map<int, Map<String, List<String>>> npcPlan = _npcPlan();
+
+  Map<int, Map<String, List<String>>> _npcPlan() {
+    final beob = {
+      for (final b in kanon.json['beobachtungen.json']!['beobachtungen'] as List) (b as Map)['id'] as String: b.cast<String, Object?>(),
+    };
+    final kern = kanon.kernverdaechtige.toSet();
+    final es = [for (final e in kanon.entscheidungenJson['entscheidungen'] as List) (e as Map).cast<String, Object?>()]
+      ..sort((a, b) => ((a['runde'] as int) * 10 + (a['nr'] as int)).compareTo((b['runde'] as int) * 10 + (b['nr'] as int)));
+    final ziele = <String>{};
+    final gebraucht = <String, int>{};
+    for (final e in es) {
+      for (final o in e['optionen'] as List) {
+        if (((o as Map)['ziel'] as Map?)?['person'] case final String p) ziele.add(p);
+      }
+      for (final b in (e['begruendung'] as Map).values) {
+        for (final k in (b as Map)['kette'] as List) {
+          final teile = (k as String).split(':');
+          if (teile[0] != 'beobachtung') continue;
+          final x = beob[teile[1]];
+          if (x == null || x['kanal'] != 'pflichtgespraech') continue;
+          final wer = x['wer'] as String;
+          if (kern.contains(wer) || ziele.contains(wer)) continue;
+          gebraucht.putIfAbsent(teile[1], () => e['runde'] as int);
+        }
+      }
+    }
+    final plan = <int, Map<String, List<String>>>{};
+    for (final f in kanon.figuren.map((f) => f['id'] as String)) {
+      for (final b in gebraucht.entries) {
+        if (beob[b.key]!['wer'] == f) ((plan[b.value] ??= {})[f] ??= []).add(b.key);
+      }
+    }
+    return plan;
+  }
 
   List<String> bonus(Spiel s) {
     final q = s.qualitaeten[s.runde]!;
@@ -90,6 +141,8 @@ class Erzaehler {
       'intro.auftrag.m',
       'intro.auftrag.w',
       for (var r = 1; r <= 3; r++) 'runde.$r.start',
+      for (final r in npcPlan.entries)
+        for (final f in r.value.keys) 'npc.$f.${r.key}',
       'bonus.rahmen',
       for (var r = 1; r <= 3; r++) 'resuemee.gruppe.$r',
       'resuemee.rest.alle',

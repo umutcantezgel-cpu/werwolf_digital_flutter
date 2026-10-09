@@ -913,3 +913,64 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
     - Eigene Bibliothek `party_druck.dart`, damit `mordakte_core.dart` (Server, Spiel) ohne `pdf` bleibt.
     - Widget-Test: 3 Fälle.
     - `story_text_ausserhalb_test` behandelt Dateinamen wie `Inter-Bold.ttf` als technisch.
+
+## E-035 · Druck ohne Spoiler für den Drucker, Gästewissen über den Erzähler (F5-Prüfung)
+- **Anlass:** Zwei Druckprüfer fanden unabhängig dasselbe Kernproblem: Wer den Satz druckt, kann den Täter ablesen.
+  - Auf der Stimmkarte stand „Wert: −1“, und zwar nur bei der Täterrolle.
+  - Die Täterfassung hatte als einzige eine gerahmte Überschrift „Nur für dich: Du warst es“ und keine Notizseite.
+  - Der Ablauf rief die Fassungen nie auf.
+  - Die Zählanleitung widersprach sich.
+  - Der Besetzungstest (F5-TEST-01) fand dazu sechs Begründungsquellen, die bei kleiner Besetzung niemanden erreichen. Das verletzt F-09.
+- **Denkprotokoll:**
+  - Master 7.14 verlangt: „Wer druckt, sieht nur neutrale Codes. Die Zuordnung steht im Auflösungsheft.“
+  - Vollständig verbergen lässt sich Inhalt beim Drucken nicht: Wer Karten ausschneidet, hält die Innenseite in der Hand.
+  - Erreichbar sind drei Dinge:
+    - Alles, was zum Sortieren und Verteilen gebraucht wird, trägt nur Codes.
+    - Keine Seite verrät sich auf einen Blick, weder durch Zahl, Rahmen, Überschrift noch fehlende Seiten.
+    - Die Anleitung sagt ausdrücklich: einseitig drucken, nichts lesen.
+  - Duplexdruck habe ich verworfen. Er braucht passende Drucker und spiegelgenaue Rückseiten, und ein falsch eingestellter Drucker legt Lösung und Code auf ein Blatt. Die Faltkarten funktionieren mit jedem Drucker.
+- **Entscheidungen Druck:**
+  - **Stimmkarten mit Wertcodes:**
+    - Unten trägt jede Karte einen Abreißstreifen mit einem neutralen Code. Wert und Namensfeld stehen nicht mehr darauf.
+    - In die Schüssel kommt nur der Streifen. Die Spielleitung zählt über die Codetabelle der Runde im Spielleitungsheft: alphabetisch, vier Paare je Zeile.
+    - Den Bezug Code → Rolle gibt es nur auf den Karten selbst. Die Wertcodes stehen nicht in der Codeliste des Auflösungshefts.
+    - Restrisiko: Die Spielleitung erfährt beim Zählen, dass sabotiert wurde, aber nicht von wem. Wie bisher steht das unter FÜR DEN NUTZER.
+  - **Fassungen:**
+    - Außen stehen nur Code und „Versiegelt. Erst öffnen, wenn die Spielleitung diesen Code nennt.“, ohne Namen.
+    - Innen ist der Aufbau gleich. Der Täterteil heißt „Was nur du weißt“ und ist ohne Rahmen gesetzt, nach dem Ziel.
+    - Jede Fassung endet mit mindestens einer Notizseite. Alle vier sind gleich lang.
+    - Der Ablauf hat einen neuen ersten Schritt „Rollen und Fassungen“: Die Spielleitung nennt die vier Codes alphabetisch, die Kernrollen finden ihren Code im Rollenheft.
+  - **Vorbereitung:**
+    - „Einseitig drucken, nichts lesen“.
+    - Faltanleitung für Indizkarten, Umschläge, Fassungen und Auflösungsheft.
+    - Die Stimmkarten kommen zu den Rollenheften.
+  - **Gruppenwahl eindeutig:** Streifen abreißen, falten, in die Schüssel. Die Spielleitung zieht die Streifen einzeln, schlägt die Codes nach und zählt still.
+  - **Pflichtgespräche:** Der Plan ist mit Absicht nicht gegenseitig (Befund DRUCK-01 #4). Jede Rolle eröffnet ihre drei Gespräche, wer angesprochen wird, antwortet. Das steht jetzt im Heft.
+  - **Wortlaut und Sprache:**
+    - „{n} Rollen und das Geburtstagskind“ statt „{n} Personen am Tisch“.
+    - Die Ausschlussregeln kommen im Bogen aus dem Spielertext (`ermittlungsbogen.entlastet` und `.ueberfuehrt`, F-10), dazu angeglichen in `entscheidungen.json`.
+    - „Diesen Bogen siehst nur du.“ statt des Grammatikfehlers.
+    - Die Sabotage-Zeile der Täterfassung erklärt die Wirkung.
+  - **Satz:**
+    - Indizkarten-Außenseite mit Innenrand.
+    - Marken und Rollennamen bleiben mit ihrem Text zusammen (`pw.Inseparable`). Keine Überschrift steht mehr allein am Seitenende.
+  - **Kein Befund:**
+    - „Späte Ankunft“ im Bogen: Die Fakten entstehen in anderen Pfaden, der Bogen bleibt pfadgleich.
+    - Lejla bei 4 Rollen: Sie ist Gast ohne Spieler, wie jede unbesetzte Figur.
+    - Lacher-Figuren: Die Kennungen `selin` und `meryem` tragen seit E-007 die Namen Sibel und Hana.
+    - Dateinamen: Der Entwurf wird nachgeführt.
+  - **Offen als Feinschliff:** Bei Joanna steht die Rundenwahl der Runde 3 allein auf einer Seite.
+- **Entscheidung Gästewissen (W1, F-09):**
+  - Die sechs Beobachtungen gelten in allen Pfaden gleich. Der Erzähler darf sie also sprechen, ohne den Pfad zu verraten.
+  - `Erzaehler.npcWissen` wählt für jede Runde die Pflichtgespräch-Beobachtungen, die eine Begründungskette eines beliebigen Pfads zuerst in dieser Runde braucht und die keine Indizkarte liefert, weil die Figur kein Ziel einer Option ist.
+  - Gesprochen wird zum Rundenstart, nur bei unbesetzter Figur, ohne Namen wie die Lacher im Intro.
+  - Ergebnis: fünf Bausteine `npc.<figur>.<runde>` in `texte/erzaehler-npc.json`:
+    - Runde 2: Lejla, Marek, Hana
+    - Runde 3: Wojtek, Sibel
+  - Sie gelten in App und Spielleitungsheft.
+  - Der Besetzungstest erkennt den Erzählerweg. Ein neuer Erzählertest prüft „nur bei unbesetzter Figur, gleich in allen Pfaden“.
+- **Belege:**
+  - 371 Kern-Tests und 129 Widget-Tests grün.
+  - Texte 0 Befunde (1567).
+  - Simulator, Plausibilität und Story-Bibel OK.
+  - Sichtprobe der neuen Seiten dem Nutzer gezeigt.

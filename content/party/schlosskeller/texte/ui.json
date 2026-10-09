@@ -157,7 +157,7 @@
     },
     {
       "id": "ui.druck.app.hinweis",
-      "text": "Für ein Druckspiel oder als Ersatz zum Bildschirm. Fall-Code {code}. Druckt alles aus, ohne es durchzulesen; das Auflösungsheft bleibt versiegelt."
+      "text": "Für ein Druckspiel oder als Ersatz zum Bildschirm. Fall-Code {code}. Druck alles einseitig aus, ohne es durchzulesen. Das Auflösungsheft bleibt versiegelt."
     },
     {
       "id": "ui.druck.app.erstellen",
