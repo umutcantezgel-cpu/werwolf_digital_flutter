@@ -268,3 +268,16 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - HUD-Knöpfe im Hochformat 56×24 statt 48×17, Antwortknöpfe dreizeilig.
   - Anklage mit Bestätigung „Das ist endgültig“.
 - **Offen (FÜR DEN NUTZER):** Die empfohlenen 7 mm Knopfhöhe erreichen die HUD-Knöpfe auf einem 6-Zoll-Handy noch nicht, sie liegen bei etwa 4,3 mm. Dafür bräuchte es ein eigenes Handy-Layout.
+
+## E34 · 09.10. 05:46 · Inhaltsrunde 6 (A-702g) umgesetzt; Korrektur zu E33
+- **B-1 (Uhrzeiten aus dem Kanon außerhalb von LISTE-ZEITEN):** Das ist eine Lücke im Kanon selbst, denn seine O-Zeilen nennen Zeiten in Alibis, Aussagen und Beweisstück-Texten. `@LISTE-ZEITEN` im Overlay sagt jetzt ausdrücklich, dass solche Zeitangaben Aussagen sind und zur Liste gehören.
+- **B-2 (Klischees über Altersgruppen):** Die vier Stellen beziehen sich jetzt auf konkrete Personen: Enkel, Frau Lang, die Nachbarn vom Eckhaus, ein Ehepaar.
+- **Hinweise übernommen:**
+  - „Knoten“ statt „Strang“, „Ziegelei“ statt „Brennerei“.
+  - Angst-Motive bei H-064 und H-122 entfernt.
+  - B16 jetzt „aufmerksam und herzlich“ statt „neugierig und laut“, für eine ausgewogenere Verteilung.
+  - H-S22 ohne „den Rest erzählt mir heute niemand“.
+  - B21 ohne Uhrzeit.
+- **Korrektur zu E33:** Dort stand „H-059 ohne Zinnen-Zählmotiv“. Tatsächlich war damals nur „eine mehr“ gestrichen, die Hausfrau zählte die Zinnen weiter. Jetzt ist es korrigiert: Sie gießt dort ihre Kräutertöpfe.
+- **Tutorial T02:** Rennen steht nur noch in den Gerätetexten (Umschalt bzw. LB). Auf dem Handy erschien vorher „Mit Umschalt rennst du“.
+- **Bewusst belassen:** B02 mit eigener Taschenuhr (ein Requisit des Bewohners, nicht aus dem Kanon). Die Feder am Hut von R17 ist in 2,5D nicht darstellbar.

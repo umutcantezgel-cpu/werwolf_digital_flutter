@@ -786,7 +786,7 @@
         "Du fragst, ob ich etwas gesehen habe? Ich bin achtundachtzig, junger Mann. Ich sehe nur Nebel und Erinnerungen.",
         "Früher klapperten in der Gasse die Webstühle. Heute klappert nichts außer den Fensterläden bei Wind.",
         "Der Nebelriese, sagt meine Mutter, bleibt stehen, wenn du stehen bleibst. Ich habe es nie probiert.",
-        "Setz dich hin, du wirkst müde. Die Jugend rennt heute, als hätte sie Eile, und keiner weiß wohin."
+        "Setz dich hin, du wirkst müde. Mein Enkel rennt immer, als hätte er Eile, und weiß selbst nicht wohin."
       ],
       "gerede": "Man erzählt, die alte Rosa habe den Nebelriesen am Fenster gezählt, aber sie zählt auch die Tauben, und die kommen immer zu spät."
     },
@@ -912,7 +912,7 @@
       "saetze": [
         "Du sprichst hier mit einer Pflegekraft. Heute Nacht war es ruhiger als sonst, die Alten schlafen fest.",
         "Meine Schützlinge schlafen wie Kinder, wenn man sie lässt. Heute haben sie es zum Glück gelassen.",
-        "Wenn du mit einer Alten sprichst, sprich langsam und laut. Die Ohren sind alt, das Gedächtnis manchmal jung.",
+        "Frau Lang im zweiten Stock hört schlecht, sprich bei ihr langsam. Ihr Gedächtnis ist besser als meins.",
         "Der Strom ist aus, aber die Nachtliste habe ich noch auf Papier. Das ist mein Trost."
       ],
       "gerede": "Im Viertel heißt es, der Nebelriese klopfe nachts an die Heimtür vom Lindenbaum, aber dort öffnet niemand, weil alle schlafen."
@@ -925,7 +925,7 @@
       "beruf": "Witwe und Nachbarin",
       "wohnhaus": "H-023",
       "arbeitshaus": null,
-      "wesen": "Neugierig und ein wenig laut, sie kennt jede Familie der Gasse und weiß zu jeder Hochzeit das Datum.",
+      "wesen": "Aufmerksam und herzlich, sie kennt jede Familie der Gasse und weiß zu jeder Hochzeit das Datum.",
       "aussehen": {
         "haar": "grau",
         "frisur": "locken",
@@ -1259,7 +1259,7 @@
           "bis": "03:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Sie schläft seit elf im Bett, die Wicklerrolle auf dem Nachttisch."
+          "tut": "Sie schläft seit dem späten Abend, die Wicklerrolle auf dem Nachttisch."
         },
         {
           "von": "03:30",

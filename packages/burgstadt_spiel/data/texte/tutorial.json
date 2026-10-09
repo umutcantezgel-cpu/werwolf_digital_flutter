@@ -16,11 +16,11 @@
       "id": "T02",
       "ausloeser": "erste_bewegung",
       "titel": "Gehen und Schauen",
-      "text": "Geh langsam, dann hörst du mehr. Mit Umschalt rennst du, aber die Stille hört jeden deiner Schritte.",
+      "text": "Geh langsam, dann hörst du mehr. Wer rennt, den hört die Stille.",
       "eingabe": {
         "touch": "Linker Daumen laufen, rechter Daumen umsehen.",
-        "tastatur": "WASD oder Pfeile laufen, Umschalt rennen, Maus umsehen.",
-        "gamepad": "Linker Stick laufen, rechter Stick umsehen."
+        "tastatur": "W/S und A/D laufen, Pfeile ← → drehen, Umschalt rennen, Maus umsehen.",
+        "gamepad": "Linker Stick laufen, rechter Stick umsehen, LB rennen."
       }
     },
     {
