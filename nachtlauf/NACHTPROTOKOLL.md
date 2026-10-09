@@ -44,3 +44,11 @@
     - Leistungsmessung auf Prozessorzeit des Spielthreads umgestellt (E36), nachdem ein Lauf unter Parallellast durch Verdrängung rot war.
     - Baker-Puffer wiederverwendet.
     - Spieltester-Befunde behoben.
+- 08:00 Phase 7:
+  - **Gesamtlauf:** Am Stand 3092813 sind alle elf Ebenen grün; `tool/abnahme.dart` bestätigt 12 von 14. Leistung: Spiellogik 0,13 ms, Nachladespitze 19,5 ms (Prozessorzeit), Speicherwachstum 7,8 %.
+  - **Inhaltsrunde 9:** Herkunftsmuster in den Familienfeldern per Overlay neutralisiert. Die Wanderstiefel aus zwei Teilen sind begründet und bleiben (E38).
+  - **Inhaltsrunde 10:** Urteil ja · ja · ja. Die 11 geringen Befunde sind trotzdem umgesetzt (E39), deshalb läuft Runde 11.
+  - **Sichtprüfung:**
+    - 13/14 (Stand 0e9ec58e33): 0 Paare. Ein Verstoß bei B13 (rote Haube las sich wie rotes Haar), behoben.
+    - 15 (Stand e4624201af): 1 Paar R06/R08, behoben durch eine kleinere R08.
+    - 17/18 prüfen jetzt Stand 901192c463.
