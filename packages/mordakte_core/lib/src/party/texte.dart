@@ -223,14 +223,28 @@ class Texte {
           if (p.text != null) DossierZeile('text', p.text!) else ?aufloesen(p.ref!, pfad),
       ];
 
+  late final List<GespraechsWunsch> _wuensche = [
+    for (final g in sammlung.gespraeche) (id: g.id, rolle: g.rolle, runde: g.runde, nr: g.nr, partner: g.partner),
+  ];
+  final Map<int, Map<String, String>> _plaene = {};
+
+  /// Tatsächliche Partner aller Pflichtgespräche bei [rollen] Rollen (E-028).
+  Map<String, String> gespraechsplan(int rollen) => _plaene[rollen] ??= besetzung.gespraechsplan(_wuensche, rollen);
+
+  /// Höchstlast verletzt bei irgendeiner Besetzung von 4 bis 20 (leer heißt grün).
+  List<String> lastVerstoesse() => [
+        for (var n = besetzung.minRollen; n <= besetzung.maxRollen; n++) ...besetzung.lastVerstoesse(_wuensche, gespraechsplan(n), n),
+      ];
+
   /// Dossier von [rolle] in [pfad] bei [rollen] besetzten Rollen.
   Dossier dossier(String rolle, String pfad, int rollen) {
     final roh = sammlung.dossiers[rolle] ?? (throw StateError('kein Dossier für $rolle'));
     final t = rolle == pfad ? sammlung.taeter[rolle] : null;
     if (rolle == pfad && t == null) throw StateError('keine Täterfassung für $rolle');
     final gespraeche = <int, List<(Gespraech, String)>>{};
+    final plan = gespraechsplan(rollen);
     for (final g in sammlung.gespraeche.where((g) => g.rolle == rolle)) {
-      (gespraeche[g.runde] ??= []).add((g, besetzung.partner(g.partner, rollen, sprecher: rolle)));
+      (gespraeche[g.runde] ??= []).add((g, plan[g.id] ?? besetzung.partner(g.partner, rollen, sprecher: rolle)));
     }
     for (final l in gespraeche.values) {
       l.sort((a, b) => a.$1.nr.compareTo(b.$1.nr));
@@ -258,6 +272,7 @@ List<String> textVerweise(Kanon kanon, Textsammlung t) {
   final texte = Texte(kanon, t);
   final figuren = {for (final x in kanon.figuren) x['id'] as String};
   final kern = kanon.kernverdaechtige.toSet();
+  final namen = {for (final x in kanon.figuren) x['id'] as String: x['name'] as String};
   final katalog = Erzaehler(kanon).katalog().toSet();
   final wahlIds = {for (final w in kanon.gruppenwahlJson['wahlen'] as List) (w as Map)['id'] as String};
 
@@ -306,6 +321,11 @@ List<String> textVerweise(Kanon kanon, Textsammlung t) {
     if (!figuren.contains(g.rolle)) f.add('Gespräch ${g.id}: unbekannte Rolle');
     if (g.partner == g.rolle) f.add('Gespräch ${g.id}: Partner ist die Rolle selbst');
     if (!figuren.contains(g.partner) && g.partner != Besetzung.detektiv) f.add('Gespräch ${g.id}: unbekannter Partner ${g.partner}');
+    // P-2: Ein Partner, der ersetzt werden kann, steht nicht im Text; die App nennt ihn auf der Karte.
+    final name = namen[g.partner];
+    if (name != null && !kern.contains(g.partner) && RegExp('(^|[^\\p{L}])$name(\$|[^\\p{L}])', unicode: true).hasMatch('${g.thema} ${g.ziel} ${g.text}')) {
+      f.add('Gespräch ${g.id}: nennt den Partner $name, der ersetzt werden kann (P-2)');
+    }
     // P-1: am Tisch nur Pflichtgespräch-Beobachtungen der Rolle und behauptete Fassungen ihrer Lügen.
     for (final p in g.preisgabe) {
       if (!texte.bekannt(p)) {

@@ -38,8 +38,8 @@ Die Kennungen der Erzählerbausteine kommen aus `Erzaehler.katalog()`; andere Ke
 - **Vor dem Finale, am Tisch:**
   - Erzählerbausteine außer `finale.*`, `rueckblende.*` und `aufloesung.*`
   - `dossier.wer`, der Vorstellungstext
-  - der Text der Pflichtgespräche
-- **Nur die eigene Rolle:** `weiss`, `verbirgt`, `ziel`, Täterfassung, Wahltexte.
+  - `thema` und `text` der Pflichtgespräche
+- **Nur die eigene Rolle:** `weiss`, `verbirgt`, `ziel` (Dossier und Pflichtgespräch), Täterfassung, Wahltexte.
 - **Nur der Detektiv:** `detektiv.*` und `ermittlungsbogen.*`.
 - **Spoilerregel (S-1):**
   - Nichts, was am Tisch steht, verrät den Täter-Pfad oder geht über das Wissen des Detektivs hinaus.
@@ -59,14 +59,20 @@ Die Kennungen der Erzählerbausteine kommen aus `Erzaehler.katalog()`; andere Ke
   - `verbirgt`: Lügen und Nebendelikt. Die Spuren der Tat stehen als `spur:<id>` in `tatwissen`.
   - `ziel`: unentdeckt bleiben, ohne Unschuldige ins Unglück zu stürzen.
 
-## Regeln für Pflichtgespräche (P-1)
+## Regeln für Pflichtgespräche (P-1 bis P-4)
 - Drei je Rolle und Runde: `nr` 1 bis 3.
-- `partner` ist eine Rolle oder `detective`. Fehlt die Rolle, übernimmt der erste besetzte Ersatzpartner aus `besetzung.json`, sonst der Detektiv.
+- `partner` ist eine Rolle oder `detective`, der Wunschpartner. Am Abend legt der Gesprächsplan (E-028, `Besetzung.gespraechsplan`) den tatsächlichen Partner fest:
+  - Ein besetzter Wunschpartner bleibt.
+  - Fehlt er, kommt der erste besetzte Ersatzpartner aus `besetzung.json` mit freier Last, sonst die besetzte Person mit der kleinsten Last.
+  - Höchstlast je Runde: 7 Gespräche je Rolle, als Sprecher und als Partner zusammen, 6 für den Detektiv.
+- **P-2, partnerneutral:** Kann der Partner ersetzt werden (jede Rolle außer Ahmet, Fatma, Olli und Can), nennen `thema`, `ziel` und `text` ihn nicht, auch nicht als Anrede. Sie schreiben ihm nichts zu: keinen Beruf, keinen Ort, keine Verwandtschaft, keine Beobachtung. Die App zeigt den tatsächlichen Partner auf der Karte. Kernrollen und den Detektiv darf der Text ansprechen; den Detektiv ohne Namen, mit „du“.
+- **P-3, eigenes Wissen:** Der Text nutzt nur die eigene `preisgabe`, die eigene Vorstellung (`dossier.wer`) und was alle wissen (Intro: Knall, Dunkelheit, Herr Schneider bewusstlos im Vorratsraum, Bund weg, Tor zu). Nie, was andere Rollen beobachtet haben, und nie etwas Verborgenes.
+- **P-4, Abwechslung:** Kein Text wiederholt einen anderen wortgleich. Jede Runde klingt nach ihrer Frage: Runde 1 Alibis, Runde 2 Widersprüche, Runde 3 Gegenüberstellung.
 - `preisgabe` enthält nur zwei Arten von Verweisen:
   - eigene Beobachtungen mit Kanal `pflichtgespraech`
   - eigene Lügen; am Tisch wird nur die Behauptung gesagt
 - Nie Nebendelikte, verborgene Beobachtungen oder Spuren. Sonst schließt die Runde am Tisch zu früh aus.
-- `text`: ein bis drei Sätze, mit denen die Rolle das Gespräch eröffnet.
+- `text`: ein bis drei Sätze, mit denen die Rolle das Gespräch eröffnet. Steht etwas in `preisgabe`, bringt der Text dessen Kern zur Sprache; bei einer Lüge nur die Behauptung.
 
 ## Regeln für die Rundenwahl
 - `a` ist kooperativ und kostet die Rolle etwas (siehe `gruppenwahl.json` → `kosten`).

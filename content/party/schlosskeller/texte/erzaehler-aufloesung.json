@@ -2,5 +2,118 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "erzaehler",
   "hinweis": "Auflösung: aufloesung.gruppe.N und aufloesung.<rolle> bzw. aufloesung.<kernrolle>.<taeter|unschuldig>.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "aufloesung.gruppe.0",
+      "text": "Ihr habt in keiner der drei Runden zusammengehalten. Freunde seid ihr trotzdem, und das bleibt auch so."
+    },
+    {
+      "id": "aufloesung.gruppe.1",
+      "text": "Einmal habt ihr in den drei Runden zusammengehalten. Eure Freundschaft hält mehr aus als jedes Rätsel im Schloss."
+    },
+    {
+      "id": "aufloesung.gruppe.2",
+      "text": "Zweimal habt ihr in den drei Runden zusammengehalten. Man merkt, dass ihr euch vertraut, und das ist schön zu sehen."
+    },
+    {
+      "id": "aufloesung.gruppe.3",
+      "text": "Dreimal habt ihr in den drei Runden zusammengehalten. Das ist Freundschaft, wie man sie sich zum Geburtstag wünscht."
+    },
+    {
+      "id": "aufloesung.leyla",
+      "text": "Lejla hat geschwiegen, weil Ahmet ihr Cousin ist. Sie hatte ihm versprochen, nichts über die Rechnung zu sagen. Sie wollte Ahmet schützen, bis er selbst redet."
+    },
+    {
+      "id": "aufloesung.emine",
+      "text": "Emine hat verschwiegen, dass sie um zwanzig vor zwölf im Turmgang sah, wie Fatma die Münzschatulle aus der Vitrine nahm. Auch was sie im Dunkeln über Fatma wusste, hat sie für sich behalten. Fatma ist ihre beste Freundin, und Emine glaubt ihr. Deshalb hat sie Fatma nicht verraten."
+    },
+    {
+      "id": "aufloesung.tim",
+      "text": "Tim hat trotz Warnung seine alte Mehrfachsteckdose benutzt. Der Kurzschluss kam von dieser Steckdose. Er wollte nicht, dass alle erfahren, dass seine Steckdose den Stromausfall verursacht hat."
+    },
+    {
+      "id": "aufloesung.johanna",
+      "text": "Joanna hat um neun vor zwölf ein Foto gemacht. Es zeigt Herrn Schneider und Ahmet beim Streit an der Theke, und Ahmet hält einen dicken Umschlag. Ahmet hat sie gebeten, das Streitfoto zu löschen. Sie wollte ihr Versprechen halten, ohne das Geburtstagskind anzulügen."
+    },
+    {
+      "id": "aufloesung.murat",
+      "text": "Marek hat seinen Lieferwagen auf Herrn Schneiders reserviertem Platz geparkt. Er wollte, dass der Wagen nicht abgeschleppt wird. Außerdem hat er verschwiegen, wann genau das leuchtende Gesicht an ihm vorbeirannte."
+    },
+    {
+      "id": "aufloesung.zeynep",
+      "text": "Zeynep hat für Cans Streich Schmiere gestanden. Can hat mit der Leuchtmaske im dunklen Vorratsraum auf das Geburtstagskind gewartet. Sie wollte ihren Bruder schützen, und deshalb hat sie geschwiegen."
+    },
+    {
+      "id": "aufloesung.baran",
+      "text": "Baran hat nichts verborgen. Er wollte nur, dass seine Box nicht einkassiert wird."
+    },
+    {
+      "id": "aufloesung.meryem",
+      "text": "Hana hat nichts verborgen. Sie wollte den Kamin wieder zum Ziehen bringen und sich bei Herrn Schneider für den Ruß entschuldigen."
+    },
+    {
+      "id": "aufloesung.serkan",
+      "text": "Serkan hat nichts verborgen. Er wollte nur, dass alle so schnell wie möglich sicher nach Hause fahren."
+    },
+    {
+      "id": "aufloesung.aylin",
+      "text": "Aylin hat nichts verborgen. Sie wollte ihr Geld zurückbekommen, ohne Ahmet vor allen bloßzustellen."
+    },
+    {
+      "id": "aufloesung.kaan",
+      "text": "Wojtek wusste, dass Olli am Abend die Bogentür beschädigt hat, und Herr Schneider verlangt dafür zweitausend Euro. Die Idee mit dem Möbelwachs kam von ihm, und das sollte niemand wissen. Olli ist sein Kumpel vom Tragen. Deshalb hat Wojtek geschwiegen."
+    },
+    {
+      "id": "aufloesung.dilara",
+      "text": "Azra hat verschwiegen, was sie im Dunkeln über Olli wusste. Sie wollte nicht, dass jemand denkt, sie hätte Fatma zu etwas angestiftet."
+    },
+    {
+      "id": "aufloesung.enes",
+      "text": "Damir hat verschwiegen, was er im Dunkeln über Ahmet wusste. Außerdem sollte sein Ärger mit Herrn Schneider über das Teegeschirr nicht zur Sprache kommen."
+    },
+    {
+      "id": "aufloesung.selin",
+      "text": "Sibel hat nichts verborgen. Sie wollte nur, dass die Rüstung aus dem Turmgang verschwindet."
+    },
+    {
+      "id": "aufloesung.hakan",
+      "text": "Pawel hat nichts verborgen. Er wollte Herrn Schneider in Schutz nehmen, ohne von Geldsorgen zu reden."
+    },
+    {
+      "id": "aufloesung.tugba",
+      "text": "Tugba hat nichts verborgen. Sie wollte den Abend retten, mit der Torte um halb eins, egal was passiert."
+    },
+    {
+      "id": "aufloesung.ahmet.unschuldig",
+      "text": "Ahmet hat von allen einhundertfünfzig Euro Miete kassiert, obwohl der Keller nichts gekostet hat. Niemand sollte vor dem Morgen erfahren, dass die Miete erfunden war. Beim Knall duckte er sich hinter der Theke am Ostende, neben Damir, und hielt den Umschlag mit dem Mietgeld fest. Später leerte er den Umschlag und warf ihn in den Ascheneimer am Kamin."
+    },
+    {
+      "id": "aufloesung.ahmet.taeter",
+      "text": "Ahmet gesteht: In Panik hat er den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt die erfundene Miete: Er hat von allen einhundertfünfzig Euro kassiert, obwohl der Keller nichts gekostet hat."
+    },
+    {
+      "id": "aufloesung.fatma.unschuldig",
+      "text": "Fatma hat die Münzschatulle aus der Turmvitrine mitgenommen. Sie wollte die Schatulle zurückbringen, ohne dass es alle erfahren. Beim Knall zog sie sich mit ihrer Tasche zum linken Buffettisch zurück und kauerte dort neben Emine."
+    },
+    {
+      "id": "aufloesung.fatma.taeter",
+      "text": "Fatma gesteht: Sie wollte die Schatulle zurückgeben, doch dann hat sie in Panik den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt die Münzschatulle aus der Turmvitrine, die sie mitgenommen hat."
+    },
+    {
+      "id": "aufloesung.olli.unschuldig",
+      "text": "Olli hat die Bogentür beschädigt und wollte die Schramme mit Möbelwachs verdecken. Den Türschaden wollte er selbst mit Herrn Schneider klären, ohne die Gruppe hineinzuziehen. Beim Knall tastete er sich vom Eiskübel zum rechten Buffettisch und kauerte dort neben Azra, bis das Licht anging."
+    },
+    {
+      "id": "aufloesung.olli.taeter",
+      "text": "Olli gesteht: Er wollte mit Herrn Schneider reden, und in Panik hat er den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt die Bogentür, die er beschädigt hat, und die Schramme, die er mit Möbelwachs verdecken wollte."
+    },
+    {
+      "id": "aufloesung.can.unschuldig",
+      "text": "Can hat sich mit der Leuchtmaske im Vorratsraum versteckt, um das Geburtstagskind zu erschrecken. Seine Schwester Zeynep hat für ihn Schmiere gestanden, und der Streich sollte nicht herauskommen. Beim Knall rannte er durch den Durchgang, noch bevor es schepperte, und versteckte sich oben auf der Toilette im Turm."
+    },
+    {
+      "id": "aufloesung.can.taeter",
+      "text": "Can gesteht: Herr Schneider hielt ihn fest, und in Panik hat Can den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt der Streich mit der Leuchtmaske im Vorratsraum, bei dem Zeynep Schmiere gestanden hat."
+    }
+  ]
 }

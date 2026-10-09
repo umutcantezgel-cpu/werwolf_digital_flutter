@@ -570,3 +570,36 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Kriterien: vorlesbar, Grusel mit Humor, Knall wie im Kanon, nicht besetzte Rollen neutral als „ein Gast“.
   - Fassung 1 lässt den Knall weg.
   - Fassung 3 erzählt als Erinnerung, obwohl das Intro am Abend spielt, und verrät mit „eine Freundin“ das Geschlecht nicht besetzter Rollen.
+
+## E-028 · F3 Welle 2: Gesprächsplan, partnerneutrale Gespräche, Abnahmen
+- **Befund bei der Abnahme von Welle 2a:** Alle 180 Pflichtgespräche lagen vor, Tests und Textprüfer waren grün. Zwei Strukturfehler fand erst der Blick über alle Dateien:
+  - **Last:** Bei 20 Rollen hätten Ahmet, Lejla und Emine in Runde 1 je 10 Gespräche gehabt, Olli in Runde 2 11, der Detektiv in Runde 3 16. V-19 erlaubt höchstens 7.
+  - **Anrede:** 86 Texte sprachen einen ersetzbaren Partner mit Namen an oder schrieben ihm etwas zu („du standest am Sicherungskasten“). Springt bei kleiner Besetzung ein Ersatz ein, passt der Text nicht mehr.
+  - Ursache ist der Auftrag (ORCH), nicht die Autoren: Jeder Auftrag sah nur eine Datei, und die Regel zur Anrede fehlte.
+- **Denkprotokoll Last:**
+  - (a) Die Last in den Texten belassen und den Ersatz zur Laufzeit regeln. Verworfen, denn bei 20 Rollen fehlt niemand, also greift kein Ersatz.
+  - (b) Wunschpartner einmalig ausgleichen und am Abend einen Plan mit Lastgrenze rechnen. Gewählt.
+  - Umsetzung:
+    - Ein Ausgleichslauf hat 43 von 180 Wunschpartnern verschoben. Gespräche, deren Preisgabe den Partner betrifft, sind zuletzt gewandert. Bei 20 Rollen hat jetzt niemand mehr als 7 Gespräche je Runde, der Detektiv höchstens 6.
+    - `Besetzung.gespraechsplan` behält jeden besetzten Wunschpartner. Für fehlende nimmt er den ersten Ersatz mit freier Last, sonst die besetzte Person mit der kleinsten Last; neue Paare gehen vor Wiederholungen.
+    - `Texte.dossier` nutzt den Plan. Der Test „Gesprächsplan 4 bis 20“ prüft für jede Besetzung Höchstlast, Wunschpartner und dass niemand mit sich selbst spricht. Eine Rot-Probe gibt es auch.
+- **Denkprotokoll Anrede:**
+  - (a) Den Namen zur Laufzeit ersetzen. Verworfen, denn Zuschreibungen wie Beruf, Ort oder Verwandtschaft bleiben falsch.
+  - (b) Die Texte partnerneutral schreiben; die App zeigt den Partner auf der Karte. Gewählt.
+  - Neue Regeln in SCHLUESSEL.md:
+    - P-2 partnerneutral; Kernrollen und den Detektiv darf der Text ansprechen.
+    - P-3 nur eigenes Wissen.
+    - P-4 Abwechslung.
+  - P-2 prüft `textVerweise` maschinell. P-3 und P-4 prüfen Kontinuitätsprüfer und Sensibilitätsleser.
+  - Nachbesserung: F3-AUTOR-70 bis -74, je Besetzungsband alle drei Runden.
+- **Sichtbarkeit:** `thema` und `text` eines Gesprächs stehen auf der Karte, `ziel` sieht nur die eigene Rolle (SCHLUESSEL.md).
+- **Erzählerbausteine Runden (AUTOR-39):** ORCH hat drei Texte neu gefasst.
+  - `runde.2.start`: vorher „Nebendelikte werden von echter Gewalt getrennt“, ein Fachwort.
+  - `runde.3.start`: vorher ein Satz über „gutes Spiel“, der die Regeln von außen erklärt.
+  - `anklage.start`: vorher „eine von ihnen“, jetzt „eine Person“.
+- **Auflösung (AUTOR-47):** Die Texte der Zeugen Emine, Azra, Damir und Marek nannten, was nur in einigen Pfaden stimmt, etwa „Fatma war im Dunkeln bei ihr“. Die Auflösung der Nebenrollen gilt aber in allen Pfaden. ORCH hat sie pfadneutral gefasst („was sie im Dunkeln über Fatma wusste“); das Genaue erzählen Finale und Rückblende.
+- **Offene Fragen der Autoren:**
+  - „Turm“ ist erlaubt (E-027).
+  - Beträge stehen in Worten.
+  - Gegenseitige Paare sind erlaubt.
+  - Pawels Beobachtung darf ganz gesagt werden, sie betrifft Herrn Schneiders Geld, nicht Pawels.
