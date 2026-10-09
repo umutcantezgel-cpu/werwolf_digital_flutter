@@ -281,3 +281,9 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - **Korrektur zu E33:** Dort stand „H-059 ohne Zinnen-Zählmotiv“. Tatsächlich war damals nur „eine mehr“ gestrichen, die Hausfrau zählte die Zinnen weiter. Jetzt ist es korrigiert: Sie gießt dort ihre Kräutertöpfe.
 - **Tutorial T02:** Rennen steht nur noch in den Gerätetexten (Umschalt bzw. LB). Auf dem Handy erschien vorher „Mit Umschalt rennst du“.
 - **Bewusst belassen:** B02 mit eigener Taschenuhr (ein Requisit des Bewohners, nicht aus dem Kanon). Die Feder am Hut von R17 ist in 2,5D nicht darstellbar.
+
+## E35 · 09.10. 06:12 · Inhaltsrunde 7 (A-702h) umgesetzt
+- **Ergebnis der Runde:** kanontreu ja, plagiatsfrei ja. Ein geringer Befund gegen die Täterinnen-Leitplanke.
+- **Befund:** B09 „Der Hund hatte nur Angst vor dem Dunkel.“ wiederholte wörtlich das öffentliche Merkmal einer Rolle („Angst im Dunkeln“). Der neue Grund des Prüfers widerlegt die Abwägung aus E29/B2. Jetzt: „Der Hund wollte heute nur nicht allein sein.“
+- **Hinweis übernommen:** „Krautfass“ heißt jetzt „Gemüsefass“ („Kraut“ ist auch Szeneslang).
+- **Wehrgang:** Erwähnungen in der Stadt (B37, H-069, H-106) bleiben, denn die Stadtmauer mit Wehrgang steht in LISTE-ORTE und ist begehbar.
