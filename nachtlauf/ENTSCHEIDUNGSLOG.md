@@ -697,7 +697,7 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Jetzt rundet es die Zonen wie Dart, nimmt Δh ≤ 5 Figurenpixel und schneidet nur die Beschriftung ab. Abgleich über alle 66 Figuren: Höhe, Ober- und Unterfarbe sind gleich. Die frühere Handsuche nach Farben (E54) jagte also zum Teil Scheinpaaren nach.
 - Neue Runden: Sicht A-605y/z (Prüfer 27/28) und Inhalt A-702v (Prüfer 31–33).
 
-## E56 · 09.10. 21:19 · Z-09: Ausreißer der Prozessorzeit kommen von der VM; teuerste Back-Schritte werden nachgemessen
+## E56 · 09.10. 21:21 · Z-09: Ausreißer der Prozessorzeit kommen von der VM; teuerste Back-Schritte werden nachgemessen
 - **Befund:** Der volle Abnahmelauf am Stand e13255f war rot, nur wegen Z-09. Ein einzelner Back-Schritt der Figuren kostete 40,8 ms Prozessorzeit (× 4 = 163 ms, Grenze 50 ms). In 14 früheren vollen Läufen lag der Wert zwischen 4,1 und 6,3 ms.
 - **Untersuchung:**
   - Fünf Einzelläufe von `bin/leistung.dart` ergaben 5,7 / 4,2 / 13,5 / 4,4 / 5,1 ms. Die Ausreißer kommen also nur ab und zu.
