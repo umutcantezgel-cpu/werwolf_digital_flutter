@@ -241,6 +241,93 @@ List<String> kanonVerweise(Kanon k) {
       }
     }
   }
+  // Entscheidungen (E-024)
+  final spuren = <String>{
+    for (final x in k.gegenstaende)
+      for (final sp in (x['spuren'] as List? ?? const [])) (sp as Map)['id'] as String,
+  };
+  final beobachtungen = {for (final b in k.beobachtungen) b['id'] as String};
+  final ej = k.entscheidungenJson;
+  final faktIds = <String>[for (final x in ej['fakten'] as List) (x as Map)['id'] as String];
+  eindeutig('Fakten', faktIds);
+  for (final x in ej['fakten'] as List) {
+    final m = x as Map;
+    final q = m['quelle'] as Map;
+    if (q['beobachtung'] != null && !beobachtungen.contains(q['beobachtung'])) f.add('Fakt ${m['id']}: unbekannte Beobachtung ${q['beobachtung']}');
+    if (q['spur'] != null && !spuren.contains(q['spur'])) f.add('Fakt ${m['id']}: unbekannte Spur ${q['spur']}');
+    for (final p in m['personen'] as List) {
+      person('Fakt ${m['id']}', p);
+    }
+  }
+  final optionIds = <String>[];
+  for (final x in ej['entscheidungen'] as List) {
+    final e = x as Map;
+    final eigene = <String>{};
+    for (final o in e['optionen'] as List) {
+      final m = o as Map;
+      optionIds.add(m['id'] as String);
+      eigene.add(m['id'] as String);
+      for (final fa in m['fakten'] as List) {
+        if (!faktIds.contains(fa)) f.add('Option ${m['id']}: unbekannter Fakt $fa');
+      }
+      final z = m['ziel'] as Map;
+      person('Option ${m['id']}', z['person']);
+      if (z['gegenstand'] != null && !gegenstaende.contains(z['gegenstand'])) f.add('Option ${m['id']}: unbekannter Gegenstand ${z['gegenstand']}');
+      if (z['raum'] != null && !raeume.contains(z['raum'])) f.add('Option ${m['id']}: unbekannter Raum ${z['raum']}');
+      ort('Option ${m['id']}', z['ort']);
+    }
+    for (final r in (e['richtig'] as Map).entries) {
+      if (!k.pfade.contains(r.key)) f.add('Entscheidung ${e['id']}: unbekannter Pfad ${r.key}');
+      if (!eigene.contains(r.value)) f.add('Entscheidung ${e['id']}: richtige Option ${r.value} gehört nicht dazu');
+    }
+  }
+  eindeutig('Entscheidungen', [for (final x in ej['entscheidungen'] as List) (x as Map)['id'] as String]);
+  eindeutig('Optionen', optionIds);
+
+  // Bonus-Hinweise
+  eindeutig('Hinweise', [for (final h in k.bonusJson['hinweise'] as List) (h as Map)['id'] as String]);
+  for (final h in k.bonusJson['hinweise'] as List) {
+    final m = h as Map;
+    person('Hinweis ${m['id']}', (m['wirkung'] as Map)['person']);
+    for (final q in (m['quelle'] as List? ?? const [])) {
+      final t = (q as String).split(':');
+      final ok = switch (t[0]) {
+        'beobachtung' => beobachtungen.contains(t[1]),
+        'zeitleiste' => zeitleiste.contains(t[1]),
+        'spur' => spuren.contains(t[1]),
+        _ => false,
+      };
+      if (!ok) f.add('Hinweis ${m['id']}: unbekannte Quelle $q');
+    }
+    for (final o in (m['widerlegtDurch'] as List? ?? const [])) {
+      if (!optionIds.contains(o)) f.add('Hinweis ${m['id']}: unbekannte Option $o');
+    }
+  }
+
+  // Gruppenwahl
+  eindeutig('Gruppenwahl', [for (final w in k.gruppenwahlJson['wahlen'] as List) (w as Map)['id'] as String]);
+  for (final w in k.gruppenwahlJson['wahlen'] as List) {
+    final m = w as Map;
+    person('Gruppenwahl ${m['id']}', m['rolle']);
+    for (final teil in ['a', 'b', 'bTaeter']) {
+      final o = m[teil] as Map?;
+      if (o == null) continue;
+      for (final kn in [o['kosten'] as Map, o['nutzen'] as Map]) {
+        final b = kn['bezug'];
+        if (b == null || b == 'persoenlichesZiel') continue;
+        if (!personen.contains(b) && !nebendelikte.contains(b)) f.add('Gruppenwahl ${m['id']}.$teil: unbekannter Bezug $b');
+      }
+    }
+  }
+
+  // Besetzung: Ersatzpartner
+  for (final e in ((k.besetzungJson['ersatzpartner'] as Map?) ?? const {}).entries) {
+    person('Ersatzpartner', e.key);
+    for (final r in e.value as List) {
+      person('Ersatzpartner ${e.key}', r);
+    }
+  }
+
   // Alte Namen (vor der Namensbalance) kommen in keinem Kanon-Text mehr vor.
   final alteNamen = <String>{
     for (final x in k.figuren)

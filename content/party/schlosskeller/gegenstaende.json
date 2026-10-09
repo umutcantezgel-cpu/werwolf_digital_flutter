@@ -24,13 +24,25 @@
           }
         },
         {
+          "id": "spur_griff_papier",
+          "stelle": "Griff",
+          "entstehtWenn": {
+            "kerzenstaenderGegriffenVon": "ahmet"
+          },
+          "zeigt": "Im erstarrten Wachs am Griff klebt eine abgerissene Ecke braunes Umschlagpapier. Darauf steht „…keller“, in Ahmets Handschrift.",
+          "harmlos": "Der Griff ist mit rotem Wachs verschmiert.",
+          "rolle": {
+            "ahmet": "schluesselbeweis"
+          }
+        },
+        {
           "id": "spur_griff_leuchtfarbe",
           "stelle": "Griff",
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "can"
           },
           "zeigt": "Um den Griff liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe, derselben Farbe wie auf der Maske.",
-          "harmlos": "Der Griff ist blank poliert, ohne Farbe.",
+          "harmlos": "Der Griff ist mit rotem Wachs verschmiert.",
           "rolle": {
             "can": "schluesselbeweis"
           }
@@ -42,7 +54,7 @@
             "kerzenstaenderGegriffenVon": "olli"
           },
           "zeigt": "Im roten Wachs am Fuß, das inzwischen erstarrt ist, kleben feine Holzsplitter und weißer Kalk.",
-          "harmlos": "Am Fuß klebt nur rotes Wachs.",
+          "harmlos": "Am Fuß klebt rotes Wachs.",
           "rolle": {
             "olli": "schluesselbeweis"
           }
@@ -104,7 +116,7 @@
           "zeigt": "In der Innentasche steckt Herrn Schneiders großer Schlüsselbund.",
           "harmlos": "Die Innentasche ist leer bis auf ein Kaugummipapier.",
           "rolle": {
-            "ahmet": "schluesselbeweis"
+            "ahmet": "fundort"
           }
         }
       ]
@@ -126,7 +138,7 @@
           "entstehtWenn": {
             "immer": true
           },
-          "zeigt": "„Miete Schlosskeller“ in Ahmets Handschrift. Der Umschlag ist leer.",
+          "zeigt": "„Miete Schlosskeller“ in Ahmets Handschrift. Der Umschlag ist leer. Darauf angesprochen gibt Ahmet zu: Er hat von allen 150 € Miete eingesammelt, obwohl der Keller nichts kostet.",
           "rolle": {
             "alle": "nebendelikt"
           },
@@ -138,7 +150,7 @@
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "ahmet"
           },
-          "zeigt": "Drei erstarrte rote Wachstropfen.",
+          "zeigt": "Drei erstarrte rote Wachstropfen. Eine Ecke des Umschlags ist abgerissen.",
           "harmlos": "Kein Wachs, nur ein Knick.",
           "rolle": {
             "ahmet": "zusatzindiz"
@@ -162,7 +174,7 @@
           "entstehtWenn": {
             "immer": true
           },
-          "zeigt": "Die Schatulle aus der Vitrine liegt in Fatmas Tasche, zwischen Skizzenblock und Stiften.",
+          "zeigt": "Die Schatulle aus der Vitrine liegt in Fatmas Tasche, zwischen Skizzenblock und Stiften. Darauf angesprochen gibt Fatma zu: Sie hat die Schatulle um 23:40 aus der Vitrine genommen.",
           "rolle": {
             "alle": "nebendelikt"
           },
@@ -201,7 +213,7 @@
           "entstehtWenn": {
             "immer": true
           },
-          "zeigt": "Die Maske steckt zusammengefaltet in Cans Bauchtasche. Die Farbe ist noch leicht klebrig.",
+          "zeigt": "Die Maske steckt zusammengefaltet in Cans Bauchtasche. Die Farbe ist noch leicht klebrig. Darauf angesprochen gibt Can zu: Er hat im dunklen Vorratsraum gewartet, um das Geburtstagskind zu erschrecken.",
           "rolle": {
             "alle": "nebendelikt"
           },
@@ -271,7 +283,7 @@
           "zeigt": "Unter den Eiswürfeln liegt Herrn Schneiders Schlüsselbund.",
           "harmlos": "Nur Eis und Schmelzwasser.",
           "rolle": {
-            "olli": "zusatzindiz"
+            "olli": "fundort"
           }
         }
       ]
@@ -340,7 +352,7 @@
           "entstehtWenn": {
             "immer": true
           },
-          "zeigt": "„Miete: 0 Euro. Schneider“",
+          "zeigt": "„Miete: 0 Euro. Schneider“. Aylin sagt: Ahmet hat trotzdem von allen 150 € eingesammelt.",
           "rolle": {
             "alle": "nebendelikt"
           },
@@ -417,8 +429,8 @@
     },
     {
       "id": "arbeitshandschuh_olli",
-      "name": "Ollis Arbeitshandschuh",
-      "beschreibung": "Ein einzelner Arbeitshandschuh, den Olli am Abend beim Wärmen am Kamin liegen ließ.",
+      "name": "Ollis linker Arbeitshandschuh",
+      "beschreibung": "Ollis linker Arbeitshandschuh. Er hat ihn um 19:30 beim Wärmen am Kamin liegen lassen.",
       "lage": {
         "ort": "am_kamin",
         "stelle": "in der Kamin-Nische"
@@ -426,19 +438,51 @@
       "sichtbar": true,
       "spuren": [
         {
-          "id": "spur_handschuh_wachs",
+          "id": "spur_handschuh_russ",
+          "stelle": "Innenfläche",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Ein linker Arbeitshandschuh, rußig vom Kamin. Kein Wachs daran.",
+          "rolle": {
+            "alle": "umgebung"
+          }
+        }
+      ]
+    },
+    {
+      "id": "handschuh_weste_olli",
+      "name": "Ollis rechter Arbeitshandschuh",
+      "beschreibung": "Der rechte Arbeitshandschuh hängt aus der Tasche von Ollis Daunenweste.",
+      "lage": {
+        "traeger": "olli",
+        "stelle": "hängt aus der Westentasche"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_weste_moebelwachs",
           "stelle": "Fingerkuppen",
           "entstehtWenn": {
             "immer": true
           },
-          "zeigt": "Braune Wachsreste an den Fingerkuppen. Damit hat Olli um 18:45 das Möbelwachs in die Schramme gerieben. Es ist kein rotes Kerzenwachs.",
+          "zeigt": "Braunes Möbelwachs und weißer Kalk an den Fingerkuppen. Darauf angesprochen gibt Olli zu: Er hat um 18:35 den Beschlag der Bogentür ausgerissen und die Schramme mit Wojteks Möbelwachs zugerieben.",
           "rolle": {
-            "alle": "falsche_faehrte"
+            "alle": "nebendelikt"
           },
-          "belastet": [
-            "olli"
-          ],
-          "widerlegtDurch": "Die Farbe: braunes Möbelwachs von der Bogentür, nicht das rote Wachs der Kerzen."
+          "nebendelikt": "nd_tuerschaden"
+        },
+        {
+          "id": "spur_weste_kerzenwachs",
+          "stelle": "Handrücken",
+          "entstehtWenn": {
+            "kerzenstaenderGegriffenVon": "olli"
+          },
+          "zeigt": "Auf dem Handrücken kleben frische rote Kerzenwachstropfen.",
+          "harmlos": "Kein rotes Wachs, nur Kalkstaub.",
+          "rolle": {
+            "olli": "zusatzindiz"
+          }
         }
       ]
     },

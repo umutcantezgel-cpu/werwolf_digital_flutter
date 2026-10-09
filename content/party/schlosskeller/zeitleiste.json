@@ -44,7 +44,7 @@
         "olli",
         "kaan"
       ],
-      "text": "Wojtek gibt Olli braunes Möbelwachs aus seiner Werkzeugtasche. Olli reibt es mit seinem Arbeitshandschuh in die Schramme.",
+      "text": "Wojtek gibt Olli braunes Möbelwachs aus seiner Werkzeugtasche. Olli reibt es mit seinem rechten Arbeitshandschuh in die Schramme und steckt den Handschuh in die Westentasche.",
       "pfade": "alle",
       "quelle": "B-16"
     },
@@ -78,7 +78,7 @@
       "wer": [
         "olli"
       ],
-      "text": "Olli wärmt sich am noch kalten Kamin die Hände und vergisst dort einen Arbeitshandschuh mit Möbelwachs an den Fingerkuppen.",
+      "text": "Olli wärmt sich am noch kalten Kamin die Hände und vergisst dort seinen linken Arbeitshandschuh.",
       "pfade": "alle"
     },
     {

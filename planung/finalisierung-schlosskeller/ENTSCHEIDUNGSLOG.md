@@ -445,3 +445,46 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
 | #10 „um Mitternacht“ | V | Wie E-022. |
 | Frage 4: Ahmets Stelle | Ü | „hinter der Theke am Ostende“. |
 | Fragen 1–3 | V | Nach 0:00 gibt es keine Dunkelphase; die Spur ist im Licht sichtbar. Zugang zu Bauchtasche und Zeitleiste regelt F2 (Entscheidungen und Pflichtgespräche). |
+
+## E-024 · F2: Entscheidungsmodell, Restverdächtige, Bonus-Hinweise (Denkprotokoll)
+- **Frage:** Wie werden die neun Entscheidungen so gebaut, dass bei bestem Spiel nach Runde 2 genau zwei und nach Runde 3 genau eine Person übrig sind? Dabei soll kein Bonus-Hinweis ausschließen, jede richtige Option eine Begründungskette haben und keine falsche Option einen Schlüsselbeweis oder ein Zusatzindiz zeigen.
+- **Verworfen:**
+  - **Trenner allein schließt aus.** Dann klärt Runde 1 den Fall fast ganz (drei Alibis, eine Spätankunft).
+  - **Abwesenheit einer Spur schließt aus**, etwa „keine Farbe am Griff“. Dann löst eine falsche Option den Fall (Kerzenständer im Pfad Fatma).
+  - **Richtig ist immer die Option zur Täterperson.** Dann schließen die falschen Optionen Unschuldige aus.
+- **Gewählt: Regeln des Ermittlungsbogens**
+  - **R-ENTLASTET:** Wer beim Scheppern nachweislich woanders war (Alibi aus einer Befragung) **und** wessen Heimlichtuerei belegt ist (Nebendelikt aus einer Entscheidung), scheidet aus.
+  - **R-UEBERFUEHRT:** Ein Schlüsselbeweis überführt; alle anderen scheiden aus.
+  - Spätankunft, Zusatzindiz, Fundort und Motiv belasten nur. Sie ändern den Stand, nicht die Restmenge.
+  - Harmlose Fassungen sind neutral formuliert („mit rotem Wachs verschmiert“) und lösen keine Regel aus. Wer aus dem Fehlen einer Spur selbst schließt, spielt gut; die Restmenge bleibt eine sichere Untergrenze.
+- **Runde 1, Das Alibi-Geflecht** (pfadunabhängig richtig): Befragung der Trenner Damir, Emine, Azra; die falschen Optionen sind Joanna, Tugba und Tim. Das ergibt Alibis oder eine Spätankunft. Marek ist keine Entscheidung; sein Trenner-Wissen kommt als wahrer Bonus-Hinweis in Runde 1.
+- **Runde 2, Die Indizien-Filterung:**
+  - e2_1 Ascheneimer oder Cans Bauchtasche. Pfadabhängig: im Pfad Can die Bauchtasche, weil dann alle anderen ein Alibi haben.
+  - e2_2 Fatmas Tasche oder Vitrine.
+  - e2_3 Olli untersuchen oder Kamin-Nische.
+  - Ergebnis: Das Nebendelikt wird belegt, im Täterpfad zusätzlich das Zusatzindiz. Bei bestem Spiel bleiben genau zwei übrig: die Täterperson und Can, im Pfad Can Ahmet und Can.
+- **Runde 3, Die finale Gegenüberstellung:**
+  - e3_1 Bundsuche in einem von drei Bereichen.
+  - e3_2 Kerzenständer genau untersuchen oder Fatmas Hände und Ring.
+  - e3_3 Zeynep oder Aylin; deckt das letzte Nebendelikt auf.
+  - Mit dem Schlüsselbeweis bleibt genau eine Person.
+- **Kanon-Folgen, damit jeder Pfad gleich gebaut ist** (je ein Schlüsselbeweis, ein Zusatzindiz und ein Fundort des Bunds):
+  - Ahmet: Schlüsselbeweis ist die abgerissene Umschlag-Ecke im Wachs am Griff. Der Bund in der Jacke wird Fundort.
+  - Olli: Zusatzindiz ist rotes Kerzenwachs am rechten Arbeitshandschuh in der Westentasche; das passt zur Quelle, die einen Handschuh als Zusatzindiz nennt. Der Bund im Eiskübel wird Fundort.
+  - Der linke Handschuh am Kamin ist nur noch rußig.
+  - Neue Pflichtgespräch-Beobachtungen: `b_emine_versteck` und `b_azra_versteck`. Neue verborgene Beobachtung: `b_wojtek_tuer`.
+  - Bei jedem belegten Nebendelikt gibt die Person es auf Nachfrage zu.
+- **Bonus-Hinweise (36):**
+  - **wahr:** Runde 1 Mareks Trenner-Wissen, Runde 2 ein Geheimnis oder Motiv der Täterperson, Runde 3 die Spätankunft der Täterperson.
+  - **neutral:** wahre, pfadgleiche Sätze über Kernpersonen ohne neuen Wert.
+  - **falsch:** ein Gerücht über einen Unschuldigen in derselben Satzform wie die wahren Hinweise. Jedes Gerücht widerlegt eine Entscheidung, die im selben Pfad richtig ist (`widerlegtDurch`).
+  - Hinweise wirken nie auf die Restmenge (W-1 scharf).
+- **G-1 präzisiert:** Sichtbar ist nur, ob die Gruppe zusammengehalten hat (wahr) oder nicht (neutral oder falsch), nie die Zahl. Sonst wäre ein als falsch erkanntes Gerücht ein Freispruch.
+- **Wertung:** Punkte sind nur die richtigen Detektiv-Entscheidungen (0–9). Die Gruppenwahl bringt Hinweise, keine Punkte.
+- **Nachtrag (Simulator-Lauf):**
+  - **Befund:** Im Pfad Can schließt die falsche Option e2_1 (Ascheneimer) Ahmet aus, die richtige (Cans Bauchtasche) nicht.
+  - **Ursache:** Der Pfad, dessen Trenner Runde 1 nicht befragt, hat nach Runde 1 drei Alibis.
+  - **Suche:** Eine erschöpfende Suche über alle Aufteilungen von Runde 2 mit fester Runde 1 (Damir, Emine, Azra) fand keine Aufteilung, in der bei bestem Spiel nach Runde 2 genau zwei übrig sind und keine falsche Option mehr ausschließt.
+  - **Ergebnis:** Das ist strukturell: In einem Pfad muss die richtige Option statt eines Ausschlusses ein Indiz gegen die Täterperson liefern.
+  - **Regel (Prüfung im Simulator):** Eine falsche Option darf nur dann mehr ausschließen als die richtige, wenn die richtige ein belastendes Indiz gegen die Täterperson zeigt (Spätankunft, Zusatzindiz, Fundort, Schlüsselbeweis).
+  - **Begründung:** Für die Spielenden ist das auch inhaltlich richtig. Nach drei Alibis ist Cans Bauchtasche die naheliegende Wahl; Ahmets Nebendelikt klärt nur noch eine Lüge.

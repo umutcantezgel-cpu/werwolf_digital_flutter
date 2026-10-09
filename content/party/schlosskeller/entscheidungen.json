@@ -1,0 +1,880 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "hinweis": "Die neun Entscheidungen des Detektivs (E-024). Eine Option deckt Fakten auf; ein Fakt erscheint in einem Pfad nur, wenn seine Quelle dort entsteht (Beobachtung mit pfade, Spur mit entstehtWenn). Sonst zeigt die Option die harmlose Fassung der Spur. Die Restverdächtigen folgen allein aus den Regeln und den aufgedeckten Fakten; Bonus-Hinweise zählen nicht (W-1).",
+  "regeln": [
+    {
+      "id": "R-ENTLASTET",
+      "wenn": [
+        "alibi",
+        "nebendelikt"
+      ],
+      "folge": "entlastet",
+      "text": "Wer beim Scheppern nachweislich woanders war und wessen Heimlichtuerei belegt ist, scheidet aus."
+    },
+    {
+      "id": "R-UEBERFUEHRT",
+      "wenn": [
+        "schluesselbeweis"
+      ],
+      "folge": "ueberfuehrt",
+      "text": "Ein Schlüsselbeweis überführt eine Person. Alle anderen scheiden aus."
+    }
+  ],
+  "fakten": [
+    {
+      "id": "f_alibi_ahmet",
+      "typ": "alibi",
+      "personen": [
+        "ahmet"
+      ],
+      "quelle": {
+        "beobachtung": "b_damir_ahmet_blieb"
+      }
+    },
+    {
+      "id": "f_spaet_ahmet",
+      "typ": "spaetankunft",
+      "personen": [
+        "ahmet"
+      ],
+      "quelle": {
+        "beobachtung": "b_damir_ahmet_weg"
+      }
+    },
+    {
+      "id": "f_alibi_fatma",
+      "typ": "alibi",
+      "personen": [
+        "fatma"
+      ],
+      "quelle": {
+        "beobachtung": "b_emine_fatma_frueh"
+      }
+    },
+    {
+      "id": "f_spaet_fatma",
+      "typ": "spaetankunft",
+      "personen": [
+        "fatma"
+      ],
+      "quelle": {
+        "beobachtung": "b_emine_fatma_spaet"
+      }
+    },
+    {
+      "id": "f_alibi_olli",
+      "typ": "alibi",
+      "personen": [
+        "olli"
+      ],
+      "quelle": {
+        "beobachtung": "b_azra_olli_frueh"
+      }
+    },
+    {
+      "id": "f_spaet_olli",
+      "typ": "spaetankunft",
+      "personen": [
+        "olli"
+      ],
+      "quelle": {
+        "beobachtung": "b_azra_olli_spaet"
+      }
+    },
+    {
+      "id": "f_foto_streit",
+      "typ": "motiv",
+      "personen": [
+        "ahmet"
+      ],
+      "quelle": {
+        "spur": "spur_foto_streit"
+      }
+    },
+    {
+      "id": "f_notiz_fehlende",
+      "typ": "luege",
+      "personen": [
+        "fatma",
+        "olli"
+      ],
+      "quelle": {
+        "spur": "spur_notiz_fehlende"
+      }
+    },
+    {
+      "id": "f_kurzschluss",
+      "typ": "ausgangslage",
+      "personen": [],
+      "quelle": {
+        "beobachtung": "b_tim_kurzschluss"
+      }
+    },
+    {
+      "id": "f_nd_ahmet_umschlag",
+      "typ": "nebendelikt",
+      "personen": [
+        "ahmet"
+      ],
+      "quelle": {
+        "spur": "spur_umschlag_aufschrift"
+      }
+    },
+    {
+      "id": "f_z_ahmet",
+      "typ": "zusatzindiz",
+      "personen": [
+        "ahmet"
+      ],
+      "quelle": {
+        "spur": "spur_umschlag_wachs"
+      }
+    },
+    {
+      "id": "f_nd_can_maske",
+      "typ": "nebendelikt",
+      "personen": [
+        "can"
+      ],
+      "quelle": {
+        "spur": "spur_maske_da"
+      }
+    },
+    {
+      "id": "f_z_can",
+      "typ": "zusatzindiz",
+      "personen": [
+        "can"
+      ],
+      "quelle": {
+        "spur": "spur_maske_wachs"
+      }
+    },
+    {
+      "id": "f_nd_fatma",
+      "typ": "nebendelikt",
+      "personen": [
+        "fatma"
+      ],
+      "quelle": {
+        "spur": "spur_schatulle_da"
+      }
+    },
+    {
+      "id": "f_z_fatma",
+      "typ": "zusatzindiz",
+      "personen": [
+        "fatma"
+      ],
+      "quelle": {
+        "spur": "spur_schatulle_wachs"
+      }
+    },
+    {
+      "id": "f_vitrine_leer",
+      "typ": "umgebung",
+      "personen": [],
+      "quelle": {
+        "spur": "spur_vitrine_leer"
+      }
+    },
+    {
+      "id": "f_nd_olli",
+      "typ": "nebendelikt",
+      "personen": [
+        "olli"
+      ],
+      "quelle": {
+        "spur": "spur_weste_moebelwachs"
+      }
+    },
+    {
+      "id": "f_z_olli",
+      "typ": "zusatzindiz",
+      "personen": [
+        "olli"
+      ],
+      "quelle": {
+        "spur": "spur_weste_kerzenwachs"
+      }
+    },
+    {
+      "id": "f_handschuh_kamin",
+      "typ": "umgebung",
+      "personen": [],
+      "quelle": {
+        "spur": "spur_handschuh_russ"
+      }
+    },
+    {
+      "id": "f_fundort_ahmet",
+      "typ": "fundort",
+      "personen": [
+        "ahmet"
+      ],
+      "quelle": {
+        "spur": "spur_jacke_bund"
+      }
+    },
+    {
+      "id": "f_fundort_fatma",
+      "typ": "fundort",
+      "personen": [
+        "fatma"
+      ],
+      "quelle": {
+        "spur": "spur_brottasche_bund"
+      }
+    },
+    {
+      "id": "f_fundort_olli",
+      "typ": "fundort",
+      "personen": [
+        "olli"
+      ],
+      "quelle": {
+        "spur": "spur_eiskuebel_bund"
+      }
+    },
+    {
+      "id": "f_fundort_can",
+      "typ": "fundort",
+      "personen": [
+        "can"
+      ],
+      "quelle": {
+        "spur": "spur_helm_bund"
+      }
+    },
+    {
+      "id": "f_staender_verbogen",
+      "typ": "umgebung",
+      "personen": [],
+      "quelle": {
+        "spur": "spur_staender_verbogen"
+      }
+    },
+    {
+      "id": "f_k_ahmet",
+      "typ": "schluesselbeweis",
+      "personen": [
+        "ahmet"
+      ],
+      "quelle": {
+        "spur": "spur_griff_papier"
+      }
+    },
+    {
+      "id": "f_k_can",
+      "typ": "schluesselbeweis",
+      "personen": [
+        "can"
+      ],
+      "quelle": {
+        "spur": "spur_griff_leuchtfarbe"
+      }
+    },
+    {
+      "id": "f_k_olli",
+      "typ": "schluesselbeweis",
+      "personen": [
+        "olli"
+      ],
+      "quelle": {
+        "spur": "spur_fuss_splitter"
+      }
+    },
+    {
+      "id": "f_k_fatma",
+      "typ": "schluesselbeweis",
+      "personen": [
+        "fatma"
+      ],
+      "quelle": {
+        "spur": "spur_ring_messing"
+      }
+    },
+    {
+      "id": "f_nd_can_zeynep",
+      "typ": "nebendelikt",
+      "personen": [
+        "can"
+      ],
+      "quelle": {
+        "beobachtung": "b_zeynep_vorrat"
+      }
+    },
+    {
+      "id": "f_nd_ahmet_quittung",
+      "typ": "nebendelikt",
+      "personen": [
+        "ahmet"
+      ],
+      "quelle": {
+        "spur": "spur_quittung"
+      }
+    }
+  ],
+  "entscheidungen": [
+    {
+      "id": "e1_1",
+      "runde": 1,
+      "nr": 1,
+      "art": "person",
+      "frage": "Wer weiß, wer im Dunkeln am Ostende der Theke war?",
+      "optionen": [
+        {
+          "id": "e1_1_damir",
+          "ziel": {
+            "person": "enes"
+          },
+          "text": "Damir befragen",
+          "fakten": [
+            "f_alibi_ahmet",
+            "f_spaet_ahmet"
+          ]
+        },
+        {
+          "id": "e1_1_joanna",
+          "ziel": {
+            "person": "johanna"
+          },
+          "text": "Joanna befragen",
+          "fakten": [
+            "f_foto_streit"
+          ]
+        }
+      ],
+      "richtig": {
+        "ahmet": "e1_1_damir",
+        "fatma": "e1_1_damir",
+        "olli": "e1_1_damir",
+        "can": "e1_1_damir"
+      },
+      "begruendung": {
+        "alle": {
+          "kette": [
+            "beobachtung:b_damir_an_der_theke",
+            "beobachtung:b_detektiv_gehoert"
+          ],
+          "text": "Damir stand um 23:57 an der Theke, wo es gescheppert hat. Wer dort im Dunkeln kauerte, weiß, wer beim Scheppern wo war."
+        }
+      }
+    },
+    {
+      "id": "e1_2",
+      "runde": 1,
+      "nr": 2,
+      "art": "person",
+      "frage": "Wer war im Dunkeln am linken Buffettisch?",
+      "optionen": [
+        {
+          "id": "e1_2_emine",
+          "ziel": {
+            "person": "emine"
+          },
+          "text": "Emine befragen",
+          "fakten": [
+            "f_alibi_fatma",
+            "f_spaet_fatma"
+          ]
+        },
+        {
+          "id": "e1_2_tugba",
+          "ziel": {
+            "person": "tugba"
+          },
+          "text": "Tugba nach ihrem Notizbuch fragen",
+          "fakten": [
+            "f_notiz_fehlende"
+          ]
+        }
+      ],
+      "richtig": {
+        "ahmet": "e1_2_emine",
+        "fatma": "e1_2_emine",
+        "olli": "e1_2_emine",
+        "can": "e1_2_emine"
+      },
+      "begruendung": {
+        "alle": {
+          "kette": [
+            "beobachtung:b_emine_versteck",
+            "beobachtung:b_detektiv_gehoert"
+          ],
+          "text": "Emine duckte sich beim Knall hinter den linken Buffettisch, wenige Schritte von der Theke. Sie weiß, wer neben ihr kauerte."
+        }
+      }
+    },
+    {
+      "id": "e1_3",
+      "runde": 1,
+      "nr": 3,
+      "art": "person",
+      "frage": "Wer war im Dunkeln am rechten Buffettisch?",
+      "optionen": [
+        {
+          "id": "e1_3_azra",
+          "ziel": {
+            "person": "dilara"
+          },
+          "text": "Azra befragen",
+          "fakten": [
+            "f_alibi_olli",
+            "f_spaet_olli"
+          ]
+        },
+        {
+          "id": "e1_3_tim",
+          "ziel": {
+            "person": "tim"
+          },
+          "text": "Tim zum Stromausfall befragen",
+          "fakten": [
+            "f_kurzschluss"
+          ]
+        }
+      ],
+      "richtig": {
+        "ahmet": "e1_3_azra",
+        "fatma": "e1_3_azra",
+        "olli": "e1_3_azra",
+        "can": "e1_3_azra"
+      },
+      "begruendung": {
+        "alle": {
+          "kette": [
+            "beobachtung:b_azra_versteck",
+            "beobachtung:b_detektiv_gehoert"
+          ],
+          "text": "Azra duckte sich beim Knall am rechten Buffettisch, nahe der Theke. Sie weiß, wer neben ihr kauerte."
+        }
+      }
+    },
+    {
+      "id": "e2_1",
+      "runde": 2,
+      "nr": 1,
+      "art": "gegenstand",
+      "frage": "Wessen Heimlichtuerei klärst du jetzt?",
+      "optionen": [
+        {
+          "id": "e2_1_ascheneimer",
+          "ziel": {
+            "gegenstand": "umschlag_mietgeld"
+          },
+          "text": "Den Ascheneimer am Kamin durchsuchen",
+          "fakten": [
+            "f_nd_ahmet_umschlag",
+            "f_z_ahmet"
+          ]
+        },
+        {
+          "id": "e2_1_bauchtasche",
+          "ziel": {
+            "gegenstand": "leuchtmaske"
+          },
+          "text": "Cans Bauchtasche untersuchen",
+          "fakten": [
+            "f_nd_can_maske",
+            "f_z_can"
+          ]
+        }
+      ],
+      "richtig": {
+        "ahmet": "e2_1_ascheneimer",
+        "fatma": "e2_1_ascheneimer",
+        "olli": "e2_1_ascheneimer",
+        "can": "e2_1_bauchtasche"
+      },
+      "begruendung": {
+        "ahmet": {
+          "kette": [
+            "fakt:f_spaet_ahmet",
+            "beobachtung:b_hana_umschlag"
+          ],
+          "text": "Ahmet war beim Scheppern nicht bei Damir. Hana sah ihn kurz nach zwölf etwas in den Ascheneimer werfen."
+        },
+        "fatma": {
+          "kette": [
+            "fakt:f_alibi_ahmet",
+            "beobachtung:b_lejla_ahmet_theke",
+            "beobachtung:b_hana_umschlag"
+          ],
+          "text": "Ahmet war beim Scheppern bei Damir, hat aber wegen seines Umschlags gelogen. Was er in den Ascheneimer warf, erklärt das."
+        },
+        "olli": {
+          "kette": [
+            "fakt:f_alibi_ahmet",
+            "beobachtung:b_lejla_ahmet_theke",
+            "beobachtung:b_hana_umschlag"
+          ],
+          "text": "Ahmet war beim Scheppern bei Damir, hat aber wegen seines Umschlags gelogen. Was er in den Ascheneimer warf, erklärt das."
+        },
+        "can": {
+          "kette": [
+            "fakt:f_alibi_ahmet",
+            "fakt:f_alibi_fatma",
+            "fakt:f_alibi_olli",
+            "beobachtung:b_marek_gesicht",
+            "merkmal:can"
+          ],
+          "text": "Ahmet, Fatma und Olli waren beim Scheppern woanders. Nur Can ist ungeklärt, und vier Gäste sahen ein leuchtendes Gesicht. Seine Bauchtasche ist ausgebeult."
+        }
+      }
+    },
+    {
+      "id": "e2_2",
+      "runde": 2,
+      "nr": 2,
+      "art": "gegenstand",
+      "frage": "Fatmas Tasche ist ausgebeult. Wo setzt du an?",
+      "optionen": [
+        {
+          "id": "e2_2_tasche",
+          "ziel": {
+            "gegenstand": "muenzschatulle"
+          },
+          "text": "Fatmas Tasche untersuchen",
+          "fakten": [
+            "f_nd_fatma",
+            "f_z_fatma"
+          ]
+        },
+        {
+          "id": "e2_2_vitrine",
+          "ziel": {
+            "gegenstand": "vitrine"
+          },
+          "text": "Die Vitrine im Turmgang untersuchen",
+          "fakten": [
+            "f_vitrine_leer"
+          ]
+        }
+      ],
+      "richtig": {
+        "ahmet": "e2_2_tasche",
+        "fatma": "e2_2_tasche",
+        "olli": "e2_2_tasche",
+        "can": "e2_2_tasche"
+      },
+      "begruendung": {
+        "ahmet": {
+          "kette": [
+            "fakt:f_alibi_fatma",
+            "beobachtung:b_azra_tasche"
+          ],
+          "text": "Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher."
+        },
+        "fatma": {
+          "kette": [
+            "fakt:f_spaet_fatma",
+            "beobachtung:b_azra_tasche"
+          ],
+          "text": "Fatma kam erst nach dem Scheppern zu Emine, und ihre Tasche ist auffällig ausgebeult."
+        },
+        "olli": {
+          "kette": [
+            "fakt:f_alibi_fatma",
+            "beobachtung:b_azra_tasche"
+          ],
+          "text": "Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher."
+        },
+        "can": {
+          "kette": [
+            "fakt:f_alibi_fatma",
+            "beobachtung:b_azra_tasche"
+          ],
+          "text": "Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher."
+        }
+      }
+    },
+    {
+      "id": "e2_3",
+      "runde": 2,
+      "nr": 3,
+      "art": "person",
+      "frage": "Ollis Ärmel sind voller Splitter und Kalk. Wo setzt du an?",
+      "optionen": [
+        {
+          "id": "e2_3_olli",
+          "ziel": {
+            "person": "olli"
+          },
+          "text": "Olli und seine Weste untersuchen",
+          "fakten": [
+            "f_nd_olli",
+            "f_z_olli"
+          ]
+        },
+        {
+          "id": "e2_3_kamin",
+          "ziel": {
+            "gegenstand": "arbeitshandschuh_olli"
+          },
+          "text": "Die Kamin-Nische untersuchen",
+          "fakten": [
+            "f_handschuh_kamin"
+          ]
+        }
+      ],
+      "richtig": {
+        "ahmet": "e2_3_olli",
+        "fatma": "e2_3_olli",
+        "olli": "e2_3_olli",
+        "can": "e2_3_olli"
+      },
+      "begruendung": {
+        "ahmet": {
+          "kette": [
+            "fakt:f_alibi_olli",
+            "merkmal:olli",
+            "karte:bogentuer_schaden"
+          ],
+          "text": "Olli war beim Scheppern bei Azra. Splitter und Kalk an seinen Ärmeln passen zur beschädigten Bogentür; das muss er erklären."
+        },
+        "fatma": {
+          "kette": [
+            "fakt:f_alibi_olli",
+            "merkmal:olli",
+            "karte:bogentuer_schaden"
+          ],
+          "text": "Olli war beim Scheppern bei Azra. Splitter und Kalk an seinen Ärmeln passen zur beschädigten Bogentür; das muss er erklären."
+        },
+        "olli": {
+          "kette": [
+            "fakt:f_spaet_olli",
+            "merkmal:olli"
+          ],
+          "text": "Olli kam erst nach dem Scheppern zu Azra. An seinen Ärmeln hängen Splitter und Kalk."
+        },
+        "can": {
+          "kette": [
+            "fakt:f_alibi_olli",
+            "merkmal:olli",
+            "karte:bogentuer_schaden"
+          ],
+          "text": "Olli war beim Scheppern bei Azra. Splitter und Kalk an seinen Ärmeln passen zur beschädigten Bogentür; das muss er erklären."
+        }
+      }
+    },
+    {
+      "id": "e3_1",
+      "runde": 3,
+      "nr": 1,
+      "art": "ort",
+      "frage": "Wo suchst du nach Herrn Schneiders Schlüsselbund?",
+      "optionen": [
+        {
+          "id": "e3_1_ostsaal",
+          "ziel": {
+            "raum": "ost_saal"
+          },
+          "text": "Im Ost-Saal mit dem Jackenständer suchen",
+          "fakten": [
+            "f_fundort_ahmet"
+          ]
+        },
+        {
+          "id": "e3_1_buffetsaal",
+          "ziel": {
+            "raum": "thekensaal"
+          },
+          "text": "Im Buffetsaal an Theke und Buffettischen suchen",
+          "fakten": [
+            "f_fundort_fatma",
+            "f_fundort_olli"
+          ]
+        },
+        {
+          "id": "e3_1_turmgang",
+          "ziel": {
+            "raum": "turmgang"
+          },
+          "text": "Im Turmgang bei der Rüstung suchen",
+          "fakten": [
+            "f_fundort_can"
+          ]
+        }
+      ],
+      "richtig": {
+        "ahmet": "e3_1_ostsaal",
+        "fatma": "e3_1_buffetsaal",
+        "olli": "e3_1_buffetsaal",
+        "can": "e3_1_turmgang"
+      },
+      "begruendung": {
+        "ahmet": {
+          "kette": [
+            "fakt:f_spaet_ahmet",
+            "fakt:f_z_ahmet",
+            "karte:jacke_ahmet"
+          ],
+          "text": "Ahmet war beim Scheppern weg, und an seinem Umschlag klebt Wachs vom Tatort. Seine Jacke hängt im Ost-Saal."
+        },
+        "fatma": {
+          "kette": [
+            "fakt:f_spaet_fatma",
+            "fakt:f_z_fatma",
+            "beobachtung:b_emine_versteck",
+            "karte:brottasche"
+          ],
+          "text": "Fatma kam erst nach dem Scheppern zum linken Buffettisch, und auf ihrer Schatulle ist Wachs vom Tatort. Auf dem Weg dorthin konnte sie etwas ablegen."
+        },
+        "olli": {
+          "kette": [
+            "fakt:f_spaet_olli",
+            "fakt:f_z_olli",
+            "beobachtung:b_wojtek_olli_satz",
+            "karte:eiskuebel"
+          ],
+          "text": "Olli kam erst nach dem Scheppern zu Azra, und an seinem Handschuh ist Wachs vom Tatort. Vorher war er am Eiskübel."
+        },
+        "can": {
+          "kette": [
+            "fakt:f_z_can",
+            "beobachtung:b_selin_gesicht",
+            "beobachtung:b_wojtek_vorbei",
+            "karte:ruestungshelm"
+          ],
+          "text": "An Cans Maske klebt Wachs vom Tatort. Das leuchtende Gesicht huschte zur Bogentür, und jemand drängte sich in den Turm."
+        }
+      }
+    },
+    {
+      "id": "e3_2",
+      "runde": 3,
+      "nr": 2,
+      "art": "gegenstand",
+      "frage": "Was untersuchst du jetzt ganz genau?",
+      "optionen": [
+        {
+          "id": "e3_2_kerzenstaender",
+          "ziel": {
+            "gegenstand": "kerzenstaender"
+          },
+          "text": "Den Kerzenständer genau untersuchen",
+          "fakten": [
+            "f_staender_verbogen",
+            "f_k_ahmet",
+            "f_k_can",
+            "f_k_olli"
+          ]
+        },
+        {
+          "id": "e3_2_fatma",
+          "ziel": {
+            "person": "fatma"
+          },
+          "text": "Fatmas Hände und ihren Ring untersuchen",
+          "fakten": [
+            "f_k_fatma"
+          ]
+        }
+      ],
+      "richtig": {
+        "ahmet": "e3_2_kerzenstaender",
+        "fatma": "e3_2_fatma",
+        "olli": "e3_2_kerzenstaender",
+        "can": "e3_2_kerzenstaender"
+      },
+      "begruendung": {
+        "ahmet": {
+          "kette": [
+            "fakt:f_z_ahmet",
+            "karte:kerzenstaender"
+          ],
+          "text": "An Ahmets Umschlag ist Wachs vom Tatort, und eine Ecke fehlt. Vielleicht ist sie am Kerzenständer geblieben."
+        },
+        "fatma": {
+          "kette": [
+            "fakt:f_z_fatma",
+            "merkmal:fatma"
+          ],
+          "text": "Auf der Schatulle in Fatmas Tasche ist Wachs vom Tatort. Ihr breiter Silberring trifft beim Zupacken auf das Messing."
+        },
+        "olli": {
+          "kette": [
+            "fakt:f_z_olli",
+            "merkmal:olli",
+            "karte:kerzenstaender"
+          ],
+          "text": "An Ollis Handschuh ist Wachs vom Tatort, an seinen Ärmeln hängen Splitter und Kalk. Der Kerzenständer zeigt, ob davon etwas im Wachs klebt."
+        },
+        "can": {
+          "kette": [
+            "fakt:f_z_can",
+            "fakt:f_nd_can_maske",
+            "karte:kerzenstaender"
+          ],
+          "text": "An Cans Maske ist Wachs vom Tatort, und ihre Leuchtfarbe ist noch klebrig. Wer so den Kerzenständer packt, hinterlässt Farbe."
+        }
+      }
+    },
+    {
+      "id": "e3_3",
+      "runde": 3,
+      "nr": 3,
+      "art": "person",
+      "frage": "Mit wem sprichst du zuletzt?",
+      "optionen": [
+        {
+          "id": "e3_3_zeynep",
+          "ziel": {
+            "person": "zeynep"
+          },
+          "text": "Zeynep befragen",
+          "fakten": [
+            "f_nd_can_zeynep"
+          ]
+        },
+        {
+          "id": "e3_3_aylin",
+          "ziel": {
+            "person": "aylin"
+          },
+          "text": "Aylin nach ihrem Beleg fragen",
+          "fakten": [
+            "f_nd_ahmet_quittung"
+          ]
+        }
+      ],
+      "richtig": {
+        "ahmet": "e3_3_zeynep",
+        "fatma": "e3_3_zeynep",
+        "olli": "e3_3_zeynep",
+        "can": "e3_3_aylin"
+      },
+      "begruendung": {
+        "ahmet": {
+          "kette": [
+            "beobachtung:b_zeynep_gesicht",
+            "beobachtung:b_marek_gesicht"
+          ],
+          "text": "Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester."
+        },
+        "fatma": {
+          "kette": [
+            "beobachtung:b_zeynep_gesicht",
+            "beobachtung:b_marek_gesicht"
+          ],
+          "text": "Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester."
+        },
+        "olli": {
+          "kette": [
+            "beobachtung:b_zeynep_gesicht",
+            "beobachtung:b_marek_gesicht"
+          ],
+          "text": "Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester."
+        },
+        "can": {
+          "kette": [
+            "fakt:f_alibi_ahmet",
+            "beobachtung:b_aylin_quittung"
+          ],
+          "text": "Ahmet war beim Scheppern bei Damir, aber seine Miete ist ungeklärt. Aylin hat einen Beleg von Herrn Schneider."
+        }
+      }
+    }
+  ]
+}

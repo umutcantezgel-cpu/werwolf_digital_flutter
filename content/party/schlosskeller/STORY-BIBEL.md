@@ -246,9 +246,9 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Unschuldsfassung:**
   - Verhalten: Duckt sich beim Knall hinter der Theke am Ostende neben Damir und hält den Umschlag fest. Er bleibt dort, bis das Licht angeht. Später leert er den Umschlag und wirft ihn in den Ascheneimer am Kamin.
 - **Täterfassung:**
-  - Tat: Er kauert erst am Ostende der Theke neben Damir. Dann geht er zum Kerzenlicht an der Anrichte, um Herrn Schneider zu bitten. Herr Schneider, noch außer sich wegen Can, packt ihn am Arm und zischt: „Um zwölf erfahren's alle.“ In Panik greift Ahmet den Kerzenständer und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er steckt den Bund im Ost-Saal in seine eigene Jacke und kauert sich wieder neben Damir.
-  - Schlüsselbeweis: Schneiders Schlüsselbund steckt in Ahmets schwarzer Jacke am Jackenständer im Ost-Saal.
-  - Zusatzindiz: Rote Wachstropfen auf dem leeren Umschlag im Ascheneimer am Kamin.
+  - Tat: Er kauert erst am Ostende der Theke neben Damir. Dann geht er zum Kerzenlicht an der Anrichte, um Herrn Schneider zu bitten. Herr Schneider, noch außer sich wegen Can, packt ihn am Arm und zischt: „Um zwölf erfahren's alle.“ In Panik greift Ahmet mit der Hand, in der er den Umschlag hält, den Kerzenständer und schlägt einmal zu. Heißes Wachs tropft auf den Umschlag, eine Ecke reißt ab und bleibt am Griff kleben. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er steckt den Bund im Ost-Saal in seine eigene Jacke und kauert sich wieder neben Damir.
+  - Schlüsselbeweis: Im Wachs am Griff des Kerzenständers klebt eine abgerissene Ecke seines Mietumschlags.
+  - Zusatzindiz: Rote Wachstropfen auf dem leeren Umschlag im Ascheneimer am Kamin; eine Ecke fehlt.
 
 ### 2. Fatma (Die Designstudentin)
 
@@ -303,7 +303,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Optik:**
   - Silhouette: Breit gebaut, kräftige Schultern, leicht gebeugte Haltung
   - Kleidung: Grauer Kapuzenpulli, dunkelblaue Daunenweste, Khakihose mit Seitentaschen
-  - Merkmal: Holzsplitter und weißer Kalk an den Ärmeln des Pullis; ein Arbeitshandschuh hängt aus der Westentasche, der zweite liegt seit 19:30 am Kamin
+  - Merkmal: Holzsplitter und weißer Kalk an den Ärmeln des Pullis; der rechte Arbeitshandschuh hängt aus der Westentasche, der linke liegt seit 19:30 am Kamin
   - Ruhe-Animation: Reibt sich den Nacken, wechselt das Standbein und schaut auf seine Hände
 - **Look:**
   - Haut: #f1d3bc
@@ -322,9 +322,9 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Unschuldsfassung:**
   - Verhalten: Beim Knall tastet er sich vom Eiskübel zum rechten Buffettisch und kauert dort gleich danach neben Azra, bis das Licht angeht. Dann bringt er Wojtek das Eis und setzt sich in den Ost-Saal an die Tafel.
 - **Täterfassung:**
-  - Tat: Er bleibt erst am Eiskübel stehen. Dann geht er vor der Theke entlang und durch die Klappe zum Kerzenlicht, weil er mit Herrn Schneider reden will. Herr Schneider packt ihn am Ärmel und zischt: „Zweitausend. Sonst Polizei.“ In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er wirft ihn in den Eiskübel und kauert sich zu Azra.
+  - Tat: Er bleibt erst am Eiskübel stehen. Dann geht er vor der Theke entlang und durch die Klappe zum Kerzenlicht, weil er mit Herrn Schneider reden will. Herr Schneider packt ihn am Ärmel und zischt: „Zweitausend. Sonst Polizei.“ In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. Rote Tropfen fallen auf den Handschuh, der aus seiner Westentasche hängt. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er wirft ihn in den Eiskübel und kauert sich zu Azra.
   - Schlüsselbeweis: Holzsplitter und weißer Kalk von seinen Ärmeln kleben im Wachs am Fuß des Kerzenständers, das inzwischen erstarrt ist.
-  - Zusatzindiz: Der Schlüsselbund liegt im Eiskübel vor der Theke.
+  - Zusatzindiz: Rote Kerzenwachstropfen auf dem Arbeitshandschuh in seiner Westentasche.
 
 ### 4. Can (Der Spaßvogel)
 
@@ -831,10 +831,10 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | 18:00 | im Windfang (im_windfang) | alle | Die Gäste kommen über die fünf Sandsteinstufen und das Außentor in den Keller. Herr Schneider begrüßt alle knapp und zeigt den Weg. |
 | 18:30 | bei der Ritterrüstung (an_der_ruestung) | Marek (murat), Olli (olli), Wojtek (kaan) | Marek liefert das Essen über den Schlosshof und parkt auf Herrn Schneiders reserviertem Platz. Olli und Wojtek tragen die Warmhaltebehälter durch Hoftür, Turmgang und Bogentür. |
 | 18:35 | vor der Bogentür (vor_bogentuer) | Olli (olli), Wojtek (kaan) | Olli schrammt mit einem Warmhaltebehälter die geschnitzte Bogentür. Ein Beschlag reißt aus, Holzsplitter und weißer Kalk bleiben an seinen Pulli-Ärmeln. |
-| 18:45 | vor der Bogentür (vor_bogentuer) | Olli (olli), Wojtek (kaan) | Wojtek gibt Olli braunes Möbelwachs aus seiner Werkzeugtasche. Olli reibt es mit seinem Arbeitshandschuh in die Schramme. |
+| 18:45 | vor der Bogentür (vor_bogentuer) | Olli (olli), Wojtek (kaan) | Wojtek gibt Olli braunes Möbelwachs aus seiner Werkzeugtasche. Olli reibt es mit seinem rechten Arbeitshandschuh in die Schramme und steckt den Handschuh in die Westentasche. |
 | 18:50 | vor der Bogentür (vor_bogentuer) | Herr Schneider (schneider), Olli (olli) | Herr Schneider entdeckt den Schaden, verlangt 2.000 € Bargeld und schreibt es in seinen Quittungsblock. Er schließt Hoftür und Außentor ab: „Keiner geht, bevor das bezahlt ist.“ |
 | 19:00 | vor der Theke (vor_theke) | alle | Das Buffet ist eröffnet: warmes Essen, Brot, Dips, Gebäck. Dazu schwarzer Tee aus dem großen Teekocher, Kaffee, alkoholfreier Apfelpunsch, Wasser und Säfte. |
-| 19:30 | an der Kamin-Nische (am_kamin) | Olli (olli) | Olli wärmt sich am noch kalten Kamin die Hände und vergisst dort einen Arbeitshandschuh mit Möbelwachs an den Fingerkuppen. |
+| 19:30 | an der Kamin-Nische (am_kamin) | Olli (olli) | Olli wärmt sich am noch kalten Kamin die Hände und vergisst dort seinen linken Arbeitshandschuh. |
 | 20:15 | im Vorratsraum vor dem Regal mit der Torte (vorrat_mitte) | Olli (olli) | Lacher: Olli sucht die Toilette, nimmt die falsche Tür hinter der Theke und steht im dunklen Vorratsraum vor der Geburtstagstorte. „Ich wollte nur aufs Klo!“ |
 | 21:00 | bei der Ritterrüstung (an_der_ruestung) | Sibel (selin) | Lacher: Sibel hält die Ritterrüstung für einen Menschen, schreit auf und stolpert gegen die Schauvitrine. Die Scheibe bekommt einen feinen Sprung. |
 | 22:00 | an der Anrichte neben der Vorratsraumtür (an_anrichte) | Herr Schneider (schneider) | Herr Schneider zündet die drei roten Kerzen im Messingkerzenständer auf der Anrichte an. Es sind die einzigen echten Kerzen im Keller. |
@@ -884,8 +884,9 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
 | Schaft | immer: ja | Der Schaft ist leicht verbogen, die drei roten Kerzen liegen daneben am Boden. | null | alle: umgebung |
-| Griff | kerzenstaenderGegriffenVon: Can (can) | Um den Griff liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe, derselben Farbe wie auf der Maske. | Der Griff ist blank poliert, ohne Farbe. | Can (can): schluesselbeweis |
-| Fuß | kerzenstaenderGegriffenVon: Olli (olli) | Im roten Wachs am Fuß, das inzwischen erstarrt ist, kleben feine Holzsplitter und weißer Kalk. | Am Fuß klebt nur rotes Wachs. | Olli (olli): schluesselbeweis |
+| Griff | kerzenstaenderGegriffenVon: Ahmet (ahmet) | Im erstarrten Wachs am Griff klebt eine abgerissene Ecke braunes Umschlagpapier. Darauf steht „…keller“, in Ahmets Handschrift. | Der Griff ist mit rotem Wachs verschmiert. | Ahmet (ahmet): schluesselbeweis |
+| Griff | kerzenstaenderGegriffenVon: Can (can) | Um den Griff liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe, derselben Farbe wie auf der Maske. | Der Griff ist mit rotem Wachs verschmiert. | Can (can): schluesselbeweis |
+| Fuß | kerzenstaenderGegriffenVon: Olli (olli) | Im roten Wachs am Fuß, das inzwischen erstarrt ist, kleben feine Holzsplitter und weißer Kalk. | Am Fuß klebt rotes Wachs. | Olli (olli): schluesselbeweis |
 
 ### Fatmas breiter Silberring (`silberring_fatma`)
 
@@ -906,7 +907,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
 | Brusttasche | immer: ja | Eine Liste mit allen Namen der Gäste, hinter jedem „150 € ✓“. | null | alle: nebendelikt |
-| Innentasche | bundEndetBei: jackenstaender | In der Innentasche steckt Herrn Schneiders großer Schlüsselbund. | Die Innentasche ist leer bis auf ein Kaugummipapier. | Ahmet (ahmet): schluesselbeweis |
+| Innentasche | bundEndetBei: jackenstaender | In der Innentasche steckt Herrn Schneiders großer Schlüsselbund. | Die Innentasche ist leer bis auf ein Kaugummipapier. | Ahmet (ahmet): fundort |
 
 ### Umschlag mit dem Mietgeld (`umschlag_mietgeld`)
 
@@ -916,8 +917,8 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Vorderseite | immer: ja | „Miete Schlosskeller“ in Ahmets Handschrift. Der Umschlag ist leer. | null | alle: nebendelikt |
-| Rückseite | kerzenstaenderGegriffenVon: Ahmet (ahmet) | Drei erstarrte rote Wachstropfen. | Kein Wachs, nur ein Knick. | Ahmet (ahmet): zusatzindiz |
+| Vorderseite | immer: ja | „Miete Schlosskeller“ in Ahmets Handschrift. Der Umschlag ist leer. Darauf angesprochen gibt Ahmet zu: Er hat von allen 150 € Miete eingesammelt, obwohl der Keller nichts kostet. | null | alle: nebendelikt |
+| Rückseite | kerzenstaenderGegriffenVon: Ahmet (ahmet) | Drei erstarrte rote Wachstropfen. Eine Ecke des Umschlags ist abgerissen. | Kein Wachs, nur ein Knick. | Ahmet (ahmet): zusatzindiz |
 
 ### Münzschatulle aus der Turmvitrine (`muenzschatulle`)
 
@@ -927,7 +928,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Tasche | immer: ja | Die Schatulle aus der Vitrine liegt in Fatmas Tasche, zwischen Skizzenblock und Stiften. | null | alle: nebendelikt |
+| Tasche | immer: ja | Die Schatulle aus der Vitrine liegt in Fatmas Tasche, zwischen Skizzenblock und Stiften. Darauf angesprochen gibt Fatma zu: Sie hat die Schatulle um 23:40 aus der Vitrine genommen. | null | alle: nebendelikt |
 | Deckel | kerzenstaenderGegriffenVon: Fatma (fatma) | Auf dem Deckel kleben rote Wachstropfen. | Der Deckel ist sauber. | Fatma (fatma): zusatzindiz |
 
 ### Leuchtmaske (`leuchtmaske`)
@@ -938,7 +939,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Bauchtasche | immer: ja | Die Maske steckt zusammengefaltet in Cans Bauchtasche. Die Farbe ist noch leicht klebrig. | null | alle: nebendelikt |
+| Bauchtasche | immer: ja | Die Maske steckt zusammengefaltet in Cans Bauchtasche. Die Farbe ist noch leicht klebrig. Darauf angesprochen gibt Can zu: Er hat im dunklen Vorratsraum gewartet, um das Geburtstagskind zu erschrecken. | null | alle: nebendelikt |
 | Stirn der Maske | kerzenstaenderGegriffenVon: Can (can) | Rote Wachstropfen auf der Stirn der Maske. | Kein Wachs, nur Leuchtfarbe. | Can (can): zusatzindiz |
 
 ### Herrn Schneiders Schlüsselbund (`bund_schneider`)
@@ -961,7 +962,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| unter dem Eis | bundEndetBei: am_eiskuebel | Unter den Eiswürfeln liegt Herrn Schneiders Schlüsselbund. | Nur Eis und Schmelzwasser. | Olli (olli): zusatzindiz |
+| unter dem Eis | bundEndetBei: am_eiskuebel | Unter den Eiswürfeln liegt Herrn Schneiders Schlüsselbund. | Nur Eis und Schmelzwasser. | Olli (olli): fundort |
 
 ### Brottasche (`brottasche`)
 
@@ -991,7 +992,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Zettel | immer: ja | „Miete: 0 Euro. Schneider“ | null | alle: nebendelikt |
+| Zettel | immer: ja | „Miete: 0 Euro. Schneider“. Aylin sagt: Ahmet hat trotzdem von allen 150 € eingesammelt. | null | alle: nebendelikt |
 
 ### Herrn Schneiders Klemmbrett mit Quittungsblock (`klemmbrett_schneider`)
 
@@ -1014,15 +1015,26 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 |---|---|---|---|---|
 | Türrahmen | immer: ja | Ein Beschlag ist ausgerissen, frische Holzsplitter, weißer Kalk vom Türbogen, darüber ein Rest braunes Möbelwachs. | null | alle: nebendelikt |
 
-### Ollis Arbeitshandschuh (`arbeitshandschuh_olli`)
+### Ollis linker Arbeitshandschuh (`arbeitshandschuh_olli`)
 
 - **Lage:** an der Kamin-Nische (am_kamin); in der Kamin-Nische
 - **Sichtbar:** ja
-- **Beschreibung:** Ein einzelner Arbeitshandschuh, den Olli am Abend beim Wärmen am Kamin liegen ließ.
+- **Beschreibung:** Ollis linker Arbeitshandschuh. Er hat ihn um 19:30 beim Wärmen am Kamin liegen lassen.
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Fingerkuppen | immer: ja | Braune Wachsreste an den Fingerkuppen. Damit hat Olli um 18:45 das Möbelwachs in die Schramme gerieben. Es ist kein rotes Kerzenwachs. | null | alle: falsche_faehrte |
+| Innenfläche | immer: ja | Ein linker Arbeitshandschuh, rußig vom Kamin. Kein Wachs daran. | null | alle: umgebung |
+
+### Ollis rechter Arbeitshandschuh (`handschuh_weste_olli`)
+
+- **Lage:** bei Olli (olli); hängt aus der Westentasche
+- **Sichtbar:** nein
+- **Beschreibung:** Der rechte Arbeitshandschuh hängt aus der Tasche von Ollis Daunenweste.
+
+| Stelle | entsteht wenn | zeigt | harmlos | Rolle |
+|---|---|---|---|---|
+| Fingerkuppen | immer: ja | Braunes Möbelwachs und weißer Kalk an den Fingerkuppen. Darauf angesprochen gibt Olli zu: Er hat um 18:35 den Beschlag der Bogentür ausgerissen und die Schramme mit Wojteks Möbelwachs zugerieben. | null | alle: nebendelikt |
+| Handrücken | kerzenstaenderGegriffenVon: Olli (olli) | Auf dem Handrücken kleben frische rote Kerzenwachstropfen. | Kein rotes Wachs, nur Kalkstaub. | Olli (olli): zusatzindiz |
 
 ### Dose mit braunem Möbelwachs (`moebelwachs_dose`)
 
@@ -1174,7 +1186,9 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | b_lejla_ahmet_theke | Lejla (leyla) | alle | pflichtgespraech | Um 23:57 schlüpfte Ahmet mit einem dicken Umschlag hinter die Theke. | luege_ahmet_servietten | Ahmet (ahmet) | – |
 | b_damir_an_der_theke | Damir (enes) | alle | pflichtgespraech | Um 23:57 standen Ahmet, Fatma und Olli an der Theke, Herr Schneider am Ostende. Can war nicht zu sehen. | luege_fatma_buffet, luege_olli_tafel | Ahmet (ahmet), Fatma (fatma), Olli (olli) | – |
 | b_emine_schatulle | Emine (emine) | alle | verborgen | Um 23:40 sah sie im Turmgang, wie Fatma die Münzschatulle aus der Vitrine nahm. | luege_fatma_tasche | Fatma (fatma) | – |
+| b_emine_versteck | Emine (emine) | alle | pflichtgespraech | Beim Knall duckte sie sich hinter den linken Buffettisch und blieb dort, bis das Licht anging. | – | – | – |
 | b_azra_tasche | Azra (dilara) | alle | pflichtgespraech | Um 23:45 war Fatmas Tasche auffällig ausgebeult. | – | Fatma (fatma) | – |
+| b_azra_versteck | Azra (dilara) | alle | pflichtgespraech | Beim Knall duckte sie sich am rechten Buffettisch und blieb dort, bis das Licht anging. | – | – | – |
 | b_joanna_foto | Joanna (johanna) | alle | verborgen | Sie hat ein Foto von 23:51: Herr Schneider und Ahmet streiten an der Theke, Ahmet hält einen dicken Umschlag. | – | Ahmet (ahmet) | – |
 | b_marek_gesicht | Marek (murat) | alle | pflichtgespraech | Im Dunkeln rannte ein leuchtendes Gespenstergesicht an ihm vorbei durch den Durchgang Richtung Kaminsaal. | – | Can (can) | – |
 | b_selin_gesicht | Sibel (selin) | alle | pflichtgespraech | Im Dunkeln huschte ein leuchtendes Gesicht quer durch den Kaminsaal zur Bogentür. | – | Can (can) | – |
@@ -1188,6 +1202,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | b_serkan_tor | Serkan (serkan) | alle | pflichtgespraech | Von kurz vor zwölf bis nach zwölf stand er am Außentor. Es war abgeschlossen; niemand ist hinaus. | – | – | – |
 | b_wojtek_olli_satz | Wojtek (kaan) | alle | pflichtgespraech | Um 23:52 sagte Olli: „Ich hol dir Eis. Und dann red ich mit Schneider.“ | – | Olli (olli) | – |
 | b_wojtek_vorbei | Wojtek (kaan) | alle | pflichtgespraech | Im Dunkeln drängte sich jemand an ihm vorbei durch die Bogentür in den Turm. | – | – | – |
+| b_wojtek_tuer | Wojtek (kaan) | alle | verborgen | Er weiß: Olli hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt zweitausend Euro dafür. Das Möbelwachs zum Verdecken kam von ihm. | – | Olli (olli) | – |
 | b_pawel_schneider | Pawel (hakan) | alle | pflichtgespraech | Herr Schneider muss jeden Schaden der Stiftung melden und zahlt kleine Schäden oft aus eigener Tasche. Darum ist er beim Geld so streng. | – | – | – |
 | b_aylin_quittung | Aylin (aylin) | alle | pflichtgespraech | Sie hat Herrn Schneiders Quittungszettel: „Miete: 0 Euro.“ | luege_ahmet_miete | Ahmet (ahmet) | – |
 | b_tugba_notiz | Tugba (tugba) | alle | pflichtgespraech | Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute nach eigener Auskunft gerade sind. | luege_olli_tafel | – | – |
@@ -1387,3 +1402,182 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | 00:04:30 | geburtstagsplatz (sitzt) | vorrat_innen (sitzt) | hinter_theke_ost | hinter_linkem_buffet | ost_tafel_kopf (sitzt) | west_bank_west | ost_tafel_west | hinter_linkem_buffet | am_sicherungskasten | am_handykorb | bei_den_kisten | west_bogen | ost_bank (sitzt) | am_kamin | unter_notausgang | ost_tafel_west (sitzt) | vor_bogentuer | am_rechten_buffet | vorrat_innen | west_bank_sued (sitzt) | ost_tafel_ost (sitzt) | geburtstagsplatz |
 | 00:04:45 | geburtstagsplatz (sitzt) | vorrat_innen (sitzt) | hinter_theke_ost | hinter_linkem_buffet | ost_tafel_kopf (sitzt) | west_bank_west | ost_tafel_west | hinter_linkem_buffet | am_sicherungskasten | am_handykorb | bei_den_kisten | west_bogen | ost_bank (sitzt) | am_kamin | unter_notausgang | ost_tafel_west (sitzt) | vor_bogentuer | am_rechten_buffet | vorrat_innen | west_bank_sued (sitzt) | ost_tafel_ost (sitzt) | geburtstagsplatz |
 | 00:05 | geburtstagsplatz (sitzt) | vorrat_innen (sitzt) | hinter_theke_ost | hinter_linkem_buffet | ost_tafel_kopf (sitzt) | west_bank_west | ost_tafel_west | hinter_linkem_buffet | am_sicherungskasten | am_handykorb | bei_den_kisten | west_bogen | ost_bank (sitzt) | am_kamin | unter_notausgang | ost_tafel_west (sitzt) | vor_bogentuer | am_rechten_buffet | vorrat_innen | west_bank_sued (sitzt) | ost_tafel_ost (sitzt) | geburtstagsplatz |
+
+## 9. Entscheidungen des Detektivs
+
+- **R-ENTLASTET:** Wer beim Scheppern nachweislich woanders war und wessen Heimlichtuerei belegt ist, scheidet aus.
+- **R-UEBERFUEHRT:** Ein Schlüsselbeweis überführt eine Person. Alle anderen scheiden aus.
+
+| Fakt | Art | Personen | Quelle |
+|---|---|---|---|
+| f_alibi_ahmet | alibi | Ahmet (ahmet) | beobachtung: b_damir_ahmet_blieb |
+| f_spaet_ahmet | spaetankunft | Ahmet (ahmet) | beobachtung: b_damir_ahmet_weg |
+| f_alibi_fatma | alibi | Fatma (fatma) | beobachtung: b_emine_fatma_frueh |
+| f_spaet_fatma | spaetankunft | Fatma (fatma) | beobachtung: b_emine_fatma_spaet |
+| f_alibi_olli | alibi | Olli (olli) | beobachtung: b_azra_olli_frueh |
+| f_spaet_olli | spaetankunft | Olli (olli) | beobachtung: b_azra_olli_spaet |
+| f_foto_streit | motiv | Ahmet (ahmet) | spur: spur_foto_streit |
+| f_notiz_fehlende | luege | Fatma (fatma), Olli (olli) | spur: spur_notiz_fehlende |
+| f_kurzschluss | ausgangslage | – | beobachtung: b_tim_kurzschluss |
+| f_nd_ahmet_umschlag | nebendelikt | Ahmet (ahmet) | spur: spur_umschlag_aufschrift |
+| f_z_ahmet | zusatzindiz | Ahmet (ahmet) | spur: spur_umschlag_wachs |
+| f_nd_can_maske | nebendelikt | Can (can) | spur: spur_maske_da |
+| f_z_can | zusatzindiz | Can (can) | spur: spur_maske_wachs |
+| f_nd_fatma | nebendelikt | Fatma (fatma) | spur: spur_schatulle_da |
+| f_z_fatma | zusatzindiz | Fatma (fatma) | spur: spur_schatulle_wachs |
+| f_vitrine_leer | umgebung | – | spur: spur_vitrine_leer |
+| f_nd_olli | nebendelikt | Olli (olli) | spur: spur_weste_moebelwachs |
+| f_z_olli | zusatzindiz | Olli (olli) | spur: spur_weste_kerzenwachs |
+| f_handschuh_kamin | umgebung | – | spur: spur_handschuh_russ |
+| f_fundort_ahmet | fundort | Ahmet (ahmet) | spur: spur_jacke_bund |
+| f_fundort_fatma | fundort | Fatma (fatma) | spur: spur_brottasche_bund |
+| f_fundort_olli | fundort | Olli (olli) | spur: spur_eiskuebel_bund |
+| f_fundort_can | fundort | Can (can) | spur: spur_helm_bund |
+| f_staender_verbogen | umgebung | – | spur: spur_staender_verbogen |
+| f_k_ahmet | schluesselbeweis | Ahmet (ahmet) | spur: spur_griff_papier |
+| f_k_can | schluesselbeweis | Can (can) | spur: spur_griff_leuchtfarbe |
+| f_k_olli | schluesselbeweis | Olli (olli) | spur: spur_fuss_splitter |
+| f_k_fatma | schluesselbeweis | Fatma (fatma) | spur: spur_ring_messing |
+| f_nd_can_zeynep | nebendelikt | Can (can) | beobachtung: b_zeynep_vorrat |
+| f_nd_ahmet_quittung | nebendelikt | Ahmet (ahmet) | spur: spur_quittung |
+
+### Runde 1.1: Wer weiß, wer im Dunkeln am Ostende der Theke war? (`e1_1`)
+
+| Option | Text | Fakten | richtig in |
+|---|---|---|---|
+| e1_1_damir | Damir befragen | f_alibi_ahmet, f_spaet_ahmet | Ahmet, Fatma, Olli, Can |
+| e1_1_joanna | Joanna befragen | f_foto_streit |  |
+
+- **Begründung alle Pfade:** Damir stand um 23:57 an der Theke, wo es gescheppert hat. Wer dort im Dunkeln kauerte, weiß, wer beim Scheppern wo war. (beobachtung:b_damir_an_der_theke, beobachtung:b_detektiv_gehoert)
+
+### Runde 1.2: Wer war im Dunkeln am linken Buffettisch? (`e1_2`)
+
+| Option | Text | Fakten | richtig in |
+|---|---|---|---|
+| e1_2_emine | Emine befragen | f_alibi_fatma, f_spaet_fatma | Ahmet, Fatma, Olli, Can |
+| e1_2_tugba | Tugba nach ihrem Notizbuch fragen | f_notiz_fehlende |  |
+
+- **Begründung alle Pfade:** Emine duckte sich beim Knall hinter den linken Buffettisch, wenige Schritte von der Theke. Sie weiß, wer neben ihr kauerte. (beobachtung:b_emine_versteck, beobachtung:b_detektiv_gehoert)
+
+### Runde 1.3: Wer war im Dunkeln am rechten Buffettisch? (`e1_3`)
+
+| Option | Text | Fakten | richtig in |
+|---|---|---|---|
+| e1_3_azra | Azra befragen | f_alibi_olli, f_spaet_olli | Ahmet, Fatma, Olli, Can |
+| e1_3_tim | Tim zum Stromausfall befragen | f_kurzschluss |  |
+
+- **Begründung alle Pfade:** Azra duckte sich beim Knall am rechten Buffettisch, nahe der Theke. Sie weiß, wer neben ihr kauerte. (beobachtung:b_azra_versteck, beobachtung:b_detektiv_gehoert)
+
+### Runde 2.1: Wessen Heimlichtuerei klärst du jetzt? (`e2_1`)
+
+| Option | Text | Fakten | richtig in |
+|---|---|---|---|
+| e2_1_ascheneimer | Den Ascheneimer am Kamin durchsuchen | f_nd_ahmet_umschlag, f_z_ahmet | Ahmet, Fatma, Olli |
+| e2_1_bauchtasche | Cans Bauchtasche untersuchen | f_nd_can_maske, f_z_can | Can |
+
+- **Begründung Ahmet:** Ahmet war beim Scheppern nicht bei Damir. Hana sah ihn kurz nach zwölf etwas in den Ascheneimer werfen. (fakt:f_spaet_ahmet, beobachtung:b_hana_umschlag)
+- **Begründung Fatma:** Ahmet war beim Scheppern bei Damir, hat aber wegen seines Umschlags gelogen. Was er in den Ascheneimer warf, erklärt das. (fakt:f_alibi_ahmet, beobachtung:b_lejla_ahmet_theke, beobachtung:b_hana_umschlag)
+- **Begründung Olli:** Ahmet war beim Scheppern bei Damir, hat aber wegen seines Umschlags gelogen. Was er in den Ascheneimer warf, erklärt das. (fakt:f_alibi_ahmet, beobachtung:b_lejla_ahmet_theke, beobachtung:b_hana_umschlag)
+- **Begründung Can:** Ahmet, Fatma und Olli waren beim Scheppern woanders. Nur Can ist ungeklärt, und vier Gäste sahen ein leuchtendes Gesicht. Seine Bauchtasche ist ausgebeult. (fakt:f_alibi_ahmet, fakt:f_alibi_fatma, fakt:f_alibi_olli, beobachtung:b_marek_gesicht, merkmal:can)
+
+### Runde 2.2: Fatmas Tasche ist ausgebeult. Wo setzt du an? (`e2_2`)
+
+| Option | Text | Fakten | richtig in |
+|---|---|---|---|
+| e2_2_tasche | Fatmas Tasche untersuchen | f_nd_fatma, f_z_fatma | Ahmet, Fatma, Olli, Can |
+| e2_2_vitrine | Die Vitrine im Turmgang untersuchen | f_vitrine_leer |  |
+
+- **Begründung Ahmet:** Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher. (fakt:f_alibi_fatma, beobachtung:b_azra_tasche)
+- **Begründung Fatma:** Fatma kam erst nach dem Scheppern zu Emine, und ihre Tasche ist auffällig ausgebeult. (fakt:f_spaet_fatma, beobachtung:b_azra_tasche)
+- **Begründung Olli:** Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher. (fakt:f_alibi_fatma, beobachtung:b_azra_tasche)
+- **Begründung Can:** Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher. (fakt:f_alibi_fatma, beobachtung:b_azra_tasche)
+
+### Runde 2.3: Ollis Ärmel sind voller Splitter und Kalk. Wo setzt du an? (`e2_3`)
+
+| Option | Text | Fakten | richtig in |
+|---|---|---|---|
+| e2_3_olli | Olli und seine Weste untersuchen | f_nd_olli, f_z_olli | Ahmet, Fatma, Olli, Can |
+| e2_3_kamin | Die Kamin-Nische untersuchen | f_handschuh_kamin |  |
+
+- **Begründung Ahmet:** Olli war beim Scheppern bei Azra. Splitter und Kalk an seinen Ärmeln passen zur beschädigten Bogentür; das muss er erklären. (fakt:f_alibi_olli, merkmal:olli, karte:bogentuer_schaden)
+- **Begründung Fatma:** Olli war beim Scheppern bei Azra. Splitter und Kalk an seinen Ärmeln passen zur beschädigten Bogentür; das muss er erklären. (fakt:f_alibi_olli, merkmal:olli, karte:bogentuer_schaden)
+- **Begründung Olli:** Olli kam erst nach dem Scheppern zu Azra. An seinen Ärmeln hängen Splitter und Kalk. (fakt:f_spaet_olli, merkmal:olli)
+- **Begründung Can:** Olli war beim Scheppern bei Azra. Splitter und Kalk an seinen Ärmeln passen zur beschädigten Bogentür; das muss er erklären. (fakt:f_alibi_olli, merkmal:olli, karte:bogentuer_schaden)
+
+### Runde 3.1: Wo suchst du nach Herrn Schneiders Schlüsselbund? (`e3_1`)
+
+| Option | Text | Fakten | richtig in |
+|---|---|---|---|
+| e3_1_ostsaal | Im Ost-Saal mit dem Jackenständer suchen | f_fundort_ahmet | Ahmet |
+| e3_1_buffetsaal | Im Buffetsaal an Theke und Buffettischen suchen | f_fundort_fatma, f_fundort_olli | Fatma, Olli |
+| e3_1_turmgang | Im Turmgang bei der Rüstung suchen | f_fundort_can | Can |
+
+- **Begründung Ahmet:** Ahmet war beim Scheppern weg, und an seinem Umschlag klebt Wachs vom Tatort. Seine Jacke hängt im Ost-Saal. (fakt:f_spaet_ahmet, fakt:f_z_ahmet, karte:jacke_ahmet)
+- **Begründung Fatma:** Fatma kam erst nach dem Scheppern zum linken Buffettisch, und auf ihrer Schatulle ist Wachs vom Tatort. Auf dem Weg dorthin konnte sie etwas ablegen. (fakt:f_spaet_fatma, fakt:f_z_fatma, beobachtung:b_emine_versteck, karte:brottasche)
+- **Begründung Olli:** Olli kam erst nach dem Scheppern zu Azra, und an seinem Handschuh ist Wachs vom Tatort. Vorher war er am Eiskübel. (fakt:f_spaet_olli, fakt:f_z_olli, beobachtung:b_wojtek_olli_satz, karte:eiskuebel)
+- **Begründung Can:** An Cans Maske klebt Wachs vom Tatort. Das leuchtende Gesicht huschte zur Bogentür, und jemand drängte sich in den Turm. (fakt:f_z_can, beobachtung:b_selin_gesicht, beobachtung:b_wojtek_vorbei, karte:ruestungshelm)
+
+### Runde 3.2: Was untersuchst du jetzt ganz genau? (`e3_2`)
+
+| Option | Text | Fakten | richtig in |
+|---|---|---|---|
+| e3_2_kerzenstaender | Den Kerzenständer genau untersuchen | f_staender_verbogen, f_k_ahmet, f_k_can, f_k_olli | Ahmet, Olli, Can |
+| e3_2_fatma | Fatmas Hände und ihren Ring untersuchen | f_k_fatma | Fatma |
+
+- **Begründung Ahmet:** An Ahmets Umschlag ist Wachs vom Tatort, und eine Ecke fehlt. Vielleicht ist sie am Kerzenständer geblieben. (fakt:f_z_ahmet, karte:kerzenstaender)
+- **Begründung Fatma:** Auf der Schatulle in Fatmas Tasche ist Wachs vom Tatort. Ihr breiter Silberring trifft beim Zupacken auf das Messing. (fakt:f_z_fatma, merkmal:fatma)
+- **Begründung Olli:** An Ollis Handschuh ist Wachs vom Tatort, an seinen Ärmeln hängen Splitter und Kalk. Der Kerzenständer zeigt, ob davon etwas im Wachs klebt. (fakt:f_z_olli, merkmal:olli, karte:kerzenstaender)
+- **Begründung Can:** An Cans Maske ist Wachs vom Tatort, und ihre Leuchtfarbe ist noch klebrig. Wer so den Kerzenständer packt, hinterlässt Farbe. (fakt:f_z_can, fakt:f_nd_can_maske, karte:kerzenstaender)
+
+### Runde 3.3: Mit wem sprichst du zuletzt? (`e3_3`)
+
+| Option | Text | Fakten | richtig in |
+|---|---|---|---|
+| e3_3_zeynep | Zeynep befragen | f_nd_can_zeynep | Ahmet, Fatma, Olli |
+| e3_3_aylin | Aylin nach ihrem Beleg fragen | f_nd_ahmet_quittung | Can |
+
+- **Begründung Ahmet:** Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester. (beobachtung:b_zeynep_gesicht, beobachtung:b_marek_gesicht)
+- **Begründung Fatma:** Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester. (beobachtung:b_zeynep_gesicht, beobachtung:b_marek_gesicht)
+- **Begründung Olli:** Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester. (beobachtung:b_zeynep_gesicht, beobachtung:b_marek_gesicht)
+- **Begründung Can:** Ahmet war beim Scheppern bei Damir, aber seine Miete ist ungeklärt. Aylin hat einen Beleg von Herrn Schneider. (fakt:f_alibi_ahmet, beobachtung:b_aylin_quittung)
+
+## 10. Bonus-Hinweise
+
+| Kennung | Pfad | Runde | Qualität | Text | Wirkung | widerlegt durch |
+|---|---|---|---|---|---|---|
+| h_ahmet_1_wahr | Ahmet | 1 | wahr | Beim Scheppern war Ahmet nicht bei Damir am Ostende der Theke. | belastet Ahmet (ahmet) |  |
+| h_ahmet_1_neutral | Ahmet | 1 | neutral | Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe. | neutral |  |
+| h_ahmet_1_falsch | Ahmet | 1 | falsch | Beim Scheppern war Olli nicht bei Azra am rechten Buffettisch. | belastet Olli (olli) | e1_3_azra |
+| h_ahmet_2_wahr | Ahmet | 2 | wahr | Ahmet hat um 23:51 an der Theke mit Herrn Schneider über die Miete gestritten. | belastet Ahmet (ahmet) |  |
+| h_ahmet_2_neutral | Ahmet | 2 | neutral | Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt. | neutral |  |
+| h_ahmet_2_falsch | Ahmet | 2 | falsch | Olli hat um 23:40 die Münzschatulle aus der Vitrine genommen. | belastet Olli (olli) | e2_2_tasche |
+| h_ahmet_3_wahr | Ahmet | 3 | wahr | Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang. | entlastet Can (can) |  |
+| h_ahmet_3_neutral | Ahmet | 3 | neutral | Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen. | neutral |  |
+| h_ahmet_3_falsch | Ahmet | 3 | falsch | Can hat den Schlüsselbund im Helm der Ritterrüstung versteckt. | belastet Can (can) | e3_1_ostsaal |
+| h_fatma_1_wahr | Fatma | 1 | wahr | Beim Scheppern war Fatma nicht bei Emine am linken Buffettisch. | belastet Fatma (fatma) |  |
+| h_fatma_1_neutral | Fatma | 1 | neutral | Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe. | neutral |  |
+| h_fatma_1_falsch | Fatma | 1 | falsch | Beim Scheppern war Ahmet nicht bei Damir am Ostende der Theke. | belastet Ahmet (ahmet) | e1_1_damir |
+| h_fatma_2_wahr | Fatma | 2 | wahr | Fatma hat um 23:40 die Münzschatulle aus der Vitrine genommen. | belastet Fatma (fatma) |  |
+| h_fatma_2_neutral | Fatma | 2 | neutral | Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt. | neutral |  |
+| h_fatma_2_falsch | Fatma | 2 | falsch | Ahmet hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt Geld dafür. | belastet Ahmet (ahmet) | e2_3_olli |
+| h_fatma_3_wahr | Fatma | 3 | wahr | Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang. | entlastet Can (can) |  |
+| h_fatma_3_neutral | Fatma | 3 | neutral | Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen. | neutral |  |
+| h_fatma_3_falsch | Fatma | 3 | falsch | Can hat den Schlüsselbund im Helm der Ritterrüstung versteckt. | belastet Can (can) | e3_1_buffetsaal |
+| h_olli_1_wahr | Olli | 1 | wahr | Beim Scheppern war Olli nicht bei Azra am rechten Buffettisch. | belastet Olli (olli) |  |
+| h_olli_1_neutral | Olli | 1 | neutral | Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe. | neutral |  |
+| h_olli_1_falsch | Olli | 1 | falsch | Beim Scheppern war Fatma nicht bei Emine am linken Buffettisch. | belastet Fatma (fatma) | e1_2_emine |
+| h_olli_2_wahr | Olli | 2 | wahr | Olli hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt zweitausend Euro dafür. | belastet Olli (olli) |  |
+| h_olli_2_neutral | Olli | 2 | neutral | Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt. | neutral |  |
+| h_olli_2_falsch | Olli | 2 | falsch | Fatma hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt Geld dafür. | belastet Fatma (fatma) | e2_3_olli |
+| h_olli_3_wahr | Olli | 3 | wahr | Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang. | entlastet Can (can) |  |
+| h_olli_3_neutral | Olli | 3 | neutral | Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen. | neutral |  |
+| h_olli_3_falsch | Olli | 3 | falsch | Can hat den Schlüsselbund im Helm der Ritterrüstung versteckt. | belastet Can (can) | e3_1_buffetsaal |
+| h_can_1_wahr | Can | 1 | wahr | Beim Scheppern war das leuchtende Gesicht noch nicht an Marek vorbei. Es kam erst danach durch den Durchgang. | belastet Can (can) |  |
+| h_can_1_neutral | Can | 1 | neutral | Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe. | neutral |  |
+| h_can_1_falsch | Can | 1 | falsch | Beim Scheppern war Fatma nicht bei Emine am linken Buffettisch. | belastet Fatma (fatma) | e1_2_emine |
+| h_can_2_wahr | Can | 2 | wahr | Can hat mit einer Leuchtmaske im dunklen Vorratsraum gewartet. | belastet Can (can) |  |
+| h_can_2_neutral | Can | 2 | neutral | Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt. | neutral |  |
+| h_can_2_falsch | Can | 2 | falsch | Olli hat um 23:40 die Münzschatulle aus der Vitrine genommen. | belastet Olli (olli) | e2_2_tasche |
+| h_can_3_wahr | Can | 3 | wahr | Beim Scheppern kauerte Ahmet neben Damir am Ostende der Theke. | entlastet Ahmet (ahmet) |  |
+| h_can_3_neutral | Can | 3 | neutral | Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen. | neutral |  |
+| h_can_3_falsch | Can | 3 | falsch | Ahmet hat den Schlüsselbund in seiner Jacke im Ost-Saal versteckt. | belastet Ahmet (ahmet) | e3_1_turmgang |

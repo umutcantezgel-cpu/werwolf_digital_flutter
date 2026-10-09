@@ -115,6 +115,22 @@
       "grundVerborgen": "Sie hat Fatma versprochen zu schweigen."
     },
     {
+      "id": "b_emine_versteck",
+      "wer": "emine",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Beim Knall duckte sie sich hinter den linken Buffettisch und blieb dort, bis das Licht anging.",
+      "beleg": {
+        "aufenthalt": {
+          "person": "emine",
+          "ort": "hinter_linkem_buffet",
+          "von": "23:58:00",
+          "bis": "00:00:00"
+        }
+      }
+    },
+    {
       "id": "b_azra_tasche",
       "wer": "dilara",
       "pfade": "alle",
@@ -129,6 +145,22 @@
       "belastet": [
         "fatma"
       ]
+    },
+    {
+      "id": "b_azra_versteck",
+      "wer": "dilara",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Beim Knall duckte sie sich am rechten Buffettisch und blieb dort, bis das Licht anging.",
+      "beleg": {
+        "aufenthalt": {
+          "person": "dilara",
+          "ort": "am_rechten_buffet",
+          "von": "23:58:00",
+          "bis": "00:00:00"
+        }
+      }
     },
     {
       "id": "b_joanna_foto",
@@ -418,6 +450,25 @@
           }
         ]
       }
+    },
+    {
+      "id": "b_wojtek_tuer",
+      "wer": "kaan",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "verborgen",
+      "text": "Er weiß: Olli hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt zweitausend Euro dafür. Das Möbelwachs zum Verdecken kam von ihm.",
+      "beleg": {
+        "zeitleiste": [
+          "z_tuerschaden",
+          "z_moebelwachs",
+          "z_streit_olli"
+        ]
+      },
+      "belastet": [
+        "olli"
+      ],
+      "grundVerborgen": "Die Idee mit dem Möbelwachs war seine; das soll niemand wissen."
     },
     {
       "id": "b_pawel_schneider",

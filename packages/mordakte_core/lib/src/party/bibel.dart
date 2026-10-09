@@ -80,6 +80,8 @@ class _Bibel {
     _gegenstaendeKapitel();
     _beobachtungenKapitel();
     _matrixKapitel();
+    _entscheidungenKapitel();
+    _bonusKapitel();
     return '${_b.toString().trimRight()}\n';
   }
 
@@ -518,5 +520,69 @@ class _Bibel {
       _b.write(pruefer.matrixMarkdown(p));
       _z();
     }
+  }
+
+  void _entscheidungenKapitel() {
+    _ueberschrift('## 9. Entscheidungen des Detektivs');
+    final j = kanon.entscheidungenJson;
+    for (final r in _l(j['regeln'])) {
+      final m = _m(r);
+      _punkt('**${m['id']}:** ${m['text']}');
+    }
+    _z();
+    _tabelle(
+      ['Fakt', 'Art', 'Personen', 'Quelle'],
+      [
+        for (final f in _l(j['fakten']))
+          [
+            '${_m(f)['id']}',
+            '${_m(f)['typ']}',
+            _kennListe(_m(f)['personen']),
+            _m(_m(f)['quelle']).entries.map((e) => '${e.key}: ${e.value}').join(),
+          ],
+      ],
+    );
+    for (final e in _l(j['entscheidungen'])) {
+      final m = _m(e);
+      _z('### Runde ${m['runde']}.${m['nr']}: ${m['frage']} (`${m['id']}`)');
+      _z();
+      final richtig = _m(m['richtig']);
+      _tabelle(
+        ['Option', 'Text', 'Fakten', 'richtig in'],
+        [
+          for (final o in _l(m['optionen']))
+            [
+              '${_m(o)['id']}',
+              '${_m(o)['text']}',
+              _l(_m(o)['fakten']).join(', '),
+              [for (final p in kanon.pfade) if (richtig[p] == _m(o)['id']) _name(p)].join(', '),
+            ],
+        ],
+      );
+      for (final b in _m(m['begruendung']).entries) {
+        final k = _m(b.value);
+        _punkt('**Begründung ${b.key == 'alle' ? 'alle Pfade' : _name(b.key)}:** ${k['text']} (${_l(k['kette']).join(', ')})');
+      }
+      _z();
+    }
+  }
+
+  void _bonusKapitel() {
+    _ueberschrift('## 10. Bonus-Hinweise');
+    _tabelle(
+      ['Kennung', 'Pfad', 'Runde', 'Qualität', 'Text', 'Wirkung', 'widerlegt durch'],
+      [
+        for (final h in _l(kanon.bonusJson['hinweise']))
+          [
+            '${_m(h)['id']}',
+            _name(_m(h)['pfad'] as String),
+            '${_m(h)['runde']}',
+            '${_m(h)['qualitaet']}',
+            '${_m(h)['text']}',
+            _m(_m(h)['wirkung']).values.map((v) => _kenn(v)).join(' '),
+            _l(_m(h)['widerlegtDurch']).join(', '),
+          ],
+      ],
+    );
   }
 }

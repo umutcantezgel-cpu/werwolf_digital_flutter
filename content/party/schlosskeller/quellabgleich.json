@@ -6970,11 +6970,13 @@
       "zeile": 1004,
       "element": "Pfad Ahmet: Schlüsselbeweis Jacke",
       "ziel": [
-        "gegenstaende.json#jacke_ahmet"
+        "gegenstaende.json#jacke_ahmet",
+        "gegenstaende.json#kerzenstaender"
       ],
-      "status": "übernommen",
+      "status": "angepasst",
       "grund": [
-        "A-03"
+        "A-03",
+        "E-024"
       ]
     },
     {
@@ -7063,14 +7065,15 @@
       "zeile": 1017,
       "element": "Pfad Olli: Zusatzindiz Handschuh",
       "ziel": [
-        "gegenstaende.json#arbeitshandschuh_olli",
+        "gegenstaende.json#handschuh_weste_olli",
         "gegenstaende.json#eiskuebel"
       ],
       "status": "angepasst",
       "grund": [
         "V-02",
         "B-16",
-        "E-019"
+        "E-019",
+        "E-024"
       ]
     },
     {

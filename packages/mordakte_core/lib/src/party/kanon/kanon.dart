@@ -19,6 +19,9 @@ class Kanon {
     'zeitleiste.json',
     'beobachtungen.json',
     'besetzung.json',
+    'entscheidungen.json',
+    'bonus.json',
+    'gruppenwahl.json',
     'tatmatrix/basis.json',
   ];
 
@@ -48,6 +51,10 @@ class Kanon {
   Map<String, Object?> get gegenstaendeJson => json['gegenstaende.json']!;
   Map<String, Object?> get beobachtungenJson => json['beobachtungen.json']!;
   Map<String, Object?> get zeitleisteJson => json['zeitleiste.json']!;
+  Map<String, Object?> get entscheidungenJson => json['entscheidungen.json']!;
+  Map<String, Object?> get bonusJson => json['bonus.json']!;
+  Map<String, Object?> get gruppenwahlJson => json['gruppenwahl.json']!;
+  Map<String, Object?> get besetzungJson => json['besetzung.json']!;
 
   /// Kernverdächtige (mögliche Täter).
   List<String> get kernverdaechtige => [for (final p in (fall['kernverdaechtige'] as List)) p as String];

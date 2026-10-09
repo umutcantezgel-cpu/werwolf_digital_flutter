@@ -1,5 +1,6 @@
 import 'kanon/kanon.dart';
 import 'plausibilitaet.dart';
+import 'spuren.dart';
 
 /// Eine Spur und die Pfade, in denen sie laut Tatmatrix entsteht.
 class SpurEntstehung {
@@ -18,26 +19,15 @@ class Beweise {
   final Plausibilitaet pruefer;
   Beweise(this.kanon, this.pruefer);
 
+  late final SpurRechner _spuren = SpurRechner(kanon);
+
   /// Wer greift in Pfad [pfad] den Kerzenständer (laut Spur der Tatmatrix)?
-  Set<String> greifer(String pfad) {
-    final spur = pruefer.auswertung[pfad]!.ablauf.matrix.gegenstaende['kerzenstaender'];
-    return {for (final s in spur?.spur ?? const []) if (s.traeger != null) s.traeger!};
-  }
+  Set<String> greifer(String pfad) => _spuren.greifer(pfad);
 
   /// Wo liegt der Bund am Ende des Fensters (Einrichtung oder Ort)?
-  String? bundEnde(String pfad) {
-    final s = pruefer.auswertung[pfad]!.ablauf.matrix.gegenstaende['bund_schneider']?.stand(kanon.regeln.fensterBis);
-    return s?.einrichtung ?? s?.ort ?? s?.traeger;
-  }
+  String? bundEnde(String pfad) => _spuren.bundEnde(pfad);
 
-  bool entsteht(Map bedingung, String pfad) {
-    if (bedingung['immer'] == true) return true;
-    final g = bedingung['kerzenstaenderGegriffenVon'];
-    if (g != null) return greifer(pfad).contains(g);
-    final b = bedingung['bundEndetBei'];
-    if (b != null) return bundEnde(pfad) == b;
-    return false;
-  }
+  bool entsteht(Map bedingung, String pfad) => _spuren.entsteht(bedingung, pfad);
 
   List<SpurEntstehung> entstehungen() => [
         for (final g in kanon.gegenstaende)

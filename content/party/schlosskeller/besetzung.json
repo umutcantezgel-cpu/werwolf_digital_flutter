@@ -153,6 +153,75 @@
     "Die vier Kernverdächtigen sind immer besetzt (Plätze 1–4).",
     "Ab 5 Rollen unterscheiden sich Frauen- und Männerrollen höchstens um eine; bei 4 Rollen geben die Kernnamen 3 zu 1 vor.",
     "Jede Rolle darf von jeder Person gespielt werden, unabhängig vom eigenen Geschlecht.",
-    "Ersatzpartner für Pflichtgespräche und die Begründungsketten je Personenzahl legt F2 fest (F2-ORCH-06)."
-  ]
+    "Fehlt ein Gesprächspartner, übernimmt der erste besetzte Ersatzpartner aus ersatzpartner, sonst der Detektiv. Kernrollen sind immer besetzt und brauchen keinen Ersatz.",
+    "Unbesetzte Gäste sind NPC. Ihre Pflichtgespräch-Beobachtungen und ihre Antworten auf Befragungen des Detektivs kommen als NPC-Karte (App: aus dem Kanon, Druck: versiegelt je Fall-Code)."
+  ],
+  "ersatzpartner": {
+    "leyla": [
+      "johanna",
+      "aylin",
+      "enes"
+    ],
+    "emine": [
+      "dilara",
+      "aylin"
+    ],
+    "tim": [
+      "enes",
+      "murat"
+    ],
+    "johanna": [
+      "leyla",
+      "aylin"
+    ],
+    "murat": [
+      "zeynep",
+      "selin",
+      "tim"
+    ],
+    "zeynep": [
+      "murat",
+      "selin"
+    ],
+    "baran": [
+      "tugba",
+      "meryem"
+    ],
+    "meryem": [
+      "baran",
+      "tugba"
+    ],
+    "serkan": [
+      "baran",
+      "tugba"
+    ],
+    "aylin": [
+      "leyla",
+      "johanna"
+    ],
+    "kaan": [
+      "hakan",
+      "dilara"
+    ],
+    "dilara": [
+      "emine",
+      "kaan"
+    ],
+    "enes": [
+      "tim",
+      "leyla"
+    ],
+    "selin": [
+      "zeynep",
+      "murat"
+    ],
+    "hakan": [
+      "kaan",
+      "aylin"
+    ],
+    "tugba": [
+      "baran",
+      "meryem"
+    ]
+  }
 }
