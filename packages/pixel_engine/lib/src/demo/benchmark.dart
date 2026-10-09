@@ -26,7 +26,7 @@ BenchmarkResult runBenchmark(int w, int h, int frames, {double Function()? nowMs
   final scene = DemoScene.build();
   final fb = PixelBuffer(w, h);
   final rgba = Uint8List(w * h * 4);
-  final r = Renderer(fb, LightTable.night(), scene.textures);
+  final r = Renderer(fb, LightTable.nacht, scene.textures);
   r.flashStrength = 0.9;
   final times = <double>[];
   for (var f = 0; f < frames; f++) {

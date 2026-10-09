@@ -58,6 +58,19 @@ void main() {
     }
   });
 
+  test('Lichttabelle v2: 16 × 16 × 6 Stufen, Grün/Altrosa/Türkis nur aus der eigenen Rampe (Grünregel im Licht)', () {
+    final lt = LightTable.nacht;
+    expect(lt.table.length, LightTable.fogLevels * LightTable.warmLevels * LightTable.coldLevels * LightTable.colors);
+    expect((LightTable.warmLevels, LightTable.coldLevels, LightTable.fogLevels), (16, 16, 6));
+    for (var i = 0; i < lt.table.length; i++) {
+      final basis = rampeVon(i % LightTable.colors), ziel = rampeVon(lt.table[i]);
+      for (final r in [Ramp.green, Ramp.altrosa, Ramp.tuerkis]) {
+        if (ziel == r) expect(basis, r, reason: 'Eintrag $i: Rampe $basis wird zu Rampe $r');
+      }
+    }
+    expect(identical(LightTable.nacht, LightTable.nacht), isTrue, reason: 'einmal gebaut');
+  });
+
   test('Lichttabelle bleibt in der Palette und dunkelt im Farbton ab', () {
     final lt = LightTable.night();
     expect(lt.table.every((i) => i < paletteRgb.length), isTrue);

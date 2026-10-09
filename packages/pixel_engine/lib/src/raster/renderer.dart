@@ -454,11 +454,11 @@ class Renderer {
             ci = ci < 0 ? 0 : (ci > 1024 ? 1024 : ci);
             var wq = (lut[wi] + d).toInt();
             var cq = (lut[ci] + d).toInt();
-            var fq = (fog * 3 + d).floor();
-            wq = wq < 0 ? 0 : (wq > 7 ? 7 : wq);
-            cq = cq < 0 ? 0 : (cq > 7 ? 7 : cq);
-            fq = fq < 0 ? 0 : (fq > 3 ? 3 : fq);
-            col[idx] = table[((fq * 8 + wq) * 8 + cq) * LightTable.colors + texel];
+            var fq = (fog * LightTable.maxFog + d).floor();
+            wq = wq < 0 ? 0 : (wq > LightTable.maxLight ? LightTable.maxLight : wq);
+            cq = cq < 0 ? 0 : (cq > LightTable.maxLight ? LightTable.maxLight : cq);
+            fq = fq < 0 ? 0 : (fq > LightTable.maxFog ? LightTable.maxFog : fq);
+            col[idx] = table[((fq * LightTable.warmLevels + wq) * LightTable.coldLevels + cq) * LightTable.colors + texel];
             dep[idx] = iz;
             written++;
           }
@@ -524,11 +524,11 @@ class Renderer {
         if (flash > 0 && cone[idx] > 0) cl += flash * cone[idx] * fr2 / (fr2 + vz * vz * 6);
         var ci = (cl * 1024).toInt();
         ci = ci < 0 ? 0 : (ci > 1024 ? 1024 : ci);
-        var wq = (LightTable.levelLut[wi] + d).toInt(), cq = (LightTable.levelLut[ci] + d).toInt(), fq = (fog * 3 + d).floor();
-        wq = wq < 0 ? 0 : (wq > 7 ? 7 : wq);
-        cq = cq < 0 ? 0 : (cq > 7 ? 7 : cq);
-        fq = fq < 0 ? 0 : (fq > 3 ? 3 : fq);
-        col[idx] = table[((fq * 8 + wq) * 8 + cq) * LightTable.colors + c];
+        var wq = (LightTable.levelLut[wi] + d).toInt(), cq = (LightTable.levelLut[ci] + d).toInt(), fq = (fog * LightTable.maxFog + d).floor();
+        wq = wq < 0 ? 0 : (wq > LightTable.maxLight ? LightTable.maxLight : wq);
+        cq = cq < 0 ? 0 : (cq > LightTable.maxLight ? LightTable.maxLight : cq);
+        fq = fq < 0 ? 0 : (fq > LightTable.maxFog ? LightTable.maxFog : fq);
+        col[idx] = table[((fq * LightTable.warmLevels + wq) * LightTable.coldLevels + cq) * LightTable.colors + c];
         dep[idx] = iz;
       }
     }

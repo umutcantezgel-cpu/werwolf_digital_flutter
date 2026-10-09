@@ -90,7 +90,7 @@ void _texturen(List<String> pos, int zoom, {required bool licht}) {
     gewaehlt.add(id);
   }
   if (gewaehlt.isEmpty) _abbruch('keine Textur gewählt');
-  final tafel = licht ? LightTable.night() : null;
+  final tafel = licht ? LightTable.nacht : null;
   final zellen = <_Zelle>[];
   for (final id in gewaehlt) {
     if (!licht) {
@@ -163,7 +163,7 @@ PixelBuffer rendereMeshBlicke(
   int bildHoehe = 180,
 }) {
   final font = BitmapFont.parse(kSchriftNormal);
-  final tafel = LightTable.night();
+  final tafel = LightTable.nacht;
   var x0 = double.infinity, z0 = double.infinity, x1 = -double.infinity, z1 = -double.infinity;
   for (final m in meshes) {
     final p = m.pos;

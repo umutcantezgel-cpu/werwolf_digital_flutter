@@ -1,0 +1,7 @@
+LICHTTABELLE v2 (P1-OPUS-04, E-015, L-05)
+16 warm × 16 kalt × 6 Nebel × 160 Farben = 245 760 Einträge; Lichtkurve (k/15)^1,6; volle Suche über 160 Farben,
+Rampenwechsel-Faktor 1,2; Grün, Altrosa, Türkis nur aus der eigenen Rampe (Grünregel im Licht); einmal gebaut (LightTable.nacht)
+Aufbauzeit (12er-Probe): VM 133 ms, dart2js/Node 188 ms – einmalig beim Start
+BANDING v2 (Prüfwände 640×360): vorher Stufen (min) 5 · größter Sprung 2 → nachher Stufen (min) 8 · größter Sprung (max) 1
+Grünanteil im Bild (Kamin-Gewölbe, scharf): vorher 2,6 % (durch Licht verschoben) → nachher 0,0 %
+FLIMMERN v2 (640×360): Überschuss 0,056 · FERNE 0,239 (Ausgang 0,049 · 0,242)

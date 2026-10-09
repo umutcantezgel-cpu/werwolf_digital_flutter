@@ -35,7 +35,7 @@ String dez(double v, [int stellen = 2]) => v.toStringAsFixed(stellen).replaceAll
 PixelBuffer rendrePruefwand(int farbe, int bw, int bh) {
   final wand = (MeshBuilder()..wall(3, 2, -3, 2, 0, 3, 0, warm: 0, cold: 0.05)).build();
   final fb = PixelBuffer(bw, bh)..clear(Pal.black);
-  final r = Renderer(fb, LightTable.night(), [IndexedTexture.solid(farbe)])
+  final r = Renderer(fb, LightTable.nacht, [IndexedTexture.solid(farbe)])
     ..fogStart = 3
     ..fogEnd = 20
     ..groundFog = 0

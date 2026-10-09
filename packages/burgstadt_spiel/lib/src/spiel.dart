@@ -56,7 +56,7 @@ class Spiel {
   final Optionen optionen;
   final BitmapFont font = BitmapFont.parse(kSchriftNormal);
   late final PixelUi pixelUi = PixelUi(font);
-  final LightTable licht = LightTable.night();
+  final LightTable licht = LightTable.nacht;
 
   Skalierung? skala;
   PixelBuffer welt = PixelBuffer(1, 1);
