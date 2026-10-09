@@ -18,7 +18,7 @@ Map<String, dynamic> partySzenarioJson(Kanon kanon, Map<String, dynamic> vorlage
   j['id'] = id;
   j['title'] = {'de': fall['titel']};
   j['tagline'] = {'de': fall['untertitel']};
-  j['synopsis'] = {'de': setting['ort']};
+  j['synopsis'] = {'de': setting['schauplatz']};
   j['theme'] = {
     'palette': {
       'background': '#070608',

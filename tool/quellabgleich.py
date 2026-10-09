@@ -175,7 +175,7 @@ for i in range(l_start, l_ende):
 KURATIERT = {
     'S': [
         ('Setting 3: „Spuk im Schlosskeller“', 'Titel und Untertitel', ['fall.json#titel', 'fall.json#untertitel'], 'übernommen', []),
-        ('Ein altes, etwas abgelegenes Schloss', 'Ort: abgelegenes Schloss', ['setting.json#ort'], 'übernommen', []),
+        ('Ein altes, etwas abgelegenes Schloss', 'Ort: abgelegenes Schloss', ['setting.json#schauplatz'], 'übernommen', []),
         ('Einer aus der Gruppe arbeitet als Veranstalter', 'Veranstalter-Freund organisiert den Keller', ['figuren.json#ahmet.motiveAndConflict', 'figuren.json#ahmet.alltag'], 'angepasst', ['A-11']),
         ('Aufgestellt sind lange Holztische', 'Buffet: Essen, Brot, Dips, Tee, Apfelpunsch', ['setting.json#essen', 'setting.json#getraenke'], 'angepasst', ['B-14']),
         ('Hinter den dicken Steinmauern gibt es keinen Handyempfang', 'kein Handyempfang', ['setting.json#empfang'], 'übernommen', []),

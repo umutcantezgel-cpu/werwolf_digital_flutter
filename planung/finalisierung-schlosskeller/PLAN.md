@@ -61,12 +61,12 @@
 | F1-ORCH-11 | ORCH | Spike: Karte aus dem Raumgraph über eine Party-Sitzung im vorhandenen Renderer, eine Figur, Licht, Playwright-Probelauf mit Netzprüfung, PDF-Probeseite | `lib/party/spike/*` (wird in F4 ersetzt oder übernommen) | F1-ORCH-01 | abgenommen (Karte im Renderer mit Fotos, Playwright 0/0, PDF-Probeseite mit Foto; E-016) |
 | F1-TEST-03 | TEST | Farbabstand ΔE2000 je Startraum (≥ 10) und Beweisfarbe (≥ 20) | `test/party/farbabstand_test.dart` | F1-ORCH-04 | abgenommen (10/10, E-018) |
 | F1-BAUMEISTER-01 | Baumeister | Story-Bibel-Generator (CLI + Aktualitätstest) | `bin/party_bibel.dart`, `party/bibel.dart`, `test/party/story_bibel_test.dart` | F1-ORCH-02 | abgenommen (9/10, E-018) |
-| F1-TEST-01 | TEST | Tests Schema, Verweise, Räume (F-01, F-03) | `test/party/kanon_schema_test.dart`, `raum_test.dart` | F1-ORCH-02 | übernommen (ORCH: kanon_schema_test) |
+| F1-TEST-01 | TEST | Tests Schema, Verweise, Räume (F-01, F-03) | `test/party/kanon_schema_test.dart`, `raum_test.dart` | F1-ORCH-02 | übernommen (ORCH: kanon_schema_test, raum_test) |
 | F1-TEST-02 | TEST | Tests Plausibilität und Beweise (F-04, F-05), Figurenabgleich (F-02) | `test/party/plausibilitaet_test.dart`, `beweise_test.dart`, `figuren_abgleich_test.dart` | F1-ORCH-07 | übernommen (ORCH: plausibilitaet_test, beweise_test, figuren_abgleich_test) |
-| F1-KONT-01..04 | KONT | je ein Pfad: Tatmatrix, Beobachtungen, Indizien gegen Zeitleiste und Raumgraph | – (Bericht) | F1-ORCH-07 | offen |
-| F1-GEGEN-01 | GEGEN | Körperlichkeit und Exklusivität der Schlüsselbeweise (F-05) | – (Bericht) | F1-ORCH-07 | offen |
-| F1-SENS-01 | SENS | Cast, Herkunftsmatrix, Kopftuch, Motive, Etiketten, Namensklang | – (Bericht) | F1-ORCH-04 | offen |
-| F1-ORCH-09 | ORCH | Befunde einarbeiten, Tor F-01..F-05, Commit, Push | Kanon | alle F1 | offen |
+| F1-KONT-01..04 | KONT | je ein Pfad: Tatmatrix, Beobachtungen, Indizien gegen Zeitleiste und Raumgraph | – (Bericht) | F1-ORCH-07 | abgenommen (je 10/10; E-021, E-022, E-023) |
+| F1-GEGEN-01 | GEGEN | Körperlichkeit und Exklusivität der Schlüsselbeweise (F-05) | – (Bericht) | F1-ORCH-07 | abgenommen (10/10, E-021) |
+| F1-SENS-01 | SENS | Cast, Herkunftsmatrix, Kopftuch, Motive, Etiketten, Namensklang | – (Bericht) | F1-ORCH-04 | abgenommen (10/10, E-021) |
+| F1-ORCH-09 | ORCH | Befunde einarbeiten, Tor F-01..F-05, Commit, Push | Kanon | alle F1 | abgenommen (Tor F1, ABNAHME F-01..F-05) |
 
 ## F2 – Mechanik und Simulation (Tor F-07; F-06, F-08 mit Platzhaltern)
 | Kennung | Rolle | Gegenstand | Eigene Dateien | Abhängig | Status |

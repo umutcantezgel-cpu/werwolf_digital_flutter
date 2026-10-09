@@ -17,7 +17,7 @@ String _ja(Object? v) => v == true ? 'ja' : 'nein';
 
 const _settingLabels = {
   'settingId': 'Setting-Kennung',
-  'ort': 'Ort',
+  'schauplatz': 'Schauplatz',
   'anlass': 'Anlass',
   'datum': 'Datum',
   'essen': 'Essen',

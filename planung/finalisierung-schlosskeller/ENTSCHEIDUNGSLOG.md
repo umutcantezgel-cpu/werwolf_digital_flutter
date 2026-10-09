@@ -409,3 +409,39 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
 | SENS-01 B12: Kopftuch bei 2 von 3 kurdischen Figuren | Ü | Das dritte Kopftuch geht von Aylin (kurdisch) zu Azra (bosnisch). Verteilung: kurdisch 1, türkisch 1, bosnisch 1, je unbelastet und kompetent außer Fatma. |
 | SENS-01 B16 | V | Teemeister ist Quellenrolle und Getränk des Abends. |
 | SENS-01 Namensklang | T | Selin → Sibel (Reim). Serkan, Can und Baran bleiben, weil die Anlaute klar verschieden sind. Hana/Azra bleiben. |
+
+## E-022 · F1-Prüfrunde: Entscheidungen zu F1-KONT-03 (Pfad Olli)
+- **Abnahme:** `ABNAHME F1-KONT-03 · FREIGEGEBEN · 10/10`. Vollständig, jede Fundstelle mit Gegenstelle, Selbstprüfung über alle vier Kernverdächtigen, Endmarke vorhanden.
+
+| Befund | Entscheidung | Folge |
+|---|---|---|
+| #1 Sturz Schneider | schon erledigt (E-021) | Tempo `faellt`; die Matrix zeigt „fällt“ statt „geht“. |
+| #2 Notlaterne „nie bis zu ihr gekommen“ | Ü | Spurtext: „Herr Schneider hat sie nie in die Hand bekommen.“ |
+| #3 Handykorb vor 23:55 | Ü | Der Korb steht seit 23:50 auf der Tafel, ab 23:55 kommen die Handys hinein. Olli wartet 23:52:30 nicht mehr am Korb, sondern setzt sich an den Kopf der Ost-Tafel. |
+| #4 Eis für Wojtek nie übergeben | Ü | Olli bringt Wojtek um 0:01 das Eis („Hier, dein Eis. Sorry, hat gedauert.“), danach zurück an die Ost-Tafel. Gilt in allen Pfaden; das Unschuldsprofil nennt es. |
+| #5 Motiv für den Bund | schon erledigt (E-021) | Gemeinsamer Fluchtgrund in allen Täterfassungen. |
+| #6 Olli neben Cans Fluchtweg | V | Das ist Ollis eigene Wahrnehmung im Olli-Pfad. Der Rechner erzeugt sie; das Täterdossier (F3) schöpft aus ihr. Eine Zeugen-Beobachtung braucht es nicht, weil Olli als Täter lügt. |
+| #7 Griff vor Ankunft | schon erledigt (E-021) | Griff 23:58:38. |
+| #8 Wachszustand | Ü | Zur Tat „noch weich“, als Spur „inzwischen erstarrt“; Schlüsselbeweis und Spurtext gleich formuliert. |
+| #9 Handschuh in Weste und am Kamin | Ü | Merkmal: „ein Arbeitshandschuh hängt aus der Westentasche, der zweite liegt seit 19:30 am Kamin“. |
+| Frage „um Mitternacht“ | V | Kanon gilt: Strom aus 23:58:00. „Um Mitternacht“ ist die Erzählweise der Gäste; Vorlesetexte sagen „kurz vor Mitternacht“. |
+| Frage „wer legt Schneider hin“ | V | Sturz nach dem Schlag, in allen Pfaden gleich (`faellt`). |
+| Frage „Bund unter dem Eis bis 0:02“ | V | Fluchtgrund aus E-021: Olli will nicht mehr fliehen und lässt den Bund liegen. Ab 0:00:18 brennt Licht, der Kübel steht mitten am Thekenende; ihn dort herauszuholen sähen alle. |
+
+## E-023 · F1-Prüfrunde: Entscheidungen zu F1-KONT-04 (Pfad Can)
+- **Abnahme:** `ABNAHME F1-KONT-04 · FREIGEGEBEN · 10/10`. Vollständig, Fundstellen mit Gegenstellen, Geschwindigkeiten nachgerechnet, Endmarke vorhanden. Der Prüfer las den Kanon teils vor dem Stand von E-021; Befunde #1 und #4 waren dort schon erledigt.
+
+| Befund | Entscheidung | Folge |
+|---|---|---|
+| #1 Motiv für den Bund | schon erledigt (E-021) | Gemeinsamer Fluchtgrund; Can hört die Drohung `ev_can_drohung` aus unter 1,5 m. |
+| #2 Auslöser für „Buuuh!“ | T | Auslöser ist die quietschende Vorratstür (`ev_vorratstuer_auf`, im selben Raum laut), nicht Schneiders Satz. Can glaubt, das Geburtstagskind wird schon zur Torte gebracht (`z_tortenplan`). Steht jetzt in Cans Motivtext. |
+| #3 Gang zum Liegenden fehlt im Profil | Ü | „Herr Schneider stürzt in den Vorratsraum. Can kniet sich neben ihn und reißt in Panik den Bund vom Gürtel.“ |
+| #4 Leuchtfarbe nur im Dunkeln | schon erledigt (E-021) | Handabdruck in grünlich-weißer Farbe, im Licht sichtbar. |
+| #5 Maske und Fasern nicht sichtbar | V | Wie E-021 (KONT-02 #4): Entscheidungen zielen auch auf Personen; Bauchtasche und Schneiders Hand werden über Entscheidungen untersucht, die es in allen Pfaden gibt (F2). |
+| #6 „unter einer Kapuze“ | Ü | Gestrichen; bei Eigenleuchten sieht man nur das Gesicht. |
+| #7 Fasern als falsche Fährte im Pfad Can | Ü | Rolle je Pfad: in Ahmet, Fatma, Olli `falsche_faehrte`, in Can `ausgangslage`. |
+| #8 Lichtschritt der Vorratslampe | Ü | Ereignis `ev_vorratslicht_aus` (23:54:20, Can). Das Einschalten stand schon als `ev_vorratslicht` (0:00:18, Damir). Die Lichtzeiten selbst stehen in `raeume.json`. |
+| #9 Matrix nur 23:55–0:05, WC-Zusatzweg | V | Das Fenster ist F-04. Der Rechner prüft die Pläne 23:50–0:15 jede Sekunde und rechnet den Zusatzweg in die Weglänge ein; die Karte zeigt das WC an seiner Tür. |
+| #10 „um Mitternacht“ | V | Wie E-022. |
+| Frage 4: Ahmets Stelle | Ü | „hinter der Theke am Ostende“. |
+| Fragen 1–3 | V | Nach 0:00 gibt es keine Dunkelphase; die Spur ist im Licht sichtbar. Zugang zu Bauchtasche und Zeitleiste regelt F2 (Entscheidungen und Pflichtgespräche). |

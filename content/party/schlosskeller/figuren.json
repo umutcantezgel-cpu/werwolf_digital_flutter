@@ -127,7 +127,7 @@
         }
       ],
       "innocentProfile": {
-        "actualBehavior": "Duckt sich beim Knall am Ostende der Theke neben Damir und hält den Umschlag fest. Er bleibt dort, bis das Licht angeht. Später leert er den Umschlag und wirft ihn in den Ascheneimer am Kamin."
+        "actualBehavior": "Duckt sich beim Knall hinter der Theke am Ostende neben Damir und hält den Umschlag fest. Er bleibt dort, bis das Licht angeht. Später leert er den Umschlag und wirft ihn in den Ascheneimer am Kamin."
       },
       "killerProfile": {
         "crimeExecution": "Er kauert erst am Ostende der Theke neben Damir. Dann geht er zum Kerzenlicht an der Anrichte, um Herrn Schneider zu bitten. Herr Schneider, noch außer sich wegen Can, packt ihn am Arm und zischt: „Um zwölf erfahren's alle.“ In Panik greift Ahmet den Kerzenständer und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er steckt den Bund im Ost-Saal in seine eigene Jacke und kauert sich wieder neben Damir.",
@@ -235,7 +235,7 @@
       "visualSpecs": {
         "silhouette": "Breit gebaut, kräftige Schultern, leicht gebeugte Haltung",
         "outfit": "Grauer Kapuzenpulli, dunkelblaue Daunenweste, Khakihose mit Seitentaschen",
-        "distinguishingFeature": "Holzsplitter und weißer Kalk an den Ärmeln des Pullis, ein einzelner Arbeitshandschuh hängt aus der Westentasche",
+        "distinguishingFeature": "Holzsplitter und weißer Kalk an den Ärmeln des Pullis; ein Arbeitshandschuh hängt aus der Westentasche, der zweite liegt seit 19:30 am Kamin",
         "idleAnimation": "Reibt sich den Nacken, wechselt das Standbein und schaut auf seine Hände"
       },
       "motiveAndConflict": "Um 18:30 trägt Olli mit Wojtek die Warmhaltebehälter durch den Turm. Dabei schrammt er die geschnitzte Bogentür, ein Beschlag reißt aus. Herr Schneider verlangt 2.000 € Bargeld und schließt die Tore ab: „Keiner geht, bevor das bezahlt ist.“ Um 23:00 streiten die beiden laut.",
@@ -258,11 +258,11 @@
         }
       ],
       "innocentProfile": {
-        "actualBehavior": "Beim Knall tastet er sich vom Eiskübel zum rechten Buffettisch und kauert dort gleich danach neben Azra, bis das Licht angeht. Danach setzt er sich in den Ost-Saal an die Tafel."
+        "actualBehavior": "Beim Knall tastet er sich vom Eiskübel zum rechten Buffettisch und kauert dort gleich danach neben Azra, bis das Licht angeht. Dann bringt er Wojtek das Eis und setzt sich in den Ost-Saal an die Tafel."
       },
       "killerProfile": {
         "crimeExecution": "Er bleibt erst am Eiskübel stehen. Dann geht er vor der Theke entlang und durch die Klappe zum Kerzenlicht, weil er mit Herrn Schneider reden will. Herr Schneider packt ihn am Ärmel und zischt: „Zweitausend. Sonst Polizei.“ In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er wirft ihn in den Eiskübel und kauert sich zu Azra.",
-        "smokingGun": "Holzsplitter und weißer Kalk von seinen Ärmeln kleben im erstarrten Wachs am Fuß des Kerzenständers.",
+        "smokingGun": "Holzsplitter und weißer Kalk von seinen Ärmeln kleben im Wachs am Fuß des Kerzenständers, das inzwischen erstarrt ist.",
         "zusatzindiz": "Der Schlüsselbund liegt im Eiskübel vor der Theke."
       },
       "look": {
@@ -300,7 +300,7 @@
         "distinguishingFeature": "Auffällige gelbe Kapuze, linke Hand tief in der Bauchtasche des Pullis (dort steckt die Maske)",
         "idleAnimation": "Zieht an den Kapuzenbändern und wippt auf den Zehenspitzen"
       },
-      "motiveAndConflict": "Can hat am Nachmittag eine weiße Gespenstermaske mit Leuchtfarbe angemalt. Um 23:54 versteckt er sich damit im dunklen Vorratsraum. Um zwölf soll das Geburtstagskind zur Torte kommen und sich erschrecken. Beim Knall läuft ihm Herr Schneider in die Arme, packt ihn an der Kapuze und ruft: „Hab ich dich!“",
+      "motiveAndConflict": "Can hat am Nachmittag eine weiße Gespenstermaske mit Leuchtfarbe angemalt. Um 23:54 versteckt er sich damit im dunklen Vorratsraum. Um zwölf soll das Geburtstagskind zur Torte kommen und sich erschrecken. Kurz vor zwölf knallt es, das Licht geht aus, und die Tür zum Vorratsraum quietscht auf. Can glaubt, das Geburtstagskind wird schon gebracht, und springt mit „Buuuh!“ hervor. Er läuft Herrn Schneider in die Arme. Der packt ihn an der Kapuze und ruft: „Hab ich dich!“",
       "blackoutAlibi": "Behauptet, auf der Toilette im Turm gewesen zu sein.",
       "roleSecret": "Er hat mit der Leuchtmaske im Vorratsraum gewartet. Herr Schneider hat ihn an der Kapuze gepackt.",
       "persoenlichesZiel": "Der Streich soll nicht herauskommen.",
@@ -328,7 +328,7 @@
         "actualBehavior": "Er reißt sich los und rennt durch den Durchgang, noch bevor es scheppert. Die leuchtende Maske hält er in der Hand. Im Kaminsaal rennt er zur Bogentür, stopft die Maske in die Bauchtasche seines Pullis und versteckt sich oben auf der Toilette im Turm."
       },
       "killerProfile": {
-        "crimeExecution": "Herr Schneider hält ihn an der Kapuze fest und zischt: „Jetzt kommt die Polizei, Freundchen.“ In Panik greift Can mit der Hand voller Leuchtfarbe den Kerzenständer von der Anrichte und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er rennt nach dem Scheppern durch den Durchgang und den Kaminsaal, stopft an der Bogentür die Maske in die Bauchtasche, steckt den Bund in den Helm der Ritterrüstung und versteckt sich auf der Toilette im Turm.",
+        "crimeExecution": "Herr Schneider hält ihn an der Kapuze fest und zischt: „Jetzt kommt die Polizei, Freundchen.“ In Panik greift Can mit der Hand voller Leuchtfarbe den Kerzenständer von der Anrichte und schlägt einmal zu. Herr Schneider stürzt in den Vorratsraum. Can kniet sich neben ihn und reißt in Panik den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er rennt nach dem Scheppern durch den Durchgang und den Kaminsaal, stopft an der Bogentür die Maske in die Bauchtasche, steckt den Bund in den Helm der Ritterrüstung und versteckt sich auf der Toilette im Turm.",
         "smokingGun": "Ein Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe um den Griff des Kerzenständers.",
         "zusatzindiz": "Rote Wachstropfen auf der Leuchtmaske."
       },

@@ -6595,7 +6595,7 @@
       "zeile": 3,
       "element": "Ort: abgelegenes Schloss",
       "ziel": [
-        "setting.json#ort"
+        "setting.json#schauplatz"
       ],
       "status": "übernommen",
       "grund": []

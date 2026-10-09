@@ -41,7 +41,7 @@
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "olli"
           },
-          "zeigt": "Im erstarrten roten Wachs am Fuß kleben feine Holzsplitter und weißer Kalk.",
+          "zeigt": "Im roten Wachs am Fuß, das inzwischen erstarrt ist, kleben feine Holzsplitter und weißer Kalk.",
           "harmlos": "Am Fuß klebt nur rotes Wachs.",
           "rolle": {
             "olli": "schluesselbeweis"
@@ -506,7 +506,7 @@
           "entstehtWenn": {
             "immer": true
           },
-          "zeigt": "Die Laterne hängt unberührt am Haken. Herr Schneider ist nie bis zu ihr gekommen.",
+          "zeigt": "Die Laterne hängt unberührt am Haken neben der Tür. Herr Schneider hat sie nie in die Hand bekommen.",
           "rolle": {
             "alle": "umgebung"
           }
@@ -582,7 +582,10 @@
           },
           "zeigt": "Knallgelbe Fasern, wie von einer Kapuze.",
           "rolle": {
-            "alle": "falsche_faehrte"
+            "ahmet": "falsche_faehrte",
+            "fatma": "falsche_faehrte",
+            "olli": "falsche_faehrte",
+            "can": "ausgangslage"
           },
           "belastet": [
             "can"
@@ -672,7 +675,7 @@
     {
       "id": "handykorb",
       "name": "Handykorb",
-      "beschreibung": "Korb mit allen Handys, seit 23:55 auf der Tafel im Ost-Saal.",
+      "beschreibung": "Korb für die Handys auf der Tafel im Ost-Saal. Er steht seit 23:50 dort; ab 23:55 kommen alle Handys hinein.",
       "lage": {
         "ort": "am_handykorb"
       },

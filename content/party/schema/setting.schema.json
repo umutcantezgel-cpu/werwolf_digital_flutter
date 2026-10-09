@@ -60,7 +60,7 @@
   "type": "object",
   "required": [
     "settingId",
-    "ort",
+    "schauplatz",
     "anlass",
     "datum",
     "essen",
@@ -75,7 +75,7 @@
     "settingId": {
       "$ref": "#/$defs/id"
     },
-    "ort": {
+    "schauplatz": {
       "$ref": "#/$defs/text"
     },
     "anlass": {

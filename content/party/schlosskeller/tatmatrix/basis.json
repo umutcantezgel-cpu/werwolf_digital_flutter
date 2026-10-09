@@ -234,9 +234,10 @@
       },
       {
         "t": "23:52:30",
-        "nach": "am_handykorb",
+        "nach": "ost_tafel_kopf",
         "bis": "23:54:00",
-        "tempo": "gehen"
+        "tempo": "gehen",
+        "haltung": "sitzt"
       },
       {
         "t": "23:56:30",
@@ -262,9 +263,29 @@
       },
       {
         "t": "00:00:30",
-        "nach": "ost_tafel_kopf",
-        "bis": "00:00:45",
+        "nach": "vor_bogentuer",
+        "bis": "00:00:55",
         "tempo": "gehen",
+        "haltung": "steht",
+        "ueber": [
+          "theke_klappe",
+          "durchgang_mitte"
+        ]
+      },
+      {
+        "t": "00:01:00",
+        "sagt": "Hier, dein Eis. Sorry, hat gedauert.",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "00:01:30",
+        "nach": "ost_tafel_kopf",
+        "bis": "00:02:10",
+        "tempo": "gehen",
+        "ueber": [
+          "durchgang_mitte",
+          "theke_klappe"
+        ],
         "haltung": "sitzt"
       }
     ],
@@ -604,6 +625,14 @@
     ]
   },
   "ereignisse": [
+    {
+      "id": "ev_vorratslicht_aus",
+      "t": "23:54:20",
+      "ort": "vorrat_mitte",
+      "art": "handlung",
+      "person": "can",
+      "text": "Can schaltet im Vorratsraum die Lampe aus."
+    },
     {
       "id": "ev_tim_steckdose",
       "t": "23:57:50",
