@@ -1,0 +1,1222 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "massstab": "1 Kachel = 1 Meter; x nach Osten, y nach Süden; Rechtecke als Bodenkacheln (x, y, b, l)",
+  "raster": {
+    "breite": 27,
+    "hoehe": 23
+  },
+  "rooms": [
+    {
+      "id": "thekensaal",
+      "name": "Thekensaal (Zentrum)",
+      "anzeigename": "Buffetsaal",
+      "widthMeters": 8,
+      "rechteck": {
+        "x": 11,
+        "y": 7,
+        "b": 8,
+        "l": 12
+      },
+      "boden": "stone",
+      "features": [
+        "Buffettheke mit Anrichte",
+        "Linker Buffettisch",
+        "Rechter Buffettisch",
+        "Großer Teekocher",
+        "Kaffeemaschine",
+        "Spüle",
+        "Eiskübel",
+        "Notausgangsschild"
+      ],
+      "beschreibung": "Länglicher Gewölbesaal, Knotenpunkt des Kellers. Gegenüber dem Eingang steht die Buffettheke aus dunklem Holz, dahinter die Anrichte an der Nordwand. Links und rechts an den Längswänden die Buffettische."
+    },
+    {
+      "id": "vorratsraum",
+      "name": "Vorratsraum",
+      "anzeigename": "Vorratsraum",
+      "rechteck": {
+        "x": 13,
+        "y": 2,
+        "b": 3,
+        "l": 4
+      },
+      "boden": "stone",
+      "features": [
+        "Regale",
+        "Geburtstagstorte",
+        "Notlaterne am Haken"
+      ],
+      "beschreibung": "Kleiner, kühler Raum ohne Fenster hinter der Buffettheke. Einziger Zugang ist die Tür neben der Anrichte."
+    },
+    {
+      "id": "durchgang",
+      "name": "Durchgang",
+      "anzeigename": "Durchgang",
+      "rechteck": {
+        "x": 8,
+        "y": 8,
+        "b": 2,
+        "l": 2
+      },
+      "boden": "stone",
+      "features": [
+        "Getränkekisten"
+      ],
+      "beschreibung": "Kurzer, niedriger Gang zwischen West-Saal und Buffetsaal. Hier stehen die Getränkekisten."
+    },
+    {
+      "id": "west_saal",
+      "name": "West-Saal",
+      "anzeigename": "Kaminsaal",
+      "rechteck": {
+        "x": 1,
+        "y": 8,
+        "b": 6,
+        "l": 12
+      },
+      "boden": "stone",
+      "features": [
+        "Lange Tafeln",
+        "Wandbänke",
+        "Kamin-Nische",
+        "Sicherungskasten",
+        "Lichtschächte mit Klappen",
+        "Bogentür zum Turmgang"
+      ],
+      "beschreibung": "Gemeinschaftssaal mit zwei langen Tafeln und Wandbänken. In der Westwand die Kamin-Nische, hoch in der Nordwand zwei Lichtschächte mit Klappen, in der Nordwestecke die geschnitzte Bogentür zum Turm."
+    },
+    {
+      "id": "turmgang",
+      "name": "Turmgang",
+      "anzeigename": "Turmgang",
+      "rechteck": {
+        "x": 1,
+        "y": 1,
+        "b": 3,
+        "l": 6
+      },
+      "boden": "stone",
+      "features": [
+        "Ritterrüstung",
+        "Schauvitrine",
+        "Wendeltreppe zum WC",
+        "Hoftür (verschlossen)"
+      ],
+      "beschreibung": "Schmaler Gang im Fuß des Schlossturms. Hier stehen die alte Ritterrüstung und die Schauvitrine. Die Wendeltreppe führt hinauf zu den Toiletten; der Rest des Turms ist mit einem Vorhängeschloss abgesperrt."
+    },
+    {
+      "id": "ost_saal",
+      "name": "Ost-Saal",
+      "anzeigename": "Ostsaal",
+      "rechteck": {
+        "x": 20,
+        "y": 7,
+        "b": 6,
+        "l": 12
+      },
+      "boden": "stone",
+      "features": [
+        "Lange Tafeln",
+        "Wandbänke",
+        "Jackenständer",
+        "Wandtafel mit Ablaufplan",
+        "Handykorb"
+      ],
+      "beschreibung": "Ruhiger Gemeinschaftssaal ohne weitere Außentür. Am Eingang steht der Jackenständer, an der Ostwand die Wandtafel mit dem Ablaufplan des Abends."
+    },
+    {
+      "id": "windfang",
+      "name": "Windfang",
+      "anzeigename": "Windfang",
+      "rechteck": {
+        "x": 14,
+        "y": 20,
+        "b": 2,
+        "l": 2
+      },
+      "boden": "stone",
+      "features": [
+        "Innentür",
+        "Außentor"
+      ],
+      "beschreibung": "Kleiner Vorraum zwischen der Innentür des Buffetsaals und dem Außentor."
+    }
+  ],
+  "tueren": [
+    {
+      "id": "aussentor",
+      "name": "Außentor",
+      "von": "windfang",
+      "nach": "draussen",
+      "kacheln": [
+        [
+          14,
+          22
+        ],
+        [
+          15,
+          22
+        ]
+      ],
+      "art": "zweiflügelige, eisenbeschlagene Eichentür mit Kastenschloss",
+      "schliesst": "schluessel_beidseitig",
+      "schluessel": "bund_schneider",
+      "zustand": "verschlossen ab 18:50",
+      "quietscht": true
+    },
+    {
+      "id": "windfang_tuer",
+      "name": "Innentür",
+      "von": "thekensaal",
+      "nach": "windfang",
+      "kacheln": [
+        [
+          14,
+          19
+        ]
+      ],
+      "art": "schwere Holztür",
+      "schliesst": "keine",
+      "zustand": "zu (Zugluft)",
+      "quietscht": true
+    },
+    {
+      "id": "vorrat_tuer",
+      "name": "Vorratsraumtür",
+      "von": "thekensaal",
+      "nach": "vorratsraum",
+      "kacheln": [
+        [
+          14,
+          6
+        ]
+      ],
+      "art": "einfache Holztür",
+      "schliesst": "keine",
+      "zustand": "angelehnt",
+      "quietscht": false
+    },
+    {
+      "id": "durchgang_ost",
+      "name": "Tür zum Durchgang",
+      "von": "thekensaal",
+      "nach": "durchgang",
+      "kacheln": [
+        [
+          10,
+          9
+        ]
+      ],
+      "art": "Holztür neben der Theke (links)",
+      "schliesst": "keine",
+      "zustand": "offen",
+      "quietscht": true
+    },
+    {
+      "id": "durchgang_west",
+      "name": "Bogen zum Kaminsaal",
+      "von": "durchgang",
+      "nach": "west_saal",
+      "kacheln": [
+        [
+          7,
+          9
+        ]
+      ],
+      "art": "offener Steinbogen",
+      "schliesst": "keine",
+      "zustand": "offen",
+      "quietscht": false
+    },
+    {
+      "id": "ost_tuer",
+      "name": "Tür zum Ostsaal",
+      "von": "thekensaal",
+      "nach": "ost_saal",
+      "kacheln": [
+        [
+          19,
+          9
+        ]
+      ],
+      "art": "Holztür neben der Theke (rechts)",
+      "schliesst": "keine",
+      "zustand": "offen",
+      "quietscht": true
+    },
+    {
+      "id": "bogentuer",
+      "name": "Bogentür zum Turm",
+      "von": "west_saal",
+      "nach": "turmgang",
+      "kacheln": [
+        [
+          2,
+          7
+        ]
+      ],
+      "art": "jahrhundertealte, geschnitzte Bogentür aus Eiche, ein Beschlag herausgerissen",
+      "schliesst": "keine",
+      "zustand": "offen",
+      "quietscht": true
+    },
+    {
+      "id": "hoftuer",
+      "name": "Hoftür",
+      "von": "turmgang",
+      "nach": "draussen",
+      "kacheln": [
+        [
+          2,
+          0
+        ]
+      ],
+      "art": "schwere Turmtür zum Schlosshof",
+      "schliesst": "schluessel_beidseitig",
+      "schluessel": "bund_schneider",
+      "zustand": "verschlossen ab 18:50",
+      "quietscht": true
+    }
+  ],
+  "einrichtung": [
+    {
+      "id": "spuele",
+      "name": "Spüle",
+      "typ": "counter",
+      "x": 12,
+      "y": 7,
+      "blockiert": true,
+      "darstellung": "sink"
+    },
+    {
+      "id": "anrichte",
+      "name": "Anrichte mit Messingkerzenständer",
+      "typ": "counter",
+      "x": 13,
+      "y": 7,
+      "blockiert": true,
+      "darstellung": "candles"
+    },
+    {
+      "id": "teekocher",
+      "name": "großer Teekocher",
+      "typ": "counter",
+      "x": 15,
+      "y": 7,
+      "blockiert": true,
+      "darstellung": "stove"
+    },
+    {
+      "id": "kaffeemaschine",
+      "name": "Kaffeemaschine an der alten Mehrfachsteckdose",
+      "typ": "counter",
+      "x": 16,
+      "y": 7,
+      "blockiert": true,
+      "darstellung": "stove"
+    },
+    {
+      "id": "anrichte_ost",
+      "name": "Anrichte mit Gläsern und Tassen",
+      "typ": "counter",
+      "x": 17,
+      "y": 7,
+      "blockiert": true,
+      "darstellung": "counter"
+    },
+    {
+      "id": "theke_12",
+      "name": "Buffettheke",
+      "typ": "counter",
+      "x": 12,
+      "y": 9,
+      "blockiert": true
+    },
+    {
+      "id": "theke_13",
+      "name": "Buffettheke",
+      "typ": "counter",
+      "x": 13,
+      "y": 9,
+      "blockiert": true
+    },
+    {
+      "id": "theke_14",
+      "name": "Buffettheke",
+      "typ": "counter",
+      "x": 14,
+      "y": 9,
+      "blockiert": true
+    },
+    {
+      "id": "theke_15",
+      "name": "Buffettheke",
+      "typ": "counter",
+      "x": 15,
+      "y": 9,
+      "blockiert": true
+    },
+    {
+      "id": "theke_16",
+      "name": "Buffettheke",
+      "typ": "counter",
+      "x": 16,
+      "y": 9,
+      "blockiert": true
+    },
+    {
+      "id": "theke_17",
+      "name": "Buffettheke",
+      "typ": "counter",
+      "x": 17,
+      "y": 9,
+      "blockiert": true
+    },
+    {
+      "id": "linkes_buffet_12",
+      "name": "linker Buffettisch",
+      "typ": "table",
+      "x": 12,
+      "y": 12,
+      "blockiert": true
+    },
+    {
+      "id": "linkes_buffet_13",
+      "name": "linker Buffettisch",
+      "typ": "table",
+      "x": 12,
+      "y": 13,
+      "blockiert": true
+    },
+    {
+      "id": "linkes_buffet_14",
+      "name": "linker Buffettisch",
+      "typ": "table",
+      "x": 12,
+      "y": 14,
+      "blockiert": true
+    },
+    {
+      "id": "linkes_buffet_15",
+      "name": "linker Buffettisch",
+      "typ": "table",
+      "x": 12,
+      "y": 15,
+      "blockiert": true
+    },
+    {
+      "id": "rechtes_buffet_12",
+      "name": "rechter Buffettisch",
+      "typ": "table",
+      "x": 17,
+      "y": 12,
+      "blockiert": true
+    },
+    {
+      "id": "rechtes_buffet_13",
+      "name": "rechter Buffettisch",
+      "typ": "table",
+      "x": 17,
+      "y": 13,
+      "blockiert": true
+    },
+    {
+      "id": "rechtes_buffet_14",
+      "name": "rechter Buffettisch",
+      "typ": "table",
+      "x": 17,
+      "y": 14,
+      "blockiert": true
+    },
+    {
+      "id": "rechtes_buffet_15",
+      "name": "rechter Buffettisch",
+      "typ": "table",
+      "x": 17,
+      "y": 15,
+      "blockiert": true
+    },
+    {
+      "id": "regal_torte",
+      "name": "Regal mit der Geburtstagstorte",
+      "typ": "bookshelf",
+      "x": 13,
+      "y": 2,
+      "blockiert": true
+    },
+    {
+      "id": "regal_mitte",
+      "name": "Regal mit Vorräten",
+      "typ": "bookshelf",
+      "x": 14,
+      "y": 2,
+      "blockiert": true
+    },
+    {
+      "id": "regal_ost",
+      "name": "Regal mit Vorräten",
+      "typ": "bookshelf",
+      "x": 15,
+      "y": 2,
+      "blockiert": true
+    },
+    {
+      "id": "getraenkekisten",
+      "name": "Getränkekisten",
+      "typ": "crate",
+      "x": 8,
+      "y": 8,
+      "blockiert": true,
+      "darstellung": "crate"
+    },
+    {
+      "id": "kamin",
+      "name": "Kamin-Nische",
+      "typ": "fireplace",
+      "x": 1,
+      "y": 13,
+      "blockiert": true,
+      "darstellung": "fireplace"
+    },
+    {
+      "id": "ascheneimer",
+      "name": "Ascheneimer neben der Kamin-Nische",
+      "typ": "ascheneimer",
+      "x": 1,
+      "y": 14,
+      "blockiert": false
+    },
+    {
+      "id": "west_tafel_3_11",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 3,
+      "y": 11,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_3_12",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 3,
+      "y": 12,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_3_13",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 3,
+      "y": 13,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_3_14",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 3,
+      "y": 14,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_3_15",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 3,
+      "y": 15,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_3_16",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 3,
+      "y": 16,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_4_11",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 4,
+      "y": 11,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_4_12",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 4,
+      "y": 12,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_4_13",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 4,
+      "y": 13,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_4_14",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 4,
+      "y": 14,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_4_15",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 4,
+      "y": 15,
+      "blockiert": true
+    },
+    {
+      "id": "west_tafel_4_16",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 4,
+      "y": 16,
+      "blockiert": true
+    },
+    {
+      "id": "sicherungskasten",
+      "name": "Sicherungskasten",
+      "typ": "sicherungskasten",
+      "x": 6,
+      "y": 11,
+      "blockiert": false
+    },
+    {
+      "id": "ruestung",
+      "name": "Ritterrüstung",
+      "typ": "ruestung",
+      "x": 1,
+      "y": 5,
+      "blockiert": true,
+      "darstellung": "statue"
+    },
+    {
+      "id": "vitrine",
+      "name": "Schauvitrine",
+      "typ": "vitrine",
+      "x": 3,
+      "y": 3,
+      "blockiert": true,
+      "darstellung": "cabinet"
+    },
+    {
+      "id": "wendeltreppe",
+      "name": "Wendeltreppe",
+      "typ": "treppe",
+      "x": 1,
+      "y": 1,
+      "blockiert": true,
+      "darstellung": "bookshelf"
+    },
+    {
+      "id": "jackenstaender",
+      "name": "Jackenständer",
+      "typ": "jackenstaender",
+      "x": 20,
+      "y": 8,
+      "blockiert": true,
+      "darstellung": "wardrobe"
+    },
+    {
+      "id": "ost_tafel_22_11",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 22,
+      "y": 11,
+      "blockiert": true
+    },
+    {
+      "id": "ost_tafel_22_12",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 22,
+      "y": 12,
+      "blockiert": true
+    },
+    {
+      "id": "ost_tafel_22_13",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 22,
+      "y": 13,
+      "blockiert": true
+    },
+    {
+      "id": "ost_tafel_22_14",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 22,
+      "y": 14,
+      "blockiert": true
+    },
+    {
+      "id": "ost_tafel_22_15",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 22,
+      "y": 15,
+      "blockiert": true
+    },
+    {
+      "id": "ost_tafel_23_11",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 23,
+      "y": 11,
+      "blockiert": true
+    },
+    {
+      "id": "ost_tafel_23_12",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 23,
+      "y": 12,
+      "blockiert": true
+    },
+    {
+      "id": "ost_tafel_23_13",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 23,
+      "y": 13,
+      "blockiert": true
+    },
+    {
+      "id": "ost_tafel_23_14",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 23,
+      "y": 14,
+      "blockiert": true
+    },
+    {
+      "id": "ost_tafel_23_15",
+      "name": "lange Tafel",
+      "typ": "table",
+      "x": 23,
+      "y": 15,
+      "blockiert": true
+    },
+    {
+      "id": "wandtafel",
+      "name": "Wandtafel mit dem Ablaufplan",
+      "typ": "wandtafel",
+      "x": 25,
+      "y": 10,
+      "blockiert": false
+    }
+  ],
+  "orte": [
+    {
+      "id": "vor_vorratstuer",
+      "raum": "thekensaal",
+      "x": 14.5,
+      "y": 7.5,
+      "name": "vor der Vorratsraumtür"
+    },
+    {
+      "id": "an_anrichte",
+      "raum": "thekensaal",
+      "x": 13.5,
+      "y": 8.5,
+      "name": "an der Anrichte neben der Vorratsraumtür"
+    },
+    {
+      "id": "hinter_theke_west",
+      "raum": "thekensaal",
+      "x": 11.5,
+      "y": 8.5,
+      "name": "hinter der Theke, Westende"
+    },
+    {
+      "id": "hinter_theke_mitte",
+      "raum": "thekensaal",
+      "x": 15.5,
+      "y": 8.5,
+      "name": "hinter der Theke, vor dem Teekocher"
+    },
+    {
+      "id": "hinter_theke_ost",
+      "raum": "thekensaal",
+      "x": 17.5,
+      "y": 8.5,
+      "name": "hinter der Theke, vor der Kaffeemaschine"
+    },
+    {
+      "id": "theke_klappe",
+      "raum": "thekensaal",
+      "x": 11.5,
+      "y": 9.5,
+      "name": "an der Theken-Klappe am Westende"
+    },
+    {
+      "id": "theke_ostende",
+      "raum": "thekensaal",
+      "x": 18.5,
+      "y": 9.5,
+      "name": "am Ostende der Theke"
+    },
+    {
+      "id": "vor_theke",
+      "raum": "thekensaal",
+      "x": 14.5,
+      "y": 10.5,
+      "name": "vor der Theke"
+    },
+    {
+      "id": "vor_theke_west",
+      "raum": "thekensaal",
+      "x": 12.5,
+      "y": 10.5,
+      "name": "vor der Theke beim Westende"
+    },
+    {
+      "id": "am_eiskuebel",
+      "raum": "thekensaal",
+      "x": 17.5,
+      "y": 10.5,
+      "name": "vor der Theke beim Eiskübel"
+    },
+    {
+      "id": "am_linken_buffet",
+      "raum": "thekensaal",
+      "x": 13.5,
+      "y": 13.5,
+      "name": "am linken Buffettisch"
+    },
+    {
+      "id": "hinter_linkem_buffet",
+      "raum": "thekensaal",
+      "x": 11.5,
+      "y": 13.5,
+      "name": "hinter dem linken Buffettisch"
+    },
+    {
+      "id": "am_rechten_buffet",
+      "raum": "thekensaal",
+      "x": 16.5,
+      "y": 13.5,
+      "name": "am rechten Buffettisch"
+    },
+    {
+      "id": "hinter_rechtem_buffet",
+      "raum": "thekensaal",
+      "x": 18.5,
+      "y": 13.5,
+      "name": "hinter dem rechten Buffettisch"
+    },
+    {
+      "id": "saalmitte",
+      "raum": "thekensaal",
+      "x": 14.5,
+      "y": 14.5,
+      "name": "Mitte des Buffetsaals"
+    },
+    {
+      "id": "unter_notausgang",
+      "raum": "thekensaal",
+      "x": 14.5,
+      "y": 18.5,
+      "name": "an der Innentür unter dem Notausgangsschild"
+    },
+    {
+      "id": "vorrat_innen",
+      "raum": "vorratsraum",
+      "x": 14.5,
+      "y": 5.5,
+      "name": "direkt hinter der Vorratsraumtür"
+    },
+    {
+      "id": "vorrat_mitte",
+      "raum": "vorratsraum",
+      "x": 14.5,
+      "y": 3.5,
+      "name": "im Vorratsraum vor dem Regal mit der Torte"
+    },
+    {
+      "id": "bei_den_kisten",
+      "raum": "durchgang",
+      "x": 9.5,
+      "y": 8.5,
+      "name": "bei den Getränkekisten"
+    },
+    {
+      "id": "durchgang_mitte",
+      "raum": "durchgang",
+      "x": 8.5,
+      "y": 9.5,
+      "name": "im Durchgang"
+    },
+    {
+      "id": "west_bogen",
+      "raum": "west_saal",
+      "x": 6.5,
+      "y": 9.5,
+      "name": "am Bogen zum Durchgang"
+    },
+    {
+      "id": "am_sicherungskasten",
+      "raum": "west_saal",
+      "x": 6.5,
+      "y": 11.5,
+      "name": "am Sicherungskasten"
+    },
+    {
+      "id": "am_kamin",
+      "raum": "west_saal",
+      "x": 2.5,
+      "y": 13.5,
+      "name": "an der Kamin-Nische"
+    },
+    {
+      "id": "west_bank_nord",
+      "raum": "west_saal",
+      "x": 4.5,
+      "y": 8.5,
+      "name": "auf der Wandbank unter den Lichtschächten"
+    },
+    {
+      "id": "west_bank_west",
+      "raum": "west_saal",
+      "x": 1.5,
+      "y": 10.5,
+      "name": "auf der Wandbank an der Westwand"
+    },
+    {
+      "id": "vor_bogentuer",
+      "raum": "west_saal",
+      "x": 2.5,
+      "y": 8.5,
+      "name": "vor der Bogentür"
+    },
+    {
+      "id": "west_tafel_sued",
+      "raum": "west_saal",
+      "x": 5.5,
+      "y": 15.5,
+      "name": "an der langen Tafel im Kaminsaal"
+    },
+    {
+      "id": "west_bank_sued",
+      "raum": "west_saal",
+      "x": 3.5,
+      "y": 18.5,
+      "name": "auf der Wandbank an der Südwand"
+    },
+    {
+      "id": "an_der_ruestung",
+      "raum": "turmgang",
+      "x": 2.5,
+      "y": 5.5,
+      "name": "bei der Ritterrüstung"
+    },
+    {
+      "id": "an_der_vitrine",
+      "raum": "turmgang",
+      "x": 2.5,
+      "y": 3.5,
+      "name": "an der Schauvitrine"
+    },
+    {
+      "id": "wendeltreppe_fuss",
+      "raum": "turmgang",
+      "x": 2.5,
+      "y": 1.5,
+      "name": "am Fuß der Wendeltreppe"
+    },
+    {
+      "id": "wc",
+      "raum": "turmgang",
+      "x": 2.5,
+      "y": 1.5,
+      "zusatzweg": 10,
+      "name": "auf der Toilette oben im Turm"
+    },
+    {
+      "id": "ost_eingang",
+      "raum": "ost_saal",
+      "x": 20.5,
+      "y": 9.5,
+      "name": "am Eingang des Ostsaals"
+    },
+    {
+      "id": "am_jackenstaender",
+      "raum": "ost_saal",
+      "x": 21.5,
+      "y": 8.5,
+      "name": "am Jackenständer"
+    },
+    {
+      "id": "ost_tafel_kopf",
+      "raum": "ost_saal",
+      "x": 22.5,
+      "y": 10.5,
+      "name": "am Kopf der langen Tafel"
+    },
+    {
+      "id": "ost_tafel_west",
+      "raum": "ost_saal",
+      "x": 21.5,
+      "y": 13.5,
+      "name": "an der langen Tafel, Westseite"
+    },
+    {
+      "id": "ost_tafel_ost",
+      "raum": "ost_saal",
+      "x": 24.5,
+      "y": 13.5,
+      "name": "an der langen Tafel, Ostseite"
+    },
+    {
+      "id": "am_handykorb",
+      "raum": "ost_saal",
+      "x": 24.5,
+      "y": 12.5,
+      "name": "beim Handykorb auf der Tafel"
+    },
+    {
+      "id": "an_der_wandtafel",
+      "raum": "ost_saal",
+      "x": 24.5,
+      "y": 10.5,
+      "name": "an der Wandtafel mit dem Ablaufplan"
+    },
+    {
+      "id": "ost_bank",
+      "raum": "ost_saal",
+      "x": 25.5,
+      "y": 15.5,
+      "name": "auf der Wandbank an der Ostwand"
+    },
+    {
+      "id": "geburtstagsplatz",
+      "raum": "ost_saal",
+      "x": 24.5,
+      "y": 16.5,
+      "name": "auf dem Ehrenplatz des Geburtstagskinds"
+    },
+    {
+      "id": "im_windfang",
+      "raum": "windfang",
+      "x": 14.5,
+      "y": 20.5,
+      "name": "im Windfang"
+    },
+    {
+      "id": "am_aussentor",
+      "raum": "windfang",
+      "x": 15.5,
+      "y": 21.5,
+      "name": "am Außentor"
+    }
+  ],
+  "lichtquellen": [
+    {
+      "id": "licht_strom",
+      "art": "elektrisch",
+      "name": "Deckenlicht und elektrische Deko-Kerzen",
+      "raeume": [
+        "thekensaal",
+        "durchgang",
+        "west_saal",
+        "turmgang",
+        "ost_saal",
+        "windfang"
+      ],
+      "an": [
+        [
+          "17:00",
+          "23:58:00"
+        ],
+        [
+          "00:00:00",
+          "07:00"
+        ]
+      ]
+    },
+    {
+      "id": "licht_vorrat",
+      "art": "elektrisch",
+      "name": "Deckenlampe im Vorratsraum",
+      "raeume": [
+        "vorratsraum"
+      ],
+      "an": [
+        [
+          "17:00",
+          "23:54:20"
+        ],
+        [
+          "00:00:18",
+          "07:00"
+        ]
+      ],
+      "hinweis": "Can schaltet sie um 23:54:20 aus, um im Dunkeln zu warten; Damir schaltet sie um 0:00:18 wieder ein."
+    },
+    {
+      "id": "licht_kerzenstaender",
+      "art": "kerze",
+      "name": "drei rote Wachskerzen im Messingkerzenständer",
+      "ort": "an_anrichte",
+      "farbe": "#FF9329",
+      "radius": 2.0,
+      "flackern": 0.4,
+      "an": [
+        [
+          "22:00",
+          "23:58:40"
+        ]
+      ],
+      "hinweis": "einzige echte Kerzen im Keller (Brandschutz im Denkmal); erlöschen beim Schlag"
+    },
+    {
+      "id": "licht_notausgang",
+      "art": "notlicht",
+      "name": "grünes Notausgangsschild mit Akku",
+      "ort": "unter_notausgang",
+      "farbe": "#2FBF5A",
+      "radius": 1.5,
+      "flackern": 0.0,
+      "an": [
+        [
+          "17:00",
+          "07:00"
+        ]
+      ]
+    },
+    {
+      "id": "licht_kamin",
+      "art": "feuer",
+      "name": "Kaminfeuer",
+      "ort": "am_kamin",
+      "farbe": "#FF8A3A",
+      "radius": 3.0,
+      "flackern": 0.5,
+      "an": [
+        [
+          "23:20",
+          "23:30"
+        ]
+      ],
+      "hinweis": "nach dem Qualm gelöscht"
+    },
+    {
+      "id": "licht_maske",
+      "art": "nachleuchten",
+      "name": "nachleuchtende Farbe der Maske",
+      "traeger": "can",
+      "farbe": "#B8FFB0",
+      "radius": 0.4,
+      "flackern": 0.0,
+      "hinweis": "nur Umriss des Gesichts erkennbar, beleuchtet nichts"
+    },
+    {
+      "id": "licht_stirnlampe",
+      "art": "lampe",
+      "name": "Tims Stirnlampe",
+      "traeger": "tim",
+      "farbe": "#FFF4D6",
+      "radius": 3.0,
+      "an": [
+        [
+          "23:59:40",
+          "07:00"
+        ]
+      ]
+    },
+    {
+      "id": "licht_handys",
+      "art": "lampe",
+      "name": "Handy-Taschenlampen aus dem Handykorb",
+      "ort": "am_handykorb",
+      "farbe": "#FFFFFF",
+      "radius": 3.0,
+      "an": [
+        [
+          "23:59:30",
+          "00:00:30"
+        ]
+      ]
+    },
+    {
+      "id": "licht_serkan",
+      "art": "lampe",
+      "name": "Serkans LED-Taschenlampe",
+      "traeger": "serkan",
+      "farbe": "#FFFFFF",
+      "radius": 3.0,
+      "an": [
+        [
+          "23:56:00",
+          "00:01:00"
+        ]
+      ],
+      "hinweis": "im Windfang hinter geschlossener Innentür, erreicht den Saal nicht"
+    },
+    {
+      "id": "licht_notlaterne",
+      "art": "lampe",
+      "name": "Notlaterne am Haken im Vorratsraum",
+      "ort": "vorrat_innen",
+      "farbe": "#FFF1C9",
+      "radius": 3.0,
+      "an": [],
+      "hinweis": "Wird in der Tatnacht nie eingeschaltet; Herr Schneider erreicht sie nicht."
+    }
+  ],
+  "luftzug": [
+    {
+      "ab": "23:30",
+      "weg": [
+        "thekensaal",
+        "durchgang",
+        "west_saal"
+      ],
+      "grund": "Seit dem Qualm stehen die Lichtschacht-Klappen offen; Kaminschacht und Lichtschächte ziehen Luft aus dem Buffetsaal durch den Durchgang in den Kaminsaal."
+    }
+  ],
+  "geraeusch": {
+    "regel": "Nachbarschaft der Räume für das Hören. Die Hörregeln (sehr laut, laut, leise, Tumult) stehen in wahrnehmung.json.",
+    "nachbarn": [
+      [
+        "thekensaal",
+        "vorratsraum"
+      ],
+      [
+        "thekensaal",
+        "durchgang"
+      ],
+      [
+        "durchgang",
+        "west_saal"
+      ],
+      [
+        "thekensaal",
+        "ost_saal"
+      ],
+      [
+        "west_saal",
+        "turmgang"
+      ],
+      [
+        "thekensaal",
+        "windfang"
+      ]
+    ],
+    "geschlossen": [
+      [
+        "thekensaal",
+        "windfang"
+      ]
+    ]
+  }
+}

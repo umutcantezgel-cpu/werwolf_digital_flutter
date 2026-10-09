@@ -1,0 +1,97 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "hinweis": "Regeln für Wege und Wahrnehmung in der Tatnacht. Startwerte aus 7.4, verfeinert per Denkprotokoll (E-015). Der Plausibilitätsprüfer rechnet damit jede Wahrnehmung aus der Tatmatrix aus.",
+  "tempo": {
+    "dunkel": 1.0,
+    "hell": 1.5,
+    "rennen": 2.5,
+    "regel": "Gehen im Dunkeln höchstens 1 m/s, bei Licht höchstens 1,5 m/s. Rennen höchstens 2,5 m/s und nie lautlos. Als hell gilt ein Weg nur, wenn Start und Ziel volles oder schwaches Licht haben."
+  },
+  "licht": {
+    "voll": [
+      "elektrisch"
+    ],
+    "schwach": [
+      "kerze",
+      "lampe",
+      "feuer"
+    ],
+    "rest": [
+      "notlicht",
+      "nachleuchten"
+    ],
+    "erkennenSchwachBis": 3.0,
+    "regel": "Sehen braucht Licht am Ziel und eine freie Sichtlinie. Bei vollem Licht erkennt man Personen im ganzen Raum. Bei schwachem Licht erkennt man Gesicht und Farben bis 3 m, weiter weg nur Umrisse. Restlicht zeigt nur Umrisse. Etwas, das selbst leuchtet (die Maske), sieht man im Dunkeln auch von weitem, aber nur als leuchtendes Gesicht. Wer kauert, liegt oder die Augen verbunden hat, sieht nichts."
+  },
+  "hoeren": {
+    "klassen": {
+      "sehr_laut": "im selben Raum und in jedem direkt angrenzenden Raum hinter offener oder angelehnter Tür; auch durch Kopfhörer mit Musik; zwei Räume weiter nicht",
+      "laut": "im selben Raum; im Nachbarraum nur bis 3 m von der offenen Tür",
+      "leise": "im selben Raum bis 3 m"
+    },
+    "tumult": {
+      "von": "23:58:00",
+      "bis": "00:00:00",
+      "raeume": [
+        "thekensaal",
+        "durchgang",
+        "ost_saal"
+      ],
+      "lautBis": 3.0,
+      "leiseBis": 1.5,
+      "regel": "Im Tumult rufen alle durcheinander. Lautes hört man dort nur bis 3 m, Leises nur bis 1,5 m. Sehr Lautes hört man weiter überall."
+    },
+    "zweiTueren": "Zwei Räume weiter oder hinter einer geschlossenen Tür hört man nichts Genaues.",
+    "schritte": {
+      "gehen": "leise",
+      "rennen": "laut"
+    },
+    "liegend": "Wer bewusstlos liegt, hört nichts.",
+    "bund": "Wer den Schlüsselbund trägt, hält ihn fest in der Faust. Er klimpert nur, als er vom Gürtel gezogen wird.",
+    "tueren": "Eine offene Tür quietscht nicht, wenn man hindurchgeht. Wird eine quietschende Tür geöffnet oder geschlossen, ist das laut.",
+    "hindernisse": "Möbel wie Theke und Tische dämpfen nicht; es zählen nur Räume, Türen und Abstand."
+  },
+  "fuehlen": {
+    "bis": 1.0,
+    "regel": "Berührung bis 1 m. Man spürt, dass jemand da ist oder vorbeidrängt, aber nicht, wer. Wer es ist, weiß man nur, wenn die Person etwas sagt."
+  },
+  "riechen": {
+    "nachwirkenSekunden": 90,
+    "regel": "Im selben Raum oder in Räumen, in die der Luftzug den Geruch trägt."
+  },
+  "haltungen": {
+    "steht": {
+      "sieht": true,
+      "hoert": "alles"
+    },
+    "sitzt": {
+      "sieht": true,
+      "hoert": "alles"
+    },
+    "kauert": {
+      "sieht": false,
+      "hoert": "alles"
+    },
+    "augenbinde": {
+      "sieht": false,
+      "hoert": "nur_sehr_laut"
+    },
+    "liegt": {
+      "sieht": false,
+      "hoert": "nichts"
+    }
+  },
+  "abtastung": {
+    "sekunden": 1,
+    "matrixSchritt": 15,
+    "fenster": [
+      "23:55:00",
+      "00:05:00"
+    ],
+    "planFenster": [
+      "23:50:00",
+      "00:15:00"
+    ]
+  },
+  "zeitgefuehl": "Im Dunkeln schätzt niemand Zeitabstände verlässlich. Als Wissen zählt nur die Reihenfolge von Ereignissen, die eine Person selbst wahrgenommen hat."
+}

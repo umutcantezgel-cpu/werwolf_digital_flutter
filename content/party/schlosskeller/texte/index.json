@@ -1,0 +1,158 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "hinweis": "Alle Dateien der Textsammlung (E-026). Jede Kennung kommt genau einmal vor; Verweise auf Kanon-Tatsachen statt Abschrift.",
+  "dateien": [
+    {
+      "datei": "erzaehler-intro.json",
+      "bereich": "erzaehler"
+    },
+    {
+      "datei": "erzaehler-runden.json",
+      "bereich": "erzaehler"
+    },
+    {
+      "datei": "erzaehler-finale-ahmet.json",
+      "bereich": "erzaehler"
+    },
+    {
+      "datei": "erzaehler-finale-fatma.json",
+      "bereich": "erzaehler"
+    },
+    {
+      "datei": "erzaehler-finale-olli.json",
+      "bereich": "erzaehler"
+    },
+    {
+      "datei": "erzaehler-finale-can.json",
+      "bereich": "erzaehler"
+    },
+    {
+      "datei": "erzaehler-aufloesung.json",
+      "bereich": "erzaehler"
+    },
+    {
+      "datei": "dossiers-b1.json",
+      "bereich": "dossier"
+    },
+    {
+      "datei": "dossiers-b2.json",
+      "bereich": "dossier"
+    },
+    {
+      "datei": "dossiers-b3.json",
+      "bereich": "dossier"
+    },
+    {
+      "datei": "dossiers-b4.json",
+      "bereich": "dossier"
+    },
+    {
+      "datei": "dossiers-b5.json",
+      "bereich": "dossier"
+    },
+    {
+      "datei": "taeter-ahmet.json",
+      "bereich": "taeter"
+    },
+    {
+      "datei": "taeter-fatma.json",
+      "bereich": "taeter"
+    },
+    {
+      "datei": "taeter-olli.json",
+      "bereich": "taeter"
+    },
+    {
+      "datei": "taeter-can.json",
+      "bereich": "taeter"
+    },
+    {
+      "datei": "detektiv.json",
+      "bereich": "detektiv"
+    },
+    {
+      "datei": "gespraeche-r1-b1.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r1-b2.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r1-b3.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r1-b4.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r1-b5.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r2-b1.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r2-b2.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r2-b3.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r2-b4.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r2-b5.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r3-b1.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r3-b2.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r3-b3.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r3-b4.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "gespraeche-r3-b5.json",
+      "bereich": "gespraech"
+    },
+    {
+      "datei": "wahlen-kern.json",
+      "bereich": "wahl"
+    },
+    {
+      "datei": "wahlen-b2.json",
+      "bereich": "wahl"
+    },
+    {
+      "datei": "wahlen-b3.json",
+      "bereich": "wahl"
+    },
+    {
+      "datei": "wahlen-b4.json",
+      "bereich": "wahl"
+    },
+    {
+      "datei": "wahlen-b5.json",
+      "bereich": "wahl"
+    },
+    {
+      "datei": "ui.json",
+      "bereich": "ui"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+# Textsammlung · Schlüssel und Regeln (F3-ORCH-00, E-026)
+
+Diese Datei ist die Anleitung für alle Autorinnen und Autoren. Der Lader ist `packages/mordakte_core/lib/src/party/texte.dart`. Die Prüfungen laufen in `test/party/texte_test.dart` (Verweise und Regeln) und am F3-Tor über `textLuecken` (Vollständigkeit).
+
+## Grundsätze
+1. **Eine Quelle.** Tatsachen stehen schon im Kanon: Beobachtungen, Spuren, Lügen, Nebendelikte, Zeitleiste, Entscheidungen und Bonus-Hinweise. Texte schreiben sie nicht ab, sondern verweisen auf sie:
+   - `beobachtung:<id>`
+   - `luege:<id>`
+   - `nebendelikt:<id>`
+   - `zeitleiste:<id>`
+   - `spur:<id>`
+
+   Pfadabhängiges Wissen setzt der Code je Pfad ein. Eine Beobachtung, die es im Pfad nicht gibt, fällt weg.
+2. **Jede Kennung genau einmal.** Jede Datei gehört genau einem Auftrag. Bei einer Doppelung gilt der erste Eintrag, und die Prüfung wird rot.
+3. **Ton** nach `planung/finalisierung-schlosskeller/TON-LEITFADEN.md`:
+   - Sätze im Mittel höchstens 14 Wörter, keiner über 25.
+   - Keine Fachwörter.
+   - Kein Alkohol, keine Drogen, kein Rauchen.
+   - In Vorlesetexten (Erzähler) Uhrzeiten und Beträge in Worten.
+
+## Dateien (Liste in `index.json`)
+| Datei | Bereich | Einträge |
+|---|---|---|
+| `erzaehler-intro.json` | erzaehler | `intro.start`, `intro.lacher.<lacher>.besetzt` und `.npc` (je 3), `intro.auftrag.m`, `intro.auftrag.w` |
+| `erzaehler-runden.json` | erzaehler | `runde.1.start` bis `runde.3.start`, `bonus.rahmen`, `resuemee.gruppe.1` bis `.3`, `resuemee.rest.*` (12), `resuemee.lage.<runde>.<offen\|spur\|klar>` (9), `anklage.start` |
+| `erzaehler-finale-<pfad>.json` | erzaehler | `finale.<pfad>.<ende_meister\|ende_teilerfolg\|ende_justizirrtum\|ende_eskalation>`, `rueckblende.<pfad>` |
+| `erzaehler-aufloesung.json` | erzaehler | `aufloesung.gruppe.0` bis `.3`, `aufloesung.<rolle>` (16 Nebenrollen), `aufloesung.<kernrolle>.taeter` und `.unschuldig` (8) |
+| `dossiers-b1.json` bis `-b5.json` | dossier | je Rolle: `rolle`, `wer`, `weiss[]`, `verbirgt[]`, `ziel`, `besetzung` |
+| `taeter-<pfad>.json` | taeter | `rolle`, `tarnung`, `tatwissen[]`, `verbirgt[]`, `ziel` |
+| `detektiv.json` | detektiv | `detektiv.m.*`, `detektiv.w.*`, `ermittlungsbogen.*` |
+| `gespraeche-r<N>-b<B>.json` | gespraech | `g_<rolle>_<runde>_<nr>` mit `partner`, `thema`, `ziel`, `preisgabe[]`, `text` |
+| `wahlen-kern.json`, `wahlen-b2.json` bis `-b5.json` | wahl | `gw_<rolle>_<runde>` mit `a`, `b`, bei Kernrollen `sabotage` |
+| `ui.json` | ui | `ui.*` (F4) |
+
+Die Kennungen der Erzählerbausteine kommen aus `Erzaehler.katalog()`; andere Kennungen sind dort verboten.
+
+## Sichtbarkeit
+- **Vor dem Finale, am Tisch:**
+  - Erzählerbausteine außer `finale.*`, `rueckblende.*` und `aufloesung.*`
+  - `dossier.wer`, der Vorstellungstext
+  - der Text der Pflichtgespräche
+- **Nur die eigene Rolle:** `weiss`, `verbirgt`, `ziel`, Täterfassung, Wahltexte.
+- **Nur der Detektiv:** `detektiv.*` und `ermittlungsbogen.*`.
+- **Spoilerregel (S-1):**
+  - Nichts, was am Tisch steht, verrät den Täter-Pfad oder geht über das Wissen des Detektivs hinaus.
+  - `resuemee.rest.eins` nennt keinen Namen.
+  - `bonus.rahmen` sagt nie, ob ein Hinweis stimmt.
+
+## Regeln für Dossiers
+- `wer`: Vorstellung in zwei bis vier Sätzen. Name, Alltag, Bezug zur Gruppe, sichtbares Merkmal. Kein Geheimnis.
+- `weiss`: was die Rolle sicher weiß und am Tisch sagen darf. Verweise nur auf eigene Beobachtungen der Rolle (Feld `wer` der Beobachtung). Eigene Sätze nur ohne neue Tatsachen.
+- `verbirgt`: verborgene Beobachtungen der Rolle, Nebendelikt, eigene Lügen. Eine Lüge erscheint mit Behauptung und Wahrheit. Ein Satz dazu, warum die Rolle schweigt (aus `grundVerborgen` oder `loyalitaet`).
+- `ziel`: das persönliche Ziel aus `figuren.json`, in eigenen Worten.
+- `besetzung`: ein Satz, wie die Rolle von jedem Geschlecht gespielt wird.
+- **Täterfassung:**
+  - `tarnung`: was die Person über die Tatsekunden erzählt.
+  - `tatwissen`: was wirklich geschah, aus `killerProfile` und der Tatmatrix des Pfads.
+  - `verbirgt`: Lügen und Spuren.
+  - `ziel`: unentdeckt bleiben, ohne Unschuldige ins Unglück zu stürzen.
+
+## Regeln für Pflichtgespräche (P-1)
+- Drei je Rolle und Runde: `nr` 1 bis 3.
+- `partner` ist eine Rolle oder `detective`. Fehlt die Rolle, übernimmt der erste besetzte Ersatzpartner aus `besetzung.json`, sonst der Detektiv.
+- `preisgabe` enthält nur zwei Arten von Verweisen:
+  - eigene Beobachtungen mit Kanal `pflichtgespraech`
+  - eigene Lügen; am Tisch wird nur die Behauptung gesagt
+- Nie Nebendelikte, verborgene Beobachtungen oder Spuren. Sonst schließt die Runde am Tisch zu früh aus.
+- `text`: ein bis drei Sätze, mit denen die Rolle das Gespräch eröffnet.
+
+## Regeln für die Rundenwahl
+- `a` ist kooperativ und kostet die Rolle etwas (siehe `gruppenwahl.json` → `kosten`).
+- `b` schützt Ziel oder Freund.
+- `sabotage` gibt es nur bei Kernrollen (Täterfassung). Sie klingt für Außenstehende wie ein harmloses `b`.
+- Je Option ein bis zwei Sätze in der Ich-Form.

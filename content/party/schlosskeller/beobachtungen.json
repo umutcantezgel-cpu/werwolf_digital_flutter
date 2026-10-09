@@ -1,0 +1,891 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "hinweis": "Beobachtungen der Zeugen. Jede Beobachtung ist aus der Tatmatrix ableitbar (beleg). Kanal: pflichtgespraech = darf am Tisch erzählt werden (nur pfadneutral, Regel P-1); verborgen = steht im Dossier unter „Was ich verberge“ und erreicht den Detektiv nur über eine Entscheidung oder den Bonus-Hinweis; erzaehler = kommt über den Erzähler. Ein Trenner unterscheidet den Pfad einer Kernperson; jeder hat genau einen Zeugen.",
+  "beobachtungen": [
+    {
+      "id": "b_lejla_ahmet_theke",
+      "wer": "leyla",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Um 23:57 schlüpfte Ahmet mit einem dicken Umschlag hinter die Theke.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "sehen",
+            "quelle": "ahmet",
+            "detail": [
+              "erkannt"
+            ],
+            "von": "23:56:50",
+            "bis": "23:57:10"
+          }
+        ]
+      },
+      "widerlegt": [
+        "luege_ahmet_servietten"
+      ],
+      "belastet": [
+        "ahmet"
+      ]
+    },
+    {
+      "id": "b_damir_an_der_theke",
+      "wer": "enes",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Um 23:57 standen Ahmet, Fatma und Olli an der Theke, Herr Schneider am Ostende. Can war nicht zu sehen.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "sehen",
+            "quelle": "ahmet",
+            "detail": [
+              "erkannt"
+            ],
+            "von": "23:57:00",
+            "bis": "23:57:20"
+          },
+          {
+            "sinn": "sehen",
+            "quelle": "fatma",
+            "detail": [
+              "erkannt"
+            ],
+            "von": "23:57:00",
+            "bis": "23:57:20"
+          },
+          {
+            "sinn": "sehen",
+            "quelle": "olli",
+            "detail": [
+              "erkannt"
+            ],
+            "von": "23:57:00",
+            "bis": "23:57:20"
+          },
+          {
+            "sinn": "sehen",
+            "quelle": "schneider",
+            "detail": [
+              "erkannt"
+            ],
+            "von": "23:57:00",
+            "bis": "23:57:20"
+          }
+        ],
+        "keine": [
+          {
+            "sinn": "sehen",
+            "quelle": "can",
+            "von": "23:57:00",
+            "bis": "23:57:20"
+          }
+        ]
+      },
+      "widerlegt": [
+        "luege_fatma_buffet",
+        "luege_olli_tafel"
+      ],
+      "belastet": [
+        "ahmet",
+        "fatma",
+        "olli"
+      ]
+    },
+    {
+      "id": "b_emine_schatulle",
+      "wer": "emine",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "verborgen",
+      "text": "Um 23:40 sah sie im Turmgang, wie Fatma die Münzschatulle aus der Vitrine nahm.",
+      "beleg": {
+        "zeitleiste": [
+          "z_vitrine_schatulle"
+        ]
+      },
+      "widerlegt": [
+        "luege_fatma_tasche"
+      ],
+      "belastet": [
+        "fatma"
+      ],
+      "grundVerborgen": "Sie hat Fatma versprochen zu schweigen."
+    },
+    {
+      "id": "b_emine_versteck",
+      "wer": "emine",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Beim Knall duckte sie sich hinter den linken Buffettisch und blieb dort, bis das Licht anging.",
+      "beleg": {
+        "aufenthalt": {
+          "person": "emine",
+          "ort": "hinter_linkem_buffet",
+          "von": "23:58:00",
+          "bis": "00:00:00"
+        }
+      }
+    },
+    {
+      "id": "b_azra_tasche",
+      "wer": "dilara",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Um 23:45 war Fatmas Tasche auffällig ausgebeult.",
+      "beleg": {
+        "zeitleiste": [
+          "z_tasche_ausgebeult"
+        ]
+      },
+      "belastet": [
+        "fatma"
+      ]
+    },
+    {
+      "id": "b_azra_versteck",
+      "wer": "dilara",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Beim Knall duckte sie sich am rechten Buffettisch und blieb dort, bis das Licht anging.",
+      "beleg": {
+        "aufenthalt": {
+          "person": "dilara",
+          "ort": "am_rechten_buffet",
+          "von": "23:58:00",
+          "bis": "00:00:00"
+        }
+      }
+    },
+    {
+      "id": "b_joanna_foto",
+      "wer": "johanna",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "verborgen",
+      "text": "Sie hat ein Foto von 23:51: Herr Schneider und Ahmet streiten an der Theke, Ahmet hält einen dicken Umschlag.",
+      "beleg": {
+        "gegenstand": [
+          "foto_joanna"
+        ],
+        "zeitleiste": [
+          "z_foto_streit"
+        ]
+      },
+      "belastet": [
+        "ahmet"
+      ],
+      "grundVerborgen": "Ahmet hat sie gebeten, das Foto zu löschen."
+    },
+    {
+      "id": "b_marek_gesicht",
+      "wer": "murat",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Im Dunkeln rannte ein leuchtendes Gespenstergesicht an ihm vorbei durch den Durchgang Richtung Kaminsaal.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "sehen",
+            "quelle": "can",
+            "detail": [
+              "leuchten"
+            ],
+            "von": "23:58:00",
+            "bis": "23:59:30"
+          }
+        ]
+      },
+      "belastet": [
+        "can"
+      ]
+    },
+    {
+      "id": "b_selin_gesicht",
+      "wer": "selin",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Im Dunkeln huschte ein leuchtendes Gesicht quer durch den Kaminsaal zur Bogentür.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "sehen",
+            "quelle": "can",
+            "detail": [
+              "leuchten"
+            ],
+            "von": "23:58:00",
+            "bis": "23:59:30"
+          }
+        ]
+      },
+      "belastet": [
+        "can"
+      ]
+    },
+    {
+      "id": "b_tim_gesicht",
+      "wer": "tim",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Am Sicherungskasten huschte im Dunkeln ein leuchtendes Gesicht an ihm vorbei.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "sehen",
+            "quelle": "can",
+            "detail": [
+              "leuchten"
+            ],
+            "von": "23:58:00",
+            "bis": "23:59:30"
+          }
+        ]
+      },
+      "belastet": [
+        "can"
+      ]
+    },
+    {
+      "id": "b_tim_kurzschluss",
+      "wer": "tim",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "verborgen",
+      "text": "Der Kurzschluss kam von seiner alten Mehrfachsteckdose.",
+      "beleg": {
+        "ereignis": [
+          "ev_tim_steckdose",
+          "ev_knall"
+        ],
+        "gegenstand": [
+          "mehrfachsteckdose_tim"
+        ]
+      },
+      "grundVerborgen": "Er schämt sich, weil Herr Schneider ihn gewarnt hatte."
+    },
+    {
+      "id": "b_zeynep_vorrat",
+      "wer": "zeynep",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "verborgen",
+      "text": "Can hat mit der Leuchtmaske im dunklen Vorratsraum auf das Geburtstagskind gewartet.",
+      "beleg": {
+        "zeitleiste": [
+          "z_can_vorrat"
+        ]
+      },
+      "widerlegt": [
+        "luege_can_toilette",
+        "luege_can_maske"
+      ],
+      "belastet": [
+        "can"
+      ],
+      "grundVerborgen": "Can ist ihr Bruder."
+    },
+    {
+      "id": "b_zeynep_gesicht",
+      "wer": "zeynep",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Ein leuchtendes Gesicht kam aus dem Durchgang an ihr vorbei in den Kaminsaal.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "sehen",
+            "quelle": "can",
+            "detail": [
+              "leuchten"
+            ],
+            "von": "23:58:00",
+            "bis": "23:59:30"
+          }
+        ]
+      },
+      "belastet": [
+        "can"
+      ]
+    },
+    {
+      "id": "b_hana_wachs",
+      "wer": "meryem",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Kurz nach dem Scheppern roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "riechen",
+            "quelle": "ev_wachsgeruch",
+            "von": "23:58:40",
+            "bis": "00:00:00"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b_hana_umschlag",
+      "wer": "meryem",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Kurz nach zwölf warf Ahmet etwas Raschelndes in den Ascheneimer neben dem Kamin.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "sehen",
+            "quelle": "ahmet",
+            "detail": [
+              "erkannt"
+            ],
+            "von": "00:11:30",
+            "bis": "00:12:10"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "geraeusch:ahmet",
+            "von": "00:12:00",
+            "bis": "00:12:00"
+          }
+        ]
+      },
+      "belastet": [
+        "ahmet"
+      ]
+    },
+    {
+      "id": "b_baran_rufe",
+      "wer": "baran",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Aus Richtung Theke hörte er erst „Hab ich dich!“, dann „Stehen bleiben!“, dann das Scheppern.",
+      "beleg": {
+        "reihenfolge": [
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:schneider",
+            "von": "23:58:13",
+            "bis": "23:58:13"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:schneider",
+            "von": "23:58:30",
+            "bis": "23:58:30"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_scheppern"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b_serkan_tor",
+      "wer": "serkan",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Von kurz vor zwölf bis nach zwölf stand er am Außentor. Es war abgeschlossen; niemand ist hinaus.",
+      "beleg": {
+        "aufenthalt": {
+          "person": "serkan",
+          "ort": "am_aussentor",
+          "von": "23:55:45",
+          "bis": "00:02:00"
+        }
+      }
+    },
+    {
+      "id": "b_wojtek_olli_satz",
+      "wer": "kaan",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Um 23:52 sagte Olli: „Ich hol dir Eis. Und dann red ich mit Schneider.“",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:olli",
+            "detail": [
+              "sprecher"
+            ],
+            "von": "23:52:00",
+            "bis": "23:52:00"
+          }
+        ]
+      },
+      "belastet": [
+        "olli"
+      ]
+    },
+    {
+      "id": "b_wojtek_vorbei",
+      "wer": "kaan",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Im Dunkeln drängte sich jemand an ihm vorbei durch die Bogentür in den Turm.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "fuehlen",
+            "quelle": "can",
+            "von": "23:58:00",
+            "bis": "00:00:00"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b_wojtek_tuer",
+      "wer": "kaan",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "verborgen",
+      "text": "Er weiß: Olli hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt zweitausend Euro dafür. Das Möbelwachs zum Verdecken kam von ihm.",
+      "beleg": {
+        "zeitleiste": [
+          "z_tuerschaden",
+          "z_moebelwachs",
+          "z_streit_olli"
+        ]
+      },
+      "belastet": [
+        "olli"
+      ],
+      "grundVerborgen": "Die Idee mit dem Möbelwachs war seine; das soll niemand wissen."
+    },
+    {
+      "id": "b_pawel_schneider",
+      "wer": "hakan",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Herr Schneider muss jeden Schaden der Stiftung melden und zahlt kleine Schäden oft aus eigener Tasche. Darum ist er beim Geld so streng.",
+      "beleg": {
+        "wissen": "Hintergrund aus Pawels Ferienjob bei der Schlossstiftung."
+      }
+    },
+    {
+      "id": "b_aylin_quittung",
+      "wer": "aylin",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Sie hat Herrn Schneiders Quittungszettel: „Miete: 0 Euro.“",
+      "beleg": {
+        "gegenstand": [
+          "quittung_aylin"
+        ]
+      },
+      "widerlegt": [
+        "luege_ahmet_miete"
+      ],
+      "belastet": [
+        "ahmet"
+      ]
+    },
+    {
+      "id": "b_tugba_notiz",
+      "wer": "tugba",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute nach eigener Auskunft gerade sind.",
+      "beleg": {
+        "gegenstand": [
+          "notizbuch_tugba"
+        ]
+      },
+      "widerlegt": [
+        "luege_olli_tafel"
+      ]
+    },
+    {
+      "id": "b_detektiv_gehoert",
+      "wer": "detective",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "erzaehler",
+      "text": "Durch die Musik hast du nur einen Knall gehört, dann Herrn Schneiders Rufe „Hab ich dich!“ und „Stehen bleiben!“ und später ein Scheppern.",
+      "beleg": {
+        "reihenfolge": [
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_knall"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:schneider",
+            "von": "23:58:13",
+            "bis": "23:58:13"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:schneider",
+            "von": "23:58:30",
+            "bis": "23:58:30"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_scheppern"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b_schneider_erinnerung",
+      "wer": "schneider",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "erzaehler",
+      "text": "Knall, Dunkelheit, der Weg zur Notlaterne, ein leuchtendes Gespenstergesicht. Er packt eine Kapuze und ruft „Hab ich dich!“. Danach ist alles weg.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_knall"
+          },
+          {
+            "sinn": "sehen",
+            "quelle": "can",
+            "detail": [
+              "leuchten",
+              "erkannt",
+              "umriss"
+            ],
+            "von": "23:58:09",
+            "bis": "23:58:13"
+          },
+          {
+            "sinn": "fuehlen",
+            "quelle": "can",
+            "von": "23:58:11",
+            "bis": "23:58:13"
+          }
+        ]
+      },
+      "belastet": [
+        "can"
+      ]
+    },
+    {
+      "id": "b_azra_olli_frueh",
+      "wer": "dilara",
+      "pfade": [
+        "ahmet",
+        "fatma",
+        "can"
+      ],
+      "art": "pfadabhaengig",
+      "kanal": "verborgen",
+      "text": "Beim Scheppern kauerte Olli neben ihr hinter dem rechten Buffettisch. Er war schon seit dem Knall da und hatte geflüstert: „Azra? Ich bin's, Olli.“",
+      "beleg": {
+        "reihenfolge": [
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:olli",
+            "detail": [
+              "sprecher"
+            ]
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_scheppern"
+          }
+        ],
+        "alle": [
+          {
+            "sinn": "fuehlen",
+            "quelle": "olli",
+            "umfasst": "23:58:40"
+          }
+        ]
+      },
+      "entlastet": [
+        "olli"
+      ],
+      "trenner": "olli",
+      "grundVerborgen": "Sie will sich nicht in den Streit um Olli einmischen, solange niemand fragt."
+    },
+    {
+      "id": "b_azra_olli_spaet",
+      "wer": "dilara",
+      "pfade": [
+        "olli"
+      ],
+      "art": "pfadabhaengig",
+      "kanal": "verborgen",
+      "text": "Beim Scheppern war Olli nicht neben ihr. Er kam erst danach und flüsterte: „Azra? Ich bin's, Olli.“",
+      "beleg": {
+        "reihenfolge": [
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_scheppern"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:olli",
+            "detail": [
+              "sprecher"
+            ]
+          }
+        ],
+        "keine": [
+          {
+            "sinn": "fuehlen",
+            "quelle": "olli",
+            "umfasst": "23:58:40"
+          }
+        ]
+      },
+      "belastet": [
+        "olli"
+      ],
+      "trenner": "olli",
+      "grundVerborgen": "Sie will Olli nicht ohne Not belasten."
+    },
+    {
+      "id": "b_emine_fatma_frueh",
+      "wer": "emine",
+      "pfade": [
+        "ahmet",
+        "olli",
+        "can"
+      ],
+      "art": "pfadabhaengig",
+      "kanal": "verborgen",
+      "text": "Beim Scheppern kauerte Fatma neben ihr hinter dem linken Buffettisch. Sie war schon seit dem Knall da und hatte geflüstert: „Emine? Ich bin's, Fatma.“",
+      "beleg": {
+        "reihenfolge": [
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:fatma",
+            "detail": [
+              "sprecher"
+            ]
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_scheppern"
+          }
+        ],
+        "alle": [
+          {
+            "sinn": "fuehlen",
+            "quelle": "fatma",
+            "umfasst": "23:58:40"
+          }
+        ]
+      },
+      "entlastet": [
+        "fatma"
+      ],
+      "trenner": "fatma",
+      "grundVerborgen": "Sie fürchtet, dass dann auch die Schatulle herauskommt."
+    },
+    {
+      "id": "b_emine_fatma_spaet",
+      "wer": "emine",
+      "pfade": [
+        "fatma"
+      ],
+      "art": "pfadabhaengig",
+      "kanal": "verborgen",
+      "text": "Beim Scheppern war Fatma nicht neben ihr. Sie kam erst danach und flüsterte: „Emine? Ich bin's, Fatma.“",
+      "beleg": {
+        "reihenfolge": [
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_scheppern"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:fatma",
+            "detail": [
+              "sprecher"
+            ]
+          }
+        ],
+        "keine": [
+          {
+            "sinn": "fuehlen",
+            "quelle": "fatma",
+            "umfasst": "23:58:40"
+          }
+        ]
+      },
+      "belastet": [
+        "fatma"
+      ],
+      "trenner": "fatma",
+      "grundVerborgen": "Fatma ist ihre beste Freundin."
+    },
+    {
+      "id": "b_damir_ahmet_blieb",
+      "wer": "enes",
+      "pfade": [
+        "fatma",
+        "olli",
+        "can"
+      ],
+      "art": "pfadabhaengig",
+      "kanal": "verborgen",
+      "text": "Beim Scheppern kauerte Ahmet neben ihm am Ostende der Theke. Er war schon seit dem Knall da und hatte geflüstert: „Damir? Ich bin's, Ahmet.“",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:ahmet",
+            "detail": [
+              "sprecher"
+            ],
+            "von": "23:58:03",
+            "bis": "23:58:03"
+          },
+          {
+            "sinn": "fuehlen",
+            "quelle": "ahmet",
+            "umfasst": "23:58:40"
+          }
+        ]
+      },
+      "entlastet": [
+        "ahmet"
+      ],
+      "trenner": "ahmet",
+      "grundVerborgen": "Er will nicht, dass sein Ärger mit Herrn Schneider zur Sprache kommt."
+    },
+    {
+      "id": "b_damir_ahmet_weg",
+      "wer": "enes",
+      "pfade": [
+        "ahmet"
+      ],
+      "art": "pfadabhaengig",
+      "kanal": "verborgen",
+      "text": "Beim Scheppern war Ahmet nicht neben ihm. Er war kurz davor aufgestanden und kam erst danach zurück: „Damir, ich bin's wieder.“",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:ahmet",
+            "detail": [
+              "sprecher"
+            ],
+            "von": "23:58:03",
+            "bis": "23:58:03"
+          }
+        ],
+        "keine": [
+          {
+            "sinn": "fuehlen",
+            "quelle": "ahmet",
+            "umfasst": "23:58:40"
+          }
+        ],
+        "reihenfolge": [
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_scheppern"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "sagt:ahmet",
+            "detail": [
+              "sprecher"
+            ],
+            "von": "23:58:41",
+            "bis": "00:00:00"
+          }
+        ]
+      },
+      "belastet": [
+        "ahmet"
+      ],
+      "trenner": "ahmet",
+      "grundVerborgen": "Ahmet ist ein Freund; er will ihn nicht ohne Not belasten."
+    },
+    {
+      "id": "b_marek_vor",
+      "wer": "murat",
+      "pfade": [
+        "ahmet",
+        "fatma",
+        "olli"
+      ],
+      "art": "pfadabhaengig",
+      "kanal": "verborgen",
+      "text": "Das leuchtende Gesicht rannte an ihm vorbei, bevor es an der Theke schepperte.",
+      "beleg": {
+        "reihenfolge": [
+          {
+            "sinn": "sehen",
+            "quelle": "can",
+            "detail": [
+              "leuchten"
+            ],
+            "von": "23:58:00",
+            "bis": "00:00:00"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_scheppern"
+          }
+        ]
+      },
+      "entlastet": [
+        "can"
+      ],
+      "trenner": "can",
+      "grundVerborgen": "Er ist sich im Dunkeln nicht sicher und will niemanden falsch belasten."
+    },
+    {
+      "id": "b_marek_nach",
+      "wer": "murat",
+      "pfade": [
+        "can"
+      ],
+      "art": "pfadabhaengig",
+      "kanal": "verborgen",
+      "text": "Das leuchtende Gesicht rannte an ihm vorbei, nachdem es an der Theke gescheppert hatte.",
+      "beleg": {
+        "reihenfolge": [
+          {
+            "sinn": "hoeren",
+            "quelle": "ev_scheppern"
+          },
+          {
+            "sinn": "sehen",
+            "quelle": "can",
+            "detail": [
+              "leuchten"
+            ],
+            "von": "23:58:00",
+            "bis": "00:00:00"
+          }
+        ]
+      },
+      "belastet": [
+        "can"
+      ],
+      "trenner": "can",
+      "grundVerborgen": "Er ist sich im Dunkeln nicht sicher und will niemanden falsch belasten."
+    }
+  ]
+}

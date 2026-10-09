@@ -1,0 +1,37 @@
+STAND · Bauphase F3 von F7 · Abnahme 6 von 17 (F-01..F-05, F-07; F-06/F-08 vorläufig) · Brüche offen 0 · Aufträge 44 von 169 · Agenten aktiv 0 · nächster Schritt: F3-ORCH-00 Textsammlung festschreiben (Entwurf F3-ENTWURF-TEXTSAMMLUNG.md), dann Textprüfer und Autoren
+
+# STATUS
+
+## Tagesbericht
+| Datum | Stand | Zielabstand | Offene Brüche | Plananpassung |
+|---|---|---|---|---|
+| 09.10.2026 | F0 läuft: Branch `finalisierung-schlosskeller` ab `d92a675`, Werkzeugkette repo-lokal, Messbasis grün, Planungsordner angelegt | 0 / 17 | 49 (B-01..B-17, V-01..V-32) | – |
+| 09.10.2026, 11:10 | F0-Commit `918cb38` gepusht; Plan-Schleife Runde 1 entschieden (E-013), Runde 2 läuft; F1-Entwürfe: raeume, fall, setting, figuren | 0 / 17 | 81 (B, V, A) | Namensbalance verfeinert (E-014 folgt) |
+| 09.10.2026, Nachmittag | F0-Tor bestanden; F1: Kanon (13 Dateien), Tatmatrix, Plausibilitätsprüfer 0 Verstöße, Beweisprüfung, Schemas, 24 Tests grün, Karten-Probelauf mit Fotos | 0 / 17 | 81 (Entscheidung in F1-ORCH-03) | E-014 bis E-017 |
+| 09.10.2026, Abend | F1-Tor bestanden: 83 Brüche entschieden, Quellabgleich 542 Einträge, 6 Prüfberichte abgenommen (je 10/10), 49 Party-Tests grün, PDF-Probeseite | 5 / 17 | 0 | E-018 bis E-023 |
+| 09.10.2026, später Abend | F2-Tor bestanden: Entscheidungsmodell (E-024), 36 Hinweise, Gruppenwahl-Gerüst, Simulator 0,3 s, 142 Party-Tests; Gegenprüfung eingearbeitet (E-025: Qualität verborgen, Überführung braucht Fundort, Optionen gemischt) | 6 / 17 | 0 | E-024, E-025 |
+
+## Nutzerwünsche (gelten dauerhaft)
+- **Bilder immer im Chat zeigen:** Jedes erzeugte Bild (Bildschirmfotos aus E2E- und Probeläufen, gerenderte Karten, PDF-Seiten als Bild) wird sofort mit SendUserFile im Chat gezeigt (Nachricht vom 09.10.2026, 11:10).
+
+## Phasentore
+| Tor | Kriterien | Stand |
+|---|---|---|
+| F0 | Planungsordner vollständig, Plan-Schleife durch, Commit, Push | bestanden (2 Runden, E-013/E-014; Push auf origin) |
+| F1 | F-01..F-05 | bestanden (E-021..E-023; ABNAHME F-01..F-05) |
+| F2 | F-07; F-06, F-08 mit Platzhaltern | bestanden (E-024, E-025; F-06/F-08 vorläufig) |
+| F3 | F-06, F-08, F-10, F-11, F-15 | offen |
+| F4 | F-12, F-13 | offen |
+| F5 | F-09, F-14 | offen |
+| F6 | F-16; alle erneut | offen |
+| F7 | F-17 | offen |
+
+## Fehlerstatistik je Rolle (Regelkreis Lernen)
+| Rolle | Abnahmen | Ø Punkte | Nachbesserungen | Häufigster Mangel |
+|---|---|---|---|---|
+| KONT (Haiku) | 6 (F0 2, F1 4) | 10 | 0 | liest Kanon während laufender Änderungen (Befunde schon erledigt) |
+| TEST (Haiku, F2) | 4 | 10 | 0 | – (Rot-Proben vorbildlich) |
+| FALL (Haiku) | 1 | 10 | 0 | – |
+| GEGEN (Haiku) | 6 | 9,8 | 1 (03a/03b geteilt, E-017) | zu breite Aufträge sprengen die Ausgabelänge |
+| SENS (Haiku) | 1 | 10 | 0 | – |
+| BAUMEISTER/TEST (Haiku) | 2 | 9,5 | 0 | Worktree vom falschen Commit (L-03) |

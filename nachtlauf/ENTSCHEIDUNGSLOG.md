@@ -533,3 +533,16 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - **R04 `weste` (R23-8):** Das ist das Material des Bunds am Strickpullover (E45), kein Datenrest.
   - **„Geisterstunde“ (R23-9):** ein gebräuchliches Wort, kein Werktitel.
   - **Übrige Färbungen (R23-2):** R05 (Ärger über das Mietgeld), R14 (Groll für Adnan), R06 (Wissen aus dem Sanitäterberuf) und R16 (Jonas' Kreditanfrage) folgen aus Lage und Beruf der Figur, nicht aus ihrer Herkunft.
+
+## E49 · 09.10. 16:21 · Strang „Finalisierung Schlosskeller“ in den Nachtlauf-Stand gemergt (N-02)
+- **Nutzerentscheidung N-02:** Der Branch `finalisierung-schlosskeller` wird jetzt in `main` zusammengeführt. Er gehört zu einem anderen Arbeitsstrang mit eigenem Master-Prompt, Plan und Entscheidungslog unter `planung/finalisierung-schlosskeller/`, und die Sitzung dort arbeitet weiter. Gemergt ist der Stand f5190ac. Spätere Commits auf dem Branch sind nicht in `main`, bis sie erneut zusammengeführt werden.
+- **Merge:** Ein normaler Merge-Commit; die Geschichte bleibt unverändert. Konflikte gab es nur in zwei Dateien:
+  - `pubspec.yaml`: In der Asset-Liste stehen jetzt beide Blöcke, die Burgstadt-Assets und `content/party/schlosskeller/` mit `tatmatrix/`.
+  - `pubspec.lock`: nicht von Hand aufgelöst, sondern mit `flutter pub get` neu erzeugt. Das Ergebnis ist genau die Vereinigung beider Lock-Dateien; keine Paketversion weicht von einer der beiden Seiten ab.
+- **Neue Abhängigkeit:** `pdf` 3.13.1 (Apache-2.0) in `mordakte_core`, dazu transitive Pakete unter MIT, BSD-3-Clause und Apache-2.0. Begründet ist das im Strang selbst (`planung/finalisierung-schlosskeller/LIZENZEN.md`, Entscheidungslog dort): PDF-Satz je Fall-Code, verbreitet, gepflegt, reines Dart. Das Burgstadt-Spiel nutzt es nicht.
+- **Prüfung:** Grün sein müssen unser Gesamttest `tool/alle_tests.sh` und das Prüfskript des Strangs `tool/pruefen.sh alles` (Analyse, Kern- und Partymodus-Tests, Validator, Server-Smoke, Flutter-Tests, Web-Build ohne CDN, Secret-Scan).
+- **Befund beim Merge:** Unser Leitplanken-Scanner (Ebene 10, alle Texte unter `content/`) fand in den Partydaten sechsmal „Weinrot“ (Farbe der Figur Fatma). Der Ton-Leitfaden des Strangs verbietet „Wein“ selbst („so benannt, dass niemand an Alkohol denkt“). Es ist also ein echter Befund und kein Fehlalarm.
+  - Im Merge-Commit heißt die Farbe deshalb „Beerenrot“ (`figuren.json`, `gegenstaende.json`). Die STORY-BIBEL ist mit dem Generator des Strangs neu geschrieben (`party_bibel.dart`, nur diese drei Zeilen).
+  - Danach sind die Partytests (170), die Plausibilität, der Simulator und der Scanner grün.
+  - Die Auftragsdateien des Strangs (`planung/…/auftraege/F3-AUTOR-*.md`) nennen noch „Weinrot“; der Hinweis an den Strang steht in FÜR DEN NUTZER. Dort steht auch der Farbname „Bordeaux mit Gold“, den der Scanner nicht meldet, der aber ebenfalls ein Weinname ist.
+- **Abgrenzung:** Die Abnahme Z-01 bis Z-14 gilt für den Nachtlauf. Die Partytexte des Schlosskellers prüft der eigene Strang (seine Abnahme F-01…F-17); sie gehören nicht zu den Textpfaden von Z-12.

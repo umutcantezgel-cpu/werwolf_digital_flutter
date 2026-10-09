@@ -17,7 +17,8 @@ import 'showcase_session.dart';
 /// `?phase=night|council|investigation|accusation`, optional `&zoom=1.6`,
 /// `&at=4.5,8.5` (Startposition), `&demo=1` (Showcase-Zustände) und
 /// `&scenario=ravensmoor` (beliebiges Szenario aus `content/scenarios/`),
-/// `&local=1` (echte Engine im Prozess, KI steuert den eigenen Detektiv).
+/// `&local=1` (echte Engine im Prozess, KI steuert den eigenen Detektiv),
+/// `?party=schlosskeller` (Raumkanon und Figuren des Partymodus).
 Future<void> main() async {
   final session = FakeSession();
   final q = Uri.base.queryParameters;
@@ -53,6 +54,25 @@ Future<void> main() async {
     local.send(ConfigureGame(scenarioId: id, mode: 'story', bots: 2));
     local.send(const StartGame());
     runApp(_app(local));
+    return;
+  }
+  final party = q['party'];
+  if (party != null) {
+    // Partymodus-Probe: Raumkanon und Figuren aus content/party/<fall>/ im Mordakte-Renderer.
+    WidgetsFlutterBinding.ensureInitialized();
+    final dateien = <String, Map<String, Object?>>{};
+    for (final d in [...Kanon.dateien, 'tatmatrix/ahmet.json', 'tatmatrix/fatma.json', 'tatmatrix/olli.json', 'tatmatrix/can.json']) {
+      dateien[d] = jsonDecode(await rootBundle.loadString('content/party/$party/$d')) as Map<String, Object?>;
+    }
+    final kanon = Kanon.lade((d) => dateien[d]!);
+    final vorlage = jsonDecode(await rootBundle.loadString('content/scenarios/ravensmoor.json')) as Map<String, dynamic>;
+    final def = ScenarioDef.fromJson(partySzenarioJson(kanon, vorlage));
+    final preview = ScenarioPreviewSession(def, phase: p ?? Phase.investigation);
+    if (at.length == 2 && at[0] != null && at[1] != null) {
+      preview.move(at[0]!, at[1]!, 0.8);
+      await Future<void>.delayed(const Duration(milliseconds: 250));
+    }
+    runApp(_app(preview));
     return;
   }
   final scenarioId = q['scenario'];

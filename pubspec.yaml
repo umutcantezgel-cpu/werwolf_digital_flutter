@@ -48,6 +48,8 @@ flutter:
     - packages/burgstadt_core/data/stadt/bewohner.json
     - packages/burgstadt_core/data/rollen/faehigkeiten.json
     - packages/burgstadt_spiel/data/texte/
+    - content/party/schlosskeller/
+    - content/party/schlosskeller/tatmatrix/
   fonts:
     - family: SpecialElite
       fonts:

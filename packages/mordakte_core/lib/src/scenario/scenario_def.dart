@@ -359,7 +359,7 @@ class LookDef {
   final String skin;
   final String hair;
 
-  /// `none`, `bowler`, `fedora`, `cap`, `bun`, `top`, `beret`, `cloche`.
+  /// `none`, `bowler`, `fedora`, `cap`, `bun`, `top`, `beret`, `cloche`, `kopftuch`.
   final String hat;
 
   /// `slim`, `normal`, `broad`, `tall`, `small`.
@@ -368,6 +368,10 @@ class LookDef {
   /// `suit` (Mantel/Anzug) oder `dress` (Kleid).
   final String outfit;
 
+  /// Optionale Farbe der Kopfbedeckung `#rrggbb` (z. B. Kopftuch); ohne Angabe
+  /// leitet der Renderer sie wie bisher aus der Mantelfarbe ab.
+  final String? headColor;
+
   const LookDef({
     this.coat = '#3a3a44',
     this.skin = '#e0b89a',
@@ -375,9 +379,10 @@ class LookDef {
     this.hat = 'none',
     this.build = 'normal',
     this.outfit = 'suit',
+    this.headColor,
   });
 
-  static const hats = {'none', 'bowler', 'fedora', 'cap', 'bun', 'top', 'beret', 'cloche'};
+  static const hats = {'none', 'bowler', 'fedora', 'cap', 'bun', 'top', 'beret', 'cloche', 'kopftuch'};
   static const builds = {'slim', 'normal', 'broad', 'tall', 'small'};
   static const outfits = {'suit', 'dress'};
 
@@ -390,10 +395,18 @@ class LookDef {
         hat: j['hat'] as String? ?? 'none',
         build: j['build'] as String? ?? 'normal',
         outfit: j['outfit'] as String? ?? 'suit',
+        headColor: j['headColor'] as String?,
       );
 
-  Map<String, dynamic> toJson() =>
-      {'coat': coat, 'skin': skin, 'hair': hair, 'hat': hat, 'build': build, 'outfit': outfit};
+  Map<String, dynamic> toJson() => {
+        'coat': coat,
+        'skin': skin,
+        'hair': hair,
+        'hat': hat,
+        'build': build,
+        'outfit': outfit,
+        if (headColor != null) 'headColor': headColor,
+      };
 }
 
 class SuspectDef {

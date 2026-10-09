@@ -1,0 +1,48 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "schauplatz": "Ein altes, etwas abgelegenes Schloss vor der Stadt. Gefeiert wird im großen Gewölbekeller unter dem Schlossturm.",
+  "anlass": "Geburtstag. Ahmet hat den Keller über einen Gefallen organisiert: Er gestaltet umsonst das Programm des Adventsmarkts der Schlossstiftung.",
+  "datum": "ein Samstag im November; draußen kalt und windig",
+  "essen": "Offenes Buffet auf langen Holztischen: warmes Essen aus Warmhaltebehältern, frisches Brot, Dips und Gebäck.",
+  "getraenke": [
+    "schwarzer Tee aus dem großen Teekocher",
+    "Kaffee",
+    "warmer, alkoholfreier Apfelpunsch",
+    "Wasser",
+    "Säfte"
+  ],
+  "empfang": "Hinter den dicken Mauern gibt es keinen Handyempfang. Empfang gibt es erst draußen auf den Stufen zum Parkplatz.",
+  "atmosphaere": [
+    "Der Wind pfeift durch die Lichtschächte.",
+    "Schwere Holztüren quietschen im Luftzug.",
+    "Elektrische Kerzen flackern auf den Tafeln; echte Kerzen brennen nur im Messingkerzenständer an der Theke."
+  ],
+  "brandschutz": "Im denkmalgeschützten Keller sind offene Flammen verboten. Erlaubt ist nur der Kerzenständer an der Theke, auf Schneiders Verantwortung, und der Kamin unter Aufsicht.",
+  "lacher": [
+    {
+      "id": "lacher_ruestung",
+      "zeit": "21:00",
+      "wer": "selin",
+      "ort": "an_der_ruestung",
+      "was": "Sibel hält die alte Ritterrüstung im Turmgang für einen Menschen, schreit auf und stolpert rückwärts gegen die Schauvitrine. Die Scheibe bekommt einen feinen Sprung.",
+      "traegt": "Spur: Ab 21:00 ist die Vitrinenscheibe lose."
+    },
+    {
+      "id": "lacher_verlaufen",
+      "zeit": "20:15",
+      "wer": "olli",
+      "ort": "vorrat_mitte",
+      "was": "Olli sucht die Toilette, nimmt die falsche Tür hinter der Theke und steht im dunklen Vorratsraum vor der Geburtstagstorte. „Ich wollte nur aufs Klo!“",
+      "traegt": "Falsche Fährte: Olli kennt den Vorratsraum."
+    },
+    {
+      "id": "lacher_kamin",
+      "zeit": "23:30",
+      "wer": "meryem",
+      "ort": "am_kamin",
+      "was": "Hana feuert den Kamin an, ohne die Kaminklappe zu öffnen. Dichter Qualm füllt den Kaminsaal, alle husten, die Lichtschacht-Klappen werden aufgerissen, das Feuer wird gelöscht.",
+      "traegt": "Spur: Seit 23:30 zieht Luft vom Buffetsaal in den Kaminsaal; Gerüche wandern mit."
+    }
+  ],
+  "ton": "Grusel mit Humor: quietschende Türen, Zugluft, flackerndes Licht, verpatzte Streiche. Herr Schneider überlebt immer; der Schlag ist nur Schatten und Geräusch."
+}

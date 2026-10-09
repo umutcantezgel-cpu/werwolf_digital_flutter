@@ -16,5 +16,6 @@ git config --global --add safe.directory "$FLUTTER_DIR" || true
 
 flutter config --enable-web
 flutter pub get
-# Optional: Online-Server per Umgebungsvariable MORDAKTE_SERVER (wss://…/ws)
-flutter build web --release ${MORDAKTE_SERVER:+--dart-define=MORDAKTE_SERVER=$MORDAKTE_SERVER}
+# Optional: Online-Server per Umgebungsvariable MORDAKTE_SERVER (wss://…/ws).
+# --no-web-resources-cdn: CanvasKit kommt aus dem eigenen Build, nicht von gstatic.com.
+flutter build web --release --no-web-resources-cdn ${MORDAKTE_SERVER:+--dart-define=MORDAKTE_SERVER=$MORDAKTE_SERVER}

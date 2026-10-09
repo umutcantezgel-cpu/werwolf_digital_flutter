@@ -1,0 +1,499 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "hinweis": "Bonus-Hinweise je Pfad, Runde und Qualität (E-024, E-025). Alle erscheinen im selben Rahmen ohne Quelle; je Runde haben die Hinweise möglichst dieselbe Satzform. Vor der Auflösung wird weder die Qualität noch die Stimmenzahl gezeigt. Wahr: ein wahrer Baustein, der nie allein ausschließt (W-1). Neutral: wahre, pfadgleiche Sätze ohne neuen Wert. Falsch: ein Gerücht über einen Unschuldigen, widerlegt durch eine im Pfad richtige Entscheidung.",
+  "hinweise": [
+    {
+      "id": "h_ahmet_1_wahr",
+      "pfad": "ahmet",
+      "runde": 1,
+      "qualitaet": "wahr",
+      "text": "Beim Scheppern war Ahmet nicht bei Damir am Ostende der Theke.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "ahmet"
+      },
+      "quelle": [
+        "beobachtung:b_damir_ahmet_weg"
+      ]
+    },
+    {
+      "id": "h_ahmet_1_neutral",
+      "pfad": "ahmet",
+      "runde": 1,
+      "qualitaet": "neutral",
+      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_tim_gesicht"
+      ]
+    },
+    {
+      "id": "h_ahmet_1_falsch",
+      "pfad": "ahmet",
+      "runde": 1,
+      "qualitaet": "falsch",
+      "text": "Beim Scheppern war Olli nicht bei Azra am rechten Buffettisch.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "olli"
+      },
+      "widerlegtDurch": [
+        "e1_3_azra"
+      ]
+    },
+    {
+      "id": "h_ahmet_2_wahr",
+      "pfad": "ahmet",
+      "runde": 2,
+      "qualitaet": "wahr",
+      "text": "Ahmet hat um 23:51 an der Theke mit Herrn Schneider über die Miete gestritten.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "ahmet"
+      },
+      "quelle": [
+        "beobachtung:b_joanna_foto",
+        "zeitleiste:z_foto_streit"
+      ]
+    },
+    {
+      "id": "h_ahmet_2_neutral",
+      "pfad": "ahmet",
+      "runde": 2,
+      "qualitaet": "neutral",
+      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_tim_kurzschluss"
+      ]
+    },
+    {
+      "id": "h_ahmet_2_falsch",
+      "pfad": "ahmet",
+      "runde": 2,
+      "qualitaet": "falsch",
+      "text": "Olli hat um 23:40 die Münzschatulle aus der Vitrine genommen.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "olli"
+      },
+      "widerlegtDurch": [
+        "e2_2_tasche"
+      ]
+    },
+    {
+      "id": "h_ahmet_3_wahr",
+      "pfad": "ahmet",
+      "runde": 3,
+      "qualitaet": "wahr",
+      "text": "Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang.",
+      "wirkung": {
+        "art": "entlastet",
+        "person": "can"
+      },
+      "quelle": [
+        "beobachtung:b_marek_vor"
+      ]
+    },
+    {
+      "id": "h_ahmet_3_neutral",
+      "pfad": "ahmet",
+      "runde": 3,
+      "qualitaet": "neutral",
+      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_serkan_tor"
+      ]
+    },
+    {
+      "id": "h_ahmet_3_falsch",
+      "pfad": "ahmet",
+      "runde": 3,
+      "qualitaet": "falsch",
+      "text": "Can hat den Schlüsselbund im Helm der Ritterrüstung versteckt.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "can"
+      },
+      "widerlegtDurch": [
+        "e3_1_ostsaal"
+      ]
+    },
+    {
+      "id": "h_fatma_1_wahr",
+      "pfad": "fatma",
+      "runde": 1,
+      "qualitaet": "wahr",
+      "text": "Beim Scheppern war Fatma nicht bei Emine am linken Buffettisch.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "fatma"
+      },
+      "quelle": [
+        "beobachtung:b_emine_fatma_spaet"
+      ]
+    },
+    {
+      "id": "h_fatma_1_neutral",
+      "pfad": "fatma",
+      "runde": 1,
+      "qualitaet": "neutral",
+      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_tim_gesicht"
+      ]
+    },
+    {
+      "id": "h_fatma_1_falsch",
+      "pfad": "fatma",
+      "runde": 1,
+      "qualitaet": "falsch",
+      "text": "Beim Scheppern war Ahmet nicht bei Damir am Ostende der Theke.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "ahmet"
+      },
+      "widerlegtDurch": [
+        "e1_1_damir"
+      ]
+    },
+    {
+      "id": "h_fatma_2_wahr",
+      "pfad": "fatma",
+      "runde": 2,
+      "qualitaet": "wahr",
+      "text": "Fatma hat um 23:40 die Münzschatulle aus der Vitrine genommen.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "fatma"
+      },
+      "quelle": [
+        "beobachtung:b_emine_schatulle"
+      ]
+    },
+    {
+      "id": "h_fatma_2_neutral",
+      "pfad": "fatma",
+      "runde": 2,
+      "qualitaet": "neutral",
+      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_tim_kurzschluss"
+      ]
+    },
+    {
+      "id": "h_fatma_2_falsch",
+      "pfad": "fatma",
+      "runde": 2,
+      "qualitaet": "falsch",
+      "text": "Ahmet hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt Geld dafür.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "ahmet"
+      },
+      "widerlegtDurch": [
+        "e2_3_olli"
+      ]
+    },
+    {
+      "id": "h_fatma_3_wahr",
+      "pfad": "fatma",
+      "runde": 3,
+      "qualitaet": "wahr",
+      "text": "Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang.",
+      "wirkung": {
+        "art": "entlastet",
+        "person": "can"
+      },
+      "quelle": [
+        "beobachtung:b_marek_vor"
+      ]
+    },
+    {
+      "id": "h_fatma_3_neutral",
+      "pfad": "fatma",
+      "runde": 3,
+      "qualitaet": "neutral",
+      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_serkan_tor"
+      ]
+    },
+    {
+      "id": "h_fatma_3_falsch",
+      "pfad": "fatma",
+      "runde": 3,
+      "qualitaet": "falsch",
+      "text": "Can hat den Schlüsselbund im Helm der Ritterrüstung versteckt.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "can"
+      },
+      "widerlegtDurch": [
+        "e3_1_buffetsaal"
+      ]
+    },
+    {
+      "id": "h_olli_1_wahr",
+      "pfad": "olli",
+      "runde": 1,
+      "qualitaet": "wahr",
+      "text": "Beim Scheppern war Olli nicht bei Azra am rechten Buffettisch.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "olli"
+      },
+      "quelle": [
+        "beobachtung:b_azra_olli_spaet"
+      ]
+    },
+    {
+      "id": "h_olli_1_neutral",
+      "pfad": "olli",
+      "runde": 1,
+      "qualitaet": "neutral",
+      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_tim_gesicht"
+      ]
+    },
+    {
+      "id": "h_olli_1_falsch",
+      "pfad": "olli",
+      "runde": 1,
+      "qualitaet": "falsch",
+      "text": "Beim Scheppern war Fatma nicht bei Emine am linken Buffettisch.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "fatma"
+      },
+      "widerlegtDurch": [
+        "e1_2_emine"
+      ]
+    },
+    {
+      "id": "h_olli_2_wahr",
+      "pfad": "olli",
+      "runde": 2,
+      "qualitaet": "wahr",
+      "text": "Olli hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt zweitausend Euro dafür.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "olli"
+      },
+      "quelle": [
+        "beobachtung:b_wojtek_tuer"
+      ]
+    },
+    {
+      "id": "h_olli_2_neutral",
+      "pfad": "olli",
+      "runde": 2,
+      "qualitaet": "neutral",
+      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_tim_kurzschluss"
+      ]
+    },
+    {
+      "id": "h_olli_2_falsch",
+      "pfad": "olli",
+      "runde": 2,
+      "qualitaet": "falsch",
+      "text": "Fatma hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt Geld dafür.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "fatma"
+      },
+      "widerlegtDurch": [
+        "e2_3_olli"
+      ]
+    },
+    {
+      "id": "h_olli_3_wahr",
+      "pfad": "olli",
+      "runde": 3,
+      "qualitaet": "wahr",
+      "text": "Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang.",
+      "wirkung": {
+        "art": "entlastet",
+        "person": "can"
+      },
+      "quelle": [
+        "beobachtung:b_marek_vor"
+      ]
+    },
+    {
+      "id": "h_olli_3_neutral",
+      "pfad": "olli",
+      "runde": 3,
+      "qualitaet": "neutral",
+      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_serkan_tor"
+      ]
+    },
+    {
+      "id": "h_olli_3_falsch",
+      "pfad": "olli",
+      "runde": 3,
+      "qualitaet": "falsch",
+      "text": "Can hat den Schlüsselbund im Helm der Ritterrüstung versteckt.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "can"
+      },
+      "widerlegtDurch": [
+        "e3_1_buffetsaal"
+      ]
+    },
+    {
+      "id": "h_can_1_wahr",
+      "pfad": "can",
+      "runde": 1,
+      "qualitaet": "wahr",
+      "text": "Beim Scheppern war das leuchtende Gesicht noch nicht an Marek vorbei. Es kam erst danach durch den Durchgang.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "can"
+      },
+      "quelle": [
+        "beobachtung:b_marek_nach"
+      ]
+    },
+    {
+      "id": "h_can_1_neutral",
+      "pfad": "can",
+      "runde": 1,
+      "qualitaet": "neutral",
+      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_tim_gesicht"
+      ]
+    },
+    {
+      "id": "h_can_1_falsch",
+      "pfad": "can",
+      "runde": 1,
+      "qualitaet": "falsch",
+      "text": "Beim Scheppern war Fatma nicht bei Emine am linken Buffettisch.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "fatma"
+      },
+      "widerlegtDurch": [
+        "e1_2_emine"
+      ]
+    },
+    {
+      "id": "h_can_2_wahr",
+      "pfad": "can",
+      "runde": 2,
+      "qualitaet": "wahr",
+      "text": "Can hat mit einer Leuchtmaske im dunklen Vorratsraum gewartet.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "can"
+      },
+      "quelle": [
+        "beobachtung:b_zeynep_vorrat"
+      ]
+    },
+    {
+      "id": "h_can_2_neutral",
+      "pfad": "can",
+      "runde": 2,
+      "qualitaet": "neutral",
+      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_tim_kurzschluss"
+      ]
+    },
+    {
+      "id": "h_can_2_falsch",
+      "pfad": "can",
+      "runde": 2,
+      "qualitaet": "falsch",
+      "text": "Olli hat um 23:40 die Münzschatulle aus der Vitrine genommen.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "olli"
+      },
+      "widerlegtDurch": [
+        "e2_2_tasche"
+      ]
+    },
+    {
+      "id": "h_can_3_wahr",
+      "pfad": "can",
+      "runde": 3,
+      "qualitaet": "wahr",
+      "text": "Beim Scheppern kauerte Ahmet neben Damir am Ostende der Theke.",
+      "wirkung": {
+        "art": "entlastet",
+        "person": "ahmet"
+      },
+      "quelle": [
+        "beobachtung:b_damir_ahmet_blieb"
+      ]
+    },
+    {
+      "id": "h_can_3_neutral",
+      "pfad": "can",
+      "runde": 3,
+      "qualitaet": "neutral",
+      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
+      "wirkung": {
+        "art": "neutral"
+      },
+      "quelle": [
+        "beobachtung:b_serkan_tor"
+      ]
+    },
+    {
+      "id": "h_can_3_falsch",
+      "pfad": "can",
+      "runde": 3,
+      "qualitaet": "falsch",
+      "text": "Ahmet hat den Schlüsselbund in seiner Jacke im Ost-Saal versteckt.",
+      "wirkung": {
+        "art": "belastet",
+        "person": "ahmet"
+      },
+      "widerlegtDurch": [
+        "e3_1_turmgang"
+      ]
+    }
+  ]
+}
