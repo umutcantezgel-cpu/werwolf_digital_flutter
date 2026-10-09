@@ -594,3 +594,20 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Der Strang hat dort „weinrot“ ausdrücklich als zulässige Ausnahme eingetragen. Er hat also sein eigenes, abgestimmtes Regelwerk für seine Texte.
   - Deshalb nimmt unser Scanner `content/party/**` jetzt aus. Die Partytexte prüft der Textprüfer des Strangs (`tool/pruefen.sh`), die Klassischen Fälle und die Burgstadt weiter unser Scanner. `leitplanken_test` belegt beides: Szenarien sind drin, Partydateien nicht.
 - **Berichtigung zu E49:** Dort stand, der Ton-Leitfaden des Strangs verbiete „Wein“. Das stimmt (TON-LEITFADEN, Abschnitt Alkohol: „Verboten sind Wein, …“). Sein Textprüfer lässt „weinrot“ aber als Ausnahme zu. „Beerenrot“ widerspricht keiner der beiden Regeln; ob der Strang zu „Weinrot“ zurückkehrt, entscheidet er selbst (FÜR DEN NUTZER).
+
+## E52 · 09.10. 17:37 · Ursache der roten Web-Läufe: Build-Cache nach Wechsel der Aufrufform
+- **Befund:** Zweimal (16:41 und 17:27) war der volle Lauf rot, beide Male direkt nach `tool/pruefen.sh` des Schlosskeller-Strangs. Im Web-Build fehlten `AssetManifest.bin.json` und `FontManifest.json`. Folgen: 404-Meldungen, Roboto von gstatic, 48 Konsolenmeldungen, 3 fremde Abrufe und Abbruch nach Ebene 9.
+- **Versuch (belegt):** Mit Cache:
+  - A: `flutter build web … -o build/web` (nach einem Build ohne `-o`) → 0 Manifeste.
+  - B: ohne `-o` (nach A) → 0.
+  - C: noch einmal ohne `-o` → vollständig.
+  - D: mit `-o` (nach C) → 0.
+  - E: noch einmal mit `-o` → vollständig.
+
+  Mit geleertem `.dart_tool/flutter_build` waren beide Formen vollständig (F, G).
+- **Ursache:** Wechselt die Aufrufform, hält das Flutter-Werkzeug die Asset-Ausgaben für aktuell und schreibt sie nicht in das neu angelegte `build/web`. `tool/pruefen.sh` baut mit `-o build/web`, `tool/alle_tests.sh` und `build.sh` ohne. Erst seit dem Merge (E49) liegen beide Skripte im selben Repo.
+- **Behoben (kein Wiederholen, keine Lockerung):**
+  - `tool/alle_tests.sh` und `tool/pruefen.sh` leeren vor dem Web-Build `.dart_tool/flutter_build`. Das ist ein Cache und wird ohnehin neu erzeugt.
+  - `alle_tests.sh` prüft direkt nach dem Build, dass beide Manifeste da sind, und bricht sonst mit klarer Meldung ab. Die Wache ist getestet.
+  - `pruefen.sh` gehört dem Schlosskeller-Strang; die eine Zeile ist dort kommentiert.
+- **Folge:** c54fe9c ging um 16:37 nach dem schnellen Test auf `main`. Sein zweiter voller Lauf war grün (E50-Vorlauf); `main` war also spielbar. Ab jetzt geht `main` erst nach einem grünen vollen Lauf.

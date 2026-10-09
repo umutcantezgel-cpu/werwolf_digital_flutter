@@ -83,7 +83,14 @@ if [ "${1:-}" != "schnell" ]; then
   step "Ebene 11 · Server-Smoke"
   (cd server && dart pub get >/dev/null 2>&1 && timeout 300 dart run tool/smoke.dart 2>&1 | filter | tail -1)
   step "Ebene 9 · Geräte: Web-Build + Playwright (desktop, handy-quer, handy-hoch)"
+  # Build-Cache leeren (E52): Wechselt die Aufrufform (mit/ohne „-o build/web“, z. B. nach
+  # tool/pruefen.sh), hält das Flutter-Werkzeug die Asset-Ausgaben sonst für aktuell und schreibt
+  # AssetManifest/FontManifest nicht neu in das geleerte build/web.
+  rm -rf .dart_tool/flutter_build
   flutter build web --release --no-web-resources-cdn 2>&1 | filter | tail -1
+  for m in AssetManifest.bin.json FontManifest.json; do
+    [ -f "build/web/assets/$m" ] || { echo "Web-Build unvollständig: build/web/assets/$m fehlt"; exit 1; }
+  done
   GER="$(mktemp -d)"
   timeout 600 node tool/browser/geraete.js build/web "$GER"
   for f in "$GER"/*.png; do

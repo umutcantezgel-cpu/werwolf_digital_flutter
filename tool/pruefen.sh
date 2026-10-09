@@ -40,6 +40,9 @@ if [ "$STUFE" != "schnell" ]; then
     flutter test
   fi
   schritt "Web-Build ohne CDN"
+  # Build-Cache leeren: Nach einem Build ohne „-o“ (tool/alle_tests.sh, build.sh) schreibt
+  # Flutter sonst AssetManifest/FontManifest nicht neu (Nachtlauf E52).
+  rm -rf .dart_tool/flutter_build
   flutter build web --release --no-web-resources-cdn -o build/web
 fi
 
