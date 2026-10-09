@@ -2681,7 +2681,7 @@
           "bis": "04:00",
           "wo": "arbeitshaus",
           "zustand": "wach",
-          "tut": "Er hört den Wind durch die Luken streichen und bindet einen Knoten, der nicht reißen soll."
+          "tut": "Er hört den Wind durch die Luken streichen und spleißt zwei Enden zu einem langen Brunnenseil."
         },
         {
           "von": "04:00",
@@ -2694,7 +2694,7 @@
       "saetze": [
         "Ein Seil für die Wäscheleine? Nein? Dann halt dich gut fest. Ein guter Griff ist alles in dieser Nacht.",
         "Ein gutes Seil verträgt Nebel besser als Menschen. Er wird nicht schlaff, egal wie kalt es wird.",
-        "Mein Speicher hat Seilstränge bis zur Decke. Du kannst daran ziehen, aber nicht an mir.",
+        "Mein Speicher hat Seilstränge bis zur Decke. Die meisten werden Wäscheleinen und Brunnenseile.",
         "Wer im Nebel steht, folgt dem Seil. Das hat mir mein Großvater gesagt, und der Riese hat keinen Faden in der Hand."
       ],
       "gerede": "Man erzählt, der Seiler habe dem Nebelriesen ein Seil gedreht, und der Riese sei damit ins Tal gerutscht, aber das hat niemand gesehen."

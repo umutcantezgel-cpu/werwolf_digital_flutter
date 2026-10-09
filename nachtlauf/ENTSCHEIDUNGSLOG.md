@@ -310,3 +310,30 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - B5: der Kopfhörer um den Hals von R02.
   - Beide sind in 2,5D darstellbar und kommen als Teile dazu. Danach braucht es eine neue Sichtprüfung (Kartenstand ändert sich) und eine neue Inhaltsrunde.
 - **Hinweis H1 (kleine Kanon-Details):** Multitool, Haarspange, Kugelschreiber, Anstecker, Ohrringe, Bleistift und Ähnliches sind kleiner als ein Pixel der Figur und werden nicht gezeichnet; sie bleiben im Text der Rollen.
+
+## E38 · 09.10. 07:19 · Inhaltsrunde 9 (A-702j) und Sichtprüfung 13/14 (A-605k/l)
+- **B1 Herkunft in den Familienfeldern (umgesetzt per Overlay):**
+  - Befund: Bei 12 Rollen mit nichtdeutschen Wurzeln war ein benanntes Fest, eine Speise oder ein Instrument das Familienmerkmal (Pita, Pierogi, Newroz, Bağlama, Bajram/Tufahije, Wigilia, Džezva, Revani, Menemen, Sevdalinke); bei den Rollen mit deutschen Wurzeln kaum. Einzeln liebevoll, als Muster aber eine Zuordnung „Herkunft → Folklore“.
+  - Das Spiel zeigt das Feld Familie nirgends an (geprüft: `Rolle` liest nur Name, Aussprache, Geschlecht, Alter, Beruf, Kleidung, Sprechweise, Alibi und Beziehung zum Burgwart).
+  - Trotzdem gilt der wirksame Kanon als Spieltext-Bestand. Deshalb ersetzt `kanon/ANPASSUNG.md` (Abschnitt „Familienfelder“) bei R01, R05–R09, R12–R16 und R19 nur den einen Satzteil durch ein herkunftsneutrales, persönliches Detail. Beispiele: Kreuzworträtsel statt Pierogi, Haushaltsbuch der Großmutter statt Revani, Gartentreffen im Frühjahr statt Newroz.
+  - Unverändert bleiben Wurzeln, Eltern, Geschwister, Berufe und die Gefühlsfunktion des Satzes. Die Dateien in `krimidinner/` sind unverändert.
+  - Bewusst bleiben: Großmutter-Motive (kommen bei deutschen wie nichtdeutschen Wurzeln vor, z. B. R10 Inge), R10 Biikebrennen (regional) und R20 Masurische Seen (Wohnort der Großeltern, kein Brauch).
+  - Kopplung Herkunft → Beruf: Die Berufe der Rollen und ihrer Eltern sind breit gestreut (Lokführer, Lehrerin, Vermessung, Apotheke, Statik, Bank, Jura). Kein Muster, keine Änderung.
+  - In `LEITPLANKEN-AUSNAHMEN.md` steht „Kater“ (Haustier Paşa) jetzt auch für die Overlay-Zeile.
+- **B2 Wanderstiefel R03/R04 (bewusst so):**
+  - Die Wanderstiefel bestehen seit Phase 2 aus zwei Teilen: `schuhe-stiefel` für den Schaft und `schuhe-arbeitsschuhe` für die dicke Sohle. Der Kanon („braune Wanderstiefel“) ist damit im Bild erfüllt.
+  - Sichtprüfer 13 bestätigt: „braune Schaftstiefel mit dicker Sohle, nur R03 und R04“. `karten_test` prüft genau diese Kombination.
+  - Angeglichen: Der Ersatzpfad in `figuren_lager.dart` (Karte aus `rollen.json`, falls `karten.json` fehlt) setzt jetzt ebenfalls beide Teile.
+- **Hinweise aus Runde 9:**
+  - Erzählertipp „Mit Umschalt rennst du“ ist jetzt geräteneutral (Touch hat kein Rennen).
+  - H-045: Die Gerberei steht still (einzige Bewohnerin ist B29, Auszubildende).
+  - H-046: „Die Grafikerin“ passt jetzt zu B27.
+  - Seil- und Knotenmotiv ausgedünnt: Inschrift H-034 „Was gedreht ist, hält zusammen“; B44 spleißt Brunnenseile; „Du kannst daran ziehen“ ist entfernt.
+  - „Hausfrau“ ist überall durch „Hausherrin“ ersetzt (15 Stellen).
+  - Talg bleibt: Kerzen der Stadt sind aus Talg, Bienenwachs gibt es nur von R17s Bienen. Das schärft den Kanon-Hinweis auf das Bienenwachs, statt ihn zu verwischen.
+- **Sichtprüfung 13/14 (Kartenstand 0e9ec58e33):**
+  - Prüfer 14: 0 Paare, 0 Verstöße. Prüfer 13: 0 Paare, 1 Verstoß.
+  - Verstoß: B13 „Haube fehlt“. Die Haube war gezeichnet, aber in Rot [3,5]; sie las sich wie rotes Haar, und das weiße Haar aus dem Datensatz war nicht zu sehen. Jetzt ist die Haube weiß [0,7].
+  - Grenzfälle von Prüfer 14 mitgenommen: B34 kleiner (1,74), B43 größer (1,67), B28 mit brauner statt grauer Mütze. Gegen die neue Nähe B13/B33 trägt B33 eine blaue Haube.
+  - Ausprobiert und verworfen: R16 mit anderer Hosenfarbe. Jede Variante erzeugte in `karten_test` ein neues enges Paar (R05, R01 oder R19); R16 bleibt.
+  - Der neue Kartenstand braucht zwei neue Sichtprüfungen (A-605m) und eine neue Inhaltsrunde (A-702k).

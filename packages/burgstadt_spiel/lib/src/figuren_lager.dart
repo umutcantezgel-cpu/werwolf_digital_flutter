@@ -67,6 +67,8 @@ Figurenkarte karteAusSteckbrief(Map<String, dynamic> s) {
   }
   if (unter['typ'] == 'rock' && typ != 'kleid') teile.add('unterteil-rock');
   if (schuhe['typ'] == 'wanderstiefel' || schuhe['typ'] == 'stiefel') teile.add('schuhe-stiefel');
+  // Wanderstiefel = Schaftstiefel mit dicker Sohle (Sohle aus dem Arbeitsschuh-Teil), wie in karten.json
+  if (schuhe['typ'] == 'wanderstiefel') teile.add('schuhe-arbeitsschuhe');
   switch (s['kopf']) {
     case 'muetze':
       teile.add('kopf-muetze');

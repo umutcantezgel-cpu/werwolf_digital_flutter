@@ -11,5 +11,6 @@ krimidinner/spuk-im-gewoelbe/10_kanon/K9-LOOKBIBEL.md | wine | englische Negativ
 krimidinner/spuk-im-gewoelbe/10_kanon/K9-LOOKBIBEL.md | beer | englische Negativ-Anweisung „no beer“
 krimidinner/spuk-im-gewoelbe/10_kanon/K9-LOOKBIBEL.md | drinks | englische Negativ-Anweisung
 krimidinner/spuk-im-gewoelbe/10_kanon/K2-ROLLEN-13-20.md | Kater | Haustier (Kater namens Paşa), kein Rausch
+nachtlauf/kanon/ANPASSUNG.md | Kater | Haustier (Kater namens Paşa, Familienfeld R13 aus K2 übernommen), kein Rausch
 krimidinner/spuk-im-gewoelbe/10_kanon/K4-GESPRAECHE-P2.md | Kater | Vergleich mit einem Tier („wie ein hungriger Kater“)
 content/scenarios/blue_palm.json | drink | technische Kennung der Tatwaffe (Text: „Präparierte Tasse Tee“)
