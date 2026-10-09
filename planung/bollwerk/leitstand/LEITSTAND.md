@@ -1,4 +1,4 @@
-STAND · Leitstand · Phase L0/L1 · Generation 0 · B-02 offen · nächster Schritt: v4 bauen, Herzschlag stellen, Kinder-Probe
+STAND · Leitstand · Phase L2 (Meta-Lauf) · Generation 0 · B-02 offen · nächster Schritt: Meta-Lauf überwachen, Übergabe prüfen (Rubrik ≥ 23/26)
 
 # LEITSTAND · BOLLWERK-DAUERLAUF
 
@@ -17,7 +17,7 @@ Der Freigabeabschnitt im Plan lautet:
 | Leitstand-Sitzung | `session_01Aix28JmFAfTMVcF4Z8bgqP` | aktiv |
 | Herzschlag-Routine | `trig_01UrDrhXFjttzCW1tkXFPGVr` (Name `BOLLWERK-LEITSTAND-session_01Aix28JmFAfTMVcF4Z8bgqP`, stündlich zur Minute 38) | aktiv |
 | Kinder-Probe | `session_01NqNiTSMXk6qK5FVbNAbkrF` (Branch `bollwerk-probe`) | fertig 21:03 UTC |
-| Meta-Sitzung | – | – |
+| Meta-Sitzung | `session_01V8nVEJcaAbNDmTCrmHBoBq` (Branch `bollwerk-plan`, Meta-Prompt v4.1 aus `f2759297c4f5f9a627199b8fe52655f0d3d13e77`) | gestartet 21:18 UTC |
 | Nachtlauf-Generationen | – | – |
 | Merge-Bau | – | – |
 
@@ -26,10 +26,10 @@ Der Freigabeabschnitt im Plan lautet:
 ## Phasen
 | Phase | Stand |
 |---|---|
-| L0 v4 bauen | läuft |
+| L0 v4 bauen | fertig: v4.1 `f275929` (10 Linsen, 6 BLOCKER und ~70 MAJOR eingearbeitet) |
 | L1 Leitstand | fertig (Routine aktiv) |
 | L1b Kinder-Probe | fertig |
-| L2 Meta-Lauf | offen |
+| L2 Meta-Lauf | läuft seit 21:18 UTC |
 | L3 Generationen | offen |
 | L4 main | offen |
 | L5 Abschluss | offen |
@@ -105,3 +105,6 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-09 20:38 UTC · Herzschlag-Routine angelegt.
 - 2026-10-09 20:52 UTC · v4 auf `claude/pensive-gates-ajtp7x` (666d569); Gegenprüfung mit 10 Linsen läuft.
 - 2026-10-09 20:59 UTC · Sitzung im Modus Auto; Kinder-Probe gestartet.
+- 2026-10-09 21:03 UTC · Kinder-Probe fertig (keine Workflows in Kindsitzungen).
+- 2026-10-09 21:16 UTC · v4.1 gepusht (f275929).
+- 2026-10-09 21:18 UTC · Meta-Lauf gestartet.
