@@ -29,7 +29,7 @@ Der Freigabeabschnitt im Plan lautet:
 | L0 v4 bauen | fertig: v4.1 `f275929` (10 Linsen, 6 BLOCKER und ~70 MAJOR eingearbeitet) |
 | L1 Leitstand | fertig (Routine aktiv) |
 | L1b Kinder-Probe | fertig |
-| L2 Meta-Lauf | läuft seit 21:18 UTC |
+| L2 Meta-Lauf | läuft seit 21:18 UTC · 21:39: M0, 12 Agenten, erster Push cf06ca9 |
 | L3 Generationen | offen |
 | L4 main | offen |
 | L5 Abschluss | offen |
@@ -42,7 +42,7 @@ Wahr nur, wenn alles zutrifft:
 4. PR #43 ist gemergt oder geschlossen (lesend prüfen).
 Sonst nur „FREIGABE BOLLWERK“ des Nutzers (nachdem er die Finalisierung angehalten hat).
 
-Letzte Prüfung: 2026-10-09 ~20:30 UTC · Finalisierung F4 von F7, Abnahme 9/17, letzter Commit bc9df94 (19:50 UTC) · **offen**
+Letzte Prüfung: 2026-10-09 21:39 UTC · Finalisierung F5 von F7, Abnahme 9/17, Aufträge 138/177, letzter Commit 5c83242 (21:12 UTC), Spitze kein Vorfahr von main · **offen**
 
 ## Termine (Europe/Berlin)
 - Herzschlag stündlich (Routine).
@@ -108,3 +108,4 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-09 21:03 UTC · Kinder-Probe fertig (keine Workflows in Kindsitzungen).
 - 2026-10-09 21:16 UTC · v4.1 gepusht (f275929).
 - 2026-10-09 21:18 UTC · Meta-Lauf gestartet.
+- 2026-10-09 21:39 UTC · Herzschlag 1: Meta in M0 (working, kein Limit), `bollwerk-plan` = cf06ca9; B-02 offen (F5 von F7).
