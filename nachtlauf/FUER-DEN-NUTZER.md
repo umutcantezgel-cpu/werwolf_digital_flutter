@@ -5,6 +5,7 @@
 - **iOS:** Die Berechtigung „Lokales Netzwerk“ ist eingetragen (`NSLocalNetworkUsageDescription`). Ob die Abfrage auf einem iPhone erscheint und ob Gäste das Gerät erreichen, lässt sich nur auf echter Hardware prüfen. iOS-Builds gehen nur auf macOS.
 - **Spielgefühl der Ich-Perspektive:** Bewegungsübelkeit, Touch-Steuerung, Blick-Empfindlichkeit, Lesbarkeit der Pixeltexte auf kleinen Bildschirmen.
 - **Leistung auf echter Mittelklasse-Hardware.** Im Container gibt es nur Desktop-CPUs. Gemessen wurde mit Faktor 4 (AOT) und mit Chrome-CPU-Drosselung (siehe `belege/leistung_z09.txt`); beides ist eine Näherung, keine Handy-Messung.
+- **Web-Fassung im Browser:** Im Container (Headless-Chrome, Software-Darstellung, ohne Drosselung) lief sie mit 33 Bildern pro Sekunde am Desktop-Profil und mit 15–17 am Handy-Profil, das mit dreifacher Pixeldichte größere Puffer braucht (`bilder/geraete/bericht.txt`). Die native App (AOT) braucht für ein Bild im Mittel 2,8 ms auf der Desktop-CPU. Gedacht ist das Spiel für die App. Ob ein WebAssembly-Build (`flutter build web --wasm`) den Browser beschleunigt, ist nicht geprüft.
 - **Klang:** Alle Geräusche und die Musik sind prozedural erzeugt. Ob sie angenehm sind, kann nur ein Ohr beurteilen.
 
 ## Nicht umgesetzt (bewusst, mit Grund)
