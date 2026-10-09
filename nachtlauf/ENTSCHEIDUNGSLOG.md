@@ -399,3 +399,31 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Neuer Kartenstand db8e0a6155: Z-03 braucht zwei neue Sichtprüfer (A-605s/t).
 - **Z-12:** Die Kanon-Dateien (`krimidinner/spuk-im-gewoelbe/10_kanon`) sind Spieltext. Das Abnahmewerkzeug zählt sie jetzt zu den Textpfaden; nach dem Merge braucht es eine neue Inhaltsrunde (A-702n).
 - **Nichts nur lokal:** `tool/mass5a.py` (die Bild-Näherung aus E40) liegt jetzt im Repo. Die Agent-Worktrees werden nach dem Abgleich ihrer Dateien entfernt.
+
+## E42 · 09.10. 12:26 · Inhaltsrunden 13/14 (A-702n) nach Kanon v1.0: umgesetzt und abgewogen
+- **Urteil beider Prüfer:** Leitplanken ja, Kanontreu **nein**, Plagiatsfrei ja. Runde 13: mittel 3, gering 2. Runde 14: hoch 1, mittel 2, gering 5. Sichtprüfer 21 und 22 (Kartenstand db8e0a6155): je 0 Paare, 0 Verstöße. Z-03 ist damit erfüllt.
+- **Umgesetzt:**
+  - **Laken (R14-1, hoch):** Kanon v1.0 sagt neu (Z-2140), das Gespensterlaken ist ein ausgemustertes Burglaken mit dem roten Wäschezeichen „Schartenfels 7“. Unser Overlay (aus Phase 0, E4) machte das Zeichen zur Pensionswäsche; das widersprach jetzt dem Kanon.
+    - H-S05, HW-S05, HW-S09, ORT-03, ORT-05 und die Pension in `haeuser.json` sind angepasst. Die Pension stempelt ihre Bettwäsche blau mit ihrem Namen. „Schartenfels 7“ bleibt das Zeichen der Burgwäsche.
+    - Einstufung jetzt „Farbe“; kein Stadt-Hinweis stützt eine Schlussfolgerung.
+  - **Phasenbeginn (R13 M-1):** Der Kanon setzt den Beginn der Ermittlung (Phase 1) auf 00:30 (Z-0030; stand schon im alten Kanon und wurde bisher übersehen). Das Spiel begann um 00:25.
+    - Jetzt beginnt Phase 1 um 00:30, nach dem Auftrag des Burgwarts um 00:25 (OA-29).
+    - Geändert: `FallZustand.phasenStart`, alle 44 Nachtpläne, STADT-05, die Stadtzeiten in LISTE-ZEITEN und die Tests.
+    - Phase 1 dauert damit 60 statt 65 Spielminuten.
+  - **R04-Beruf (R13 G-1):** Kanon v1.0 hat den Zusatz „(so erzählt er es)“ gestrichen; `faehigkeiten.json` ist angeglichen.
+    - Der Vorschlagstest aus A-402a, der das gemeldet hätte, läuft jetzt dauerhaft als `test/faehigkeiten_daten_test.dart`.
+  - **Silberhau (R14-4):** in LISTE-ORTE ergänzt (Bergstädtchen im Tal, außerhalb, nur Farbe).
+  - **Leihgabe des Talers (R14-6):** HW-S03 jetzt „Farbe“ statt „bestätigend“.
+  - **Selbst gefunden beim Umsetzen:** „Osterode“ (eine echte Harzstadt) stand noch im Kanon und im Overlay (K-010, BW-STAMM). Neue Ersetzung ERSETZE-18 „in Osterode“ → „unten im Tal“, wie bei den 16 Harz-Bezügen.
+  - **R18-Familie (R13 G-2):** Die Großmutter fragt nicht mehr, „wann sie endlich Richterin wird“. Sie „spricht am Ende ihr Urteil, das fast immer Freispruch lautet“. Das ist der juristische Witz ohne Erwartungsdruck.
+- **Abgewogen, bleibt:**
+  - **FM-1 (R13 M-2, R14-3):** Die Funktionsmatrix ist ein [L]-Datensatz des Kanons, im Spiel nirgends sichtbar. Sie ist die Besetzungsprüfung der Kanon-Autoren: Täterin und Hauptverdächtiger mit echtem Vergehen haben deutsche Wurzeln, keine andere Gruppe trägt eine belastete Funktion. Das ist eine Vorsichtsmaßnahme gegen Klischees und kein Klischee.
+    - Im Spiel ist Herkunft kein Indiz: Der Verdacht gegen R01 beruht auf Lampe und Code-Zettel; „HODŽIĆ VT · 3“ ist eine Eigentumsmarke.
+    - Die Kanon-Dateien ändern wir nicht. Die Anregung, die Matrix nach Rollen-IDs statt nach Herkunft zu ordnen, steht in FÜR DEN NUTZER.
+  - **„verwischt“ (R13 M-3):** Das Gegenspiel der Täterin fordert der Master-Prompt; „verwischt“ ist eine der 7 Spurenarten von Z-05. Fähigkeiten sind geheim: Keine andere Rolle erfährt, wer verwischen kann (E27 H1). Die Spur sagt „hier hat jemand eine Spur verwischt“, nicht wer.
+    - Eine zweite, unschuldige Rolle mit derselben Fähigkeit wäre eine falsche Fährte ohne Kanon-Grundlage. Das entscheidet die Kanon-Verantwortung, nicht der Nachtlauf.
+  - **OA-Zeiten außerhalb LISTE-ZEITEN (R14-2):** Der neue Kanon-Satz „Andere Uhrzeiten nennen nur Rollenkarten, Hinweise und Beweisstücke“ deckt die OA-Aussagen der Rollen. Unsere Ergänzung führt Zeitangaben in O-Datensätzen ausdrücklich als Aussagen (E34 B-1). Keine Änderung.
+  - **„00:01 … kommt zu sich“ gegen PF-3 (R14-5):** Das ist Kanon-Wortlaut von v1.0 (LISTE-ZEITEN, PF-3), kein Overlay-Text. Steht als Hinweis für die Kanon-Autoren in FÜR DEN NUTZER.
+  - **OA-27 (R14-7):** „die Serpentinen rauf … Bis zum Morgengrauen“ ist Ortsanpassung seit Phase 0 (d577d12). Die Burgstadt liegt am Berg, und das Spiel läuft bis zum Morgengrauen, nicht bis zum Nachtisch.
+  - **R15 „Von Papa nehmen sie nichts an“ (R13 G-2):** Das ist Kanon-Wortlaut (Zwillinge, Vater Mathelehrer), Teenager-Humor ohne Herkunftsbezug. Keine Änderung.
+- Neue Inhaltsrunde A-702o (zwei Prüfer) auf diesem Stand. Die Karten sind unverändert (db8e0a6155), Z-03 bleibt gültig.

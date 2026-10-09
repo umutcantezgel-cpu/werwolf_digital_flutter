@@ -25,11 +25,12 @@ class FallZustand {
   static const detektiv = 'DET';
   static const taeterin = 'R03'; // aus K1/K6 (Lösung, nur für Bots/Auflösung)
   static const verdaechtige = ['R01', 'R02', 'R03', 'R04'];
-  static const phasenStart = {1: 25.0, 2: 90.0, 3: 180.0, 4: 270.0};
+  // Phase 1 (Ermittlung) beginnt um 00:30 (Kanon Z-0030), nach dem Auftrag des Burgwarts um 00:25 (OA-29)
+  static const phasenStart = {1: 30.0, 2: 90.0, 3: 180.0, 4: 270.0};
 
   int phase = 0;
   Abschnitt abschnitt = Abschnitt.einfuehrung;
-  double uhr = 25;
+  double uhr = 30;
   final Map<String, Set<String>> wissen = {};
   final Set<String> akte = {};
   final List<(String, String)> faeden = [];

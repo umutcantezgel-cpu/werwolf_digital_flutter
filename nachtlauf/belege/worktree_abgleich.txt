@@ -42,4 +42,4 @@ Geprüft: 58 Worktrees unter .claude/worktrees/ (Agenten des Nachtlaufs).
 Zu den drei Dateien, die nicht unter ihrem Namen im Repo liegen:
 - vorschlag_stadthinweise.md: alle 48 Datensätze (H-S01…24, HW-S01…24) stehen in nachtlauf/kanon/ANPASSUNG.md.
 - stadthinweise_vorschlag_test.dart: ersetzt durch packages/burgstadt_core/test/stadthinweise_test.dart (alle 10 Prüfungen plus 2 weitere).
-- faehigkeiten_vorschlag_test.dart: liegt als nachtlauf/auftraege/A-402a/faehigkeiten_vorschlag_test.dart.txt im Repo. Gegen die heutige Datei meldet er nur, dass das Infofeld beruf bei R04 den Kanon-Zusatz „(so erzählt er es)“ weglässt; das Feld liest kein Code.
+- faehigkeiten_vorschlag_test.dart: liegt als nachtlauf/auftraege/A-402a/faehigkeiten_vorschlag_test.dart.txt im Repo. Gegen die heutige Datei meldete er, dass das Infofeld beruf bei R04 noch den Zusatz „(so erzählt er es)“ trug, den Kanon v1.0 gestrichen hat. Das ist behoben, und der Test läuft jetzt als packages/burgstadt_core/test/faehigkeiten_daten_test.dart mit (E42).

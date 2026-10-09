@@ -265,12 +265,12 @@ void main() {
     }
   });
 
-  test('Tagesverlauf: lückenlos von 00:25 bis 05:30, aufsteigend', () {
+  test('Tagesverlauf: lückenlos von 00:30 bis 05:30, aufsteigend', () {
     for (final b in bewohner) {
       final id = b['id'] as String;
       final nacht = _liste(b['nacht']);
       expect(nacht, isNotEmpty, reason: '$id: kein Tagesverlauf');
-      expect(nacht.first['von'], '00:25', reason: '$id: Start');
+      expect(nacht.first['von'], '00:30', reason: '$id: Start');
       expect(nacht.last['bis'], '05:30', reason: '$id: Ende');
       for (var i = 0; i < nacht.length; i++) {
         final von = nacht[i]['von'] as String;

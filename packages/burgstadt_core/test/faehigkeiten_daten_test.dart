@@ -1,0 +1,106 @@
+// Datenprüfung der Rollen-Fähigkeiten gegen den wirksamen Kanon (aus dem Vorschlag A-402a übernommen,
+// E42): Felder, Quellen, Berufe, Spurenarten und Leitplanken. Fängt Abweichungen nach Kanon-Updates ab.
+import 'dart:convert';
+import 'dart:io';
+
+import 'package:burgstadt_core/burgstadt_core.dart';
+import 'package:burgstadt_core/burgstadt_core_io.dart';
+import 'package:test/test.dart';
+
+const _pfad = 'packages/burgstadt_core/data/rollen/faehigkeiten.json';
+const _wirkungsarten = {'sicht', 'station', 'gespraech', 'bewegung', 'werkzeug'};
+
+Kanon _ladeKanon(String w) =>
+    kanonLesen('$w/krimidinner/spuk-im-gewoelbe/10_kanon').mitOverlay(
+      File('$w/nachtlauf/kanon/ANPASSUNG.md').readAsStringSync(),
+      datei: 'ANPASSUNG.md',
+    );
+
+void main() {
+  final w = findeRepoWurzel()!;
+  final kanon = _ladeKanon(w);
+  final daten =
+      jsonDecode(File('$w/$_pfad').readAsStringSync()) as Map<String, dynamic>;
+  final rollen = (daten['rollen'] as List).cast<Map<String, dynamic>>();
+
+  test('JSON: Version 1, genau 20 Einträge R01 bis R20 in Reihenfolge', () {
+    expect(daten['version'], 1);
+    expect(rollen.map((r) => r['rolle']).toList(), [
+      for (var i = 1; i <= 20; i++) 'R${i.toString().padLeft(2, '0')}',
+    ]);
+  });
+
+  test('Jeder Eintrag hat alle Felder; Wirkungsart ist gültig', () {
+    for (final r in rollen) {
+      final id = r['rolle'];
+      expect(r['beruf'], isA<String>(), reason: '$id beruf');
+      expect(r['faehigkeit'], isA<String>(), reason: '$id faehigkeit');
+      final wirkung = r['wirkung'] as Map<String, dynamic>;
+      expect(_wirkungsarten, contains(wirkung['art']), reason: '$id art');
+      expect(wirkung['details'], isA<String>(), reason: '$id details');
+      expect(wirkung['betrifft'], isA<List>(), reason: '$id betrifft');
+      final sicht = r['sichtschicht'] as Map<String, dynamic>;
+      expect(sicht['name'], isA<String>(), reason: '$id sichtschicht.name');
+      expect(sicht['zeigt'], isA<String>(), reason: '$id sichtschicht.zeigt');
+      expect(sicht['spurarten'], isA<List>(), reason: '$id spurarten');
+      expect(r['quelle'], isA<List>(), reason: '$id quelle');
+      expect(r['spoilerfrei_weil'], isA<String>(), reason: '$id spoilerfrei');
+    }
+  });
+
+  test('Quellen existieren im Kanon (Kennung und Feld)', () {
+    final muster = RegExp(r'^@(\S+) (.+)$');
+    for (final r in rollen) {
+      final id = r['rolle'];
+      final quellen = (r['quelle'] as List).cast<String>();
+      expect(quellen, isNotEmpty, reason: id);
+      for (final q in quellen) {
+        final m = muster.firstMatch(q);
+        expect(m, isNotNull, reason: '$id: Quelle „$q“ hat keine Form @ID Feld');
+        final satz = kanon.datensaetze[m![1]!];
+        expect(satz, isNotNull, reason: '$id: ${m[1]} fehlt im Kanon');
+        expect(satz!.felder.containsKey(m[2]!), isTrue,
+            reason: '$id: Feld „${m[2]}“ fehlt in ${m[1]}');
+      }
+    }
+  });
+
+  test('Betroffene Stellen sind Kanon-Kennungen', () {
+    for (final r in rollen) {
+      final id = r['rolle'];
+      final betrifft =
+          ((r['wirkung'] as Map<String, dynamic>)['betrifft'] as List)
+              .cast<String>();
+      expect(betrifft, isNotEmpty, reason: id);
+      for (final kennung in betrifft) {
+        expect(kanon.datensaetze.containsKey(kennung), isTrue,
+            reason: '$id: $kennung fehlt im Kanon');
+      }
+    }
+  });
+
+  test('Beruf stimmt mit dem wirksamen Kanon-Steckbrief überein', () {
+    for (final r in rollen) {
+      final kennung = '${r['rolle']}-STAMM';
+      expect(r['beruf'], kanon.datensaetze[kennung]!.feld('Beruf'),
+          reason: kennung);
+    }
+  });
+
+  test('Spurenarten sind Spurenarten des Detektivblicks', () {
+    final bekannt = SpurArt.values.map((a) => a.name).toSet();
+    for (final r in rollen) {
+      final arten =
+          ((r['sichtschicht'] as Map<String, dynamic>)['spurarten'] as List)
+              .cast<String>();
+      expect(bekannt.containsAll(arten), isTrue,
+          reason: '${r['rolle']}: $arten');
+    }
+  });
+
+  test('Leitplanken-Scan: 0 Fehler', () {
+    final befunde =
+        scanneDateien(['$w/$_pfad']).where((t) => t.fehler).toList();
+    expect(befunde, isEmpty, reason: befunde.join('\n'));
+  });
+}

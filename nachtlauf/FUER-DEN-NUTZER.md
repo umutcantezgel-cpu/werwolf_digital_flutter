@@ -25,7 +25,13 @@
   - Wenn dir die ursprünglichen Details lieber sind, genügt es, diesen Abschnitt im Overlay zu löschen.
 - **Abwägungen der Inhaltsprüfung:** Einige Punkte bleiben bewusst so, mit Begründung in E23, E27, E29 und E38. Dazu gehören die Spuren des Falls, die auf die Täterin zeigen (das ist das Rätsel), „Einspruch!“ bei R18 (Kanon) und die erfundene Figur des Detektivs.
 - **Frisuren älterer Bewohnerinnen (E40):** Mehrere ältere Bewohnerinnen tragen laut `bewohner.json` einen Dutt. Die Inhaltsprüfung (Runde 11) nannte das ein mögliches Altersbild. Eine Änderung ist leicht (Feld `frisur`), braucht aber neue Sichtprüfungen der Figuren. Sie ist deshalb nicht in dieser Nacht gemacht.
-- **Kleine Textpunkte aus der letzten Inhaltsrunde (A-702m, Urteil ja · ja · ja):** Nach der Abbruchregel in E40 sind sie gesammelt statt umgesetzt; jeder ist eine Ein-Satz-Änderung in `bewohner.json` bzw. `haeuser.json`.
+- **Kanon v1.0 (E41, E42):** `main` brachte den fertigen Kanon v1.0. Er ist eingearbeitet; die Kanon-Dateien selbst sind unverändert. Für die Kanon-Autoren:
+  - **FM-1** (Funktionsmatrix, [L], im Spiel nicht sichtbar) ordnet die Tatfunktionen nach Herkunftsgruppen. Gemeint ist eine Vorsichtsprüfung gegen Klischees. Zwei Inhaltsprüfer fanden die Ordnung nach Herkunft trotzdem ungut. Vorschlag: nach Rollen-IDs ordnen.
+  - **LISTE-ZEITEN** nennt „00:01 der Burgwart wird … gefunden und kommt zu sich“; BS-01 und PF-3 nennen 00:00:25 bzw. 00:00:50. Vorschlag: „kurz nach Mitternacht“.
+  - **Phase 1 beginnt** im Spiel jetzt wie in Z-0030 um 00:30. Vorher war es 00:25, der Zeitpunkt des Auftrags des Burgwarts.
+  - **Das Gespensterlaken** ist jetzt wie im Kanon (Z-2140) Burgwäsche „Schartenfels 7“. Die Pension der Stadt hat einen eigenen blauen Stempel.
+- **„Spur verwischen“ (R03):** Nur die Täterin kann eine Spur verwischen, und „verwischt“ sehen alle mit Detektivblick. Wer die Fähigkeit hat, bleibt geheim. Ein Prüfer schlug vor, sie zusätzlich einer unschuldigen Rolle zu geben. Das wäre eine neue falsche Fährte und damit eine Kanon-Entscheidung (E42).
+- **Kleine Textpunkte aus Inhaltsrunde 12 (A-702m, Urteil ja · ja · ja):** Nach der Abbruchregel in E40 sind sie gesammelt statt umgesetzt; jeder ist eine Ein-Satz-Änderung in `bewohner.json` bzw. `haeuser.json`.
   - B24 nennt „den Brunnen“ der Oberstadt, der nicht in LISTE-ORTE steht. Vorschlag: „Pferdebrunnen“ (H-002) oder „Marktplatz“.
   - B15 spricht von „den Alten“ und „Schützlingen“. Vorschlag: „Leute im Haus“, „Bewohner“.
   - B18 nennt die Eule über der Tür „aus Holz“, H-004 eine steinerne Eule über dem Dachfenster. Angleichen.

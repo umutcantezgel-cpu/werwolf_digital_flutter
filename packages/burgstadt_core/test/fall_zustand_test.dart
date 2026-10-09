@@ -8,10 +8,10 @@ import 'fall_daten_test.dart' show ladeFall;
 void main() {
   final d = ladeFall();
 
-  test('Start: Detektiv-Mappe beim Detektiv, Erzähler-Hinweise in der Akte, Phase 1 um 00:25', () {
+  test('Start: Detektiv-Mappe beim Detektiv, Erzähler-Hinweise in der Akte, Phase 1 um 00:30 (Kanon Z-0030)', () {
     final z = FallZustand(d, 4)..starte();
     expect(z.phase, 1);
-    expect(z.uhr, 25);
+    expect(z.uhr, 30);
     expect(z.abschnitt, Abschnitt.ermittlung);
     final mappe = d.hinweise.values.where((h) => h.detektivMappe).map((h) => h.id);
     expect(z.wissen['DET'], containsAll(mappe));

@@ -32,7 +32,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:15",
           "wo": "arbeitshaus",
           "zustand": "wach",
@@ -85,7 +85,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:00",
           "wo": "wohnhaus",
           "zustand": "wach",
@@ -152,7 +152,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -213,7 +213,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:30",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
@@ -273,7 +273,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:00",
           "wo": "fenster",
           "zustand": "wach",
@@ -334,7 +334,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:00",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
@@ -401,7 +401,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:30",
           "wo": "fenster",
           "zustand": "wach",
@@ -468,7 +468,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "03:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -521,7 +521,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:10",
           "wo": "fenster",
           "zustand": "wach",
@@ -588,7 +588,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "03:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -641,7 +641,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "05:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -694,7 +694,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:30",
           "wo": "wohnhaus",
           "zustand": "wach",
@@ -761,7 +761,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:15",
           "wo": "fenster",
           "zustand": "wach",
@@ -821,7 +821,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "04:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -881,7 +881,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:00",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
@@ -948,7 +948,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1008,7 +1008,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:30",
           "wo": "wohnhaus",
           "zustand": "wach",
@@ -1068,7 +1068,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "05:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1121,7 +1121,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:30",
           "wo": "fenster",
           "zustand": "wach",
@@ -1188,7 +1188,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:00",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
@@ -1255,7 +1255,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "03:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1315,7 +1315,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "04:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1375,7 +1375,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "05:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1428,7 +1428,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1495,7 +1495,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1555,7 +1555,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "04:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1608,7 +1608,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:00",
           "wo": "wohnhaus",
           "zustand": "wach",
@@ -1668,7 +1668,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "03:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1728,7 +1728,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:00",
           "wo": "fenster",
           "zustand": "wach",
@@ -1788,7 +1788,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:45",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1848,7 +1848,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1908,7 +1908,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "03:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -1968,7 +1968,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "04:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -2028,7 +2028,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:00",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
@@ -2088,7 +2088,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "03:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -2148,7 +2148,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:30",
           "wo": "wohnhaus",
           "zustand": "wach",
@@ -2215,7 +2215,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:00",
           "wo": "fenster",
           "zustand": "wach",
@@ -2282,7 +2282,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "04:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -2342,7 +2342,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:00",
           "wo": "fenster",
           "zustand": "wach",
@@ -2409,7 +2409,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -2476,7 +2476,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:30",
           "wo": "fenster",
           "zustand": "wach",
@@ -2543,7 +2543,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "03:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
@@ -2603,7 +2603,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "01:30",
           "wo": "wohnhaus",
           "zustand": "wach",
@@ -2670,7 +2670,7 @@
       },
       "nacht": [
         {
-          "von": "00:25",
+          "von": "00:30",
           "bis": "02:30",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
