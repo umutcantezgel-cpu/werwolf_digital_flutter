@@ -48,7 +48,7 @@
     "@OA-09 Was alle erlebt haben",
     "@OA-05 Was alle erlebt haben"
    ],
-   "spoilerfrei_weil": "Nur der öffentliche Testschrei und die dreifach hallende Begrüßung. Kein Track-Ablauf, keine Startzeit, kein Hebel; die Herkunft des Schreis um Mitternacht bleibt ungedeutet.",
+   "spoilerfrei_weil": "Nur der öffentliche Testschrei und die dreifach hallende Begrüßung. Kein Track-Ablauf, keine Startzeit, kein Hebel; die Quelle des Schreis um Mitternacht bleibt ungedeutet.",
    "ausloeser": {
     "station": "BS-08"
    }
@@ -424,14 +424,14 @@
    "faehigkeit": "Bienenwachs erkennen",
    "wirkung": {
     "art": "sicht",
-    "details": "Am Kerzenständer (BSO-09) erkennt Henrik das Wachs als Bienenwachs. Die Kerzen auf dem Fass sind Bienenwachskerzen (K-004). Er sieht die Herkunft des Wachses, nicht seinen Zeitpunkt.",
+    "details": "Am Kerzenständer (BSO-09) erkennt Henrik das Wachs als Bienenwachs. Die Kerzen auf dem Fass sind Bienenwachskerzen (K-004). Er erkennt die Art des Wachses, nicht seinen Zeitpunkt.",
     "betrifft": [
      "BSO-09"
     ]
    },
    "sichtschicht": {
     "name": "Waldblick",
-    "zeigt": "Henrik liest Wachs als Bienenwachs: Herkunft und Konsistenz, ohne Deutung zu Tat oder Zeit.",
+    "zeigt": "Henrik liest Wachs als Bienenwachs: Art und Konsistenz, ohne Deutung zu Tat oder Zeit.",
     "spurarten": [
      "wachs"
     ]
@@ -441,7 +441,7 @@
     "@BSO-09 Aussehen",
     "@K-004 Tatsache"
    ],
-   "spoilerfrei_weil": "Nur die Herkunft des Wachses. Keine Aussage zu Schlagbewegungen, Erstarrungszeit oder Abdrücken; das gehört zu Kanon-Hinweisen.",
+   "spoilerfrei_weil": "Nur die Art des Wachses. Keine Aussage zu Schlagbewegungen, Erstarrungszeit oder Abdrücken; das gehört zu Kanon-Hinweisen.",
    "ausloeser": {
     "station": "BS-09"
    }

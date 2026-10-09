@@ -64,9 +64,13 @@ Figurenkarte karteAusSteckbrief(Map<String, dynamic> s) {
         teile.add('unterteil-kleid');
       case 't-shirt':
         teile.add('aermel-kurz');
+      case 'pullover':
+        // Über einem Hemd ohne Rollkragen, damit der Hemdkragen zu sehen ist (R04), sonst mit (R08)
+        final ueberHemd = drunter != null && drunter['typ'] == 'hemd';
+        teile.add(ueberHemd ? 'oberteil-strickpulli' : 'oberteil-strickpulli-rolli');
+        if (ueberHemd) teile.add('oberteil-hemdkragen');
+        mats['weste'] = oberM; // Bund
     }
-    // Pullover über Hemd: Hemdkragen am Hals (R04)
-    if (typ == 'pullover' && drunter != null && drunter['typ'] == 'hemd') teile.add('oberteil-hemdkragen');
   }
   if (unter['typ'] == 'rock' && typ != 'kleid') teile.add('unterteil-rock');
   if (schuhe['typ'] == 'wanderstiefel' || schuhe['typ'] == 'stiefel') teile.add('schuhe-stiefel');

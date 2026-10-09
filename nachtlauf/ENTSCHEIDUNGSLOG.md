@@ -467,3 +467,23 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - **R09 (R18-5):** „bei ihr hat Tomasz kochen gelernt“ erklärt seinen Beruf (Koch, Kanon); das Fest ist schon gestrichen (E38).
   - **„HODŽIĆ VT · 3“ (R17 B1, wie R15 M1):** Beide Prüfer urteilen „Leitplanken ja“. Die Eigentumsmarke mit Nachnamen ist Kanon-Lösungskette (BSO-03, H-28, DW1-1, GL-19). Ein Umbau gehört zur Kanon-Verantwortung; der Vorschlag (neutrale Kennung) steht in FÜR DEN NUTZER.
   - **Geringe Befunde R17 G1–G5** (Geschlechterrollen in Dienstberufen, Bock-Inschriften, Besen des Schornsteinfegers, Name „Kunibert“, Handschuhe bei B34): nach der Abbruchregel (E40) in FÜR DEN NUTZER.
+
+## E45 · 09.10. 14:14 · Inhaltsrunden 19/20 (A-702q): R04-Pullover sichtbar, Ortsliste, FM-1 in der Quelle
+- **Urteile:** Prüfer 19: Kanontreu **nein** (R04-Pullover im Bild nicht als Strick erkennbar). Prüfer 20: Leitplanken **nein** (FM-1 in der Kanon-Quelldatei). Beide werden behandelt, nicht übergangen.
+- **Umgesetzt:**
+  - **R04 (R19 M1, R20-5):** Der Pullover war nur die grün gefärbte Grundform. Jetzt trägt R04 das neue Teil `oberteil-strickpulli`: Rumpf und Bund wie beim Strickpulli der Bewohnerinnen und Bewohner, aber ohne Rollkragen, damit das Hemd darunter nicht verdeckt wird. Der Bund ist eine Stufe dunkler im selben Grün.
+    - Der Ersatzpfad nimmt bei Pullover über Hemd dieses Teil plus Hemdkragen, sonst den Rollkragen (R08).
+    - `karten_test` und `tool/mass5a.py` sind ohne Paar. Neuer Kartenstand b60891cc2b; zwei neue Sichtprüfer (A-605u/v).
+  - **Ortsliste (R20-2, R20-3):** In LISTE-ORTE (Overlay) stehen jetzt „Wäschekorb neben der Toilette“ (Hofebene, neu in v1.0, Z-2140) und „Freibad (außerhalb, in einer anderen Jahreszeit; nur Rollenwissen und Lösung)“.
+  - **Wortwahl (R19 G2):** „Herkunft“ kommt in `faehigkeiten.json` nicht mehr vor (Wachs: „Art“, Schrei: „Quelle“).
+- **FM-1 in der Kanon-Quelle (R20-1, hoch): bleibt in der Quelle, Entscheidung beim Nutzer.**
+  - FM-1 setzt eine Regel aus dem Grobplan des Krimidinners um (00_steuerung/GROBPLAN.md: „Herkunft und Schuld: Funktionsmatrix, damit keine Minderheitsgruppe eine belastete Funktion mit Schuld trägt“, präzisiert in F-07). Sie ist eine Vorgabe des Kanon-Projekts gegen Klischees. Der Nachtlauf überschreibt keine Projektregel eines anderen Arbeitsstrangs.
+  - Im Spiel wirkt FM-1 nicht: Das Spiel zeigt keine [L]-Datensätze an, und im wirksamen Kanon steht FM-1 nach Rollen-IDs ohne Herkunft (E43).
+  - **Klarstellung zu E41:** Dort stand „Die Kanon-Dateien sind Spieltext“. Gemeint und richtig ist: Spieltext sind die O- und G-Datensätze des wirksamen Kanons (das Spiel zeigt sie an). L-Datensätze sind Lösungsdaten; sie werden auf Widersprüche geprüft, wie es der Prüfauftrag von Anfang an sagt („L-Zeilen nur zur Widerspruchsprüfung“). Der Kanon-Ordner gehört zu den Textpfaden des Abnahmewerkzeugs, weil jede Kanon-Änderung eine neue Prüfung auslösen soll; das bleibt.
+  - Die Kritik der Prüfer an FM-1 und der Vorschlag (FM-1 nach Rollen-IDs wie im Overlay) stehen in FÜR DEN NUTZER.
+- **Bewusst so:**
+  - „HODŽIĆ VT · 3“ (R19 M2): wie E43/E44, Kanon-Verantwortung.
+  - „Schatten im Nebel. Physik.“ (R19 G1): Das ist R20s Erklärung der Nebelriesen-Legende (Schatten auf einer Nebelwand), keine Wetterangabe.
+  - „Burgweg“ für zwei Abschnitte (R19 G3): Das ist Kanon-Wortlaut ohne Widerspruch.
+  - Texte der „Klassischen Fälle“ (R19 G4): Bestand außerhalb der Burgstadt (E14a).
+  - „kurz nach Mitternacht“ (R20-4): bleibt, E44.

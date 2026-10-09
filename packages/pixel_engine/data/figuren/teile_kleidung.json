@@ -41,6 +41,7 @@
  {"form":"zylinder","knochen":"rumpf","mitte":[0,0.0,0],"groesse":[0.18,0.025,0.12],"material":"weste"},
  {"form":"zylinder","knochen":"rumpf","mitte":[0,0.53,0],"groesse":[0.078,0.06,0.078],"material":"oberteil"}
 ]},
+{"id":"oberteil-strickpulli","art":"oberteil","koerper":[{"form":"ellipsoid","knochen":"rumpf","mitte":[0,0.24,0],"groesse":[0.176,0.26,0.116],"material":"oberteil"},{"form":"zylinder","knochen":"rumpf","mitte":[0,0.0,0],"groesse":[0.18,0.025,0.12],"material":"weste"}]},
 {"id":"oberteil-poncho","art":"oberteil","koerper":[
  {"form":"zylinder","knochen":"rumpf","mitte":[0,0.19,0],"groesse":[0.232,0.17,0.205],"material":"oberteil"},
  {"form":"ellipsoid","knochen":"rumpf","mitte":[0,0.36,0],"groesse":[0.25,0.14,0.215],"material":"oberteil"},
