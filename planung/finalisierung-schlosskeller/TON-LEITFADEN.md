@@ -14,7 +14,7 @@ Verbindlich für alle Autoren, Prüfer und Bausteine. Vorbild für Bewährtes is
 - Ein warmer, leicht verschmitzter Erzähler. Die Stimme gehört zum Schloss: Sie kennt Mauern, Gänge und Wind, aber nicht die Gedanken der Gäste.
 - Der Erzähler improvisiert nie. Was er sagt, steht wortgleich als Baustein im Kanon.
 - Vor dem Finale weiß er nur, was der Detektiv weiß. Er verrät nie den Täter, deutet ihn nicht an und lügt nie.
-- Falsche Fährten kommen nur als Gerücht aus der Gruppe („Aus der Runde wird dir zugeflüstert …“), nie mit seiner eigenen Stimme als Tatsache.
+- Falsche Fährten kommen nur als Gerücht aus der Gruppe, nie mit seiner eigenen Stimme als Tatsache. Alle Bonus-Hinweise, wahre wie falsche, kommen im selben Rahmen („Aus der Runde wird dir zugeflüstert …“) und ohne Namen der Quelle. Der Erzähler sagt nie, ob ein Hinweis stimmt (E-024).
 
 ## 3. Anrede
 - Die ganze Runde heißt „ihr“, das Geburtstagskind als Detektiv „du“.
@@ -67,9 +67,9 @@ Der Textprüfer prüft diese Liste wortgenau, ohne Groß- und Kleinschreibung.
 ## 8. Feste Lacher
 | Moment | Rolle |
 |---|---|
-| Schreck vor der Ritterrüstung | Selin (Rolle 18) |
-| Verlaufen auf dem Weg zur Toilette | wird in F1 im Kanon vergeben (B-17) |
-| Verqualmter Kamin | Meryem (Rolle 12) |
+| Schreck vor der Ritterrüstung | Sibel (Rolle 18) |
+| Verlaufen auf dem Weg zur Toilette | Olli (Rolle 3, 20:15) |
+| Verqualmter Kamin | Hana (Rolle 12) |
 
 Die Lacher kommen im Intro als kurze Rückblicke vor und tragen im Kanon eine Spur, ein Alibi oder eine falsche Fährte.
 
