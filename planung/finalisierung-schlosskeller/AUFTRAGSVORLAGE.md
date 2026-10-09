@@ -22,6 +22,8 @@ Jeder Auftrag an einen Unteragenten folgt diesem Aufbau. Aufträge liegen als Da
 
 **Längengrenze (seit F0, L-02):** Jeder Prüf- und Berichtsauftrag nennt eine Obergrenze (Standard 1.800 Wörter). Breite Aufträge werden geteilt; `effort: high` für Prüfungen, `max` nur für eng geschnittene Aufträge.
 
+**Arbeitsbaum (seit F1, L-03):** Code-Aufträge mit eigenem Arbeitsbaum beginnen mit `git checkout --detach <Commit>` (vom Orchestrator genannt). Offene Fragen stehen vor der Endmarke.
+
 Reicht der Platz nicht: `=== UNTERBROCHEN BEI <Stelle> · WEITER MIT „weiter“ ===`.
 Platzhalter wie „usw.“, „analog“ oder „folgt später“ führen zur Ablehnung.
 

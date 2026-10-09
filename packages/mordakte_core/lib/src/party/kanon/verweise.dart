@@ -241,5 +241,30 @@ List<String> kanonVerweise(Kanon k) {
       }
     }
   }
+  // Alte Namen (vor der Namensbalance) kommen in keinem Kanon-Text mehr vor.
+  final alteNamen = <String>{
+    for (final x in k.figuren)
+      if (x['quelle'] is Map) ((x['quelle'] as Map)['name'] as String),
+  };
+  void texte(String datei, Object? o, String pfad) {
+    if (o is Map) {
+      for (final e in o.entries) {
+        if (e.key == 'quelle') continue;
+        texte(datei, e.value, '$pfad.${e.key}');
+      }
+    } else if (o is List) {
+      for (var i = 0; i < o.length; i++) {
+        texte(datei, o[i], '$pfad[$i]');
+      }
+    } else if (o is String) {
+      for (final n in alteNamen) {
+        if (RegExp('\\b$n\\b').hasMatch(o)) f.add('$datei$pfad: alter Name „$n“');
+      }
+    }
+  }
+
+  for (final e in k.json.entries) {
+    texte(e.key, e.value, '');
+  }
   return f;
 }

@@ -235,3 +235,17 @@ Je Befund: übernommen (Ü), teilweise (T), verworfen (V), mit Begründung. Die 
 ## E-017 · Lernen L-02: Ausgabegrenze bei höchster Denkstufe (F0)
 - **Befund:** F0-GEGEN-03 lief 36 Minuten und brach mit „Antwort über 128.000 Ausgabe-Token“ ab. Ursache: ein breiter Prüfauftrag (33 Altbefunde plus Angriff auf Regeln und Kanon) mit `effort: max`.
 - **Maßnahme:** Breite Prüfaufträge werden geteilt. Jeder Auftrag nennt eine Längengrenze (höchstens 1.800 Wörter Bericht). Prüfaufträge laufen mit `effort: high`; `max` bleibt für eng geschnittene Autoren- und Gegenprüfaufträge. AUFTRAGSVORLAGE ergänzt.
+
+## E-018 · Lernen L-03: Arbeitsbäume entstehen von main (F1)
+- **Befund:** Die Worktree-Isolation legte die Arbeitsbäume von F1-BAUMEISTER-01 und F1-TEST-03 auf `d92a675` (origin/HEAD) an, nicht auf den Arbeitsbranch. Kanon und Party-Code fehlten dort. Beide Agenten haben das erkannt, ohne Git-Schreibbefehle gearbeitet (Snapshot in `/tmp` bzw. Kopie der Daten) und vollständig geliefert. Die Rückgabeprüfung des Workflows verlangte die Endmarke als letzte Zeile; F1-BAUMEISTER-01 setzte offene Fragen dahinter und wurde unnötig neu gestartet (Lauf gestoppt).
+- **Maßnahme:**
+  - Code-Aufträge mit Worktree beginnen mit Schritt 0: `git checkout --detach <Commit des Arbeitsbranchs>` im eigenen Arbeitsbaum. Das ist die einzige erlaubte Git-Schreiboperation; sie betrifft nur den eigenen Arbeitsbaum.
+  - Der Workflow prüft die Endmarke als vorhanden, nicht als letzte Zeile.
+  - `.claude/worktrees/` steht in `.gitignore`.
+- **Abnahmen:**
+  - `ABNAHME F1-TEST-03 · FREIGEGEBEN · Funktion 2 · Kanon 2 · Verzahnung 2 · Inhalt 2 · Grenzen 2 · Summe 10/10`. 14 Sharma-Referenzpaare, Rot-Proben belegt. Übernommen mit einer Anpassung: Pfad über die Testhilfe.
+  - `ABNAHME F1-BAUMEISTER-01 · FREIGEGEBEN · Funktion 2 · Kanon 2 · Verzahnung 2 · Inhalt 2 · Grenzen 1 · Summe 9/10`. Ein Punkt Abzug für die Form (offene Fragen nach der Endmarke). Übernommen mit Ergänzung des Felds `alltag`.
+  - Die Befunde des Agenten sind umgesetzt:
+    - Pipe-Zeichen in der Matrix-Tabelle;
+    - alter Name „Merima“ im Lacher am Kamin;
+    - neue Verweisprüfung auf alte Namen.

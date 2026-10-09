@@ -55,3 +55,6 @@ server/build/
 quellen/
 # Repo-lokale Werkzeugkette (Flutter-SDK, Pub-Cache)
 .werkzeug/
+
+# Arbeitsbäume der Agenten (lokal)
+.claude/worktrees/

@@ -28,3 +28,5 @@ export 'src/party/kanon/verweise.dart';
 export 'src/party/plausibilitaet.dart';
 export 'src/party/beweise.dart';
 export 'src/party/szenario_export.dart';
+export 'src/party/bibel.dart';
+export 'src/party/farbe.dart';

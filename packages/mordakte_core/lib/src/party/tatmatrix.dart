@@ -398,7 +398,7 @@ class Ablauf {
     if (z == null) return '–';
     if (z.ort != null) return z.ort!;
     final naechster = _naechsterOrt(z.x, z.y);
-    return 'unterwegs bei $naechster (${z.x.toStringAsFixed(1)}|${z.y.toStringAsFixed(1)})';
+    return 'unterwegs bei $naechster (x ${z.x.toStringAsFixed(1)}, y ${z.y.toStringAsFixed(1)})';
   }
 
   String _naechsterOrt(double x, double y) {
