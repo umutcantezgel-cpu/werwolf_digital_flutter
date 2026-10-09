@@ -1,4 +1,4 @@
-Abnahme · Stand bf22e49aabac · 2026-10-09T04:55
+Abnahme · Stand 2640beb04548 · 2026-10-09T05:00
 Gesamtlauf aller Ebenen: ALLE TESTS GRÜN
 Z-01 · erfüllt · Gesamtlauf grün; Bestand: Core-Tests, validate, Server-Smoke, simulate gelaufen; Ausgangswerte phase0_ausgangstests.txt
 Z-02 · erfüllt · Belegfotos (6 Viertel, 10 Innenräume, alle Menüs; Palette + Blocktest): 2 Formate OK (26 + 26 Bilder); Browser-Fotos pixel_pruef im Gesamtlauf; gleiche Pixeldichte: karten_test
@@ -13,5 +13,5 @@ Z-10 · erfüllt · Playwright-Durchläufe: desktop, handy-quer, handy-hoch (3 P
 Z-11 · erfüllt · Konsolenfehler/-warnungen in allen Durchläufen: 0; Speichern und Fortsetzen: spielstand_test
 Z-12 · OFFEN   · Leitplanken-Scanner: 0 Treffer; Gegenprüfer-Bericht mit „Leitplanken ja · Kanontreu ja · Plagiatsfrei ja“, jünger als die letzte Textänderung: keiner
 Z-13 · erfüllt · Remotes: origin; Pushes seit Beginn nur auf nachtlauf/burgstadt; fremde Abrufe im Browser: 0 (Web-Build ohne CDN)
-Z-14 · OFFEN   · Dokumente: fehlt: Morgenbericht; Abschlussbericht mit Bildschirmfotos und Figuren-Aufstellung: ja
-ZIEL NICHT ERREICHT · offen: Z-03, Z-12, Z-14
+Z-14 · erfüllt · Dokumente: alle vorhanden; Abschlussbericht mit Bildschirmfotos und Figuren-Aufstellung: ja
+ZIEL NICHT ERREICHT · offen: Z-03, Z-12
