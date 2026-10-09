@@ -752,3 +752,8 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - In Runde 3 nur noch selten Klarheitsformeln.
   - Kein Thema und kein Text doppelt.
   - Bestätigt: „was du vorhin gesagt hast“ darf voraussetzen, dass in Runde 1 geredet wurde.
+- **Finale-Nachbesserung (AUTOR-80 bis -83):**
+  - Alle 16 Finaltexte folgen der Ausgangsregel. Das Geburtstagskind heißt „du“, der Pflichtsatz steht viermal je Datei.
+  - Meister-Texte begründen mit dem Wortlaut von Schlüsselbeweis und Zusatzindiz.
+  - Die Rückblenden folgen der Tatmatrix: Weg, Satz Schneiders, Schlag, Spuren, Bund-Versteck, Licht um Mitternacht. Gedanken der Figuren kommen darin nicht vor.
+  - ORCH hat zwei Stellen korrigiert: Ahmets Griff ist „der Griff des Kerzenständers“; in Cans Rückblende springt Can aus dem Vorratsraum, als Herr Schneider die Tür aufzieht (`ev_vorratstuer_auf`).
