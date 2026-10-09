@@ -1,0 +1,5 @@
+FLIMMERN v2 (REP-01, E-049, E-050) – Ausgang (Palette v2 = Bild v1, Dichte 32, alte Mip-Formel)
+dart run bin/flimmer.dart --selbsttest → SELBSTTEST OK · Szene A · Boden 10735 · Wechsel Test 0 · Referenz 0
+dart run bin/flimmer.dart             → FLIMMERN v2 · Überschuss 0,128 · FERNE 0,100 · Welt 320x180
+dart run bin/flimmer.dart --welt 640x360 → FLIMMERN v2 · Überschuss 0,049 · FERNE 0,242 · Welt 640x360
+Ziel HZ-03 (bei 640×360 = scharf 720p): FERNE ≤ 0,121, Überschuss ≤ 0,049

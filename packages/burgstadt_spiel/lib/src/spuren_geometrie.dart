@@ -15,7 +15,8 @@ List<IndexedTexture> baueSpurTexturen() {
         px[y * n + x] = switch (zeilen[y][x]) { 'c' => c, 'h' => h, 'w' => w, _ => t };
       }
     }
-    return IndexedTexture(n, n, px, maxLevels: 1);
+    // gezeichnet mit 32 Texel/m, für die Weltdichte texelverdoppelt (Migrationsbeleg 2)
+    return IndexedTexture.verdoppelt(IndexedTexture(n, n, px, maxLevels: 1));
   }
 
   return [
@@ -87,7 +88,7 @@ Mesh? baueSpurenMesh(List<Spur> spuren, String bereich, int phase, String schich
       SpurArt.verwischt => (0.6, 0.6),
     };
     final ca = math.cos(s.drehung), sa = math.sin(s.drehung);
-    const uMax = 16.0;
+    const uMax = 16.0 * kDichteWelt / 32; // ganze Spurtextur auf dem Abziehbild
     if (s.hoehe <= 0.02 || s.art == SpurArt.staub) {
       // Bodenabziehbild, entlang der Drehung ausgerichtet
       final y = s.hoehe + 0.015;
@@ -110,7 +111,7 @@ Mesh? baueSpurenMesh(List<Spur> spuren, String bereich, int phase, String schich
 final Uint8List blickFilter = () {
   final t = Uint8List(256);
   for (var i = 0; i < 256; i++) {
-    if (i >= 64) {
+    if (i >= paletteRgb.length) {
       t[i] = i;
       continue;
     }

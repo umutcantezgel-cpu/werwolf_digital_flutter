@@ -139,7 +139,7 @@ void main() {
         final buf = PixelBuffer(200, 16);
         final ui = _ui()..beginne(buf, Eingabe());
         zeichneKompass(ui, yaw, const Rechteck(0, 0, 200, 16));
-        expect(buf.color.every((c) => c == kTransparent || c < 64), isTrue, reason: 'yaw $yaw');
+        expect(buf.color.every((c) => c == kTransparent || c < paletteRgb.length), isTrue, reason: 'yaw $yaw');
       }
     });
   });

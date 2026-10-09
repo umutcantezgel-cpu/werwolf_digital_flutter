@@ -1,11 +1,16 @@
 import 'dart:math' as math;
 import 'dart:typed_data';
 
-/// Einheitliche Texel-Dichte für Welt und Figuren (Texel pro Meter).
-const double kTexelsPerMeter = 32;
+/// Texel-Dichte der Welt (Texel pro Meter). Burgstadt HD: 64 (K-011); Bestandstexturen mit 32 Texel/m
+/// werden dafür texelverdoppelt (`baueWeltTextur`), so bleibt ihr Bild gleich (Migrationsbeleg 2).
+const double kDichteWelt = 64;
+
+/// Texel-Dichte der Figuren-Sprites (Texel pro Meter), getrennt von der Welt (E-011): 32 für den
+/// Vergleicher und Qualitätsstufen bis „mittel“; die zweite Dichte für „scharf“ folgt in P6-OPUS-01.
+const double kDichteFigur = 32;
 
 /// Statische Geometrie: Dreiecke mit Texturkoordinaten (in Texeln) und
-/// Vertex-Licht (warm/kalt, je 0..1). Welttexel-Dichte: [kTexelsPerMeter].
+/// Vertex-Licht (warm/kalt, je 0..1). Welttexel-Dichte: [kDichteWelt].
 class Mesh {
   final Float32List pos; // x,y,z je Vertex
   final Float32List uv; // u,v je Vertex (Texel)
@@ -55,15 +60,15 @@ class MeshBuilder {
 
   /// Senkrechte Wand von (x0,z0) nach (x1,z1), Unterkante y0, Oberkante y1.
   /// Sichtbar von der rechten Seite in Laufrichtung (Normale = links→rechts gedreht).
-  /// Texel-Dichte [kTexelsPerMeter]; [u0]/[v0] verschieben die Textur.
+  /// Texel-Dichte [kDichteWelt]; [u0]/[v0] verschieben die Textur.
   void wall(double x0, double z0, double x1, double z1, double y0, double y1, int texture,
       {double warm = 0, double cold = 0, double u0 = 0, double v0 = 0, bool doubleSided = false,
       double warmTop = -1, double coldTop = -1}) {
     final len = _len(x1 - x0, z1 - z0);
     final wt = warmTop < 0 ? warm : warmTop, ct = coldTop < 0 ? cold : coldTop;
-    final a = vertex(x0, y0, z0, u0, v0 + (y1 - y0) * kTexelsPerMeter, warm: warm, cold: cold);
-    final b = vertex(x1, y0, z1, u0 + len * kTexelsPerMeter, v0 + (y1 - y0) * kTexelsPerMeter, warm: warm, cold: cold);
-    final c = vertex(x1, y1, z1, u0 + len * kTexelsPerMeter, v0, warm: wt, cold: ct);
+    final a = vertex(x0, y0, z0, u0, v0 + (y1 - y0) * kDichteWelt, warm: warm, cold: cold);
+    final b = vertex(x1, y0, z1, u0 + len * kDichteWelt, v0 + (y1 - y0) * kDichteWelt, warm: warm, cold: cold);
+    final c = vertex(x1, y1, z1, u0 + len * kDichteWelt, v0, warm: wt, cold: ct);
     final d = vertex(x0, y1, z0, u0, v0, warm: wt, cold: ct);
     quad(a, b, c, d, texture, doubleSided: doubleSided);
   }
@@ -79,10 +84,10 @@ class MeshBuilder {
         final xb = xx + step > x1 ? x1 : xx + step;
         double w(double x, double z) => warmAt == null ? warm : warmAt(x, z);
         double c(double x, double z) => coldAt == null ? cold : coldAt(x, z);
-        final a = vertex(xx, y, zz, xx * kTexelsPerMeter, zz * kTexelsPerMeter, warm: w(xx, zz), cold: c(xx, zz));
-        final b = vertex(xb, y, zz, xb * kTexelsPerMeter, zz * kTexelsPerMeter, warm: w(xb, zz), cold: c(xb, zz));
-        final cc = vertex(xb, y, zb, xb * kTexelsPerMeter, zb * kTexelsPerMeter, warm: w(xb, zb), cold: c(xb, zb));
-        final d = vertex(xx, y, zb, xx * kTexelsPerMeter, zb * kTexelsPerMeter, warm: w(xx, zb), cold: c(xx, zb));
+        final a = vertex(xx, y, zz, xx * kDichteWelt, zz * kDichteWelt, warm: w(xx, zz), cold: c(xx, zz));
+        final b = vertex(xb, y, zz, xb * kDichteWelt, zz * kDichteWelt, warm: w(xb, zz), cold: c(xb, zz));
+        final cc = vertex(xb, y, zb, xb * kDichteWelt, zb * kDichteWelt, warm: w(xb, zb), cold: c(xb, zb));
+        final d = vertex(xx, y, zb, xx * kDichteWelt, zb * kDichteWelt, warm: w(xx, zb), cold: c(xx, zb));
         if (up) {
           quad(a, d, cc, b, texture);
         } else {

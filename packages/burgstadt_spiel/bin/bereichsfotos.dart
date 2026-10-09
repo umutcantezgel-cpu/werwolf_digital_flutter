@@ -4,13 +4,16 @@ import 'package:burgstadt_spiel/burgstadt_spiel.dart';
 import 'package:burgstadt_spiel/burgstadt_spiel_io.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
+import 'mess/qualitaet_arg.dart';
+
 /// Fotos jedes Bereichs (Ich-Sicht von einer Marke zur Raummitte) mit Paletten- und
-/// Blocktest. `dart run bin/bereichsfotos.dart <ordner> [breite höhe]`
-void main(List<String> args) {
+/// Blocktest. `dart run bin/bereichsfotos.dart <ordner> [breite höhe] [--qualitaet name]`
+void main(List<String> alleArgs) {
+  final (q, args) = qualitaetAusArgs(alleArgs);
   final ordner = args.isEmpty ? '.' : args[0];
   final w = args.length > 2 ? int.parse(args[1]) : 1280, h = args.length > 2 ? int.parse(args[2]) : 720;
   Directory(ordner).createSync(recursive: true);
-  final spiel = Spiel()..groesse(w, h);
+  final spiel = Spiel(optionen: Optionen()..qualitaet = q)..groesse(w, h);
   ladeAusRepo(spiel);
   final e = Eingabe();
   var fehler = 0;

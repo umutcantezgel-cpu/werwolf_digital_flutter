@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 const _gruenErlaubt = {'dachBiberschwanzMoos', 'wiese', 'bruchsteinMauer'};
 
 /// „Gleich oder benachbart“: gleicher Index, oder gleiche Rampe mit höchstens einer Stufe Unterschied.
-bool _benachbart(int a, int b) => a == b || (a >> 3 == b >> 3 && (a - b).abs() <= 1);
+bool _benachbart(int a, int b) => a == b || (rampeVon(a) == rampeVon(b) && (stufeVon(a) - stufeVon(b)).abs() <= 2);
 
 /// Anteil der Randpaare (links/rechts und oben/unten), die gleich oder benachbart sind.
 double _kantenAnteil(IndexedTexture t) {
@@ -40,10 +40,10 @@ void main() {
         expect(t.height, t.width);
       });
 
-      test('nur Palettenindizes 0–63, keine Transparenz', () {
+      test('nur Palettenindizes der Palette, keine Transparenz', () {
         final t = baueTextur(id);
         for (final lv in t.levels) {
-          expect(lv.every((c) => c < 64), isTrue, reason: 'Index ≥ 64 oder 255');
+          expect(lv.every((c) => c < paletteRgb.length), isTrue, reason: 'Index außerhalb der Palette oder 255');
         }
         expect(t.hasTransparency, isFalse);
       });
@@ -60,7 +60,7 @@ void main() {
 
       test('keine Grüntöne (Rampe 5) außer Moos, Wiese und Bruchsteinmauer', () {
         if (_gruenErlaubt.contains(id.name)) return;
-        final gruen = baueTextur(id).levels[0].where((c) => c >> 3 == Ramp.green);
+        final gruen = baueTextur(id).levels[0].where((c) => rampeVon(c) == Ramp.green);
         expect(gruen, isEmpty);
       });
 

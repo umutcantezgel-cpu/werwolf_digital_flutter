@@ -25,7 +25,7 @@ class Optionen {
       };
 
   void ausJson(Map<String, dynamic> j) {
-    qualitaet = Qualitaet.values.where((q) => q.name == j['qualitaet']).firstOrNull ?? qualitaet;
+    qualitaet = Qualitaet.ausName(j['qualitaet'] as String?) ?? qualitaet;
     kopfwippen = j['kopfwippen'] as bool? ?? kopfwippen;
     flackernAus = j['flackernAus'] as bool? ?? flackernAus;
     neigen = j['neigen'] as bool? ?? neigen;
