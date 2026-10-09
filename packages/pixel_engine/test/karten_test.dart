@@ -138,6 +138,13 @@ void main() {
     expect(farbFamilie(Ramp.at(6, 3)), isNot(farbFamilie(Ramp.at(2, 3))));
   });
 
+  test('Dreitagebart nicht fast schwarz (liest sich sonst als Vollbart, Sichtprüfer 28, E57); Bartschatten im Hautton erlaubt', () {
+    for (final k in karten.where((k) => k.teile.contains('bart-dreitage'))) {
+      final bart = k.materialien['bart'] ?? k.materialien['haar']!;
+      expect(bart.rampe == kRampeNamen['haut'] || bart.stufe > 1, isTrue, reason: '${k.id}: Bart ${bart.rampe}/${bart.stufe}');
+    }
+  });
+
   test('Keine Materialien auf [0,1] (Augenfarbe liegt auf Rampe 0 Stufe 1)', () {
     for (final k in karten) {
       for (final e in k.materialien.entries) {

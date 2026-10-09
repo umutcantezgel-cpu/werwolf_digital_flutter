@@ -25,7 +25,7 @@ Aus „Mordakte“ ist ein Ich-Perspektive-Krimi mit 2,5D-Pixelfiguren geworden.
 
 Die Tabelle mit Messwerten und Belegen steht in `ABNAHME.md`, das Protokoll des vollständigen Testlaufs aller elf Ebenen in `belege/alle_tests_voll.txt`.
 
-**Ergebnis:** `tool/abnahme.dart` bestätigt am Stand 580b4c2 **13 von 14** Kriterien (`belege/abnahme.txt`); alle elf Testebenen sind grün. Am Morgen (Stand a28178c) waren es 14 von 14. Danach kamen auf Wunsch des Nutzers Kanon v1.0 aus `main` (E41) und der Merge des Schlosskeller-Strangs (E49, E51) dazu, und die Inhaltsprüfung musste neu laufen. **Offen ist Z-12:** Die letzte Inhaltsrunde (25–27) urteilt „Leitplanken nein“. Unabhängige Gegenproben halten keinen der zehn schweren Befunde für haltbar, drei Gestaltungsfragen liegen beim Nutzer (`FUER-DEN-NUTZER.md`, E50).
+**Ergebnis:** `tool/abnahme.dart` bestätigt am Stand be73a78 (voller Lauf aller elf Ebenen an 314e8dd, grün) **13 von 14** Kriterien (`belege/abnahme.txt`). Am Morgen (Stand a28178c) waren es 14 von 14. Danach kamen auf Wunsch des Nutzers Kanon v1.0 aus `main` (E41), die Herkunft aus den Spieldaten (E48), die Merges der Stränge Schlosskeller und HD (E49, E51, E53) und die drei Gestaltungsfragen zu Z-12 (E54) dazu. Figuren und Inhalt mussten neu geprüft werden. Z-03 ist am neuen Kartenstand 850245deb6 wieder erfüllt (Sichtprüfer 31/32). **Offen ist Z-12:** Drei Inhaltsrunden in Folge urteilen „Leitplanken nein“. Von 34 unabhängigen Gegenproben waren 3 haltbar, und die sind umgesetzt. Die Entscheidung liegt beim Nutzer (`FUER-DEN-NUTZER.md`, E57).
 
 Messwerte aus diesem Lauf:
 - Spiellogik 0,15 ms je Bild (Grenze 4), Nachladespitze 21,7 ms (Grenze 50), Speicherwachstum 4,6 % (Grenze 10).
@@ -82,6 +82,8 @@ Messwerte aus diesem Lauf:
   - Nach dem Kanon v1.0 aus main (E41) haben sich R03 (ohne Notizbuch, blaue Jeans) und R04 (Strickpullover) geändert. Neuer Kartenstand db8e0a6155: Sichtprüfer 21 und 22 melden je 0 Paare und 0 Verstöße.
   - R04s Pullover war im Bild nicht als Strick zu erkennen (Inhaltsrunde 19). Er ist jetzt ein eigenes Teil `oberteil-strickpulli` (E45). Am neuen Kartenstand b60891cc2b melden Sichtprüfer 23 und 24 je 0 Paare und 0 Verstöße.
   - Gefundene Fehler, die nur Menschenaugen sehen: Kopfbedeckungen in Haarfarben lasen sich als Haar (B13, B14, B34, B39). Die Regel dagegen steht jetzt im Generator und im Test.
+  - Nach E54 (Geschlechtertausch, Frisuren, Haarfarben) liefen die Sichtprüfer 25 bis 32 (E55, E57–E59). Gefunden und behoben wurden: B22/B40 als Paar, R20 mit Kapuze über dem Zopf, R06 mit schwarzem „Dreitagebart“, der wie ein Vollbart wirkte, und bei R19 eine Bartart im Datensatz, die nicht zur Karte passte. Zu jedem Fund gibt es jetzt einen Test. Am Kartenstand 850245deb6 melden Sichtprüfer 31 und 32 je 0 Paare und 0 Verstöße.
+  - `tool/mass5a.py` (die Bildprüfung) urteilte anders als `karten_test`: Es schnitt die Zonen um eine Zeile anders und bei großen Figuren die Füße ab. Jetzt messen beide gleich (E55).
 - **Inhalt (Z-12):**
   - Zwölf Runden Gegenprüfung bis zur ersten Abnahme (A-702b bis m), danach weitere nach dem Kanon v1.0 (A-702n/o). Jede Runde fand feinere Punkte. Umgesetzt oder begründet abgewogen ist alles in E23 bis E42.
   - Kanon v1.0 brachte einen echten Widerspruch ins Overlay: Das Gespensterlaken ist jetzt Burgwäsche (Z-2140), unsere Stadt-Hinweise hatten es der Pension zugeschrieben. Er ist behoben, ebenso der übersehene Phasenbeginn (00:30 statt 00:25, Z-0030) und ein Harz-Rest (Osterode).
@@ -91,6 +93,7 @@ Messwerte aus diesem Lauf:
   - **Offen:** Runde 23/24 urteilt „Leitplanken nein“, weil Täterin und Mietbetrüger deutsche Wurzeln haben, die falsche Fährte (R01) und die Hauptzeugin mit dem Streich (R02) nicht. Das ist die Anlage des Falls im Kanon (FM-1, GROBPLAN F-07). Die Möglichkeiten stehen in `FUER-DEN-NUTZER.md`.
   - Auf Nutzerentscheidung (N-02, E48) enthält das Spiel keine Herkunftsangaben mehr: kein Feld „Wurzeln“ und keine Herkunftsorte in den Familienfeldern; der Kanon des Krimidinners behält sie.
   - Runde 25–27 (A-702t) urteilt erneut „Leitplanken nein“. Zu jedem Befund „hoch“ oder „mittel“ lief eine unabhängige Gegenprobe: 10 von 10 nicht haltbar. Umgesetzt sind kleine Verbesserungen (E50). Offen sind drei Gestaltungsfragen: Haarfarben der Rollen im Kanon-Look, Alters- und Geschlechtermuster der Stadtbewohner und das Ergebnis DW3-3.
+  - Runden 28–30 (A-702u) und 31–33 (A-702v) urteilen ebenfalls „Leitplanken nein“. Haltbar nach Gegenprobe und umgesetzt: Weinname im Figurendatensatz (R15), Hausarbeit in den Haustexten nur bei Frauen, Berufe der Eltern nach Geschlecht (E55, E57). Die übrigen Gründe kehren wieder und sind abgewogen. Nach der Abbruchregel geht Z-12 an den Nutzer (E57).
 - **Leitplanken-Scanner:** 0 Treffer in allen Spieltexten.
 - **Fairness:** Der Löser bestätigt für N = 4…20, dass jeder notwendige Schluss abgesichert ist. Das Durchspiel mit Bots endet bei jeder Rollenzahl als Meisterdetektiv. Teilen spart 72 % der Schritte.
 
@@ -105,6 +108,8 @@ Messwerte aus diesem Lauf:
   - Seitdem misst `bin/leistung.dart` die Prozessorzeit des Spielthreads (`CLOCK_THREAD_CPUTIME_ID`); die Wanduhrzeit steht weiter als Information im Protokoll. Beleg in `belege/leistung_z09.txt`.
 - **Viele Sichtprüf-Runden (E38–E40):** Nach den neuen Signaturteilen (Kameragurt, Kopfhörer) brauchte Z-03 vier weitere Prüferpaare (13 bis 20). Gefunden wurden: B13 mit einer Haube, die wie rotes Haar aussah; R06/R08; BW/B12; DET/B24. Meine Korrekturen von Hand haben das Problem dabei teils nur zum nächsten Nachbarn verschoben. Beendet hat das erst der Maßstab im Figurenvergleich selbst (E40).
 - **Figurenkarten von Hand (E38):** Nach Sichtprüfer 13 habe ich vier Bewohnerkarten von Hand nachgeschärft. Die ersten Werte erzeugten drei neue enge Paare. Gefunden hat sie `karten_test` vor dem Commit; eingecheckt wurde erst die Fassung ohne Paare.
+- **Rote Leistung durch die VM (E56):** Ein voller Lauf war nur wegen Z-09 rot: Ein einzelner Back-Schritt kostete 40,8 ms Prozessorzeit statt etwa 4. Eine reine Rechenschleife ohne Spielcode zeigte dieselben Ausreißer bis 90 ms; die VM rechnet Unterbrechungen durch den Wirt dem Thread an. Die teuersten Back-Schritte werden seitdem mit derselben Arbeit nachgemessen (Minimum aus 5); die Grenze ist unverändert.
+- **Eigene Zeitangaben:** Mehrere Köpfe im Entscheidungslog trugen geschätzte Uhrzeiten (E55, E56, E58); sie sind mit der gemessenen Zeit berichtigt.
 - **Zu früh auf main (E52):** Den Merge-Stand c54fe9c habe ich nach dem schnellen Test auf `main` gepusht. Der erste volle Lauf danach war rot: Im Web-Build fehlten die Asset-Manifeste. Ein zweiter voller Lauf am selben Commit war grün, und als derselbe Fehler um 17:27 wiederkam, zeigte ein Versuch die Ursache: Nach einem Wechsel der Build-Aufrufform (mit/ohne `-o`) schreibt Flutter die Manifeste nicht neu. Beide Prüfskripte leeren jetzt den Build-Cache, und `main` geht erst nach einem grünen vollen Lauf.
 
 ## 6. Nicht gebaut oder nur genähert
@@ -121,4 +126,4 @@ Siehe `FUER-DEN-NUTZER.md`. Kurz:
 
 Siehe `ANLEITUNG.md` (Start, Steuerung je Gerät, WLAN, Speichern, Optionen).
 
-*Stand: 09.10. 09:17 (Europe/Berlin), Branch `nachtlauf/burgstadt`.*
+*Stand: 09.10. 22:55 (Europe/Berlin), Branch `nachtlauf/burgstadt`.*

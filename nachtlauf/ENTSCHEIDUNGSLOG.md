@@ -651,3 +651,120 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Danach zwei Folgeläufe und eine gezielte Farbsuche für B43 (Kleid rot 4). Ergebnis: `karten_test` 0 Paare, `tool/mass5a.py` 0 Paare.
   - `mass5a.py` liest jetzt Palette v1 und v2 (E53).
   - Neuer Kartenstand 6e6584163c; neue Sichtprüfung A-605w/x und Inhaltsrunde A-702u. Der Figurenstand des HD-Strangs ändert sich (E53).
+
+## E55 · 09.10. 20:39 · Sichtrunde A-605w/x und Inhaltsrunde A-702u (Prüfer 28–30) mit Gegenproben; Auswertung
+- **Sicht (Kartenstand 6e6584163c):** Kein Prüfer gibt die Abnahme.
+  - Sichtprüfer 25 findet 1 Paar: B22/B40 (gleich groß, Hut, ockerfarbener Mantel, Beine wirken blau).
+  - Sichtprüfer 26 findet 0 Paare und 1 Verstoß: R20 trägt die Kapuze des grauen Pullis auf dem Kopf, der Zopf aus `rollen.json` ist nicht zu sehen.
+  - Behoben:
+    - B22 trägt jetzt eine steingraue Hose, B40 einen holzbraunen Mantel und eine steingraue Hose.
+    - Die Karte von R20 hat keine Kapuze mehr; `rollen.json` nennt für R20 `kopf: keine`.
+    - Neuer Test in `rollen_daten_test`, mit roter Gegenprobe: Eine Rollenkarte hat genau dann eine Kopfbedeckung, wenn `rollen.json` eine nennt.
+- **Inhalt (Stand 2777e28):** Alle drei Prüfer urteilen „Leitplanken nein · Kanontreu ja · Plagiatsfrei ja“ (28: mittel 2, gering 6; 29: hoch 1, mittel 1, gering 4; 30: mittel 5, gering 6).
+  - Zu allen 9 Befunden „hoch“ und „mittel“ lief eine unabhängige Gegenprobe (`auftraege/A-702/gegenproben_a702u.md`). **2 von 9 sind haltbar.**
+  - **Haltbar 1: „bordeauxroter Blazer“ in `rollen.json` (R15).** E50 hatte den Weinnamen nur im wirksamen Kanon ersetzt (ERSETZE-32/33), nicht in den Figurendaten. Jetzt steht dort „dunkelroter Blazer“. Neuer Test in `rollen_daten_test`, mit roter Gegenprobe: keine Weinnamen (bordeaux, burgund, weinrot) in `rollen.json` und `karten.json`.
+  - **Haltbar 2: Hausarbeit in den Haustexten nur bei Frauen.** Ausgeglichen sind:
+    - H-054 (poliert), H-080 (staubt ab), H-117 (strickt) und H-120 (spült): jetzt der Hausherr.
+    - H-093, H-127 und H-154: jetzt „die Hausleute“.
+    - H-116: „die Nachbarn“ treffen sich zum Flicken.
+    - H-118: „Wer zuerst aufsteht“.
+    - H-136 (misst den Grenzstein nach): jetzt die Hausherrin.
+    - H-103: Der Hausherrin wird nicht mehr widersprochen. Zusammen mit H-157 entstand sonst das Muster „der Mann behält recht, die Frau nicht“.
+    - Damit ist auch der Punkt H-117, H-118 und H-120 aus FÜR DEN NUTZER (E44) erledigt.
+  - **Nicht haltbar (7):**
+    - Haarfarbe nach Namensmuster (zweimal): Die Mischung je Herkunftsgruppe ist die Nutzerentscheidung aus E54, und die Gruppen decken sich mit dem Namensklang.
+    - Altersmuster bei älteren Frauen: Die Prämisse stimmt nicht, denn Gedächtniszüge tragen auch Männer und Jüngere.
+    - Burgwart „grantig“: Das ist ein Einzelzug aus dem Kanon, an Wärme gebunden, kein Gruppenbild (E34, E37).
+    - Kräuterfrau-Andeutung bei Ruth Köhler (B31): Die Bausteine sind neutral (E27, E34), und es gibt keine Hexenmerkmale.
+    - Geld-Färbungen: abgewogen in E47 und E50.
+    - Hausarbeit (Befund von Prüfer 28): eine Doppelung zu Haltbar 2, das umgesetzt ist.
+  - **Kleine Punkte umgesetzt** (aus den Gegenproben und den geringen Befunden):
+    - B13 erinnert sich „an fast jedes Lied“ statt „an fast jeden Streit“; B05 „korrigiert gern und meint es immer gut“.
+    - B08 „erzählt gern vom Berg“ statt „redet nur über … die alten Zeiten“.
+    - B12s Nachtplan nennt die Hosentasche statt einer Schürze, die sie nicht trägt.
+    - H-090 „seit der Hochzeit der Großeltern“ statt „seit der Auswanderung eines Großonkels“.
+    - H-111 „die Gärtnerin“ (Bewohnerin B31).
+    - Die Inschrift von H-077 klingt nicht mehr an einen Bibelvers an („Der Hahn hält still, der Wind nicht · 1798“).
+  - **Bleibt (gering, mit Grund):**
+    - B35 hat kein Arbeitshaus. Eintragen würde die Layout-Prüfsumme des HD-Strangs ändern; der Beruf steht im Text.
+    - „Frau Lang“ bei B15 ist eine Person im Pflegehaus, keine Stadtfigur.
+    - Gehstock, Strickzeug, Häkelbeutel und Lesebrille sind Einzelrequisiten auf den Figurenkarten; eine Änderung würde die Karten neu erzeugen. Stricken hat jetzt auch ein Mann (H-117).
+    - Kanon-Punkte gehen an die Kanon-Autoren (FÜR DEN NUTZER): Burgwart „grantig/brummt“; Wolle- und Grünspur R03/R04 seit v1.0; R13 Granatapfel-Brosche; R06 Färbung.
+- **Figurenkarten:** Neu erzeugt (`bin/bewohnerkarten.dart`, zwei Läufe). Neuer Kartenstand 88600ae6c9, Figurenstand add31ccee3. `karten_test` 0 Paare, `tool/mass5a.py` 0 Paare. Der Generator hat dabei die erfundenen Hosenstufen von R03, R09 und R17 in `rollen.json` nachgezogen; die R03-Jeans steht damit wieder wie in E41 auf blau [6,4] (geringer Befund der Prüfer 28 und 29).
+- **Warum Test und Bildprüfung bisher verschieden urteilten:** `tool/mass5a.py` wich zweimal von `_mitteFarben`/`vergleiche` ab.
+  - Es schnitt die Zonen eine Zeile anders. Bei knappen Mehrheiten (B43: rot 75 gegen dunkel 71 Pixel) kippte die Farbfamilie.
+  - Es schnitt mit „−30“ unten auch die Füße großer Figuren ab und maß deren Höhe zu klein.
+  - Jetzt rundet es die Zonen wie Dart, nimmt Δh ≤ 5 Figurenpixel und schneidet nur die Beschriftung ab. Abgleich über alle 66 Figuren: Höhe, Ober- und Unterfarbe sind gleich. Die frühere Handsuche nach Farben (E54) jagte also zum Teil Scheinpaaren nach.
+- Neue Runden: Sicht A-605y/z (Prüfer 27/28) und Inhalt A-702v (Prüfer 31–33).
+
+## E56 · 09.10. 21:21 · Z-09: Ausreißer der Prozessorzeit kommen von der VM; teuerste Back-Schritte werden nachgemessen
+- **Befund:** Der volle Abnahmelauf am Stand e13255f war rot, nur wegen Z-09. Ein einzelner Back-Schritt der Figuren kostete 40,8 ms Prozessorzeit (× 4 = 163 ms, Grenze 50 ms). In 14 früheren vollen Läufen lag der Wert zwischen 4,1 und 6,3 ms.
+- **Untersuchung:**
+  - Fünf Einzelläufe von `bin/leistung.dart` ergaben 5,7 / 4,2 / 13,5 / 4,4 / 5,1 ms. Die Ausreißer kommen also nur ab und zu.
+  - Das GC-Protokoll (`--verbose_gc`) zeigt keine Pause von 5 ms oder mehr.
+  - Alle 6864 Einzel-Backvorgänge der 66 Karten, 40 Läufe, gemessen mit `getrusage(RUSAGE_THREAD)`: In 5 Läufen fiel je ein Aufruf mit 10–40 ms auf, sonst lagen sie bei etwa 0,6 ms. Getroffen wurden jedes Mal eine andere Figur und Pose, und zwar mit Nutzerzeit, ohne Seitenfehler und ohne Kontextwechsel. In umgekehrter Reihenfolge trifft es andere Aufrufe.
+  - **Gegenprobe ohne Spielcode:** Eine reine Rechenschleife ohne Allokation (Schritte von 0,8 ms) zeigte in 200 s sechs Ausreißer von 9 bis 90 ms Prozessorzeit.
+  - Damit ist die Ursache die VM: Unterbrechungen durch den Wirt rechnet sie dem laufenden Thread als Rechenzeit an, nicht als „steal“. E36 hatte das für die Wanduhr gezeigt; es gilt auch für die Thread-Prozessorzeit.
+- **Entscheidung:**
+  - `FigurenLager` merkt sich im Messbetrieb (nur mit `prozessorZeitMs`) die 8 teuersten Back-Schritte samt ihrer Arbeit (Figur, Animation, Pose, Richtung).
+  - `bin/leistung.dart` misst diese Schritte mit derselben Arbeit fünfmal nach. Maßgeblich ist je Schritt das Minimum, über die Schritte das größte. Grenze und Faktor bleiben gleich.
+  - Echte Mehrarbeit des Codes bleibt sichtbar, weil die Arbeit deterministisch ist. Ein einzelner Aussetzer der Maschine fällt heraus. Der einzeln gemessene Wert steht im Beleg daneben.
+  - Drei Läufe danach: 4,2 / 4,6 / 4,1 ms (einzeln gemessen 4,4 / 5,1 / 4,1 ms).
+  - Neuer Test `figuren_lager_test`, mit roter Gegenprobe: Ein eingespeister Aussetzer von 60 ms zählt nicht als Arbeit, und die Arbeit wird wirklich noch einmal getan.
+- Der rote Lauf ist nicht committet (Belege zurückgesetzt); der neue volle Lauf folgt am neuen Stand.
+
+## E57 · 09.10. 21:58 · Sichtrunde A-605y/z und Inhaltsrunde A-702v (Prüfer 31–33) mit Gegenproben; Auswertung
+- **Sicht (Kartenstand 88600ae6c9):**
+  - Sichtprüfer 27: 0 Paare, 0 Verstöße, **Abnahme ja**.
+  - Sichtprüfer 28: 0 Paare, 1 Verstoß. R06 (Dreitagebart laut `rollen.json`) wirkt wie Vollbart mit Haar bis zum Kiefer.
+  - Der Befund stimmt. Die Karte hat zwar `bart-dreitage`, aber ohne eigenes Bartmaterial erbt der Bart das tiefschwarze Haar [0,0] und deckt Kinn und Kiefer vollflächig.
+  - **Behoben:** R06 hat jetzt einen Bartschatten im dunklen Hautton (`bart` [7,1]), das Haar endet an den Ohren.
+  - Neuer Test in `karten_test`, mit roter Gegenprobe: Ein Dreitagebart ist nie fast schwarz; Bartschatten im Hautton ist erlaubt.
+  - Neuer Kartenstand 850245deb6, Figurenstand 2f77614620; `karten_test` und `mass5a.py` ohne Paar.
+  - Weil der Kartenstand neu ist, läuft eine neue Sichtrunde A-605aa/ab (Prüfer 29 und 30).
+- **Inhalt (Stand e13255f):** Alle drei Prüfer urteilen „Leitplanken nein · Kanontreu ja · Plagiatsfrei ja“ (31: mittel 1, gering 8; 32: hoch 1, mittel 2, gering 3; 33: hoch 2, mittel 9, gering 5).
+  - Prüfer 32 hat seinen Bericht nicht als Datei geschrieben. Er steht unverändert aus dem Rückgabefeld in `auftraege/A-702/gegenpruefer_inhalt_32_bericht.md`.
+  - Zu allen 15 Befunden „hoch“ und „mittel“ lief eine Gegenprobe (`auftraege/A-702/gegenproben_a702v.md`). **1 von 15 ist haltbar.**
+  - **Haltbar: Berufe der Eltern nach Geschlecht** (Familienfelder R01–R20, im Spiel nicht angezeigt). Keine Mutter arbeitete in Technik oder Handwerk; 17 von 19 Vätern taten es.
+    - Im Overlay sind die Elternberufe bei R08, R09, R13 und R16 getauscht bzw. gemischt. Mütter: Vermessungstechnikerin, Busfahrerin, Mechatronikerin, Schlosserin. Väter: PTA, Fliesenleger und Koch der Familie, Erzieher, Kantinenkoch.
+    - Neuer Test in `kanon_test`, mit roter Gegenprobe am alten Overlay (0 Mütter in Technik): mindestens drei Mütter in Technik oder Handwerk und drei Väter in Pflege, Bildung oder Küche.
+  - **Nicht haltbar (14):**
+    - Geld- und Kälte-Färbung R13/R15 (zweimal; E47, E50).
+    - Hautton und Haarfarbe nach Namensgruppe: Die Haarfarbe ist Nutzerentscheidung E54; der Hautton ist ein wertfreies Körpermerkmal und nirgends Motiv.
+    - Folklore bei R13 (zweimal; E38, E43).
+    - Verdachts-Färbungen R06 und andere (zweimal; E47, E48).
+    - „Frau organisiert, Mann repariert“: keine durchgehende Verteilung.
+    - Burgwart „grantig“ (E55).
+    - Hexen-Andeutung B31 (zweimal; E55).
+    - Ältere Frauen und Hochzeiten (E55).
+    - E48-Prämisse.
+  - **Kleine Punkte umgesetzt:**
+    - H-035: Pronomen der Buchbinderin.
+    - H-136: „Die Hausleute messen …“. Meine E55-Änderung „Die Hausherrin misst … und kommt immer auf ein anderes Ergebnis“ las ein Prüfer als Witz über Frauen.
+    - B09: Das Gerücht schiebt das Hundegebell nicht mehr der Tierärztin zu.
+  - **Bleibt (gering, schon beim Nutzer oder abgewogen):** Bock-Inschriften und Besen (FÜR DEN NUTZER), Verstecken-Inschriften H-053/H-132 (FÜR DEN NUTZER), „Kunibert“ (FÜR DEN NUTZER), „Einspruch!“ (E27), Requisiten (E55), LISTE-ZEITEN (E44).
+- **Z-12 geht an den Nutzer** (Abbruchregel E40, Plan):
+  - Drei Inhaltsrunden in Folge (A-702t, u, v; neun Berichte) urteilen „Leitplanken nein“. Von 34 Gegenproben waren 3 haltbar, alle sind umgesetzt (E55, E57).
+  - Die übrigen Gründe wiederholen sich und sind abgewogen.
+  - Eine weitere Runde würde nach diesem Muster wieder „nein“ ergeben. Deshalb liegt die Entscheidung über Z-12 jetzt beim Nutzer (FÜR DEN NUTZER).
+
+## E58 · 09.10. 22:28 · Sichtrunde A-605aa/ab (Prüfer 29/30): Bartart von R19 im Datensatz angeglichen
+- **Ergebnis (Kartenstand 850245deb6):** Beide Prüfer finden 0 Paare und je 1 Verstoß, beide denselben: Bei R19 nennt `rollen.json` `bart: "kurz"`, das Merkmal heißt aber „Kinnbart (Goatee)“. Karte und Look-Anker (ERSETZE-38) zeigen einen Kinnbart.
+- **Behoben:**
+  - Das Datenfeld heißt jetzt `bart: "kinnbart"`. Bild und Kartenstand bleiben gleich.
+  - Die Übergangs-Steckbriefkarte (`karteAusSteckbrief`) kennt „kinnbart“.
+  - Neuer Test in `rollen_daten_test`, mit roter Gegenprobe: Die Bartart in `rollen.json` passt bei allen 21 Rollen zum Bartteil der Karte (keiner, stoppel = Dreitagebart, kurz, voll, schnurrbart, kinnbart).
+  - Frisur und Kopfbedeckung sind dabei ebenfalls abgeglichen: keine weitere Abweichung.
+- **R06** (E57) bestätigen beide Prüfer: Dreitagebart als Bartschatten.
+- **Hinweise ohne Verstoß:**
+  - Prüfer 29 sah bei B12 einen Bart. Die Karte hat aber kein Bartteil; der Pagenkopf rahmt das Gesicht.
+  - Prüfer 29 sah bei B32 einen kleinen Knoten (Frisur „kurz-wuschel“) und bei B34 die Mütze nur als Band.
+  - Prüfer 29 nennt die Grenzfälle B14/B20 und B22/B40, Prüfer 30 acht Grenzfälle. Grenzfälle zählen nach Maßstab 5a nicht.
+- Weil das Bild gleich bleibt, gilt der Kartenstand 850245deb6 weiter; für Z-03 läuft eine neue Sichtrunde A-605ac/ad (Prüfer 31/32) mit korrigiertem Datensatz.
+
+## E59 · 09.10. 22:55 · Z-03 erfüllt (Sichtprüfer 31/32); Abnahme 13 von 14, Z-12 beim Nutzer
+- **Sichtrunde A-605ac/ad (Kartenstand 850245deb6):** Sichtprüfer 31 und 32 melden unabhängig je 0 Paare und 0 Verstöße, Abnahme ja.
+  - Beide bestätigen R06 (Bartschatten) und R19 (Kinnbart).
+  - Hinweise ohne Verstoß: Grenzfall B05/B07 (Locken, navy Rock; Oberteil dunkelbraun gegen dunkelrot); B32 wirkt mit Haarknoten.
+- `tool/abnahme.dart --log` am Stand be73a78 (Protokoll des grünen Laufs an 314e8dd, Code seither unverändert): **13 von 14 erfüllt**, offen nur Z-12. Z-12 liegt nach E57 beim Nutzer.
+- Die Stränge „Burgstadt HD“ und „Finalisierung Schlosskeller“ sowie der neue Strang `kern-feinkorn` haben seit ihrem letzten Merge weitergearbeitet (16, 22 und 2 Commits). Ein neuer Merge ist Nutzerentscheidung wie N-03/N-04 (FÜR DEN NUTZER).

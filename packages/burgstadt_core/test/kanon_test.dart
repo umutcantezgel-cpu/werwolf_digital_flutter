@@ -289,6 +289,22 @@ void main() {
       // Der Hinweis H-15 des Kanons bleibt (trägt S-5); siehe den Test zu H-01…H-29.
     });
 
+    test('Elternberufe in den Familienfeldern nicht nach Geschlecht getrennt (E57)', () {
+      const technik = ['techniker', 'tronik', 'schlosser', 'linienbus', 'elektrik', 'polier', 'fliesen', 'schweiß', 'mechanik', 'stahlwerk', 'lagerist', 'lokführer'];
+      const sorge = ['pfleg', 'erzieh', 'assistent', 'koch', 'lehr', 'unterricht', 'helfer', 'sekretär', 'kita', 'schule'];
+      final mutterTechnik = <String>[], vaterSorge = <String>[];
+      for (var r = 1; r <= 20; r++) {
+        final id = 'R${r.toString().padLeft(2, '0')}-STAMM';
+        final f = wirksam.datensaetze[id]!.feld('Familie')!.toLowerCase();
+        final mutter = RegExp(r'die mutter ([^,.;]+)').firstMatch(f)?.group(1) ?? '';
+        final vater = RegExp(r'der vater ([^,.;]+)').firstMatch(f)?.group(1) ?? '';
+        if (technik.any(mutter.contains)) mutterTechnik.add(id);
+        if (sorge.any(vater.contains)) vaterSorge.add(id);
+      }
+      expect(mutterTechnik.length, greaterThanOrEqualTo(3), reason: 'Mütter in Technik/Handwerk: $mutterTechnik');
+      expect(vaterSorge.length, greaterThanOrEqualTo(3), reason: 'Väter in Pflege/Bildung/Küche: $vaterSorge');
+    });
+
     test('Punsch ist in jedem angezeigten Text alkoholfrei (O, G und Detektiv-Ergebnisse DW, E47)', () {
       for (final d in wirksam.datensaetze.values) {
         if (d.sicht == Sicht.l && !d.id.startsWith('DW')) continue;

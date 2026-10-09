@@ -17,6 +17,15 @@
 - **Sprachausgabe:** Das Projekt hat keine. Erzählertexte werden angezeigt, nicht vorgelesen.
 
 ## Bitte entscheiden
+- **Neue Commits der anderen Stränge (E59):** Seit ihrem letzten Merge haben „Burgstadt HD“ (`claude/pensive-gates-ajtp7x`, 16 Commits, u. a. BOLLWERK-Meta-Prompts und HD-Texturen), „Finalisierung Schlosskeller“ (22 Commits, u. a. Drucksatz und E2E-Gerüst) und der neue Strang `kern-feinkorn` (2 Commits, FEINKORN archiviert) weitergearbeitet. Sie sind noch nicht in `main`. Ein Merge ist wie N-03/N-04 deine Entscheidung; danach folgen ein voller Lauf und bei Figurenänderungen eine neue Sichtrunde.
+- **Z-12 (Inhaltsprüfung) – drei Runden in Folge „nein“ (E50, E55, E57):**
+  - Die Inhaltsprüfer (A-702t, u, v; neun Berichte) urteilen jedes Mal „Leitplanken nein · Kanontreu ja · Plagiatsfrei ja“.
+  - Zu jedem Befund „hoch“ oder „mittel“ lief eine unabhängige Gegenprobe. Von 34 waren 3 haltbar, und die sind umgesetzt: Weinname im Figurendatensatz, Hausarbeit in den Haustexten, Elternberufe nach Geschlecht.
+  - Die übrigen Gründe kehren wieder und sind abgewogen: Haar- und Hautton nach Namensgruppe, Geld-Färbungen von R13 und R15 (Kanon), Burgwart „grantig“, Gärtnerin B31 als Hexen-Andeutung, ältere Frauen und Hochzeiten (`auftraege/A-702/gegenproben_a702t.md`, `…a702u.md`, `…a702v.md`).
+  - Weitere Runden würden nach diesem Muster wieder „nein“ ergeben. Zu entscheiden ist:
+    - ob Z-12 als erfüllt gelten soll, wenn alle Befunde „hoch“ und „mittel“ per Gegenprobe widerlegt oder umgesetzt sind,
+    - oder welche der wiederkehrenden Punkte doch geändert werden sollen (z. B. die Geld-Färbungen im Kanon),
+    - oder ob ein Mensch die Texte liest.
 - **Die drei Gestaltungsfragen zu Z-12 (E50) sind umgesetzt (E54):** Stadtbewohner ausgeglichen, Haarfarben der Rollen gemischt, DW3-3 nennt nur die Spur. Vermerk: Der Kanon-Hinweis H-15 (Sohlenkarten, Phase 3) nennt Merles Absatz weiterhin; er trägt den Schluss S-5 und bleibt. Für die Kanon-Autoren: Wenn die Täterin vor der Anklage nie genannt werden soll, müssten H-15 und die Lösung S-5 im Kanon selbst umgebaut werden.
 - **Herkunft und Fallfunktionen (E47, E48) – entschieden und umgesetzt:** Auf deine Entscheidung hin enthält das Spiel keine Herkunftsangaben mehr. Das Overlay löscht „Wurzeln“ bei allen 20 Rollen und die Herkunftsorte in den Familienfeldern. Der Kanon des Krimidinners in `krimidinner/` behält sie. Zurücknehmen: die `Löschen: Wurzeln`-Angaben im Overlay entfernen (E48). Für die Kanon-Autoren bleibt die Frage, ob die Fallfunktionen im Krimidinner selbst anders verteilt werden sollen.
 - **Strang „Finalisierung Schlosskeller“ (E49):** Auf deinen Wunsch ist der Stand f5190ac in `main` gemergt. Die Sitzung dort arbeitet weiter; ihre späteren Commits müssen wieder zusammengeführt werden.
@@ -40,6 +49,7 @@
   - **„HODŽIĆ VT · 3“ (E46):** Im Spiel heißt die Marke an R01s Lampe jetzt „VT · 3“, die Aussprache in GL-19 „fau-te drei“ (Overlay, ERSETZE-23/24). Mehrere Inhaltsprüfer sahen im Nachnamen als einzigem Eigentumsmerkmal einen Herkunftsanker, einer urteilte deshalb „Leitplanken nein“. Die Lampe zeigt weiter auf R01: „VT“ ist seine Firma, und die Rollentexte sagen „deine Lampe 3“. Die Kanon-Dateien sind unverändert. **Bitte entscheiden:** dieselbe Kennung in BSO-03, BS-03, H-28, E1-01, DW1-1, GL-19, R01-GEHEIM, Z-1830, Z-2320 und LISTE-GEGENSTÄNDE übernehmen oder es beim Overlay lassen.
   - **Ziffern in Vorlesetexten (E46):** K8 §5 verlangt in vorlesbaren Texten Uhrzeiten und Beträge in Worten. H-23, H-26 und neun Ansagen in K5-ENTSCHEIDUNGEN-P2 (z. B. „um 23:56“, „3.800 €“) haben Ziffern. Die App liest nichts vor und lässt die Ziffern stehen. Für das Krimidinner sollten die Kanon-Autoren das angleichen.
   - **Familienfelder im Kanon (E46):** R06 und R18 haben fast gleiche Eltern („leben in Celle; der Vater ist Lokführer im Güterverkehr“). „Sonntags“ kommt in sechs Familienfeldern vor. Das ist Kanon-Wortlaut; das Overlay ändert Familienfelder nur aus Leitplanken-Gründen.
+  - **Hinweise der Inhaltsrunde 28–30 (E55), gering:** Der Burgwart ist „grantig“ und „brummt“ (Kanon-Einzelzug mit Wärme; ein Prüfer sieht darin das Bild vom brummigen alten Mann). Seit v1.0 trägt auch R04 einen Strickpullover, sodass die Wolle-Spur (BW-AUSSAGE-3, H-337) R03 und R04 nicht mehr allein über den Stoff trennt; ein Merkmal wie ein Zopfmuster bei R03 wäre eindeutig. Die Granatapfel-Brosche von R13 liest ein Prüfer als Folklorezeichen. Alles Kanon-Wortlaut; der Nachtlauf ändert ihn nicht.
   - **Lüftungsschacht (E46):** Den handbreiten Lüftungsschacht der Speisekammer nennen nur G-Daten (R12, Gespräche, Hinweise der Phasen). H-04 [O] sagt „der einzige andere Zugang ist die Eisentür“. Kein Widerspruch, weil kein Mensch hindurchpasst; zum Abrunden könnte H-04 den Schacht erwähnen.
 - **„Spur verwischen“ (R03):** Nur die Täterin kann eine Spur verwischen, und „verwischt“ sehen alle mit Detektivblick. Wer die Fähigkeit hat, bleibt geheim. Ein Prüfer schlug vor, sie zusätzlich einer unschuldigen Rolle zu geben. Das wäre eine neue falsche Fährte und damit eine Kanon-Entscheidung (E42).
 - **Kleine Textpunkte aus Inhaltsrunde 12 (A-702m, Urteil ja · ja · ja):** Nach der Abbruchregel in E40 sind sie gesammelt statt umgesetzt; jeder ist eine Ein-Satz-Änderung in `bewohner.json` bzw. `haeuser.json`.
@@ -49,7 +59,7 @@
   - B44 (Gerücht): „der Riese sei damit ins Tal gerutscht“ streichen, wie schon bei H-034.
   - Inschriften H-053 und H-132 („wer nicht gesehen werden will“, „was sie verbirgt“): neutraler fassen, damit nichts nach Verstecken klingt.
 - **Geringe Punkte aus Inhaltsrunde 17 (A-702p, ja · ja · ja):**
-  - Dienstberufe sind bei den Bewohnerinnen häufiger (8 von 21 Frauen, 3 von 23 Männern); Hausarbeitssätze in H-117, H-118, H-120. Ausgleichen ist eine Datenänderung plus neue Prüfung.
+  - ~~Dienstberufe sind bei den Bewohnerinnen häufiger; Hausarbeitssätze in H-117, H-118, H-120.~~ Erledigt: Berufe ausgeglichen (E54), Hausarbeit in den Haustexten auf Frauen und Männer verteilt (E55).
   - Inschriften mit „Bock“ (H-073, H-123) könnten an Teufelsbilder erinnern.
   - Der Schornsteinfeger B17 trägt einen Kehrbesen; ein Prüfer sieht ein Hexenbild. Der Besen ist Teil der Figur, eine Änderung braucht eine neue Sichtprüfung.
   - Die Rüstung „Kunibert“ (Kanon) hat Namensvettern in einer alten Fernsehserie und einem Kinderspiel; keine Übernahme von Handlung oder Figur.
