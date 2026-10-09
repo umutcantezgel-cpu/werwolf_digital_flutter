@@ -31,10 +31,8 @@ schritt "Kern-Tests (mordakte_core, inkl. Partymodus)"
 if [ "$STUFE" != "schnell" ]; then
   schritt "Szenario-Validator (Bestand)"
   (cd packages/mordakte_core && dart run bin/validate.dart)
-  if [ -f packages/mordakte_core/bin/party_validate.dart ]; then
-    schritt "Kanon-Validator (Partymodus)"
-    (cd packages/mordakte_core && dart run bin/party_validate.dart)
-  fi
+  schritt "Partymodus: Plausibilität, Story-Bibel, Simulator"
+  (cd packages/mordakte_core && dart run bin/party_pruefen.dart && dart run bin/party_bibel.dart --pruefen && dart run bin/party_simulate.dart --pruefen)
   schritt "Server-Smoke (Bestand)"
   (cd server && dart run tool/smoke.dart)
   if [ -d test ]; then

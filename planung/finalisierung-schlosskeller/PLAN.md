@@ -71,17 +71,17 @@
 ## F2 – Mechanik und Simulation (Tor F-07; F-06, F-08 mit Platzhaltern)
 | Kennung | Rolle | Gegenstand | Eigene Dateien | Abhängig | Status |
 |---|---|---|---|---|---|
-| F2-ORCH-01 | ORCH | Entscheidungsmodell: 9 Handlungen, Optionen, Wertung je Pfad, Begründungsketten | `entscheidungen.json`, `party/entscheidungen.dart` | F1 | offen |
-| F2-ORCH-02 | ORCH | Gruppenwahl, Dilemmata (Struktur), Schwellen, Bonus-Wirkungen (36), Kanon-Feld `sabotage` je Kernrolle (E-014) | `gruppenwahl.json`, `bonus.json`, `party/gruppenwahl.dart` | F2-ORCH-01 | offen |
-| F2-ORCH-03 | ORCH | Restverdächtige, Endmatrix, Fall-Code, Ablauf-Zustandsautomat, Erzähler-Bausteinwahl | `party/restverdaechtige.dart`, `enden.dart`, `fall_code.dart`, `ablauf.dart`, `erzaehler.dart`, `enden.json`, `erzaehler.json` | F2-ORCH-02 | offen |
-| F2-ORCH-04 | ORCH | Simulator-Kern (erschöpfend, faktorisiert) und CLI | `party/simulator.dart`, `bin/party_simulate.dart` | F2-ORCH-03 | offen |
-| F2-TEST-01 | TEST | Schwellen 4–20 (Grenzwerte), Gruppenwahl-Struktur | `test/party/gruppenwahl_test.dart` | F2-ORCH-02 | offen |
-| F2-TEST-02 | TEST | Enden-Matrix, Determinismus ×1000 | `test/party/enden_test.dart`, `determinismus_test.dart` | F2-ORCH-03 | offen |
-| F2-TEST-03 | TEST | Simulator-Kriterien F-06 als Test (inkl. „0 richtige, 3 wahre Hinweise → ≥ 2“, Rate-Enden getrennt, D-1) | `test/party/simulator_test.dart` | F2-ORCH-04 | offen |
-| F2-ORCH-06 | ORCH | Ersatzpartner-Tabelle und Begründungsketten je Personenzahl 4–20 (vorgezogener Teil von F-09) | `besetzung.json`, `party/besetzung.dart` | F2-ORCH-01 | offen |
-| F2-TEST-04 | TEST | Gruppenwahl-Dominanz: jede Option mit Kosten/Nutzen, jeder der 36 Hinweise erreichbar, Sabotage −1 | `test/party/gruppenwahl_dilemma_test.dart` | F2-ORCH-02 | offen |
-| F2-FALL-01 | FALL | Simulator fahren: Verteilungen je Pfad, Abkürzungen, Schwierigkeit | – (Bericht) | F2-ORCH-04 | offen |
-| F2-GEGEN-01 | GEGEN | Modell angreifen: Abkürzungen, Spoiler, Täterwahl erkennbar, Raten | – (Bericht) | F2-ORCH-04 | offen |
+| F2-ORCH-01 | ORCH | Entscheidungsmodell: 9 Handlungen, Optionen, Wertung je Pfad, Begründungsketten | `entscheidungen.json`, `party/entscheidungen.dart` | F1 | abgenommen (30 Fakten, 9 Entscheidungen, Regeln R-ENTLASTET/R-UEBERFUEHRT; E-024) |
+| F2-ORCH-02 | ORCH | Gruppenwahl, Dilemmata (Struktur), Schwellen, Bonus-Wirkungen (36), Kanon-Feld `sabotage` je Kernrolle (E-014) | `gruppenwahl.json`, `bonus.json`, `party/gruppenwahl.dart` | F2-ORCH-01 | abgenommen (Gerüst 60 Wahlen mit bTaeter, 36 Hinweise; Texte der Wahlen in F3) |
+| F2-ORCH-03 | ORCH | Restverdächtige, Endmatrix, Fall-Code, Ablauf-Zustandsautomat, Erzähler-Bausteinwahl | `party/entscheidungen.dart` (Restmenge), `enden.dart`, `fall_code.dart`, `ablauf.dart`, `erzaehler.dart`; Endmatrix bleibt in `fall.json`, Baustein-Katalog als Kennungsliste (`Erzaehler.katalog()`), Texte in F3 | F2-ORCH-02 | abgenommen (ablauf_test 6 Tests) |
+| F2-ORCH-04 | ORCH | Simulator-Kern (erschöpfend, faktorisiert) und CLI | `party/simulator.dart`, `bin/party_simulate.dart` | F2-ORCH-03 | abgenommen (768 Folgen × 4 Pfade × 4 Anklagen in 0,3 s; in tool/pruefen.sh) |
+| F2-TEST-01 | TEST | Schwellen 4–20 (Grenzwerte), Gruppenwahl-Struktur | `test/party/gruppenwahl_test.dart` | F2-ORCH-02 | läuft |
+| F2-TEST-02 | TEST | Enden-Matrix, Determinismus ×1000 | `test/party/enden_test.dart`, `determinismus_test.dart` | F2-ORCH-03 | läuft |
+| F2-TEST-03 | TEST | Simulator-Kriterien F-06 als Test (inkl. „0 richtige, 3 wahre Hinweise → ≥ 2“, Rate-Enden getrennt, D-1) | `test/party/simulator_test.dart` | F2-ORCH-04 | läuft |
+| F2-ORCH-06 | ORCH | Ersatzpartner-Tabelle und Begründungsketten je Personenzahl 4–20 (vorgezogener Teil von F-09) | `besetzung.json`, `party/besetzung.dart` | F2-ORCH-01 | abgenommen (besetzung_test 5 Tests, 4–20 je Pfad lösbar) |
+| F2-TEST-04 | TEST | Gruppenwahl-Dominanz: jede Option mit Kosten/Nutzen, jeder der 36 Hinweise erreichbar, Sabotage −1 | `test/party/gruppenwahl_dilemma_test.dart` | F2-ORCH-02 | läuft |
+| F2-FALL-01 | FALL | Simulator fahren: Verteilungen je Pfad, Abkürzungen, Schwierigkeit | – (Bericht) | F2-ORCH-04 | läuft |
+| F2-GEGEN-01 | GEGEN | Modell angreifen: Abkürzungen, Spoiler, Täterwahl erkennbar, Raten | – (Bericht) | F2-ORCH-04 | läuft |
 | F2-ORCH-05 | ORCH | Befunde einarbeiten, Tor, Commit, Push | – | alle F2 | offen |
 
 ## F3 – Inhalte (Tor F-06 mit Texten, F-08, F-10, F-11, F-15)
