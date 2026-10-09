@@ -36,3 +36,11 @@
   - **Spieltester (A-703a):** 6 schwere Bedienfehler (abgeschnittene Karten und Blasen, Tutorial über den Knöpfen, unlesbare Kartennamen, kleine Knöpfe) sind behoben; Handy-Fotos neu.
   - **Inhaltsrunde 5:** Leitplanken ja, plagiatsfrei; letzte Kanon-Abweichung („eine Weile“) behoben.
   - **WebAssembly:** probehalber gebaut, etwa doppelt so schnell, aber mit Konsolenwarnung, deshalb nicht übernommen.
+- 07:00 Morgenbericht geschrieben (`MORGENBERICHT.md`). Abnahme 12 von 14 laut `tool/abnahme.dart`.
+  - Offen ist Z-03: neuer Figurenstand mit Kameragurt R19 und Kopfhörer R02, zwei Sichtprüfer laufen.
+  - Offen ist Z-12: Inhaltsrunde 9 läuft.
+  - Seit 05:34:
+    - Inhaltsrunden 6–8 umgesetzt.
+    - Leistungsmessung auf Prozessorzeit des Spielthreads umgestellt (E36), nachdem ein Lauf unter Parallellast durch Verdrängung rot war.
+    - Baker-Puffer wiederverwendet.
+    - Spieltester-Befunde behoben.
