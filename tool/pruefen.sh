@@ -18,8 +18,12 @@ schritt() { printf '\n== %s\n' "$*"; }
 # im Wurzelordner fehlende Test-Pakete in packages/mordakte_core.
 schritt "Pakete auflösen"
 flutter pub get
-(cd packages/mordakte_core && dart pub get)
 (cd server && dart pub get)
+# Alle Unterpakete, auch die des Burgstadt-Strangs (E-028): Flutter-Pakete mit flutter, reine Dart-Pakete mit dart.
+for d in packages/*/ tool/ton/; do
+  [ -f "$d/pubspec.yaml" ] || continue
+  if grep -q "sdk: flutter" "$d/pubspec.yaml"; then (cd "$d" && flutter pub get); else (cd "$d" && dart pub get); fi
+done
 
 schritt "Analyse"
 flutter analyze
