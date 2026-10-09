@@ -300,7 +300,7 @@
         "Die Glocke der Schule schweigt seit dem Brand, und ich vermisse ihre Pausen mehr, als ich sagen will.",
         "Wenn du etwas wissen willst, frag laut und deutlich. Ich höre nur noch, was man mir ins Gesicht sagt."
       ],
-      "gerede": "Man erzählt, der Nebelriese habe in der alten Schule Hausaufgaben gemacht, aber die Kinder erfinden alles, sobald es dunkel wird."
+      "gerede": "Man erzählt, der Nebelriese habe in der alten Schule Hausaufgaben gemacht, aber das hat der kleine Paul von nebenan erfunden."
     },
     {
       "id": "B06",
@@ -525,7 +525,7 @@
           "bis": "01:10",
           "wo": "fenster",
           "zustand": "wach",
-          "tut": "Sie sitzt am Fenster, die Tasche gepackt, und hört im Nebel ein Bellen aus der Gasse am Untertor."
+          "tut": "Sie sitzt am Fenster, die Tasche gepackt, und hört im Nebel ein Bellen vom Untertor her."
         },
         {
           "von": "01:10",
@@ -910,8 +910,8 @@
         }
       ],
       "saetze": [
-        "Du sprichst hier mit einer Pflegekraft. Heute Nacht war es ruhiger als sonst, die Alten schlafen fest.",
-        "Meine Schützlinge schlafen wie Kinder, wenn man sie lässt. Heute haben sie es zum Glück gelassen.",
+        "Du sprichst hier mit einer Pflegekraft. Heute Nacht war es ruhiger als sonst, Frau Lang schläft fest.",
+        "Meine Schützlinge schlafen gut, wenn man sie lässt. Heute haben sie es zum Glück gelassen.",
         "Frau Lang im zweiten Stock hört schlecht, sprich bei ihr langsam. Ihr Gedächtnis ist besser als meins.",
         "Der Strom ist aus, aber die Nachtliste habe ich noch auf Papier. Das ist mein Trost."
       ],
@@ -1693,7 +1693,7 @@
         "Die Kirchenglocken sind stumm, seit der Strom weg ist. Nur der Uhrturm schlägt noch, der braucht keinen Strom.",
         "Eine Glocke braucht Erz, Feuer und Geduld. Was zu schnell fertig wird, klingt später falsch.",
         "Ich habe den Guss der großen Glocke erlebt, damals gab es keinen Nebelriesen, den man fürchten musste.",
-        "Hast du die Glockenhalle gesehen? Dann weißt du, wie leise eine Stadt werden kann, wenn sie Angst hat."
+        "Hast du das Glockenhaus der Gießerei gesehen? Dann weißt du, wie leise eine Stadt werden kann, wenn sie Angst hat."
       ],
       "gerede": "Man erzählt, der alte Thalheim habe in der Gießerei einen Riesen geformt, aber das war nur ein Haufen Lehm mit Ohren."
     },
@@ -1752,7 +1752,7 @@
       "saetze": [
         "Du bist also der Detektiv? Ich dachte, du wärst älter, aber die Nacht macht alle älter, sagt meine Chefin.",
         "Im Krämerladen gibt es alles, außer Antworten. Die musst du dir selbst kaufen, im Schaufenster liegen sie nicht.",
-        "Wenn du etwas über den Knall wissen willst, frag die Alten. Ich war um Mitternacht im Bett, das ist die Wahrheit.",
+        "Wenn du etwas über den Knall wissen willst, frag Frau Teutsch, die saß am Fenster. Ich habe nur ein Grollen gehört.",
         "Mein Chef sagt, der Nebelriese ist ein Märchen. Meine Chefin sagt, er ist der Preis für das Dunkel."
       ],
       "gerede": "Im Laden flüstert man, der Nebelriese kaufe nur Knöpfe, und die Krämerin hat ihm gerade drei geschenkt."
@@ -2110,7 +2110,7 @@
         }
       ],
       "saetze": [
-        "Du willst im Rathaus etwas erfahren? Ich bin nur die, die hinterher sauber macht. Die Arbeit sieht keiner.",
+        "Du willst im Rathaus etwas erfahren? Ich mache dort sauber, wenn alle weg sind. Dabei höre ich mehr, als man denkt.",
         "Der Nachtpförtner hat mir gesagt, ich soll die Türen nicht anfassen, bis er sie verriegelt hat. Das mache ich gern.",
         "Der Eimer steht noch im Flur, weil nach dem Knall niemand Lust hatte zu wischen. Das verstehst du?",
         "Ich kann nicht viel sagen, ich habe immer nur geputzt. Den Staub erzählt man nicht, der erzählt sich selbst."

@@ -648,7 +648,7 @@
         },
         "S": {
           "art": "station",
-          "name": "vor dem Kachelofen",
+          "name": "vor dem Backofen",
           "form": "boden",
           "hoehe": 0.05,
           "station": "ORT-08"
@@ -742,7 +742,7 @@
         },
         "S": {
           "art": "station",
-          "name": "vor der Bürgermeistertafel",
+          "name": "vor dem Wappen an der Wand",
           "form": "boden",
           "hoehe": 0.05,
           "station": "ORT-09"
@@ -827,7 +827,7 @@
         },
         "S": {
           "art": "station",
-          "name": "am Archivpult",
+          "name": "am Lesepult",
           "form": "boden",
           "hoehe": 0.05,
           "station": "ORT-10"

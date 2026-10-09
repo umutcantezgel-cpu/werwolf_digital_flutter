@@ -297,3 +297,16 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Ein erster Versuch mit `/proc/thread-self/schedstat` war zu grob (nur zum Scheduler-Tick aktualisiert) und wurde verworfen.
 - **Zusätzlich:** Der Figuren-Baker verwendet seine Arbeitspuffer wieder (rund 100 KB weniger Müll je Bild, Bilder bitgleich). Das Back-Budget beträgt 3 ms je Bild.
 - **Für den Nutzer:** Auf einem Handy mit Hintergrundlast kann es dennoch einzelne Ruckler geben; das bleibt ein Gerätetest.
+
+## E37 · 09.10. 06:40 · Inhaltsrunde 8 (A-702i): Texte umgesetzt, Figurenteile folgen
+- **Umgesetzt:**
+  - B2: weitere Altersgruppen-Verallgemeinerungen jetzt an konkrete Personen gebunden (Paul, Frau Lang, Frau Teutsch).
+  - B3: „Glockenhaus der Gießerei“; „vom Untertor her“.
+  - B4: Stationsnamen passen zu den Objekten im Raum (Backofen, Wappen, Lesepult).
+  - H5: B35 und „Gebetsstreifen“ umformuliert.
+  - H6: B29 widerspricht nicht mehr ihrem eigenen Nachtplan.
+- **Offen, wird eingebaut:**
+  - B1: der rote Kameragurt von R19 (Signaturstück im Kanon).
+  - B5: der Kopfhörer um den Hals von R02.
+  - Beide sind in 2,5D darstellbar und kommen als Teile dazu. Danach braucht es eine neue Sichtprüfung (Kartenstand ändert sich) und eine neue Inhaltsrunde.
+- **Hinweis H1 (kleine Kanon-Details):** Multitool, Haarspange, Kugelschreiber, Anstecker, Ohrringe, Bleistift und Ähnliches sind kleiner als ein Pixel der Figur und werden nicht gezeichnet; sie bleiben im Text der Rollen.
