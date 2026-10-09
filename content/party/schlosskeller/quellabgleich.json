@@ -1,0 +1,7141 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "hinweis": "Quellabgleich (F-02): Jedes Element des Quellmaterials ist einer Kanon-Stelle zugeordnet oder begründet verworfen. Quelle: S Setting, M Mechanik/Station A, R Raummodell, L Figurenliste, J Figuren-JSON, T Täter-System. Status: übernommen, angepasst (mit Grund), verworfen (mit Grund), spaeter (Regel entschieden, Umsetzung in späterer Phase), ausserhalb (nicht Teil dieses Falls). Erzeugt mit tool/quellabgleich.py aus dem lokalen Rohchat; Zeilen beziehen sich auf ihn.",
+  "quelleSha256": "e516a03add3e65e8e320181119eef2320a7ad70222939fe970c65c6b33e3fb2a",
+  "eintraege": [
+    {
+      "id": "J-001",
+      "quelle": "J",
+      "zeile": 475,
+      "element": "Raum thekensaal",
+      "ziel": [
+        "raeume.json#rooms.thekensaal"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-01",
+        "A-06",
+        "A-07"
+      ]
+    },
+    {
+      "id": "J-002",
+      "quelle": "J",
+      "zeile": 481,
+      "element": "Raum west_saal",
+      "ziel": [
+        "raeume.json#rooms.west_saal"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-01",
+        "A-06",
+        "A-07"
+      ]
+    },
+    {
+      "id": "J-003",
+      "quelle": "J",
+      "zeile": 486,
+      "element": "Raum ost_saal",
+      "ziel": [
+        "raeume.json#rooms.ost_saal"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-01",
+        "A-06",
+        "A-07"
+      ]
+    },
+    {
+      "id": "J-004",
+      "quelle": "J",
+      "zeile": 493,
+      "element": "detective.title",
+      "ziel": [
+        "figuren.json#detektiv.title"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-005",
+      "quelle": "J",
+      "zeile": 494,
+      "element": "detective.selectableGenders",
+      "ziel": [
+        "figuren.json#detektiv.selectableGenders"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-006",
+      "quelle": "J",
+      "zeile": 496,
+      "element": "detective.visualSpecs.baseOutfit",
+      "ziel": [
+        "figuren.json#detektiv.visualSpecs.baseOutfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-09",
+        "A-09"
+      ]
+    },
+    {
+      "id": "J-007",
+      "quelle": "J",
+      "zeile": 497,
+      "element": "detective.visualSpecs.accessories",
+      "ziel": [
+        "figuren.json#detektiv.visualSpecs.accessories"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-09",
+        "B-14"
+      ]
+    },
+    {
+      "id": "J-008",
+      "quelle": "J",
+      "zeile": 498,
+      "element": "detective.visualSpecs.interactiveTool",
+      "ziel": [
+        "figuren.json#detektiv.visualSpecs.interactiveTool"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-09",
+        "A-09"
+      ]
+    },
+    {
+      "id": "J-009",
+      "quelle": "J",
+      "zeile": 499,
+      "element": "detective.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#detektiv.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-09",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-010",
+      "quelle": "J",
+      "zeile": 504,
+      "element": "schneider.name",
+      "ziel": [
+        "figuren.json#opfer.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-011",
+      "quelle": "J",
+      "zeile": 505,
+      "element": "schneider.age",
+      "ziel": [
+        "figuren.json#opfer.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-012",
+      "quelle": "J",
+      "zeile": 506,
+      "element": "schneider.roleTitle",
+      "ziel": [
+        "figuren.json#opfer.roleTitle"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-013",
+      "quelle": "J",
+      "zeile": 507,
+      "element": "schneider.isNpc",
+      "ziel": [
+        "figuren.json#opfer.isNpc"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-014",
+      "quelle": "J",
+      "zeile": 508,
+      "element": "schneider.status",
+      "ziel": [
+        "figuren.json#opfer.status"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-10",
+        "V-05"
+      ]
+    },
+    {
+      "id": "J-015",
+      "quelle": "J",
+      "zeile": 510,
+      "element": "schneider.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#opfer.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-10",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-016",
+      "quelle": "J",
+      "zeile": 511,
+      "element": "schneider.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#opfer.visualSpecs.outfit"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-017",
+      "quelle": "J",
+      "zeile": 512,
+      "element": "schneider.visualSpecs.colorCode",
+      "ziel": [
+        "figuren.json#opfer.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-018",
+      "quelle": "J",
+      "zeile": 513,
+      "element": "schneider.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#opfer.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-10",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-019",
+      "quelle": "J",
+      "zeile": 514,
+      "element": "schneider.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#opfer.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-10",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-020",
+      "quelle": "J",
+      "zeile": 516,
+      "element": "schneider.startRoom",
+      "ziel": [
+        "figuren.json#opfer.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-021",
+      "quelle": "J",
+      "zeile": 517,
+      "element": "schneider.coordinates",
+      "ziel": [
+        "figuren.json#opfer.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-10",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-022",
+      "quelle": "J",
+      "zeile": 522,
+      "element": "ahmet.name",
+      "ziel": [
+        "figuren.json#ahmet.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-023",
+      "quelle": "J",
+      "zeile": 523,
+      "element": "ahmet.age",
+      "ziel": [
+        "figuren.json#ahmet.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-024",
+      "quelle": "J",
+      "zeile": 524,
+      "element": "ahmet.tier",
+      "ziel": [
+        "figuren.json#ahmet.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-025",
+      "quelle": "J",
+      "zeile": 525,
+      "element": "ahmet.minPlayers",
+      "ziel": [
+        "figuren.json#ahmet.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-026",
+      "quelle": "J",
+      "zeile": 526,
+      "element": "ahmet.roleTitle",
+      "ziel": [
+        "figuren.json#ahmet.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-027",
+      "quelle": "J",
+      "zeile": 527,
+      "element": "ahmet.isPotentialKiller",
+      "ziel": [
+        "figuren.json#ahmet.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-028",
+      "quelle": "J",
+      "zeile": 528,
+      "element": "ahmet.colorCode",
+      "ziel": [
+        "figuren.json#ahmet.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-029",
+      "quelle": "J",
+      "zeile": 529,
+      "element": "ahmet.startRoom",
+      "ziel": [
+        "figuren.json#ahmet.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-030",
+      "quelle": "J",
+      "zeile": 530,
+      "element": "ahmet.coordinates",
+      "ziel": [
+        "figuren.json#ahmet.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-031",
+      "quelle": "J",
+      "zeile": 532,
+      "element": "ahmet.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#ahmet.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-032",
+      "quelle": "J",
+      "zeile": 533,
+      "element": "ahmet.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#ahmet.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-033",
+      "quelle": "J",
+      "zeile": 534,
+      "element": "ahmet.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#ahmet.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-034",
+      "quelle": "J",
+      "zeile": 535,
+      "element": "ahmet.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#ahmet.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-035",
+      "quelle": "J",
+      "zeile": 537,
+      "element": "ahmet.motiveAndConflict",
+      "ziel": [
+        "figuren.json#ahmet.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-036",
+      "quelle": "J",
+      "zeile": 538,
+      "element": "ahmet.blackoutAlibi",
+      "ziel": [
+        "figuren.json#ahmet.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-037",
+      "quelle": "J",
+      "zeile": 540,
+      "element": "ahmet.killerProfile.crimeExecution",
+      "ziel": [
+        "figuren.json#ahmet.killerProfile.crimeExecution"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "V-24"
+      ]
+    },
+    {
+      "id": "J-038",
+      "quelle": "J",
+      "zeile": 541,
+      "element": "ahmet.killerProfile.smokingGun",
+      "ziel": [
+        "figuren.json#ahmet.killerProfile.smokingGun"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "B-09",
+        "E-019"
+      ]
+    },
+    {
+      "id": "J-039",
+      "quelle": "J",
+      "zeile": 544,
+      "element": "ahmet.innocentProfile.actualBehavior",
+      "ziel": [
+        "figuren.json#ahmet.innocentProfile.actualBehavior"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-040",
+      "quelle": "J",
+      "zeile": 549,
+      "element": "fatma.name",
+      "ziel": [
+        "figuren.json#fatma.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-041",
+      "quelle": "J",
+      "zeile": 550,
+      "element": "fatma.age",
+      "ziel": [
+        "figuren.json#fatma.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-042",
+      "quelle": "J",
+      "zeile": 551,
+      "element": "fatma.tier",
+      "ziel": [
+        "figuren.json#fatma.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-043",
+      "quelle": "J",
+      "zeile": 552,
+      "element": "fatma.minPlayers",
+      "ziel": [
+        "figuren.json#fatma.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-044",
+      "quelle": "J",
+      "zeile": 553,
+      "element": "fatma.roleTitle",
+      "ziel": [
+        "figuren.json#fatma.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-045",
+      "quelle": "J",
+      "zeile": 554,
+      "element": "fatma.isPotentialKiller",
+      "ziel": [
+        "figuren.json#fatma.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-046",
+      "quelle": "J",
+      "zeile": 555,
+      "element": "fatma.colorCode",
+      "ziel": [
+        "figuren.json#fatma.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-047",
+      "quelle": "J",
+      "zeile": 556,
+      "element": "fatma.startRoom",
+      "ziel": [
+        "figuren.json#fatma.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-048",
+      "quelle": "J",
+      "zeile": 557,
+      "element": "fatma.coordinates",
+      "ziel": [
+        "figuren.json#fatma.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-049",
+      "quelle": "J",
+      "zeile": 559,
+      "element": "fatma.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#fatma.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-050",
+      "quelle": "J",
+      "zeile": 560,
+      "element": "fatma.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#fatma.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-051",
+      "quelle": "J",
+      "zeile": 561,
+      "element": "fatma.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#fatma.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-052",
+      "quelle": "J",
+      "zeile": 562,
+      "element": "fatma.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#fatma.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-053",
+      "quelle": "J",
+      "zeile": 564,
+      "element": "fatma.motiveAndConflict",
+      "ziel": [
+        "figuren.json#fatma.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-054",
+      "quelle": "J",
+      "zeile": 565,
+      "element": "fatma.blackoutAlibi",
+      "ziel": [
+        "figuren.json#fatma.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-055",
+      "quelle": "J",
+      "zeile": 567,
+      "element": "fatma.killerProfile.crimeExecution",
+      "ziel": [
+        "figuren.json#fatma.killerProfile.crimeExecution"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-24"
+      ]
+    },
+    {
+      "id": "J-056",
+      "quelle": "J",
+      "zeile": 568,
+      "element": "fatma.killerProfile.smokingGun",
+      "ziel": [
+        "figuren.json#fatma.killerProfile.smokingGun"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "B-09",
+        "E-019"
+      ]
+    },
+    {
+      "id": "J-057",
+      "quelle": "J",
+      "zeile": 571,
+      "element": "fatma.innocentProfile.actualBehavior",
+      "ziel": [
+        "figuren.json#fatma.innocentProfile.actualBehavior"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-058",
+      "quelle": "J",
+      "zeile": 576,
+      "element": "olli.name",
+      "ziel": [
+        "figuren.json#olli.name"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13"
+      ]
+    },
+    {
+      "id": "J-059",
+      "quelle": "J",
+      "zeile": 577,
+      "element": "olli.age",
+      "ziel": [
+        "figuren.json#olli.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-060",
+      "quelle": "J",
+      "zeile": 578,
+      "element": "olli.tier",
+      "ziel": [
+        "figuren.json#olli.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-061",
+      "quelle": "J",
+      "zeile": 579,
+      "element": "olli.minPlayers",
+      "ziel": [
+        "figuren.json#olli.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-062",
+      "quelle": "J",
+      "zeile": 580,
+      "element": "olli.roleTitle",
+      "ziel": [
+        "figuren.json#olli.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-063",
+      "quelle": "J",
+      "zeile": 581,
+      "element": "olli.isPotentialKiller",
+      "ziel": [
+        "figuren.json#olli.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-064",
+      "quelle": "J",
+      "zeile": 582,
+      "element": "olli.colorCode",
+      "ziel": [
+        "figuren.json#olli.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-065",
+      "quelle": "J",
+      "zeile": 583,
+      "element": "olli.startRoom",
+      "ziel": [
+        "figuren.json#olli.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-066",
+      "quelle": "J",
+      "zeile": 584,
+      "element": "olli.coordinates",
+      "ziel": [
+        "figuren.json#olli.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-067",
+      "quelle": "J",
+      "zeile": 586,
+      "element": "olli.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#olli.visualSpecs.silhouette"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-068",
+      "quelle": "J",
+      "zeile": 587,
+      "element": "olli.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#olli.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-069",
+      "quelle": "J",
+      "zeile": 588,
+      "element": "olli.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#olli.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-070",
+      "quelle": "J",
+      "zeile": 589,
+      "element": "olli.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#olli.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-071",
+      "quelle": "J",
+      "zeile": 591,
+      "element": "olli.motiveAndConflict",
+      "ziel": [
+        "figuren.json#olli.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-072",
+      "quelle": "J",
+      "zeile": 592,
+      "element": "olli.blackoutAlibi",
+      "ziel": [
+        "figuren.json#olli.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-073",
+      "quelle": "J",
+      "zeile": 594,
+      "element": "olli.killerProfile.crimeExecution",
+      "ziel": [
+        "figuren.json#olli.killerProfile.crimeExecution"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "V-24"
+      ]
+    },
+    {
+      "id": "J-074",
+      "quelle": "J",
+      "zeile": 595,
+      "element": "olli.killerProfile.smokingGun",
+      "ziel": [
+        "figuren.json#olli.killerProfile.smokingGun"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "B-09",
+        "E-019"
+      ]
+    },
+    {
+      "id": "J-075",
+      "quelle": "J",
+      "zeile": 598,
+      "element": "olli.innocentProfile.actualBehavior",
+      "ziel": [
+        "figuren.json#olli.innocentProfile.actualBehavior"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-076",
+      "quelle": "J",
+      "zeile": 603,
+      "element": "can.name",
+      "ziel": [
+        "figuren.json#can.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-077",
+      "quelle": "J",
+      "zeile": 604,
+      "element": "can.age",
+      "ziel": [
+        "figuren.json#can.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-078",
+      "quelle": "J",
+      "zeile": 605,
+      "element": "can.tier",
+      "ziel": [
+        "figuren.json#can.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-079",
+      "quelle": "J",
+      "zeile": 606,
+      "element": "can.minPlayers",
+      "ziel": [
+        "figuren.json#can.minPlayers"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-080",
+      "quelle": "J",
+      "zeile": 607,
+      "element": "can.roleTitle",
+      "ziel": [
+        "figuren.json#can.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-081",
+      "quelle": "J",
+      "zeile": 608,
+      "element": "can.isPotentialKiller",
+      "ziel": [
+        "figuren.json#can.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-082",
+      "quelle": "J",
+      "zeile": 609,
+      "element": "can.colorCode",
+      "ziel": [
+        "figuren.json#can.colorCode"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "B-10"
+      ]
+    },
+    {
+      "id": "J-083",
+      "quelle": "J",
+      "zeile": 610,
+      "element": "can.startRoom",
+      "ziel": [
+        "figuren.json#can.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-084",
+      "quelle": "J",
+      "zeile": 611,
+      "element": "can.coordinates",
+      "ziel": [
+        "figuren.json#can.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-085",
+      "quelle": "J",
+      "zeile": 613,
+      "element": "can.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#can.visualSpecs.silhouette"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-086",
+      "quelle": "J",
+      "zeile": 614,
+      "element": "can.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#can.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-087",
+      "quelle": "J",
+      "zeile": 615,
+      "element": "can.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#can.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-088",
+      "quelle": "J",
+      "zeile": 616,
+      "element": "can.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#can.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-089",
+      "quelle": "J",
+      "zeile": 618,
+      "element": "can.motiveAndConflict",
+      "ziel": [
+        "figuren.json#can.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-090",
+      "quelle": "J",
+      "zeile": 619,
+      "element": "can.blackoutAlibi",
+      "ziel": [
+        "figuren.json#can.blackoutAlibi"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-091",
+      "quelle": "J",
+      "zeile": 621,
+      "element": "can.killerProfile.crimeExecution",
+      "ziel": [
+        "figuren.json#can.killerProfile.crimeExecution"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "V-24"
+      ]
+    },
+    {
+      "id": "J-092",
+      "quelle": "J",
+      "zeile": 622,
+      "element": "can.killerProfile.smokingGun",
+      "ziel": [
+        "figuren.json#can.killerProfile.smokingGun"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "B-09",
+        "E-019"
+      ]
+    },
+    {
+      "id": "J-093",
+      "quelle": "J",
+      "zeile": 625,
+      "element": "can.innocentProfile.actualBehavior",
+      "ziel": [
+        "figuren.json#can.innocentProfile.actualBehavior"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-094",
+      "quelle": "J",
+      "zeile": 630,
+      "element": "leyla.name",
+      "ziel": [
+        "figuren.json#leyla.name"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "E-020"
+      ]
+    },
+    {
+      "id": "J-095",
+      "quelle": "J",
+      "zeile": 631,
+      "element": "leyla.age",
+      "ziel": [
+        "figuren.json#leyla.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-096",
+      "quelle": "J",
+      "zeile": 632,
+      "element": "leyla.tier",
+      "ziel": [
+        "figuren.json#leyla.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-097",
+      "quelle": "J",
+      "zeile": 633,
+      "element": "leyla.minPlayers",
+      "ziel": [
+        "figuren.json#leyla.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-098",
+      "quelle": "J",
+      "zeile": 634,
+      "element": "leyla.roleTitle",
+      "ziel": [
+        "figuren.json#leyla.roleTitle"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-099",
+      "quelle": "J",
+      "zeile": 635,
+      "element": "leyla.isPotentialKiller",
+      "ziel": [
+        "figuren.json#leyla.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-100",
+      "quelle": "J",
+      "zeile": 636,
+      "element": "leyla.colorCode",
+      "ziel": [
+        "figuren.json#leyla.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-101",
+      "quelle": "J",
+      "zeile": 637,
+      "element": "leyla.startRoom",
+      "ziel": [
+        "figuren.json#leyla.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-102",
+      "quelle": "J",
+      "zeile": 638,
+      "element": "leyla.coordinates",
+      "ziel": [
+        "figuren.json#leyla.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-103",
+      "quelle": "J",
+      "zeile": 640,
+      "element": "leyla.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#leyla.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-104",
+      "quelle": "J",
+      "zeile": 641,
+      "element": "leyla.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#leyla.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-105",
+      "quelle": "J",
+      "zeile": 642,
+      "element": "leyla.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#leyla.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-106",
+      "quelle": "J",
+      "zeile": 643,
+      "element": "leyla.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#leyla.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-107",
+      "quelle": "J",
+      "zeile": 645,
+      "element": "leyla.motiveAndConflict",
+      "ziel": [
+        "figuren.json#leyla.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-108",
+      "quelle": "J",
+      "zeile": 646,
+      "element": "leyla.blackoutAlibi",
+      "ziel": [
+        "figuren.json#leyla.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-109",
+      "quelle": "J",
+      "zeile": 647,
+      "element": "leyla.roleSecret",
+      "ziel": [
+        "figuren.json#leyla.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-110",
+      "quelle": "J",
+      "zeile": 651,
+      "element": "tim.name",
+      "ziel": [
+        "figuren.json#tim.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-111",
+      "quelle": "J",
+      "zeile": 652,
+      "element": "tim.age",
+      "ziel": [
+        "figuren.json#tim.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-112",
+      "quelle": "J",
+      "zeile": 653,
+      "element": "tim.tier",
+      "ziel": [
+        "figuren.json#tim.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-113",
+      "quelle": "J",
+      "zeile": 654,
+      "element": "tim.minPlayers",
+      "ziel": [
+        "figuren.json#tim.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-114",
+      "quelle": "J",
+      "zeile": 655,
+      "element": "tim.roleTitle",
+      "ziel": [
+        "figuren.json#tim.roleTitle"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-115",
+      "quelle": "J",
+      "zeile": 656,
+      "element": "tim.isPotentialKiller",
+      "ziel": [
+        "figuren.json#tim.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-116",
+      "quelle": "J",
+      "zeile": 657,
+      "element": "tim.colorCode",
+      "ziel": [
+        "figuren.json#tim.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-117",
+      "quelle": "J",
+      "zeile": 658,
+      "element": "tim.startRoom",
+      "ziel": [
+        "figuren.json#tim.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-118",
+      "quelle": "J",
+      "zeile": 659,
+      "element": "tim.coordinates",
+      "ziel": [
+        "figuren.json#tim.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-119",
+      "quelle": "J",
+      "zeile": 661,
+      "element": "tim.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#tim.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-120",
+      "quelle": "J",
+      "zeile": 662,
+      "element": "tim.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#tim.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-121",
+      "quelle": "J",
+      "zeile": 663,
+      "element": "tim.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#tim.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-122",
+      "quelle": "J",
+      "zeile": 664,
+      "element": "tim.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#tim.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-123",
+      "quelle": "J",
+      "zeile": 666,
+      "element": "tim.motiveAndConflict",
+      "ziel": [
+        "figuren.json#tim.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-124",
+      "quelle": "J",
+      "zeile": 667,
+      "element": "tim.blackoutAlibi",
+      "ziel": [
+        "figuren.json#tim.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-125",
+      "quelle": "J",
+      "zeile": 668,
+      "element": "tim.roleSecret",
+      "ziel": [
+        "figuren.json#tim.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-126",
+      "quelle": "J",
+      "zeile": 672,
+      "element": "emine.name",
+      "ziel": [
+        "figuren.json#emine.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-127",
+      "quelle": "J",
+      "zeile": 673,
+      "element": "emine.age",
+      "ziel": [
+        "figuren.json#emine.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-128",
+      "quelle": "J",
+      "zeile": 674,
+      "element": "emine.tier",
+      "ziel": [
+        "figuren.json#emine.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-129",
+      "quelle": "J",
+      "zeile": 675,
+      "element": "emine.minPlayers",
+      "ziel": [
+        "figuren.json#emine.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-130",
+      "quelle": "J",
+      "zeile": 676,
+      "element": "emine.roleTitle",
+      "ziel": [
+        "figuren.json#emine.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-131",
+      "quelle": "J",
+      "zeile": 677,
+      "element": "emine.isPotentialKiller",
+      "ziel": [
+        "figuren.json#emine.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-132",
+      "quelle": "J",
+      "zeile": 678,
+      "element": "emine.colorCode",
+      "ziel": [
+        "figuren.json#emine.colorCode"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "B-10"
+      ]
+    },
+    {
+      "id": "J-133",
+      "quelle": "J",
+      "zeile": 679,
+      "element": "emine.startRoom",
+      "ziel": [
+        "figuren.json#emine.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-134",
+      "quelle": "J",
+      "zeile": 680,
+      "element": "emine.coordinates",
+      "ziel": [
+        "figuren.json#emine.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-135",
+      "quelle": "J",
+      "zeile": 682,
+      "element": "emine.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#emine.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-136",
+      "quelle": "J",
+      "zeile": 683,
+      "element": "emine.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#emine.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-137",
+      "quelle": "J",
+      "zeile": 684,
+      "element": "emine.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#emine.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-138",
+      "quelle": "J",
+      "zeile": 685,
+      "element": "emine.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#emine.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-139",
+      "quelle": "J",
+      "zeile": 687,
+      "element": "emine.motiveAndConflict",
+      "ziel": [
+        "figuren.json#emine.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-140",
+      "quelle": "J",
+      "zeile": 688,
+      "element": "emine.blackoutAlibi",
+      "ziel": [
+        "figuren.json#emine.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-141",
+      "quelle": "J",
+      "zeile": 689,
+      "element": "emine.roleSecret",
+      "ziel": [
+        "figuren.json#emine.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-142",
+      "quelle": "J",
+      "zeile": 693,
+      "element": "johanna.name",
+      "ziel": [
+        "figuren.json#johanna.name"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "E-020"
+      ]
+    },
+    {
+      "id": "J-143",
+      "quelle": "J",
+      "zeile": 694,
+      "element": "johanna.age",
+      "ziel": [
+        "figuren.json#johanna.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-144",
+      "quelle": "J",
+      "zeile": 695,
+      "element": "johanna.tier",
+      "ziel": [
+        "figuren.json#johanna.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-145",
+      "quelle": "J",
+      "zeile": 696,
+      "element": "johanna.minPlayers",
+      "ziel": [
+        "figuren.json#johanna.minPlayers"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-146",
+      "quelle": "J",
+      "zeile": 697,
+      "element": "johanna.roleTitle",
+      "ziel": [
+        "figuren.json#johanna.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-147",
+      "quelle": "J",
+      "zeile": 698,
+      "element": "johanna.isPotentialKiller",
+      "ziel": [
+        "figuren.json#johanna.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-148",
+      "quelle": "J",
+      "zeile": 699,
+      "element": "johanna.colorCode",
+      "ziel": [
+        "figuren.json#johanna.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-149",
+      "quelle": "J",
+      "zeile": 700,
+      "element": "johanna.startRoom",
+      "ziel": [
+        "figuren.json#johanna.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-150",
+      "quelle": "J",
+      "zeile": 701,
+      "element": "johanna.coordinates",
+      "ziel": [
+        "figuren.json#johanna.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-151",
+      "quelle": "J",
+      "zeile": 703,
+      "element": "johanna.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#johanna.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-152",
+      "quelle": "J",
+      "zeile": 704,
+      "element": "johanna.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#johanna.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-153",
+      "quelle": "J",
+      "zeile": 705,
+      "element": "johanna.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#johanna.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-154",
+      "quelle": "J",
+      "zeile": 706,
+      "element": "johanna.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#johanna.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-155",
+      "quelle": "J",
+      "zeile": 708,
+      "element": "johanna.motiveAndConflict",
+      "ziel": [
+        "figuren.json#johanna.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-156",
+      "quelle": "J",
+      "zeile": 709,
+      "element": "johanna.blackoutAlibi",
+      "ziel": [
+        "figuren.json#johanna.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-157",
+      "quelle": "J",
+      "zeile": 710,
+      "element": "johanna.roleSecret",
+      "ziel": [
+        "figuren.json#johanna.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-158",
+      "quelle": "J",
+      "zeile": 714,
+      "element": "murat.name",
+      "ziel": [
+        "figuren.json#murat.name"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "E-020"
+      ]
+    },
+    {
+      "id": "J-159",
+      "quelle": "J",
+      "zeile": 715,
+      "element": "murat.age",
+      "ziel": [
+        "figuren.json#murat.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-160",
+      "quelle": "J",
+      "zeile": 716,
+      "element": "murat.tier",
+      "ziel": [
+        "figuren.json#murat.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-161",
+      "quelle": "J",
+      "zeile": 717,
+      "element": "murat.minPlayers",
+      "ziel": [
+        "figuren.json#murat.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-162",
+      "quelle": "J",
+      "zeile": 718,
+      "element": "murat.roleTitle",
+      "ziel": [
+        "figuren.json#murat.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-163",
+      "quelle": "J",
+      "zeile": 719,
+      "element": "murat.isPotentialKiller",
+      "ziel": [
+        "figuren.json#murat.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-164",
+      "quelle": "J",
+      "zeile": 720,
+      "element": "murat.colorCode",
+      "ziel": [
+        "figuren.json#murat.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-165",
+      "quelle": "J",
+      "zeile": 721,
+      "element": "murat.startRoom",
+      "ziel": [
+        "figuren.json#murat.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-166",
+      "quelle": "J",
+      "zeile": 722,
+      "element": "murat.coordinates",
+      "ziel": [
+        "figuren.json#murat.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-167",
+      "quelle": "J",
+      "zeile": 724,
+      "element": "murat.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#murat.visualSpecs.silhouette"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-168",
+      "quelle": "J",
+      "zeile": 725,
+      "element": "murat.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#murat.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-169",
+      "quelle": "J",
+      "zeile": 726,
+      "element": "murat.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#murat.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-170",
+      "quelle": "J",
+      "zeile": 727,
+      "element": "murat.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#murat.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-171",
+      "quelle": "J",
+      "zeile": 729,
+      "element": "murat.motiveAndConflict",
+      "ziel": [
+        "figuren.json#murat.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-172",
+      "quelle": "J",
+      "zeile": 730,
+      "element": "murat.blackoutAlibi",
+      "ziel": [
+        "figuren.json#murat.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-173",
+      "quelle": "J",
+      "zeile": 731,
+      "element": "murat.roleSecret",
+      "ziel": [
+        "figuren.json#murat.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-174",
+      "quelle": "J",
+      "zeile": 735,
+      "element": "zeynep.name",
+      "ziel": [
+        "figuren.json#zeynep.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-175",
+      "quelle": "J",
+      "zeile": 736,
+      "element": "zeynep.age",
+      "ziel": [
+        "figuren.json#zeynep.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-176",
+      "quelle": "J",
+      "zeile": 737,
+      "element": "zeynep.tier",
+      "ziel": [
+        "figuren.json#zeynep.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-177",
+      "quelle": "J",
+      "zeile": 738,
+      "element": "zeynep.minPlayers",
+      "ziel": [
+        "figuren.json#zeynep.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-178",
+      "quelle": "J",
+      "zeile": 739,
+      "element": "zeynep.roleTitle",
+      "ziel": [
+        "figuren.json#zeynep.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-179",
+      "quelle": "J",
+      "zeile": 740,
+      "element": "zeynep.isPotentialKiller",
+      "ziel": [
+        "figuren.json#zeynep.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-180",
+      "quelle": "J",
+      "zeile": 741,
+      "element": "zeynep.colorCode",
+      "ziel": [
+        "figuren.json#zeynep.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-181",
+      "quelle": "J",
+      "zeile": 742,
+      "element": "zeynep.startRoom",
+      "ziel": [
+        "figuren.json#zeynep.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-182",
+      "quelle": "J",
+      "zeile": 743,
+      "element": "zeynep.coordinates",
+      "ziel": [
+        "figuren.json#zeynep.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-183",
+      "quelle": "J",
+      "zeile": 745,
+      "element": "zeynep.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#zeynep.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-184",
+      "quelle": "J",
+      "zeile": 746,
+      "element": "zeynep.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#zeynep.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-185",
+      "quelle": "J",
+      "zeile": 747,
+      "element": "zeynep.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#zeynep.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-186",
+      "quelle": "J",
+      "zeile": 748,
+      "element": "zeynep.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#zeynep.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-187",
+      "quelle": "J",
+      "zeile": 750,
+      "element": "zeynep.motiveAndConflict",
+      "ziel": [
+        "figuren.json#zeynep.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-188",
+      "quelle": "J",
+      "zeile": 751,
+      "element": "zeynep.blackoutAlibi",
+      "ziel": [
+        "figuren.json#zeynep.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-189",
+      "quelle": "J",
+      "zeile": 752,
+      "element": "zeynep.roleSecret",
+      "ziel": [
+        "figuren.json#zeynep.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-190",
+      "quelle": "J",
+      "zeile": 756,
+      "element": "baran.name",
+      "ziel": [
+        "figuren.json#baran.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-191",
+      "quelle": "J",
+      "zeile": 757,
+      "element": "baran.age",
+      "ziel": [
+        "figuren.json#baran.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-192",
+      "quelle": "J",
+      "zeile": 758,
+      "element": "baran.tier",
+      "ziel": [
+        "figuren.json#baran.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-193",
+      "quelle": "J",
+      "zeile": 759,
+      "element": "baran.minPlayers",
+      "ziel": [
+        "figuren.json#baran.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-194",
+      "quelle": "J",
+      "zeile": 760,
+      "element": "baran.roleTitle",
+      "ziel": [
+        "figuren.json#baran.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-195",
+      "quelle": "J",
+      "zeile": 761,
+      "element": "baran.isPotentialKiller",
+      "ziel": [
+        "figuren.json#baran.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-196",
+      "quelle": "J",
+      "zeile": 762,
+      "element": "baran.colorCode",
+      "ziel": [
+        "figuren.json#baran.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-197",
+      "quelle": "J",
+      "zeile": 763,
+      "element": "baran.startRoom",
+      "ziel": [
+        "figuren.json#baran.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-198",
+      "quelle": "J",
+      "zeile": 764,
+      "element": "baran.coordinates",
+      "ziel": [
+        "figuren.json#baran.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-199",
+      "quelle": "J",
+      "zeile": 766,
+      "element": "baran.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#baran.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-200",
+      "quelle": "J",
+      "zeile": 767,
+      "element": "baran.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#baran.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-201",
+      "quelle": "J",
+      "zeile": 768,
+      "element": "baran.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#baran.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-202",
+      "quelle": "J",
+      "zeile": 769,
+      "element": "baran.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#baran.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-203",
+      "quelle": "J",
+      "zeile": 771,
+      "element": "baran.motiveAndConflict",
+      "ziel": [
+        "figuren.json#baran.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-204",
+      "quelle": "J",
+      "zeile": 772,
+      "element": "baran.blackoutAlibi",
+      "ziel": [
+        "figuren.json#baran.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-205",
+      "quelle": "J",
+      "zeile": 773,
+      "element": "baran.roleSecret",
+      "ziel": [
+        "figuren.json#baran.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-206",
+      "quelle": "J",
+      "zeile": 777,
+      "element": "meryem.name",
+      "ziel": [
+        "figuren.json#meryem.name"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "E-020"
+      ]
+    },
+    {
+      "id": "J-207",
+      "quelle": "J",
+      "zeile": 778,
+      "element": "meryem.age",
+      "ziel": [
+        "figuren.json#meryem.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-208",
+      "quelle": "J",
+      "zeile": 779,
+      "element": "meryem.tier",
+      "ziel": [
+        "figuren.json#meryem.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-209",
+      "quelle": "J",
+      "zeile": 780,
+      "element": "meryem.minPlayers",
+      "ziel": [
+        "figuren.json#meryem.minPlayers"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-210",
+      "quelle": "J",
+      "zeile": 781,
+      "element": "meryem.roleTitle",
+      "ziel": [
+        "figuren.json#meryem.roleTitle"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-211",
+      "quelle": "J",
+      "zeile": 782,
+      "element": "meryem.isPotentialKiller",
+      "ziel": [
+        "figuren.json#meryem.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-212",
+      "quelle": "J",
+      "zeile": 783,
+      "element": "meryem.colorCode",
+      "ziel": [
+        "figuren.json#meryem.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-213",
+      "quelle": "J",
+      "zeile": 784,
+      "element": "meryem.startRoom",
+      "ziel": [
+        "figuren.json#meryem.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-214",
+      "quelle": "J",
+      "zeile": 785,
+      "element": "meryem.coordinates",
+      "ziel": [
+        "figuren.json#meryem.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-215",
+      "quelle": "J",
+      "zeile": 787,
+      "element": "meryem.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#meryem.visualSpecs.silhouette"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-216",
+      "quelle": "J",
+      "zeile": 788,
+      "element": "meryem.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#meryem.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-217",
+      "quelle": "J",
+      "zeile": 789,
+      "element": "meryem.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#meryem.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-218",
+      "quelle": "J",
+      "zeile": 790,
+      "element": "meryem.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#meryem.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-219",
+      "quelle": "J",
+      "zeile": 792,
+      "element": "meryem.motiveAndConflict",
+      "ziel": [
+        "figuren.json#meryem.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-220",
+      "quelle": "J",
+      "zeile": 793,
+      "element": "meryem.blackoutAlibi",
+      "ziel": [
+        "figuren.json#meryem.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-221",
+      "quelle": "J",
+      "zeile": 794,
+      "element": "meryem.roleSecret",
+      "ziel": [
+        "figuren.json#meryem.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-222",
+      "quelle": "J",
+      "zeile": 798,
+      "element": "serkan.name",
+      "ziel": [
+        "figuren.json#serkan.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-223",
+      "quelle": "J",
+      "zeile": 799,
+      "element": "serkan.age",
+      "ziel": [
+        "figuren.json#serkan.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-224",
+      "quelle": "J",
+      "zeile": 800,
+      "element": "serkan.tier",
+      "ziel": [
+        "figuren.json#serkan.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-225",
+      "quelle": "J",
+      "zeile": 801,
+      "element": "serkan.minPlayers",
+      "ziel": [
+        "figuren.json#serkan.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-226",
+      "quelle": "J",
+      "zeile": 802,
+      "element": "serkan.roleTitle",
+      "ziel": [
+        "figuren.json#serkan.roleTitle"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-227",
+      "quelle": "J",
+      "zeile": 803,
+      "element": "serkan.isPotentialKiller",
+      "ziel": [
+        "figuren.json#serkan.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-228",
+      "quelle": "J",
+      "zeile": 804,
+      "element": "serkan.colorCode",
+      "ziel": [
+        "figuren.json#serkan.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-229",
+      "quelle": "J",
+      "zeile": 805,
+      "element": "serkan.startRoom",
+      "ziel": [
+        "figuren.json#serkan.startRoom"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-230",
+      "quelle": "J",
+      "zeile": 806,
+      "element": "serkan.coordinates",
+      "ziel": [
+        "figuren.json#serkan.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-231",
+      "quelle": "J",
+      "zeile": 808,
+      "element": "serkan.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#serkan.visualSpecs.silhouette"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-232",
+      "quelle": "J",
+      "zeile": 809,
+      "element": "serkan.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#serkan.visualSpecs.outfit"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-233",
+      "quelle": "J",
+      "zeile": 810,
+      "element": "serkan.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#serkan.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-234",
+      "quelle": "J",
+      "zeile": 811,
+      "element": "serkan.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#serkan.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-235",
+      "quelle": "J",
+      "zeile": 813,
+      "element": "serkan.motiveAndConflict",
+      "ziel": [
+        "figuren.json#serkan.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-236",
+      "quelle": "J",
+      "zeile": 814,
+      "element": "serkan.blackoutAlibi",
+      "ziel": [
+        "figuren.json#serkan.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-237",
+      "quelle": "J",
+      "zeile": 815,
+      "element": "serkan.roleSecret",
+      "ziel": [
+        "figuren.json#serkan.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-238",
+      "quelle": "J",
+      "zeile": 819,
+      "element": "aylin.name",
+      "ziel": [
+        "figuren.json#aylin.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-239",
+      "quelle": "J",
+      "zeile": 820,
+      "element": "aylin.age",
+      "ziel": [
+        "figuren.json#aylin.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-240",
+      "quelle": "J",
+      "zeile": 821,
+      "element": "aylin.tier",
+      "ziel": [
+        "figuren.json#aylin.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-241",
+      "quelle": "J",
+      "zeile": 822,
+      "element": "aylin.minPlayers",
+      "ziel": [
+        "figuren.json#aylin.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-242",
+      "quelle": "J",
+      "zeile": 823,
+      "element": "aylin.roleTitle",
+      "ziel": [
+        "figuren.json#aylin.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-243",
+      "quelle": "J",
+      "zeile": 824,
+      "element": "aylin.isPotentialKiller",
+      "ziel": [
+        "figuren.json#aylin.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-244",
+      "quelle": "J",
+      "zeile": 825,
+      "element": "aylin.colorCode",
+      "ziel": [
+        "figuren.json#aylin.colorCode"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "B-10"
+      ]
+    },
+    {
+      "id": "J-245",
+      "quelle": "J",
+      "zeile": 826,
+      "element": "aylin.startRoom",
+      "ziel": [
+        "figuren.json#aylin.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-246",
+      "quelle": "J",
+      "zeile": 827,
+      "element": "aylin.coordinates",
+      "ziel": [
+        "figuren.json#aylin.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-247",
+      "quelle": "J",
+      "zeile": 829,
+      "element": "aylin.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#aylin.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-248",
+      "quelle": "J",
+      "zeile": 830,
+      "element": "aylin.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#aylin.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-249",
+      "quelle": "J",
+      "zeile": 831,
+      "element": "aylin.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#aylin.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-250",
+      "quelle": "J",
+      "zeile": 832,
+      "element": "aylin.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#aylin.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-251",
+      "quelle": "J",
+      "zeile": 834,
+      "element": "aylin.motiveAndConflict",
+      "ziel": [
+        "figuren.json#aylin.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-252",
+      "quelle": "J",
+      "zeile": 835,
+      "element": "aylin.blackoutAlibi",
+      "ziel": [
+        "figuren.json#aylin.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-253",
+      "quelle": "J",
+      "zeile": 836,
+      "element": "aylin.roleSecret",
+      "ziel": [
+        "figuren.json#aylin.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-254",
+      "quelle": "J",
+      "zeile": 840,
+      "element": "kaan.name",
+      "ziel": [
+        "figuren.json#kaan.name"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "E-020"
+      ]
+    },
+    {
+      "id": "J-255",
+      "quelle": "J",
+      "zeile": 841,
+      "element": "kaan.age",
+      "ziel": [
+        "figuren.json#kaan.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-256",
+      "quelle": "J",
+      "zeile": 842,
+      "element": "kaan.tier",
+      "ziel": [
+        "figuren.json#kaan.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-257",
+      "quelle": "J",
+      "zeile": 843,
+      "element": "kaan.minPlayers",
+      "ziel": [
+        "figuren.json#kaan.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-258",
+      "quelle": "J",
+      "zeile": 844,
+      "element": "kaan.roleTitle",
+      "ziel": [
+        "figuren.json#kaan.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-259",
+      "quelle": "J",
+      "zeile": 845,
+      "element": "kaan.isPotentialKiller",
+      "ziel": [
+        "figuren.json#kaan.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-260",
+      "quelle": "J",
+      "zeile": 846,
+      "element": "kaan.colorCode",
+      "ziel": [
+        "figuren.json#kaan.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-261",
+      "quelle": "J",
+      "zeile": 847,
+      "element": "kaan.startRoom",
+      "ziel": [
+        "figuren.json#kaan.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-262",
+      "quelle": "J",
+      "zeile": 848,
+      "element": "kaan.coordinates",
+      "ziel": [
+        "figuren.json#kaan.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-263",
+      "quelle": "J",
+      "zeile": 850,
+      "element": "kaan.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#kaan.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-264",
+      "quelle": "J",
+      "zeile": 851,
+      "element": "kaan.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#kaan.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-265",
+      "quelle": "J",
+      "zeile": 852,
+      "element": "kaan.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#kaan.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-266",
+      "quelle": "J",
+      "zeile": 853,
+      "element": "kaan.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#kaan.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-267",
+      "quelle": "J",
+      "zeile": 855,
+      "element": "kaan.motiveAndConflict",
+      "ziel": [
+        "figuren.json#kaan.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-268",
+      "quelle": "J",
+      "zeile": 856,
+      "element": "kaan.blackoutAlibi",
+      "ziel": [
+        "figuren.json#kaan.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-269",
+      "quelle": "J",
+      "zeile": 857,
+      "element": "kaan.roleSecret",
+      "ziel": [
+        "figuren.json#kaan.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-270",
+      "quelle": "J",
+      "zeile": 861,
+      "element": "dilara.name",
+      "ziel": [
+        "figuren.json#dilara.name"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "E-020"
+      ]
+    },
+    {
+      "id": "J-271",
+      "quelle": "J",
+      "zeile": 862,
+      "element": "dilara.age",
+      "ziel": [
+        "figuren.json#dilara.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-272",
+      "quelle": "J",
+      "zeile": 863,
+      "element": "dilara.tier",
+      "ziel": [
+        "figuren.json#dilara.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-273",
+      "quelle": "J",
+      "zeile": 864,
+      "element": "dilara.minPlayers",
+      "ziel": [
+        "figuren.json#dilara.minPlayers"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-274",
+      "quelle": "J",
+      "zeile": 865,
+      "element": "dilara.roleTitle",
+      "ziel": [
+        "figuren.json#dilara.roleTitle"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-275",
+      "quelle": "J",
+      "zeile": 866,
+      "element": "dilara.isPotentialKiller",
+      "ziel": [
+        "figuren.json#dilara.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-276",
+      "quelle": "J",
+      "zeile": 867,
+      "element": "dilara.colorCode",
+      "ziel": [
+        "figuren.json#dilara.colorCode"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "B-10"
+      ]
+    },
+    {
+      "id": "J-277",
+      "quelle": "J",
+      "zeile": 868,
+      "element": "dilara.startRoom",
+      "ziel": [
+        "figuren.json#dilara.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-278",
+      "quelle": "J",
+      "zeile": 869,
+      "element": "dilara.coordinates",
+      "ziel": [
+        "figuren.json#dilara.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-279",
+      "quelle": "J",
+      "zeile": 871,
+      "element": "dilara.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#dilara.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-280",
+      "quelle": "J",
+      "zeile": 872,
+      "element": "dilara.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#dilara.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-281",
+      "quelle": "J",
+      "zeile": 873,
+      "element": "dilara.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#dilara.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-282",
+      "quelle": "J",
+      "zeile": 874,
+      "element": "dilara.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#dilara.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-283",
+      "quelle": "J",
+      "zeile": 876,
+      "element": "dilara.motiveAndConflict",
+      "ziel": [
+        "figuren.json#dilara.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-284",
+      "quelle": "J",
+      "zeile": 877,
+      "element": "dilara.blackoutAlibi",
+      "ziel": [
+        "figuren.json#dilara.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-285",
+      "quelle": "J",
+      "zeile": 878,
+      "element": "dilara.roleSecret",
+      "ziel": [
+        "figuren.json#dilara.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-286",
+      "quelle": "J",
+      "zeile": 882,
+      "element": "enes.name",
+      "ziel": [
+        "figuren.json#enes.name"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "E-020"
+      ]
+    },
+    {
+      "id": "J-287",
+      "quelle": "J",
+      "zeile": 883,
+      "element": "enes.age",
+      "ziel": [
+        "figuren.json#enes.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-288",
+      "quelle": "J",
+      "zeile": 884,
+      "element": "enes.tier",
+      "ziel": [
+        "figuren.json#enes.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-289",
+      "quelle": "J",
+      "zeile": 885,
+      "element": "enes.minPlayers",
+      "ziel": [
+        "figuren.json#enes.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-290",
+      "quelle": "J",
+      "zeile": 886,
+      "element": "enes.roleTitle",
+      "ziel": [
+        "figuren.json#enes.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-291",
+      "quelle": "J",
+      "zeile": 887,
+      "element": "enes.isPotentialKiller",
+      "ziel": [
+        "figuren.json#enes.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-292",
+      "quelle": "J",
+      "zeile": 888,
+      "element": "enes.colorCode",
+      "ziel": [
+        "figuren.json#enes.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-293",
+      "quelle": "J",
+      "zeile": 889,
+      "element": "enes.startRoom",
+      "ziel": [
+        "figuren.json#enes.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-294",
+      "quelle": "J",
+      "zeile": 890,
+      "element": "enes.coordinates",
+      "ziel": [
+        "figuren.json#enes.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-295",
+      "quelle": "J",
+      "zeile": 892,
+      "element": "enes.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#enes.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-296",
+      "quelle": "J",
+      "zeile": 893,
+      "element": "enes.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#enes.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-297",
+      "quelle": "J",
+      "zeile": 894,
+      "element": "enes.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#enes.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-298",
+      "quelle": "J",
+      "zeile": 895,
+      "element": "enes.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#enes.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-299",
+      "quelle": "J",
+      "zeile": 897,
+      "element": "enes.motiveAndConflict",
+      "ziel": [
+        "figuren.json#enes.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-300",
+      "quelle": "J",
+      "zeile": 898,
+      "element": "enes.blackoutAlibi",
+      "ziel": [
+        "figuren.json#enes.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-301",
+      "quelle": "J",
+      "zeile": 899,
+      "element": "enes.roleSecret",
+      "ziel": [
+        "figuren.json#enes.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-302",
+      "quelle": "J",
+      "zeile": 903,
+      "element": "selin.name",
+      "ziel": [
+        "figuren.json#selin.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-303",
+      "quelle": "J",
+      "zeile": 904,
+      "element": "selin.age",
+      "ziel": [
+        "figuren.json#selin.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-304",
+      "quelle": "J",
+      "zeile": 905,
+      "element": "selin.tier",
+      "ziel": [
+        "figuren.json#selin.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-305",
+      "quelle": "J",
+      "zeile": 906,
+      "element": "selin.minPlayers",
+      "ziel": [
+        "figuren.json#selin.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-306",
+      "quelle": "J",
+      "zeile": 907,
+      "element": "selin.roleTitle",
+      "ziel": [
+        "figuren.json#selin.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-307",
+      "quelle": "J",
+      "zeile": 908,
+      "element": "selin.isPotentialKiller",
+      "ziel": [
+        "figuren.json#selin.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-308",
+      "quelle": "J",
+      "zeile": 909,
+      "element": "selin.colorCode",
+      "ziel": [
+        "figuren.json#selin.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-309",
+      "quelle": "J",
+      "zeile": 910,
+      "element": "selin.startRoom",
+      "ziel": [
+        "figuren.json#selin.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-310",
+      "quelle": "J",
+      "zeile": 911,
+      "element": "selin.coordinates",
+      "ziel": [
+        "figuren.json#selin.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-311",
+      "quelle": "J",
+      "zeile": 913,
+      "element": "selin.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#selin.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-312",
+      "quelle": "J",
+      "zeile": 914,
+      "element": "selin.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#selin.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-313",
+      "quelle": "J",
+      "zeile": 915,
+      "element": "selin.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#selin.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-314",
+      "quelle": "J",
+      "zeile": 916,
+      "element": "selin.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#selin.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-315",
+      "quelle": "J",
+      "zeile": 918,
+      "element": "selin.motiveAndConflict",
+      "ziel": [
+        "figuren.json#selin.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-316",
+      "quelle": "J",
+      "zeile": 919,
+      "element": "selin.blackoutAlibi",
+      "ziel": [
+        "figuren.json#selin.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-317",
+      "quelle": "J",
+      "zeile": 920,
+      "element": "selin.roleSecret",
+      "ziel": [
+        "figuren.json#selin.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-318",
+      "quelle": "J",
+      "zeile": 924,
+      "element": "hakan.name",
+      "ziel": [
+        "figuren.json#hakan.name"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "E-020"
+      ]
+    },
+    {
+      "id": "J-319",
+      "quelle": "J",
+      "zeile": 925,
+      "element": "hakan.age",
+      "ziel": [
+        "figuren.json#hakan.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-320",
+      "quelle": "J",
+      "zeile": 926,
+      "element": "hakan.tier",
+      "ziel": [
+        "figuren.json#hakan.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-321",
+      "quelle": "J",
+      "zeile": 927,
+      "element": "hakan.minPlayers",
+      "ziel": [
+        "figuren.json#hakan.minPlayers"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "J-322",
+      "quelle": "J",
+      "zeile": 928,
+      "element": "hakan.roleTitle",
+      "ziel": [
+        "figuren.json#hakan.roleTitle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "V-25"
+      ]
+    },
+    {
+      "id": "J-323",
+      "quelle": "J",
+      "zeile": 929,
+      "element": "hakan.isPotentialKiller",
+      "ziel": [
+        "figuren.json#hakan.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-324",
+      "quelle": "J",
+      "zeile": 930,
+      "element": "hakan.colorCode",
+      "ziel": [
+        "figuren.json#hakan.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-325",
+      "quelle": "J",
+      "zeile": 931,
+      "element": "hakan.startRoom",
+      "ziel": [
+        "figuren.json#hakan.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-326",
+      "quelle": "J",
+      "zeile": 932,
+      "element": "hakan.coordinates",
+      "ziel": [
+        "figuren.json#hakan.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-327",
+      "quelle": "J",
+      "zeile": 934,
+      "element": "hakan.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#hakan.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-328",
+      "quelle": "J",
+      "zeile": 935,
+      "element": "hakan.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#hakan.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-329",
+      "quelle": "J",
+      "zeile": 936,
+      "element": "hakan.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#hakan.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-330",
+      "quelle": "J",
+      "zeile": 937,
+      "element": "hakan.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#hakan.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-331",
+      "quelle": "J",
+      "zeile": 939,
+      "element": "hakan.motiveAndConflict",
+      "ziel": [
+        "figuren.json#hakan.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-332",
+      "quelle": "J",
+      "zeile": 940,
+      "element": "hakan.blackoutAlibi",
+      "ziel": [
+        "figuren.json#hakan.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-333",
+      "quelle": "J",
+      "zeile": 941,
+      "element": "hakan.roleSecret",
+      "ziel": [
+        "figuren.json#hakan.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "V-11"
+      ]
+    },
+    {
+      "id": "J-334",
+      "quelle": "J",
+      "zeile": 945,
+      "element": "tugba.name",
+      "ziel": [
+        "figuren.json#tugba.name"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-335",
+      "quelle": "J",
+      "zeile": 946,
+      "element": "tugba.age",
+      "ziel": [
+        "figuren.json#tugba.age"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-336",
+      "quelle": "J",
+      "zeile": 947,
+      "element": "tugba.tier",
+      "ziel": [
+        "figuren.json#tugba.tier"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-337",
+      "quelle": "J",
+      "zeile": 948,
+      "element": "tugba.minPlayers",
+      "ziel": [
+        "figuren.json#tugba.minPlayers"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-338",
+      "quelle": "J",
+      "zeile": 949,
+      "element": "tugba.roleTitle",
+      "ziel": [
+        "figuren.json#tugba.roleTitle"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-339",
+      "quelle": "J",
+      "zeile": 950,
+      "element": "tugba.isPotentialKiller",
+      "ziel": [
+        "figuren.json#tugba.isPotentialKiller"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-340",
+      "quelle": "J",
+      "zeile": 951,
+      "element": "tugba.colorCode",
+      "ziel": [
+        "figuren.json#tugba.colorCode"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-341",
+      "quelle": "J",
+      "zeile": 952,
+      "element": "tugba.startRoom",
+      "ziel": [
+        "figuren.json#tugba.startRoom"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "J-342",
+      "quelle": "J",
+      "zeile": 953,
+      "element": "tugba.coordinates",
+      "ziel": [
+        "figuren.json#tugba.coordinates"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "A-32"
+      ]
+    },
+    {
+      "id": "J-343",
+      "quelle": "J",
+      "zeile": 955,
+      "element": "tugba.visualSpecs.silhouette",
+      "ziel": [
+        "figuren.json#tugba.visualSpecs.silhouette"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-344",
+      "quelle": "J",
+      "zeile": 956,
+      "element": "tugba.visualSpecs.outfit",
+      "ziel": [
+        "figuren.json#tugba.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-345",
+      "quelle": "J",
+      "zeile": 957,
+      "element": "tugba.visualSpecs.distinguishingFeature",
+      "ziel": [
+        "figuren.json#tugba.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-346",
+      "quelle": "J",
+      "zeile": 958,
+      "element": "tugba.visualSpecs.idleAnimation",
+      "ziel": [
+        "figuren.json#tugba.visualSpecs.idleAnimation"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "V-27"
+      ]
+    },
+    {
+      "id": "J-347",
+      "quelle": "J",
+      "zeile": 960,
+      "element": "tugba.motiveAndConflict",
+      "ziel": [
+        "figuren.json#tugba.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "V-22"
+      ]
+    },
+    {
+      "id": "J-348",
+      "quelle": "J",
+      "zeile": 961,
+      "element": "tugba.blackoutAlibi",
+      "ziel": [
+        "figuren.json#tugba.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "E-015"
+      ]
+    },
+    {
+      "id": "J-349",
+      "quelle": "J",
+      "zeile": 962,
+      "element": "tugba.roleSecret",
+      "ziel": [
+        "figuren.json#tugba.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-001",
+      "quelle": "L",
+      "zeile": 266,
+      "element": "detective: Status",
+      "ziel": [
+        "figuren.json#detektiv.tatnacht"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-09",
+        "V-09"
+      ]
+    },
+    {
+      "id": "L-002",
+      "quelle": "L",
+      "zeile": 267,
+      "element": "detective: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#detektiv.visualSpecs.baseOutfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-09",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-003",
+      "quelle": "L",
+      "zeile": 268,
+      "element": "detective: Ausrüstung",
+      "ziel": [
+        "figuren.json#detektiv.visualSpecs.interactiveTool"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-09",
+        "A-09"
+      ]
+    },
+    {
+      "id": "L-004",
+      "quelle": "L",
+      "zeile": 269,
+      "element": "detective: Funktion",
+      "ziel": [
+        "figuren.json#detektiv.auftrag"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-09",
+        "B-12"
+      ]
+    },
+    {
+      "id": "L-005",
+      "quelle": "L",
+      "zeile": 275,
+      "element": "schneider: Rolle",
+      "ziel": [
+        "figuren.json#opfer.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-10"
+      ]
+    },
+    {
+      "id": "L-006",
+      "quelle": "L",
+      "zeile": 276,
+      "element": "schneider: Status",
+      "ziel": [
+        "figuren.json#opfer.status"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-10",
+        "V-05"
+      ]
+    },
+    {
+      "id": "L-007",
+      "quelle": "L",
+      "zeile": 277,
+      "element": "schneider: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#opfer.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-10",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-008",
+      "quelle": "L",
+      "zeile": 278,
+      "element": "schneider: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#opfer.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-10",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-009",
+      "quelle": "L",
+      "zeile": 279,
+      "element": "schneider: Startposition",
+      "ziel": [
+        "figuren.json#opfer.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-10",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-010",
+      "quelle": "L",
+      "zeile": 289,
+      "element": "ahmet: Rolle",
+      "ziel": [
+        "figuren.json#ahmet.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11"
+      ]
+    },
+    {
+      "id": "L-011",
+      "quelle": "L",
+      "zeile": 290,
+      "element": "ahmet: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#ahmet.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-012",
+      "quelle": "L",
+      "zeile": 291,
+      "element": "ahmet: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#ahmet.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-013",
+      "quelle": "L",
+      "zeile": 292,
+      "element": "ahmet: Startposition",
+      "ziel": [
+        "figuren.json#ahmet.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-014",
+      "quelle": "L",
+      "zeile": 293,
+      "element": "ahmet: Motiv",
+      "ziel": [
+        "figuren.json#ahmet.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "V-22"
+      ]
+    },
+    {
+      "id": "L-015",
+      "quelle": "L",
+      "zeile": 294,
+      "element": "ahmet: Alibi im Dunkeln",
+      "ziel": [
+        "figuren.json#ahmet.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "E-015"
+      ]
+    },
+    {
+      "id": "L-016",
+      "quelle": "L",
+      "zeile": 295,
+      "element": "ahmet: Täter-Hinweis (wenn aktiv)",
+      "ziel": [
+        "figuren.json#ahmet.killerProfile.smokingGun"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11",
+        "B-09",
+        "E-019"
+      ]
+    },
+    {
+      "id": "L-017",
+      "quelle": "L",
+      "zeile": 299,
+      "element": "fatma: Rolle",
+      "ziel": [
+        "figuren.json#fatma.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12"
+      ]
+    },
+    {
+      "id": "L-018",
+      "quelle": "L",
+      "zeile": 300,
+      "element": "fatma: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#fatma.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-019",
+      "quelle": "L",
+      "zeile": 301,
+      "element": "fatma: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#fatma.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-020",
+      "quelle": "L",
+      "zeile": 302,
+      "element": "fatma: Startposition",
+      "ziel": [
+        "figuren.json#fatma.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-021",
+      "quelle": "L",
+      "zeile": 303,
+      "element": "fatma: Motiv",
+      "ziel": [
+        "figuren.json#fatma.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-22"
+      ]
+    },
+    {
+      "id": "L-022",
+      "quelle": "L",
+      "zeile": 304,
+      "element": "fatma: Alibi im Dunkeln",
+      "ziel": [
+        "figuren.json#fatma.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "E-015"
+      ]
+    },
+    {
+      "id": "L-023",
+      "quelle": "L",
+      "zeile": 305,
+      "element": "fatma: Täterin-Hinweis (wenn aktiv)",
+      "ziel": [
+        "figuren.json#fatma.killerProfile.smokingGun"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-12",
+        "V-04",
+        "E-019"
+      ]
+    },
+    {
+      "id": "L-024",
+      "quelle": "L",
+      "zeile": 309,
+      "element": "olli: Rolle",
+      "ziel": [
+        "figuren.json#olli.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13"
+      ]
+    },
+    {
+      "id": "L-025",
+      "quelle": "L",
+      "zeile": 310,
+      "element": "olli: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#olli.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-026",
+      "quelle": "L",
+      "zeile": 311,
+      "element": "olli: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#olli.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-027",
+      "quelle": "L",
+      "zeile": 312,
+      "element": "olli: Startposition",
+      "ziel": [
+        "figuren.json#olli.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-028",
+      "quelle": "L",
+      "zeile": 313,
+      "element": "olli: Motiv",
+      "ziel": [
+        "figuren.json#olli.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "V-22"
+      ]
+    },
+    {
+      "id": "L-029",
+      "quelle": "L",
+      "zeile": 314,
+      "element": "olli: Alibi im Dunkeln",
+      "ziel": [
+        "figuren.json#olli.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "E-015"
+      ]
+    },
+    {
+      "id": "L-030",
+      "quelle": "L",
+      "zeile": 315,
+      "element": "olli: Täter-Hinweis (wenn aktiv)",
+      "ziel": [
+        "figuren.json#olli.killerProfile.smokingGun"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-13",
+        "B-09",
+        "E-019"
+      ]
+    },
+    {
+      "id": "L-031",
+      "quelle": "L",
+      "zeile": 319,
+      "element": "can: Rolle",
+      "ziel": [
+        "figuren.json#can.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14"
+      ]
+    },
+    {
+      "id": "L-032",
+      "quelle": "L",
+      "zeile": 320,
+      "element": "can: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#can.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-033",
+      "quelle": "L",
+      "zeile": 321,
+      "element": "can: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#can.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-034",
+      "quelle": "L",
+      "zeile": 322,
+      "element": "can: Startposition",
+      "ziel": [
+        "figuren.json#can.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-035",
+      "quelle": "L",
+      "zeile": 323,
+      "element": "can: Motiv",
+      "ziel": [
+        "figuren.json#can.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "V-22"
+      ]
+    },
+    {
+      "id": "L-036",
+      "quelle": "L",
+      "zeile": 324,
+      "element": "can: Alibi im Dunkeln",
+      "ziel": [
+        "figuren.json#can.blackoutAlibi"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "E-015"
+      ]
+    },
+    {
+      "id": "L-037",
+      "quelle": "L",
+      "zeile": 325,
+      "element": "can: Täter-Hinweis (wenn aktiv)",
+      "ziel": [
+        "figuren.json#can.killerProfile.smokingGun"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-14",
+        "B-09",
+        "E-019"
+      ]
+    },
+    {
+      "id": "L-038",
+      "quelle": "L",
+      "zeile": 333,
+      "element": "leyla: Rolle",
+      "ziel": [
+        "figuren.json#leyla.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16"
+      ]
+    },
+    {
+      "id": "L-039",
+      "quelle": "L",
+      "zeile": 334,
+      "element": "leyla: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#leyla.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-040",
+      "quelle": "L",
+      "zeile": 335,
+      "element": "leyla: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#leyla.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-041",
+      "quelle": "L",
+      "zeile": 336,
+      "element": "leyla: Startposition",
+      "ziel": [
+        "figuren.json#leyla.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-042",
+      "quelle": "L",
+      "zeile": 337,
+      "element": "leyla: Geheimnis",
+      "ziel": [
+        "figuren.json#leyla.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-16",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-043",
+      "quelle": "L",
+      "zeile": 341,
+      "element": "tim: Rolle",
+      "ziel": [
+        "figuren.json#tim.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17"
+      ]
+    },
+    {
+      "id": "L-044",
+      "quelle": "L",
+      "zeile": 342,
+      "element": "tim: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#tim.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-045",
+      "quelle": "L",
+      "zeile": 343,
+      "element": "tim: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#tim.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-046",
+      "quelle": "L",
+      "zeile": 344,
+      "element": "tim: Startposition",
+      "ziel": [
+        "figuren.json#tim.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-047",
+      "quelle": "L",
+      "zeile": 345,
+      "element": "tim: Geheimnis",
+      "ziel": [
+        "figuren.json#tim.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-17",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-048",
+      "quelle": "L",
+      "zeile": 349,
+      "element": "emine: Rolle",
+      "ziel": [
+        "figuren.json#emine.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18"
+      ]
+    },
+    {
+      "id": "L-049",
+      "quelle": "L",
+      "zeile": 350,
+      "element": "emine: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#emine.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-050",
+      "quelle": "L",
+      "zeile": 351,
+      "element": "emine: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#emine.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-051",
+      "quelle": "L",
+      "zeile": 352,
+      "element": "emine: Startposition",
+      "ziel": [
+        "figuren.json#emine.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-052",
+      "quelle": "L",
+      "zeile": 353,
+      "element": "emine: Geheimnis",
+      "ziel": [
+        "figuren.json#emine.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-18",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-053",
+      "quelle": "L",
+      "zeile": 357,
+      "element": "johanna: Rolle",
+      "ziel": [
+        "figuren.json#johanna.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19"
+      ]
+    },
+    {
+      "id": "L-054",
+      "quelle": "L",
+      "zeile": 358,
+      "element": "johanna: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#johanna.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-055",
+      "quelle": "L",
+      "zeile": 359,
+      "element": "johanna: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#johanna.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-056",
+      "quelle": "L",
+      "zeile": 360,
+      "element": "johanna: Startposition",
+      "ziel": [
+        "figuren.json#johanna.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-057",
+      "quelle": "L",
+      "zeile": 361,
+      "element": "johanna: Geheimnis",
+      "ziel": [
+        "figuren.json#johanna.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-19",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-058",
+      "quelle": "L",
+      "zeile": 369,
+      "element": "murat: Rolle",
+      "ziel": [
+        "figuren.json#murat.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20"
+      ]
+    },
+    {
+      "id": "L-059",
+      "quelle": "L",
+      "zeile": 370,
+      "element": "murat: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#murat.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-060",
+      "quelle": "L",
+      "zeile": 371,
+      "element": "murat: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#murat.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-061",
+      "quelle": "L",
+      "zeile": 372,
+      "element": "murat: Startposition",
+      "ziel": [
+        "figuren.json#murat.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-062",
+      "quelle": "L",
+      "zeile": 373,
+      "element": "murat: Geheimnis",
+      "ziel": [
+        "figuren.json#murat.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-20",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-063",
+      "quelle": "L",
+      "zeile": 377,
+      "element": "zeynep: Rolle",
+      "ziel": [
+        "figuren.json#zeynep.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15"
+      ]
+    },
+    {
+      "id": "L-064",
+      "quelle": "L",
+      "zeile": 378,
+      "element": "zeynep: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#zeynep.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-065",
+      "quelle": "L",
+      "zeile": 379,
+      "element": "zeynep: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#zeynep.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-066",
+      "quelle": "L",
+      "zeile": 380,
+      "element": "zeynep: Startposition",
+      "ziel": [
+        "figuren.json#zeynep.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-067",
+      "quelle": "L",
+      "zeile": 381,
+      "element": "zeynep: Geheimnis",
+      "ziel": [
+        "figuren.json#zeynep.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-15",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-068",
+      "quelle": "L",
+      "zeile": 385,
+      "element": "baran: Rolle",
+      "ziel": [
+        "figuren.json#baran.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21"
+      ]
+    },
+    {
+      "id": "L-069",
+      "quelle": "L",
+      "zeile": 386,
+      "element": "baran: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#baran.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-070",
+      "quelle": "L",
+      "zeile": 387,
+      "element": "baran: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#baran.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-071",
+      "quelle": "L",
+      "zeile": 388,
+      "element": "baran: Startposition",
+      "ziel": [
+        "figuren.json#baran.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-072",
+      "quelle": "L",
+      "zeile": 389,
+      "element": "baran: Geheimnis",
+      "ziel": [
+        "figuren.json#baran.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-21",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-073",
+      "quelle": "L",
+      "zeile": 393,
+      "element": "meryem: Rolle",
+      "ziel": [
+        "figuren.json#meryem.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22"
+      ]
+    },
+    {
+      "id": "L-074",
+      "quelle": "L",
+      "zeile": 394,
+      "element": "meryem: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#meryem.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-075",
+      "quelle": "L",
+      "zeile": 395,
+      "element": "meryem: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#meryem.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-076",
+      "quelle": "L",
+      "zeile": 396,
+      "element": "meryem: Startposition",
+      "ziel": [
+        "figuren.json#meryem.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-077",
+      "quelle": "L",
+      "zeile": 397,
+      "element": "meryem: Geheimnis",
+      "ziel": [
+        "figuren.json#meryem.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-22",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-078",
+      "quelle": "L",
+      "zeile": 405,
+      "element": "serkan: Rolle",
+      "ziel": [
+        "figuren.json#serkan.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23"
+      ]
+    },
+    {
+      "id": "L-079",
+      "quelle": "L",
+      "zeile": 406,
+      "element": "serkan: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#serkan.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-080",
+      "quelle": "L",
+      "zeile": 407,
+      "element": "serkan: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#serkan.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-081",
+      "quelle": "L",
+      "zeile": 408,
+      "element": "serkan: Startposition",
+      "ziel": [
+        "figuren.json#serkan.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-082",
+      "quelle": "L",
+      "zeile": 409,
+      "element": "serkan: Geheimnis",
+      "ziel": [
+        "figuren.json#serkan.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-23",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-083",
+      "quelle": "L",
+      "zeile": 413,
+      "element": "aylin: Rolle",
+      "ziel": [
+        "figuren.json#aylin.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24"
+      ]
+    },
+    {
+      "id": "L-084",
+      "quelle": "L",
+      "zeile": 414,
+      "element": "aylin: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#aylin.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-085",
+      "quelle": "L",
+      "zeile": 415,
+      "element": "aylin: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#aylin.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-086",
+      "quelle": "L",
+      "zeile": 416,
+      "element": "aylin: Startposition",
+      "ziel": [
+        "figuren.json#aylin.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-087",
+      "quelle": "L",
+      "zeile": 417,
+      "element": "aylin: Geheimnis",
+      "ziel": [
+        "figuren.json#aylin.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-24",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-088",
+      "quelle": "L",
+      "zeile": 421,
+      "element": "kaan: Rolle",
+      "ziel": [
+        "figuren.json#kaan.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25"
+      ]
+    },
+    {
+      "id": "L-089",
+      "quelle": "L",
+      "zeile": 422,
+      "element": "kaan: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#kaan.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-090",
+      "quelle": "L",
+      "zeile": 423,
+      "element": "kaan: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#kaan.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-091",
+      "quelle": "L",
+      "zeile": 424,
+      "element": "kaan: Startposition",
+      "ziel": [
+        "figuren.json#kaan.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-092",
+      "quelle": "L",
+      "zeile": 425,
+      "element": "kaan: Geheimnis",
+      "ziel": [
+        "figuren.json#kaan.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-25",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-093",
+      "quelle": "L",
+      "zeile": 429,
+      "element": "dilara: Rolle",
+      "ziel": [
+        "figuren.json#dilara.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26"
+      ]
+    },
+    {
+      "id": "L-094",
+      "quelle": "L",
+      "zeile": 430,
+      "element": "dilara: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#dilara.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-095",
+      "quelle": "L",
+      "zeile": 431,
+      "element": "dilara: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#dilara.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-096",
+      "quelle": "L",
+      "zeile": 432,
+      "element": "dilara: Startposition",
+      "ziel": [
+        "figuren.json#dilara.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-097",
+      "quelle": "L",
+      "zeile": 433,
+      "element": "dilara: Geheimnis",
+      "ziel": [
+        "figuren.json#dilara.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-26",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-098",
+      "quelle": "L",
+      "zeile": 441,
+      "element": "enes: Rolle",
+      "ziel": [
+        "figuren.json#enes.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27"
+      ]
+    },
+    {
+      "id": "L-099",
+      "quelle": "L",
+      "zeile": 442,
+      "element": "enes: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#enes.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-100",
+      "quelle": "L",
+      "zeile": 443,
+      "element": "enes: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#enes.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-101",
+      "quelle": "L",
+      "zeile": 444,
+      "element": "enes: Startposition",
+      "ziel": [
+        "figuren.json#enes.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-102",
+      "quelle": "L",
+      "zeile": 445,
+      "element": "enes: Geheimnis",
+      "ziel": [
+        "figuren.json#enes.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-27",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-103",
+      "quelle": "L",
+      "zeile": 449,
+      "element": "selin: Rolle",
+      "ziel": [
+        "figuren.json#selin.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28"
+      ]
+    },
+    {
+      "id": "L-104",
+      "quelle": "L",
+      "zeile": 450,
+      "element": "selin: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#selin.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-105",
+      "quelle": "L",
+      "zeile": 451,
+      "element": "selin: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#selin.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-106",
+      "quelle": "L",
+      "zeile": 452,
+      "element": "selin: Startposition",
+      "ziel": [
+        "figuren.json#selin.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-107",
+      "quelle": "L",
+      "zeile": 453,
+      "element": "selin: Geheimnis",
+      "ziel": [
+        "figuren.json#selin.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-108",
+      "quelle": "L",
+      "zeile": 457,
+      "element": "hakan: Rolle",
+      "ziel": [
+        "figuren.json#hakan.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29"
+      ]
+    },
+    {
+      "id": "L-109",
+      "quelle": "L",
+      "zeile": 458,
+      "element": "hakan: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#hakan.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-110",
+      "quelle": "L",
+      "zeile": 459,
+      "element": "hakan: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#hakan.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-111",
+      "quelle": "L",
+      "zeile": 460,
+      "element": "hakan: Startposition",
+      "ziel": [
+        "figuren.json#hakan.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-112",
+      "quelle": "L",
+      "zeile": 461,
+      "element": "hakan: Geheimnis",
+      "ziel": [
+        "figuren.json#hakan.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-29",
+        "V-11"
+      ]
+    },
+    {
+      "id": "L-113",
+      "quelle": "L",
+      "zeile": 465,
+      "element": "tugba: Rolle",
+      "ziel": [
+        "figuren.json#tugba.motiveAndConflict"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30"
+      ]
+    },
+    {
+      "id": "L-114",
+      "quelle": "L",
+      "zeile": 466,
+      "element": "tugba: 2.5D-Optik",
+      "ziel": [
+        "figuren.json#tugba.visualSpecs.outfit"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "V-27",
+        "A-31"
+      ]
+    },
+    {
+      "id": "L-115",
+      "quelle": "L",
+      "zeile": 467,
+      "element": "tugba: Erkennungsmerkmal",
+      "ziel": [
+        "figuren.json#tugba.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "V-27"
+      ]
+    },
+    {
+      "id": "L-116",
+      "quelle": "L",
+      "zeile": 468,
+      "element": "tugba: Startposition",
+      "ziel": [
+        "figuren.json#tugba.ermittlungsOrt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "A-32"
+      ]
+    },
+    {
+      "id": "L-117",
+      "quelle": "L",
+      "zeile": 469,
+      "element": "tugba: Geheimnis",
+      "ziel": [
+        "figuren.json#tugba.roleSecret"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-30",
+        "V-11"
+      ]
+    },
+    {
+      "id": "M-001",
+      "quelle": "M",
+      "zeile": 48,
+      "element": "App lokal im Browser oder PDF",
+      "ziel": [],
+      "status": "ausserhalb",
+      "grund": [
+        "E-001"
+      ]
+    },
+    {
+      "id": "M-002",
+      "quelle": "M",
+      "zeile": 48,
+      "element": "drei Stories",
+      "ziel": [],
+      "status": "ausserhalb",
+      "grund": [
+        "E-006"
+      ]
+    },
+    {
+      "id": "M-003",
+      "quelle": "M",
+      "zeile": 53,
+      "element": "Zielgruppe und Herkünfte",
+      "ziel": [
+        "figuren.json#figuren"
+      ],
+      "status": "übernommen",
+      "grund": [
+        "E-007"
+      ]
+    },
+    {
+      "id": "M-004",
+      "quelle": "M",
+      "zeile": 63,
+      "element": "Setting Werkstatt",
+      "ziel": [],
+      "status": "ausserhalb",
+      "grund": [
+        "E-006"
+      ]
+    },
+    {
+      "id": "M-005",
+      "quelle": "M",
+      "zeile": 65,
+      "element": "Setting Gemeindesaal",
+      "ziel": [],
+      "status": "ausserhalb",
+      "grund": [
+        "E-006"
+      ]
+    },
+    {
+      "id": "M-006",
+      "quelle": "M",
+      "zeile": 69,
+      "element": "3 Runden, 3 Pflichtgespräche, Bildprompts",
+      "ziel": [
+        "fall.json#runden"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "M-007",
+      "quelle": "M",
+      "zeile": 74,
+      "element": "Inhaltsregeln",
+      "ziel": [
+        "setting.json#getraenke"
+      ],
+      "status": "übernommen",
+      "grund": [
+        "B-14"
+      ]
+    },
+    {
+      "id": "M-008",
+      "quelle": "M",
+      "zeile": 150,
+      "element": "Stufen 4/8/12/16/20",
+      "ziel": [
+        "besetzung.json#stufen"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-13",
+        "V-21"
+      ]
+    },
+    {
+      "id": "M-009",
+      "quelle": "M",
+      "zeile": 154,
+      "element": "Gruppenwahl A/B",
+      "ziel": [],
+      "status": "spaeter",
+      "grund": [
+        "V-15",
+        "E-013"
+      ]
+    },
+    {
+      "id": "M-010",
+      "quelle": "M",
+      "zeile": 155,
+      "element": "Schwellen 60/40 %",
+      "ziel": [
+        "fall.json#schwellen"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "E-013"
+      ]
+    },
+    {
+      "id": "M-011",
+      "quelle": "M",
+      "zeile": 163,
+      "element": "Punkte 0–9",
+      "ziel": [
+        "fall.json#enden"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "M-012",
+      "quelle": "M",
+      "zeile": 164,
+      "element": "Endenmatrix",
+      "ziel": [
+        "fall.json#enden"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-12"
+      ]
+    },
+    {
+      "id": "M-013",
+      "quelle": "M",
+      "zeile": 173,
+      "element": "Stil der Bildprompts",
+      "ziel": [],
+      "status": "spaeter",
+      "grund": [
+        "V-30"
+      ]
+    },
+    {
+      "id": "M-014",
+      "quelle": "M",
+      "zeile": 177,
+      "element": "Schweregrad: Opfer schwer verletzt",
+      "ziel": [
+        "figuren.json#opfer.status"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-05"
+      ]
+    },
+    {
+      "id": "M-015",
+      "quelle": "M",
+      "zeile": 181,
+      "element": "Geschlechterverteilung 50/50",
+      "ziel": [
+        "besetzung.json#geschlechterBilanz"
+      ],
+      "status": "übernommen",
+      "grund": [
+        "V-21"
+      ]
+    },
+    {
+      "id": "M-016",
+      "quelle": "M",
+      "zeile": 185,
+      "element": "Markdown und JSON",
+      "ziel": [
+        "STORY-BIBEL.md"
+      ],
+      "status": "übernommen",
+      "grund": [
+        "E-002"
+      ]
+    },
+    {
+      "id": "R-001",
+      "quelle": "R",
+      "zeile": 228,
+      "element": "Stufen außen vom Parkplatz",
+      "ziel": [
+        "raeume.json#rooms.windfang"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-03",
+        "A-04"
+      ]
+    },
+    {
+      "id": "R-002",
+      "quelle": "R",
+      "zeile": 228,
+      "element": "zweiflügelige Eichentür",
+      "ziel": [
+        "raeume.json#tueren.aussentor"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-02"
+      ]
+    },
+    {
+      "id": "R-003",
+      "quelle": "R",
+      "zeile": 230,
+      "element": "Thekensaal 8 m breit",
+      "ziel": [
+        "raeume.json#rooms.thekensaal"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "R-004",
+      "quelle": "R",
+      "zeile": 230,
+      "element": "Buffettische links und rechts",
+      "ziel": [
+        "raeume.json#einrichtung.linkes_buffet_12",
+        "raeume.json#einrichtung.rechtes_buffet_12"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-27",
+        "V-29"
+      ]
+    },
+    {
+      "id": "R-005",
+      "quelle": "R",
+      "zeile": 232,
+      "element": "Theke gegenüber dem Eingang",
+      "ziel": [
+        "raeume.json#einrichtung.theke_14"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-01",
+        "V-29"
+      ]
+    },
+    {
+      "id": "R-006",
+      "quelle": "R",
+      "zeile": 232,
+      "element": "Samoware, Kannen, Gläser hinter der Theke",
+      "ziel": [
+        "raeume.json#einrichtung.teekocher",
+        "raeume.json#einrichtung.kaffeemaschine"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-27"
+      ]
+    },
+    {
+      "id": "R-007",
+      "quelle": "R",
+      "zeile": 234,
+      "element": "Türen zu den Sälen",
+      "ziel": [
+        "raeume.json#tueren.durchgang_ost",
+        "raeume.json#tueren.ost_tuer"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-01"
+      ]
+    },
+    {
+      "id": "R-008",
+      "quelle": "R",
+      "zeile": 236,
+      "element": "Fundorte an der Theke",
+      "ziel": [
+        "gegenstaende.json#klemmbrett_schneider"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-07"
+      ]
+    },
+    {
+      "id": "R-009",
+      "quelle": "R",
+      "zeile": 240,
+      "element": "West-Saal: Tafeln, Bänke",
+      "ziel": [
+        "raeume.json#rooms.west_saal"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "R-010",
+      "quelle": "R",
+      "zeile": 242,
+      "element": "Bogentür zum Treppenturm, WC",
+      "ziel": [
+        "raeume.json#tueren.bogentuer",
+        "raeume.json#rooms.turmgang"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-01"
+      ]
+    },
+    {
+      "id": "R-011",
+      "quelle": "R",
+      "zeile": 242,
+      "element": "Turm abgesperrt",
+      "ziel": [
+        "raeume.json#rooms.turmgang"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "R-012",
+      "quelle": "R",
+      "zeile": 244,
+      "element": "West-Saal als Alibi-Zone",
+      "ziel": [
+        "tatmatrix/basis.json#plaene.can"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "R-013",
+      "quelle": "R",
+      "zeile": 248,
+      "element": "Ost-Saal ohne Außentür",
+      "ziel": [
+        "raeume.json#rooms.ost_saal"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "R-014",
+      "quelle": "R",
+      "zeile": 250,
+      "element": "Ost-Saal: Gespräche, Verstecke unter Bänken",
+      "ziel": [
+        "raeume.json#rooms.ost_saal"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "E-015"
+      ]
+    },
+    {
+      "id": "R-015",
+      "quelle": "R",
+      "zeile": 254,
+      "element": "Fog-of-War mit Alpha-Fade 0,4 s",
+      "ziel": [],
+      "status": "spaeter",
+      "grund": [
+        "V-32"
+      ]
+    },
+    {
+      "id": "R-016",
+      "quelle": "R",
+      "zeile": 258,
+      "element": "Grundlicht 20–25 %, Blaugrau",
+      "ziel": [],
+      "status": "spaeter",
+      "grund": [
+        "V-32"
+      ]
+    },
+    {
+      "id": "R-017",
+      "quelle": "R",
+      "zeile": 260,
+      "element": "Punktlichter RGB 255/147/41",
+      "ziel": [
+        "raeume.json#lichtquellen.licht_kerzenstaender"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-04",
+        "V-32"
+      ]
+    },
+    {
+      "id": "R-018",
+      "quelle": "R",
+      "zeile": 262,
+      "element": "Schatten 45°",
+      "ziel": [],
+      "status": "spaeter",
+      "grund": [
+        "V-32"
+      ]
+    },
+    {
+      "id": "S-001",
+      "quelle": "S",
+      "zeile": 1,
+      "element": "Titel und Untertitel",
+      "ziel": [
+        "fall.json#titel",
+        "fall.json#untertitel"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "S-002",
+      "quelle": "S",
+      "zeile": 3,
+      "element": "Ort: abgelegenes Schloss",
+      "ziel": [
+        "setting.json#ort"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "S-003",
+      "quelle": "S",
+      "zeile": 3,
+      "element": "Veranstalter-Freund organisiert den Keller",
+      "ziel": [
+        "figuren.json#ahmet.motiveAndConflict",
+        "figuren.json#ahmet.alltag"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "A-11"
+      ]
+    },
+    {
+      "id": "S-004",
+      "quelle": "S",
+      "zeile": 3,
+      "element": "Buffet: Essen, Brot, Dips, Tee, Apfelpunsch",
+      "ziel": [
+        "setting.json#essen",
+        "setting.json#getraenke"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-14"
+      ]
+    },
+    {
+      "id": "S-005",
+      "quelle": "S",
+      "zeile": 7,
+      "element": "kein Handyempfang",
+      "ziel": [
+        "setting.json#empfang"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "S-006",
+      "quelle": "S",
+      "zeile": 7,
+      "element": "Wind, quietschende Türen, Kerzenschatten",
+      "ziel": [
+        "setting.json#atmosphaere"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-04"
+      ]
+    },
+    {
+      "id": "S-007",
+      "quelle": "S",
+      "zeile": 9,
+      "element": "Lacher Ritterrüstung",
+      "ziel": [
+        "setting.json#lacher.lacher_ruestung"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-17"
+      ]
+    },
+    {
+      "id": "S-008",
+      "quelle": "S",
+      "zeile": 9,
+      "element": "Lacher Verlaufen",
+      "ziel": [
+        "setting.json#lacher.lacher_verlaufen"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-17"
+      ]
+    },
+    {
+      "id": "S-009",
+      "quelle": "S",
+      "zeile": 9,
+      "element": "Lacher Kamin, Zugfenster",
+      "ziel": [
+        "setting.json#lacher.lacher_kamin",
+        "raeume.json#luftzug"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-17",
+        "A-22"
+      ]
+    },
+    {
+      "id": "S-010",
+      "quelle": "S",
+      "zeile": 12,
+      "element": "Knall, Hauptsicherung, Dunkelheit",
+      "ziel": [
+        "zeitleiste.json#z_ausfall"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-04",
+        "V-06"
+      ]
+    },
+    {
+      "id": "S-011",
+      "quelle": "S",
+      "zeile": 12,
+      "element": "Schritte, Poltern, Scheppern",
+      "ziel": [
+        "zeitleiste.json#z_schlag"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "S-012",
+      "quelle": "S",
+      "zeile": 12,
+      "element": "Opfer im Vorratsraum, Metallkerzenständer",
+      "ziel": [
+        "zeitleiste.json#z_gefunden",
+        "gegenstaende.json#kerzenstaender"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-05",
+        "V-05"
+      ]
+    },
+    {
+      "id": "S-013",
+      "quelle": "S",
+      "zeile": 12,
+      "element": "Schlüsselbund fehlt",
+      "ziel": [
+        "gegenstaende.json#bund_schneider"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "S-014",
+      "quelle": "S",
+      "zeile": 16,
+      "element": "Türschaden, 2.000 € bar",
+      "ziel": [
+        "zeitleiste.json#z_tuerschaden",
+        "zeitleiste.json#z_forderung"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-07",
+        "B-02"
+      ]
+    },
+    {
+      "id": "S-015",
+      "quelle": "S",
+      "zeile": 18,
+      "element": "Prank mit Maske im Vorratsraum",
+      "ziel": [
+        "zeitleiste.json#z_can_vorrat"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-05",
+        "V-10"
+      ]
+    },
+    {
+      "id": "S-016",
+      "quelle": "S",
+      "zeile": 20,
+      "element": "150 € Miete, Keller umsonst",
+      "ziel": [
+        "figuren.json#ahmet.nebendelikt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-22",
+        "A-11"
+      ]
+    },
+    {
+      "id": "S-017",
+      "quelle": "S",
+      "zeile": 22,
+      "element": "Vitrine, Gedenkmünze, Ertappen",
+      "ziel": [
+        "zeitleiste.json#z_vitrine_schatulle",
+        "zeitleiste.json#z_schatulle_entdeckt"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-08",
+        "A-12"
+      ]
+    },
+    {
+      "id": "S-018",
+      "quelle": "S",
+      "zeile": 26,
+      "element": "Kaminraum, Vorratsraum, Wendeltreppengang, Sicherungskasten",
+      "ziel": [
+        "raeume.json#rooms.west_saal",
+        "raeume.json#rooms.vorratsraum",
+        "raeume.json#rooms.turmgang"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-01"
+      ]
+    },
+    {
+      "id": "S-019",
+      "quelle": "S",
+      "zeile": 30,
+      "element": "Maske hinter Getränkekiste",
+      "ziel": [
+        "gegenstaende.json#leuchtmaske"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-06",
+        "A-14"
+      ]
+    },
+    {
+      "id": "S-020",
+      "quelle": "S",
+      "zeile": 32,
+      "element": "Splitter und Lack an einer Jacke",
+      "ziel": [
+        "figuren.json#olli.visualSpecs.distinguishingFeature"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-07",
+        "V-14"
+      ]
+    },
+    {
+      "id": "S-021",
+      "quelle": "S",
+      "zeile": 34,
+      "element": "Kerzenständer mit Wachs",
+      "ziel": [
+        "gegenstaende.json#kerzenstaender"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-04"
+      ]
+    },
+    {
+      "id": "S-022",
+      "quelle": "S",
+      "zeile": 36,
+      "element": "Quittungsblock mit 2.000-€-Forderung",
+      "ziel": [
+        "gegenstaende.json#klemmbrett_schneider"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "S-023",
+      "quelle": "S",
+      "zeile": 38,
+      "element": "leerer Umschlag im Kamin-Ascheneimer",
+      "ziel": [
+        "gegenstaende.json#umschlag_mietgeld"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-17"
+      ]
+    },
+    {
+      "id": "S-024",
+      "quelle": "S",
+      "zeile": 40,
+      "element": "Begründung des Settings (Ton)",
+      "ziel": [
+        "setting.json#ton"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "T-001",
+      "quelle": "T",
+      "zeile": 977,
+      "element": "Ahmet: Motiv, Zugang, Dynamik",
+      "ziel": [
+        "figuren.json#ahmet.killerProfile.crimeExecution"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-24",
+        "A-11"
+      ]
+    },
+    {
+      "id": "T-002",
+      "quelle": "T",
+      "zeile": 978,
+      "element": "Fatma: Motiv, Zugang, Dynamik",
+      "ziel": [
+        "figuren.json#fatma.killerProfile.crimeExecution"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-22",
+        "V-24",
+        "A-12"
+      ]
+    },
+    {
+      "id": "T-003",
+      "quelle": "T",
+      "zeile": 979,
+      "element": "Olli: Motiv, Zugang, Dynamik",
+      "ziel": [
+        "figuren.json#olli.killerProfile.crimeExecution"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-24",
+        "A-13"
+      ]
+    },
+    {
+      "id": "T-004",
+      "quelle": "T",
+      "zeile": 980,
+      "element": "Can: Motiv, Zugang, Dynamik",
+      "ziel": [
+        "figuren.json#can.killerProfile.crimeExecution"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-24",
+        "A-14"
+      ]
+    },
+    {
+      "id": "T-005",
+      "quelle": "T",
+      "zeile": 1001,
+      "element": "Pfad Ahmet: Tatablauf",
+      "ziel": [
+        "tatmatrix/ahmet.json"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-02",
+        "V-24"
+      ]
+    },
+    {
+      "id": "T-006",
+      "quelle": "T",
+      "zeile": 1004,
+      "element": "Pfad Ahmet: Schlüsselbeweis Jacke",
+      "ziel": [
+        "gegenstaende.json#jacke_ahmet"
+      ],
+      "status": "übernommen",
+      "grund": [
+        "A-03"
+      ]
+    },
+    {
+      "id": "T-007",
+      "quelle": "T",
+      "zeile": 1005,
+      "element": "Pfad Ahmet: Zusatzindiz Schmierzettel",
+      "ziel": [
+        "gegenstaende.json#umschlag_mietgeld"
+      ],
+      "status": "verworfen",
+      "grund": [
+        "E-019"
+      ]
+    },
+    {
+      "id": "T-008",
+      "quelle": "T",
+      "zeile": 1007,
+      "element": "Pfad Fatma: Tatablauf",
+      "ziel": [
+        "tatmatrix/fatma.json"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-24"
+      ]
+    },
+    {
+      "id": "T-009",
+      "quelle": "T",
+      "zeile": 1010,
+      "element": "Pfad Fatma: Schlüsselbeweis Ring",
+      "ziel": [
+        "gegenstaende.json#silberring_fatma"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-04"
+      ]
+    },
+    {
+      "id": "T-010",
+      "quelle": "T",
+      "zeile": 1011,
+      "element": "Pfad Fatma: Zusatzindiz Wachs",
+      "ziel": [
+        "gegenstaende.json#muenzschatulle"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-08",
+        "E-019"
+      ]
+    },
+    {
+      "id": "T-011",
+      "quelle": "T",
+      "zeile": 1013,
+      "element": "Pfad Olli: Tatablauf",
+      "ziel": [
+        "tatmatrix/olli.json"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-24"
+      ]
+    },
+    {
+      "id": "T-012",
+      "quelle": "T",
+      "zeile": 1016,
+      "element": "Pfad Olli: Schlüsselbeweis Splitter",
+      "ziel": [
+        "gegenstaende.json#kerzenstaender"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-14",
+        "A-13"
+      ]
+    },
+    {
+      "id": "T-013",
+      "quelle": "T",
+      "zeile": 1017,
+      "element": "Pfad Olli: Zusatzindiz Handschuh",
+      "ziel": [
+        "gegenstaende.json#arbeitshandschuh_olli",
+        "gegenstaende.json#eiskuebel"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-02",
+        "B-16",
+        "E-019"
+      ]
+    },
+    {
+      "id": "T-014",
+      "quelle": "T",
+      "zeile": 1019,
+      "element": "Pfad Can: Tatablauf",
+      "ziel": [
+        "tatmatrix/can.json"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-09",
+        "V-24"
+      ]
+    },
+    {
+      "id": "T-015",
+      "quelle": "T",
+      "zeile": 1022,
+      "element": "Pfad Can: Schlüsselbeweis Fasern",
+      "ziel": [
+        "gegenstaende.json#gelbe_fasern",
+        "gegenstaende.json#kerzenstaender"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-09",
+        "E-019"
+      ]
+    },
+    {
+      "id": "T-016",
+      "quelle": "T",
+      "zeile": 1023,
+      "element": "Pfad Can: Zusatzindiz Maske",
+      "ziel": [
+        "gegenstaende.json#leuchtmaske"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "B-09",
+        "E-019"
+      ]
+    },
+    {
+      "id": "T-017",
+      "quelle": "T",
+      "zeile": 1029,
+      "element": "Rundenthemen 1–3",
+      "ziel": [
+        "fall.json#runden"
+      ],
+      "status": "übernommen",
+      "grund": []
+    },
+    {
+      "id": "T-018",
+      "quelle": "T",
+      "zeile": 1031,
+      "element": "Runde 3: zwei Restverdächtige",
+      "ziel": [
+        "fall.json#runden"
+      ],
+      "status": "angepasst",
+      "grund": [
+        "V-18"
+      ]
+    }
+  ]
+}

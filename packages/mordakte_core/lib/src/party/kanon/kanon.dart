@@ -18,6 +18,7 @@ class Kanon {
     'gegenstaende.json',
     'zeitleiste.json',
     'beobachtungen.json',
+    'besetzung.json',
     'tatmatrix/basis.json',
   ];
 

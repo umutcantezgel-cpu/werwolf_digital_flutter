@@ -391,51 +391,6 @@
       "alltag": "Ist Apothekerin und organisiert bei jeder Feier trotzdem das Essen."
     },
     {
-      "id": "tim",
-      "name": "Tim",
-      "aussprache": "Tim",
-      "age": 27,
-      "geschlecht": "m",
-      "herkunft": "deutsch",
-      "tier": 2,
-      "besetzungsplatz": 6,
-      "minPlayers": 6,
-      "roleTitle": "Der Hobby-Elektriker",
-      "isPotentialKiller": false,
-      "colorCode": "#992222",
-      "farbname": "Karorot",
-      "startRoom": "west_saal",
-      "ermittlungsOrt": "am_sicherungskasten",
-      "coordinates": {
-        "x": 6.5,
-        "y": 11.5
-      },
-      "visualSpecs": {
-        "silhouette": "Kräftig, mittelgroß, lockige Haare",
-        "outfit": "Rot-schwarz kariertes Flanellhemd über dunklem Shirt, derbe Arbeitshose",
-        "distinguishingFeature": "Spannungsprüfer-Schraubenzieher hinter dem Ohr, kleine Stirnlampe um den Hals",
-        "idleAnimation": "Klopft prüfend gegen Kabelkanäle und schüttelt den Kopf"
-      },
-      "motiveAndConflict": "Um 23:57:50 steckt er für den Tortenkaffee die Kaffeemaschine in seine alte Mehrfachsteckdose. Herr Schneider hatte ihn gerade davor gewarnt. Um 23:58:00 knallt es, die Hauptsicherung fliegt raus.",
-      "blackoutAlibi": "Tastete sich beim Knall sofort zum Sicherungskasten im Kaminsaal. Dabei rutschte ihm die Stirnlampe vom Hals. Im Dunkeln fand er den richtigen Schalter nicht. Um 23:59:40 fand er die Stirnlampe auf dem Boden, um 0:00:00 war das Licht wieder an.",
-      "roleSecret": "Der Kurzschluss kam von seiner alten Mehrfachsteckdose. Am Sicherungskasten huschte im Dunkeln ein leuchtendes Gesicht an ihm vorbei.",
-      "persoenlichesZiel": "Niemand soll erfahren, dass seine Mehrfachsteckdose den Ausfall verursacht hat.",
-      "nebendelikt": {
-        "id": "nd_kurzschluss",
-        "text": "Hat trotz Warnung die alte Mehrfachsteckdose benutzt und den Kurzschluss verursacht."
-      },
-      "loyalitaet": null,
-      "luegen": [],
-      "look": {
-        "haut": "#e6be9e",
-        "haar": "#4a3222",
-        "kopf": "none",
-        "statur": "normal",
-        "schnitt": "suit"
-      },
-      "alltag": "Ist Mechatroniker und repariert gern alles selbst, manchmal zu gern."
-    },
-    {
       "id": "emine",
       "name": "Emine",
       "aussprache": "Emine",
@@ -443,8 +398,8 @@
       "geschlecht": "w",
       "herkunft": "türkisch",
       "tier": 2,
-      "besetzungsplatz": 7,
-      "minPlayers": 7,
+      "besetzungsplatz": 6,
+      "minPlayers": 6,
       "roleTitle": "Fatmas Freundin",
       "isPotentialKiller": false,
       "colorCode": "#5E6E3A",
@@ -480,6 +435,51 @@
         "kopftuchFarbe": "#d8c6a5"
       },
       "alltag": "Ist Grundschullehrerin."
+    },
+    {
+      "id": "tim",
+      "name": "Tim",
+      "aussprache": "Tim",
+      "age": 27,
+      "geschlecht": "m",
+      "herkunft": "deutsch",
+      "tier": 2,
+      "besetzungsplatz": 7,
+      "minPlayers": 7,
+      "roleTitle": "Der Hobby-Elektriker",
+      "isPotentialKiller": false,
+      "colorCode": "#992222",
+      "farbname": "Karorot",
+      "startRoom": "west_saal",
+      "ermittlungsOrt": "am_sicherungskasten",
+      "coordinates": {
+        "x": 6.5,
+        "y": 11.5
+      },
+      "visualSpecs": {
+        "silhouette": "Kräftig, mittelgroß, lockige Haare",
+        "outfit": "Rot-schwarz kariertes Flanellhemd über dunklem Shirt, derbe Arbeitshose",
+        "distinguishingFeature": "Spannungsprüfer-Schraubenzieher hinter dem Ohr, kleine Stirnlampe um den Hals",
+        "idleAnimation": "Klopft prüfend gegen Kabelkanäle und schüttelt den Kopf"
+      },
+      "motiveAndConflict": "Um 23:57:50 steckt er für den Tortenkaffee die Kaffeemaschine in seine alte Mehrfachsteckdose. Herr Schneider hatte ihn gerade davor gewarnt. Um 23:58:00 knallt es, die Hauptsicherung fliegt raus.",
+      "blackoutAlibi": "Tastete sich beim Knall sofort zum Sicherungskasten im Kaminsaal. Dabei rutschte ihm die Stirnlampe vom Hals. Im Dunkeln fand er den richtigen Schalter nicht. Um 23:59:40 fand er die Stirnlampe auf dem Boden, um 0:00:00 war das Licht wieder an.",
+      "roleSecret": "Der Kurzschluss kam von seiner alten Mehrfachsteckdose. Am Sicherungskasten huschte im Dunkeln ein leuchtendes Gesicht an ihm vorbei.",
+      "persoenlichesZiel": "Niemand soll erfahren, dass seine Mehrfachsteckdose den Ausfall verursacht hat.",
+      "nebendelikt": {
+        "id": "nd_kurzschluss",
+        "text": "Hat trotz Warnung die alte Mehrfachsteckdose benutzt und den Kurzschluss verursacht."
+      },
+      "loyalitaet": null,
+      "luegen": [],
+      "look": {
+        "haut": "#e6be9e",
+        "haar": "#4a3222",
+        "kopf": "none",
+        "statur": "normal",
+        "schnitt": "suit"
+      },
+      "alltag": "Ist Mechatroniker und repariert gern alles selbst, manchmal zu gern."
     },
     {
       "id": "johanna",

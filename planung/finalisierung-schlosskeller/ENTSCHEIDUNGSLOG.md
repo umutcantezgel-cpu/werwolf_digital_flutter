@@ -249,3 +249,125 @@ Je Befund: übernommen (Ü), teilweise (T), verworfen (V), mit Begründung. Die 
     - Pipe-Zeichen in der Matrix-Tabelle;
     - alter Name „Merima“ im Lacher am Kamin;
     - neue Verweisprüfung auf alte Namen.
+
+## E-019 · Alle Brüche entschieden (F1-ORCH-03)
+- **Verfahren:** Je Bruch ein Denkprotokoll in Kurzform. Wo nichts Stärkeres dagegen sprach, gilt der Vorschlag aus 7.3. Jede Entscheidung ist im Kanon umgesetzt und durch einen Test oder den Prüfer belegt. Spätere Phasen setzen Regeln um, die hier schon entschieden sind (Spalte „Beleg“ nennt das Abnahmekriterium).
+- **Prüfwerkzeuge:** `kanon_schema_test`, `kanonVerweise`, `plausibilitaet_test`, `beweise_test`, `farbabstand_test`, `story_bibel_test`, `bin/party_pruefen.dart`.
+
+### Teil 1 · B-01 bis B-17
+| Nr | Entscheidung | Kanon / Beleg |
+|---|---|---|
+| B-01 | Vorschlag übernommen. Kaminsaal = West-Saal mit Kamin-Nische. Vorratsraum (Tatort) hinter der Theke. Turmgang hinter der Bogentür mit Rüstung, Vitrine und Wendeltreppe zum WC. Durchgang zwischen Kaminsaal und Buffetsaal. Windfang innen, Stufen außen. Genau ein Sicherungskasten (Kaminsaal, Ostwand). | `raeume.json`; Verweisprüfung; F-03 |
+| B-02 | Herr Schneider schließt um 18:50 Hoftür und Außentor selbst ab. Es gibt einen Bund (Außentor, Hoftür, Turm). Wer ihn nimmt und wo er landet, legt jeder Pfad fest. | `raeume.json` Türen, `gegenstaende.json` bund_schneider, Tatmatrix; Ausgangslage im Prüfer |
+| B-03 | Absperren im Dunkeln entfällt. Stufen außen, Windfang innen. Serkan steht am Außentor im Windfang, Marek im Durchgang. | Tatmatrix basis; b_serkan_tor |
+| B-04 | Vorschlag übernommen. Deko-Kerzen elektrisch; echt nur der Messingkerzenständer. Der Kamin ist seit 23:30 aus. Restlicht: Notausgangsschild, Leuchtmaske, ab 23:59:30 Handylampen. | `raeume.json` Lichtquellen, `wahrnehmung.json`; Prüfer |
+| B-05 | Mitternachts-Klammer übernommen: Torte im Vorratsraum, Tugbas Tortenplan, Tims Steckdose, Schneider will die Notlaterne holen, Zusammenstoß mit Can, danach der Schlag durch eine von vier Personen. | `zeitleiste.json`, Tatmatrix |
+| B-06 | Ein Gegenstand „Leuchtmaske“: weiße Gespenstermaske mit nachleuchtender Farbe, Lichtquelle in der Tatmatrix. | `gegenstaende.json` leuchtmaske, `licht_maske` |
+| B-07 | Splitter und Kalk an den Pulli-Ärmeln. Marek parkt im Schlosshof auf Schneiders Platz, darum wird durch Hoftür und Turm getragen. | `figuren.json` olli, `zeitleiste.json` z_lieferung, z_tuerschaden |
+| B-08 | Schatulle um 23:40, Tasche ausgebeult um 23:45, Schneider findet die Vitrine um 23:53 und stellt Fatma um 23:56. | `zeitleiste.json` |
+| B-09 | Ort angeglichen: vor der Vorratsraumtür. Schlüsselbeweis Can = Leuchtfarbe am Griff, Zusatzindiz = Wachs auf der Maske, beides nur im Can-Pfad. Die Kapuzenfasern sind pfadneutral (Schneider packt die Kapuze in jedem Pfad) und eine falsche Fährte. | `gegenstaende.json`; `beweise_test` |
+| B-10 | Palette neu (Can, Emine, Azra, Aylin, Detektiv). ΔE2000 je Startraum ≥ 10 (min. 11,8), Beweisfarbe ≥ 20 (min. 22,9). | `figuren.json`; `farbabstand_test` |
+| B-11 | Wer im Dunkeln rennt, ist in jedem Pfad Can mit der Leuchtmaske. Zeugen sehen nur ein leuchtendes Gesicht. | Tatmatrix; b_marek_gesicht, b_selin_gesicht |
+| B-12 | Endenmatrix wie vorgeschlagen. | `fall.json` enden; F-07 |
+| B-13 | Gezählt werden Rollen ohne Geburtstagskind. | `fall.json` personen, `besetzung.json` |
+| B-14 | Alkoholfreier Apfelpunsch, kein Rauchen. Die Pfeife des Detektivs bläst Seifenblasen. Mareks E-Zigarette entfällt, er holt Saft. | `setting.json`, `figuren.json`; F-15 |
+| B-15 | Namensbalance je Stufe II–V (E-014, E-020). Kopftuch auch bei Aylin (Kassenprüferin) und Emine (Lehrerin). „Hehler“ entfällt. Feld `alltag` entkoppelt Herkunft und Beruf. | `figuren.json`; F1-SENS-01 |
+| B-16 | Wachsarten unterscheidbar: rotes Kerzenwachs am Tatort; braunes Möbelwachs an Ollis Handschuh und an der Bogentür (falsche Fährte, sicher widerlegbar). | `gegenstaende.json` arbeitshandschuh_olli, bogentuer_schaden |
+| B-17 | Verlaufen: Olli um 20:15 (Lacher). Der Umschlag ist Ahmets Mietgeld-Umschlag (Ascheneimer). Spüle in der Einrichtung. Lichtschächte mit Klappen im Kaminsaal (Luftzug). Türschaden 18:35/18:50 und Schlichtung 23:00 stehen in der Zeitleiste. | `setting.json`, `zeitleiste.json`, `raeume.json` |
+
+### Teil 2 · V-01 bis V-32
+| Nr | Entscheidung | Kanon / Beleg |
+|---|---|---|
+| V-01 | Schneider geht in allen Pfaden denselben Weg; alle vier Motivszenen kommen in jedem Pfad vor (23:51, 23:56, 23:57). | Tatmatrix basis |
+| V-02 | Der Handschuh liegt seit 19:30 in der Kamin-Nische (pfadneutral, falsche Fährte). Ollis Zusatzindiz ist der Bund im Eiskübel, in Reichweite. | `gegenstaende.json` |
+| V-03 | Ahmets Jacke hängt ab 23:55 am Ständer; er trägt einen schwarzen Pulli über dem weißen T-Shirt. | `figuren.json`, z_jacke |
+| V-04 | Beweis nur Messingabrieb; die Vitrine hat einen Holzrahmen ohne Messing. | `gegenstaende.json` silberring_fatma, vitrine |
+| V-05 | Schneider ist kurz bewusstlos, hat eine Beule und eine Gedächtnislücke (ab 23:58:14). | `figuren.json` opfer, z_wach |
+| V-06 | Tims alte Mehrfachsteckdose an der Kaffeemaschine; die Hauptsicherung fliegt; Tim schaltet um 0:00 im Kaminsaal wieder ein. | Tatmatrix, mehrfachsteckdose_tim |
+| V-07 | Jedes Requisit trägt eine Funktion: Klemmbrett (Forderung, Miete 0 €), Quittungszettel, Hoftür, Lichtschacht-Klappen (Luftzug), Pawels Wissen (Schneiders Strenge), Notlaterne (Ziel Schneiders). | `gegenstaende.json`, `beobachtungen.json` |
+| V-08 | Angeklagt werden nur die vier Kernverdächtigen. Erweiterungsrollen lügen nie. | `fall.json` kernverdaechtige; `luegen` leer |
+| V-09 | Das Geburtstagskind sitzt ab 23:55 mit Augenbinde und Musik im Ost-Saal und ist nie verdächtig. | Tatmatrix; Prüfer |
+| V-10 | Zeynep existiert in jeder Besetzung (W1), bei weniger als 10 Rollen als NPC-Gast. | `besetzung.json` |
+| V-11 | Geheimnisse sind pfadneutrale Wahrnehmungen. Pfadwissen haben nur die vier Trenner-Zeugen, je genau einer. | `beobachtungen.json`; `plausibilitaet_test` |
+| V-12 | Regel: Jede Kernrolle hat die gleichen Bausteine (Motivszene, Nähe zur Theke um 23:57, Nebendelikt mit Spur, mindestens eine widerlegbare Lüge, genau ein Trenner). Gleich viele erreichbare Belastungsfunde je Pfad legt das Entscheidungsmodell fest. | `figuren.json`, `beobachtungen.json`; F-06 (Simulator je Pfad) |
+| V-13 | 1 Kachel = 1 m; Wege und Zeiten geprüft. | `raeume.json`; Prüfer |
+| V-14 | Weißer Kalk vom Türbogen statt Lack. | `figuren.json` olli |
+| V-15 | Jede Rolle hat `persoenlichesZiel` und `loyalitaet` als Quelle für Kosten und Nutzen der Gruppenwahl (E-013). | `figuren.json`; F-08 |
+| V-16 | Alle außer dem Detektiv stimmen geheim; sichtbar ist nur die Qualität; Sabotage G-1. | E-013; F-08 |
+| V-17 | Entschieden in E-008. | – |
+| V-18 | Die Restmenge ergibt sich aus aufgedeckten Fakten (E-013). | F-06 |
+| V-19 | Anker-Raster: Kernrollen höchstens 7 Pflichtgespräche je Runde (F2-ORCH-06). | F-09 |
+| V-20 | W1: Jede Ursache existiert unabhängig von der Besetzung. | `besetzung.json` |
+| V-21 | Besetzungsreihenfolge ab 5 Rollen mit höchstens einer Person Unterschied. | `besetzung.json`; `kanon_schema_test` |
+| V-22 | Motive aus der Lage: Ahmet schämt sich für eine zu große Essensbestellung, Fatma ist ehrgeizig, Olli soll 2.000 € zahlen, Can wollte erschrecken. Die Bestechung wird zur Bitte um Aufschub. | `figuren.json` |
+| V-23 | Loyalität individuell begründet (`loyalitaet.grund`). Emine schweigt aus Freundschaft; die Scherben-Vertuschung entfällt. | `figuren.json` |
+| V-24 | Alle vier Taten geschehen in Panik im Dunkeln, ein Schlag. | `figuren.json` killerProfile, Tatmatrix |
+| V-25 | Neue Etiketten aus der Funktion: „Die Designstudentin“, „Die Schreckhafte“, „Der Organisator“, „Der Spaßvogel“. | `figuren.json`; F1-SENS-01 |
+| V-26 | Schneiders Ärger gilt nur Sachen und Geld; Feld `warmeSeite`. | `figuren.json` opfer |
+| V-27 | Fachwortliste im TON-LEITFADEN; im Kanon ersetzt (Warmhaltebehälter, Spannungsprüfer-Schraubenzieher, Handyhalter, großer Teekocher, Buffettheke, Schlüsselband, Kapuzenpulli, Bauchtasche, Stoffhose). | `figuren.json`; F-10 (textpruefer_test) |
+| V-28 | Namensbalance ohne Klangpaare; Feld `aussprache` für die Stimme. | `figuren.json`; E-020 |
+| V-29 | „Buffettheke“, Getränke ausdrücklich genannt; Negativliste für Bildprompts. | `setting.json`; F-15 |
+| V-30 | Stil- und Negativanker, keine Herkunftswörter in Prompts. | TON-LEITFADEN §9; F-13 (bildprompt_test) |
+| V-31 | Spüle in der Einrichtung. | `raeume.json` spuele |
+| V-32 | Renderer-Ergänzungen im Partymodus (Kopftuch erledigt; Fog, Licht, Ruhe-Animation, Tafel in F4). | E-016; F4 |
+
+### Teil 3 · A-01 bis A-33
+| Nr | Entscheidung | Kanon / Beleg |
+|---|---|---|
+| A-01 | Eine Buffettheke mit Anrichte dahinter. | `raeume.json` |
+| A-02 | „Außentor“: zweiflügelige, eisenbeschlagene Eichentür mit Kastenschloss. | `raeume.json` aussentor |
+| A-03 | Ein Bund. | bund_schneider |
+| A-04 | Außen: Stufen zum Parkplatz. Schlosshof mit Schneiders reserviertem Platz hinter der Hoftür. | `setting.json`, `zeitleiste.json` |
+| A-05 | „Jackenständer“. | `raeume.json` |
+| A-06 | Durchgang, Turmgang, Windfang als einzige Gänge. | `raeume.json` |
+| A-07 | Kamin-Nische im West-Saal, Anzeigename „Kaminsaal“. | `raeume.json` |
+| A-08 | Sicherungskasten im Kaminsaal (Ostwand). | `raeume.json` |
+| A-09 | Detektiv: markante Brille, braun karierter Hut, Lichtkegel vom Handy in der Hand, Seifenblasenpfeife, Kleidung aus dem JSON. | `figuren.json` detektiv |
+| A-10 | Schneider startet im Buffetsaal. Die Stabtaschenlampe entfällt; er will die Notlaterne holen. Optik aus dem JSON. | `figuren.json` opfer |
+| A-11 | Ahmet: Alibi „hinter der Theke“, Bart übernommen, Motiv ist die Bekanntgabe um zwölf. Umschlag im Kamin-Ascheneimer. Bitte um Aufschub statt Bestechung. Zu große Essensbestellung statt Schulden. | `figuren.json` ahmet |
+| A-12 | Fatma: BAföG entfällt, dunkler Rollkragen, nur Messing am Ring, Polizei. Münzschatulle statt einzelner Münze; Vorgeschichte 23:40. | `figuren.json`, `zeitleiste.json` |
+| A-13 | Olli: Bogentür; Splitter und Kalk an den Pulli-Ärmeln. Das Maßband trägt Wojtek. Fuß des Ständers. Tore zu bis zur Zahlung. Eis holen. Handschuh in der Kamin-Nische. | `figuren.json`, `gegenstaende.json` |
+| A-14 | Can: Leuchtmaske, Versteck Vorratsraum, Schneiders Griff an die Kapuze, Maske bleibt in der Bauchtasche, Signalgelb #F5C400. | `figuren.json`, `gegenstaende.json` |
+| A-15 | Zeynep: Schwester, weite hellgraue Hose, wusste von der Maske, steht am Bogen. | `figuren.json` |
+| A-16 | Lejla: Ahmets Rechnung fürs Essen; Alibi mit den Tortentellern (E-015). | `figuren.json` |
+| A-17 | Tim: Kaffeemaschine an der Mehrfachsteckdose; neue Wahrnehmung (Gesicht am Sicherungskasten); Alibi am Sicherungskasten. | `figuren.json` |
+| A-18 | Emine: ohne Scherben-Vertuschung, am linken Buffettisch, schwarze Stiefel. | `figuren.json` |
+| A-19 | Joanna: Stoffhose, Aufsteckleuchte am Handyhalter, Foto von 23:51. | `figuren.json`, foto_joanna |
+| A-20 | Marek: reservierter Platz, Durchgang, keine E-Zigarette, Autoschlüssel. | `figuren.json` |
+| A-21 | Baran: „Der Mann für die Musik“; Rufe statt unmöglicher Schritte. | `figuren.json` |
+| A-22 | Hana: Kaminklappe nicht geöffnet. | `figuren.json`, `setting.json` |
+| A-23 | Serkan: „Der Fahrdienst-Organisator“, wollte Decken holen, steht im Windfang. | `figuren.json` |
+| A-24 | Der Quittungszettel stammt aus Schneiders Block und liegt in Aylins Mappe. | quittung_aylin, klemmbrett_schneider |
+| A-25 | Wojtek: Arbeitshose mit verstärkten Knien; Möbelwachs statt Kitten; Satz von 23:52. | `figuren.json` |
+| A-26 | Azra: Hehler entfällt; Schneider fand ihr Interesse an der Vitrine seltsam. | `figuren.json` |
+| A-27 | Damir: „Der Teemeister“, schwarze Schürze, Theke. | `figuren.json` |
+| A-28 | Selin: Kaminsaal; sieht das Leuchten der Maske. | `figuren.json` |
+| A-29 | Pawel: Schlossstiftung; trinkt Tee. | `figuren.json` |
+| A-30 | Tugba: Ablaufplan an der Wandtafel, Notizbuch, Liste von 23:57. | `figuren.json`, notizbuch_tugba |
+| A-31 | Hexwert maßgeblich, dazu `farbname`. | `figuren.json` |
+| A-32 | Koordinaten in Metern; Ermittlungsort statt freier Koordinaten. | `figuren.json`; Verweisprüfung |
+| A-33 | Detektiv mit Farbcode, Startort und Look. Schneider mit Motiv und warmer Seite. Kernrollen mit Geheimnis. | `figuren.json` |
+
+### Zusatzindizien aus dem Täter-System
+Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehen können:
+
+| Pfad | Quelle | Kanon | Grund |
+|---|---|---|---|
+| Ahmet | Schmierzettel in der Spüle | Wachs auf dem Umschlag | Schneiders Notiz gäbe es in jedem Pfad. Der Zettel entfällt; die Mietsache belegen Klemmbrett und Quittung. |
+| Fatma | Münze mit Wachs | Schatulle mit Wachs | übernommen (Schatulle statt Münze, B-08) |
+| Olli | Handschuh mit Wachs in der Kamin-Nische | Bund im Eiskübel | Den Handschuh gibt es in jedem Pfad; er bleibt als falsche Fährte mit braunem Möbelwachs (B-16, V-02). |
+| Can | Delle mit Messingabrieb an der Maske; gelbe Fasern | Leuchtfarbe am Griff; Wachs auf der Maske | Der Griff durch die Maske passt nicht zur Panik. Die Fasern entstehen in jedem Pfad (B-09). |
+
+## E-020 · Namensbalance und Klang (F1)
+- **Zuordnung** (IDs bleiben Schlüssel, E-014):
+  - Stufe II: Leyla → Lejla (bosnisch, Ahmets Cousine), Johanna → Joanna (polnisch).
+  - Stufe III: Murat → Marek (polnisch), Meryem → Hana (bosnisch).
+  - Stufe IV: Kaan → Wojtek (polnisch), Dilara → Azra (bosnisch).
+  - Stufe V: Hakan → Pawel (polnisch), Enes → Damir (bosnisch).
+- **Verworfene Zwischenstände und Grund:**
+  - Merima: Klang nah an Marek.
+  - Kuba: Reim auf Tugba.
+  - Bartek: Anfang wie Baran.
+  - Enis: Klang nah an Emine.
+- **Herkünfte:** deutsch 2, türkisch 6, kurdisch 3, bosnisch 5, polnisch 4.
+- **Sprache:** Das Feld `aussprache` steuert die Stimme (z. B. Can → „Dschan“, Tugba → „Tuuba“, Wojtek → „Woitek“).

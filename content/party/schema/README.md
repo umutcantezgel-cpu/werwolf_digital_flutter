@@ -14,6 +14,7 @@ Geprüft wird mit dem eigenen Prüfer `SchemaPruefer` in `packages/mordakte_core
 | `gegenstaende.json` | `gegenstaende.schema.json` |
 | `zeitleiste.json` | `zeitleiste.schema.json` |
 | `beobachtungen.json` | `beobachtungen.schema.json` |
+| `besetzung.json` | `besetzung.schema.json` |
 | `tatmatrix/*.json` | `tatmatrix.schema.json` |
 
 Querverweise (Orte, Personen, Lügen, Gegenstände, Zeitleiste) prüft zusätzlich `kanonVerweise()` in `party/kanon/verweise.dart`.
