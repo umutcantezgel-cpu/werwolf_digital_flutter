@@ -4,7 +4,9 @@ import '../erzaehler_ausgabe.dart';
 import '../party_stil.dart';
 import '../sitzung.dart';
 
-/// Intro mit den drei Lacher-Rückblicken (F4-BAUMEISTER-08). Stub von ORCH mit fester Schnittstelle; der Baumeister baut ihn aus.
+/// Intro (Phase intro, Master 7.6 Schritt 4): Marke und Titel aus Bausteinen,
+/// darunter die Erzählung mit den drei Lacher-Rückblicken und der Weg in die
+/// erste Runde.
 class IntroBildschirm extends StatelessWidget {
   const IntroBildschirm({super.key, required this.sitzung});
 
@@ -12,8 +14,9 @@ class IntroBildschirm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => PartyRahmen(
-        titel: sitzung.phase.name,
-        aktionen: [PartyKnopf(text: sitzung.ui('ui.allgemein.weiter'), onPressed: sitzung.kannWeiter ? sitzung.weiter : null)],
+        marke: sitzung.ui('ui.intro.marke'),
+        titel: sitzung.ui('ui.intro.titel'),
+        aktionen: [PartyKnopf(text: sitzung.ui('ui.intro.weiter'), onPressed: sitzung.weiter)],
         child: ErzaehlerFeld(sitzung: sitzung, kennungen: sitzung.erzaehler),
       );
 }

@@ -1,9 +1,12 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../party_stil.dart';
 import '../sitzung.dart';
 
-/// Titelbildschirm (F4-BAUMEISTER-08). Stub von ORCH mit fester Schnittstelle; der Baumeister baut ihn aus.
+/// Titelbildschirm (Phase titel, Master 7.6 Schritt 1): Titel des Falls, ein
+/// ruhig flackerndes Kerzenlicht und der Weg zur Einrichtung.
 class TitelBildschirm extends StatelessWidget {
   const TitelBildschirm({super.key, required this.sitzung});
 
@@ -11,9 +14,71 @@ class TitelBildschirm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => PartyRahmen(
-        titel: sitzung.kanon.fall['titel'] as String,
-        untertitel: sitzung.kanon.fall['untertitel'] as String,
-        aktionen: [PartyKnopf(text: sitzung.ui('ui.allgemein.weiter'), onPressed: sitzung.zurEinrichtung)],
-        child: const SizedBox.shrink(),
+        scroll: false,
+        aktionen: [PartyKnopf(text: sitzung.ui('ui.titel.start'), onPressed: sitzung.zurEinrichtung)],
+        child: LayoutBuilder(
+          // Zentriert, und bei kleinem Fenster scrollbar. Das Licht bleibt ungeschnitten.
+          builder: (context, box) => SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: box.maxHeight),
+              child: Center(child: _Lichtschein(child: _kopf())),
+            ),
+          ),
+        ),
+      );
+
+  /// Titel, Untertitel und der Hinweis zum Einrichten.
+  Widget _kopf() => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(sitzung.kanon.fall['titel'] as String, style: Keller.titel.copyWith(fontSize: 40), textAlign: TextAlign.center),
+          const SizedBox(height: 10),
+          Text(sitzung.kanon.fall['untertitel'] as String, style: Keller.leise, textAlign: TextAlign.center),
+          const SizedBox(height: 32),
+          Text(sitzung.ui('ui.titel.hinweis'), style: Keller.leise.copyWith(fontStyle: FontStyle.italic), textAlign: TextAlign.center),
+        ],
+      );
+}
+
+/// Warmer Schein hinter dem Inhalt. Zwei Sinusse ergeben ein ruhiges Flackern.
+class _Lichtschein extends StatefulWidget {
+  const _Lichtschein({required this.child});
+
+  final Widget child;
+
+  @override
+  State<_Lichtschein> createState() => _LichtscheinState();
+}
+
+class _LichtscheinState extends State<_Lichtschein> with SingleTickerProviderStateMixin {
+  late final AnimationController _takt;
+
+  @override
+  void initState() {
+    super.initState();
+    _takt = AnimationController(vsync: this, duration: const Duration(seconds: 4))..repeat();
+  }
+
+  @override
+  void dispose() {
+    _takt.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => AnimatedBuilder(
+        animation: _takt,
+        child: widget.child,
+        builder: (context, kind) {
+          // Der langsame Sinus trägt die Welle, der schnelle schwach darüber.
+          final welle = 0.7 * math.sin(_takt.value * 2 * math.pi) + 0.3 * math.sin(_takt.value * 6 * math.pi);
+          final helligkeit = 0.12 + 0.05 * welle;
+          return DecoratedBox(
+            decoration: BoxDecoration(
+              boxShadow: [BoxShadow(color: Keller.kerze.withValues(alpha: helligkeit), blurRadius: 90, spreadRadius: 30)],
+            ),
+            child: kind,
+          );
+        },
       );
 }

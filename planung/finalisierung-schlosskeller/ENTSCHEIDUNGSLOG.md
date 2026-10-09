@@ -783,7 +783,7 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
     - festen Kamerapunkt
   - `MordakteGame` fragt sie mit `session is SzenenErweiterung` ab. Ohne sie bleibt jeder Zweig wie bisher (Bestandsschutz).
 - **Karte (Kern, `karte.dart`):**
-  - Jede der 22 Optionen hat ein Kartenziel an einer Kanon-Stelle:
+  - Jede der 19 Optionen hat ein Kartenziel an einer Kanon-Stelle:
     - Person am Ermittlungsort
     - Gegenstand an Einrichtung oder Ort
     - Gegenstand eines Trägers an dessen Person
