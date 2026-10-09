@@ -24,5 +24,6 @@
   - Das Spiel zeigt das Feld Familie ohnehin nicht an. Die Kanon-Dateien des Krimidinners sind unverändert.
   - Wenn dir die ursprünglichen Details lieber sind, genügt es, diesen Abschnitt im Overlay zu löschen.
 - **Abwägungen der Inhaltsprüfung:** Einige Punkte bleiben bewusst so, mit Begründung in E23, E27, E29 und E38. Dazu gehören die Spuren des Falls, die auf die Täterin zeigen (das ist das Rätsel), „Einspruch!“ bei R18 (Kanon) und die erfundene Figur des Detektivs.
+- **Frisuren älterer Bewohnerinnen (E40):** Mehrere ältere Bewohnerinnen tragen laut `bewohner.json` einen Dutt. Die Inhaltsprüfung (Runde 11) nannte das ein mögliches Altersbild. Eine Änderung ist leicht (Feld `frisur`), braucht aber neue Sichtprüfungen der Figuren. Sie ist deshalb nicht in dieser Nacht gemacht.
 - **Figuren:** Die ersten Sichtprüfer bewerteten sehr unterschiedlich (E30). Seitdem gilt ein fester Maßstab, und `karten_test` prüft die Unterscheidbarkeit zusätzlich automatisch. Ein menschlicher Blick auf `bilder/phase3/figuren_aufstellung.png` ist trotzdem sinnvoll.
 - **Rote Pakettests in drei Commits (E28):** Ein Fehler im Testskript hat bei 02ab9b5, d511fac und 7574641 einen roten Datentest verschluckt. Behoben und belegt; die Geschichte ist nicht umgeschrieben.
