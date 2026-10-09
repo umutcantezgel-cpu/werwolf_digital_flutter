@@ -27,7 +27,7 @@
       "interactiveTool": "Handy in der Hand mit Taschenlampen-Lichtkegel",
       "idleAnimation": "Bläst mit der Pfeife ein paar Seifenblasen und tippt aufs Handy"
     },
-    "tatnacht": "Ab 23:55 sitzt das Geburtstagskind mit verbundenen Augen und Kopfhörern im Ost-Saal auf dem Ehrenplatz. Die Musik läuft laut. Durch die Musik hört es nur den Knall, Herrn Schneiders lauten Ruf „Hab ich dich!“ und später ein Scheppern.",
+    "tatnacht": "Ab 23:55 sitzt das Geburtstagskind mit verbundenen Augen und Kopfhörern im Ost-Saal auf dem Ehrenplatz. Die Musik läuft laut. Durch die Musik hört es nur den Knall, Herrn Schneiders Rufe „Hab ich dich!“ und „Stehen bleiben!“ und später ein Scheppern.",
     "auftrag": "Um 0:20 bittet Herr Schneider das Geburtstagskind: „Finde raus, wer das war. Bis zum Morgen.“",
     "nieVerdaechtig": true,
     "look": {
@@ -972,7 +972,7 @@
         "idleAnimation": "Schaut sich um und zuckt bei lauten Geräuschen zusammen"
       },
       "motiveAndConflict": "Um 21:00 hielt sie die Ritterrüstung im Turmgang für einen Menschen, schrie auf und stieß gegen die Vitrine. Seitdem macht sie einen Bogen um den Turmgang.",
-      "blackoutAlibi": "Kauerte auf der Wandbank im Kaminsaal.",
+      "blackoutAlibi": "Saß auf der Wandbank im Kaminsaal.",
       "roleSecret": "Im Dunkeln huschte ein leuchtendes Gesicht vom Durchgang quer durch den Kaminsaal zur Bogentür.",
       "persoenlichesZiel": "Die Rüstung soll aus dem Turmgang verschwinden.",
       "nebendelikt": null,
@@ -1065,7 +1065,7 @@
       },
       "motiveAndConflict": "Sie hat den Ablaufplan des Abends geschrieben. Um zwölf sollte das Geburtstagskind mit verbundenen Augen zur Torte in den Vorratsraum geführt werden. Herr Schneider hatte nur widerwillig erlaubt, die Torte dort zu kühlen.",
       "blackoutAlibi": "Stand im Ost-Saal an der Wandtafel mit dem Ablaufplan.",
-      "roleSecret": "Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute nach eigener Auskunft gerade sind.",
+      "roleSecret": "Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute angeblich gerade sind.",
       "persoenlichesZiel": "Den Abend retten: Torte um halb eins, egal was passiert.",
       "nebendelikt": null,
       "loyalitaet": null,

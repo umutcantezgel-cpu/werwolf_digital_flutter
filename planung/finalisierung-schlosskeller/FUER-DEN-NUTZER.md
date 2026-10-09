@@ -30,6 +30,13 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
   - Behzads Material gibt Fatma ein Kopftuch; sie ist zugleich eine der vier möglichen Täterinnen und hat die Münzschatulle mitgenommen.
   - Ich habe es behalten und Gegengewichte gesetzt: Ihr Motiv ist Ehrgeiz für ihre Abschlussarbeit, sie will die Schatulle zurückbringen. Aylin (Kopftuch) ist die kompetente Kassenprüferin, Emine (Kopftuch) Grundschullehrerin.
   - Wenn ihr es anders wollt, ist es eine Zeile im Kanon (`figuren.json`, Look von Fatma).
+- **Muster der Nebendelikte (SENS-03, E-029):**
+  - Ahmet, Fatma und Can tragen Geld, Mitnahme der Schatulle und Streich, Olli Türschaden und Vertuschung. Wer die Namen türkisch oder muslimisch liest, kann darin ein Muster sehen.
+  - Gegengewichte sind gesetzt: Jede Kernrolle ist gleich oft Täterin oder Täter, die Herkünfte sind verschieden, Fatma leiht die Schatulle zum Abzeichnen und will sie zurückbringen.
+  - Zwei Auswege, je eine kleine Kanon-Änderung:
+    - (1) Kernnamen neu verteilen, etwa Olli mit dem Mietgeld.
+    - (2) Fatmas Kopftuch auf eine unbelastete Figur legen.
+  - Ohne deine Entscheidung bleibt es, wie es ist.
 - **Herkunft:** Das Feld `herkunft` dient nur der Ausgewogenheitsprüfung. Es erscheint im Spiel nie als Etikett.
   - Im Burgstadt-Strang habt ihr entschieden, dass Herkunft nicht Teil der Spieldaten ist (dort E48). Hier zeigt kein Spielertext eine Herkunft, nur die Story-Bibel und die Prüfwerkzeuge lesen das Feld.
   - Soll die Regel auch hier gelten, kommt das Feld aus `figuren.json` heraus und die Namensbalance wird über eine eigene Prüfliste belegt. Das ist eine kleine Änderung (E-028).

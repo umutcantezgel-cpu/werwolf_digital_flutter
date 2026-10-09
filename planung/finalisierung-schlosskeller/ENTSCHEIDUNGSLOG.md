@@ -680,3 +680,29 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
     - Darum sagt die Regel bei falscher Anklage nur: „Der Bund bleibt verschwunden“ heißt, das Tor geht nicht auf, weil niemand den Bund herausgibt.
     - Texte formulieren das neutral: „Das Tor bleibt zu bis zum Morgen.“
   - Regel in SCHLUESSEL.md (Finale und Ausgang). Umsetzung mit den Befunden aus KONT-04, KONT-05 und SENS-02 in einer Nachbesserung der vier Finaldateien.
+- **Prüfstapel B (KONT-06, -07, -08, SENS-03; je 10/10):** Alle 180 Gespräche sind geprüft. P-1 ist vollständig, kein Pfadwissen, kein ersetzbarer Partner beim Namen. Die Befunde sind leicht bis mittel; dazu kommt ein schweres Muster (SENS-03, siehe unten).
+  - **Kanon (ORCH):**
+    - Sibel sitzt beim Knall (`blackoutAlibi`), denn nur so kann sie das Gesicht sehen (`wahrnehmung.json`).
+    - Die Tatnacht des Detektivs nennt beide Rufe Schneiders wie `b_detektiv_gehoert`.
+    - Tugbas Notiz heißt „wo die Leute angeblich gerade sind“ statt Amtsdeutsch.
+  - **Texte:** Nachbesserung F3-AUTOR-75 bis -79, je Block. Die Befunde sind wortgenau mitgegeben.
+    - Abgelehnt: Pawels „zahlt selbst“ (Kanon geändert) und Tugbas Torten-Satz (kein eigenes Wissen).
+    - Systemisch:
+      - Runde 2 prüft Behauptungen statt die Alibi-Frage zu wiederholen.
+      - In Runde 3 nur noch selten „Klarheit“.
+      - Keine Verwandtschaft als Deckungsgrund im Text.
+      - Detektiv-Anrede geschlechtsneutral.
+  - **SENS-03, Muster (schwer), Denkprotokoll:** Ahmet, Fatma und Can tragen Geld, Mitnahme und Streich, Olli Türschaden und Vertuschung.
+    - Wege:
+      - (a) Nebendelikte umverteilen: Der ganze Fall hängt daran, die Tatmatrix und 36 Hinweise wären neu.
+      - (b) Kernnamen tauschen: Die Einstellungen legen sie fest.
+      - (c) Belassen und die Gegengewichte prüfen.
+    - Gewählt ist (c):
+      - Jede der vier Kernrollen hat genau ein Nebendelikt und lügt. Die Täterperson wählt der Fall-Code gleich verteilt; jede ist in einem Viertel der Abende unschuldig und in drei Vierteln eine falsche Fährte.
+      - Die vier Herkünfte sind verschieden (E-007).
+      - Fatmas Mitnahme ist als Ausleihen zum Abzeichnen mit Rückgabe am Montag erzählt, ohne das Wort „Diebstahl“.
+      - Can bricht kein Gesetz; er spielt einen Streich.
+      - Das Muster entsteht aus Namen, die der Nutzer festgelegt hat. Darum steht es mit beiden Auswegen unter FÜR DEN NUTZER. Auch Fatmas Kopftuch steht dort erneut (E-014).
+  - Nicht übernommen:
+    - Ein Planeintrag fehlt nicht: Pawel und Tugba haben Pläne in `basis.json`.
+    - `b_tugba_notiz` führt weiter nur Ollis Lüge als widerlegt. Fatmas Platz steht erst im Notizbuch selbst (`spur_notiz_fehlende`).

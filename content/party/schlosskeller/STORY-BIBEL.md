@@ -182,7 +182,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Kopf: detektivhut
   - Statur: normal
   - Schnitt: suit
-- **Tatnacht:** Ab 23:55 sitzt das Geburtstagskind mit verbundenen Augen und Kopfhörern im Ost-Saal auf dem Ehrenplatz. Die Musik läuft laut. Durch die Musik hört es nur den Knall, Herrn Schneiders lauten Ruf „Hab ich dich!“ und später ein Scheppern.
+- **Tatnacht:** Ab 23:55 sitzt das Geburtstagskind mit verbundenen Augen und Kopfhörern im Ost-Saal auf dem Ehrenplatz. Die Musik läuft laut. Durch die Musik hört es nur den Knall, Herrn Schneiders Rufe „Hab ich dich!“ und „Stehen bleiben!“ und später ein Scheppern.
 - **Auftrag:** Um 0:20 bittet Herr Schneider das Geburtstagskind: „Finde raus, wer das war. Bis zum Morgen.“
 - **Nie verdächtig:** ja
 
@@ -763,7 +763,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Statur: small
   - Schnitt: suit
 - **Motiv:** Um 21:00 hielt sie die Ritterrüstung im Turmgang für einen Menschen, schrie auf und stieß gegen die Vitrine. Seitdem macht sie einen Bogen um den Turmgang.
-- **Alibi:** Kauerte auf der Wandbank im Kaminsaal.
+- **Alibi:** Saß auf der Wandbank im Kaminsaal.
 - **Geheimnis:** Im Dunkeln huschte ein leuchtendes Gesicht vom Durchgang quer durch den Kaminsaal zur Bogentür.
 - **Persönliches Ziel:** Die Rüstung soll aus dem Turmgang verschwinden.
 - **Lügen:**
@@ -820,7 +820,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Schnitt: suit
 - **Motiv:** Sie hat den Ablaufplan des Abends geschrieben. Um zwölf sollte das Geburtstagskind mit verbundenen Augen zur Torte in den Vorratsraum geführt werden. Herr Schneider hatte nur widerwillig erlaubt, die Torte dort zu kühlen.
 - **Alibi:** Stand im Ost-Saal an der Wandtafel mit dem Ablaufplan.
-- **Geheimnis:** Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute nach eigener Auskunft gerade sind.
+- **Geheimnis:** Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute angeblich gerade sind.
 - **Persönliches Ziel:** Den Abend retten: Torte um halb eins, egal was passiert.
 - **Lügen:**
 
@@ -1205,7 +1205,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | b_wojtek_tuer | Wojtek (kaan) | alle | verborgen | Er weiß: Olli hat am Abend die Bogentür beschädigt. Das Möbelwachs zum Verdecken kam von ihm. | – | Olli (olli) | – |
 | b_pawel_schneider | Pawel (hakan) | alle | pflichtgespraech | Herr Schneider muss jeden Schaden der Stiftung melden. Darum ist er beim Geld so streng. | – | – | – |
 | b_aylin_quittung | Aylin (aylin) | alle | pflichtgespraech | Sie hat Herrn Schneiders Quittungszettel: „Miete: 0 Euro.“ | luege_ahmet_miete | Ahmet (ahmet) | – |
-| b_tugba_notiz | Tugba (tugba) | alle | pflichtgespraech | Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute nach eigener Auskunft gerade sind. | luege_olli_tafel | – | – |
+| b_tugba_notiz | Tugba (tugba) | alle | pflichtgespraech | Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute angeblich gerade sind. | luege_olli_tafel | – | – |
 | b_detektiv_gehoert | Detektiv (detective) | alle | erzaehler | Durch die Musik hast du nur einen Knall gehört, dann Herrn Schneiders Rufe „Hab ich dich!“ und „Stehen bleiben!“ und später ein Scheppern. | – | – | – |
 | b_schneider_erinnerung | Herr Schneider (schneider) | alle | erzaehler | Knall, Dunkelheit, der Weg zur Notlaterne, ein leuchtendes Gespenstergesicht. Er packt eine Kapuze und ruft „Hab ich dich!“. Danach ist alles weg. | – | Can (can) | – |
 | b_azra_olli_frueh | Azra (dilara) | Ahmet (ahmet), Fatma (fatma), Can (can) | verborgen | Beim Scheppern kauerte Olli neben ihr hinter dem rechten Buffettisch. Er war schon seit dem Knall da und hatte geflüstert: „Azra? Ich bin's, Olli.“ | – | – | Olli (olli) |
