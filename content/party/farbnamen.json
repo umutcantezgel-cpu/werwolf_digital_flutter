@@ -1,0 +1,157 @@
+{
+  "hinweis": "Feste Farbtabelle der Bildprompts: englischer Name je Hex-Wert. Die Farbe einer Figur bekommt den Namen mit dem kleinsten Abstand (CIEDE2000 im Lab-Raum, lib/src/party/farbe.dart). Spiegel der Konstante farbnamenTabelle in lib/src/party/bildprompts.dart; test/party/bildprompt_test.dart prüft die Gleichheit.",
+  "farben": [
+    {
+      "hex": "#000000",
+      "name": "black"
+    },
+    {
+      "hex": "#36454F",
+      "name": "charcoal"
+    },
+    {
+      "hex": "#808080",
+      "name": "grey"
+    },
+    {
+      "hex": "#5F6B7A",
+      "name": "slate grey"
+    },
+    {
+      "hex": "#C0C0C0",
+      "name": "silver"
+    },
+    {
+      "hex": "#D3D3D3",
+      "name": "light grey"
+    },
+    {
+      "hex": "#FFFFFF",
+      "name": "white"
+    },
+    {
+      "hex": "#FFFDD0",
+      "name": "cream"
+    },
+    {
+      "hex": "#F5F5DC",
+      "name": "beige"
+    },
+    {
+      "hex": "#C2B280",
+      "name": "sand"
+    },
+    {
+      "hex": "#D2B48C",
+      "name": "tan"
+    },
+    {
+      "hex": "#8B5A2B",
+      "name": "brown"
+    },
+    {
+      "hex": "#4A3224",
+      "name": "dark brown"
+    },
+    {
+      "hex": "#8B0000",
+      "name": "dark red"
+    },
+    {
+      "hex": "#C81E1E",
+      "name": "red"
+    },
+    {
+      "hex": "#DC143C",
+      "name": "crimson"
+    },
+    {
+      "hex": "#6B1D2F",
+      "name": "dark berry red"
+    },
+    {
+      "hex": "#800020",
+      "name": "carmine red"
+    },
+    {
+      "hex": "#800000",
+      "name": "maroon"
+    },
+    {
+      "hex": "#FF8C00",
+      "name": "orange"
+    },
+    {
+      "hex": "#FFD400",
+      "name": "yellow"
+    },
+    {
+      "hex": "#556B2F",
+      "name": "olive"
+    },
+    {
+      "hex": "#2F4F3F",
+      "name": "dark green"
+    },
+    {
+      "hex": "#008000",
+      "name": "green"
+    },
+    {
+      "hex": "#3EB489",
+      "name": "mint green"
+    },
+    {
+      "hex": "#008080",
+      "name": "teal"
+    },
+    {
+      "hex": "#1F3A5F",
+      "name": "navy"
+    },
+    {
+      "hex": "#0000FF",
+      "name": "blue"
+    },
+    {
+      "hex": "#3E5573",
+      "name": "steel blue"
+    },
+    {
+      "hex": "#4F7BAA",
+      "name": "dove blue"
+    },
+    {
+      "hex": "#2B4C7E",
+      "name": "denim blue"
+    },
+    {
+      "hex": "#4169E1",
+      "name": "royal blue"
+    },
+    {
+      "hex": "#ADD8E6",
+      "name": "light blue"
+    },
+    {
+      "hex": "#800080",
+      "name": "purple"
+    },
+    {
+      "hex": "#8F00FF",
+      "name": "violet"
+    },
+    {
+      "hex": "#8E4585",
+      "name": "plum"
+    },
+    {
+      "hex": "#FFC0CB",
+      "name": "pink"
+    },
+    {
+      "hex": "#F4C2C2",
+      "name": "pastel pink"
+    }
+  ]
+}

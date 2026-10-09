@@ -36,7 +36,7 @@ if [ "$STUFE" != "schnell" ]; then
   schritt "Szenario-Validator (Bestand)"
   (cd packages/mordakte_core && dart run bin/validate.dart)
   schritt "Partymodus: Plausibilität, Story-Bibel, Simulator"
-  (cd packages/mordakte_core && dart run bin/party_pruefen.dart && dart run bin/party_bibel.dart --pruefen && dart run bin/party_simulate.dart --pruefen)
+  (cd packages/mordakte_core && dart run bin/party_pruefen.dart && dart run bin/party_bibel.dart --pruefen && dart run bin/party_simulate.dart --pruefen && dart run bin/party_prompts.dart --pruefen)
   schritt "Server-Smoke (Bestand)"
   (cd server && dart run tool/smoke.dart)
   if [ -d test ]; then

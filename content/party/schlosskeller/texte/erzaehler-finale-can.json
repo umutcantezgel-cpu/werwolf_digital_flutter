@@ -2,5 +2,26 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "erzaehler",
   "hinweis": "Finale im Pfad can: finale.can.<ende> (4) und rueckblende.can.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "finale.can.ende_meister",
+      "text": "Das Geburtstagskind zeigt auf Can, und die Anklage stimmt. Um den Griff des Kerzenständers liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe, und auf der Maske liegen rote Wachstropfen. Can gesteht: Die Tat war Panik im Dunkeln. Herr Schneider überlebt; er wacht auf, hat eine Beule und eine Gedächtnislücke, und es geht ihm bald wieder gut. Herr Schneider hatte gebeten: „Finde raus, wer das war. Bis zum Morgen.“ Den Schlüsselbund findet das Geburtstagskind im Helm der Ritterrüstung. Damit kommt die Runde am Morgen hinaus, und alle lachen erleichtert. Herr Schneider ist bald wieder grantig, vor allem wegen seines Schlüsselbunds."
+    },
+    {
+      "id": "finale.can.ende_teilerfolg",
+      "text": "Das Geburtstagskind zeigt auf Can, und die Anklage stimmt. Ein gutes Stück Glück war allerdings dabei. Can gesteht: Die Tat war Panik im Dunkeln. Herr Schneider überlebt; er wacht auf, hat eine Beule und eine Gedächtnislücke, und es geht ihm bald wieder gut. Den Schlüsselbund findet in der Nacht niemand, er steckt im Helm der Ritterrüstung. Um sieben Uhr kommt Herrn Schneiders Kollegin mit dem Ersatzschlüssel und schließt das Außentor auf. Zwischen den Freunden bleibt ein kleiner Riss. Herr Schneider ist bald wieder grantig. Alle gehen hinaus, ein bisschen stiller als am Abend."
+    },
+    {
+      "id": "finale.can.ende_justizirrtum",
+      "text": "Das Geburtstagskind klagt die falsche Person an. Wer zu Unrecht beschuldigt wurde, ist entsetzt und sauer. Die Runde sitzt danach geteilt da, und die Stimmung wird kalt. Herr Schneider überlebt; er wacht auf, hat eine Beule und eine Gedächtnislücke, und es geht ihm bald wieder gut. Am Morgen findet die Runde den Schlüsselbund im Helm der Ritterrüstung. Später kommt heraus: Can war es. Er gesteht: Die Tat war Panik im Dunkeln. Mit dem Schlüsselbund kommt die Runde hinaus, doch zwischen den Freunden klafft ein tiefer Graben."
+    },
+    {
+      "id": "finale.can.ende_eskalation",
+      "text": "Das Geburtstagskind zeigt auf die falsche Person. Plötzlich reden alle durcheinander, und die Stimmen werden immer lauter. Wer zu Unrecht beschuldigt wurde, wehrt sich laut. Die Runde zerfällt in kleine Grüppchen, und keiner glaubt mehr dem anderen. Herr Schneider überlebt; er wacht auf, hat eine Beule und eine Gedächtnislücke, und es geht ihm bald wieder gut. Erst später gesteht Can: Die Tat war Panik im Dunkeln. Um sieben Uhr schließt Herrn Schneiders Kollegin mit dem Ersatzschlüssel das Außentor auf. Alle gehen hinaus, und keiner verabschiedet sich."
+    },
+    {
+      "id": "rueckblende.can",
+      "text": "Kurz vor zwölf knallt es, und das Licht geht aus. Die Tür zum Vorratsraum quietscht auf, und im Dunkeln leuchtet eine weiße Gespenstermaske. Can springt mit „Buuuh!“ hervor und läuft Herrn Schneider in die Arme. Der packt ihn an der Kapuze und ruft: „Hab ich dich!“ Herr Schneider zischt: „Jetzt kommt die Polizei, Freundchen.“ In Panik ein dumpfer Schlag, Poltern, Metall scheppert über den Steinboden. Can reißt den Schlüsselbund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Er rennt durch den Durchgang und den Kaminsaal, stopft die Maske in die Bauchtasche und steckt den Schlüsselbund in den Helm der Ritterrüstung. Dann versteckt er sich auf der Toilette im Turm, und um Mitternacht geht das Licht wieder an."
+    }
+  ]
 }

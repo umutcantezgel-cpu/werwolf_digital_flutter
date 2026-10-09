@@ -615,3 +615,30 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - ORCH hat geschärft:
     - Die drei Freundes-Wahlen nennen jetzt, was die Rolle verrät: Ahmet Lejlas Versprechen, Fatma Emines Schweigen, Olli Wojteks Wachs-Idee. Vorher stand dort nur „was ich weiß“.
     - Vier Sabotagen lenkten auf das eigene Geheimnis (Münzbilder, Tragen durch den Turm, Schneiders Forderung) oder verrieten die Absicht („harmloser“, „Nebensächliches“). Sie sind ersetzt.
+- **Welle 2b, Abnahmen:**
+
+  | Bericht | Punkte | Grund für Abzug |
+  |---|---|---|
+  | AUTOR-21 bis -25 | je 8 | wie Welle 2a: Partner im Text (P-2); Nachbesserung über AUTOR-70 bis -74 |
+  | AUTOR-26 bis -29 | je 9 | Ziffer im Zitat („0 Euro“) bei -28, von ORCH in Worten; sonst Prüfung in KONT-09 |
+  | AUTOR-43 bis -46 | je 9 | Prüfung in KONT-04 und -05 |
+  | AUTOR-49 | 10 | gewählte Fassung |
+  | AUTOR-50 | 9 | – |
+  | AUTOR-57 | 9 | gewählt, von ORCH geschärft |
+  | AUTOR-58 | 9 | – |
+  | AUTOR-65 | 9 | Tims Hemd „black checked“, Kanon sagt rot-schwarz |
+  | BAUMEISTER-02 | 8 | Farbe am letzten statt am ersten Kleidungsstück („black fabric trousers in burgundy“ bei Fatma); „burgundy“ ist ein Weinname |
+
+- **Bildprompts:**
+  - Die Signaturfarbe steht jetzt am ersten Kleidungsstück. Ein Platzhalter `{farbe}` in `bild.json` setzt sie an eine bestimmte Stelle (Tim: „dark red and black checked flannel shirt“).
+  - Aus „burgundy“ wurden zwei Namen: „dark berry red“ (Fatma, #6B1D2F) und „carmine red“ (Tugba, #800020). So tragen die beiden auch im Bild verschiedene Farben.
+  - Die Farbtabelle bleibt eine Konstante im Code (`lib` ohne Dateizugriff). Der Test hält sie gleich mit `farbnamen.json`.
+  - Die Verbotsprüfung gilt nur dem Motiv, nicht der festen Negativliste („no bar counter“, „no vape“).
+  - Täterdetails (Splitter an Ollis Ärmeln, Maske in Cans Bauchtasche, Wojteks Pflaster) bleiben aus den Bildern, weil Bilder vor dem Finale sichtbar sein können.
+  - Barrel-Export ergänzt; `pruefen.sh` prüft, ob `bildprompts.json` aktuell ist.
+- **Anrede:** Gesprächseröffnungen und Wahltexte stehen in der Ich-Form (TON-LEITFADEN §3 angepasst). Dossiers bleiben bei „du“.
+- **Offene Fragen der Autoren:**
+  - Das Außentor öffnet sich mit dem Bund oder um sieben Uhr mit dem Ersatzschlüssel der Kollegin; beides ist Kanon (`z_morgen`).
+  - Fatmas zwei Fassungen beim Knall (Buffet oder Theke) sind kein Widerspruch: Die eine gilt, wenn sie unschuldig ist, die andere, wenn sie die Tat begangen hat.
+  - Der Gesprächsplan überspringt den Sprecher in der Ersatzkette.
+  - „Box“ bleibt; das Wort ist Alltagssprache.
