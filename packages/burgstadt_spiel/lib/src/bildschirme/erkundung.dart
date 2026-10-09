@@ -180,7 +180,7 @@ class Erkundung extends Bildschirm {
       if (zielFigur != null) _tutorial(spiel, 'erste_figur');
       if (ziel?.legende.station != null) _tutorial(spiel, 'erste_station');
       sz.tick(dt);
-      sz.figuren.backe(5);
+      sz.figuren.backe(3); // Budget je Bild: Spitze bleibt mit Abstand unter 50 ms × 1/4 (Z-09)
       sz.position(ort, x, z, yaw, 'stehen', dt);
       for (final ev in sz.anzeige) {
         _karten.add((ev, ev.text.length > 90 ? 6.0 : 4.0));

@@ -145,10 +145,12 @@ class FigurBaker {
     final (dfx, dfy, dfz) = wi.richtung(0, 0, -1);
 
     const n = breite * hoehe;
-    final tiefe = Float64List(n)..fillRange(0, n, double.infinity);
-    final mat = Int16List(n)..fillRange(0, n, -1);
-    final kopfFlag = Uint8List(n);
-    final schatten = Int8List(n);
+    // Arbeitspuffer je Bild wiederverwenden: neu angelegt waren es rund 100 KB Müll je Bild,
+    // deren Speicherbereinigung als Nachladespitze auffiel (Z-09)
+    final tiefe = _tiefe..fillRange(0, n, double.infinity);
+    final mat = _mat..fillRange(0, n, -1);
+    final kopfFlag = _kopfFlag..fillRange(0, n, 0);
+    final schatten = _schatten..fillRange(0, n, 0);
     final (lx0, ly0, lz0) = _licht;
     final ll = math.sqrt(lx0 * lx0 + ly0 * ly0 + lz0 * lz0);
     final lx = lx0 / ll, ly = ly0 / ll, lz = lz0 / ll;
@@ -259,6 +261,11 @@ class FigurBaker {
   /// Ergebnis des letzten Treffers von [_schneide]: t, Normale x/y/z (im Teil-Raum).
   /// Ein fester Puffer statt eines Records je Strahl hält den Speicherbereiniger ruhig.
   static final Float64List _treffer = Float64List(4);
+
+  static final Float64List _tiefe = Float64List(breite * hoehe);
+  static final Int16List _mat = Int16List(breite * hoehe);
+  static final Uint8List _kopfFlag = Uint8List(breite * hoehe);
+  static final Int8List _schatten = Int8List(breite * hoehe);
 
   static bool _setze(double t, double nx, double ny, double nz) {
     _treffer[0] = t;
