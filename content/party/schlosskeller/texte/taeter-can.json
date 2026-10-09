@@ -2,5 +2,51 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "taeter",
   "hinweis": "Täterfassung can.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "rolle": "can",
+      "tarnung": "Du sagst: „Ich war die ganze Zeit auf der Toilette im Turm.“ Auch als das Licht ausgeht, bleibst du dabei. Wenn jemand nach einer Maske fragt, sagst du: „Welche Maske? Ich hab keine Maske.“ Bleib locker und grinse, als fändest du den ganzen Abend lustig.",
+      "tatwissen": [
+        {
+          "text": "Sechs vor zwölf schleichst du über den Durchgang hinter die Theke in den Vorratsraum. Du machst das Licht aus und wartest mit der Leuchtmaske. Zeynep steht am Bogen zum Durchgang Schmiere. Zwei vor zwölf will Herr Schneider die Notlaterne holen. Da springst du mit der leuchtenden Maske aus dem Vorratsraum. Herr Schneider packt dich an der Kapuze: „Hab ich dich!“"
+        },
+        {
+          "ref": "spur:spur_fasern_kapuze"
+        },
+        {
+          "text": "Herr Schneider zischt leise: „Jetzt kommt die Polizei, Freundchen.“ Im Dunkeln greifst du in Panik mit der Hand voller Leuchtfarbe nach dem Kerzenständer von der Anrichte. Du schlägst einmal zu. Es gibt einen dumpfen Schlag und Poltern. Herr Schneider stürzt in den Vorratsraum."
+        },
+        {
+          "ref": "spur:spur_griff_leuchtfarbe"
+        },
+        {
+          "ref": "spur:spur_maske_wachs"
+        },
+        {
+          "text": "Du kniest dich neben ihn und reißt in Panik den Schlüsselbund vom Gürtel. Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkst du: Flucht macht alles schlimmer. Du rennst durch den Durchgang und den Kaminsaal. An der Bogentür stopfst du die Maske in die Bauchtasche deines Pullis. Den Schlüsselbund steckst du in den Helm der Ritterrüstung."
+        },
+        {
+          "ref": "spur:spur_helm_bund"
+        },
+        {
+          "text": "Dann versteckst du dich auf der Toilette im Turm."
+        }
+      ],
+      "verbirgt": [
+        {
+          "ref": "luege:luege_can_toilette"
+        },
+        {
+          "ref": "luege:luege_can_maske"
+        },
+        {
+          "ref": "nebendelikt:nd_streich"
+        },
+        {
+          "text": "Kommt es heraus, weiß die ganze Runde, dass du vor der Vorratstür zugeschlagen hast."
+        }
+      ],
+      "ziel": "Der Streich soll nicht herauskommen. Du willst unentdeckt bleiben, ohne einen Unschuldigen ins Unglück zu stürzen."
+    }
+  ]
 }

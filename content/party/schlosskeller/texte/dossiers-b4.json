@@ -2,5 +2,103 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "dossier",
   "hinweis": "Dossiers der Besetzungsplätze 13 bis 16.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "rolle": "serkan",
+      "wer": "Du bist Serkan, der Fahrdienst-Organisator. Du bist Rettungssanitäter und fährst heute alle sicher nach Hause. Man erkennt dich an deiner stahlblauen Steppweste, dem Klemmbrett mit den Fahrzeiten und der schweren Taschenlampe.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_serkan_tor"
+        },
+        {
+          "text": "Um 23:56 Uhr wolltest du Decken aus dem Auto holen und fandest das Außentor verschlossen."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Du verbirgst nichts. Du willst nur, dass morgen alle heil nach Hause kommen."
+        }
+      ],
+      "ziel": "Du willst alle so schnell wie möglich sicher nach Hause fahren.",
+      "besetzung": "Jede Person kann Serkan spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "aylin",
+      "wer": "Du bist Aylin, die Kassenprüferin. Du bist Steuerfachangestellte und hebst jeden Beleg auf. Man erkennt dich an deiner schwarzen Ledermappe, die du fest an die Brust drückst.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_aylin_quittung"
+        },
+        {
+          "text": "Um 22:30 Uhr hast du Herrn Schneider nach einem Beleg für die Miete gefragt."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Du willst dein Geld zurück, aber Ahmet nicht vor allen bloßstellen. Deshalb redest du über den Beleg nur, wenn jemand fragt."
+        }
+      ],
+      "ziel": "Du willst dein Geld zurückbekommen, ohne Ahmet vor allen bloßzustellen.",
+      "besetzung": "Jede Person kann Aylin spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "kaan",
+      "wer": "Du bist Wojtek, der Architekturstudent. Du studierst Architektur, und Maßband und Bleistift hast du immer dabei. Man erkennt dich an deiner Brille, dem Zimmermannsbleistift hinter dem Ohr und dem Pflaster am Finger.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_wojtek_olli_satz"
+        },
+        {
+          "ref": "beobachtung:b_wojtek_vorbei"
+        },
+        {
+          "text": "Um 18:30 Uhr hast du mit Olli die Warmhaltebehälter durch Hoftür, Turmgang und Bogentür getragen."
+        },
+        {
+          "text": "Um 23:50 Uhr hast du dir an der Bogentür den Finger eingeklemmt."
+        }
+      ],
+      "verbirgt": [
+        {
+          "ref": "beobachtung:b_wojtek_tuer"
+        },
+        {
+          "ref": "nebendelikt:nd_moebelwachs"
+        },
+        {
+          "text": "Du schweigst, weil Olli dein Kumpel vom Tragen ist und dir Eis geholt hat."
+        }
+      ],
+      "ziel": "Du willst verhindern, dass jemand erfährt, dass das Möbelwachs deine Idee war.",
+      "besetzung": "Jede Person kann Wojtek spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "dilara",
+      "wer": "Du bist Azra, die Flohmarkt-Kennerin. Du studierst Kunstgeschichte und stöberst jedes Wochenende auf Flohmärkten. Man erkennt dich an der kleinen Lupe an deiner Silberkette und an deinen auffälligen Ringen aus Holz und Stein.",
+      "weiss": [
+        {
+          "ref": "beobachtung:b_azra_tasche"
+        },
+        {
+          "ref": "beobachtung:b_azra_versteck"
+        }
+      ],
+      "verbirgt": [
+        {
+          "ref": "beobachtung:b_azra_olli_frueh"
+        },
+        {
+          "ref": "beobachtung:b_azra_olli_spaet"
+        },
+        {
+          "text": "Du hast Fatma von der Schatulle in der Turmvitrine erzählt."
+        },
+        {
+          "text": "Du schweigst, weil du Olli nicht ohne Not belasten willst, und mischst dich nicht ein, solange niemand fragt."
+        }
+      ],
+      "ziel": "Du willst, dass niemand denkt, du hättest Fatma zu etwas angestiftet.",
+      "besetzung": "Jede Person kann Azra spielen, egal welches Geschlecht sie hat."
+    }
+  ]
 }

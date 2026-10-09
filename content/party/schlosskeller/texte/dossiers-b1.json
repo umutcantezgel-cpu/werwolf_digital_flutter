@@ -2,5 +2,133 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "dossier",
   "hinweis": "Dossiers der Besetzungsplätze 1 bis 4.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "rolle": "ahmet",
+      "wer": "Du bist Ahmet, der Organisator, und arbeitest in einer Agentur, die Stadtfeste und Märkte plant. Mit Lejla bist du zusammen aufgewachsen. Man erkennt dich an deiner Brille, dem kurzen Bart und dem schwarzen Strickpulli. Ein blaues Schlüsselband schaut aus deiner Hosentasche.",
+      "weiss": [
+        {
+          "text": "Um 23:51 Uhr hat Herr Schneider dir an der Theke gesagt: „Um zwölf sag ich allen, was der Keller gekostet hat.“"
+        },
+        {
+          "text": "Um 23:55 Uhr hast du deine schwarze Jacke an den Jackenständer im Ost-Saal gehängt."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Beim Knall duckst du dich hinter der Theke am Ostende neben Damir."
+        },
+        {
+          "text": "Im Dunkeln hältst du den Umschlag mit dem Mietgeld fest, bis das Licht angeht. Später leerst du den Umschlag und wirfst ihn in den Ascheneimer am Kamin."
+        },
+        {
+          "ref": "nebendelikt:nd_mietgeld"
+        },
+        {
+          "ref": "luege:luege_ahmet_servietten"
+        },
+        {
+          "ref": "luege:luege_ahmet_miete"
+        },
+        {
+          "text": "Du schweigst, weil sonst alle erfahren, dass du von allen Miete kassiert hast, obwohl der Keller nichts kostet."
+        }
+      ],
+      "ziel": "Bis morgen früh darf keiner merken, dass die Miete nur erfunden war.",
+      "besetzung": "Jede Person kann Ahmet spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "fatma",
+      "wer": "Du bist Fatma, die Designstudentin, und studierst Kommunikationsdesign im letzten Semester. Emine ist seit der Schulzeit deine beste Freundin. Du trägst einen knielangen roten Wollmantel, einen dunklen Rollkragen und ein dunkles Kopftuch.",
+      "weiss": [
+        {
+          "text": "Um 23:45 Uhr war deine Tasche auffällig ausgebeult."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Beim Knall ziehst du dich mit der Tasche zum linken Buffettisch zurück und kauerst gleich danach neben Emine."
+        },
+        {
+          "ref": "nebendelikt:nd_schatulle"
+        },
+        {
+          "ref": "luege:luege_fatma_buffet"
+        },
+        {
+          "ref": "luege:luege_fatma_tasche"
+        },
+        {
+          "text": "Du schweigst, weil du dich schämst. Du wolltest die Münzen nur abzeichnen und die Schatulle am Montag zurückbringen."
+        }
+      ],
+      "ziel": "Du willst die Schatulle still zurückbringen, ohne dass es die anderen erfahren.",
+      "besetzung": "Jede Person kann Fatma spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "olli",
+      "wer": "Du bist Olli, der Anpacker. Du arbeitest als Lagerlogistiker und hilfst bei jedem Umzug im Freundeskreis. Du bist breit gebaut und trägst einen grauen Kapuzenpulli und eine dunkelblaue Daunenweste.",
+      "weiss": [
+        {
+          "text": "Um 18:30 Uhr hast du mit Wojtek die Warmhaltebehälter durch Hoftür, Turmgang und Bogentür getragen."
+        },
+        {
+          "text": "Um 23:00 Uhr hast du dich mit Herrn Schneider laut um die 2.000 € gestritten."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Beim Knall tastest du dich vom Eiskübel zum rechten Buffettisch und kauerst dort gleich danach neben Azra, bis das Licht angeht."
+        },
+        {
+          "text": "Dann bringst du Wojtek das Eis und setzt dich in den Ost-Saal an die Tafel."
+        },
+        {
+          "ref": "nebendelikt:nd_tuerschaden"
+        },
+        {
+          "ref": "luege:luege_olli_tafel"
+        },
+        {
+          "text": "Du schweigst, weil du den Schaden an der Bogentür selbst mit Herrn Schneider klären willst."
+        }
+      ],
+      "ziel": "Den Türschaden willst du selbst mit Herrn Schneider regeln, ohne die anderen hineinzuziehen.",
+      "besetzung": "Jede Person kann Olli spielen, egal welches Geschlecht sie hat."
+    },
+    {
+      "rolle": "can",
+      "wer": "Du bist Can, der Spaßvogel, und machst eine Ausbildung zum Mediengestalter. Du drehst lustige Kurzvideos und gehörst zur Runde. Man erkennt dich an deiner auffälligen gelben Kapuze und deinem federnden Schritt.",
+      "weiss": [
+        {
+          "text": "Deine Schwester Zeynep ist heute Abend auch da."
+        }
+      ],
+      "verbirgt": [
+        {
+          "text": "Kurz vor zwölf hat Herr Schneider dich an der Kapuze gepackt und „Hab ich dich!“ gerufen."
+        },
+        {
+          "text": "Du reißt dich los und rennst durch den Durchgang, noch bevor es scheppert. Die leuchtende Maske hältst du dabei in der Hand."
+        },
+        {
+          "text": "Im Kaminsaal stopfst du die Maske in die Bauchtasche deines Pullis. Dann versteckst du dich oben auf der Toilette im Turm."
+        },
+        {
+          "ref": "nebendelikt:nd_streich"
+        },
+        {
+          "ref": "luege:luege_can_toilette"
+        },
+        {
+          "ref": "luege:luege_can_maske"
+        },
+        {
+          "text": "Du schweigst, weil dein Streich nicht auffliegen soll und weil deine Schwester Zeynep für dich Schmiere gestanden hat."
+        }
+      ],
+      "ziel": "Dein Streich darf nicht auffliegen.",
+      "besetzung": "Jede Person kann Can spielen, egal welches Geschlecht sie hat."
+    }
+  ]
 }

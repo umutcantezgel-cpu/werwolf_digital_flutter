@@ -1,7 +1,7 @@
 {
   "settingId": "spuk_im_schlosskeller",
   "bereich": "erzaehler",
-  "hinweis": "Intro: intro.start, intro.lacher.<id>.<besetzt|npc>, intro.auftrag.<m|w>.",
+  "hinweis": "Intro-Fassung 2",
   "eintraege": [
     {
       "id": "intro.start",

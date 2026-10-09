@@ -2,5 +2,54 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "detektiv",
   "hinweis": "Detektiv-Bogen (m und w) und Ermittlungsbogen.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "detektiv.m.wer",
+      "text": "Du bist das Geburtstagskind und der Detektiv, mittelgroß und mit aufmerksamer Haltung. Du trägst einen hellen sandbeigen Mantel über deiner Alltagskleidung, dazu eine schwarze Hose und dunkle Turnschuhe. Zu dir gehören eine markante Brille, ein braun karierter Detektivhut und eine unangezündete Pfeife, aus der Seifenblasen steigen."
+    },
+    {
+      "id": "detektiv.w.wer",
+      "text": "Du bist das Geburtstagskind und die Detektivin, mittelgroß und mit aufmerksamer Haltung. Du trägst einen hellen sandbeigen Mantel über deiner Alltagskleidung, dazu eine schwarze Hose und dunkle Turnschuhe. Zu dir gehören eine markante Brille, ein braun karierter Detektivhut und eine unangezündete Pfeife, aus der Seifenblasen steigen."
+    },
+    {
+      "id": "detektiv.m.auftrag",
+      "text": "Zwanzig Minuten nach Mitternacht bittet Herr Schneider dich: „Finde raus, wer das war. Bis zum Morgen.“ Du ermittelst in drei Runden und triffst dafür neun Entscheidungen. Am Ende erhebst du eine Anklage."
+    },
+    {
+      "id": "detektiv.w.auftrag",
+      "text": "Zwanzig Minuten nach Mitternacht bittet Herr Schneider dich: „Finde raus, wer das war. Bis zum Morgen.“ Du ermittelst in drei Runden und triffst dafür neun Entscheidungen. Am Ende erhebst du eine Anklage."
+    },
+    {
+      "id": "detektiv.regeln.entscheidungen",
+      "text": "Jede Entscheidung hat mehrere Möglichkeiten, und du wählst genau eine davon. Du kannst einen Ort betreten, einen Gegenstand untersuchen oder eine Person befragen."
+    },
+    {
+      "id": "detektiv.regeln.punkte",
+      "text": "Jede gute Entscheidung bringt dir einen Punkt. Wie viele Punkte du hast, siehst du erst am Ende."
+    },
+    {
+      "id": "detektiv.regeln.hinweise",
+      "text": "In jeder Runde wird dir aus der Gruppe etwas zugeflüstert. Ob es stimmt, musst du selbst prüfen."
+    },
+    {
+      "id": "detektiv.regeln.anklage",
+      "text": "Am Ende klagst du einen der vier an: Ahmet, Fatma, Olli oder Can. Deine Anklage und deine Punkte bestimmen zusammen, wie der Abend ausgeht."
+    },
+    {
+      "id": "ermittlungsbogen.einleitung",
+      "text": "Auf diesem Bogen führst du die Liste der Verdächtigen. Hier schreibst du mit, wer ausscheidet und wer übrig bleibt. Den Bogen sieht nur du."
+    },
+    {
+      "id": "ermittlungsbogen.entlastet",
+      "text": "Wer zur Tatzeit nachweislich woanders war und zusätzlich eine bewiesene Heimlichtuerei hat, scheidet aus. Beides muss zusammenkommen."
+    },
+    {
+      "id": "ermittlungsbogen.ueberfuehrt",
+      "text": "Ein Schlüsselbeweis überführt eine Person, wenn man auch Herrn Schneiders Schlüsselbund an ihrem Versteck findet. Alle anderen scheiden aus."
+    },
+    {
+      "id": "ermittlungsbogen.restverdaechtige",
+      "text": "Schreib die vier Namen auf: Ahmet, Fatma, Olli und Can. Streich jeden Namen durch, der ausscheidet. Wer übrig bleibt, ist noch verdächtig."
+    }
+  ]
 }

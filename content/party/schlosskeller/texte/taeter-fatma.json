@@ -2,5 +2,51 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "taeter",
   "hinweis": "Täterfassung fatma.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "rolle": "fatma",
+      "tarnung": "Du sagst: „Ich stand die ganze Zeit beim Gebäck am linken Buffet.“ Als das Licht ausgeht, bleibst du dort stehen und hältst deine Tasche fest. Wenn jemand fragt, sagst du: „In meiner Tasche sind nur Bücher.“ Dabei nestelst du am Reißverschluss und lächelst Emine zu. Bleib ruhig, als wäre nichts gewesen.",
+      "tatwissen": [
+        {
+          "text": "Vier vor zwölf sieht Herr Schneider Glassplitter an deinem Mantel. „Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.“"
+        },
+        {
+          "text": "Drei vor zwölf gehst du mit der Tasche zur Theken-Klappe. Du willst Herrn Schneider die Schatulle sofort zurückgeben."
+        },
+        {
+          "text": "Beim Knall bleibst du erschrocken vor der Theke stehen. Dann siehst du das Kerzenlicht an der Anrichte und gehst durch die Klappe. Herr Schneider packt den Gurt deiner Tasche und zischt: „Zu spät. Die Polizei kommt so oder so.“"
+        },
+        {
+          "text": "In Panik greifst du den Kerzenständer von der Anrichte und schlägst einmal zu. Dann ist da nur ein dumpfer Schlag und Poltern. Dein Silberring schrammt über das Messing, und rote Wachstropfen fallen auf die Schatulle."
+        },
+        {
+          "ref": "spur:spur_ring_messing"
+        },
+        {
+          "ref": "spur:spur_schatulle_wachs"
+        },
+        {
+          "text": "In Panik reißt du Herrn Schneiders Schlüsselbund vom Gürtel. Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkst du: Flucht macht alles schlimmer. Du steckst den Bund in die Brottasche auf dem linken Buffettisch und kauerst dich zu Emine."
+        },
+        {
+          "ref": "spur:spur_brottasche_bund"
+        }
+      ],
+      "verbirgt": [
+        {
+          "ref": "luege:luege_fatma_buffet"
+        },
+        {
+          "ref": "luege:luege_fatma_tasche"
+        },
+        {
+          "ref": "nebendelikt:nd_schatulle"
+        },
+        {
+          "text": "Kommt es heraus, weiß die ganze Runde, dass du die Schatulle hattest und zugeschlagen hast."
+        }
+      ],
+      "ziel": "Die Schatulle soll zurück, ohne dass es alle erfahren. Du willst unentdeckt bleiben, ohne einen Unschuldigen ins Unglück zu stürzen."
+    }
+  ]
 }

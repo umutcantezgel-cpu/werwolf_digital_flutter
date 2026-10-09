@@ -17,7 +17,7 @@ Verbindlich für alle Autoren, Prüfer und Bausteine. Vorbild für Bewährtes is
 - Falsche Fährten kommen nur als Gerücht aus der Gruppe, nie mit seiner eigenen Stimme als Tatsache. Alle Bonus-Hinweise, wahre wie falsche, kommen im selben Rahmen („Aus der Runde wird dir zugeflüstert …“) und ohne Namen der Quelle. Der Erzähler sagt nie, ob ein Hinweis stimmt (E-024).
 
 ## 3. Anrede
-- Die ganze Runde heißt „ihr“, das Geburtstagskind als Detektiv „du“.
+- Die ganze Runde heißt „ihr“, das Geburtstagskind als Detektiv „du“. Dossiers, Gespräche und Wahltexte sprechen die einzelne Spielerin oder den einzelnen Spieler mit „du“ an.
 - In der dritten Person heißt es „das Geburtstagskind“. Bausteine sind geschlechtsneutral. Wo es nicht anders geht, gibt es m- und w-Fassung (nur Detektiv-Bogen).
 - Niemand wird gesiezt, auch Herr Schneider nicht. Er duzt alle, die Gruppe sagt „Herr Schneider“ und duzt ihn trotzdem, so wie es in der Gruppe üblich ist.
 

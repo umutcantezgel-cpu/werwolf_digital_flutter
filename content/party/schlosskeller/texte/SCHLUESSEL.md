@@ -47,15 +47,16 @@ Die Kennungen der Erzählerbausteine kommen aus `Erzaehler.katalog()`; andere Ke
   - `bonus.rahmen` sagt nie, ob ein Hinweis stimmt.
 
 ## Regeln für Dossiers
-- `wer`: Vorstellung in zwei bis vier Sätzen. Name, Alltag, Bezug zur Gruppe, sichtbares Merkmal. Kein Geheimnis.
-- `weiss`: was die Rolle sicher weiß und am Tisch sagen darf. Verweise nur auf eigene Beobachtungen der Rolle (Feld `wer` der Beobachtung). Eigene Sätze nur ohne neue Tatsachen.
+- Dossiers sprechen die Spielerin oder den Spieler mit „du“ an.
+- `wer`: Vorstellung in zwei bis vier Sätzen. Öffentlich bekannte Beziehungen (Geschwister, Cousins, beste Freundinnen) dürfen hier stehen; was jemand für einen anderen tut oder verschweigt, nicht. Name, Alltag, Bezug zur Gruppe, sichtbares Merkmal. Kein Geheimnis.
+- `weiss`: was die Rolle sicher weiß und am Tisch sagen darf. Nichts, was ein eigenes oder fremdes Geheimnis verrät. Verweise nur auf eigene Beobachtungen der Rolle (Feld `wer` der Beobachtung). Eigene Sätze nur ohne neue Tatsachen.
 - `verbirgt`: verborgene Beobachtungen der Rolle, Nebendelikt, eigene Lügen. Eine Lüge erscheint mit Behauptung und Wahrheit. Ein Satz dazu, warum die Rolle schweigt (aus `grundVerborgen` oder `loyalitaet`).
 - `ziel`: das persönliche Ziel aus `figuren.json`, in eigenen Worten.
 - `besetzung`: ein Satz, wie die Rolle von jedem Geschlecht gespielt wird.
 - **Täterfassung:**
   - `tarnung`: was die Person über die Tatsekunden erzählt.
   - `tatwissen`: was wirklich geschah, aus `killerProfile` und der Tatmatrix des Pfads.
-  - `verbirgt`: Lügen und Spuren.
+  - `verbirgt`: Lügen und Nebendelikt. Die Spuren der Tat stehen als `spur:<id>` in `tatwissen`.
   - `ziel`: unentdeckt bleiben, ohne Unschuldige ins Unglück zu stürzen.
 
 ## Regeln für Pflichtgespräche (P-1)
