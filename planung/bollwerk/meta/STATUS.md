@@ -20,3 +20,4 @@
 - 21:24 UTC Modellprobe bestanden (nur claude-haiku-5-5).
 - 21:20–21:39 UTC Welle M0-1 (12 Agenten gleichzeitig, 0 Ausfälle).
 - 21:47 UTC LAGEBILD; Werkzeug-Audit: 2 von 14 Agenten mit verbotenem Lesewerkzeug (Befund §6).
+- 23:03 UTC **Grenzverletzung:** unbeabsichtigter Push `HEAD:refs/heads/bollwerk` (f84715d) durch Heredoc-Backticks; nichts gelöscht, gemeldet (FUER-DEN-NUTZER §1, E-M5-00).
