@@ -510,3 +510,26 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - **„Punschkessel“ ohne „alkoholfrei“ (R22-4):** Der Kessel ist im Kanon öffentlich als alkoholfrei festgelegt (OA-04, GL-14). Wo im Spieltext jemand Punsch trinkt, steht „alkoholfrei“ (ERSETZE-19…21).
   - **Wortliste des Scanners (R22-5):** „bewusstlos“ und „Herkunft“ stehen in den Rohdateien rechtmäßig, als ERSETZE-Quelle bzw. in L-Daten. Den wirksamen Kanon prüft `kanon_test` darauf (kein „bewusstlos“ über ERSETZE-17, kein „Herkunft des Schreis“, keine Lampenmarke mit Nachnamen).
 - Neue Inhaltsrunde A-702s (Prüfer 23 und 24), weil sich der Textpfad `nachtlauf/kanon` geändert hat. Die Figuren sind unverändert; Z-03 bleibt erfüllt.
+
+## E47 · 09.10. 15:40 · Inhaltsrunde A-702s: Färbungen, Firmenname, Punsch; Herkunftsverteilung als Nutzerentscheidung
+- **Urteile:** Prüfer 23 und Prüfer 24: Leitplanken **nein**, Kanontreu ja, Plagiatsfrei ja. Beide begründen es vor allem mit der Verteilung der Fallfunktionen auf Rollen mit Herkunftsangabe. Prüfer 23 nennt dazu die Geld-Färbungen.
+- **Umgesetzt (Overlay, Kanon-Dateien unverändert):**
+  - **Färbungen R13 und R15 (R23-2):** „wirkt dadurch kalt und berechnend“ heißt jetzt „wirkt dadurch unnachgiebig“ (ERSETZE-27). „wirkt, als denke sie nur in Beträgen“ heißt jetzt „wirkt dabei seltsam ungerührt“ (ERSETZE-28).
+    - Grund: Diese beiden Adjektive verbinden zwei türkischstämmige Frauen in Finanzberufen mit Geldgier und Kälte; das ist ein bekanntes Klischee.
+    - Die Färbung selbst bleibt (Geld zurückfordern, über Schäden reden); sie folgt aus Beruf und Lage der Figur.
+  - **Firmenname (R24-2):** R01s Beruf lautet im Spiel „(eine Ein-Mann-Firma mit Transporter)“ ohne „Hodžić Veranstaltungstechnik“ (ERSETZE-26, `faehigkeiten.json`). „VT · 3“ führt damit über den Beruf (Veranstaltungstechniker) zu R01, nicht über den Nachnamen.
+  - **Punsch (R24-3):** Z-0005 und das Detektiv-Ergebnis DW1-3 sagen jetzt „alkoholfrei“ (ERSETZE-29/30). Neuer Test: In jedem angezeigten Datensatz (O, G, DW) steht bei „Punsch“ im selben Feld „alkoholfrei“; die Gegenprobe ohne ERSETZE-30 wird rot.
+  - **K-010 im Overlay (R23-5):** Das Overlay sagt jetzt selbst „unten im Tal“ statt „Osterode“. Wirksam war das schon über ERSETZE-18.
+- **Berichtigung zu E45:** Nicht alle L-Datensätze sind ungesehen. Die Ergebnistexte der Detektiv-Entscheidungen (DW…, Felder „Ergebnis A/B/C“) zeigt das Spiel nach einer Entscheidung an (`fall_daten.dart`). Sie zählen deshalb zum Spieltext.
+- **Nicht im Nachtlauf lösbar, Nutzerentscheidung (R23-1, R24-1):** Die Verteilung der Funktionen im Fall.
+  - Täterin R03 und Mietbetrug R04 haben deutsche Wurzeln. Die falsche Fährte R01 hat bosnische, die Hauptzeugin mit dem Streich R02 kurdische Wurzeln. 16 der 20 Rollen haben nichtdeutsche Wurzeln.
+  - Das ist die Anlage des Falls nach FM-1 und GROBPLAN F-07. Es zu ändern hieße, den Fall neu zu besetzen, oder die Herkunftsangaben aus den Spieldaten zu nehmen. Beides entscheidet der Nutzer, nicht der Nachtlauf.
+  - Die Optionen stehen in FÜR DEN NUTZER. **Z-12 bleibt offen**, bis das entschieden ist; danach folgt eine neue Inhaltsrunde.
+- **Bewusst so:**
+  - **Übernachtung in der Pension (R23-3):** K-010 betrifft die Burg; die Pension liegt in der Stadt.
+  - **„KI-Erzähler liest vor“ (R23-4):** FÜNF-SÄTZE beschreibt das Krimidinner, nicht die App; E46 bleibt richtig.
+  - **Einstufung H-S05/H-S09 (R23-6):** Die Hinweise entlasten Pension und Volksbühne nur als Ortsfarbe, keine Rolle; „Farbe“ bleibt.
+  - **Ersatzsicherungen (R23-7):** OA-21 sagt nur, wo der Ersatz liegt, nicht, dass er passt; dass der Strom bis zum Morgen aus bleibt, ist die Spielnacht.
+  - **R04 `weste` (R23-8):** Das ist das Material des Bunds am Strickpullover (E45), kein Datenrest.
+  - **„Geisterstunde“ (R23-9):** ein gebräuchliches Wort, kein Werktitel.
+  - **Übrige Färbungen (R23-2):** R05 (Ärger über das Mietgeld), R14 (Groll für Adnan), R06 (Wissen aus dem Sanitäterberuf) und R16 (Jonas' Kreditanfrage) folgen aus Lage und Beruf der Figur, nicht aus ihrer Herkunft.

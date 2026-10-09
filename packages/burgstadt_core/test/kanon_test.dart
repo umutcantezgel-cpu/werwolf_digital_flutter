@@ -212,7 +212,7 @@ void main() {
       () {
         expect(enthaelt(wirksam, 'Brockengespenst'), isFalse);
         expect(enthaelt(wirksam, 'Nebelriese'), isTrue);
-        expect(wirksam.ersetzungen.length, 25); // 16 Harz-Bezüge + „bewusstlos“ (A-702d) + Osterode (E42) + 3 × Punsch alkoholfrei + R02-Anrede (E43) + Lampenmarke, Aussprache, „Quelle des Schreis“ (E46)
+        expect(wirksam.ersetzungen.length, 30); // 16 Harz-Bezüge + „bewusstlos“ (A-702d) + Osterode (E42) + 3 × Punsch alkoholfrei + R02-Anrede (E43) + Lampenmarke, Aussprache, „Quelle des Schreis“ (E46) + Firmenname, 2 × Färbung, 2 × Punsch (E47)
         // Genus: der Nebelriese (männlich) – keine sächlichen Reste aus „das Brockengespenst“.
         for (final falsch in ['das Nebelriese', 'Das Nebelriese', 'dem Nebelriese ', 'seinem Nebelriese ']) {
           expect(enthaelt(wirksam, falsch), isFalse, reason: falsch);
@@ -244,7 +244,7 @@ void main() {
     );
 
     test('Lampenmarke ohne Nachnamen, „Quelle des Schreis“, kein „bewusstlos“ (E46, ERSETZE-17)', () {
-      for (final weg in ['HODŽIĆ VT', 'HOD-schitsch fau-te', 'Herkunft des Schreis', 'bewusstlos']) {
+      for (final weg in ['HODŽIĆ VT', 'HOD-schitsch fau-te', 'Herkunft des Schreis', 'bewusstlos', 'Hodžić Veranstaltungstechnik', 'kalt und berechnend', 'in Beträgen']) {
         expect(enthaelt(wirksam, weg), isFalse, reason: weg);
       }
       for (final id in ['H-28', 'BSO-03', 'E1-01', 'GL-19', 'DW1-1', 'BS-03']) {
@@ -254,6 +254,18 @@ void main() {
       expect(wirksam.datensaetze['R02-LÜGE']!.felder.values.any((v) => v.contains('Quelle des Schreis')), isTrue);
       // Die Lampe bleibt R01 zugeordnet: Firma im Beruf, „deine Lampe“ in den Rollentexten.
       expect(wirksam.datensaetze['R01-STAMM']!.feld('Beruf'), contains('Veranstaltungstechnik'));
+    });
+
+    test('Punsch ist in jedem angezeigten Text alkoholfrei (O, G und Detektiv-Ergebnisse DW, E47)', () {
+      for (final d in wirksam.datensaetze.values) {
+        if (d.sicht == Sicht.l && !d.id.startsWith('DW')) continue;
+        for (final e in d.felder.entries) {
+          final ohneKessel = e.value.replaceAll('Punschkessel', '');
+          if (ohneKessel.contains('Punsch')) {
+            expect(e.value, contains('alkoholfrei'), reason: '${d.id} · ${e.key}');
+          }
+        }
+      }
     });
 
     test(

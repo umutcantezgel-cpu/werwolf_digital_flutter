@@ -34,12 +34,17 @@ Regeln für das Overlay:
 @ERSETZE-23 [O] | Von: HODŽIĆ VT · 3 | Nach: VT · 3
 @ERSETZE-24 [O] | Von: HOD-schitsch fau-te drei | Nach: fau-te drei
 @ERSETZE-25 [O] | Von: Herkunft des Schreis | Nach: Quelle des Schreis
+@ERSETZE-26 [O] | Von: („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma | Nach: (eine Ein-Mann-Firma
+@ERSETZE-27 [O] | Von: und wirkt dadurch kalt und berechnend | Nach: und wirkt dadurch unnachgiebig
+@ERSETZE-28 [O] | Von: und wirkt, als denke sie nur in Beträgen | Nach: und wirkt dabei seltsam ungerührt
+@ERSETZE-29 [O] | Von: ein Becher noch warmer Punsch | Nach: ein Becher noch warmer, alkoholfreier Punsch
+@ERSETZE-30 [O] | Von: Der Punsch ist noch warm | Nach: Der alkoholfreie Punsch ist noch warm
 
 ## Ort und Rahmen
 @K-001 [O] | Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist die kleine, renovierte Stadtburg am höchsten Punkt der erfundenen, ummauerten Oberstadt Schartenfels: Gassen mit Kopfsteinpflaster, Häuser mit Dachgauben, die wie Augen schauen, eine Stadtmauer mit Wehrgang und Zunfttürmen, ein Uhrturm am Marktplatz und eine Kirchenburg auf dem Hügel. Unten im Tal liegt das erfundene Bergstädtchen Silberhau (SIL-ber-hau). Burg und Heimatmuseum gehören einer Stiftung; Burgwart ist Eckehard Lüddecke.
 @K-005 [O] | Tatsache: Der Wendeltreppenturm verbindet alle Ebenen. Unten am Turm-Fuß: Turmtür zum Gewölbe, Eisentür zur Speisekammer, der Sicherungskasten mit Zahlenschloss und eine alte Holztruhe. Der Sicherungskasten ist zugleich der historische Hauptverteiler der ganzen Oberstadt. Acht Stufen höher, auf dem ersten Absatz: die Ritterrüstung „Kunibert“. Darüber die Hofebene mit der Hoftür, der Schauvitrine und der Toilette. Ganz oben der Wehrgang, der als Teil der Stadtmauer weiterläuft; die Turmpforten vom Mauerweg hinunter in die Stadt sind nachts verschlossen.
 @K-007 [O] | Tatsache: Am Schlüsselbund des Burgwarts hängen die großen Buntbartschlüssel für Burgtor und Torhaus, die beiden Schlüssel der Stadttore (Obertor und Untertor), der Schlüssel für die Turmpforten des Mauerwegs sowie der kleine Vitrinenschlüssel. Er trägt den Bund an einem Karabinerhaken am Gürtel.
-@K-010 [O] | Tatsache: In der Burg sind in dieser Nacht nur die Festgesellschaft (alle besetzten Rollen und das Geburtstagskind) und der Burgwart. Seine Frau Gerda ist bei ihrer Schwester in Osterode; die Aushilfe ist um 18:00 gegangen. In den Häusern der Oberstadt schlafen oder wachen einige Bewohner; in die Burg kommt seit 23:00 niemand von ihnen, denn das Burgtor ist abgeschlossen.
+@K-010 [O] | Tatsache: In der Burg sind in dieser Nacht nur die Festgesellschaft (alle besetzten Rollen und das Geburtstagskind) und der Burgwart. Seine Frau Gerda ist bei ihrer Schwester unten im Tal; die Aushilfe ist um 18:00 gegangen. In den Häusern der Oberstadt schlafen oder wachen einige Bewohner; in die Burg kommt seit 23:00 niemand von ihnen, denn das Burgtor ist abgeschlossen.
 @STADT-01 [O] | Tatsache: Die Stadttore der Oberstadt, Obertor und Untertor, schließt der Burgwart jeden Abend um 22:00 ab. Die Stadtmauer ist rundum mindestens sechs Meter hoch; wer nachts die Oberstadt verlassen will, braucht den Bund.
 @STADT-02 [O] | Tatsache: Seit dem Knall um 23:58 ist die ganze Oberstadt dunkel: keine Straßenlaternen, keine Fenster, kein Licht am Uhrturm. Es leuchten nur Kerzen, Handylichter, Notleuchten mit Batterie, das Geleucht im Burghof und der Mond. Der Uhrturm schlägt mechanisch weiter.
 @STADT-03 [O] | Tatsache: Zu Beginn von Phase 2 schließt der Burgwart mit dem wiedergefundenen Bund das Burgtor zur Oberstadt auf: „Sucht meinetwegen in der ganzen Oberstadt – aber vor dem Morgengrauen kommt hier keiner raus.“ Die Stadttore bleiben zu, den Bund behält er am Gürtel.
