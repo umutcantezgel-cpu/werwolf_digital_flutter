@@ -82,6 +82,17 @@ final Map<String, Teil> kTeileBasis = {
     const Teil('laterne', 'zubehoer', [Grundkoerper(_z, 'handR', [0, -0.13, 0], [0.036, 0.055, 0.036], 'laterne')]),
     const Teil('handy', 'zubehoer', [Grundkoerper(_q, 'handR', [0, -0.05, 0.02], [0.02, 0.036, 0.005], 'handy')]),
     const Teil('kamera', 'zubehoer', [Grundkoerper(_q, 'rumpf', [0, 0.22, 0.13], [0.05, 0.035, 0.03], 'handy')]),
+    // Signaturstücke aus dem Kanon (Inhaltsprüfung A-702i): breiter Gurt quer über die Brust
+    // (vorn und hinten) und ein großer Kopfhörer um den Hals
+    const Teil('kameragurt', 'zubehoer', [
+      Grundkoerper(_q, 'rumpf', [0, 0.3, 0.118], [0.022, 0.2, 0.01], 'gurt', dreh: [0, 0, 38]),
+      Grundkoerper(_q, 'rumpf', [0, 0.3, -0.118], [0.022, 0.2, 0.01], 'gurt', dreh: [0, 0, -38]),
+    ]),
+    const Teil('kopfhoerer', 'zubehoer', [
+      Grundkoerper(_e, 'rumpf', [-0.072, 0.445, 0.06], [0.042, 0.046, 0.034], 'kopfhoerer'),
+      Grundkoerper(_e, 'rumpf', [0.072, 0.445, 0.06], [0.042, 0.046, 0.034], 'kopfhoerer'),
+      Grundkoerper(_q, 'rumpf', [0, 0.47, -0.04], [0.07, 0.012, 0.012], 'kopfhoerer'),
+    ]),
   ])
     t.id: t,
 };

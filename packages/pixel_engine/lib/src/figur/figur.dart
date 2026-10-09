@@ -205,6 +205,8 @@ const Map<String, Material> kMaterialStandard = {
   'laterne': Material(4, 6),
   'handy': Material(0, 1),
   'metall': Material(0, 5),
+  'gurt': Material(3, 4),
+  'kopfhoerer': Material(0, 5),
 };
 
 /// Liest eine Teile-Datei (`{"version":1,"teile":[…]}`) – Format FORMAT-FIGUREN.md.
