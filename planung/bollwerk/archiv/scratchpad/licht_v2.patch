@@ -1,0 +1,225 @@
+diff --git a/packages/burgstadt_spiel/bin/kontaktbogen.dart b/packages/burgstadt_spiel/bin/kontaktbogen.dart
+index 442cd5d..363bc3f 100644
+--- a/packages/burgstadt_spiel/bin/kontaktbogen.dart
++++ b/packages/burgstadt_spiel/bin/kontaktbogen.dart
+@@ -90,7 +90,7 @@ void _texturen(List<String> pos, int zoom, {required bool licht}) {
+     gewaehlt.add(id);
+   }
+   if (gewaehlt.isEmpty) _abbruch('keine Textur gewählt');
+-  final tafel = licht ? LightTable.night() : null;
++  final tafel = licht ? LightTable.nacht : null;
+   final zellen = <_Zelle>[];
+   for (final id in gewaehlt) {
+     if (!licht) {
+@@ -163,7 +163,7 @@ PixelBuffer rendereMeshBlicke(
+   int bildHoehe = 180,
+ }) {
+   final font = BitmapFont.parse(kSchriftNormal);
+-  final tafel = LightTable.night();
++  final tafel = LightTable.nacht;
+   var x0 = double.infinity, z0 = double.infinity, x1 = -double.infinity, z1 = -double.infinity;
+   for (final m in meshes) {
+     final p = m.pos;
+diff --git a/packages/burgstadt_spiel/bin/mess/banding_hilfen.dart b/packages/burgstadt_spiel/bin/mess/banding_hilfen.dart
+index 83ea87f..fedcdd8 100644
+--- a/packages/burgstadt_spiel/bin/mess/banding_hilfen.dart
++++ b/packages/burgstadt_spiel/bin/mess/banding_hilfen.dart
+@@ -35,7 +35,7 @@ String dez(double v, [int stellen = 2]) => v.toStringAsFixed(stellen).replaceAll
+ PixelBuffer rendrePruefwand(int farbe, int bw, int bh) {
+   final wand = (MeshBuilder()..wall(3, 2, -3, 2, 0, 3, 0, warm: 0, cold: 0.05)).build();
+   final fb = PixelBuffer(bw, bh)..clear(Pal.black);
+-  final r = Renderer(fb, LightTable.night(), [IndexedTexture.solid(farbe)])
++  final r = Renderer(fb, LightTable.nacht, [IndexedTexture.solid(farbe)])
+     ..fogStart = 3
+     ..fogEnd = 20
+     ..groundFog = 0
+diff --git a/packages/burgstadt_spiel/lib/src/spiel.dart b/packages/burgstadt_spiel/lib/src/spiel.dart
+index 464983b..ecfe956 100644
+--- a/packages/burgstadt_spiel/lib/src/spiel.dart
++++ b/packages/burgstadt_spiel/lib/src/spiel.dart
+@@ -56,7 +56,7 @@ class Spiel {
+   final Optionen optionen;
+   final BitmapFont font = BitmapFont.parse(kSchriftNormal);
+   late final PixelUi pixelUi = PixelUi(font);
+-  final LightTable licht = LightTable.night();
++  final LightTable licht = LightTable.nacht;
+ 
+   Skalierung? skala;
+   PixelBuffer welt = PixelBuffer(1, 1);
+diff --git a/packages/pixel_engine/lib/src/demo/benchmark.dart b/packages/pixel_engine/lib/src/demo/benchmark.dart
+index c97f872..ba9f185 100644
+--- a/packages/pixel_engine/lib/src/demo/benchmark.dart
++++ b/packages/pixel_engine/lib/src/demo/benchmark.dart
+@@ -26,7 +26,7 @@ BenchmarkResult runBenchmark(int w, int h, int frames, {double Function()? nowMs
+   final scene = DemoScene.build();
+   final fb = PixelBuffer(w, h);
+   final rgba = Uint8List(w * h * 4);
+-  final r = Renderer(fb, LightTable.night(), scene.textures);
++  final r = Renderer(fb, LightTable.nacht, scene.textures);
+   r.flashStrength = 0.9;
+   final times = <double>[];
+   for (var f = 0; f < frames; f++) {
+diff --git a/packages/pixel_engine/lib/src/lighting.dart b/packages/pixel_engine/lib/src/lighting.dart
+index 6d16c15..1007839 100644
+--- a/packages/pixel_engine/lib/src/lighting.dart
++++ b/packages/pixel_engine/lib/src/lighting.dart
+@@ -7,9 +7,9 @@ import 'palette.dart';
+ /// Licht × Nebel → Palettenindex. Damit bleibt jedes beleuchtete Pixel in der
+ /// Palette; Übergänge entstehen durch Bayer-Dithering zwischen den Stufen.
+ class LightTable {
+-  static const warmLevels = 8;
+-  static const coldLevels = 8;
+-  static const fogLevels = 4;
++  static const warmLevels = 16;
++  static const coldLevels = 16;
++  static const fogLevels = 6;
+   /// Farben der Palette v2 (Zeilenlänge der Tabelle).
+   static const colors = 160;
+ 
+@@ -19,14 +19,23 @@ class LightTable {
+   /// Palettenindex der Nebelfarbe (für Himmel/Ferne).
+   final int fogColor;
+ 
+-  /// Lichtstufen liegen quadratisch (Stufe k ↔ Licht (k/7)²): mehr Stufen im
+-  /// Dunkeln, wo die Nacht spielt. [levelLut] wandelt Licht 0..1 (×1024) in die
+-  /// Stufe 0..7 als Kommazahl.
++  /// Lichtstufen liegen auf einer Potenzkurve (Stufe k ↔ Licht (k/15)^1,6): mehr Stufen im Dunkeln,
++  /// wo die Nacht spielt, und kleine Schritte auch im Hellen (Lichttabelle v2, Banding ≤ 1 Stufe).
++  /// [levelLut] wandelt Licht 0..1 (×1024) in die Stufe 0..15 als Kommazahl.
++  static const double lichtKurve = 1.6;
+   static final Float32List levelLut = Float32List.fromList(
+-      [for (var i = 0; i <= 1024; i++) math.sqrt(i / 1024) * 7]);
++      [for (var i = 0; i <= 1024; i++) math.pow(i / 1024, 1 / lichtKurve) * (warmLevels - 1)]);
+ 
+-  /// Lichtwert der Stufe [k] (0..7).
+-  static double lightOfLevel(int k) => (k / 7) * (k / 7);
++  /// Lichtwert der Stufe [k] (0..15).
++  static double lightOfLevel(int k) => math.pow(k / (warmLevels - 1), lichtKurve).toDouble();
++
++  /// Höchste Licht- und Nebelstufe (für die Klammern im Renderer).
++  static const maxLight = warmLevels - 1, maxFog = fogLevels - 1;
++
++  static LightTable? _nacht;
++
++  /// Standard-Nachtlicht, einmal gebaut und geteilt (Aufbau ist teuer; L-05).
++  static LightTable get nacht => _nacht ??= LightTable.night();
+ 
+   LightTable._(this.table, this.fogColor);
+ 
+@@ -38,10 +47,43 @@ class LightTable {
+     List<double> coldTint = const [0.80, 0.90, 1.12],
+     int fogRgb = 0x1E2A3A,
+     double fogMax = 0.88,
+-    double crossRamp = 1.6,
++    double crossRamp = 1.2,
+   }) {
+     final t = Uint8List(fogLevels * warmLevels * coldLevels * colors);
+     final fr = (fogRgb >> 16) & 0xFF, fg = (fogRgb >> 8) & 0xFF, fb = fogRgb & 0xFF;
++    // Schnelle Suche: Palette als Ganzzahl-Felder, Ergebnisse je (RGB, Rampe) zwischengespeichert –
++    // dieselbe Formel wie [nearestPaletteIndexBiased], nur ohne Wiederholungen (L-05).
++    final n = paletteRgb.length;
++    final pr = Int32List(n), pg = Int32List(n), pb = Int32List(n);
++    for (var k = 0; k < n; k++) {
++      pr[k] = paletteR(k);
++      pg[k] = paletteG(k);
++      pb[k] = paletteB(k);
++    }
++    final merk = <int, int>{};
++    int naechste(int r, int g, int b, int ramp) {
++      final schluessel = ((r << 16) | (g << 8) | b) * 16 + ramp;
++      final alt = merk[schluessel];
++      if (alt != null) return alt;
++      var best = 0;
++      var bestD = double.infinity;
++      for (var k = 0; k < n; k++) {
++        // Grün (Grünregel E-025), Altrosa und Türkis (Fassadenrampen) erreicht nur, wer selbst daher kommt
++        final rk = k >> 4;
++        if (rk != ramp && (rk == Ramp.green || rk == Ramp.altrosa || rk == Ramp.tuerkis)) continue;
++        final rm = (r + pr[k]) >> 1;
++        final dr = r - pr[k], dg = g - pg[k], db = b - pb[k];
++        var d = ((512 + rm) * dr * dr) / 256 + 4 * dg * dg + ((767 - rm) * db * db) / 256;
++        if ((k >> 4) != ramp) d *= crossRamp;
++        if (d < bestD) {
++          bestD = d;
++          best = k;
++        }
++      }
++      merk[schluessel] = best;
++      return best;
++    }
++
+     var i = 0;
+     for (var f = 0; f < fogLevels; f++) {
+       final ft = f / (fogLevels - 1) * fogMax;
+@@ -60,8 +102,7 @@ class LightTable {
+             r = r + (fr - r) * ft;
+             g = g + (fg - g) * ft;
+             b = b + (fb - b) * ft;
+-            // Übergang (Migrationsbeleg 1): Suche nur über die 64 Farben der Palette v1
+-            t[i++] = nearestPaletteIndexBiased(r.round(), g.round(), b.round(), p >> 4, crossRamp: crossRamp, nurV1: true);
++            t[i++] = naechste(r.round(), g.round(), b.round(), p >> 4);
+           }
+         }
+       }
+diff --git a/packages/pixel_engine/lib/src/raster/renderer.dart b/packages/pixel_engine/lib/src/raster/renderer.dart
+index e46a883..cebdd5d 100644
+--- a/packages/pixel_engine/lib/src/raster/renderer.dart
++++ b/packages/pixel_engine/lib/src/raster/renderer.dart
+@@ -454,11 +454,11 @@ class Renderer {
+             ci = ci < 0 ? 0 : (ci > 1024 ? 1024 : ci);
+             var wq = (lut[wi] + d).toInt();
+             var cq = (lut[ci] + d).toInt();
+-            var fq = (fog * 3 + d).floor();
+-            wq = wq < 0 ? 0 : (wq > 7 ? 7 : wq);
+-            cq = cq < 0 ? 0 : (cq > 7 ? 7 : cq);
+-            fq = fq < 0 ? 0 : (fq > 3 ? 3 : fq);
+-            col[idx] = table[((fq * 8 + wq) * 8 + cq) * LightTable.colors + texel];
++            var fq = (fog * LightTable.maxFog + d).floor();
++            wq = wq < 0 ? 0 : (wq > LightTable.maxLight ? LightTable.maxLight : wq);
++            cq = cq < 0 ? 0 : (cq > LightTable.maxLight ? LightTable.maxLight : cq);
++            fq = fq < 0 ? 0 : (fq > LightTable.maxFog ? LightTable.maxFog : fq);
++            col[idx] = table[((fq * LightTable.warmLevels + wq) * LightTable.coldLevels + cq) * LightTable.colors + texel];
+             dep[idx] = iz;
+             written++;
+           }
+@@ -524,11 +524,11 @@ class Renderer {
+         if (flash > 0 && cone[idx] > 0) cl += flash * cone[idx] * fr2 / (fr2 + vz * vz * 6);
+         var ci = (cl * 1024).toInt();
+         ci = ci < 0 ? 0 : (ci > 1024 ? 1024 : ci);
+-        var wq = (LightTable.levelLut[wi] + d).toInt(), cq = (LightTable.levelLut[ci] + d).toInt(), fq = (fog * 3 + d).floor();
+-        wq = wq < 0 ? 0 : (wq > 7 ? 7 : wq);
+-        cq = cq < 0 ? 0 : (cq > 7 ? 7 : cq);
+-        fq = fq < 0 ? 0 : (fq > 3 ? 3 : fq);
+-        col[idx] = table[((fq * 8 + wq) * 8 + cq) * LightTable.colors + c];
++        var wq = (LightTable.levelLut[wi] + d).toInt(), cq = (LightTable.levelLut[ci] + d).toInt(), fq = (fog * LightTable.maxFog + d).floor();
++        wq = wq < 0 ? 0 : (wq > LightTable.maxLight ? LightTable.maxLight : wq);
++        cq = cq < 0 ? 0 : (cq > LightTable.maxLight ? LightTable.maxLight : cq);
++        fq = fq < 0 ? 0 : (fq > LightTable.maxFog ? LightTable.maxFog : fq);
++        col[idx] = table[((fq * LightTable.warmLevels + wq) * LightTable.coldLevels + cq) * LightTable.colors + c];
+         dep[idx] = iz;
+       }
+     }
+diff --git a/packages/pixel_engine/test/pixel_test.dart b/packages/pixel_engine/test/pixel_test.dart
+index e54b6bd..45fcd25 100644
+--- a/packages/pixel_engine/test/pixel_test.dart
++++ b/packages/pixel_engine/test/pixel_test.dart
+@@ -58,6 +58,19 @@ void main() {
+     }
+   });
+ 
++  test('Lichttabelle v2: 16 × 16 × 6 Stufen, Grün/Altrosa/Türkis nur aus der eigenen Rampe (Grünregel im Licht)', () {
++    final lt = LightTable.nacht;
++    expect(lt.table.length, LightTable.fogLevels * LightTable.warmLevels * LightTable.coldLevels * LightTable.colors);
++    expect((LightTable.warmLevels, LightTable.coldLevels, LightTable.fogLevels), (16, 16, 6));
++    for (var i = 0; i < lt.table.length; i++) {
++      final basis = rampeVon(i % LightTable.colors), ziel = rampeVon(lt.table[i]);
++      for (final r in [Ramp.green, Ramp.altrosa, Ramp.tuerkis]) {
++        if (ziel == r) expect(basis, r, reason: 'Eintrag $i: Rampe $basis wird zu Rampe $r');
++      }
++    }
++    expect(identical(LightTable.nacht, LightTable.nacht), isTrue, reason: 'einmal gebaut');
++  });
++
+   test('Lichttabelle bleibt in der Palette und dunkelt im Farbton ab', () {
+     final lt = LightTable.night();
+     expect(lt.table.every((i) => i < paletteRgb.length), isTrue);

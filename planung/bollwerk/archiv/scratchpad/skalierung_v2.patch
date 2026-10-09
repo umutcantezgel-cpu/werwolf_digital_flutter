@@ -1,0 +1,185 @@
+diff --git a/packages/burgstadt_spiel/lib/src/bildschirme/optionen_bildschirm.dart b/packages/burgstadt_spiel/lib/src/bildschirme/optionen_bildschirm.dart
+index d3b2dfa..775870e 100644
+--- a/packages/burgstadt_spiel/lib/src/bildschirme/optionen_bildschirm.dart
++++ b/packages/burgstadt_spiel/lib/src/bildschirme/optionen_bildschirm.dart
+@@ -26,7 +26,7 @@ class OptionenBildschirm extends Bildschirm {
+     ui.panel(p);
+     ui.textMittig('Optionen', w ~/ 2, p.y + 6, farbe: UiFarbe.akzent);
+     final eintraege = [
+-      'Bild: ${switch (o.qualitaet) { Qualitaet.sparsam => 'sparsam', Qualitaet.mittel => 'mittel', Qualitaet.hoch => 'hoch' }}',
++      'Bild: ${switch (o.qualitaet) { Qualitaet.sparsam => 'sparsam', Qualitaet.mittel => 'mittel', Qualitaet.scharf => 'scharf', Qualitaet.auto => 'auto' }}',
+       'Sichtfeld: ${o.sichtfeldGrad.round()}°',
+       'Kopfwippen: ${o.kopfwippen ? 'an' : 'aus'}',
+       'Flackern: ${o.flackernAus ? 'aus' : 'an'}',
+diff --git a/packages/burgstadt_spiel/lib/src/optionen.dart b/packages/burgstadt_spiel/lib/src/optionen.dart
+index cd0e8c3..eed93b9 100644
+--- a/packages/burgstadt_spiel/lib/src/optionen.dart
++++ b/packages/burgstadt_spiel/lib/src/optionen.dart
+@@ -25,7 +25,7 @@ class Optionen {
+       };
+ 
+   void ausJson(Map<String, dynamic> j) {
+-    qualitaet = Qualitaet.values.where((q) => q.name == j['qualitaet']).firstOrNull ?? qualitaet;
++    qualitaet = Qualitaet.ausName(j['qualitaet'] as String?) ?? qualitaet;
+     kopfwippen = j['kopfwippen'] as bool? ?? kopfwippen;
+     flackernAus = j['flackernAus'] as bool? ?? flackernAus;
+     neigen = j['neigen'] as bool? ?? neigen;
+diff --git a/packages/burgstadt_spiel/lib/src/skalierung.dart b/packages/burgstadt_spiel/lib/src/skalierung.dart
+index 6a2c162..c5a324c 100644
+--- a/packages/burgstadt_spiel/lib/src/skalierung.dart
++++ b/packages/burgstadt_spiel/lib/src/skalierung.dart
+@@ -1,33 +1,49 @@
+ import 'dart:math' as math;
+ 
+-/// Qualitätsstufe = kurze Bildseite der Welt in Pixeln.
++/// Qualitätsstufe. [kurzeSeite] = Zielzeilen der kurzen Bildseite für die gerade Rasterwahl.
++/// - `sparsam`, `mittel`: Welt gerades k, UI k/2 (unverändert seit dem Nachtlauf).
++/// - `scharf` (Burgstadt HD): UI-Raster wie `mittel`, Welt im UI-Raster (kWelt = kUi) –
++///   doppelte lineare Weltauflösung, Oberfläche identisch zu `mittel`.
++/// - `auto`: wählt zur Laufzeit eine dieser Stufen (bis zur automatischen Wahl wie `mittel`).
+ enum Qualitaet {
+   sparsam(135),
+   mittel(180),
+-  hoch(216);
++  scharf(180),
++  auto(180);
+ 
+   final int kurzeSeite;
+   const Qualitaet(this.kurzeSeite);
++
++  /// Gespeicherter Name → Stufe; das frühere „hoch“ wird zu `auto` (E-022).
++  static Qualitaet? ausName(String? name) =>
++      name == 'hoch' ? Qualitaet.auto : Qualitaet.values.where((q) => q.name == name).firstOrNull;
+ }
+ 
++/// Obergrenze für `scharf`: höchstens so viele Weltpixel, sonst gilt `mittel` (E-042).
++const int kScharfMaxWeltpixel = 380000;
++
+ /// Ganzzahlige Skalierung: Welt-Pixel = [kWelt] physische Pixel, UI-Pixel = [kUi].
+-/// [kWelt] ist immer gerade und [kUi] = [kWelt] / 2: so liegt jedes Welt-Pixel
+-/// exakt auf 2×2 UI-Pixeln, und das zusammengesetzte Bild besteht den Blocktest
+-/// im UI-Raster überall.
++/// Bei `sparsam`/`mittel` ist [kWelt] gerade und [kUi] = [kWelt] / 2; bei `scharf` ist
++/// [kWelt] = [kUi]. In beiden Fällen liegt jedes Welt-Pixel exakt auf ganzen UI-Pixeln, und das
++/// zusammengesetzte Bild besteht den Blocktest im UI-Raster überall.
+ class Skalierung {
+   final int physW, physH;
+   final int kWelt, kUi;
+   final int weltW, weltH, uiW, uiH;
+ 
+-  const Skalierung._(this.physW, this.physH, this.kWelt, this.kUi, this.weltW, this.weltH, this.uiW, this.uiH);
++  /// Die tatsächlich wirksame Stufe (`scharf` fällt an der Obergrenze auf `mittel` zurück).
++  final Qualitaet stufe;
++
++  const Skalierung._(this.physW, this.physH, this.kWelt, this.kUi, this.weltW, this.weltH, this.uiW, this.uiH, this.stufe);
+ 
+   factory Skalierung.fuer(int physW, int physH, Qualitaet q) {
++    final basis = q == Qualitaet.sparsam ? Qualitaet.sparsam : Qualitaet.mittel;
+     final kurz = math.min(physW, physH);
+     // gerades k, dessen kurze Weltseite dem Ziel am nächsten liegt
+     var kw = 2;
+     var beste = double.infinity;
+     for (var k = 2; k <= 32; k += 2) {
+-      final d = (kurz / k - q.kurzeSeite).abs();
++      final d = (kurz / k - basis.kurzeSeite).abs();
+       if (d < beste) {
+         beste = d;
+         kw = k;
+@@ -35,11 +51,14 @@ class Skalierung {
+     }
+     final ku = kw ~/ 2;
+     int auf(int a, int k) => (a + k - 1) ~/ k;
+-    return Skalierung._(physW, physH, kw, ku, auf(physW, kw), auf(physH, kw), auf(physW, ku), auf(physH, ku));
++    if (q == Qualitaet.scharf && ku >= 2 && auf(physW, ku) * auf(physH, ku) <= kScharfMaxWeltpixel) {
++      return Skalierung._(physW, physH, ku, ku, auf(physW, ku), auf(physH, ku), auf(physW, ku), auf(physH, ku), Qualitaet.scharf);
++    }
++    return Skalierung._(physW, physH, kw, ku, auf(physW, kw), auf(physH, kw), auf(physW, ku), auf(physH, ku), basis);
+   }
+ 
+   bool get hochkant => physH > physW;
+ 
+   @override
+-  String toString() => 'Welt ${weltW}x$weltH ×$kWelt · UI ${uiW}x$uiH ×$kUi';
++  String toString() => 'Welt ${weltW}x$weltH ×$kWelt · UI ${uiW}x$uiH ×$kUi${stufe == Qualitaet.scharf ? ' · scharf' : ''}';
+ }
+diff --git a/packages/burgstadt_spiel/test/spiel_test.dart b/packages/burgstadt_spiel/test/spiel_test.dart
+index af56de2..57ca614 100644
+--- a/packages/burgstadt_spiel/test/spiel_test.dart
++++ b/packages/burgstadt_spiel/test/spiel_test.dart
+@@ -7,9 +7,9 @@ import 'package:test/test.dart';
+ 
+ void main() {
+   group('Skalierung', () {
+-    test('Welt-Faktor gerade, UI = Hälfte, Bild deckt den Schirm', () {
++    test('sparsam/mittel/auto: Welt-Faktor gerade, UI = Hälfte, Bild deckt den Schirm', () {
+       for (final (w, h) in const [(1280, 720), (2401, 1081), (1081, 2401), (1920, 1080), (800, 600), (360, 640), (2732, 2048)]) {
+-        for (final q in Qualitaet.values) {
++        for (final q in [Qualitaet.sparsam, Qualitaet.mittel, Qualitaet.auto]) {
+           final s = Skalierung.fuer(w, h, q);
+           expect(s.kWelt.isEven, isTrue, reason: '$w×$h $q');
+           expect(s.kUi * 2, s.kWelt);
+@@ -22,6 +22,64 @@ void main() {
+       expect(Skalierung.fuer(1280, 720, Qualitaet.mittel).weltH, 180);
+       expect(Skalierung.fuer(2401, 1081, Qualitaet.mittel).weltH, 181);
+     });
++
++    // Burgstadt HD (K-011, E-006, E-042): „scharf“ = UI-Raster von „mittel“, Welt im UI-Raster
++    // (doppelte lineare Auflösung), nur bei kUi ≥ 2 und höchstens 380 000 Weltpixeln.
++    test('scharf: 18 Größen exakt, Obergrenze, UI wie mittel, Welt 2× mittel', () {
++      const erwartet = <(int, int), (int, int)?>{
++        (1280, 720): (640, 360), (1920, 1080): (640, 360), (2400, 1080): (800, 360), (1080, 2400): (360, 800),
++        (2401, 1081): (801, 361), (828, 1792): (414, 896), (1170, 2532): (390, 844), (1440, 3200): (360, 800),
++        (1280, 500): (640, 250), (1280, 481): (640, 241), (1536, 864): (768, 432), (1536, 865): (512, 289),
++        (2194, 1234): (732, 412), (2196, 1235): (549, 309), (1179, 2556): (393, 852), (1284, 2778): (321, 695),
++        (1280, 480): null, (1280, 400): null,
++      };
++      for (final e in erwartet.entries) {
++        final (w, h) = e.key;
++        final s = Skalierung.fuer(w, h, Qualitaet.scharf), m = Skalierung.fuer(w, h, Qualitaet.mittel);
++        expect((s.uiW, s.uiH, s.kUi), (m.uiW, m.uiH, m.kUi), reason: '$w×$h: UI wie mittel');
++        if (e.value == null) {
++          expect(s.stufe, Qualitaet.mittel, reason: '$w×$h: Obergrenze');
++          expect((s.weltW, s.weltH, s.kWelt), (m.weltW, m.weltH, m.kWelt), reason: '$w×$h: wie mittel');
++        } else {
++          expect(s.stufe, Qualitaet.scharf, reason: '$w×$h');
++          expect((s.weltW, s.weltH), e.value, reason: '$w×$h');
++          expect(s.kWelt, s.kUi, reason: '$w×$h');
++          expect(s.kUi, greaterThanOrEqualTo(2));
++          expect(s.weltW * s.weltH, lessThanOrEqualTo(kScharfMaxWeltpixel));
++          expect(s.kWelt * 2, m.kWelt, reason: '$w×$h: doppelte lineare Auflösung');
++        }
++      }
++    });
++
++    test('Optionen: gespeichertes „hoch“ wird auto, unbekannt bleibt', () {
++      final o = Optionen()..ausJson({'qualitaet': 'hoch'});
++      expect(o.qualitaet, Qualitaet.auto);
++      o.ausJson({'qualitaet': 'scharf'});
++      expect(o.qualitaet, Qualitaet.scharf);
++      o.ausJson({'qualitaet': 'gibtsnicht'});
++      expect(o.qualitaet, Qualitaet.scharf);
++    });
++  });
++
++  test('scharf: Bildschirme bestehen Paletten- und Blocktest (UI-Raster), Touch-Blick wirkt', () {
++    for (final (w, h) in const [(1280, 720), (2401, 1081), (1080, 2400)]) {
++      final spiel = Spiel(optionen: Optionen()..qualitaet = Qualitaet.scharf)..groesse(w, h);
++      expect(spiel.skala!.stufe, Qualitaet.scharf);
++      final e = Eingabe();
++      void pruefe(String name) {
++        spiel.tick(1 / 30, e);
++        final rgba = komponiere(spiel.welt, spiel.ui, spiel.skala!);
++        expect(countOffPalette(rgba), 0, reason: '$name $w×$h');
++        final k = spiel.skala!.kUi;
++        expect(blockTest(rgba, w, h, k, areaW: w ~/ k * k, areaH: h ~/ k * k).ratio, 1.0, reason: '$name $w×$h');
++      }
++
++      pruefe('Hauptmenü');
++      spiel.oeffne(OptionenBildschirm());
++      pruefe('Optionen');
++      spiel.wechsle(Erkundung());
++      pruefe('Erkundung');
++    }
+   });
+ 
+   test('Alle Bildschirme bestehen Paletten- und Blocktest (mehrere Geräte)', () {

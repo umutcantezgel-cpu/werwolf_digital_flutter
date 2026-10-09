@@ -1,0 +1,353 @@
+diff --git a/packages/burgstadt_spiel/lib/src/spiel.dart b/packages/burgstadt_spiel/lib/src/spiel.dart
+index 75e2ad1..464983b 100644
+--- a/packages/burgstadt_spiel/lib/src/spiel.dart
++++ b/packages/burgstadt_spiel/lib/src/spiel.dart
+@@ -76,7 +76,7 @@ class Spiel {
+     _spurMeshes.clear();
+   }
+   final Map<String, BereichGeometrie> _geometrie = {};
+-  late final List<IndexedTexture> texturen = [...baueAlleTexturen(), ...baueSpurTexturen()];
++  late final List<IndexedTexture> texturen = [...baueAlleWeltTexturen(), ...baueSpurTexturen()];
+ 
+   /// Spuren der Sichtschichten (Detektivblick) und ihre Meshes je Bereich/Phase.
+   late List<Spur> spuren = burgSpuren(stadt.bereiche);
+diff --git a/packages/burgstadt_spiel/lib/src/spuren_geometrie.dart b/packages/burgstadt_spiel/lib/src/spuren_geometrie.dart
+index e244549..46a7bda 100644
+--- a/packages/burgstadt_spiel/lib/src/spuren_geometrie.dart
++++ b/packages/burgstadt_spiel/lib/src/spuren_geometrie.dart
+@@ -15,7 +15,8 @@ List<IndexedTexture> baueSpurTexturen() {
+         px[y * n + x] = switch (zeilen[y][x]) { 'c' => c, 'h' => h, 'w' => w, _ => t };
+       }
+     }
+-    return IndexedTexture(n, n, px, maxLevels: 1);
++    // gezeichnet mit 32 Texel/m, für die Weltdichte texelverdoppelt (Migrationsbeleg 2)
++    return IndexedTexture.verdoppelt(IndexedTexture(n, n, px, maxLevels: 1));
+   }
+ 
+   return [
+@@ -87,7 +88,7 @@ Mesh? baueSpurenMesh(List<Spur> spuren, String bereich, int phase, String schich
+       SpurArt.verwischt => (0.6, 0.6),
+     };
+     final ca = math.cos(s.drehung), sa = math.sin(s.drehung);
+-    const uMax = 16.0;
++    const uMax = 16.0 * kDichteWelt / 32; // ganze Spurtextur auf dem Abziehbild
+     if (s.hoehe <= 0.02 || s.art == SpurArt.staub) {
+       // Bodenabziehbild, entlang der Drehung ausgerichtet
+       final y = s.hoehe + 0.015;
+diff --git a/packages/burgstadt_spiel/lib/src/welt_geometrie.dart b/packages/burgstadt_spiel/lib/src/welt_geometrie.dart
+index af06e5c..08a0e93 100644
+--- a/packages/burgstadt_spiel/lib/src/welt_geometrie.dart
++++ b/packages/burgstadt_spiel/lib/src/welt_geometrie.dart
+@@ -90,9 +90,9 @@ class BereichGeometrie {
+     final halb = entlangX ? (z1 - z0) / 2 : (x1 - x0) / 2;
+     final first = h + halb * 1.5;
+     final hang = (halb * halb + (first - h) * (first - h));
+-    final hv = math.sqrt(hang) * kTexelsPerMeter;
++    final hv = math.sqrt(hang) * kDichteWelt;
+     if (entlangX) {
+-      final zm = (z0 + z1) / 2, len = (x1 - x0) * kTexelsPerMeter;
++      final zm = (z0 + z1) / 2, len = (x1 - x0) * kDichteWelt;
+       var a = m.vertex(x0 - 0.2, h, z1 + 0.2, 0, hv, cold: k);
+       var b2 = m.vertex(x1 + 0.2, h, z1 + 0.2, len, hv, cold: k);
+       var c = m.vertex(x1 + 0.2, first, zm, len, 0, cold: k + 0.08);
+@@ -104,9 +104,9 @@ class BereichGeometrie {
+       e = m.vertex(x1 + 0.2, first, zm, 0, 0, cold: k);
+       m.quad(a, b2, c, e, dach);
+       for (final (gx, s1, s2) in [(x1, z1, z0), (x0, z0, z1)]) {
+-        final p = m.vertex(gx, h, s1, 0, (first - h) * kTexelsPerMeter, warm: w, cold: k);
+-        final q = m.vertex(gx, h, s2, (z1 - z0) * kTexelsPerMeter, (first - h) * kTexelsPerMeter, warm: w, cold: k);
+-        final tt = m.vertex(gx, first, zm, (z1 - z0) * kTexelsPerMeter / 2, 0, warm: w, cold: k);
++        final p = m.vertex(gx, h, s1, 0, (first - h) * kDichteWelt, warm: w, cold: k);
++        final q = m.vertex(gx, h, s2, (z1 - z0) * kDichteWelt, (first - h) * kDichteWelt, warm: w, cold: k);
++        final tt = m.vertex(gx, first, zm, (z1 - z0) * kDichteWelt / 2, 0, warm: w, cold: k);
+         m.triangle(p, q, tt, putz);
+       }
+       // Dachgauben-„Augen“: zwei dunkle Schlitze auf der Südseite
+@@ -116,7 +116,7 @@ class BereichGeometrie {
+         m.wall(ex - 0.45, ez, ex + 0.45, ez, ey, ey + 0.35, fenster, warm: 0, cold: k * 0.5);
+       }
+     } else {
+-      final xm = (x0 + x1) / 2, len = (z1 - z0) * kTexelsPerMeter;
++      final xm = (x0 + x1) / 2, len = (z1 - z0) * kDichteWelt;
+       var a = m.vertex(x1 + 0.2, h, z1 + 0.2, 0, hv, cold: k);
+       var b2 = m.vertex(x1 + 0.2, h, z0 - 0.2, len, hv, cold: k);
+       var c = m.vertex(xm, first, z0 - 0.2, len, 0, cold: k + 0.08);
+@@ -128,9 +128,9 @@ class BereichGeometrie {
+       e = m.vertex(xm, first, z0 - 0.2, 0, 0, cold: k);
+       m.quad(a, b2, c, e, dach);
+       for (final (gz, s1, s2) in [(z1, x0, x1), (z0, x1, x0)]) {
+-        final p = m.vertex(s1, h, gz, 0, (first - h) * kTexelsPerMeter, warm: w, cold: k);
+-        final q = m.vertex(s2, h, gz, (x1 - x0) * kTexelsPerMeter, (first - h) * kTexelsPerMeter, warm: w, cold: k);
+-        final tt = m.vertex(xm, first, gz, (x1 - x0) * kTexelsPerMeter / 2, 0, warm: w, cold: k);
++        final p = m.vertex(s1, h, gz, 0, (first - h) * kDichteWelt, warm: w, cold: k);
++        final q = m.vertex(s2, h, gz, (x1 - x0) * kDichteWelt, (first - h) * kDichteWelt, warm: w, cold: k);
++        final tt = m.vertex(xm, first, gz, (x1 - x0) * kDichteWelt / 2, 0, warm: w, cold: k);
+         m.triangle(p, q, tt, putz);
+       }
+     }
+@@ -213,12 +213,12 @@ class BereichGeometrie {
+           final mx = (x0 + x1) / 2, mz = (z0 + z1) / 2;
+           final (wu, ku) = licht(mx, 0.3, mz);
+           final (wo, ko) = licht(mx, h, mz);
+-          final u0 = (x * 7 + z * 3) % 4 * 16.0;
++          final u0 = (x * 7 + z * 3) % 4 * 0.5 * kDichteWelt; // Versatz in 0,5-m-Schritten
+           if (tuer != null) {
+             final th = math.min(tuer.legende.hoehe, h);
+             final tt = tex(tuer.legende.textur, TexturId.eichenTuer);
+             // Türblatt: Textur pro Kachel fortlaufend
+-            final tu = (dz != 0 ? (x - tuer.x0) : (z - tuer.z0)) * s * kTexelsPerMeter;
++            final tu = (dz != 0 ? (x - tuer.x0) : (z - tuer.z0)) * s * kDichteWelt;
+             waende.wall(x0, z0, x1, z1, 0, th, tt, warm: wu, cold: ku, warmTop: wo, coldTop: ko, u0: tu);
+             if (h > th) waende.wall(x0, z0, x1, z1, th, h, wandTex, warm: wo, cold: ko, u0: u0);
+           } else {
+@@ -270,9 +270,9 @@ class BereichGeometrie {
+           final cx = (x0 + x1) / 2, cz = (z0 + z1) / 2, top = l.hoehe + (x1 - x0) * 1.2;
+           final dach = TexturId.dachBiberschwanz.index;
+           for (final (ax, az, bx, bz) in [(x0, z1, x1, z1), (x1, z1, x1, z0), (x1, z0, x0, z0), (x0, z0, x0, z1)]) {
+-            final a = m.vertex(ax, l.hoehe, az, 0, (top - l.hoehe) * kTexelsPerMeter, cold: k + 0.05);
+-            final b2 = m.vertex(bx, l.hoehe, bz, (x1 - x0) * kTexelsPerMeter, (top - l.hoehe) * kTexelsPerMeter, cold: k + 0.05);
+-            final c = m.vertex(cx, top, cz, (x1 - x0) * kTexelsPerMeter / 2, 0, cold: k + 0.1);
++            final a = m.vertex(ax, l.hoehe, az, 0, (top - l.hoehe) * kDichteWelt, cold: k + 0.05);
++            final b2 = m.vertex(bx, l.hoehe, bz, (x1 - x0) * kDichteWelt, (top - l.hoehe) * kDichteWelt, cold: k + 0.05);
++            final c = m.vertex(cx, top, cz, (x1 - x0) * kDichteWelt / 2, 0, cold: k + 0.1);
+             m.triangle(a, b2, c, dach);
+           }
+         case 'kamin':
+diff --git a/packages/pixel_engine/lib/src/demo/demo_scene.dart b/packages/pixel_engine/lib/src/demo/demo_scene.dart
+index 8fa7660..8e31d09 100644
+--- a/packages/pixel_engine/lib/src/demo/demo_scene.dart
++++ b/packages/pixel_engine/lib/src/demo/demo_scene.dart
+@@ -87,8 +87,8 @@ class DemoScene {
+     final zm = (z0 + z1) / 2;
+     final top = y + rise;
+     // Dachflächen (Firstlinie West–Ost)
+-    final half = math.sqrt((zm - z0) * (zm - z0) + rise * rise) * kTexelsPerMeter;
+-    final len = (x1 - x0) * kTexelsPerMeter;
++    final half = math.sqrt((zm - z0) * (zm - z0) + rise * rise) * kDichteWelt;
++    final len = (x1 - x0) * kDichteWelt;
+     // Südseite
+     var a = b.vertex(x0, y, z1, 0, half, cold: 0.15);
+     var c = b.vertex(x1, y, z1, len, half, cold: 0.15);
+@@ -102,13 +102,13 @@ class DemoScene {
+     e = b.vertex(x1, top, zm, 0, 0, cold: 0.15);
+     b.quad(a, c, d, e, roof);
+     // Giebeldreiecke
+-    final gw = (z1 - z0) * kTexelsPerMeter;
+-    var p = b.vertex(x1, y, z1, 0, rise * kTexelsPerMeter, cold: 0.1);
+-    var q = b.vertex(x1, y, z0, gw, rise * kTexelsPerMeter, cold: 0.1);
++    final gw = (z1 - z0) * kDichteWelt;
++    var p = b.vertex(x1, y, z1, 0, rise * kDichteWelt, cold: 0.1);
++    var q = b.vertex(x1, y, z0, gw, rise * kDichteWelt, cold: 0.1);
+     var t = b.vertex(x1, top, zm, gw / 2, 0, cold: 0.12);
+     b.triangle(p, q, t, gable);
+-    p = b.vertex(x0, y, z0, 0, rise * kTexelsPerMeter, cold: 0.1);
+-    q = b.vertex(x0, y, z1, gw, rise * kTexelsPerMeter, cold: 0.1);
++    p = b.vertex(x0, y, z0, 0, rise * kDichteWelt, cold: 0.1);
++    q = b.vertex(x0, y, z1, gw, rise * kDichteWelt, cold: 0.1);
+     t = b.vertex(x0, top, zm, gw / 2, 0, cold: 0.12);
+     b.triangle(p, q, t, gable);
+   }
+diff --git a/packages/pixel_engine/lib/src/figur/baker.dart b/packages/pixel_engine/lib/src/figur/baker.dart
+index 6b97a93..6004c17 100644
+--- a/packages/pixel_engine/lib/src/figur/baker.dart
++++ b/packages/pixel_engine/lib/src/figur/baker.dart
+@@ -2,7 +2,7 @@ import 'dart:math' as math;
+ import 'dart:typed_data';
+ 
+ import '../palette.dart';
+-import '../raster/mesh.dart' show kTexelsPerMeter;
++import '../raster/mesh.dart' show kDichteFigur;
+ import '../raster/renderer.dart' show SpriteImage;
+ import 'figur.dart';
+ import 'mathe.dart';
+@@ -165,9 +165,9 @@ class FigurBaker {
+       rich[i * 3 + 2] = rz;
+     }
+     for (var py = 0; py < hoehe; py++) {
+-      final vy = (fussY - (py + 0.5)) / kTexelsPerMeter;
++      final vy = (fussY - (py + 0.5)) / kDichteFigur;
+       for (var px = 0; px < breite; px++) {
+-        final vx = (px + 0.5 - fussX) / kTexelsPerMeter;
++        final vx = (px + 0.5 - fussX) / kDichteFigur;
+         final (ox, oy, oz) = wi.punkt(vx, vy, 5);
+         var bestT = double.infinity;
+         _Prim? best;
+@@ -244,8 +244,8 @@ class FigurBaker {
+     for (final seite in const [-1.0, 1.0]) {
+       final (fx, fy, fz) = kopf.punkt(seite * 0.037 * s * kf, 0.118 * s * kf, 0.098 * s * kf);
+       final (vx, vy, vz) = w.punkt(fx, fy, fz);
+-      final px = (vx * kTexelsPerMeter + fussX).floor();
+-      final py = (fussY - vy * kTexelsPerMeter).floor();
++      final px = (vx * kDichteFigur + fussX).floor();
++      final py = (fussY - vy * kDichteFigur).floor();
+       if (px < 0 || py < 0 || px >= breite || py >= hoehe) continue;
+       final i = py * breite + px;
+       if (kopfFlag[i] == 0) continue;
+diff --git a/packages/pixel_engine/lib/src/kit/texturen.dart b/packages/pixel_engine/lib/src/kit/texturen.dart
+index e495ee0..ab6028d 100644
+--- a/packages/pixel_engine/lib/src/kit/texturen.dart
++++ b/packages/pixel_engine/lib/src/kit/texturen.dart
+@@ -1,4 +1,5 @@
+ import '../palette.dart';
++import '../raster/mesh.dart' show kDichteWelt;
+ import '../raster/texture.dart';
+ import 'werkzeug.dart';
+ 
+@@ -72,6 +73,18 @@ IndexedTexture baueTextur(TexturId id) => texturEintrag(id).bauer();
+ /// Alle Texturen; Index = `TexturId.index`.
+ List<IndexedTexture> baueAlleTexturen() => [for (final id in TexturId.values) baueTextur(id)];
+ 
++/// Textur in Weltdichte [kDichteWelt]: Bestand (32 Texel/m) texelverdoppelt, HD-Fassungen (64) direkt.
++IndexedTexture baueWeltTextur(TexturId id) {
++  final e = texturEintrag(id);
++  final t = e.bauer();
++  if (e.dichte == kDichteWelt) return t;
++  if (e.dichte * 2 == kDichteWelt) return IndexedTexture.verdoppelt(t);
++  throw StateError('Textur ${id.name}: Dichte ${e.dichte} passt nicht zur Weltdichte $kDichteWelt');
++}
++
++/// Alle Texturen in Weltdichte; Index = `TexturId.index` (für den Renderer).
++List<IndexedTexture> baueAlleWeltTexturen() => [for (final id in TexturId.values) baueWeltTextur(id)];
++
+ typedef _Bauer = IndexedTexture Function();
+ 
+ final List<_Bauer> _bauer = [
+diff --git a/packages/pixel_engine/lib/src/raster/mesh.dart b/packages/pixel_engine/lib/src/raster/mesh.dart
+index 0b42c71..62d7d09 100644
+--- a/packages/pixel_engine/lib/src/raster/mesh.dart
++++ b/packages/pixel_engine/lib/src/raster/mesh.dart
+@@ -1,11 +1,16 @@
+ import 'dart:math' as math;
+ import 'dart:typed_data';
+ 
+-/// Einheitliche Texel-Dichte für Welt und Figuren (Texel pro Meter).
+-const double kTexelsPerMeter = 32;
++/// Texel-Dichte der Welt (Texel pro Meter). Burgstadt HD: 64 (K-011); Bestandstexturen mit 32 Texel/m
++/// werden dafür texelverdoppelt (`baueWeltTextur`), so bleibt ihr Bild gleich (Migrationsbeleg 2).
++const double kDichteWelt = 64;
++
++/// Texel-Dichte der Figuren-Sprites (Texel pro Meter), getrennt von der Welt (E-011): 32 für den
++/// Vergleicher und Qualitätsstufen bis „mittel“; die zweite Dichte für „scharf“ folgt in P6-OPUS-01.
++const double kDichteFigur = 32;
+ 
+ /// Statische Geometrie: Dreiecke mit Texturkoordinaten (in Texeln) und
+-/// Vertex-Licht (warm/kalt, je 0..1). Welttexel-Dichte: [kTexelsPerMeter].
++/// Vertex-Licht (warm/kalt, je 0..1). Welttexel-Dichte: [kDichteWelt].
+ class Mesh {
+   final Float32List pos; // x,y,z je Vertex
+   final Float32List uv; // u,v je Vertex (Texel)
+@@ -55,15 +60,15 @@ class MeshBuilder {
+ 
+   /// Senkrechte Wand von (x0,z0) nach (x1,z1), Unterkante y0, Oberkante y1.
+   /// Sichtbar von der rechten Seite in Laufrichtung (Normale = links→rechts gedreht).
+-  /// Texel-Dichte [kTexelsPerMeter]; [u0]/[v0] verschieben die Textur.
++  /// Texel-Dichte [kDichteWelt]; [u0]/[v0] verschieben die Textur.
+   void wall(double x0, double z0, double x1, double z1, double y0, double y1, int texture,
+       {double warm = 0, double cold = 0, double u0 = 0, double v0 = 0, bool doubleSided = false,
+       double warmTop = -1, double coldTop = -1}) {
+     final len = _len(x1 - x0, z1 - z0);
+     final wt = warmTop < 0 ? warm : warmTop, ct = coldTop < 0 ? cold : coldTop;
+-    final a = vertex(x0, y0, z0, u0, v0 + (y1 - y0) * kTexelsPerMeter, warm: warm, cold: cold);
+-    final b = vertex(x1, y0, z1, u0 + len * kTexelsPerMeter, v0 + (y1 - y0) * kTexelsPerMeter, warm: warm, cold: cold);
+-    final c = vertex(x1, y1, z1, u0 + len * kTexelsPerMeter, v0, warm: wt, cold: ct);
++    final a = vertex(x0, y0, z0, u0, v0 + (y1 - y0) * kDichteWelt, warm: warm, cold: cold);
++    final b = vertex(x1, y0, z1, u0 + len * kDichteWelt, v0 + (y1 - y0) * kDichteWelt, warm: warm, cold: cold);
++    final c = vertex(x1, y1, z1, u0 + len * kDichteWelt, v0, warm: wt, cold: ct);
+     final d = vertex(x0, y1, z0, u0, v0, warm: wt, cold: ct);
+     quad(a, b, c, d, texture, doubleSided: doubleSided);
+   }
+@@ -79,10 +84,10 @@ class MeshBuilder {
+         final xb = xx + step > x1 ? x1 : xx + step;
+         double w(double x, double z) => warmAt == null ? warm : warmAt(x, z);
+         double c(double x, double z) => coldAt == null ? cold : coldAt(x, z);
+-        final a = vertex(xx, y, zz, xx * kTexelsPerMeter, zz * kTexelsPerMeter, warm: w(xx, zz), cold: c(xx, zz));
+-        final b = vertex(xb, y, zz, xb * kTexelsPerMeter, zz * kTexelsPerMeter, warm: w(xb, zz), cold: c(xb, zz));
+-        final cc = vertex(xb, y, zb, xb * kTexelsPerMeter, zb * kTexelsPerMeter, warm: w(xb, zb), cold: c(xb, zb));
+-        final d = vertex(xx, y, zb, xx * kTexelsPerMeter, zb * kTexelsPerMeter, warm: w(xx, zb), cold: c(xx, zb));
++        final a = vertex(xx, y, zz, xx * kDichteWelt, zz * kDichteWelt, warm: w(xx, zz), cold: c(xx, zz));
++        final b = vertex(xb, y, zz, xb * kDichteWelt, zz * kDichteWelt, warm: w(xb, zz), cold: c(xb, zz));
++        final cc = vertex(xb, y, zb, xb * kDichteWelt, zb * kDichteWelt, warm: w(xb, zb), cold: c(xb, zb));
++        final d = vertex(xx, y, zb, xx * kDichteWelt, zb * kDichteWelt, warm: w(xx, zb), cold: c(xx, zb));
+         if (up) {
+           quad(a, d, cc, b, texture);
+         } else {
+diff --git a/packages/pixel_engine/lib/src/raster/renderer.dart b/packages/pixel_engine/lib/src/raster/renderer.dart
+index 55d4371..e46a883 100644
+--- a/packages/pixel_engine/lib/src/raster/renderer.dart
++++ b/packages/pixel_engine/lib/src/raster/renderer.dart
+@@ -10,7 +10,7 @@ import 'mesh.dart';
+ import 'texture.dart';
+ 
+ /// Ein Sprite-Bild (indiziert, [kTransparent] = durchsichtig) mit Fußpunkt.
+-/// Texel-Dichte wie die Welt: [kTexelsPerMeter].
++/// Texel-Dichte [dichte] (Texel pro Meter; Figuren [kDichteFigur]).
+ class SpriteImage {
+   final int width;
+   final int height;
+@@ -23,7 +23,10 @@ class SpriteImage {
+   late final List<int> _mw = [for (var i = 0; i < _mips.length; i++) math.max(1, width >> i)];
+   late final List<int> _mh = [for (var i = 0; i < _mips.length; i++) math.max(1, height >> i)];
+ 
+-  SpriteImage(this.width, this.height, this.pixels, {required this.footX, required this.footY});
++  /// Texel pro Meter dieses Sprites.
++  final double dichte;
++
++  SpriteImage(this.width, this.height, this.pixels, {required this.footX, required this.footY, this.dichte = kDichteFigur});
+ 
+   List<Uint8List> _buildMips() {
+     final out = <Uint8List>[pixels];
+@@ -381,8 +384,9 @@ class Renderer {
+     final gFog = groundFog;
+     final dith = _dith;
+     final lut = LightTable.levelLut;
+-    // Mip-Schwellen nach Tiefe: Texel pro Bildpixel = Dichte * z / focal
+-    final m1 = focal / kTexelsPerMeter * 2, m2 = m1 * 2, m3 = m2 * 2;
++    // Mip-Schwellen nach Tiefe: Texel pro Bildpixel = Dichte * z / focal; Stufe 0 bis 4 (Cap 4 seit
++    // Dichte 64: dieselbe Stufe des Bestands liegt eine Mip-Stufe tiefer, Migrationsbeleg 2)
++    final m1 = focal / kDichteWelt * 2, m2 = m1 * 2, m3 = m2 * 2, m4 = m3 * 2;
+     final levels = tex.levels;
+     final nLv = levels.length;
+     var written = 0;
+@@ -426,7 +430,7 @@ class Renderer {
+       for (var x = xStart; x <= xEnd; x++, idx++) {
+         if (iz > dep[idx]) {
+           final z = 1 / iz;
+-          var lv = z < m1 ? 0 : (z < m2 ? 1 : (z < m3 ? 2 : 3));
++          var lv = z < m1 ? 0 : (z < m2 ? 1 : (z < m3 ? 2 : (z < m4 ? 3 : 4)));
+           if (lv >= nLv) lv = nLv - 1;
+           final tw = tex.widths[lv], th = tex.heights[lv];
+           final tu = ((uz * z).floor() >> lv) & (tw - 1);
+@@ -480,7 +484,7 @@ class Renderer {
+     final iz = 1 / vz;
+     final sx = cam.cx + _tmp[0] * cam.focal * iz;
+     final sy = cam.cy - _tmp[1] * cam.focal * iz;
+-    final scale = cam.focal * iz / kTexelsPerMeter; // Bildpixel pro Texel
++    final scale = cam.focal * iz / s.dichte; // Bildpixel pro Texel
+     final left = sx - s.footX * scale, top = sy - s.footY * scale;
+     final right = left + s.width * scale, bottom = top + s.height * scale;
+     final w = fb.width, h = fb.height;
+diff --git a/packages/pixel_engine/lib/src/raster/texture.dart b/packages/pixel_engine/lib/src/raster/texture.dart
+index a1b01de..1b85b6b 100644
+--- a/packages/pixel_engine/lib/src/raster/texture.dart
++++ b/packages/pixel_engine/lib/src/raster/texture.dart
+@@ -48,6 +48,20 @@ class IndexedTexture {
+     return a;
+   }
+ 
++  /// Texelverdoppelte Fassung (jede Seite ×2, nearest): Bestand mit 32 Texel/m für die Welt mit
++  /// 64 Texel/m. Mip-Stufe k + 1 ist exakt Mip-Stufe k von [t]; die Stufenzahl bleibt gleich.
++  factory IndexedTexture.verdoppelt(IndexedTexture t) {
++    final w = t.width, h = t.height, src = t.levels[0];
++    final px = Uint8List(w * h * 4);
++    for (var y = 0; y < 2 * h; y++) {
++      final zeile = (y >> 1) * w, ziel = y * 2 * w;
++      for (var x = 0; x < 2 * w; x++) {
++        px[ziel + x] = src[zeile + (x >> 1)];
++      }
++    }
++    return IndexedTexture(2 * w, 2 * h, px, maxLevels: t.levels.length);
++  }
++
+   /// Einfarbige Textur.
+   factory IndexedTexture.solid(int color, {int size = 8}) =>
+       IndexedTexture(size, size, Uint8List(size * size)..fillRange(0, size * size, color));

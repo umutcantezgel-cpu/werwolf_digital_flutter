@@ -1,0 +1,11 @@
+SKALA Welt 320x180 ×4 · UI 640x360 ×2
+Test 640x360 (erzwungen) · Referenz 2560x1440 · 9 Bilder je Szene · Schritt je Bild 0,025 m
+SZENE A-Oberstadt · Bereich stadt (Marke b, längste freie Richtung) · x 80,25 · z 11,25 · yaw 1,5708 rad · Sicht 53,7 m · Boden bis 46,2 m · Fernpixel 8282
+FLIMMERN A-Oberstadt · Boden 42860 · Wechsel Test 139956 · Referenz 134896 · Überschuss 0,038 · FERNE 0,230
+SZENE B-Innenraum · Bereich innen-kirche (Marke t, Blick zur Raummitte) · x 5,75 · z 9,25 · yaw -1,5120 rad · Sicht 7,2 m · Boden bis 8,8 m · Fernpixel 2508
+FLIMMERN B-Innenraum · Boden 22311 · Wechsel Test 40301 · Referenz 38765 · Überschuss 0,040 · FERNE 0,300
+SZENE C-Burghof · Bereich hof (Marke b, längste freie Richtung) · x 7,75 · z 7,25 · yaw 3,5343 rad · Sicht 7,8 m · Boden bis 8,7 m · Fernpixel 4234
+FLIMMERN C-Burghof · Boden 35726 · Wechsel Test 93033 · Referenz 91508 · Überschuss 0,017 · FERNE 0,300
+SZENE D-Oberstadt-2 · Bereich stadt (Marke vor-H-063, längste freie Richtung) · x 143,75 · z 69,75 · yaw 3,1416 rad · Sicht 60,0 m · Boden bis 46,2 m · Fernpixel 8169
+FLIMMERN D-Oberstadt-2 · Boden 40383 · Wechsel Test 100971 · Referenz 98054 · Überschuss 0,030 · FERNE 0,177
+FLIMMERN v2 · Überschuss 0,030 · FERNE 0,232 · Welt 640x360
