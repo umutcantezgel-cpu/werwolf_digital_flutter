@@ -4,11 +4,13 @@ import 'package:burgstadt_core/burgstadt_core.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
 import 'bildschirme/hauptmenue.dart';
+import 'bildschirme/wlan.dart';
 import 'optionen.dart';
 import 'skalierung.dart';
 import 'ton.dart';
 import 'fallsitzung.dart';
 import 'figuren_lager.dart';
+import 'fledermaeuse.dart';
 import 'spuren_geometrie.dart';
 import 'texte.dart';
 import 'welt_geometrie.dart';
@@ -123,6 +125,9 @@ class Spiel {
 
   BereichGeometrie geometrie(String id) => _geometrie.putIfAbsent(id, () => BereichGeometrie(stadt.bereiche[id]!));
 
+  /// Netz-Anbindung für das WLAN-Spiel (App-Hülle setzt sie; ohne sie kein WLAN-Spiel).
+  WlanAnbindung? wlan;
+
   /// Tonausgabe (App-Hülle setzt die echte).
   Tonausgabe ton = MerkendeTonausgabe();
 
@@ -203,7 +208,11 @@ class Spiel {
   // ------------------------------------------------------------ Bild
 
   /// Ein Bild: Eingabe auswerten, Welt und UI zeichnen. Leert die Einmal-Ereignisse.
+  /// Fledermäuse über der Oberstadt (nur im Bereich `stadt` gezeichnet).
+  Fledermaeuse? _fledermaeuse;
+
   void tick(double dt, Eingabe e) {
+    _fledermaeuse?.tick(dt);
     if (skala == null) return;
     dt = dt.clamp(0.0, 0.1);
     zeit += dt;
@@ -291,7 +300,7 @@ class Spiel {
     if (s != null) {
       final c = r.camera;
       for (final f in s.sim.figuren.values) {
-        if (f.id == 'DET' || f.bereich != id) continue;
+        if (f.id == s.ich || f.bereich != id) continue;
         final richtung = FigurenLager.richtung(f.yaw, f.x, f.z, c.x, c.z);
         final bild = s.figuren.bild(f.id, f.animation, f.animZeit, richtung);
         if (bild == null) continue;
@@ -299,6 +308,7 @@ class Spiel {
         r.drawSprite(bild, f.x, 0, f.z, warm: w, cold: k);
       }
     }
+    if (id == 'stadt') (_fledermaeuse ??= Fledermaeuse(b)).zeichne(r);
     if (blick) {
       // Detektivblick: Welt entsättigen, dann Spuren leuchtend darüber (mit Tiefentest)
       final c = welt.color;

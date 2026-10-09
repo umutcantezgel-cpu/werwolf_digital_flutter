@@ -21,6 +21,8 @@ dependencies:
     path: packages/burgstadt_core
   burgstadt_spiel:
     path: packages/burgstadt_spiel
+  room_host:
+    path: packages/room_host
   pixel_engine:
     path: packages/pixel_engine
   provider: ^6.1.5+1

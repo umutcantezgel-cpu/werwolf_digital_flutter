@@ -4,7 +4,8 @@ import 'dart:io';
 import 'package:pixel_engine/pixel_engine.dart';
 import 'package:test/test.dart';
 
-/// Abnahme der Figurenkarten (Auftrag A-601b): 65 Karten aus rollen.json (BW, R01–R20) und
+/// Abnahme der Figurenkarten (Auftrag A-601b): 66 Karten aus rollen.json (BW, R01–R20), der Detektiv (DET,
+/// erfunden; im WLAN-Spiel für die Mitspieler sichtbar) und
 /// bewohner.json (B01–B44), Teile nur aus kTeileBasis, teile_koepfe.json, teile_kleidung.json.
 Map<String, dynamic> _lies(String pfad) => jsonDecode(File(pfad).readAsStringSync()) as Map<String, dynamic>;
 
@@ -22,10 +23,11 @@ void main() {
   final baker = FigurBaker(bibliothek);
   final stehen = kAnimationen['stehen']!.first;
 
-  test('Datei: Version 1, 65 Karten in Reihenfolge BW, R01 … R20, B01 … B44', () {
+  test('Datei: Version 1, 66 Karten in Reihenfolge BW, DET, R01 … R20, B01 … B44', () {
     expect(daten['version'], 1);
     final erwartet = [
       'BW',
+      'DET',
       for (var i = 1; i <= 20; i++) 'R${i.toString().padLeft(2, '0')}',
       for (var i = 1; i <= 44; i++) 'B${i.toString().padLeft(2, '0')}',
     ];
@@ -147,6 +149,7 @@ void main() {
     final bewohner = (_lies('../burgstadt_core/data/stadt/bewohner.json')['bewohner'] as List).cast<Map<String, dynamic>>();
     final quelle = {for (final f in [...rollen, ...bewohner]) f['id'] as String: f};
     for (final k in karten) {
+      if (k.id == 'DET') continue; // erfunden (kein Kanon-Aussehen: das Geburtstagskind spielt der Mensch)
       final q = quelle[k.id];
       expect(q, isNotNull, reason: '${k.id}: keine Quelle');
       expect(k.name, q!['name'], reason: '${k.id}: name');

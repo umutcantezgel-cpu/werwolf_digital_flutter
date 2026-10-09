@@ -8,3 +8,16 @@
 - 01:00 Phase 2: Fall solo spielbar von Phase 1 bis zum Ende (Spieltest headless und im Browser), Figuren als Sprites mit Sprechblasen, Fallakte/Lagerunde/Anklage/Ende. Marktplatz der Oberstadt (ab Fall-Phase 2 über das Burgtor), 13 Häuser mit Innenräumen aus Welle 3 (12 Fall-Orte + 30 Wohn-/Werkstatträume geliefert). Haiku-Welle 3 läuft noch: 65 Figurenkarten.
 - 01:38 Phase 3: Stadtgenerator fertig (156 Häuser, 53 Innenräume, Mauer, Tore, Gassen, Kirchenburg; alle Türen erreichbar, deterministisch) und in App/Spiel eingebunden; „zu dunkle Stadt“ war ein Messfehler der Foto-Werkzeuge (Einblendung). Phase 4 begonnen: 24 Stadt-Hinweise an den 12 Fall-Orten (A-401a) im Overlay, Stationen in allen Fall-Orten. Sichtprüfung der Figuren (A-605, zwei Prüfer): Abnahme nein → Bewohnerkarten aus den Datensätzen neu erzeugt (Generator mit Unterscheidbarkeits-Maß), Stiefelregel verschärft. A-402a (Rollen-Fähigkeiten) geliefert, Einbau folgt.
 - 01:57 Phase 3/4/6: 44 Stadtbewohner leben nach ihrem Nachtplan (schlafen, arbeiten, stehen in der Tür, streifen durchs Viertel). Erkundungsbots (A-307a) erreichen alle 134 Türen zu Fuß, 0 Steckenbleiber. Tutorial (16 Schritte) und Erzähler (Uhrturm, 19 Ortsansagen) im Spiel (A-602a). Rollen-Fähigkeiten aller 20 Rollen mit exklusiven Sichtschichten und Täterinnen-Gegenspiel „verwischen“ (Z-05). Zweite Sichtprüfung der Figuren läuft (Prüfer 3: keine Regelverstöße mehr, aber 7 starke Paare durch gleiche Datensatz-Farben → Nachbesserung folgt). Porträts (A-601c) in Arbeit.
+- 03:38 (Der Stundeneintrag gegen 03:00 fehlt; dieser Eintrag fasst 02:00–03:38 zusammen.) Phase 5/6:
+  - **Mehrspieler im lokalen Netz:** Kern steht (room_host + BurgstadtRaum, Simulation 4/8/20 über echte WebSockets ohne Abweichungen, Teilen < 1 s), Speichern/Fortsetzen (Z-11).
+  - **App:** WLAN-Spiel eingebunden: Lobby mit Code und Adresse, Gastgeber ist der Detektiv, Gäste übernehmen Rollen, Lagerunde und Anklage im Netz, Detektiv als eigene Figur.
+  - **Fairness-Löser:** N = 4…20 abgesichert (A-404a).
+  - **Belegfotos Z-02:** 26 Bilder je Format, Palette und Blocktest 100 % (A-606a).
+  - **Figuren:**
+    - Sichtprüfer 7 und 8: 0 Paare.
+    - B16 und B08 korrigiert.
+    - Unterscheidbarkeit nach dem Maß: 0 Paare.
+  - **Inhalt:** Gegenprüfer-Befunde (A-702b) umgesetzt; zweite Runde (A-702c) liegt vor.
+  - **Leistung:** Die Back-Spitze von 54 ms war ein Ausreißer unter Last. Drei Läufe danach lagen bei 7–8 ms (× 4 < 50).
+  - **Stadtkarte mit Schnellreise, Kompass, Fledermäuse** (A-604a, A-306a).
+  - **Bedienung:** Fallakte mit Tastatur und Gamepad bedienbar, Teilen an Einzelne in der Oberfläche, Tutorial-Texte an die echte Steuerung angepasst (Befunde aus A-801a).

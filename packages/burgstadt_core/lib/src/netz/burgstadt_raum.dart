@@ -272,6 +272,11 @@ class BurgstadtRaum {
       'wissen': r == null ? const [] : (f.wissen[r]!.toList()..sort()),
       'akte': f.akte.toList()..sort(),
       'faeden': [for (final x in f.faeden) [x.$1, x.$2]],
+      // Für den Spiegel beim Gast: Detektiv-Wahlen sind am Tisch öffentlich, von den
+      // Rollen-Entscheidungen nur, welche schon gefallen sind (nicht die gewählte Option)
+      'detektivWahl': f.detektivWahl,
+      'rollenEntschieden': f.rollenWahl.keys.toList()..sort(),
+      'angeklagt': f.angeklagt,
       // Interessenfilter: nur Figuren im eigenen Bereich
       'figuren': [
         for (final o in s.figuren.values)

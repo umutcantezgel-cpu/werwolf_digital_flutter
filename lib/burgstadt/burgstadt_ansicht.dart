@@ -13,6 +13,7 @@ import 'frame_sink.dart';
 import 'gamepad_eingabe.dart';
 import 'tasten.dart';
 import 'ton_audioplayers.dart';
+import 'wlan_app.dart';
 
 /// Vollbild-Pixelansicht des Spiels: Takt, Bildausgabe (ganzzahlig skaliert in
 /// physischen Pixeln, ohne Glättung) und Eingabe (Touch, Maus, Tastatur).
@@ -61,6 +62,7 @@ class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerPr
     spiel.ton = _ton;
     spiel.starteTon();
     spiel.spielstand = PrefsSpielstand();
+    spiel.wlan = AppWlan();
     ladeSpielDaten(spiel).then((_) async {
       spiel.letzterStand = await spiel.spielstand!.lade();
       if (!mounted) return;
@@ -135,6 +137,15 @@ class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerPr
   }
 
   KeyEventResult _taste(FocusNode node, KeyEvent e) {
+    // Texteingabe (WLAN: Adresse, Code, Name) – zusätzlich zur Spielsteuerung
+    if (e is KeyDownEvent || e is KeyRepeatEvent) {
+      final c = e.character;
+      if (e.logicalKey == LogicalKeyboardKey.backspace) {
+        eingabe.textLoeschen = true;
+      } else if (c != null && c.length == 1 && c.codeUnitAt(0) >= 0x20) {
+        eingabe.text += c;
+      }
+    }
     final tasten = tastenFuer(e.logicalKey);
     if (tasten.isEmpty) return KeyEventResult.ignored;
     for (final t in tasten) {

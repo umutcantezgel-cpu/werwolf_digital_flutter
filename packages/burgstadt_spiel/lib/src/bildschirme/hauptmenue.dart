@@ -5,6 +5,7 @@ import 'package:pixel_engine/pixel_engine.dart';
 import '../spiel.dart';
 import 'erkundung.dart';
 import 'optionen_bildschirm.dart';
+import 'wlan.dart';
 
 /// Hauptmenü über der nächtlichen Stadt (Kamera kreist langsam).
 class Hauptmenue extends Bildschirm {
@@ -73,8 +74,7 @@ class Hauptmenue extends Bildschirm {
           spiel.wechsle(Erkundung(sitzung: s));
         }
       case 'Im WLAN spielen':
-        spiel.beiAktion?.call('wlan');
-        hinweis ??= 'WLAN-Spiel: siehe Mehrspieler-Menü der App.';
+        spiel.oeffne(WlanBildschirm());
       case 'Optionen':
         spiel.oeffne(OptionenBildschirm());
       case 'Klassische Fälle':

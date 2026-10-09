@@ -60,6 +60,9 @@ if [ -d packages/burgstadt_spiel ]; then
   step "Ebene 3/5 · Spieltest: Fall solo über die echten Bildschirme bis zum Ende (Fotos geprüft)"
   (cd packages/burgstadt_spiel && dart run bin/spieltest.dart "$FOTOS" 4 2>&1 | filter | grep -E "Ende:|SPIELTEST")
   (cd packages/burgstadt_spiel && dart run bin/spieltest.dart "$FOTOS" 12 1080 2400 2>&1 | filter | grep -E "SPIELTEST")
+  step "Ebene 5 · Pixel (Z-02): Belegfotos – alle Menüs, sechs Viertel, zehn Innenräume, quer und hoch"
+  (cd packages/burgstadt_spiel && dart run bin/belegfotos.dart "$FOTOS" 1280 720 2>&1 | filter | grep -E "BELEGFOTOS")
+  (cd packages/burgstadt_spiel && dart run bin/belegfotos.dart "$FOTOS" 1080 2400 2>&1 | filter | grep -E "BELEGFOTOS")
   step "Ebene 5 · Pixel: Oberstadt-Ansichten (Generator, Palette + Blocktest, Bildzeit)"
   (cd packages/burgstadt_spiel && dart run bin/stadtfotos.dart "$FOTOS" 2>&1 | filter | tail -5)
 fi
@@ -81,6 +84,9 @@ if [ "${1:-}" != "schnell" ]; then
     case "$f" in *desktop*) k=2 ;; *) k=3 ;; esac
     (cd packages/pixel_engine && dart run bin/pixel_pruef.dart "$f" "$k" 2>&1 | filter)
   done
+  step "Ebene 7 · Leistung (Z-09): AOT, 20 Spielminuten, Faktor 4"
+  LEI="$(mktemp -d)"
+  (cd packages/burgstadt_spiel && dart compile exe bin/leistung.dart -o "$LEI/leistung" 2>&1 | filter | tail -1 && "$LEI/leistung" 20 2>&1 | filter | tee "$LEI/ergebnis.txt" | grep -E "Nachladespitzen|Spiellogik|Speicher|Budget|LEISTUNG")
   step "Ebene 11 · Mordakte simulate"
   (cd packages/mordakte_core && dart run bin/simulate.dart alle 1 2 2>&1 | filter | grep "Σ")
 fi

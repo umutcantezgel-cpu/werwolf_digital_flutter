@@ -25,6 +25,9 @@ class Fallsitzung {
   /// Gast: schickt eine Nachricht an den Gastgeber.
   void Function(Map<String, Object?> nachricht)? senden;
 
+  /// Im WLAN-Spiel: Raum schließen bzw. Verbindung trennen (beim Verlassen der Partie).
+  void Function()? beenden;
+
   /// Gast: offene eigene Rollen-Entscheidungen (vom Gastgeber) und letzte Mitspielerliste.
   List<Map<String, Object?>> offeneEntscheidungen = const [];
   List<Map<String, Object?>> mitspieler = const [];
@@ -91,6 +94,42 @@ class Fallsitzung {
     }
     final s = Fallsitzung(fall, sim, lager, seed: seed, tempo: tempo);
     s._uebernimm(start);
+    return s;
+  }
+
+  /// Gastgeber im WLAN-Spiel: Fall und Simulation gehören dem Raum (maßgeblich); diese
+  /// Sitzung zeigt sie aus der Sicht des eigenen Teilnehmers [spielerId].
+  factory Fallsitzung.imRaum(BurgstadtRaum raum, String spielerId, Map<String, Teil> teile, Map<String, Figurenkarte> karten) {
+    final lager = FigurenLager(teile);
+    final s = Fallsitzung(raum.fall!, raum.sim!, lager, seed: raum.seed, tempo: raum.tempo)
+      ..modus = Modus.gastgeber
+      ..raum = raum
+      ..spielerId = spielerId
+      ..ich = raum.rolleVon[spielerId] ?? FallZustand.detektiv;
+    for (final id in [FallZustand.detektiv, 'BW', ...s.fall.rollen, ...s.sim.bewohner.keys]) {
+      final k = karten[id];
+      if (k != null && id != s.ich) lager.karte(k);
+    }
+    return s;
+  }
+
+  /// Gast im WLAN-Spiel: ein lokaler Spiegel (Fall + Figuren), den [spiegele] mit dem Zustand
+  /// des Gastgebers füllt; Aktionen gehen über [senden] an den Gastgeber.
+  factory Fallsitzung.alsGast(FallDaten daten, Welt welt, Map<String, Object?> zustand, Map<String, Teil> teile,
+      Map<String, Figurenkarte> karten,
+      {List<Map<String, dynamic>> bewohner = const [], List<Map<String, dynamic>> haeuser = const []}) {
+    final fall = FallZustand(daten, (zustand['n'] as num).toInt())..starte();
+    final sim = Simulation(welt, fall, bewohnerDaten: bewohner, haeuser: haeuser);
+    sim.abholen();
+    final lager = FigurenLager(teile);
+    final s = Fallsitzung(fall, sim, lager)
+      ..modus = Modus.gast
+      ..ich = zustand['rolle'] as String;
+    for (final id in [FallZustand.detektiv, 'BW', ...fall.rollen, ...sim.bewohner.keys]) {
+      final k = karten[id];
+      if (k != null && id != s.ich) lager.karte(k);
+    }
+    s.spiegele(zustand);
     return s;
   }
 
@@ -198,10 +237,12 @@ class Fallsitzung {
   // ------------------------------------------------------------------ Netz: Empfang
 
   void _empfangeEreignisse(List<Map<String, Object?>> es) {
-    _uebernimm([
+    final neu = [
       for (final e in es)
         if (e['art'] != 'texte') Ereignis.ausJson(e.cast<String, dynamic>()),
-    ]);
+    ];
+    if (modus == Modus.gast) fall.protokoll.addAll(neu); // Gastgeber: der Raum führt das Protokoll
+    _uebernimm(neu);
   }
 
   /// Gast: Nachricht vom Gastgeber (`zustand` oder `ereignisse`).
@@ -230,6 +271,14 @@ class Fallsitzung {
     f.faeden
       ..clear()
       ..addAll([for (final x in z['faeden'] as List) ((x as List)[0] as String, x[1] as String)]);
+    f.detektivWahl
+      ..clear()
+      ..addAll({for (final e in ((z['detektivWahl'] as Map?) ?? const {}).entries) e.key as String: e.value as String});
+    // Welche Rollen-Entscheidungen gefallen sind (die Option bleibt beim Gastgeber)
+    f.rollenWahl
+      ..clear()
+      ..addAll({for (final id in (z['rollenEntschieden'] as List?) ?? const []) id as String: -1});
+    f.angeklagt = z['angeklagt'] as String?;
     offeneEntscheidungen = [for (final e in (z['entscheidungen'] as List?) ?? const []) (e as Map).cast<String, Object?>()];
     mitspieler = [for (final m in (z['mitspieler'] as List?) ?? const []) (m as Map).cast<String, Object?>()];
     final gesehen = <String>{ich};

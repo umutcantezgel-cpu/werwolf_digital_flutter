@@ -40,8 +40,8 @@ void main() {
     for (final k in karten) k.id: [for (final a in Ausdruck.values) portraet(k, a, bibliothek: bibliothek)],
   };
 
-  test('65 Karten × 4 Ausdrücke: 64×64, Pixel < 64 oder 255, je Bild mindestens 1500 sichtbare Pixel', () {
-    expect(karten, hasLength(65));
+  test('66 Karten × 4 Ausdrücke: 64×64, Pixel < 64 oder 255, je Bild mindestens 1500 sichtbare Pixel', () {
+    expect(karten, hasLength(66));
     final befunde = <String>[];
     for (final k in karten) {
       for (final s in bilder[k.id]!) {

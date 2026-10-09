@@ -8,7 +8,7 @@
       "text": "Du bist das Geburtstagskind. Der Strom ist weg, das Gewölbe liegt im Dunkeln. Sieh dich in Ruhe um.",
       "eingabe": {
         "touch": "Linker Daumen laufen, rechter Daumen umsehen. Menü über den Knopf rechts.",
-        "tastatur": "WASD oder Pfeile laufen, Maus umsehen, Esc öffnet das Menü.",
+        "tastatur": "W/S vor und zurück, A/D seitwärts, Pfeile ← → drehen, Maus umsehen, Esc öffnet das Menü.",
         "gamepad": "Linker Stick laufen, rechter Stick umsehen, Start öffnet das Menü."
       }
     },
@@ -51,9 +51,9 @@
       "titel": "Ein Gespräch führen",
       "text": "Hör zu, frag nach und merk dir jede Antwort. In dieser Nacht vergisst niemand etwas, das man ihm sagt.",
       "eingabe": {
-        "touch": "Knopf Aktion rechts antippen, dann eine Antwort wählen.",
-        "tastatur": "E für Aktion und Antwort.",
-        "gamepad": "A für Aktion und Antwort."
+        "touch": "Vor jemandem stehen und den Knopf „Reden“ antippen. Was du hörst, landet in deiner Akte.",
+        "tastatur": "Vor jemandem stehen und E drücken.",
+        "gamepad": "Vor jemandem stehen und A drücken."
       }
     },
     {
@@ -106,9 +106,9 @@
       "titel": "Hinweise heften",
       "text": "Ein Hinweis, der dir wichtig ist, heftest du an die Fallakte. Dann bleibt er griffbereit.",
       "eingabe": {
-        "touch": "In der Akte den Hinweis wählen und heften.",
-        "tastatur": "Tab öffnet die Akte, dort den Hinweis heften.",
-        "gamepad": "Select öffnet die Akte, dort den Hinweis heften."
+        "touch": "In der Akte unter „Meine Notizen“ den Hinweis wählen und „An die Akte heften“ tippen.",
+        "tastatur": "Tab öffnet die Akte. A/D wechselt den Reiter, W/S wählt, Enter heftet.",
+        "gamepad": "Select öffnet die Akte. Steuerkreuz links/rechts wechselt den Reiter, hoch/runter wählt, A heftet."
       }
     },
     {
@@ -117,20 +117,20 @@
       "titel": "Den Faden spinnen",
       "text": "Zwei Hinweise, die zusammengehören, verbindest du zu einem Faden. So siehst du, was zu was passt.",
       "eingabe": {
-        "touch": "In der Akte zwei Hinweise für den Faden wählen.",
-        "tastatur": "Tab öffnet die Akte, dort zwei Hinweise verbinden.",
-        "gamepad": "Select öffnet die Akte, dort zwei Hinweise verbinden."
+        "touch": "In der Fallakte „Faden ziehen“ tippen, dann den zweiten Hinweis wählen.",
+        "tastatur": "In der Fallakte mit Enter den ersten Hinweis wählen, dann den zweiten.",
+        "gamepad": "In der Fallakte mit A den ersten Hinweis wählen, dann den zweiten."
       }
     },
     {
       "id": "T12",
       "ausloeser": "teilen",
       "titel": "Hinweise teilen",
-      "text": "Du kannst einen Hinweis mit der Runde teilen. Dann sehen ihn alle, und ihr denkt gemeinsam weiter.",
+      "text": "Einen Hinweis kannst du gezielt einer Person geben oder an die Fallakte heften. In der Akte sehen ihn alle, und ihr denkt gemeinsam weiter.",
       "eingabe": {
-        "touch": "In der Akte den Hinweis wählen und teilen.",
-        "tastatur": "Tab öffnet die Akte, dort den Hinweis teilen.",
-        "gamepad": "Select öffnet die Akte, dort den Hinweis teilen."
+        "touch": "In „Meine Notizen“ „Teilen mit …“ tippen und die Person wählen.",
+        "tastatur": "In „Meine Notizen“ Q drücken, mit W/S die Person wählen, Enter teilt.",
+        "gamepad": "In „Meine Notizen“ Y drücken, mit dem Steuerkreuz die Person wählen, A teilt."
       }
     },
     {
@@ -139,9 +139,9 @@
       "titel": "Die Lagerunde",
       "text": "Die Runde kommt zusammen. Achte auf Stimmen, Blicke und Pausen, bevor du eine Antwort gibst.",
       "eingabe": {
-        "touch": "Knopf Aktion drücken, wenn eine Antwort gefragt ist.",
-        "tastatur": "E, wenn eine Antwort gefragt ist.",
-        "gamepad": "A, wenn eine Antwort gefragt ist."
+        "touch": "Die gewünschte Antwort antippen.",
+        "tastatur": "W/S wählt eine Antwort, Enter bestätigt.",
+        "gamepad": "Steuerkreuz wählt eine Antwort, A bestätigt."
       }
     },
     {
@@ -172,9 +172,9 @@
       "titel": "Die Anklage",
       "text": "Am Morgen wird aufgelöst. Du wählst, wen du anklagst, und die Nacht findet ihr Ende. Wähle mit Bedacht.",
       "eingabe": {
-        "touch": "Knopf Aktion drücken, um zu wählen.",
-        "tastatur": "E zum Wählen.",
-        "gamepad": "A zum Wählen."
+        "touch": "Die Person antippen, die du anklagst.",
+        "tastatur": "W/S wählt, Enter klagt an.",
+        "gamepad": "Steuerkreuz wählt, A klagt an."
       }
     }
   ]

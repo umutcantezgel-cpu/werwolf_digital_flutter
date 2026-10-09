@@ -20,6 +20,11 @@ class AnklageBildschirm extends Bildschirm {
   void betreten(Spiel spiel) => spiel.ton.schleife('musik', 'musik_morgengrauen', lautstaerke: 0.5);
 
   @override
+  void tick(Spiel spiel, double dt, Eingabe e) {
+    if (s.imNetz) s.tick(dt); // Gastgeber: Ereignisse abholen; der Raum entscheidet
+  }
+
+  @override
   void zeichneUi(Spiel spiel, PixelUi ui) {
     final w = ui.fb.width, h = ui.fb.height;
     final f = s.fall;
@@ -40,17 +45,24 @@ class AnklageBildschirm extends Bildschirm {
         if (y > p.unten - 40) break;
         y += ui.absatz(t, Rechteck(p.x + 8, y, p.w - 16, p.unten - y - 30)) + 3;
       }
-      if (ui.knopf(Rechteck(w ~/ 2 - 60, p.unten - 24, 120, 18), 'Zum Hauptmenü')) spiel.wechsle(Hauptmenue());
+      if (ui.knopf(Rechteck(w ~/ 2 - 60, p.unten - 24, 120, 18), 'Zum Hauptmenü')) {
+        s.beenden?.call(); // WLAN-Raum schließen bzw. Verbindung trennen
+        spiel.wechsle(Hauptmenue());
+      }
       return;
     }
     ui.text('Eingrenzung', p.x + 6, y, farbe: UiFarbe.akzent);
     y += ui.zeilenHoehe + 2;
     y += ui.absatz(f.eingrenzungsText, Rechteck(p.x + 8, y, p.w - 16, 100)) + 8;
+    if (s.ich != FallZustand.detektiv) {
+      ui.absatz('Der Detektiv grenzt ein und erhebt gleich die Anklage …', Rechteck(p.x + 8, y, p.w - 16, 30), farbe: UiFarbe.textGedimmt);
+      return;
+    }
     ui.text('Wen klagst du an?', p.x + 8, y, farbe: UiFarbe.akzent);
     y += ui.zeilenHoehe + 4;
     for (final r in f.verdaechtigenkreis) {
       if (ui.knopf(Rechteck(p.x + 8, y, 220, 18), f.daten.rollen[r]?.name ?? r)) {
-        s.melde(f.klageAn(r));
+        s.klageAn(r);
         spiel.ton.spiele('schreck', lautstaerke: 0.6);
       }
       y += 22;

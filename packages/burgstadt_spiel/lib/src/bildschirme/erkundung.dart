@@ -6,11 +6,13 @@ import 'package:pixel_engine/pixel_engine.dart';
 
 import '../fallsitzung.dart';
 import '../spiel.dart';
+import '../kompass.dart';
 import '../steuerung.dart';
 import 'fallakte.dart';
 import 'hauptmenue.dart';
 import 'lagerunde.dart';
 import 'optionen_bildschirm.dart';
+import 'stadtkarte.dart';
 
 /// Ich-Perspektive in der Burg: laufen, umsehen, Türen benutzen, untersuchen.
 class Erkundung extends Bildschirm {
@@ -179,12 +181,7 @@ class Erkundung extends Bildschirm {
       if (ziel?.legende.station != null) _tutorial(spiel, 'erste_station');
       sz.tick(dt);
       sz.figuren.backe(5);
-      final det = sz.sim.detektiv
-        ..bereich = ort
-        ..x = x
-        ..z = z
-        ..yaw = yaw;
-      det.animation = 'stehen';
+      sz.position(ort, x, z, yaw, 'stehen', dt);
       for (final ev in sz.anzeige) {
         _karten.add((ev, ev.text.length > 90 ? 6.0 : 4.0));
         if (ev.art == 'belauscht' || ev.art == 'teilen' || ev.art == 'fund') spiel.ton.spiele('hinweis_gefunden', lautstaerke: 0.5);
@@ -233,8 +230,23 @@ class Erkundung extends Bildschirm {
     if (blick) _tutorial(spiel, 'blick');
     zielSpur = blick ? _naechsteSpur(spiel) : null;
     if (e.gedrueckt(Taste.menue) || e.gedrueckt(Taste.zurueck)) spiel.oeffne(_Pause(this));
+    if (e.gedrueckt(Taste.karte)) karteOeffnen(spiel);
     if (steuerung.tippAktion || e.gedrueckt(Taste.aktion)) _handle(spiel);
     _meldungZeit -= dt;
+  }
+
+  /// Stadtkarte mit Schnellreise zu besuchten Fall-Orten (erst wenn das Burgtor offen ist).
+  void karteOeffnen(Spiel spiel) {
+    spiel.oeffne(StadtkarteBildschirm(this, reise: (marke) {
+      if (_phase < 2) {
+        _meldung('Das Burgtor ist noch verschlossen – die Oberstadt erst ab Phase 2.');
+        return;
+      }
+      _setzeAn('stadt', marke);
+      _blende = 1;
+      betreten(spiel);
+      spiel.ton.spiele('schritt_pflaster_1', lautstaerke: 0.6);
+    }));
   }
 
   /// Erstes Ding in Blickrichtung bis [reichweite] (Tür, Möbel, Station).
@@ -263,7 +275,7 @@ class Erkundung extends Bildschirm {
     Figur? best;
     var bestD = 2.4;
     for (final f in sz.sim.figuren.values) {
-      if (f.id == 'DET' || f.bereich != ort) continue;
+      if (f.id == sz.ich || f.bereich != ort) continue;
       final dx = f.x - x, dz = f.z - z;
       final d = math.sqrt(dx * dx + dz * dz);
       if (d > bestD) continue;
@@ -303,6 +315,7 @@ class Erkundung extends Bildschirm {
 
   String _name(Figur f) {
     if (f.id == 'BW') return 'Burgwart Eckehard';
+    if (f.id == FallZustand.detektiv) return 'Detektiv';
     final b = sitzung?.sim.bewohner[f.id];
     if (b != null) return '${b.name} (${b.beruf})';
     return sitzung?.fall.daten.rollen[f.id]?.name ?? f.id;
@@ -315,10 +328,9 @@ class Erkundung extends Bildschirm {
       if (fig.id == 'BW') {
         final a = sz.fall.daten.burgwartAussagen[sz.fall.phase] ?? '';
         sz.melde([Ereignis('aussage', 'Burgwart: $a', von: 'BW', uhr: sz.fall.uhr)]);
-        if (sz.fall.phase >= 2) sz.melde(sz.fall.untersuche('DET', 'BW'));
+        if (sz.fall.phase >= 2) sz.untersuche('BW');
       } else {
-        sz.sim.detektivFragt(fig.id);
-        sz.melde(sz.sim.abholen());
+        sz.frage(fig.id);
         _tutorial(spiel, 'gespraech');
       }
       spiel.ton.spiele('papier_rascheln', lautstaerke: 0.4);
@@ -346,9 +358,9 @@ class Erkundung extends Bildschirm {
       case KachelArt.station:
       case KachelArt.objekt:
         if (l.station != null && sz != null) {
-          final funde = sz.fall.untersuche('DET', l.station!);
-          sz.melde(funde);
-          if (funde.isEmpty) {
+          final funde = sz.untersuche(l.station!);
+          // Im WLAN-Spiel kommen die Funde als Ereignis vom Gastgeber
+          if (funde.isEmpty && !sz.imNetz) {
             final ort = sz.fall.daten.kanon.datensaetze[l.station!];
             final rolle = ort?.feld('Rolle im Fall');
             if (rolle != null) {
@@ -407,6 +419,11 @@ class Erkundung extends Bildschirm {
     ui.fb.fillRect(cx, cy + 2, 1, 2, farbe);
     final sz = sitzung;
     ui.text(sz == null ? 'Freie Erkundung' : '${sz.uhrText} · Phase ${sz.fall.phase}', 4, 3);
+    // Kompass draußen: quer oben in der Mitte, hochkant unten in der Mitte
+    if (!_bereich.innen) {
+      const kb = 120;
+      zeichneKompass(ui, yaw, Rechteck((w - kb) ~/ 2, h > w ? h - 22 : 2, kb, 14));
+    }
     // Sprechblasen über Figuren
     if (sz != null) {
       final cam = spiel.renderer.camera;
@@ -529,15 +546,18 @@ class _Pause extends Bildschirm {
   @override
   void zeichneUi(Spiel spiel, PixelUi ui) {
     final w = ui.fb.width, h = ui.fb.height;
-    final p = Rechteck(w ~/ 2 - 90, h ~/ 2 - 66, 180, 140);
+    final p = Rechteck(w ~/ 2 - 90, h ~/ 2 - 78, 180, 164);
     ui.panel(p);
     ui.textMittig('Pause', w ~/ 2, p.y + 6, farbe: UiFarbe.akzent);
     final mitFall = erkundung.sitzung != null;
-    final eintraege = ['Weiter', if (mitFall) 'Speichern', 'Optionen', 'Hauptmenü'];
+    final eintraege = ['Weiter', 'Stadtkarte', if (mitFall) 'Speichern', 'Optionen', 'Hauptmenü'];
     final wahl = ui.menue(eintraege, w ~/ 2, p.y + 24, breite: 150);
     switch (wahl < 0 ? '' : eintraege[wahl]) {
       case 'Weiter':
         spiel.schliesse();
+      case 'Stadtkarte':
+        spiel.schliesse();
+        erkundung.karteOeffnen(spiel);
       case 'Speichern':
         erkundung.speichern(spiel);
         _meldung = 'Gespeichert.';

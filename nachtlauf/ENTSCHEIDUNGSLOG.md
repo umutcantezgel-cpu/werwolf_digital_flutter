@@ -144,12 +144,42 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - Speichern: automatisch jede Minute und nach jedem Phasenwechsel, „Speichern“ im Pausenmenü, beim Gang ins Hauptmenü. „Fortsetzen“ im Hauptmenü, sobald ein Stand da ist. Ablage in der App über `shared_preferences` (schon Abhängigkeit des Bestands, keine neue), in Werkzeugen/Tests im Speicher.
 - Nur der Host speichert (im WLAN-Spiel der Gastgeber).
 
-## E23 · 09.10. 03:25 · Gegenprüfung Inhalt (A-702b) umgesetzt
+## E23 · 09.10. 03:13 · Gegenprüfung Inhalt (A-702b) umgesetzt
 - **Entscheidung:** Alle Befunde der Schwere hoch und mittel sind korrigiert, die geringen dort, wo sie Kanon oder Leitplanken berühren. Tabelle: `auftraege/A-702/gegenpruefer_inhalt_bericht.md`.
 - **Grund für M5:** Der Kanon-Datensatz BW-ZUSTAND (O) sagt „bewusstlos“. Er bleibt unverändert, denn der Kanon ist verbindlich. Der Spieltext der Fähigkeit von R06 sagt „eine Weile benommen“ und hält sich damit an die Wortliste der Leitplanken. Dass das Opfer sich an die Sekunden vor dem Schlag nicht erinnert, ist für den Fall nötig: Der Burgwart kann die Täterin nicht nennen.
 - **Gegenprobe:** Leitplanken-Scanner 0 Treffer, Kanon-Test und Stadt-Hinweis-Test grün.
 
-## E24 · 09.10. 03:25 · Sichtprüfung 8 (A-605h) umgesetzt
+## E24 · 09.10. 03:13 · Sichtprüfung 8 (A-605h) umgesetzt
 - **B16:** Unter einem Mantel ist nur ein langer Rock sichtbar. Regel im Generator.
 - **B08:** Weißes Haar wird mit Stufe 6 statt 7 gemalt. Ein reinweißer Haarkranz unter dem Hut wirkte wie ein Tuch oder Verband (K9 §8).
 - **Generator neu gelaufen:** 0 verwechselbare Paare außer der dokumentierten Ausnahme R01|R11 (E21).
+
+## E25 · 09.10. 03:38 · WLAN-Spiel in der App
+- **Aufbau:**
+  - Der Gastgeber eröffnet den Raum in der App. Dafür startet er `RaumHost` aus room_host, ein lokales Paket ohne neue Abhängigkeit, über `dart:io`, bevorzugt auf Port 47100.
+  - Der Gastgeber tritt als erster Teilnehmer `H` bei und ist damit der Detektiv.
+  - Gäste verbinden sich per WebSocket über `web_socket_channel`. Das ist eine Bestandsabhängigkeit, daher keine neue.
+  - Im Browser ist Beitreten möglich, Eröffnen nicht. Dort wird ein Platzhalter-Import verwendet.
+- **Sitzung:** `Fallsitzung` hat die Modi solo, gastgeber und gast.
+  - Gastgeber: Fall und Simulation gehören dem Raum.
+  - Gast: Ein lokaler Spiegel übernimmt den Zustand (Phase, Uhr, Wissen, Akte, Fäden, Detektiv-Wahlen, entschiedene Rollen-Entscheidungen ohne Option, Figuren im eigenen Bereich).
+  - Aktionen gehen als Nachricht an den Raum.
+- **Spoilerschutz:** Der Gast bekommt nur, was `BurgstadtRaum.sichtbar` erlaubt. Bei Rollen-Entscheidungen erfährt er nur, *dass* entschieden wurde, nicht welche Option gewählt wurde.
+- **Detektiv-Figur:** Mitspieler müssen den Detektiv sehen. Er bekam deshalb eine erfundene Figurenkarte `DET`, denn der Kanon beschreibt das Geburtstagskind nicht, weil es der Mensch spielt. Die Karte zeigt einen steinfarbenen Mantel mit roter Bommelmütze und rotem Schal. Sie läuft durch dieselbe Prüfung auf Unterscheidbarkeit wie alle anderen.
+- **Eingabe:**
+  - Adresse und Code tippt man über eine Bildschirmtastatur in der Pixel-Oberfläche oder über die echte Tastatur.
+  - Ein verstecktes Flutter-Textfeld entfällt.
+  - Ohne Neustart bleibt der Pixel-Blocktest gültig.
+- **Offen (FÜR DEN NUTZER):**
+  - Test mit echten Geräten im WLAN.
+  - iOS-Freigabe für das lokale Netz.
+  - Wachhalten des Bildschirms (kein wakelock, keine neue Abhängigkeit).
+  - Suche ohne Adresse (mDNS) fehlt.
+
+## E26 · 09.10. 03:38 · `tool/abnahme.dart`
+- **Aufgabe:** Das Werkzeug rechnet Z-01…Z-14 aus einem vollständigen Lauf von `tool/alle_tests.sh` nach, also aus allen elf Ebenen. Dazu kommen die Daten selbst und die Prüferberichte.
+- **Prüferberichte:**
+  - Z-03 zählt nur Sichtprüfer-Berichte mit der Schlusszeile `ERGEBNIS · Paare: 0 · Verstöße: 0 · Karten <Stand>`, deren Kartenstand dem aktuellen `karten.json` entspricht.
+  - Z-12 zählt nur einen Gegenprüfer-Bericht mit „ja · ja · ja“, der jünger ist als die letzte Textänderung.
+- **Z-13:** Es gibt nur den Remote `origin`, und seit Beginn gingen keine Pushes außer auf `nachtlauf/burgstadt`. Belegt wird das über die Reflogs der Remote-Refs. Im Browser gab es keine fremden Abrufe.
+- Nur dieses Werkzeug darf „ZIEL ERREICHT“ ausgeben.
