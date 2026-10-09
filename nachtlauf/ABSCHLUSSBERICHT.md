@@ -25,11 +25,11 @@ Aus „Mordakte“ ist ein Ich-Perspektive-Krimi mit 2,5D-Pixelfiguren geworden.
 
 Die Tabelle mit Messwerten und Belegen steht in `ABNAHME.md`, das Protokoll des vollständigen Testlaufs aller elf Ebenen in `belege/alle_tests_voll.txt`.
 
-**Ergebnis:** `tool/abnahme.dart` bestätigt am Stand a28178c **14 von 14** Kriterien (`belege/abnahme.txt`). Grundlage ist der grüne Gesamtlauf aller elf Ebenen am Code-Stand 6f0d724; danach hat sich nur `nachtlauf/` geändert.
+**Ergebnis:** `tool/abnahme.dart` bestätigt am Stand 9a7e852 **13 von 14** Kriterien (`belege/abnahme.txt`); alle elf Testebenen sind grün. Am Morgen (Stand a28178c) waren es 14 von 14. Danach kam auf Wunsch des Nutzers Kanon v1.0 aus `main` dazu (E41), und die Inhaltsprüfung musste neu laufen. **Offen ist Z-12:** Die letzte Inhaltsrunde (23/24) urteilt „Leitplanken nein“ wegen der Verteilung der Fallfunktionen auf Rollen mit Herkunftsangabe. Diese Verteilung ist die Anlage des Falls im Kanon und eine Nutzerentscheidung (`FUER-DEN-NUTZER.md`, E47).
 
 Messwerte aus diesem Lauf:
-- Spiellogik 0,14 ms je Bild (Grenze 4), Nachladespitze 18,6 ms (Grenze 50), Speicherwachstum 6,3 % (Grenze 10).
-- Teilen kommt nach höchstens 43 ms an (Grenze 1000); Teilen spart 72 % der Schritte (Grenze 30).
+- Spiellogik 0,13 ms je Bild (Grenze 4), Nachladespitze 19,2 ms (Grenze 50), Speicherwachstum 4,0 % (Grenze 10).
+- Teilen kommt nach höchstens 45 ms an (Grenze 1000); Teilen spart 83 % der Schritte (Grenze 30).
 - Erkundungsbots erreichen 134 von 134 Türen; 0 Konsolenfehler in 3 Geräteprofilen.
 
 ## 3. Bilder
@@ -80,12 +80,15 @@ Messwerte aus diesem Lauf:
   - Auch mit festem Maßstab werteten Prüfer Fälle knapp an der Schwelle unterschiedlich (z. B. BW/B12, DET/B24). Seit E40 steckt der Maßstab deshalb im Figurenvergleich selbst: gleiche Farbfamilie an Rumpf und Beinen, Größe bis 5 Sprite-Pixel und gleicher Kopf gilt als verwechselbar. Der Generator verteilt die Bewohner danach, und `karten_test` prüft es.
   - Endrunde am Kartenstand fc94af9295: Sichtprüfer 19 und 20 unabhängig voneinander mit 0 verwechselbaren Paaren und 0 Regelverstößen.
   - Nach dem Kanon v1.0 aus main (E41) haben sich R03 (ohne Notizbuch, blaue Jeans) und R04 (Strickpullover) geändert. Neuer Kartenstand db8e0a6155: Sichtprüfer 21 und 22 melden je 0 Paare und 0 Verstöße.
+  - R04s Pullover war im Bild nicht als Strick zu erkennen (Inhaltsrunde 19). Er ist jetzt ein eigenes Teil `oberteil-strickpulli` (E45). Am neuen Kartenstand b60891cc2b melden Sichtprüfer 23 und 24 je 0 Paare und 0 Verstöße.
   - Gefundene Fehler, die nur Menschenaugen sehen: Kopfbedeckungen in Haarfarben lasen sich als Haar (B13, B14, B34, B39). Die Regel dagegen steht jetzt im Generator und im Test.
 - **Inhalt (Z-12):**
   - Zwölf Runden Gegenprüfung bis zur ersten Abnahme (A-702b bis m), danach weitere nach dem Kanon v1.0 (A-702n/o). Jede Runde fand feinere Punkte. Umgesetzt oder begründet abgewogen ist alles in E23 bis E42.
   - Kanon v1.0 brachte einen echten Widerspruch ins Overlay: Das Gespensterlaken ist jetzt Burgwäsche (Z-2140), unsere Stadt-Hinweise hatten es der Pension zugeschrieben. Er ist behoben, ebenso der übersehene Phasenbeginn (00:30 statt 00:25, Z-0030) und ein Harz-Rest (Osterode).
   - Darunter: das Herkunftsmuster in den Familienfeldern des Kanons (E38/E39, per Overlay, Kanon-Dateien unverändert), Altersbilder, Gruppenwörter („Putzfrau“, „Hausfrau“), Spuren-Echos in Stadttexten und eine geschlechtsbezogene Anrede der spielenden Person.
-  - Letzte Runde (A-702m, Stand a7f1985): Leitplanken ja, Kanontreu ja, Plagiatsfrei ja. Ihre 5 geringen Befunde stehen nach der Abbruchregel (E40) in `FUER-DEN-NUTZER.md`.
+  - Letzte Runde vor dem Kanon v1.0 (A-702m, Stand a7f1985): Leitplanken ja, Kanontreu ja, Plagiatsfrei ja. Ihre 5 geringen Befunde stehen nach der Abbruchregel (E40) in `FUER-DEN-NUTZER.md`.
+  - Nach dem Kanon v1.0 liefen die Runden 13 bis 24 (A-702n bis s, E42–E47). Umgesetzt wurden unter anderem: Laken als Burgwäsche, Phase 1 ab 00:30, Nebel nur im Tal und FM-1 im Spiel ohne Herkunft. Dazu kommen die Lampenmarke „VT · 3“ und die R01-Firma ohne Nachnamen, neutrale Färbungen bei R13 und R15 sowie „alkoholfrei“ bei jedem Punsch (mit Test).
+  - **Offen:** Runde 23/24 urteilt „Leitplanken nein“, weil Täterin und Mietbetrüger deutsche Wurzeln haben, die falsche Fährte (R01) und die Hauptzeugin mit dem Streich (R02) nicht. Das ist die Anlage des Falls im Kanon (FM-1, GROBPLAN F-07). Die Möglichkeiten stehen in `FUER-DEN-NUTZER.md`.
 - **Leitplanken-Scanner:** 0 Treffer in allen Spieltexten.
 - **Fairness:** Der Löser bestätigt für N = 4…20, dass jeder notwendige Schluss abgesichert ist. Das Durchspiel mit Bots endet bei jeder Rollenzahl als Meisterdetektiv. Teilen spart 72 % der Schritte.
 
