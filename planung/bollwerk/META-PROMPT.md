@@ -94,7 +94,7 @@ Die harten Regeln für den Nachtlauf stehen in Anhang A4. Für den Meta-Lauf gil
    - Agent, Workflow, SendMessage, TaskStop, Monitor, EnterWorktree, ExitWorktree, Skill
    - WebFetch, WebSearch, Artifact, `mcp__Claude_Docs__*`
 
-   Du selbst nutzt nur Agent, Workflow und SendUserFile. Keine Routinen, keine Sitzungen, keine GitHub-API.
+   Du selbst nutzt neben den Datei-, Such- und Shell-Werkzeugen nur Agent, Workflow und SendUserFile. Keine Routinen, keine Sitzungen, keine GitHub-API.
 4. **Netz:** nur Git mit `origin` und Paketinstallationen für Abhängigkeiten, die das Projekt schon hat. Nichts systemweit installieren. `build.sh` nie ausführen.
 5. **Rechenlast:** Web-Build, Chromium, Simulationen und voller Testlauf laufen nur über `flock /tmp/bw-schwer.lock <befehl>`. Jeder Bash-Befehl beginnt mit `source /home/user/bollwerk/planung/bollwerk/proben/env.sh &&`; die Datei setzt PATH auf Flutter und Node.
 6. **Umgehungsverbot:** Wird etwas blockiert (Berechtigung, Sandbox, Push), lässt du es weg und trägst es in `FUER-DEN-NUTZER.md` ein. Kein `dangerouslyDisableSandbox`. Keine Änderung an `.claude/**`, `settings*.json`, `CLAUDE.md`, Git-Konfiguration oder Hooks.

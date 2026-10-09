@@ -82,6 +82,9 @@ Weitere Aussagen des Nutzers:
 | Vorlauf V | Arbeit vor erfüllter Startbedingung, nur in eigenen Pfaden. |
 | Hauptlauf | Phasen BW0 bis BW8 nach erfüllter Startbedingung. |
 | T0 | Startzeit des Nachtlaufs (echte Uhrzeit im PRUEFPUNKT). |
+| M | Zeit des Morgenberichts: die spätere von 07:00 Berlin und T0 + 8 h. |
+| B-02 | Die Startbedingung des Hauptlaufs (Befehl in MP-2). Der Name stammt aus BE-02. |
+| MC | Der Merge-Commit, der auf main soll (MP-16). |
 
 ---
 
@@ -236,7 +239,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 
 ### A4.9 Agenten
 - Haiku-Agenten haben nur Werkzeuge nach A4.2. Jeder Auftrag nennt absolute Pfade.
-- Opus legt Code-Worktrees nur aus dem Pool an: höchstens 6 Plätze `/home/user/bw/01…06`, angelegt mit `git -C /home/user/bollwerk worktree add --detach /home/user/bw/<NN> <sha>` und vorgewärmt mit `pub get` in allen 9 Paketen (8 + look_anker). Zurückgesetzt wird mit `git -C … checkout --detach <sha> && git reset --hard && git clean -fd`.
+- Opus legt Code-Worktrees nur aus dem Pool an: höchstens 6 Plätze `/home/user/bw/01…06`, angelegt mit `git -C /home/user/bollwerk worktree add --detach /home/user/bw/<NN> <sha>` und vorgewärmt mit `pub get` in allen 8 Paketen des Repos (Wurzel, 5 Pakete, `server`, `tool/ton`) und in `tool/bollwerk/look_anker`. Zurückgesetzt wird mit `git -C … checkout --detach <sha> && git reset --hard && git clean -fd`.
 - Text-, Daten- und Urteilsaufträge bekommen keinen Worktree. Workflow-Option `isolation: 'worktree'` wird nicht benutzt.
 - **Ergebnis als Datei, Kurzurteil an Opus:**
   - Varianten schreibt der Agent als JSONL nach `/home/user/bw-varianten/<welle>/<kennung>.jsonl`, Code als Patch nach `…/<kennung>.patch`.
@@ -317,7 +320,7 @@ Rahmen:
   - ab 90 %: keine neue Welle; Sicherung und Morgenbericht
 - **Nutzungslimit:**
   - Ergebnisse sichern, PRUEFPUNKT schreiben, `bollwerk` pushen.
-  - `send_later` auf die Freigabezeit plus 5 min stellen.
+  - Den nächsten Herzschlag (`send_later`) auf die Freigabezeit plus 5 min verlegen: die offene Erinnerung löschen und neu stellen, nie eine zweite daneben.
   - „Jede neue Sitzung liest zuerst diese Dateien und setzt exakt dort fort, auch nach einem Nutzungslimit.“
   - Nach 3 Limits in Folge die Gleichzeitigkeit halbieren.
 
@@ -792,14 +795,14 @@ Je Linie gilt genau eine Art: echter Merge **oder** Kopie mit Vermerk plus Archi
 - Code löst nur Opus; danach ein voller Lauf, und `git diff --cc` kommt ins Log.
 - Bei mehr als 5 Konfliktdateien oder mehr als 30 min wird die Linie nur archiviert (FUER-DEN-NUTZER).
 
-**Push auf main** nur, wenn am Merge-Commit M alles in `planung/bollwerk/belege/main.txt` belegt ist:
-1. B-02 erfüllt; BW4 bestanden; `bollwerk.dart phase` meldet an M „BOLLWERK GRÜN“. Unfertige Teile sind hinter Schaltern mit altem Standard.
+**Push auf main** nur, wenn am Merge-Commit MC alles in `planung/bollwerk/belege/main.txt` belegt ist:
+1. B-02 erfüllt; BW4 bestanden; `bollwerk.dart phase` meldet an MC „BOLLWERK GRÜN“. Unfertige Teile sind hinter Schaltern mit altem Standard.
 2. V = `git rev-parse origin/main` nach dem Fetch.
-3. Frischer Integrationsworktree an M: `rm -rf .dart_tool/flutter_build`, `pub get` in allen Paketen, `alle_tests.sh` voll („ALLE TESTS GRÜN“), `pruefen.sh alles` (Exit 0).
+3. Frischer Integrationsworktree an MC: `rm -rf .dart_tool/flutter_build`, `pub get` in allen Paketen, `alle_tests.sh` voll („ALLE TESTS GRÜN“), `pruefen.sh alles` (Exit 0).
 4. Burgstadt-Schutz, Bestand (nur Ausnahmen) und voller Secret-Scan.
 5. Tag `vor-bollwerk` auf V setzen und pushen (falls noch nicht vorhanden).
 6. Unmittelbar davor `git fetch origin`. Ist `origin/main` ≠ V, neu zusammenführen und ab Schritt 3 wiederholen.
-7. `git push origin M:refs/heads/main`. Danach prüfen: `git ls-remote origin refs/heads/main` = M; `git merge-base --is-ancestor` gilt für V, `1145cb9`, `caf1d61` und `schlosskeller-1.0^{commit}` gegen M.
+7. `git push origin MC:refs/heads/main`. Danach prüfen: `git ls-remote origin refs/heads/main` = MC; `git merge-base --is-ancestor` gilt für V, `1145cb9`, `caf1d61` und `schlosskeller-1.0^{commit}` gegen MC.
 8. Tag `bollwerk-1.0` nur bei ZIEL ERREICHT (`bollwerk.dart ziel` grün): `git tag -a`, dann `git push origin refs/tags/bollwerk-1.0`. Gibt es ihn schon, wird er nie verschoben.
 
 Sonst endet der Lauf mit BEREIT ZUR INTEGRATION: nur `bollwerk` wird gepusht, auch kurz vor M.
