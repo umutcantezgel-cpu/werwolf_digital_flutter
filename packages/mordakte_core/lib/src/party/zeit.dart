@@ -50,6 +50,13 @@ class Uhrzeit implements Comparable<Uhrzeit> {
   @override
   int get hashCode => sekunden.hashCode;
 
+  /// Immer `HH:MM:SS`, auch bei vollen Minuten (laufende Uhr der Rückblende).
+  String get mitSekunden {
+    final tag = (sekunden + 12 * 3600) % (24 * 3600);
+    String zz(int v) => v.toString().padLeft(2, '0');
+    return '${zz(tag ~/ 3600)}:${zz((tag % 3600) ~/ 60)}:${zz(tag % 60)}';
+  }
+
   /// `HH:MM:SS` (ohne Sekunden, wenn sie 0 sind).
   @override
   String toString() {

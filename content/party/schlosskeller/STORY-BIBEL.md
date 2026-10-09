@@ -262,8 +262,8 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Startraum:** Buffetsaal (thekensaal)
 - **Ermittlungsort:** am linken Buffettisch (am_linken_buffet)
 - **Optik:**
-  - Silhouette: Schlanke Statur, dunkles Kopftuch, knielanger Wollmantel
-  - Kleidung: Beerenroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, dunkles Kopftuch
+  - Silhouette: Schlanke Statur, taubengraues Kopftuch, knielanger Wollmantel
+  - Kleidung: Beerenroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, taubengraues Kopftuch
   - Merkmal: Schwere Umhängetasche aus Leder, breiter Silberring an der rechten Hand
   - Ruhe-Animation: Nestelt am Reißverschluss ihrer Tasche und lächelt Emine zu
 - **Look:**
@@ -272,12 +272,12 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Kopf: kopftuch
   - Statur: slim
   - Schnitt: dress
-  - Kopftuchfarbe: #3b3436
-- **Motiv:** Fatma schreibt ihre Abschlussarbeit über alte Münzbilder. Azra hat ihr von der Münzschatulle in der Turmvitrine erzählt. Um 23:40 hebt sie die gesprungene Scheibe an und nimmt die Schatulle mit. Sie will die Reliefs zu Hause abzeichnen und die Schatulle am Montag zurückbringen. Um 23:56 sieht Herr Schneider Glassplitter an ihrem Mantel: „Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.“
+  - Kopftuchfarbe: #9A8C98
+- **Motiv:** Fatma schreibt ihre Abschlussarbeit über alte Münzbilder. Azra hat ihr von der Münzschatulle in der Schauvitrine erzählt. Um 23:40 hebt sie die gesprungene Scheibe an und nimmt die Schatulle mit. Sie will die Reliefs zu Hause abzeichnen und die Schatulle am Montag zurückbringen. Um 23:56 sieht Herr Schneider Glassplitter an ihrem Mantel: „Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.“
 - **Alibi:** Behauptet, die ganze Zeit beim Gebäck am linken Buffettisch gestanden zu haben.
 - **Geheimnis:** Nachdem Herr Schneider sie um 23:56 erwischt hat, will sie ihm die Schatulle sofort zurückgeben. Um 23:57 geht sie mit der Tasche zur Theken-Klappe.
 - **Persönliches Ziel:** Die Schatulle soll zurück, ohne dass es alle erfahren.
-- **Nebendelikt:** Hat die Münzschatulle aus der Turmvitrine mitgenommen. (nd_schatulle)
+- **Nebendelikt:** Hat die Münzschatulle aus der Schauvitrine mitgenommen. (nd_schatulle)
 - **Loyalität:** Emine (emine): Emine ist seit der Schulzeit ihre beste Freundin.
 - **Lügen:**
   - `luege_fatma_buffet`: Ich stand die ganze Zeit beim Gebäck am linken Buffet. → Um 23:57 war sie mit der Tasche an der Theken-Klappe.
@@ -705,7 +705,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Kopf: none
   - Statur: tall
   - Schnitt: dress
-- **Motiv:** Sie kennt sich mit alten Münzen aus und hat Fatma von der Schatulle in der Turmvitrine erzählt. Herr Schneider fand es seltsam, wie lange sie vor der Vitrine stand.
+- **Motiv:** Sie kennt sich mit alten Münzen aus und hat Fatma von der Schatulle in der Schauvitrine erzählt. Herr Schneider fand es seltsam, wie lange sie vor der Vitrine stand.
 - **Alibi:** Stand am rechten Buffettisch und füllte Gebäck auf einen Pappteller.
 - **Geheimnis:** Um 23:45 sah sie, dass Fatmas Tasche auffällig ausgebeult war.
 - **Persönliches Ziel:** Niemand soll denken, sie hätte Fatma zu etwas angestiftet.
@@ -803,12 +803,12 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Aussprache:** Tuuba
 - **Alltag:** Ist Projektleiterin und plant sogar Geburtstage mit Ablaufplan.
 - **Stufe:** 5
-- **Farbcode:** #800020 (Karminrot mit Gold)
+- **Farbcode:** #D2691E (Rostorange mit Gold)
 - **Startraum:** Ostsaal (ost_saal)
 - **Ermittlungsort:** an der Wandtafel mit dem Ablaufplan (an_der_wandtafel)
 - **Optik:**
   - Silhouette: Organisiert, schwungvoll, geschäftsmäßig, goldfarbenes Kopftuch
-  - Kleidung: Karminroter Blazer über weißem Shirt, goldfarbenes Kopftuch, schmale Metallbrille
+  - Kleidung: Rostoranger Blazer über weißem Shirt, goldfarbenes Kopftuch, schmale Metallbrille
   - Merkmal: Notizbuch mit goldenem Einband und Fineliner
   - Ruhe-Animation: Blättert im Notizbuch, hakt Zeilen ab und schaut zur Wanduhr
 - **Look:**
@@ -920,7 +920,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Vorderseite | immer: ja | „Miete Schlosskeller“ in Ahmets Handschrift. Der Umschlag ist leer. Darauf angesprochen gibt Ahmet zu: Er hat von allen 150 € Miete eingesammelt, obwohl der Keller umsonst war. | null | alle: nebendelikt |
 | Rückseite | kerzenstaenderGegriffenVon: Ahmet (ahmet) | Auf dem Umschlag sind drei erstarrte rote Wachstropfen. Eine Ecke des Umschlags ist abgerissen. | Auf dem Umschlag ist ein Knick. | Ahmet (ahmet): zusatzindiz |
 
-### Münzschatulle aus der Turmvitrine (`muenzschatulle`)
+### Münzschatulle aus der Schauvitrine (`muenzschatulle`)
 
 - **Lage:** bei Fatma (fatma); in Fatmas Umhängetasche
 - **Sichtbar:** nein
@@ -1171,7 +1171,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Kennung | Person | Text |
 |---|---|---|
 | nd_mietgeld | Ahmet (ahmet) | 150 € Miete von allen kassiert, obwohl der Keller nichts gekostet hat. |
-| nd_schatulle | Fatma (fatma) | Münzschatulle aus der Turmvitrine mitgenommen. |
+| nd_schatulle | Fatma (fatma) | Münzschatulle aus der Schauvitrine mitgenommen. |
 | nd_tuerschaden | Olli (olli) | Bogentür beschädigt und die Schramme mit Möbelwachs verdeckt. |
 | nd_streich | Can (can) | Mit der Leuchtmaske im Vorratsraum versteckt. |
 | nd_kurzschluss | Tim (tim) | Trotz Warnung die alte Mehrfachsteckdose benutzt. |

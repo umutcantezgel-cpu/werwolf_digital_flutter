@@ -36,6 +36,7 @@ const Map<String, String> farbnamenTabelle = {
   '#6B1D2F': 'dark berry red',
   '#800020': 'carmine red',
   '#800000': 'maroon',
+  '#D2691E': 'rust orange',
   '#FF8C00': 'orange',
   '#FFD400': 'yellow',
   '#556B2F': 'olive',

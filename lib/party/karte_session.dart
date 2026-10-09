@@ -111,6 +111,7 @@ class PartyKartenSession implements GameSession, SzenenErweiterung {
         for (final f in sitzung.karte.figuren) NpcView(id: sitzung.daten.npcKennung[f.id]!, x: f.x, y: f.y, alive: true),
       ];
     }
+    npcs = _nebeneinander(npcs);
     _world.value = WorldSnapshot(
       t: _t,
       phase: Phase.investigation,
@@ -287,6 +288,27 @@ class PartyKartenSession implements GameSession, SzenenErweiterung {
     if (raum == null) return null;
     _letzterRaum = raum;
     return {raum, for (final (a, b) in _offeneTueren) if (a == raum) b};
+  }
+
+  /// Figuren auf demselben Fleck rücken nebeneinander, damit keine eine andere
+  /// verdeckt (in der Rückblende stehen manchmal zwei auf einem Platz). Eine
+  /// hervorgehobene Figur bleibt stehen; die anderen weichen zur Seite.
+  List<NpcView> _nebeneinander(List<NpcView> npcs) {
+    const versatz = [(0.42, 0.0), (0.0, 0.42), (-0.42, 0.0), (0.0, -0.42), (0.3, 0.3), (-0.3, -0.3)];
+    final gruppen = <(int, int), List<int>>{};
+    for (var i = 0; i < npcs.length; i++) {
+      (gruppen[((npcs[i].x * 4).round(), (npcs[i].y * 4).round())] ??= []).add(i);
+    }
+    final aus = [...npcs];
+    for (final g in gruppen.values.where((g) => g.length > 1)) {
+      g.sort((a, b) => (hervorhebung(npcs[b].id) ?? 0).compareTo(hervorhebung(npcs[a].id) ?? 0));
+      for (var k = 1; k < g.length; k++) {
+        final n = npcs[g[k]];
+        final (dx, dy) = versatz[(k - 1) % versatz.length];
+        aus[g[k]] = NpcView(id: n.id, x: n.x + dx, y: n.y + dy, alive: n.alive, talkingTo: n.talkingTo);
+      }
+    }
+    return aus;
   }
 
   @override

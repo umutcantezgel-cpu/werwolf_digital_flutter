@@ -86,8 +86,6 @@ class _RundeBildschirmState extends State<RundeBildschirm> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(s.rundenKern, style: Keller.leise),
-            const SizedBox(height: 20),
             ErzaehlerFeld(sitzung: s, kennungen: s.erzaehler),
             const SizedBox(height: 12),
             _uhr(),

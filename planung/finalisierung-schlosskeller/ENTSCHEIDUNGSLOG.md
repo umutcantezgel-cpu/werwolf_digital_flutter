@@ -1024,3 +1024,46 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Texte 0 Befunde (1581).
   - Story-Bibel aktuell.
   - Sichtprobe der 16 Fassungsseiten dem Nutzer gezeigt.
+
+## E-037 · Spiel- und Sichtprüfung der E2E-Fotos (F4-SPIEL-01/02, F4-SICHT-01/02)
+- **Grundlage:** zweite E2E-Matrix 84/84 auf `eacf0b4`, 16 Abende mit Fotos und 8 Raumfotos.
+- **Abnahme:** SPIEL-01 9/10, SPIEL-02 10/10, SICHT-01 10/10, SICHT-02 9/10.
+- **Echte Befunde, behoben:**
+  - **Rückblende markiert scheinbar die falsche Figur (SICHT-01 #1).**
+    - Ursache: Im Ahmet-Pfad stehen um 23:54:25 Ahmet und Johanna auf demselben Fleck (24,5/12,5), ebenso Detektiv und Hakan. Johanna wird über Ahmet gezeichnet.
+    - Lösung: `PartyKartenSession` rückt Figuren auf demselben Fleck um 0,42 Felder auseinander. Die hervorgehobene Figur bleibt stehen.
+  - **Uhr der Rückblende:** immer mit Sekunden (`Uhrzeit.mitSekunden`), nicht nur bei vollen Minuten ohne.
+  - **Platzhalter beim Einrichten:** „Name (optional)“ statt des abgeschnittenen „Name am Tisch (optional)“.
+  - **Text unter der Fußleiste:** `RollFlaeche` im gemeinsamen Rahmen zeigt eine Scrollleiste und unten Verlauf mit Pfeil, solange noch etwas folgt. Der Rückblende-Kasten im Finale hat 45 % statt 55 % der Höhe.
+  - **Fundkarte unter der nächsten Entscheidung:** Bei offener Fundkarte zeigt der Kopf deren Entscheidung.
+  - **Rundenkopf ohne Designsatz:** Der Kern-Satz aus `fall.json` stand als Untertitel auf dem Bildschirm. Er doppelte den Erzähler und verriet in Runde 3 Mechanik („zwei Restverdächtige“). Entfernt.
+  - **Knöpfe im Kartenkopf:** mit Rahmen und Symbol; „Aus einer Liste wählen“ statt „Ohne Karte wählen“.
+  - **Farbpunkt:** heller Rand, damit dunkle Farbcodes wie Ahmets (#1A1A1A) sichtbar sind.
+  - **Rollenliste:** kein doppelter Name, wenn kein Spielername eingetragen ist.
+  - **Ende-Bildschirm:** Knopf „Zurück ins Hauptmenü“.
+  - **Texte:**
+    - „Herr Schneider hat nur eine Beule.“ statt „geht es gut“, passend zu den Finaltexten.
+    - Einheitlich „Schauvitrine“ statt „Turmvitrine“ (11 Stellen, Kanonname „Schauvitrine im Turmgang“).
+  - **Figurenfarben (B4, F-13):**
+    - Tugbas Jackett ist jetzt Rostorange (#D2691E) statt Karminrot (#800020). Zu Fatmas Beerenrot lag es nur bei ΔE 7,4, und beide tragen Kopftuch. Neu hat es mindestens ΔE 26,4 zu allen Figuren.
+    - Fatmas Kopftuch ist jetzt Taubengrau (#9A8C98) statt fast schwarz. Es wirkte im Dunkeln wie Haar.
+    - Dossiers, Figurendaten, Bilddaten, Farbtabelle der Prompts, Bildprompts und Story-Bibel sind nachgezogen.
+  - **E2E-Fotos:** Fotopause 2 s und Zeitlimit 8 min in Fotoläufen. Zwei Fotos (SPIEL-01 #6, SICHT-02 #7) zeigten unter Last schon den nächsten Bildschirm.
+- **Kein Befund, mit Begründung:**
+  - **Bonus-Hinweise mit Namen (SICHT-02 #1, #2):**
+    - Das ist die dokumentierte Ausnahme S-1/E-025: Der Hinweis kommt wahr, neutral oder als Gerücht im selben Rahmen.
+    - Ein falscher Hinweis belastet Unschuldige (SPIEL-02 Frage 2). Ein Name verrät also nichts.
+  - **Gästewissen „Acht Minuten vor zwölf sagte Olli …“ (SICHT-02 #3, SPIEL-02 #1):** Die Beobachtung gilt in allen Pfaden. Ist Wojtek besetzt, erzählt er sie im Gespräch ebenso. Der Bildschirm ist in allen Pfaden gleich (E-035, `erzaehler_test`).
+  - **„Eine Person übrig“ nach Runde 3 (SPIEL-01 #1, SPIEL-02 #2):**
+    - Das ist der eigene Schluss des Detektivs aus den gezogenen Indizkarten (Schlüsselbeweis plus Fundort, Regel R-UEBERFUEHRT), ohne Namen (S-1).
+    - Bei gutem Spiel ist der Fall damit gelöst; das ist das Ziel.
+    - Der widersprechende Designsatz ist vom Bildschirm genommen.
+  - **Schneider in Rückblende 2 und 3 nicht im Bild (SICHT-01 #2):**
+    - Die Kamera folgt dem Täter. Schneider trägt seinen Ring, sobald er im Bild ist; zur Tatzeit sind beide im Bild.
+    - B9 lese ich so: hervorgehoben, wo sichtbar. Ein Zoom auf beide wäre bei getrennten Räumen zu klein.
+  - **Gelblicher Punkt an den Getränkekisten (SICHT-01 Frage 2):** Die Kiste wird ohne Flaschen gezeichnet (`_crate`). Der Punkt ist eine erlaubte Lichtquelle.
+  - **Zwei Gespräche mit dem Geburtstagskind in einer Runde:** Ersatzpartner-Regel.
+- **Bekannte Restliste Farbabstand:**
+  - Unter ΔE 10 liegen über Raumgrenzen hinweg: Meryem/Serkan 5,2, Olli/Serkan 7,7, Ahmet/Baran 7,9, Murat/Hakan 8,2, Olli/Meryem 8,8, Serkan/Kaan 9,4.
+  - Im selben Startraum bleibt F-13 erfüllt (≥ 10).
+  - Die Paare unterscheiden sich durch Silhouette, Kopf und Haar. Die Sichtprüfer haben sie nicht gemeldet. Steht unter FÜR DEN NUTZER.

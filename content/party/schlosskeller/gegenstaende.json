@@ -160,7 +160,7 @@
     },
     {
       "id": "muenzschatulle",
-      "name": "Münzschatulle aus der Turmvitrine",
+      "name": "Münzschatulle aus der Schauvitrine",
       "beschreibung": "Kleine schwere Holzschatulle mit alten Schlossmünzen, Reliefs auf dem Deckel.",
       "lage": {
         "traeger": "fatma",
@@ -820,8 +820,8 @@
     {
       "id": "nd_schatulle",
       "person": "fatma",
-      "text": "Münzschatulle aus der Turmvitrine mitgenommen.",
-      "duText": "Du hast die Münzschatulle aus der Turmvitrine mitgenommen."
+      "text": "Münzschatulle aus der Schauvitrine mitgenommen.",
+      "duText": "Du hast die Münzschatulle aus der Schauvitrine mitgenommen."
     },
     {
       "id": "nd_tuerschaden",

@@ -85,7 +85,7 @@
     },
     {
       "id": "ui.karte.liste",
-      "text": "Ohne Karte wählen"
+      "text": "Aus einer Liste wählen"
     },
     {
       "id": "ui.karte.liste_titel",
@@ -170,6 +170,10 @@
     {
       "id": "ui.druck.app.nur_browser",
       "text": "Herunterladen geht nur in der Browser-Fassung."
+    },
+    {
+      "id": "ui.aufloesung.hauptmenue",
+      "text": "Zurück ins Hauptmenü"
     }
   ]
 }

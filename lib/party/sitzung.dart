@@ -187,7 +187,6 @@ class PartySitzung extends ChangeNotifier {
 
   Map<String, Object?> get _rundeKanon => (kanon.fall['runden'] as List).cast<Map>().firstWhere((r) => r['nr'] == runde).cast<String, Object?>();
   String get rundenName => _rundeKanon['name'] as String;
-  String get rundenKern => _rundeKanon['kern'] as String;
 
   /// Uhrzeit der Runde im Spiel („00:30“); gleich in Bild, Erzähler und Dossier.
   String get rundenUhrzeit => _rundeKanon['uhrzeit'] as String;

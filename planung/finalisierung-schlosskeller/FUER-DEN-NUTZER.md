@@ -53,3 +53,4 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 - Ob sich die Gruppe in den Figuren wiederfindet.
 - Wie hell die Karte auf eurem Bildschirm oder Beamer wirken soll (siehe oben).
 - Ob die Seifenblasen, der Staub an der Rüstung und die Rußwolke am Kamin witzig sind oder stören.
+- **Ähnliche Figurenfarben über Räume hinweg (E-037):** Meryem/Serkan, Olli/Serkan, Ahmet/Baran, Murat/Hakan, Olli/Meryem und Serkan/Kaan liegen unter ΔE 10. Im selben Startraum gilt überall mindestens 10. Die Figuren unterscheiden sich durch Silhouette, Kopf und Haar. Wer am Testabend Verwechslungen merkt, kann einzelne Farbcodes in `figuren.json` anpassen; der Farbtest zeigt dann sofort, ob die Abstände halten.

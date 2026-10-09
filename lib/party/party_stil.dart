@@ -36,6 +36,71 @@ abstract final class Keller {
 }
 
 /// Seitenrahmen: Hintergrund, Kopf (Marke, Titel, Untertitel), Inhalt, Fuß mit Aktionen.
+/// Rollbarer Inhalt mit sichtbarer Leiste und einem Hinweis am unteren Rand,
+/// solange unten noch etwas folgt: Nichts wirkt abgeschnitten (B7).
+class RollFlaeche extends StatefulWidget {
+  const RollFlaeche({super.key, required this.child, this.padding = EdgeInsets.zero});
+
+  final Widget child;
+  final EdgeInsets padding;
+
+  @override
+  State<RollFlaeche> createState() => _RollFlaecheState();
+}
+
+class _RollFlaecheState extends State<RollFlaeche> {
+  final _rolle = ScrollController();
+  bool _mehr = false;
+
+  void _pruefe() {
+    if (!mounted || !_rolle.hasClients) return;
+    final mehr = _rolle.position.extentAfter > 8;
+    if (mehr != _mehr) setState(() => _mehr = mehr);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _rolle.addListener(_pruefe);
+  }
+
+  @override
+  void dispose() {
+    _rolle.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) => _pruefe());
+    return Stack(
+      children: [
+        Scrollbar(
+          controller: _rolle,
+          thumbVisibility: true,
+          child: SingleChildScrollView(controller: _rolle, padding: widget.padding, child: widget.child),
+        ),
+        if (_mehr)
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: IgnorePointer(
+              child: Container(
+                height: 40,
+                alignment: Alignment.bottomCenter,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0x000B0A0E), Keller.nacht]),
+                ),
+                child: const Icon(Icons.keyboard_arrow_down_rounded, color: Keller.kerze, size: 26),
+              ),
+            ),
+          ),
+      ],
+    );
+  }
+}
+
 class PartyRahmen extends StatelessWidget {
   const PartyRahmen({
     super.key,
@@ -84,7 +149,7 @@ class PartyRahmen extends StatelessWidget {
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: Keller.breite),
                   child: scroll
-                      ? SingleChildScrollView(padding: const EdgeInsets.fromLTRB(20, 24, 20, 24), child: inhalt)
+                      ? RollFlaeche(padding: const EdgeInsets.fromLTRB(20, 24, 20, 24), child: inhalt)
                       : Padding(padding: const EdgeInsets.fromLTRB(20, 24, 20, 12), child: inhalt),
                 ),
               ),
@@ -190,6 +255,7 @@ class FarbPunkt extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         width: groesse,
         height: groesse,
-        decoration: BoxDecoration(color: farbe, shape: BoxShape.circle, border: Border.all(color: Keller.linieStark)),
+        // Heller Rand, damit auch sehr dunkle Farbcodes auf dem dunklen Grund sichtbar sind (B7).
+        decoration: BoxDecoration(color: farbe, shape: BoxShape.circle, border: Border.all(color: Keller.papierGedaempft, width: 1.5)),
       );
 }

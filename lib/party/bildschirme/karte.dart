@@ -92,7 +92,8 @@ class _KartenBildschirmState extends State<KartenBildschirm> {
                   child: Center(
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(maxWidth: Keller.breite),
-                      child: Padding(padding: const EdgeInsets.all(12), child: _kopf(e)),
+                      // Bei offener Fundkarte zeigt der Kopf noch deren Entscheidung, nicht schon die nächste.
+                      child: Padding(padding: const EdgeInsets.all(12), child: _kopf(fund != null ? s.spiel.ermittlung.entscheidung(fund.entscheidung) : e)),
                     ),
                   ),
                 ),
@@ -131,13 +132,17 @@ class _KartenBildschirmState extends State<KartenBildschirm> {
             spacing: 8,
             runSpacing: 6,
             children: [
-              TextButton(
+              OutlinedButton.icon(
+                style: _kleinerKnopf,
                 onPressed: () => _liste(e),
-                child: Text(s.ui('ui.karte.liste'), style: const TextStyle(color: Keller.kerzeHell)),
+                icon: const Icon(Icons.list_rounded, size: 18),
+                label: Text(s.ui('ui.karte.liste')),
               ),
-              TextButton(
+              OutlinedButton.icon(
+                style: _kleinerKnopf,
                 onPressed: _notizbuch,
-                child: Text(s.ui('ui.karte.notizbuch'), style: const TextStyle(color: Keller.kerzeHell)),
+                icon: const Icon(Icons.menu_book_rounded, size: 18),
+                label: Text(s.ui('ui.karte.notizbuch')),
               ),
               IconButton(
                 tooltip: s.ui('ui.allgemein.weiter'),
@@ -150,6 +155,14 @@ class _KartenBildschirmState extends State<KartenBildschirm> {
       ),
     );
   }
+
+  /// Kleine Knöpfe im Kopf: mit Rahmen, damit sie als Knöpfe erkennbar sind (B7).
+  static final _kleinerKnopf = OutlinedButton.styleFrom(
+    foregroundColor: Keller.kerzeHell,
+    side: const BorderSide(color: Keller.linieStark),
+    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+    visualDensity: VisualDensity.compact,
+  );
 
   Widget _abgedeckt(Widget kind) => Positioned.fill(
         child: ColoredBox(

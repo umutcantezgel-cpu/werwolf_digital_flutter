@@ -25,11 +25,12 @@ class FinaleBildschirm extends StatelessWidget {
           children: [
             Text(sitzung.ui('ui.finale.rueckblende').toUpperCase(), style: Keller.marke),
             const SizedBox(height: 8),
-            // Fester Kasten: mindestens 280 px, sonst 55 % der Höhe.
+            // Fester Kasten: mindestens 260 px, sonst 45 % der Höhe; so beginnt der
+            // Finaltext noch über der Fußleiste (B7).
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: SizedBox(
-                height: math.max(280.0, MediaQuery.sizeOf(context).height * 0.55),
+                height: math.max(260.0, MediaQuery.sizeOf(context).height * 0.45),
                 child: RueckblendeAnsicht(sitzung: sitzung),
               ),
             ),

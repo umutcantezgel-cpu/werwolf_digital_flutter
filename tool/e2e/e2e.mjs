@@ -21,7 +21,7 @@ const ausgabe = path.join(hier, 'fotos', 'e2e');
 const chrome = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
 
 /** Takt, Zeitraffer und Zeitlimit je Lauftyp. */
-const MIT_FOTOS = { takt: 400, zeitraffer: 60, zeitlimitMin: 6 };
+const MIT_FOTOS = { takt: 400, zeitraffer: 60, zeitlimitMin: 8 };
 const OHNE_FOTOS = { takt: 40, zeitraffer: 240, zeitlimitMin: 3 };
 /**
  * Semantik-Läufe (fotos=0) mit größerem Takt: Bei takt=40 zeichnet der Browser den neuen
@@ -100,7 +100,7 @@ function adresse(lauf, port) {
   const p = parameter(lauf);
   const semantik = lauf.semantik ? '&semantik=1' : '';
   return `http://127.0.0.1:${port}/?party=schlosskeller&pfad=${lauf.pfad}&n=${lauf.n}&skript=${lauf.skript}` +
-    `&takt=${p.takt}&zeitraffer=${p.zeitraffer}&fotos=${lauf.fotos ? 1 : 0}${semantik}`;
+    `&takt=${p.takt}&zeitraffer=${p.zeitraffer}&fotos=${lauf.fotos ? 1 : 0}${lauf.fotos ? '&fotopause=2000' : ''}${semantik}`;
 }
 
 /** Erzählertexte der Runden und die Täterfassungen (je Pfad, die ersten 40 Zeichen des Feldes tarnung). */

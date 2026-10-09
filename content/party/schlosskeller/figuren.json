@@ -166,18 +166,18 @@
         "y": 13.5
       },
       "visualSpecs": {
-        "silhouette": "Schlanke Statur, dunkles Kopftuch, knielanger Wollmantel",
-        "outfit": "Beerenroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, dunkles Kopftuch",
+        "silhouette": "Schlanke Statur, taubengraues Kopftuch, knielanger Wollmantel",
+        "outfit": "Beerenroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, taubengraues Kopftuch",
         "distinguishingFeature": "Schwere Umhängetasche aus Leder, breiter Silberring an der rechten Hand",
         "idleAnimation": "Nestelt am Reißverschluss ihrer Tasche und lächelt Emine zu"
       },
-      "motiveAndConflict": "Fatma schreibt ihre Abschlussarbeit über alte Münzbilder. Azra hat ihr von der Münzschatulle in der Turmvitrine erzählt. Um 23:40 hebt sie die gesprungene Scheibe an und nimmt die Schatulle mit. Sie will die Reliefs zu Hause abzeichnen und die Schatulle am Montag zurückbringen. Um 23:56 sieht Herr Schneider Glassplitter an ihrem Mantel: „Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.“",
+      "motiveAndConflict": "Fatma schreibt ihre Abschlussarbeit über alte Münzbilder. Azra hat ihr von der Münzschatulle in der Schauvitrine erzählt. Um 23:40 hebt sie die gesprungene Scheibe an und nimmt die Schatulle mit. Sie will die Reliefs zu Hause abzeichnen und die Schatulle am Montag zurückbringen. Um 23:56 sieht Herr Schneider Glassplitter an ihrem Mantel: „Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.“",
       "blackoutAlibi": "Behauptet, die ganze Zeit beim Gebäck am linken Buffettisch gestanden zu haben.",
       "roleSecret": "Nachdem Herr Schneider sie um 23:56 erwischt hat, will sie ihm die Schatulle sofort zurückgeben. Um 23:57 geht sie mit der Tasche zur Theken-Klappe.",
       "persoenlichesZiel": "Die Schatulle soll zurück, ohne dass es alle erfahren.",
       "nebendelikt": {
         "id": "nd_schatulle",
-        "text": "Hat die Münzschatulle aus der Turmvitrine mitgenommen."
+        "text": "Hat die Münzschatulle aus der Schauvitrine mitgenommen."
       },
       "loyalitaet": {
         "zu": "emine",
@@ -211,7 +211,7 @@
         "kopf": "kopftuch",
         "statur": "slim",
         "schnitt": "dress",
-        "kopftuchFarbe": "#3b3436"
+        "kopftuchFarbe": "#9A8C98"
       },
       "alltag": "Studiert Kommunikationsdesign im letzten Semester."
     },
@@ -889,7 +889,7 @@
         "distinguishingFeature": "Kleine Lupe an einer Silberkette um den Hals, auffällige Ringe aus Holz und Stein",
         "idleAnimation": "Betrachtet ihre Ringe durch die Lupe und schaut zur Theke"
       },
-      "motiveAndConflict": "Sie kennt sich mit alten Münzen aus und hat Fatma von der Schatulle in der Turmvitrine erzählt. Herr Schneider fand es seltsam, wie lange sie vor der Vitrine stand.",
+      "motiveAndConflict": "Sie kennt sich mit alten Münzen aus und hat Fatma von der Schatulle in der Schauvitrine erzählt. Herr Schneider fand es seltsam, wie lange sie vor der Vitrine stand.",
       "blackoutAlibi": "Stand am rechten Buffettisch und füllte Gebäck auf einen Pappteller.",
       "roleSecret": "Um 23:45 sah sie, dass Fatmas Tasche auffällig ausgebeult war.",
       "persoenlichesZiel": "Niemand soll denken, sie hätte Fatma zu etwas angestiftet.",
@@ -1055,8 +1055,8 @@
       "minPlayers": 20,
       "roleTitle": "Die Geburtstags-Planerin",
       "isPotentialKiller": false,
-      "colorCode": "#800020",
-      "farbname": "Karminrot mit Gold",
+      "colorCode": "#D2691E",
+      "farbname": "Rostorange mit Gold",
       "startRoom": "ost_saal",
       "ermittlungsOrt": "an_der_wandtafel",
       "coordinates": {
@@ -1065,7 +1065,7 @@
       },
       "visualSpecs": {
         "silhouette": "Organisiert, schwungvoll, geschäftsmäßig, goldfarbenes Kopftuch",
-        "outfit": "Karminroter Blazer über weißem Shirt, goldfarbenes Kopftuch, schmale Metallbrille",
+        "outfit": "Rostoranger Blazer über weißem Shirt, goldfarbenes Kopftuch, schmale Metallbrille",
         "distinguishingFeature": "Notizbuch mit goldenem Einband und Fineliner",
         "idleAnimation": "Blättert im Notizbuch, hakt Zeilen ab und schaut zur Wanduhr"
       },

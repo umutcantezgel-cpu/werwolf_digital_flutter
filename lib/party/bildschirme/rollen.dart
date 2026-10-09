@@ -287,7 +287,9 @@ class _RollenZeile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final figur = [sitzung.figurName(rolle), sitzung.figurTitel(rolle)].where((t) => t.isNotEmpty).join(' · ');
+    // Ohne eingetragenen Spielernamen steht der Figurenname schon oben: dann nur der Titel.
+    final name = sitzung.spielerName(rolle) == sitzung.figurName(rolle) ? '' : sitzung.figurName(rolle);
+    final figur = [name, sitzung.figurTitel(rolle)].where((t) => t.isNotEmpty).join(' · ');
     return InkWell(
       borderRadius: BorderRadius.circular(12),
       onTap: onTap,

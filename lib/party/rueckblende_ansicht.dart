@@ -58,7 +58,7 @@ class _RueckblendeAnsichtState extends State<RueckblendeAnsicht> {
                       decoration: BoxDecoration(color: const Color(0xCC0B0A0E), borderRadius: BorderRadius.circular(8), border: Border.all(color: Keller.linie)),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                        child: Text(widget.sitzung.ui('ui.allgemein.uhrzeit', {'uhrzeit': '$t'}), style: Keller.text.copyWith(fontFeatures: const [FontFeature.tabularFigures()])),
+                        child: Text(widget.sitzung.ui('ui.allgemein.uhrzeit', {'uhrzeit': t.mitSekunden}), style: Keller.text.copyWith(fontFeatures: const [FontFeature.tabularFigures()])),
                       ),
                     ),
             ),

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
+import '../../app/router.dart';
 import '../erzaehler_ausgabe.dart';
 import '../party_stil.dart';
 import '../sitzung.dart';
 
 /// Auflösung (Master 7.6, Schritt 8, Phase aufloesung) und das Ende (Phase ende).
 /// In der Auflösung steht je Baustein der Erzählertext, bei den Rollen mit Name
-/// am Tisch und Farbpunkt. Im Ende steht die Abschlusstafel ohne Weiter-Knopf.
+/// am Tisch und Farbpunkt. Im Ende steht die Abschlusstafel mit dem Weg ins Hauptmenü.
 class AufloesungBildschirm extends StatelessWidget {
   const AufloesungBildschirm({super.key, required this.sitzung});
 
@@ -16,7 +18,7 @@ class AufloesungBildschirm extends StatelessWidget {
   PartySitzung get s => sitzung;
 
   @override
-  Widget build(BuildContext context) => s.phase == PartyPhase.ende ? _ende() : _aufloesung();
+  Widget build(BuildContext context) => s.phase == PartyPhase.ende ? _ende(context) : _aufloesung();
 
   Widget _aufloesung() => PartyRahmen(
         marke: s.ui('ui.aufloesung.marke'),
@@ -33,11 +35,13 @@ class AufloesungBildschirm extends StatelessWidget {
         ),
       );
 
-  Widget _ende() {
+  Widget _ende(BuildContext context) {
     final ende = s.ende;
     return PartyRahmen(
       marke: s.ui('ui.aufloesung.ende_marke'),
       titel: ende.name,
+      // Der Abend ist zu Ende: zurück ins Hauptmenü, von dort beginnt ein neuer Abend.
+      aktionen: [PartyKnopf(text: s.ui('ui.aufloesung.hauptmenue'), haupt: false, icon: Icons.home_rounded, onPressed: () => context.go(Routes.hub))],
       child: PartyTafel(
         akzent: ende.richtig ? Keller.notlicht : Keller.gefahr,
         padding: const EdgeInsets.fromLTRB(20, 18, 20, 18),
