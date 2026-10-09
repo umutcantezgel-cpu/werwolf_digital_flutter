@@ -49,3 +49,9 @@ node_modules/
 **/.dart_tool/
 server/build/
 *.apk
+
+# Finalisierung Schlosskeller
+# Rohchat (Quellmaterial) bleibt lokal
+quellen/
+# Repo-lokale Werkzeugkette (Flutter-SDK, Pub-Cache)
+.werkzeug/
