@@ -150,6 +150,26 @@
     {
       "id": "ui.druck.datei.aufloesung",
       "text": "Auflösungsheft"
+    },
+    {
+      "id": "ui.druck.app.titel",
+      "text": "Druckfassung"
+    },
+    {
+      "id": "ui.druck.app.hinweis",
+      "text": "Für ein Druckspiel oder als Ersatz zum Bildschirm. Fall-Code {code}. Druckt alles aus, ohne es durchzulesen; das Auflösungsheft bleibt versiegelt."
+    },
+    {
+      "id": "ui.druck.app.erstellen",
+      "text": "Druckfassung erstellen"
+    },
+    {
+      "id": "ui.druck.app.laedt",
+      "text": "Die Druckfassung wird erstellt. Das dauert einen Moment."
+    },
+    {
+      "id": "ui.druck.app.nur_browser",
+      "text": "Herunterladen geht nur in der Browser-Fassung."
     }
   ]
 }

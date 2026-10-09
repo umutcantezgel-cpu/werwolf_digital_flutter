@@ -24,6 +24,7 @@ bool _sichtbar(String s) {
   if (!RegExp(r'[A-Za-zÄÖÜäöüß]{3,}').hasMatch(ohne)) return false;
   if (RegExp(r'^[a-z0-9_.\-/{}<>]+$').hasMatch(ohne)) return false; // Kennung, Schlüssel, Pfad, Dateiname
   if (RegExp(r'^[a-z][A-Za-z0-9]*$').hasMatch(ohne)) return false; // Bezeichner
+  if (RegExp(r'^[A-Za-z0-9_\-/]+\.(ttf|otf|png|json|pdf)$').hasMatch(ohne)) return false; // Dateiname
   return RegExp(r'[A-Za-zÄÖÜäöüß]{2,}\s+[A-Za-zÄÖÜäöüß]{2,}').hasMatch(ohne) || RegExp(r'^[A-ZÄÖÜ][a-zäöüß]{2,}').hasMatch(ohne);
 }
 
@@ -77,6 +78,7 @@ final a = sitzung.ui('ui.karte.weiter');
 final b = Text('Geh jetzt zur Theke');
 final c = PartyKnopf(text: 'Weiter');
 final d = '\${x}';
+final e = load('Inter-Bold.ttf');
 """);
       final f = funde([datei]);
       expect(f, hasLength(2), reason: f.join('\n'));

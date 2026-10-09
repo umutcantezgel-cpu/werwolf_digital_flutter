@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
+import '../druck_tafel.dart';
 import '../party_stil.dart';
 import '../sitzung.dart';
 
@@ -93,6 +94,10 @@ class _RollenBildschirmState extends State<RollenBildschirm> {
         children: [
           Text(s.ui('ui.rollen.erklaerung'), style: Keller.text),
           const SizedBox(height: 16),
+          if (s.einstellungen.druck) ...[
+            DruckTafel(sitzung: s),
+            const SizedBox(height: 16),
+          ],
           if (_zugedeckt) ...[
             PartyTafel(akzent: Keller.kerze, child: Text(s.ui('ui.verdeckt.neutral'), style: Keller.text)),
             const SizedBox(height: 16),
