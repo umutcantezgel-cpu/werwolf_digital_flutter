@@ -32,6 +32,11 @@ if [ -f packages/burgstadt_core/bin/erkundung.dart ]; then
   (cd packages/burgstadt_core && dart run bin/erkundung.dart 2>&1 | filter | grep -E "Türen|Nicht erreicht|Steckenbleiber")
 fi
 
+if [ -f packages/room_host/test/mp_sim.dart ]; then
+  step "Ebene 8 · Mehrspieler: Host + 4/8/20 WebSocket-Clients (Teilen < 1 s, gleicher Stand, Bots füllen)"
+  (cd packages/room_host && dart run test/mp_sim.dart 2>&1 | filter | grep -E "Teilnehmer|ABWEICHUNG|MP-SIM")
+fi
+
 if [ -f packages/burgstadt_core/bin/durchspiel.dart ]; then
   step "Ebene 3/4 · Durchspiel 4…20 mit Bots, Teilen-Nutzen"
   (cd packages/burgstadt_core && dart run bin/durchspiel.dart 2>&1 | filter | grep -E "Teilen-Nutzen|DURCHSPIEL")
