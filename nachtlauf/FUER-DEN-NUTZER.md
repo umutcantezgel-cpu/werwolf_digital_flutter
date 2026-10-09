@@ -17,6 +17,7 @@
 - **Sprachausgabe:** Das Projekt hat keine. Erzählertexte werden angezeigt, nicht vorgelesen.
 
 ## Bitte entscheiden
+- **Neue Commits der anderen Stränge (E59):** Seit ihrem letzten Merge haben „Burgstadt HD“ (`claude/pensive-gates-ajtp7x`, 16 Commits, u. a. BOLLWERK-Meta-Prompts und HD-Texturen), „Finalisierung Schlosskeller“ (22 Commits, u. a. Drucksatz und E2E-Gerüst) und der neue Strang `kern-feinkorn` (2 Commits, FEINKORN archiviert) weitergearbeitet. Sie sind noch nicht in `main`. Ein Merge ist wie N-03/N-04 deine Entscheidung; danach folgen ein voller Lauf und bei Figurenänderungen eine neue Sichtrunde.
 - **Z-12 (Inhaltsprüfung) – drei Runden in Folge „nein“ (E50, E55, E57):**
   - Die Inhaltsprüfer (A-702t, u, v; neun Berichte) urteilen jedes Mal „Leitplanken nein · Kanontreu ja · Plagiatsfrei ja“.
   - Zu jedem Befund „hoch“ oder „mittel“ lief eine unabhängige Gegenprobe. Von 34 waren 3 haltbar, und die sind umgesetzt: Weinname im Figurendatensatz, Hausarbeit in den Haustexten, Elternberufe nach Geschlecht.

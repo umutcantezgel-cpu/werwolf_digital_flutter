@@ -77,3 +77,11 @@
 - 17:10 Inhaltsrunde 25–27 (A-702t): dreimal „Leitplanken nein“. Die unabhängigen Gegenproben halten 10 von 10 Befunden „hoch“ oder „mittel“ für nicht haltbar. Kleines ist umgesetzt (E50); drei Gestaltungsfragen gehen an den Nutzer (Haarfarben, Alters- und Geschlechtermuster der Stadtbewohner, DW3-3).
 - 17:18 Schlosskeller-Strang nachgezogen (3aff435, E51); unser Leitplanken-Scanner nimmt `content/party` aus, weil der Strang einen eigenen Textprüfer hat.
 - 17:27 Voller Lauf an 147e0e0 wieder rot, mit demselben Bild wie um 16:41. Der Versuch A–G zeigt die Ursache: Nach einem Wechsel der Build-Aufrufform schreibt Flutter die Asset-Manifeste nicht neu. Behoben in beiden Prüfskripten (E52), und eine Wache bricht sofort mit klarer Meldung ab.
+- 17:51 Voller Lauf an 580b4c2 grün (13 von 14, Z-12 offen); Stand auf `main` (3d0722f).
+- 18:42 und 18:48 Auf Nutzerentscheidung HD-Strang (96e9e5b) und Schlosskeller-Strang (68cd35f) gemergt, konfliktfrei; Layout-Prüfsumme des HD-Strangs unverändert (E53).
+- 19:19 Z-12-Gestaltungsfragen umgesetzt (E54): Stadtbewohner ausgeglichen, Haarfarben gemischt, DW3-3 nur Spur. 19:27 voller Lauf grün, Stand auf `main`.
+- 20:39 Sichtrunde 25/26 und Inhaltsrunde 28–30 ausgewertet (E55): B22/B40 getrennt, R20 ohne Kapuze, R15 „dunkelroter Blazer“, Hausarbeit in den Haustexten verteilt. `mass5a.py` misst jetzt genau wie `karten_test` (Zonen, Höhe, Füße).
+- 20:52 Voller Lauf an e13255f rot, nur Z-09 (ein Back-Schritt 40,8 ms). 21:21 Ursache: Die VM rechnet Unterbrechungen durch den Wirt dem Thread als Rechenzeit an, auch in einer reinen Rechenschleife ohne Spielcode. Die teuersten Back-Schritte werden mit derselben Arbeit nachgemessen (E56). 21:33 voller Lauf grün, Stand auf `main`.
+- 21:52 Sichtrunde 27/28 und Inhaltsrunde 31–33 ausgewertet (E57): R06 Dreitagebart als Bartschatten, Elternberufe nach Geschlecht gemischt (Overlay). Dritte Inhaltsrunde in Folge „nein“, 3 von 34 Gegenproben haltbar und umgesetzt. Z-12 geht an den Nutzer. 22:08 voller Lauf grün, Stand auf `main`.
+- 22:27 Sichtrunde 29/30 (E58): R19 Bartart im Datensatz „kinnbart“; Test Bartart ↔ Bartteil. 22:39 voller Lauf grün, Stand auf `main`.
+- 22:55 Sichtrunde 31/32: je 0 Paare und 0 Verstöße. Z-03 erfüllt, Abnahme 13 von 14; offen nur Z-12 (Nutzerentscheidung, E57/E59).

@@ -761,3 +761,10 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Prüfer 29 sah bei B32 einen kleinen Knoten (Frisur „kurz-wuschel“) und bei B34 die Mütze nur als Band.
   - Prüfer 29 nennt die Grenzfälle B14/B20 und B22/B40, Prüfer 30 acht Grenzfälle. Grenzfälle zählen nach Maßstab 5a nicht.
 - Weil das Bild gleich bleibt, gilt der Kartenstand 850245deb6 weiter; für Z-03 läuft eine neue Sichtrunde A-605ac/ad (Prüfer 31/32) mit korrigiertem Datensatz.
+
+## E59 · 09.10. 22:55 · Z-03 erfüllt (Sichtprüfer 31/32); Abnahme 13 von 14, Z-12 beim Nutzer
+- **Sichtrunde A-605ac/ad (Kartenstand 850245deb6):** Sichtprüfer 31 und 32 melden unabhängig je 0 Paare und 0 Verstöße, Abnahme ja.
+  - Beide bestätigen R06 (Bartschatten) und R19 (Kinnbart).
+  - Hinweise ohne Verstoß: Grenzfall B05/B07 (Locken, navy Rock; Oberteil dunkelbraun gegen dunkelrot); B32 wirkt mit Haarknoten.
+- `tool/abnahme.dart --log` am Stand be73a78 (Protokoll des grünen Laufs an 314e8dd, Code seither unverändert): **13 von 14 erfüllt**, offen nur Z-12. Z-12 liegt nach E57 beim Nutzer.
+- Die Stränge „Burgstadt HD“ und „Finalisierung Schlosskeller“ sowie der neue Strang `kern-feinkorn` haben seit ihrem letzten Merge weitergearbeitet (16, 22 und 2 Commits). Ein neuer Merge ist Nutzerentscheidung wie N-03/N-04 (FÜR DEN NUTZER).
