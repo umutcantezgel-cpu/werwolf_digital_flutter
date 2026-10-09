@@ -1,6 +1,6 @@
 # A-3 · Kanon-Auszug für Aufträge (Kennung ↔ Anzeigename)
 
-Quelle: origin/finalisierung-schlosskeller@5c83242:content/party/schlosskeller/. Nach B-02 erzeugt der Nachtlauf diesen Auszug an K neu (`tool/bollwerk/kanon_auszug.sh`); bis dahin gilt dieser Stand. Lösungsrelevantes (Täterpfade, Fakten, Beweise) steht hier bewusst nicht.
+Quelle: origin/finalisierung-schlosskeller@5c83242:content/party/schlosskeller/. Nach B-02 erzeugt der Nachtlauf an K eine neue Datei `planung/bollwerk/kanon/A-3-an-K.md` (`tool/bollwerk/kanon_auszug.sh`) und gibt Paketen diese; dieser Anhang bleibt unverändert. Lösungsrelevantes (Täterpfade, Fakten, Beweise) steht hier bewusst nicht.
 
 ## Räume (7)
 | Kennung | Anzeigename |
@@ -117,7 +117,7 @@ b_baran_rufe, b_hana_wachs, b_serkan_tor, b_pawel_schneider, b_schneider_erinner
 - Verboten: Notlaterne einschalten, Kerzenständer nehmen, Kerzen anzünden, offene Flamme, Gewalt spielbar zeigen, Flaschen, Stielgläser, Fässer.
 
 ## Zugschicht (gilt neben dem Kanon, aus SPIELKERN)
-- Würfel: 2W6 + Modifikator 0..+2 (Helfer +1, Werkzeug +1, „gründlich“ +2, Seifenblasen-Marke +1). Erfolg ab 9, Teilerfolg 7–8, Pech bis 6.
+- Würfel: 2W6 + Modifikator 0..+2 (Werkzeug +1: Tee, Tims Stirnlampe; „gründlich“ +2; Seifenblasen-Marke +1; Helfer und Fachgebiete sind kein Modifikator). Nur Suchen würfeln, Befragen nie.. Erfolg ab 9, Teilerfolg 7–8, Pech bis 6.
 - Erfolg: Wissen + Zeitgewinn (Nachtminuten) + ggf. Zusatzfund aus der Weißliste; ein Abstecher-Erfolg kann einen Folge-Abstecher öffnen.
 - Pech: Missgeschick an Sachen, Licht oder Zeit, dann Glück im Unglück: eine **Seifenblasen-Marke** (+1 auf einen späteren Wurf, höchstens 3 je Partie) und ein harmloser, wahrer Satz.
 - Spürbare Folgen, die eine Variante haben darf: Nachtminuten ±, Seifenblasen-Marke, Folge-Abstecher, Zusatzfund (Weißliste), Helfer für den nächsten Wurf, ein Gag wird ausgelöst, eine Person kommt mit oder leuchtet.

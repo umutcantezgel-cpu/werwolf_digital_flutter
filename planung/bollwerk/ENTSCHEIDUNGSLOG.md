@@ -41,3 +41,27 @@ Jede folgenreiche Entscheidung nach dem Denkprotokoll (Ziel · Wege · Bewertung
 - **Wege:** (a) Branch löschen – Grenze (kein Löschen; Proxy lehnt Löschungen ab); (b) überschreiben – Force-Push verboten; (c) stehen lassen, melden, Leitstand setzt per Fast-Forward.
 - **Wahl:** (c). Eintrag in FUER-DEN-NUTZER §1, STATUS, Übergabe. Abnahme M-12 („Push-Protokoll nennt nur bollwerk-plan“) ist damit nicht vollständig erfüllt und wird so gemeldet.
 - **Folge:** Harte Regel im Master-Prompt: Heredocs nur mit `<<'EOF'`, Texte mit Backticks nur über Write.
+
+## E-M2-02 · Würfelmodell neu: nur Suchen würfeln (22:45 UTC, ersetzt E-M2-01)
+- **Befund:** Satz 6 aus E-M2-01 ließ Befragungen bei unbesetzten Rollen würfeln und gab Helfer-Fachgebieten +1. Beides hing am Pfad: Die Chance unterschied sich je Option und verriet die richtige Wahl.
+- **Wege:** (a) Helfer- und Befragungswürfe behalten und je Entscheidung angleichen; (b) nur Suchen würfeln, Helfer nur Darstellung; (c) jede Entscheidung würfelt, gleiche Chance für alle.
+- **Bewertung:** (a) braucht je Entscheidung einen Ausgleich, fehleranfällig. (c) macht Befragungen zufällig, gegen den Kanon-Ton. (b) ist pfadgleich und hält die Bänder (sim7–sim10).
+- **Wahl:** (b), mit Schwellen 9 / 7–8 / ≤ 6 (K-05…K-07).
+- **Umkehrprobe:** Falsch, wenn der Wurfanteil unter 30 % fällt; L4 misst das jede Welle.
+
+## E-M6-01 · Prüfrunde 2: Würfelregeln geschärft (23:30 UTC)
+- **Befund (L03):** Die Reserve-Regel ließ den Pech-Zuschlag (+3 min) eines Abstechers außer Acht. Offen war, ob Folgeentscheidungen und Abstecher würfeln. Die Modifikatorliste war uneinheitlich (Stimmkreis-Bonus in K-19, Nochmal +1 in K-10). Runde 1 konnte ohne Wurf bleiben. Z-04 war zu eng gefasst. Folgeentscheidungen mit `fakt:`-Gliedern hätten Lösbarkeit gekostet. Das WLAN-Salz war vor dem ersten Zug offen, sodass Würfe vorab berechenbar waren.
+- **Wahl:**
+  - Reserve mit −3 min.
+  - Würfelregel nach Ziel: Gegenstand, Raum oder Ort. Eine solche Entscheidung würfelt für alle Optionen.
+  - Abschließende Modifikatorliste: Werkzeug +1, gründlich +2, Marke +1.
+  - Auftakt-Suche in Runde 1, 0 Nachtminuten.
+  - Z-04 prüft alle Wertungsgrößen an der Engine.
+  - 0 `fakt:`-Glieder in Folgeentscheidungen und Abstechern (Z-11).
+  - Salz als sha256-Zusage, aufgedeckt in der Auflösung.
+- **Beleg:** sim11 mit 313.344 erschöpfenden Läufen ohne Abweichung. Jede Runde enthält ≥ 1 Wurf (100 %). Alle Bänder halten. Zahlen stehen in A-4 im Nachtrag M6.
+
+## E-M6-02 · Verworfene Prüfbefunde (23:30 UTC)
+- ROT-2 „Leitstand baut keinen MC“ → verworfen: widerspricht V-16 und PLAN (der MC-Bau gehört dem Leitstand).
+- „Kürzungsleiter streichen“ → ersetzt durch „gekürzt = rot bis A<n>: ja“; die Leiter bleibt als Notweg.
+- Werkzeug-Audit meldete grep-Muster als Befehle → Audit entfernt zitierte Teile vor dem Abgleich. Die 2 echten Verstöße aus M0 (vor dem ToolSearch-Verbot) bleiben gemeldet.

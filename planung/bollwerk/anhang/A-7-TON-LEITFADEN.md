@@ -1,6 +1,6 @@
 # A-7 · TON-LEITFADEN §1–§10 (wörtlich)
 
-Quelle: origin/finalisierung-schlosskeller@5c8324298bd774f2c07e91ff2fb98bd1f909e3c7:planung/finalisierung-schlosskeller/TON-LEITFADEN.md. Nach B-02 gilt die Fassung an K; BW0 vergleicht sie und übernimmt Änderungen.
+Quelle: origin/finalisierung-schlosskeller@5c8324298bd774f2c07e91ff2fb98bd1f909e3c7:planung/finalisierung-schlosskeller/TON-LEITFADEN.md. Nach B-02 gilt die Fassung an K; BW0 vergleicht sie und schreibt Abweichungen nach `planung/bollwerk/kanon/TON-an-K.md`; dieser Anhang bleibt unverändert.
 
 # Ton-Leitfaden · „Spuk im Schlosskeller“
 

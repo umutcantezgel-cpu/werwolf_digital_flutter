@@ -53,7 +53,7 @@ Buffetsaal/Kaminsaal/Ostsaal am Stand fin@5c83242: Luminanz L* 6,4–10,2; Vigne
 - f_i = Wert nach Füllstoffprüfung ÷ Basis am B-02-Commit, gedeckelt bei 100.
 - U = exp(Σ g_i · ln f_i / Σ g_i).
 - Die Gewichte legt der Meta-Lauf in M1 fest, mit Begründung (Startwert g = 3, 2, 1, 1, 1, 2: sichtbare Aktionen hoch, Weißlisten-Funde kanongebunden niedrig). Danach ändert sie niemand.
-- Beispiel, das U ≥ 10 erfüllt: X1 20× (≈ 180), X2, X3 und X5 je 3×, X4 30× (≈ 90 Gags), X6 30× ergibt U ≈ 10,6 bei eingehaltener 40-%-Regel.
+- (Ersetzt durch Teil 1 §1.1: Planziel f = 15, 6, 4, 30, 9 → U = 10,19, X1-Anteil 38,9 %.)
 - **Umfangsplan** (aus M4): welche Kombination f_1 … f_6 U ≥ 10 erfüllt und wie viele Aufträge und Stunden (Vorlauf und Hauptlauf) sie braucht. Vorlauf-Ware in `content/runden/` zählt, sobald sie nach B-02 F1–F5 besteht. Reicht eine Hauptlauf-Nacht nicht, setzt der Master-Prompt je Nacht ein Zwischenziel aus diesem Plan (Annahme A-11). Das BK-Kriterium bleibt U ≥ 10; nichts wird still gesenkt.
 
 **Schwellen**
@@ -129,7 +129,7 @@ Buffetsaal/Kaminsaal/Ostsaal am Stand fin@5c83242: Luminanz L* 6,4–10,2; Vigne
 - Würfelbühne und Entscheidungskarten
 
 **D2 Blinder Paarvergleich**
-- 28 Paare: 7 Räume × Tag/Nacht × hoch/quer, gleiche Kamera, fester Zeitpunkt.
+- 42 Paare: 7 Räume × 2 Kanon-Lichtzustände × 3 Ansichten (hoch, quer, Tablet), gleiche Kamera, fester Zeitpunkt (ersetzt die frühere Zahl 28); dazu 7 Bewegungsstreifenpaare.
 - Jedes Paar zweimal (A/B, B/A, Reihenfolge per Seed). Die Dateinamen sind Hashes.
 - 5 Haiku-Stimmen plus eine Opus-Stichprobe von 7 Paaren.
 - Bestanden bei ≥ 85 % „nachher besser“ und Mehrheit in jedem Raum.

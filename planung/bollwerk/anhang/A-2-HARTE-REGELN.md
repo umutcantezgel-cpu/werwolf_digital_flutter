@@ -45,7 +45,7 @@ Quelle: Anhang A4 des Meta-Laufs, mit der Vorrangtabelle V-1…V-24 angewandt. W
 - „Die App verbindet sich mit nichts Neuem; bestehende Verbindungen bleiben, wie sie sind.“ „Zur Laufzeit lädt das Spiel nichts von fremden Servern.“ Web-Builds immer mit `--no-web-resources-cdn`.
 - „Bestehende Funktionen, Daten und Speicherstände bleiben erhalten. Was du ersetzt, bleibt über einen Schalter erreichbar, bis die Abnahme bestanden ist.“
 - „Werkzeuge, Prüfstand und Modellschau erscheinen nie in der veröffentlichten App.“
-- Netzwerk nur für Git mit dem bestehenden `origin` und zum Installieren der Abhängigkeiten, die das Projekt schon hat. Keine neuen Remotes, kein Deployment, kein Hochladen zu fremden Diensten.
+- Netzwerk nur für Git mit dem bestehenden `origin`, zum Installieren der Abhängigkeiten, die das Projekt schon hat, und für das Flutter-SDK 3.47.6 aus der Quelle von `build.sh` (sha256 geprüft, Master-Prompt Abschnitt 13). Keine neuen Remotes, kein Deployment, kein Hochladen zu fremden Diensten.
 - „Du arbeitest nur im Repo-Ordner und installierst nichts systemweit“: kein `npm -g`, kein `pip install`, kein `pub global`. `build.sh` wird nie lokal ausgeführt.
 - Schriften, Bilder und Klänge liegen im Projekt.
 
@@ -160,10 +160,10 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 
 ### A4.9 Agenten
 - Haiku-Agenten haben nur Werkzeuge nach A4.2. Jeder Auftrag nennt absolute Pfade.
-- **Pool-Plätze sind Kopien ohne Git:** höchstens 6 Plätze `/home/user/bw/01…06`, jeder in FLUG.md eingetragen. Das Skript liest `$BW` und `$POOL` aus `env.sh` (Standard `/home/user/bollwerk` und `/home/user/bw`), damit der Meta-Trockenlauf beides umlenken kann.
+- **Pool-Plätze sind Kopien ohne Git:** höchstens 6 Plätze `/home/user/bw/01…06`, jeder in FLUG.md eingetragen. Das Skript liest `$BW` und `$POOL` aus `env.sh` (`BW` aus dem Pfad von env.sh, `POOL` Standard `/home/user/bw`), damit der Meta-Trockenlauf beides umlenken kann.
   - Anlegen und Zurücksetzen nur mit `bash $BW/tool/bollwerk/pool_reset.sh <NN> <sha>`. Das Skript bricht ab, wenn `<NN>` nicht `01`–`06` ist oder der Platz nicht in FLUG.md steht. Es führt aus: `rm -rf /home/user/bw/<NN> && mkdir -p /home/user/bw/<NN> && git -C /home/user/bollwerk archive <sha> | tar -x -C /home/user/bw/<NN>`, danach `pub get --offline` in allen 8 Paketen des Repos (Wurzel, 5 Pakete, `server`, `tool/ton`) und in `tool/bollwerk/look_anker`.
   - Daneben liegt je SHA eine schreibgeschützte Basis `/home/user/bw/basis-<sha7>` (gleich angelegt, dann `chmod -R a-w`).
-  - Haiku ruft nie `git` auf. Den Patch erzeugt Opus: `diff -ruN -x .dart_tool -x build -x '.flutter-plugins*' /home/user/bw/basis-<sha7> /home/user/bw/<NN> > /home/user/bw-varianten/<welle>/<kennung>.patch`. Vor `git apply --check` in `/home/user/bollwerk` prüft Opus, dass der Patch nur die Dateien des Auftrags berührt.
+  - Haiku ruft nie `git` auf. Den Patch erzeugt Opus: `diff -ruN -x .dart_tool -x build -x '.flutter-plugins*' /home/user/bw/basis-<sha7> /home/user/bw/<NN> > /home/user/bw-varianten/<welle>/<kennung>.patch`. Vor `git apply --check` in `$BW` prüft Opus, dass der Patch nur die Dateien des Auftrags berührt.
   - Teil 8 jeder Auftragsvorlage enthält wortgleich: „Du führst nie `git` aus und betrittst nie `$BW` oder einen anderen Checkout.“
   - `git reset --hard`, `git clean` und `git checkout -- <pfad>` laufen nur mit `-C <eigener Wegwerf-Worktree>` (Mutanten, Rot-Proben), nie ohne `-C`.
 - Text-, Daten- und Urteilsaufträge bekommen keinen Worktree. Workflow-Option `isolation: 'worktree'` wird nicht benutzt.
@@ -179,6 +179,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 - „Unteragenten unterliegen denselben Grenzen; jeder Auftrag nennt sie.“
 - **Keine Backticks in Heredocs (L-01), für Opus und Agenten:** Heredocs nur mit `<<'EOF'` (Anführungszeichen); Texte mit Backticks schreibt man mit Write. Im Meta-Lauf hat ein Heredoc ohne Anführungszeichen einen Push ausgeführt (FUER-DEN-NUTZER §1 auf `bollwerk-plan`).
 - Mutanten und Rot-Proben laufen nur in Wegwerf-Worktrees und werden nie committet.
+- **Erwartete Refs (V-13):** Vorwärtsbewegungen von `bollwerk-leitstand` (nur `planung/bollwerk/leitstand/**`), neue Refs `archiv/*`, `bollwerk-mc`, `bollwerk-plan`, `bollwerk-probe`, `bollwerk-rueckweg`, neue `claude/*`-Branches anderer Sitzungen, Commits des Nachtlaufs Burgstadt (main, `nachtlauf/*`) und der Finalisierung. Sie kommen nur ins NACHTPROTOKOLL.
 - **Stolperdraht nach jeder Welle:** `git ls-remote origin` mit dem Bild der letzten Welle vergleichen. Rot ist er nur bei:
   - einem gelöschten Ref
   - einem Ref, dessen alter Stand kein Vorfahr des neuen ist
@@ -199,3 +200,6 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 - **Messen:** Leistung nur in Thread-CPU-Zeit, nie unter Parallellast. Agenten schreiben nie in einen Baum, in dem gemessen oder getestet wird.
 - **PATH:** Jeder Bash-Befehl beginnt mit `source $BW/tool/bollwerk/env.sh &&` ($BW = Sitzungs-Checkout auf `bollwerk`). Die Datei setzt `FLUTTER_ROOT=$BW/.werkzeug/flutter`, `PUB_CACHE=$BW/.werkzeug/pub-cache`, `PATH=$BW/.werkzeug/flutter/bin:/opt/node22/bin:$PATH` und `BW`. `/opt/flutter` gibt es auf den Cloud-Maschinen nicht (Meta-Lauf M0).
 
+
+### Zusatz Erlaubnisprüfung (L0.2)
+Jede Datei aus `git diff --name-status $B HEAD` außerhalb der Schreib-Erlaubnis ist rot: vor B-02 nur `planung/bollwerk/**` (ohne MASTER-PROMPT, anhang, STARTPAKET), `tool/bollwerk/**`, `content/runden/**`, `packages/mordakte_core/lib/src/runden/**`, `packages/mordakte_core/test/runden/**`, `lib/runden/**`, `assets/runden/**`, `test/runden/**`, `docs/bollwerk/**`; nach B-02 zusätzlich die übergegangenen Pfade aus A4.8 und Merges zugelassener Linien.

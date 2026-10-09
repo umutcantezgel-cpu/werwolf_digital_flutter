@@ -85,6 +85,13 @@ def spiele(E, minp, pfad, n, form, wahl, strom, strategie, p=P, rs=None):
                 log["geraet_s"] += 25; log["szenen"].append(f"g:{g}")  # Gesprächsphase, kein Zug (wie Tischgespräche)
         angebot = [f"a{runde}_{i}" for i in range(p["abstecher_je_runde"])]
         rs.shuffle(angebot)
+        if runde == 1:  # Auftakt-Suche (nichtwertend, 0 Nachtminuten): sichert ≥ 1 Wurf in Runde 1
+            log["zuege"] += 1; log["wuerfe"] += 1; log["erste_wuerfe"] += 1; log["geraet_s"] += 20
+            st0 = stufe(strom.w2(), p)
+            log.setdefault("wurf_runde", set()).add(1)
+            if st0 == "P": log["erste_pech"] += 1; log["pech_szenen"] += 1; marken = min(p["marken_max"], marken + 1)
+            if st0 == "E": log["erfolge_zusatz"] += 1
+            log["szenen"].append(f"auftakt:{st0}")
         def wurf(gruendlich, ziel_besetzt, marke_ok):
             nonlocal marken
             mod = 0
@@ -93,12 +100,12 @@ def spiele(E, minp, pfad, n, form, wahl, strom, strategie, p=P, rs=None):
             if marke_ok and marken < p["marken_max"] and rs.random() < 0.3: marken += 1; mod += 1
             mod = min(mod, p["mod_max"])
             s = strom.w2()
-            log["wurfsummen"].append(s)
+            log["wurfsummen"].append(s); log.setdefault("wurf_runde", set()).add(runde)
             return stufe(s + mod, p)
         while offen:
             # Abstecher, solange die Reserve-Regel es erlaubt (Gier: alle; neutral: ~halbe; Geiz: keine)
             lust = {"gier": 1.0, "neutral": 1.0, "geiz": 0.0}[strategie]
-            while angebot and rest - p["c_abstecher"] >= worst() and rs.random() < lust:
+            while angebot and rest - p["c_abstecher"] - p["abstecher_pech_zeit"] >= worst() and rs.random() < lust:
                 a = angebot.pop()
                 rest -= p["c_abstecher"]; log["zuege"] += 1; log["abstecher"] += 1; log["geraet_s"] += 30
                 if rs.random() < p["anteil_abstecher_mit_wurf"]:
@@ -229,6 +236,7 @@ def main():
                 anteil_wurf_median=round(statistics.median(anteil), 3),
                 pech_erster_anlauf=round(pech1, 3),
                 max_pech_folge=max(l["max_pech_folge"] for l in L),
+                anteil_jede_runde_mit_wurf=round(sum(1 for l in L if l.get("wurf_runde", set()) >= {1, 2, 3}) / len(L), 4),
                 pech_szenen_median=statistics.median(l["pech_szenen"] for l in L),
                 erfolge_zusatz_median=statistics.median(l["erfolge_zusatz"] for l in L),
                 abstecher_unten=round(ab_u, 2), abstecher_oben=round(ab_o, 2),

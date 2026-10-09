@@ -17,7 +17,7 @@ Teil 1 legt Ringe, Schichten, Befehle, Fallzahlen und Budgets fest (geht vor). T
 | 8 Stichprobe | je Welle per Seed ≥ 10 % und ≥ 20 Einheiten, Opus; bei Wellen > 200 Einheiten ein frischer Opus-5.5-Agent | L10 | 1 Kanon-/Inhalts-/Lösbarkeitsfehler oder > 5 % Fehler → Welle zurück | Fehlerquote |
 | 9 Mutanten | für neuen Code | L9a, L9b | Tötungsrate 100 % (Würfel, Lösbarkeit, Wahrheit, Inhalt, Bestand), ≥ 90 % gesamt | überlebende Mutanten |
 
-Seed jedes Gremiums und jeder Stichprobe: erste 8 Hex von `sha256(<Welle>|<HEAD>)`; je Hash genau ein Gremium; jeder Lauf liegt in `planung/bollwerk/belege/gremium/`, auch verworfene.
+Seed jedes Gremiums und jeder Stichprobe: erste 8 Hex von `sha256(<Welle>|<BW0-SHA>)` (vor BW0: `<TOR-SHA>`); die Stichprobenliste steht vor dem Ansehen in REGISTER.md; je Hash genau ein Gremium; jeder Lauf liegt in `planung/bollwerk/belege/gremium/`, auch verworfene.
 
 ## Schichten mit Befehl, Fallzahl je Modus und Budget
 
@@ -25,9 +25,9 @@ Seed jedes Gremiums und jeder Stichprobe: erste 8 Hex von `sha256(<Welle>|<HEAD>
 |---|---|---|---|---|---|
 | L0 Fundament | `pub get` in 8 Paketen, `dart analyze`, `flutter analyze`, `bash tool/secret_scan.sh`, L0.1 `dart run tool/bollwerk/bestand.dart --pruefe`, L0.2 Schutzpfade, L0.3 Kanon gegen K, L0.4 Würfelquelle, L0.5 Importregel, L0.6 Release | ja | ja | ja | ≤ 3 min |
 | L1 Bestand | `bash tool/alle_tests.sh schnell` bzw. voll; `bash tool/pruefen.sh alles`; Burgstadt-Schutz | betroffene Pakete | voll | voll | ≤ 12 min |
-| L2 Eigenschaften | `dart test packages/mordakte_core/test/runden/eigenschaften_test.dart` | 500 Fälle je Eigenschaft | 2.000 | 10.000 | ≤ 2 min / 8 / 40 |
+| L2 Eigenschaften | `(cd packages/mordakte_core && dart test test/runden/eigenschaften_test.dart)` | 500 Fälle je Eigenschaft | 2.000 | 10.000 | ≤ 2 min / 8 / 40 |
 | L3 Determinismus | `dart test -p vm` und `-p node` (`determinismus_web_test`) | 1.000 Codes VM+Node | + Chrome | + Chrome | ≤ 3 min |
-| L4 Simulation | `dart run packages/mordakte_core/bin/runden_simulate.dart --modus <m>` (Port von `proben/wuerfel_sim.py`) | 200 Partien je Pfad × Strategie + erschöpfend 768 × 4 × {Pech, Erfolg} | 2.000 + erschöpfend × Besetzung 4–20 | 10.000 je Form × Besetzung + „immer Pech“ | ≤ 3 / 15 / 60 min |
+| L4 Simulation | `dart run tool/bollwerk/runden_simulate.dart --modus <m>` (Port von `proben/wuerfel_sim.py`) | 200 Partien je Pfad × Strategie + erschöpfend 768 × 4 × {Pech, Erfolg} | 2.000 + erschöpfend × Besetzung 4–20 | 10.000 je Form × Besetzung + „immer Pech“ | ≤ 3 / 15 / 60 min |
 | L5 Inhalt | `dart run tool/bollwerk/fuellstoff.dart` (F1–F4) + Textprüfer der Schicht | geänderte Dateien | alle | alle | ≤ 2 min |
 | L6 Golden | `flutter test tool/bollwerk/look_anker/` | 7 Räume × 2 Lichtzustände × hoch/quer | dto. | dto. | ≤ 60 s |
 | L7 E2E | `node tool/bollwerk/e2e.mjs` | – | Party 4/12/20, Solo, WLAN (VM-Host + 3 VM-Gäste + 1 Browser-Gast) × 4 Pfade | dto. | ≤ 25 min |
@@ -119,3 +119,5 @@ Budgets: `schnell` ≤ 9 min, `phase` ≤ 55 min (Schwerlast-Slot), `nacht` ≤ 
 - Urteile stehen in `belege/gremium/<id>.json`: sha256 jedes gezeigten Bilds oder Texts, HEAD, Modell, Briefing-Hash, Eichlauf.
 - Ändert sich ein Hash, verfällt das Urteil.
 
+
+**L11 Abnahme** (nur `ziel`): je Z-Zeile aus Abschnitt 6 des Master-Prompts Befehl, Schwelle und Belegdatei aus `tool/bollwerk/abnahme.tsv` (maschinell aus der Tabelle erzeugt); jede fehlende oder rote Zeile macht `ziel` rot. L10 zählt Gremium-Stimmen aus den Agentenprotokollen (`~/.claude/projects/*/*/subagents/agent-<id>.jsonl`, agentId aus FLUG.md) nach.
