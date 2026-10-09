@@ -95,7 +95,7 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 | F3-AUTOR-06..09 | Autor | Täterfassungen Ahmet, Fatma, Olli, Can (Tarngeschichte, Tatwissen) | `texte/taeter-<name>.json` | F3-AUTOR-01 | abgenommen (je 10/10, E-027) |
 | F3-AUTOR-10 | Autor | Detektiv-Bogen m und w | `texte/detektiv.json` | F2 | abgenommen (10/10, E-027) |
 | F3-AUTOR-11..25 | Autor | Pflichtgespräche je Runde und Viererblock (5 Blöcke × 3 Runden) | `texte/gespraeche-rR-blockN.json` | F3-AUTOR-01..05 | abgenommen (8–10/10, E-028); Nachbesserung P-2 über 70–74 |
-| F3-AUTOR-70..74 | Autor | Nachbesserung Pflichtgespräche je Block über alle drei Runden: partnerneutral, eigenes Wissen, Abwechslung (P-2 bis P-4) | `texte/gespraeche-r1..3-bN.json` (nur thema, ziel, text) | F3-AUTOR-11..25, Gesprächsplan | läuft (E-028) |
+| F3-AUTOR-70..74 | Autor | Nachbesserung Pflichtgespräche je Block über alle drei Runden: partnerneutral, eigenes Wissen, Abwechslung (P-2 bis P-4) | `texte/gespraeche-r1..3-bN.json` (nur thema, ziel, text) | F3-AUTOR-11..25, Gesprächsplan | abgenommen (je 10/10, E-028) |
 | F3-AUTOR-26..29 | Autor | Rundenwahl-Texte der Blöcke 2–5 (Kernblock nur über Dilemma-Dateien) | `texte/wahl-blockN.json` | F3-AUTOR-01..05 | abgenommen (9/10, E-028; Prüfung KONT-09, SENS-04) |
 | F3-AUTOR-31..33 | Autor | Bonus-Hinweise je Runde (4 Pfade × 3 Qualitäten) | `texte/bonus-rR.json` | F2 | entfällt (Hinweise stehen im Kanon, E-024/E-026; Prüfung in KONT/SENS) |
 | F3-AUTOR-34..35 | Autor | Indiztexte (Fundtexte, Ergebnistexte der Detektiv-Entscheidungen) | `texte/indizien.json`, `texte/entscheidungen.json` | F2 | entfällt (Fund- und Entscheidungstexte stehen im Kanon, E-026; Prüfung in KONT/SENS) |

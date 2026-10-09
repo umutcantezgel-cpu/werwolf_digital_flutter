@@ -642,3 +642,6 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Fatmas zwei Fassungen beim Knall (Buffet oder Theke) sind kein Widerspruch: Die eine gilt, wenn sie unschuldig ist, die andere, wenn sie die Tat begangen hat.
   - Der Gesprächsplan überspringt den Sprecher in der Ersatzkette.
   - „Box“ bleibt; das Wort ist Alltagssprache.
+- **Nachbesserung der Pflichtgespräche (AUTOR-70 bis -74, je 10/10):**
+  - Alle 180 Gespräche sind partnerneutral. Jede Pflichtgespräch-Beobachtung und jede Lüge kommt über die drei Runden mindestens einmal vor. Kein Text ist doppelt, kein Platzhalter steht im Text.
+  - Bestätigt: Kurze Behauptungen wie „Ich hab keine Maske“ dürfen in mehreren Texten stehen (P-4 meint ganze Texte). Ahmets Umschlag und Cans Maske bleiben aus den Eröffnungen, weil sie Geheimnisse der Rolle sind (P-3). Pawel lässt „zahlt aus eigener Tasche“ weg; der Kern seiner Beobachtung bleibt.

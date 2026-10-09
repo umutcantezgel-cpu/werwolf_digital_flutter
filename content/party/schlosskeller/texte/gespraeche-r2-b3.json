@@ -2,5 +2,148 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "gespraech",
   "hinweis": "Pflichtgespräche Runde 2, Besetzungsplätze 9 bis 12.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "g_murat_2_1",
+      "rolle": "murat",
+      "runde": 2,
+      "nr": 1,
+      "partner": "tim",
+      "thema": "Wer wirkte komisch?",
+      "ziel": "Ich will wissen, ob das Gegenüber im Dunkeln jemanden auffällig fand.",
+      "preisgabe": [
+        "beobachtung:b_marek_gesicht"
+      ],
+      "text": "Im Dunkeln flitzte ein leuchtendes Gespenstergesicht an mir vorbei, durch den Durchgang Richtung Kaminsaal. Ist dir dabei irgendwer komisch vorgekommen?"
+    },
+    {
+      "id": "g_murat_2_2",
+      "rolle": "murat",
+      "runde": 2,
+      "nr": 2,
+      "partner": "can",
+      "thema": "Cans Angaben zu kurz vor zwölf",
+      "ziel": "Ich will wissen, wo Can um kurz vor zwölf war, und ob seine Angaben stimmen.",
+      "preisgabe": [],
+      "text": "Can, wo warst du eigentlich um kurz vor zwölf? Erzähl mal genau, nicht nur grob."
+    },
+    {
+      "id": "g_murat_2_3",
+      "rolle": "murat",
+      "runde": 2,
+      "nr": 3,
+      "partner": "leyla",
+      "thema": "Am Buffet beim Knall",
+      "ziel": "Ich will wissen, was am Buffet beim Knall passiert ist.",
+      "preisgabe": [],
+      "text": "Was war am Buffet los, als das Licht ausging? Hat sich dabei jemand merkwürdig benommen?"
+    },
+    {
+      "id": "g_zeynep_2_1",
+      "rolle": "zeynep",
+      "runde": 2,
+      "nr": 1,
+      "partner": "murat",
+      "thema": "Das Gesicht, nochmal genau",
+      "ziel": "Ich will herausfinden, ob das Gegenüber das Gesicht genauso gesehen hat wie ich.",
+      "preisgabe": [
+        "beobachtung:b_zeynep_gesicht"
+      ],
+      "text": "Aus dem Durchgang schoss im Dunkeln ein leuchtendes Gesicht in den Kaminsaal, an mir vorbei. Wo genau warst du in dem Moment?"
+    },
+    {
+      "id": "g_zeynep_2_2",
+      "rolle": "zeynep",
+      "runde": 2,
+      "nr": 2,
+      "partner": "fatma",
+      "thema": "Kurz vor zwölf bei dir",
+      "ziel": "Ich will Fatmas Angaben zu kurz vor zwölf auf die Probe stellen.",
+      "preisgabe": [],
+      "text": "Fatma, wie war das bei dir um kurz vor zwölf? Sag mir noch mal ganz langsam, wo du warst."
+    },
+    {
+      "id": "g_zeynep_2_3",
+      "rolle": "zeynep",
+      "runde": 2,
+      "nr": 3,
+      "partner": "selin",
+      "thema": "Das Gespräch mit Herrn Schneider",
+      "ziel": "Ich will wissen, wer vor dem Knall mit Herrn Schneider gesprochen hat.",
+      "preisgabe": [],
+      "text": "Hast du vor dem Knall mit Herrn Schneider geredet? Wie lief das?"
+    },
+    {
+      "id": "g_baran_2_1",
+      "rolle": "baran",
+      "runde": 2,
+      "nr": 1,
+      "partner": "serkan",
+      "thema": "Was war aus Richtung Theke?",
+      "ziel": "Ich will herausfinden, was das Gegenüber von der Theke her mitbekommen hat.",
+      "preisgabe": [
+        "beobachtung:b_baran_rufe"
+      ],
+      "text": "Im Dunkeln hab ich aus Richtung Theke was gehört. Erst „Hab ich dich!“, dann „Stehen bleiben!“, dann das Scheppern. Wer ruft so was im Dunkeln?"
+    },
+    {
+      "id": "g_baran_2_2",
+      "rolle": "baran",
+      "runde": 2,
+      "nr": 2,
+      "partner": "hakan",
+      "thema": "Die Minuten nach dem Knall",
+      "ziel": "Ich will wissen, was das Gegenüber beim Knall und danach mitbekommen hat.",
+      "preisgabe": [],
+      "text": "Was ist beim Knall am Buffet passiert? Erzähl's mir ganz genau."
+    },
+    {
+      "id": "g_baran_2_3",
+      "rolle": "baran",
+      "runde": 2,
+      "nr": 3,
+      "partner": "emine",
+      "thema": "Auffälliges beim Knall",
+      "ziel": "Ich will wissen, ob das Gegenüber beim Knall etwas Auffälliges gemacht hat.",
+      "preisgabe": [],
+      "text": "Hast du beim Knall irgendwas Auffälliges gemacht? Sag's ruhig."
+    },
+    {
+      "id": "g_meryem_2_1",
+      "rolle": "meryem",
+      "runde": 2,
+      "nr": 1,
+      "partner": "detective",
+      "thema": "Der Geruch nach Kerzenwachs",
+      "ziel": "Ich will wissen, wer an der Theke war, als es nach Kerzenwachs roch.",
+      "preisgabe": [
+        "beobachtung:b_hana_wachs"
+      ],
+      "text": "Du, nach dem Scheppern roch es nach frisch erloschenem Kerzenwachs. Der Luftzug brachte den Geruch aus Richtung Theke. Ist dir dazu was aufgefallen?"
+    },
+    {
+      "id": "g_meryem_2_2",
+      "rolle": "meryem",
+      "runde": 2,
+      "nr": 2,
+      "partner": "ahmet",
+      "thema": "Der Ascheneimer, nochmal",
+      "ziel": "Ich will von Ahmet wissen, was er kurz nach zwölf in den Ascheneimer geworfen hat.",
+      "preisgabe": [
+        "beobachtung:b_hana_umschlag"
+      ],
+      "text": "Ahmet, kurz nach zwölf hab ich gesehen, wie du etwas Raschelndes in den Ascheneimer neben dem Kamin geworfen hast. Erklär mir das mal genau."
+    },
+    {
+      "id": "g_meryem_2_3",
+      "rolle": "meryem",
+      "runde": 2,
+      "nr": 3,
+      "partner": "tim",
+      "thema": "Der Kamin zieht nicht",
+      "ziel": "Ich will jemanden finden, der beim Kamin hilft.",
+      "preisgabe": [],
+      "text": "Kannst du dir den Kamin mal ansehen? Er zieht nicht richtig, und ich weiß nicht warum."
+    }
+  ]
 }

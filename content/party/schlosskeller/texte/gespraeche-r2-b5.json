@@ -2,5 +2,146 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "gespraech",
   "hinweis": "Pflichtgespräche Runde 2, Besetzungsplätze 17 bis 20.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "g_enes_2_1",
+      "rolle": "enes",
+      "runde": 2,
+      "nr": 1,
+      "partner": "detective",
+      "thema": "Was war beim Knall los?",
+      "ziel": "Ich will die Angaben zur Theke prüfen, ohne dass es nach Verhör klingt.",
+      "preisgabe": [],
+      "text": "Wie war es bei dir beim Knall? Sag's mir ganz genau. Ist dir dabei was Komisches aufgefallen?"
+    },
+    {
+      "id": "g_enes_2_2",
+      "rolle": "enes",
+      "runde": 2,
+      "nr": 2,
+      "partner": "can",
+      "thema": "Wo warst du um drei vor zwölf?",
+      "ziel": "Ich will wissen, wo Can um drei vor zwölf war, denn an der Theke hab ich ihn nicht gesehen.",
+      "preisgabe": [
+        "beobachtung:b_damir_an_der_theke"
+      ],
+      "text": "Can, um drei vor zwölf standen Ahmet, Fatma und Olli an der Theke, Herr Schneider am Ostende. Dich hab ich da nicht gesehen. Wo warst du?"
+    },
+    {
+      "id": "g_enes_2_3",
+      "rolle": "enes",
+      "runde": 2,
+      "nr": 3,
+      "partner": "tugba",
+      "thema": "Warum an die Theke?",
+      "ziel": "Ich will wissen, was jemand um drei vor zwölf an der Theke wollte, und das Teegeschirr bleibt außen vor.",
+      "preisgabe": [],
+      "text": "Warst du beim Knall an der Theke? Was wolltest du da?"
+    },
+    {
+      "id": "g_selin_2_1",
+      "rolle": "selin",
+      "runde": 2,
+      "nr": 1,
+      "partner": "detective",
+      "thema": "Was war im Dunkeln los?",
+      "ziel": "Ich will wissen, wo das Geburtstagskind im Dunkeln war, und ob ihm was Leuchtendes aufgefallen ist.",
+      "preisgabe": [],
+      "text": "Erzähl mal, wo du im Dunkeln warst. Und hast du danach jemanden auffällig herumlaufen sehen?"
+    },
+    {
+      "id": "g_selin_2_2",
+      "rolle": "selin",
+      "runde": 2,
+      "nr": 2,
+      "partner": "emine",
+      "thema": "Die Rüstung im Turmgang",
+      "ziel": "Ich will wissen, was mein Gegenüber im Dunkeln gemacht hat, und die Rüstung soll weg.",
+      "preisgabe": [],
+      "text": "Was hast du im Dunkeln genau gemacht? Die Rüstung im Turmgang macht mir immer noch Gänsehaut."
+    },
+    {
+      "id": "g_selin_2_3",
+      "rolle": "selin",
+      "runde": 2,
+      "nr": 3,
+      "partner": "murat",
+      "thema": "Das Gesicht im Kaminsaal",
+      "ziel": "Ich will wissen, ob mein Gegenüber das Gesicht bestätigt oder ihm widerspricht.",
+      "preisgabe": [
+        "beobachtung:b_selin_gesicht"
+      ],
+      "text": "Im Dunkeln hab ich ein leuchtendes Gesicht gesehen, das zur Bogentür im Kaminsaal huschte. Wer war das, deiner Meinung nach?"
+    },
+    {
+      "id": "g_hakan_2_1",
+      "rolle": "hakan",
+      "runde": 2,
+      "nr": 1,
+      "partner": "detective",
+      "thema": "Wie war das mit dem Licht?",
+      "ziel": "Ich will die Angaben zum Licht ruhig abfragen, ohne Streit anzufangen.",
+      "preisgabe": [],
+      "text": "Ich schlichte seit der Schulzeit jeden Streit. Erzähl mal genau, was du gemacht hast, als das Licht ausging."
+    },
+    {
+      "id": "g_hakan_2_2",
+      "rolle": "hakan",
+      "runde": 2,
+      "nr": 2,
+      "partner": "selin",
+      "thema": "Herr Schneider und seine Strenge",
+      "ziel": "Ich will meinem Gegenüber erklären, warum Herr Schneider beim Geld so streng ist, und sonst nichts Persönliches verraten.",
+      "preisgabe": [
+        "beobachtung:b_pawel_schneider"
+      ],
+      "text": "Wie findest du Herrn Schneider, wenn es ums Geld geht? Jeden Schaden der Stiftung muss er melden. Das macht ihn beim Geld so streng."
+    },
+    {
+      "id": "g_hakan_2_3",
+      "rolle": "hakan",
+      "runde": 2,
+      "nr": 3,
+      "partner": "tugba",
+      "thema": "Ungewöhnliches an der Theke",
+      "ziel": "Ich will wissen, ob jemand an der Theke auffällig war, und das ruhig klären.",
+      "preisgabe": [],
+      "text": "Ist dir an der Theke jemand auffällig vorgekommen? Sag es ruhig, wir klären das in Ruhe."
+    },
+    {
+      "id": "g_tugba_2_1",
+      "rolle": "tugba",
+      "runde": 2,
+      "nr": 1,
+      "partner": "serkan",
+      "thema": "Genau festhalten",
+      "ziel": "Ich will die Angaben genau festhalten, damit die Torte um halb eins kommt.",
+      "preisgabe": [],
+      "text": "Wo genau warst du um drei vor zwölf? Ich will das richtig notiert haben."
+    },
+    {
+      "id": "g_tugba_2_2",
+      "rolle": "tugba",
+      "runde": 2,
+      "nr": 2,
+      "partner": "detective",
+      "thema": "Meine Notiz",
+      "ziel": "Ich will prüfen, ob die Angaben zu meiner Notiz passen, bevor die Torte um halb eins kommt.",
+      "preisgabe": [
+        "beobachtung:b_tugba_notiz"
+      ],
+      "text": "Ich hab notiert, wer für die Torte fehlt und wo die Leute nach eigener Auskunft gerade sind. Passt das noch zu dem, was du gesagt hast?"
+    },
+    {
+      "id": "g_tugba_2_3",
+      "rolle": "tugba",
+      "runde": 2,
+      "nr": 3,
+      "partner": "johanna",
+      "thema": "Was hast du beim Knall gemacht?",
+      "ziel": "Ich will wissen, wo mein Gegenüber beim Knall war, damit meine Liste bis halb eins stimmt.",
+      "preisgabe": [],
+      "text": "Die Torte soll um halb eins stehen. Erzähl mal genau, wo du beim Knall warst und was du dabei gemacht hast."
+    }
+  ]
 }
