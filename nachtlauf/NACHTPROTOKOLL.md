@@ -1,0 +1,70 @@
+# NACHTPROTOKOLL (stündlich ergänzt, Europe/Berlin)
+- 23:10 Start. Branch `nachtlauf/burgstadt` von main (fb0ec24) angelegt, Kanon-Branch gemergt (dffb04b).
+- 23:25 Ausgangstests: Core 22/22, Server-Smoke 63/0, validate 4× OK, simulate alle Szenarien bis Ende, analyze sauber, kanon.py pruefe 0 Befunde.
+- 23:42 Phase 1: `packages/pixel_engine` steht (Palette 64 Farben mit K8-Kern, Licht-Colormaps, Software-Rasterer mit Z-Puffer, Near-Clipping, Mips, Handylicht, Nebel, Himmel mit Mond und Bergen, Billboard-Sprites, PNG, Prüfwerkzeuge Paletten-/Blocktest). 8 Pixeltests grün. Go/No-Go: Go (dart2js 320×180 bei 4× Drosselung 18,7 ms).
+- 00:10 Phase 1: Haiku-Welle 1 (6 Agenten) läuft seit 23:48; fertig: Schrift (141 Zeichen), Leitplanken-Scanner (119 Tests), Kanon-Parser in Dart (gleiche Befunde wie kanon.py, 1224 wirksame Datensätze). Pixel-UI, Spielpaket `burgstadt_spiel` (Hauptmenü, Optionen, Erkundung, Touch/Tastatur/Maus), Flutter-Hülle (Route `/burgstadt` als App-Start, „Klassische Fälle“ führt zum Bestand). Web-Build: 3 Geräteprofile ohne Konsolenfehler und ohne fremde Abrufe, Blocktest/Palette 100 %. Offen: Bildzeit im Browser (14 ms statt 4 ms im Benchmark) – Profil läuft.
+- 00:29 Phase 1 abgeschlossen (Phasentor: alle Tests grün, Pixel-/Blocktest 100 % auf 3 Geräten, Gamepad wirkt). Haiku-Welle 2 (4 Agenten) läuft. Figuren-Brenner fertig (104 Bilder je Figur in ~0,1 s). Beginn Phase 2.
+- 00:42 Phase 2 läuft: Weltmodell + begehbare Burg (7 Bereiche nach Kanon), Falldaten typisiert (257 H, 180 G, 60 E, 9 D), Fallzustand (Phasen, Wissen, Fallakte, Teilen, Gespräche, Stationen, Entscheidungen, Eingrenzung, Endmatrix). Haiku-Welle 2 fertig: Klassische Fälle leitplankenkonform, Steckbriefe der 21 Figuren, 68 Figurenteile (Köpfe, Kleidung). Belegbilder komprimiert (29 → 3,9 MB).
+- 01:00 Phase 2: Fall solo spielbar von Phase 1 bis zum Ende (Spieltest headless und im Browser), Figuren als Sprites mit Sprechblasen, Fallakte/Lagerunde/Anklage/Ende. Marktplatz der Oberstadt (ab Fall-Phase 2 über das Burgtor), 13 Häuser mit Innenräumen aus Welle 3 (12 Fall-Orte + 30 Wohn-/Werkstatträume geliefert). Haiku-Welle 3 läuft noch: 65 Figurenkarten.
+- 01:38 Phase 3: Stadtgenerator fertig (156 Häuser, 53 Innenräume, Mauer, Tore, Gassen, Kirchenburg; alle Türen erreichbar, deterministisch) und in App/Spiel eingebunden; „zu dunkle Stadt“ war ein Messfehler der Foto-Werkzeuge (Einblendung). Phase 4 begonnen: 24 Stadt-Hinweise an den 12 Fall-Orten (A-401a) im Overlay, Stationen in allen Fall-Orten. Sichtprüfung der Figuren (A-605, zwei Prüfer): Abnahme nein → Bewohnerkarten aus den Datensätzen neu erzeugt (Generator mit Unterscheidbarkeits-Maß), Stiefelregel verschärft. A-402a (Rollen-Fähigkeiten) geliefert, Einbau folgt.
+- 01:57 Phase 3/4/6: 44 Stadtbewohner leben nach ihrem Nachtplan (schlafen, arbeiten, stehen in der Tür, streifen durchs Viertel). Erkundungsbots (A-307a) erreichen alle 134 Türen zu Fuß, 0 Steckenbleiber. Tutorial (16 Schritte) und Erzähler (Uhrturm, 19 Ortsansagen) im Spiel (A-602a). Rollen-Fähigkeiten aller 20 Rollen mit exklusiven Sichtschichten und Täterinnen-Gegenspiel „verwischen“ (Z-05). Zweite Sichtprüfung der Figuren läuft (Prüfer 3: keine Regelverstöße mehr, aber 7 starke Paare durch gleiche Datensatz-Farben → Nachbesserung folgt). Porträts (A-601c) in Arbeit.
+- 03:38 (Der Stundeneintrag gegen 03:00 fehlt; dieser Eintrag fasst 02:00–03:38 zusammen.) Phase 5/6:
+  - **Mehrspieler im lokalen Netz:** Kern steht (room_host + BurgstadtRaum, Simulation 4/8/20 über echte WebSockets ohne Abweichungen, Teilen < 1 s), Speichern/Fortsetzen (Z-11).
+  - **App:** WLAN-Spiel eingebunden: Lobby mit Code und Adresse, Gastgeber ist der Detektiv, Gäste übernehmen Rollen, Lagerunde und Anklage im Netz, Detektiv als eigene Figur.
+  - **Fairness-Löser:** N = 4…20 abgesichert (A-404a).
+  - **Belegfotos Z-02:** 26 Bilder je Format, Palette und Blocktest 100 % (A-606a).
+  - **Figuren:**
+    - Sichtprüfer 7 und 8: 0 Paare.
+    - B16 und B08 korrigiert.
+    - Unterscheidbarkeit nach dem Maß: 0 Paare.
+  - **Inhalt:** Gegenprüfer-Befunde (A-702b) umgesetzt; zweite Runde (A-702c) liegt vor.
+  - **Leistung:** Die Back-Spitze von 54 ms war ein Ausreißer unter Last. Drei Läufe danach lagen bei 7–8 ms (× 4 < 50).
+  - **Stadtkarte mit Schnellreise, Kompass, Fledermäuse** (A-604a, A-306a).
+  - **Bedienung:** Fallakte mit Tastatur und Gamepad bedienbar, Teilen an Einzelne in der Oberfläche, Tutorial-Texte an die echte Steuerung angepasst (Befunde aus A-801a).
+- 04:30 Phase 7 (Härtung):
+  - **Gesamttest:** Das Skript verschluckte rote Pakettests. Das ist behoben (E28). Die Historie aller Nachtlauf-Commits ist geprüft: rot waren nur 02ab9b5, d511fac und 7574641 (ein Datentest).
+  - **Inhaltsprüfung:** Runde 2 und 3 sind umgesetzt (u. a. „bewusstlos“ → „benommen“ per Overlay, Nachtpläne passend zu den Stationen, kein Angst-Muster bei Frauen). Runde 4 läuft.
+  - **Figuren:**
+    - Die Sichtprüfer 9 und 10 werteten uneinheitlich (23 bzw. 9 Paare nach eigenen Maßstäben).
+    - Berechtigte Punkte sind umgesetzt: Rollengrößen gespreizt, Körpermitte im Maß, Aufstellungsgrund.
+    - Die Endrunde (11/12) läuft mit festem Maßstab aus Z-03.
+  - **Bedienung und Anleitung:** Optionen werden gespeichert, Neigen ist ersetzt, die Anleitung (ANLEITUNG.md) und FÜR DEN NUTZER sind aktualisiert.
+  - **Abnahme:** Der erste vollständige Abnahmelauf () läuft.
+- 05:34 Phase 7:
+  - **Abnahmelauf:** vollständig mit `tool/abnahme.dart`, nach einem behobenen Fehler im Werkzeug. Alle elf Testebenen grün, 12 von 14 Kriterien erfüllt. Offen sind Z-12 (Inhaltsrunde 6 läuft) und Z-14 (Morgenbericht folgt um 07:00).
+  - **Figuren-Endrunde:** zwei unabhängige Prüfer mit festem Maßstab, 0 Paare.
+  - **Spieltester (A-703a):** 6 schwere Bedienfehler (abgeschnittene Karten und Blasen, Tutorial über den Knöpfen, unlesbare Kartennamen, kleine Knöpfe) sind behoben; Handy-Fotos neu.
+  - **Inhaltsrunde 5:** Leitplanken ja, plagiatsfrei; letzte Kanon-Abweichung („eine Weile“) behoben.
+  - **WebAssembly:** probehalber gebaut, etwa doppelt so schnell, aber mit Konsolenwarnung, deshalb nicht übernommen.
+- 07:00 Morgenbericht geschrieben (`MORGENBERICHT.md`). Abnahme 12 von 14 laut `tool/abnahme.dart`.
+  - Offen ist Z-03: neuer Figurenstand mit Kameragurt R19 und Kopfhörer R02, zwei Sichtprüfer laufen.
+  - Offen ist Z-12: Inhaltsrunde 9 läuft.
+  - Seit 05:34:
+    - Inhaltsrunden 6–8 umgesetzt.
+    - Leistungsmessung auf Prozessorzeit des Spielthreads umgestellt (E36), nachdem ein Lauf unter Parallellast durch Verdrängung rot war.
+    - Baker-Puffer wiederverwendet.
+    - Spieltester-Befunde behoben.
+- 08:00 Phase 7:
+  - **Gesamtlauf:** Am Stand 3092813 sind alle elf Ebenen grün; `tool/abnahme.dart` bestätigt 12 von 14. Leistung: Spiellogik 0,13 ms, Nachladespitze 19,5 ms (Prozessorzeit), Speicherwachstum 7,8 %.
+  - **Inhaltsrunde 9:** Herkunftsmuster in den Familienfeldern per Overlay neutralisiert. Die Wanderstiefel aus zwei Teilen sind begründet und bleiben (E38).
+  - **Inhaltsrunde 10:** Urteil ja · ja · ja. Die 11 geringen Befunde sind trotzdem umgesetzt (E39), deshalb läuft Runde 11.
+  - **Sichtprüfung:**
+    - 13/14 (Stand 0e9ec58e33): 0 Paare. Ein Verstoß bei B13 (rote Haube las sich wie rotes Haar), behoben.
+    - 15 (Stand e4624201af): 1 Paar R06/R08, behoben durch eine kleinere R08.
+    - 17/18 prüfen jetzt Stand 901192c463.
+- 09:17 Phase 7 abgeschlossen:
+  - **Abnahme:** `tool/abnahme.dart` bestätigt 14 von 14 (Stand a28178c; Gesamtlauf aller elf Ebenen grün am Code-Stand 6f0d724).
+  - **Z-03:** Sichtprüfer 19 und 20 unabhängig voneinander mit 0 Paaren und 0 Verstößen am Kartenstand fc94af9295. Möglich wurde das, nachdem der Maßstab 5a in den Figurenvergleich und den Generator eingebaut war (E40).
+  - **Z-12:** Inhaltsrunde 12 urteilt Leitplanken ja · Kanontreu ja · Plagiatsfrei ja. Ihre 5 geringen Befunde stehen in FÜR DEN NUTZER (Abbruchregel E40).
+- 11:24 Nach der Abnahme: Auf Wunsch des Nutzers soll alles auf `main` (N-01, E41).
+  - `main` brachte Kanon v1.0 (PR #42); er ist per Merge eingearbeitet (b1dfbaf). Das Overlay ist an den neuen Wortlaut angepasst (fe4a085).
+  - Z-12 prüft seitdem auch den Kanon-Ordner. Z-13 erlaubt Pushes auf `main` und den Sitzungs-Branch.
+  - Abgleich der 58 Agent-Worktrees: nichts liegt nur lokal (f5c4648).
+- 12:29–14:17 Inhaltsrunden 13 bis 20 zum Kanon v1.0 (E42–E45):
+  - Das Laken ist Burgwäsche, Phase 1 beginnt um 00:30. Nebel gibt es nur im Tal, die Teestube ist offen.
+  - FM-1 steht im Spiel ohne Herkunft. R04 trägt einen sichtbaren Strickpullover (neues Teil).
+- 15:17 Sichtprüfer 23 und 24 melden am Kartenstand b60891cc2b 0 Paare: Z-03 erfüllt. Die Lampenmarke heißt im Spiel „VT · 3“ (E46).
+- 15:44 Inhaltsrunde 23/24 (A-702s): beide „Leitplanken nein“.
+  - Grund ist die Verteilung der Fallfunktionen auf Rollen mit Herkunftsangabe.
+  - Umgesetzt sind neutrale Färbungen (R13, R15), die R01-Firma ohne Nachnamen und Punsch überall „alkoholfrei“ (E47).
+  - Die Verteilung selbst ist eine Nutzerentscheidung (FÜR DEN NUTZER); Z-12 bleibt bis dahin offen.

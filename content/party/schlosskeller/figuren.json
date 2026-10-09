@@ -156,7 +156,7 @@
       "roleTitle": "Die Designstudentin",
       "isPotentialKiller": true,
       "colorCode": "#6B1D2F",
-      "farbname": "Weinrot",
+      "farbname": "Beerenrot",
       "startRoom": "thekensaal",
       "ermittlungsOrt": "am_linken_buffet",
       "coordinates": {
@@ -165,7 +165,7 @@
       },
       "visualSpecs": {
         "silhouette": "Schlanke Statur, dunkles Kopftuch, knielanger Wollmantel",
-        "outfit": "Weinroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, dunkles Kopftuch",
+        "outfit": "Beerenroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, dunkles Kopftuch",
         "distinguishingFeature": "Schwere Umhängetasche aus Leder, breiter Silberring an der rechten Hand",
         "idleAnimation": "Nestelt am Reißverschluss ihrer Tasche und lächelt Emine zu"
       },

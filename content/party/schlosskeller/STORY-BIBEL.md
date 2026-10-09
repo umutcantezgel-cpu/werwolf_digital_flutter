@@ -258,12 +258,12 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Aussprache:** Fatma
 - **Alltag:** Studiert Kommunikationsdesign im letzten Semester.
 - **Stufe:** 1
-- **Farbcode:** #6B1D2F (Weinrot)
+- **Farbcode:** #6B1D2F (Beerenrot)
 - **Startraum:** Buffetsaal (thekensaal)
 - **Ermittlungsort:** am linken Buffettisch (am_linken_buffet)
 - **Optik:**
   - Silhouette: Schlanke Statur, dunkles Kopftuch, knielanger Wollmantel
-  - Kleidung: Weinroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, dunkles Kopftuch
+  - Kleidung: Beerenroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, dunkles Kopftuch
   - Merkmal: Schwere Umhängetasche aus Leder, breiter Silberring an der rechten Hand
   - Ruhe-Animation: Nestelt am Reißverschluss ihrer Tasche und lächelt Emine zu
 - **Look:**
@@ -1078,7 +1078,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 ### Glassplitter an Fatmas Mantel (`glassplitter_mantel`)
 
-- **Lage:** bei Fatma (fatma); am rechten Ärmel des weinroten Mantels
+- **Lage:** bei Fatma (fatma); am rechten Ärmel des beerenroten Mantels
 - **Sichtbar:** nein
 - **Beschreibung:** Winzige Glassplitter im Wollmantel.
 

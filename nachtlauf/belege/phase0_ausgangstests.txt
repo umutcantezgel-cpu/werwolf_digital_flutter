@@ -1,0 +1,18 @@
+00:01 +22: All tests passed!
+4
+  Σ Urteile {perfect: 2} · Teams {all: 2} · Ø 15.0 Min · Ø Hinweise 14.0 · Ø Stärke 16.0 · Ø Angriffe 1.5 · Ø Zeugen † 1.5
+  Σ Urteile {perfect: 2} · Teams {all: 2} · Ø 15.1 Min · Ø Hinweise 20.0 · Ø Stärke 22.5 · Ø Angriffe 1.0 · Ø Zeugen † 2.0
+  Σ Urteile {perfect: 2} · Teams {all: 2} · Ø 15.0 Min · Ø Hinweise 23.0 · Ø Stärke 27.5 · Ø Angriffe 2.5 · Ø Zeugen † 2.0
+  Σ Urteile {perfect: 2} · Teams {all: 2} · Ø 15.0 Min · Ø Hinweise 19.0 · Ø Stärke 22.5 · Ø Angriffe 0.5 · Ø Zeugen † 0.5
+
+63 OK, 0 FAIL
+No issues found! (ran in 12.2s)
+== syntax: 0 Befunde
+== vollst: 0 Befunde
+== ersatz: 0 Befunde
+== last: 0 Befunde
+== absicherung: 0 Befunde
+== zeit: 0 Befunde
+== d: 0 Befunde
+== e: 0 Befunde
+== SUMME: 0 Befunde · 1207 Datensätze

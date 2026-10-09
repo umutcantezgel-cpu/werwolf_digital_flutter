@@ -1,0 +1,6 @@
+desktop · 1280x720 @1 · Drosselung 1× · Bildrate Start 37.8 / Spiel 34.2 · Konsole 0 · fremde Abrufe 0 · Gamepad wirkt
+  BSMESS Welt 320x180 ×4 · UI 640x360 ×2 · Spiel 10.15 ms · RGBA+Übergabe 1.03 ms · Weg asynchron · verworfen 5
+handy-quer · 800x360 @3 · Drosselung 1× · Bildrate Start 17.9 / Spiel 17.7 · Konsole 0 · fremde Abrufe 0
+  BSMESS Welt 400x180 ×6 · UI 800x360 ×3 · Spiel 16.10 ms · RGBA+Übergabe 1.39 ms · Weg asynchron · verworfen 4
+handy-hoch · 360x800 @3 · Drosselung 1× · Bildrate Start 17.5 / Spiel 16.4 · Konsole 0 · fremde Abrufe 0
+  BSMESS Welt 180x400 ×6 · UI 360x800 ×3 · Spiel 15.07 ms · RGBA+Übergabe 1.23 ms · Weg asynchron · verworfen 8

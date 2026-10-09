@@ -72,7 +72,7 @@ const sampleScenarioJson = r'''
     {"id": "h_lab", "name": {"de": "Küchentisch (Labor)"}, "x": 16, "y": 3, "kind": "lab"},
     {"id": "h_drawer", "name": {"de": "Schublade"}, "x": 14, "y": 1, "kind": "search"},
     {"id": "h_wardrobe", "name": {"de": "Schrank"}, "x": 18, "y": 7, "kind": "hide"},
-    {"id": "h_blood", "name": {"de": "Blutspritzer"}, "x": 2, "y": 4, "kind": "blood"},
+    {"id": "h_blood", "name": {"de": "Dunkle Spritzer"}, "x": 2, "y": 4, "kind": "blood"},
     {"id": "h_shed", "name": {"de": "Gerätekiste"}, "x": 17, "y": 12, "kind": "search", "requires": {"lead": "l_garden"}},
     {"id": "h_diary", "name": {"de": "Speisekammer"}, "x": 18, "y": 5, "kind": "search", "requires": {"lead": "l_kitchen"}, "fromChapter": 2},
     {"id": "h_echo", "name": {"de": "Kalte Stelle"}, "x": 12, "y": 12, "kind": "search", "ghost": true}
@@ -191,7 +191,7 @@ const sampleScenarioJson = r'''
      "reveal": {"de": "Das Radio im Salon lief tatsächlich – der Doktor hörte es vom Garten aus."},
      "revealFalse": {"de": "Das Radio im Salon war kaputt. Felix' Alibi ist erfunden."},
      "source": {"npc": "doctor", "topic": "observation"}, "chapter": 1},
-    {"id": "c_blood", "kind": "trait", "trait": "hand", "name": {"de": "Blutspritzer"},
+    {"id": "c_blood", "kind": "trait", "trait": "hand", "name": {"de": "Dunkle Spritzer"},
      "found": {"de": "Feine Spritzer an der Wand."},
      "reveal": {"de": "Das Muster passt zu: {value}."},
      "evolve": "lab", "source": {"hotspot": "h_blood"}, "chapter": 1},

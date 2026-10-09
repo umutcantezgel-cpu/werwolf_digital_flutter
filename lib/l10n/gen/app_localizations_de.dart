@@ -379,7 +379,7 @@ class LDe extends L {
 
   @override
   String get class_forensic_ability =>
-      'Adlerauge: 15 s lang Blutspuren sehen und schneller suchen.';
+      'Adlerauge: 15 s lang verborgene Spuren sehen und schneller suchen.';
 
   @override
   String get class_forensic_passive =>
@@ -491,7 +491,7 @@ class LDe extends L {
 
   @override
   String get effect_eagle_eye_desc =>
-      'Du siehst Blutspuren und suchst schneller.';
+      'Du siehst verborgene Spuren und suchst schneller.';
 
   @override
   String get effect_focused => 'Fokussiert';

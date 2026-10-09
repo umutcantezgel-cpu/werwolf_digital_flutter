@@ -1,0 +1,92 @@
+import 'dart:math' as math;
+
+import 'package:burgstadt_core/burgstadt_core.dart';
+import 'package:pixel_engine/pixel_engine.dart';
+
+import '../fallsitzung.dart';
+import '../spiel.dart';
+import 'hauptmenue.dart';
+
+/// Eingrenzung, Anklage und Ende (Endmatrix EM-1…EM-4, Auflösung).
+class AnklageBildschirm extends Bildschirm {
+  final Fallsitzung s;
+  AnklageBildschirm(this.s);
+  bool _standGeloescht = false;
+
+  /// Gewählte Person; die Anklage ist endgültig und wird deshalb noch einmal bestätigt (A-703a).
+  String? _gewaehlt;
+
+  @override
+  bool get zeigtTutorial => true;
+
+  @override
+  bool get zeigtWelt => false;
+
+  @override
+  void betreten(Spiel spiel) => spiel.ton.schleife('musik', 'musik_morgengrauen', lautstaerke: 0.5);
+
+  @override
+  void tick(Spiel spiel, double dt, Eingabe e) {
+    if (s.imNetz) s.tick(dt); // Gastgeber: Ereignisse abholen; der Raum entscheidet
+  }
+
+  @override
+  void zeichneUi(Spiel spiel, PixelUi ui) {
+    final w = ui.fb.width, h = ui.fb.height;
+    final f = s.fall;
+    final p = Rechteck(6, 6, w - 12, h - 12);
+    ui.panel(p, grund: UiFarbe.grundDunkel);
+    var y = p.y + 4;
+    if (f.abschnitt == Abschnitt.ende) {
+      if (!_standGeloescht && !s.imNetz) {
+        _standGeloescht = true;
+        spiel.spielstand?.loesche();
+        spiel.letzterStand = null;
+      }
+      final titel = f.daten.kanon.datensaetze[f.ende]?.feld('Ende') ?? f.ende!;
+      ui.text('Morgengrauen · Ende: $titel', p.x + 6, y, farbe: UiFarbe.akzent);
+      y += ui.zeilenHoehe + 4;
+      final teile = <String>[
+        'Angeklagt: ${f.daten.rollen[f.angeklagt]?.name ?? f.angeklagt}. Punkte: ${f.punkte} von 9.',
+        for (final sId in ['S-2', 'S-3', 'S-4', 'S-5', 'S-7']) f.daten.schlussText[sId] ?? '',
+        f.daten.kanon.datensaetze['GS-1']?.feld('Kern') ?? '',
+        f.daten.kanon.datensaetze['GS-2']?.feld('Kern') ?? '',
+      ];
+      for (final t in teile) {
+        if (y > p.unten - 40) break;
+        y += ui.absatz(t, Rechteck(p.x + 8, y, p.w - 16, p.unten - y - 30)) + 3;
+      }
+      if (ui.knopf(Rechteck(w ~/ 2 - 60, p.unten - 24, 120, 18), 'Zum Hauptmenü')) {
+        s.beenden?.call(); // WLAN-Raum schließen bzw. Verbindung trennen
+        spiel.wechsle(Hauptmenue());
+      }
+      return;
+    }
+    ui.text('Eingrenzung', p.x + 6, y, farbe: UiFarbe.akzent);
+    y += ui.zeilenHoehe + 2;
+    y += ui.absatz(f.eingrenzungsText, Rechteck(p.x + 8, y, p.w - 16, 100)) + 8;
+    if (s.ich != FallZustand.detektiv) {
+      ui.absatz('Der Detektiv grenzt ein und erhebt gleich die Anklage …', Rechteck(p.x + 8, y, p.w - 16, 30), farbe: UiFarbe.textGedimmt);
+      return;
+    }
+    ui.text('Wen klagst du an?', p.x + 8, y, farbe: UiFarbe.akzent);
+    y += ui.zeilenHoehe + 4;
+    final hoch = h > w;
+    final kh = hoch ? 26 : 18;
+    final g = _gewaehlt;
+    if (g != null) {
+      y += ui.absatz('Anklage gegen ${f.daten.rollen[g]?.name ?? g} erheben? Das ist endgültig.', Rechteck(p.x + 8, y, p.w - 16, 30)) + 6;
+      if (ui.knopf(Rechteck(p.x + 8, y, 160, kh), 'Ja, anklagen')) {
+        s.klageAn(g);
+        _gewaehlt = null;
+        spiel.ton.spiele('schreck', lautstaerke: 0.6);
+      }
+      if (ui.knopf(Rechteck(p.x + 176, y, 120, kh), 'Abbrechen')) _gewaehlt = null;
+      return;
+    }
+    for (final r in f.verdaechtigenkreis) {
+      if (ui.knopf(Rechteck(p.x + 8, y, math.min(260, p.w - 16), kh), f.daten.rollen[r]?.name ?? r)) _gewaehlt = r;
+      y += kh + 4;
+    }
+  }
+}

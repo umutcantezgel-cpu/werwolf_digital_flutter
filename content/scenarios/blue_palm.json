@@ -257,14 +257,14 @@
   "suspects": [
     {
       "id": "viv", "name": {"de": "Vivian „Viv“ LaRue"}, "role": {"de": "Lounge-Sängerin"},
-      "bio": {"de": "Hatte 1979 einen Hit, der im Radio noch manchmal läuft. Singt freitags in Luckys Lounge – für Zimmer, Gin und Trinkgeld."},
+      "bio": {"de": "Hatte 1979 einen Hit, der im Radio noch manchmal läuft. Singt freitags in Luckys Lounge – für Zimmer, Limonade und Trinkgeld."},
       "look": {"coat": "#e0218a", "skin": "#f2cdb5", "hair": "#f6d36b", "hat": "none", "build": "slim", "outfit": "dress"},
       "x": 26, "y": 12,
       "traits": {"shoe": "heels", "habit": "menthol", "mark": "ring"},
       "candidate": true, "motives": ["blackmail", "betrayal"], "witness": true,
       "lines": {
         "greet": {"de": "Autogramme später, Schätzchen. Heute Nacht bin ich nicht in Stimmung."},
-        "alibi": {"de": "Ich stand bis kurz vor eins auf der Bühne. Drei Zuhörer, ein Barhocker zu viel. Ich habe trotzdem gesungen."},
+        "alibi": {"de": "Ich stand bis kurz vor eins auf der Bühne. Drei Zuhörer, ein Hocker zu viel. Ich habe trotzdem gesungen."},
         "alibiLie": {"de": "Ich war auf der Bühne, wie jeden Freitag. Ich lasse jeden Auftritt mitschneiden – hören Sie sich das Band an."},
         "victim": {"de": "Lucky gab mir eine Bühne, als mich keiner mehr wollte. Und er ließ mich nie vergessen, wem ich sie verdanke."},
         "observation": {"de": "Von der Bühne sieht man den Parkplatz. In Franks Wagen brannte die ganze Nacht Licht. Wie in einem Aquarium."},
@@ -285,25 +285,25 @@
         "alibi": {"de": "Ich hab aus Zimmer 3 mit Houston telefoniert, fast eine Stunde. Der Junge an der Vermittlung hat mich durchgestellt."},
         "alibiLie": {"de": "Ferngespräch nach Houston. Lang und teuer, mein Chef redet gern. Fragen Sie den Jungen, der hat gestöpselt."},
         "victim": {"de": "Lucky war ein Spieler. Spieler versichern alles – nur nicht sich selbst gegen sich selbst."},
-        "observation": {"de": "Die Barfrau war die halbe Nacht draußen am Pool, mit Hammer und Nägeln. Ich sag ja nur."},
+        "observation": {"de": "Die Thekenkraft war die halbe Nacht draußen am Pool, mit Hammer und Nägeln. Ich sag ja nur."},
         "rumor": {"de": "Es heißt, zwei von Dales Kunden starben kurz nach Vertragsabschluss. Zufälle, sagt seine Firma."},
         "nervous": {"de": "Moment, Moment. Das ist aus dem Zusammenhang gerissen. Ich rufe meinen Anwalt an – sobald die Leitung geht."},
         "annoyed": {"de": "Hören Sie, Freund, ich verkaufe Sicherheit. Ich bin nicht der, der sie gefährdet."}
       }
     },
     {
-      "id": "sol", "name": {"de": "Marisol „Sol“ Vega"}, "role": {"de": "Barkeeperin"},
+      "id": "sol", "name": {"de": "Marisol „Sol“ Vega"}, "role": {"de": "Thekenkraft"},
       "bio": {"de": "Steht seit zehn Jahren hinter Luckys Theke. Kennt jedes Getränk, jeden Gast und jede Lüge, die hier erzählt wurde."},
       "look": {"coat": "#7b2ff7", "skin": "#b07a52", "hair": "#1a1010", "hat": "bun", "build": "normal", "outfit": "dress"},
       "x": 24, "y": 8,
       "traits": {"shoe": "heels", "habit": "gum", "mark": "tattoo"},
       "candidate": true, "motives": ["betrayal", "insurance"], "witness": true,
       "lines": {
-        "greet": {"de": "Die Bar ist zu, Cariño. Für Sie mach ich 'ne Ausnahme: Kaffee, schwarz wie die Nacht da draußen."},
+        "greet": {"de": "Die Theke ist zu, Cariño. Für Sie mach ich 'ne Ausnahme: Kaffee, schwarz wie die Nacht da draußen."},
         "alibi": {"de": "Ab Mitternacht hab ich an der Poolseite die Läden vernagelt. Lucky wollte es so. Das Hämmern hörte man bis Key West."},
         "alibiLie": {"de": "Ich war draußen und hab Bretter vor die Fenster genagelt. Hurrikan, schon vergessen? Irgendwer muss es ja tun."},
         "victim": {"de": "Lucky hat mir mal versprochen, das hier wird eines Tages auch mein Laden. Lucky hat vielen vieles versprochen."},
-        "observation": {"de": "Viv war heute nicht gut. Zu viel Gin, zu wenig Publikum. Und Dale hat zweimal nach Luckys Zimmernummer gefragt."},
+        "observation": {"de": "Viv war heute nicht gut. Zu viel Lampenfieber, zu wenig Publikum. Und Dale hat zweimal nach Luckys Zimmernummer gefragt."},
         "rumor": {"de": "Es heißt, Sol hat ihre Ersparnisse ins Motel gesteckt. Ohne Vertrag, nur mit Luckys Handschlag."},
         "nervous": {"de": "Ich … ich brauch 'ne Minute. Nur 'ne Minute, okay?"},
         "annoyed": {"de": "Zehn Jahre schmeiß ich hier den Laden. Und jetzt zeigen Sie mit dem Finger auf mich?"}
@@ -321,7 +321,7 @@
         "alibi": {"de": "Ich saß im Wagen und hab den Polizeifunk mitgeschrieben. Sturmwarnungen, Unfälle. Alte Gewohnheit."},
         "alibiLie": {"de": "Ich war im Wagen. Funk gehört, Notizen gemacht. Liegen noch auf dem Beifahrersitz, wenn Sie's genau wissen wollen."},
         "victim": {"de": "Lucky hatte für jeden Cop im County einen Umschlag. Auch für mich. Ich war dumm genug, ihn zu nehmen."},
-        "observation": {"de": "Vom Wagen aus hört man die Poolseite. Ab Mitternacht hat da jemand Bretter angenagelt. Die Barfrau, nehm ich an."},
+        "observation": {"de": "Vom Wagen aus hört man die Poolseite. Ab Mitternacht hat da jemand Bretter angenagelt. Die Thekenkraft, nehm ich an."},
         "rumor": {"de": "Man hört, die Dienstaufsicht wollte Frank nächste Woche drankriegen – mit einer Aussage von Lucky."},
         "nervous": {"de": "Okay. Ich weiß, wie das aussieht. Ich hab früher selbst so geguckt."},
         "annoyed": {"de": "Zwölf Jahre Polizei. Erzählen Sie mir nicht, wie man ein Verhör führt."}
@@ -354,8 +354,8 @@
   ],
   "weapons": [
     {"id": "cable", "name": {"de": "Abisoliertes Kabel"}, "reveal": {"de": "Die Tatwaffe: ein abisoliertes Verlängerungskabel. Auf dem nassen Teppich genügte ein einziger Stromschlag."}},
-    {"id": "flamingo", "name": {"de": "Messingflamingo"}, "reveal": {"de": "Die Tatwaffe: ein schwerer Messingflamingo aus der Lobby-Deko. Ein einziger Schlag, rosa Lackspuren an der Schläfe."}},
-    {"id": "drink", "name": {"de": "Präparierter Drink"}, "reveal": {"de": "Die Tatwaffe: ein präparierter Drink. Ein Schlafmittel in tödlicher Dosis – Lucky hat das Glas selbst geleert."}}
+    {"id": "flamingo", "name": {"de": "Messingflamingo"}, "reveal": {"de": "Die Tatwaffe: ein schwerer Messingflamingo aus der Lobby-Deko. Rosa Lackspuren verraten ihn."}},
+    {"id": "drink", "name": {"de": "Präparierte Tasse Tee"}, "reveal": {"de": "Die Tatwaffe: eine präparierte Tasse Tee. Ein Schlafmittel in tödlicher Dosis – Lucky hat die Tasse selbst geleert."}}
   ],
   "story": {"culprit": "viv", "motive": "blackmail", "weapon": "cable"},
   "clues": [
@@ -425,7 +425,7 @@
 
     {"id": "c_alibi_viv", "kind": "alibi", "subject": "viv", "name": {"de": "Mitschnitt vom Auftritt"},
      "found": {"de": "Auf dem Klavier steht Vivs Kassettenrekorder. Das Band von heute Nacht steckt noch drin."},
-     "reveal": {"de": "Der Mitschnitt läuft ohne Pause bis 0:40 – Ansagen, Applaus, Gläserklirren. Viv stand die ganze Zeit auf der Bühne."},
+     "reveal": {"de": "Der Mitschnitt läuft ohne Pause bis 0:40 – Ansagen, Applaus, Geschirrklirren. Viv stand die ganze Zeit auf der Bühne."},
      "revealFalse": {"de": "Ab 23:55 läuft ein altes Band vom Vorjahr – gleiche Lieder, anderes Publikum. Viv war nicht auf der Bühne."},
      "evolve": "lab", "source": {"hotspot": "h_recorder"}, "chapter": 1},
 
@@ -522,15 +522,15 @@
     "culprit": {
       "viv": {
         "caught": {"de": "Viv summt leise, als man sie zum Wagen führt. Ihr letzter Auftritt – und diesmal hört ganz Florida zu."},
-        "escaped": {"de": "Ein Jahr später singt eine Frau mit Goldring in einer Hotelbar in Nassau. Niemand fragt nach ihrem Namen."}
+        "escaped": {"de": "Ein Jahr später singt eine Frau mit Goldring in einer Hotellounge in Nassau. Niemand fragt nach ihrem Namen."}
       },
       "dale": {
         "caught": {"de": "Dale verhandelt noch in Handschellen – über Kaution, Strafmaß und eine Police für seinen Zellengenossen."},
         "escaped": {"de": "Dale fährt mit dem Mietwagen nach Westen. In Houston wartet schon der nächste Kunde mit einer frischen Police."}
       },
       "sol": {
-        "caught": {"de": "Sol poliert ein letztes Glas, stellt es auf die Theke und legt die Hände daneben. „Okay“, sagt sie nur."},
-        "escaped": {"de": "Sol zapft weiter Bier im Blue Palm. Der neue Besitzer ahnt nicht, wem er den Laden zu verdanken hat."}
+        "caught": {"de": "Sol poliert eine letzte Tasse, stellt sie auf die Theke und legt die Hände daneben. „Okay“, sagt sie nur."},
+        "escaped": {"de": "Sol schenkt im Blue Palm weiter Kaffee aus. Der neue Besitzer ahnt nicht, wem er den Laden zu verdanken hat."}
       },
       "frank": {
         "caught": {"de": "Frank hat keine Marke mehr, die er abgeben könnte. Er hält einfach die Hände hin, wie er es bei anderen so oft gesehen hat."},

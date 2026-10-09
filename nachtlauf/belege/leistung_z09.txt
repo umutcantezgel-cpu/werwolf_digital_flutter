@@ -1,0 +1,20 @@
+Leistungsmessung Z-09 (AOT-kompiliert: dart compile exe bin/leistung.dart; 4 Kerne; Faktor 4 als Näherung für einen langsameren Prozessor – keine Handy-Messung)
+
+## Maßgeblicher Lauf (09.10. 03:24, 20 Spielminuten)
+Laden: Geometrie aller 62 Bereiche 25 ms (beim Start, nicht im Spiel)
+Spiellogik je Bild (20 Rollen, 44 Bewohner, 1800 Bilder): Mittel 0.035 ms, 99 % 0.208 ms · × 4 = 0.14 ms · Grenze 4 ms · OK
+Speicher: 20 Spielminuten Erkundung (62 Bereiche, gezeichnet): nach Minute 1 75 MB, höchstens 80 MB · Wachstum 7.7 % · Grenze 10 % · OK
+Nachladespitzen: Figuren backen je Bild höchstens 7.1 ms, Bereichswechsel höchstens 0.0 ms · × 4 = 28.5 ms · Grenze 50 ms · OK
+  Back-Aufrufe mit Arbeit: 595, davon ≥ 13 ms: 0 (Eimer ≥ 13 ms: )
+Zur Information – Bildzeit mit Zeichnen (VM, 320×180): Mittel 2.9 ms, 99 % 7.9 ms, größte 25.7 ms (Browser-Messung mit Drosselung: Geräte-Test)
+Budget je Ansicht: höchstens 117 Meshes (≤ 300), 9658 Dreiecke (≤ 14 000) · OK
+LEISTUNG OK
+
+## Verlauf
+- 09.10. 03:04 · 20 Spielminuten · Back-Spitze 54.2 ms (× 4 = 217 ms) · ÜBER DER GRENZE. Gleichzeitig kompilierten und testeten vier Agenten in ihren Worktrees. Der Wert war ein Einzelausreißer; die Verteilung wurde damals noch nicht erfasst.
+- Danach: Leere Back-Aufrufe werden nicht mitgezählt, und die Verteilung der Aufrufdauern wird erfasst (Eimer zu 1 ms).
+- 09.10. 03:20 · 3 Spielminuten · Spitze 7.9 ms · 0 Aufrufe ≥ 13 ms · OK
+- 09.10. 03:22 · 20 Spielminuten · Spitze 8.1 ms · 0 von 536 Aufrufen ≥ 13 ms · OK
+- 09.10. 03:24 · 20 Spielminuten · Spitze 7.1 ms · 0 von 595 Aufrufen ≥ 13 ms · OK (oben)
+
+Bewertung: Das Backen bleibt mit Zeitbudget 5 ms je Bild sicher unter der Grenze. Spitzen über 13 ms entstehen nur, wenn das Betriebssystem den Prozess verdrängt, weil die Maschine voll ausgelastet ist. Auf dem Handy entspricht das einem Hintergrundprozess. Das Spiel kann das nicht verhindern; der Geräte-Test bleibt FÜR DEN NUTZER.

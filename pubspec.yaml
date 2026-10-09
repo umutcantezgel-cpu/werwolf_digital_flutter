@@ -17,9 +17,19 @@ dependencies:
   intl: ^0.20.3
   mordakte_core:
     path: packages/mordakte_core
+  burgstadt_core:
+    path: packages/burgstadt_core
+  burgstadt_spiel:
+    path: packages/burgstadt_spiel
+  room_host:
+    path: packages/room_host
+  pixel_engine:
+    path: packages/pixel_engine
   provider: ^6.1.5+1
   shared_preferences: ^2.5.6
   web_socket_channel: ^3.0.3
+  audioplayers: ^6.8.1
+  gamepads: ^0.1.12
 
 dev_dependencies:
   flutter_lints: ^6.0.0
@@ -29,6 +39,15 @@ flutter:
   generate: true
   assets:
     - content/scenarios/
+    - assets/burgstadt/ton/
+    - krimidinner/spuk-im-gewoelbe/10_kanon/
+    - nachtlauf/kanon/ANPASSUNG.md
+    - packages/pixel_engine/data/figuren/
+    - packages/burgstadt_core/data/innenraeume/
+    - packages/burgstadt_core/data/stadt/haeuser.json
+    - packages/burgstadt_core/data/stadt/bewohner.json
+    - packages/burgstadt_core/data/rollen/faehigkeiten.json
+    - packages/burgstadt_spiel/data/texte/
     - content/party/schlosskeller/
     - content/party/schlosskeller/tatmatrix/
   fonts:
