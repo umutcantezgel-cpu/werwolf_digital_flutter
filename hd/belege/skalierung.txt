@@ -1,0 +1,6 @@
+SKALIERUNG v2 (P1-OPUS-02, K-011, E-006, E-022, E-042)
+Qualitaet {sparsam, mittel, scharf, auto}; gespeichertes „hoch“ → auto; auto = mittel bis P1-OPUS-10
+scharf = UI-Raster von mittel, kWelt = kUi (Welt 2× mittel linear, UI identisch), nur bei kUi ≥ 2 und ≤ 380 000 Weltpixeln
+spiel_test „scharf: 18 Größen exakt, Obergrenze, UI wie mittel, Welt 2× mittel“: 18/18 (16 scharf, 1280×480 und 1280×400 = mittel)
+spiel_test „scharf: Bildschirme bestehen Paletten- und Blocktest (UI-Raster)“: 1280×720, 2401×1081, 1080×2400 – Palette 0, Block 100 %
+Probe 1280×720: stadt mittel Welt 320x180 ×4 · UI 640x360 ×2 | stadt scharf Welt 640x360 ×2 · UI 640x360 ×2 · Palette 0 · Block 100 %
