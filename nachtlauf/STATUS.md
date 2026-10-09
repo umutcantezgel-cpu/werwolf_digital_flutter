@@ -1,5 +1,5 @@
 # STATUS
-STAND · 09.10. 07:24 · Phase 7 von 7 · Abnahme 12 von 14 (tool/abnahme.dart; offen Z-03 neuer Kartenstand e4624201af, Z-12 Inhaltsrunde 10) · Aufträge 47 von 50 · Agenten aktiv 3 (Sichtprüfer 15/16, Inhalt Runde 10) · nächster Schritt: Prüferberichte übernehmen, vollständiger Abnahmelauf läuft
+STAND · 09.10. 09:17 · Phase 7 von 7 · Abnahme 14 von 14 (tool/abnahme.dart, belege/abnahme.txt) · Aufträge 53 von 53 · Agenten aktiv 0 · nächster Schritt: Übergabe; offene Punkte in FUER-DEN-NUTZER.md
 
 | Phase | Stand |
 |---|---|
@@ -10,6 +10,6 @@ STAND · 09.10. 07:24 · Phase 7 von 7 · Abnahme 12 von 14 (tool/abnahme.dart; 
 | 4 Fall und Rollen | abgeschlossen: 24 Stadt-Hinweise, 20 Rollen-Fähigkeiten mit Sichtschichten, Täterin-Gegenspiel; Fairness-Löser N = 4…20 OK |
 | 5 Teilen und Mehrspieler | abgeschlossen: room_host + BurgstadtRaum, Simulation 4/8/20; WLAN-Spiel in der App (Lobby, Gastgeber/Gast, Lagerunde/Anklage im Netz), Teilen an Einzelne in der Fallakte |
 | 6 Präsentation | abgeschlossen: 66 Figuren, Porträts, Tutorial, Erzähler, Speichern/Fortsetzen, Stadtkarte/Kompass/Schnellreise, Optionen gespeichert, Anleitung |
-| 7 Härtung | läuft: alle 11 Testebenen grün; Morgenbericht 07:00 geschrieben; Inhaltsrunde 9 und Sichtprüfung 13/14 umgesetzt (E38); Sichtprüfer 15/16 und Inhaltsrunde 10 laufen; danach Abschlussbericht |
+| 7 Härtung | abgeschlossen: alle 11 Testebenen grün (Code-Stand 6f0d724), Abnahme 14 von 14; Sichtprüfer 19/20 ohne Paar (Kartenstand fc94af9295); Inhaltsrunde 12 ja · ja · ja (a7f1985); Abschlussbericht, ABNAHME.md, FÜR DEN NUTZER aktuell |
 
 Wichtig für eine neue Sitzung: zuerst PRUEFPUNKT.md lesen.

@@ -25,6 +25,13 @@ Aus „Mordakte“ ist ein Ich-Perspektive-Krimi mit 2,5D-Pixelfiguren geworden.
 
 Die Tabelle mit Messwerten und Belegen steht in `ABNAHME.md`, das Protokoll des vollständigen Testlaufs aller elf Ebenen in `belege/alle_tests_voll.txt`.
 
+**Ergebnis:** `tool/abnahme.dart` bestätigt am Stand a28178c **14 von 14** Kriterien (`belege/abnahme.txt`). Grundlage ist der grüne Gesamtlauf aller elf Ebenen am Code-Stand 6f0d724; danach hat sich nur `nachtlauf/` geändert.
+
+Messwerte aus diesem Lauf:
+- Spiellogik 0,14 ms je Bild (Grenze 4), Nachladespitze 18,6 ms (Grenze 50), Speicherwachstum 6,3 % (Grenze 10).
+- Teilen kommt nach höchstens 43 ms an (Grenze 1000); Teilen spart 72 % der Schritte (Grenze 30).
+- Erkundungsbots erreichen 134 von 134 Türen; 0 Konsolenfehler in 3 Geräteprofilen.
+
 ## 3. Bilder
 
 **Hauptmenü und Erkundung mit Tutorial**
@@ -69,10 +76,14 @@ Die Tabelle mit Messwerten und Belegen steht in `ABNAHME.md`, das Protokoll des 
 ## 4. Prüfungen durch unabhängige Prüfer
 
 - **Figuren (Z-03):**
-  - Bis zur Endrunde gab es zwölf Sichtprüfungen. Die Prüfer maßen anfangs sehr verschieden (E30).
-  - Die Endrunde (Prüfer 11 und 12) lief mit dem festen Maßstab aus Z-03: 0 verwechselbare Paare, 0 Regelverstöße.
-  - Knappe Grenzfälle (nicht gezählt): BW/B12, B29/B41, R09/B12, R06/R08, B13/B43, B13/B33, R02/R14.
-- **Inhalt (Z-12):** fünf Runden Gegenprüfung (A-702b bis f). Die Befunde sind umgesetzt oder begründet abgewogen (E23, E27, E29, E31).
+  - Es gab 20 Sichtprüfungen. Die Prüfer maßen anfangs sehr verschieden (E30). Danach galt ein fester Maßstab (Z-03, Punkt 5a).
+  - Auch mit festem Maßstab werteten Prüfer Fälle knapp an der Schwelle unterschiedlich (z. B. BW/B12, DET/B24). Seit E40 steckt der Maßstab deshalb im Figurenvergleich selbst: gleiche Farbfamilie an Rumpf und Beinen, Größe bis 5 Sprite-Pixel und gleicher Kopf gilt als verwechselbar. Der Generator verteilt die Bewohner danach, und `karten_test` prüft es.
+  - Endrunde am Kartenstand fc94af9295: Sichtprüfer 19 und 20 unabhängig voneinander mit 0 verwechselbaren Paaren und 0 Regelverstößen.
+  - Gefundene Fehler, die nur Menschenaugen sehen: Kopfbedeckungen in Haarfarben lasen sich als Haar (B13, B14, B34, B39). Die Regel dagegen steht jetzt im Generator und im Test.
+- **Inhalt (Z-12):**
+  - Zwölf Runden Gegenprüfung (A-702b bis m). Jede Runde fand feinere Punkte. Umgesetzt oder begründet abgewogen ist alles in E23 bis E40.
+  - Darunter: das Herkunftsmuster in den Familienfeldern des Kanons (E38/E39, per Overlay, Kanon-Dateien unverändert), Altersbilder, Gruppenwörter („Putzfrau“, „Hausfrau“), Spuren-Echos in Stadttexten und eine geschlechtsbezogene Anrede der spielenden Person.
+  - Letzte Runde (A-702m, Stand a7f1985): Leitplanken ja, Kanontreu ja, Plagiatsfrei ja. Ihre 5 geringen Befunde stehen nach der Abbruchregel (E40) in `FUER-DEN-NUTZER.md`.
 - **Leitplanken-Scanner:** 0 Treffer in allen Spieltexten.
 - **Fairness:** Der Löser bestätigt für N = 4…20, dass jeder notwendige Schluss abgesichert ist. Das Durchspiel mit Bots endet bei jeder Rollenzahl als Meisterdetektiv. Teilen spart 72 % der Schritte.
 
@@ -85,6 +96,7 @@ Die Tabelle mit Messwerten und Belegen steht in `ABNAHME.md`, das Protokoll des 
   - Messungen unter Parallellast (Agenten kompilierten gleichzeitig) zeigten beim Figurenbacken einzelne Spitzen von 27 und 54 ms Wanduhrzeit. Ein Lauf war deshalb rot.
   - Das Speicherbereinigungs-Protokoll schließt die Speicherbereinigung als Ursache aus. Die Ursache war Verdrängung durch andere Prozesse.
   - Seitdem misst `bin/leistung.dart` die Prozessorzeit des Spielthreads (`CLOCK_THREAD_CPUTIME_ID`); die Wanduhrzeit steht weiter als Information im Protokoll. Beleg in `belege/leistung_z09.txt`.
+- **Viele Sichtprüf-Runden (E38–E40):** Nach den neuen Signaturteilen (Kameragurt, Kopfhörer) brauchte Z-03 vier weitere Prüferpaare (13 bis 20). Gefunden wurden: B13 mit einer Haube, die wie rotes Haar aussah; R06/R08; BW/B12; DET/B24. Meine Korrekturen von Hand haben das Problem dabei teils nur zum nächsten Nachbarn verschoben. Beendet hat das erst der Maßstab im Figurenvergleich selbst (E40).
 - **Figurenkarten von Hand (E38):** Nach Sichtprüfer 13 habe ich vier Bewohnerkarten von Hand nachgeschärft. Die ersten Werte erzeugten drei neue enge Paare. Gefunden hat sie `karten_test` vor dem Commit; eingecheckt wurde erst die Fassung ohne Paare.
 
 ## 6. Nicht gebaut oder nur genähert
@@ -100,3 +112,5 @@ Siehe `FUER-DEN-NUTZER.md`. Kurz:
 ## 7. Starten
 
 Siehe `ANLEITUNG.md` (Start, Steuerung je Gerät, WLAN, Speichern, Optionen).
+
+*Stand: 09.10. 09:17 (Europe/Berlin), Branch `nachtlauf/burgstadt`.*

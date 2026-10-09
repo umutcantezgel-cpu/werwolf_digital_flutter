@@ -52,3 +52,7 @@
     - 13/14 (Stand 0e9ec58e33): 0 Paare. Ein Verstoß bei B13 (rote Haube las sich wie rotes Haar), behoben.
     - 15 (Stand e4624201af): 1 Paar R06/R08, behoben durch eine kleinere R08.
     - 17/18 prüfen jetzt Stand 901192c463.
+- 09:17 Phase 7 abgeschlossen:
+  - **Abnahme:** `tool/abnahme.dart` bestätigt 14 von 14 (Stand a28178c; Gesamtlauf aller elf Ebenen grün am Code-Stand 6f0d724).
+  - **Z-03:** Sichtprüfer 19 und 20 unabhängig voneinander mit 0 Paaren und 0 Verstößen am Kartenstand fc94af9295. Möglich wurde das, nachdem der Maßstab 5a in den Figurenvergleich und den Generator eingebaut war (E40).
+  - **Z-12:** Inhaltsrunde 12 urteilt Leitplanken ja · Kanontreu ja · Plagiatsfrei ja. Ihre 5 geringen Befunde stehen in FÜR DEN NUTZER (Abbruchregel E40).
