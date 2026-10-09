@@ -1,0 +1,15 @@
+kennung	welle	modell	effort	tokens	tools	dauer_s	status
+MP-PROBE-01	M0-0	haiku	medium	46062	3	5.2	gruen
+MP-PROBE-02	M0-0	haiku	medium	46205	3	5.7	gruen
+M1-INV-02	M0-1	haiku	medium	80557	8	55.3	gruen
+M1-INV-01	M0-1	haiku	medium	77908	18	73.8	gruen
+M1-INV-03	M0-1	haiku	medium	79301	14	80.5	gruen(Verstoss list_sessions)
+M1-INV-04	M0-1	haiku	medium	95997	22	140.5	gruen
+M0-KUND-B5	M0-1	haiku	max	274703	29	538.4	teil
+M0-KUND-B4	M0-1	haiku	max	287922	49	575.9	teil
+M0-KUND-B8	M0-1	haiku	max	329022	34	672.0	teil
+M0-KUND-B6	M0-1	haiku	max	333550	54	747.8	teil(Nebendatei)
+M0-KUND-B10	M0-1	haiku	max	345033	92	871.4	teil
+M0-KUND-B3	M0-1	haiku	max	392269	107	966.8	teil
+M0-KUND-B2	M0-1	haiku	max	406199	71	1026.6	teil
+M0-KUND-B7	M0-1	haiku	max	451128	78	1090.7	teil
