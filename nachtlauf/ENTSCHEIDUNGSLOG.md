@@ -370,7 +370,7 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - **Kopfbedeckungen der Bewohner** sind nie in Haarfarben (Holz, Rot, Bernstein) und nie in der Rampe des eigenen Haars; die rote Haube ist entfernt. `karten_test` prüft das (`kopfbedeckungLesbar`).
   - **Generator** (`bin/bewohnerkarten.dart`): Die geprüfte Karte aus der Datei ist Kandidat 0, solange sie die Regeln erfüllt. Er hat bis zu 10 Durchgänge; dieser Lauf kam nach 6 zur Ruhe. Er hat 14 Bewohner umgefärbt (Datensatz in `bewohner.json` angepasst) und die erfundenen Hosenfarben von R02, R03, R04, R07, R08 und R09 gewählt (R03: Jeans hellgrau, der Kanon nennt nur „Jeans“).
   - **Von Hand, nur erfundene Werte:** R05 Jeans ocker und 1,82 m, R14 Hose dunkelrot, R16 1,88 m (1,93 besteht die Sprite-Prüfung nicht), B11 1,50 m, B15 1,52 m, B40 1,60 m.
-  - **Gegenprobe:** Eine unabhängige Näherung direkt auf der Aufstellung (`scratchpad/mass5a`, gleiche Familienregel, Höhe in Bildpixeln) findet unter 10 px Größenunterschied 0 Kandidaten, unter 12 px noch 4. `karten_test` ist ohne Paar.
+  - **Gegenprobe:** Eine unabhängige Näherung direkt auf der Aufstellung (`tool/mass5a.py`, gleiche Familienregel, Höhe in Bildpixeln) findet unter 10 px Größenunterschied 0 Kandidaten, unter 12 px noch 4. `karten_test` ist ohne Paar.
   - Neuer Kartenstand fc94af9295; zwei neue Sichtprüfer (A-605q/r).
 - **Politur nach Inhaltsrunde 11** (Urteil ja · ja · ja, 7 geringe Befunde):
   - G1/G2/G3/G5: Bei B16 und B33 entfällt „Witwe“ als Beruf; sie sind jetzt „Nachbarin, früher Standesbeamtin“ bzw. „Rentnerin, früher Weberin“. Entfernt sind auch die Katzen- und Kuchenpointe, die Häkelbilder, „Stimme wie Honig“, „die alte Schöning“, „langsam im Gang“, „ältere Dame“ (H-088), „niemand widerspricht ihr“ (H-115) und „Witwe“ (H-110).
@@ -380,3 +380,22 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Selbst gefunden: Drei Bewohner sprachen die spielende Person als „Junge“ bzw. „junger Mann“ an, obwohl ihr Geschlecht offen ist (B16, B33 und ein weiterer). Die Anrede ist jetzt neutral.
   - Bewusst offen: Dutt-Frisur bei mehreren älteren Bewohnerinnen. Sie kommt aus dem Datensatz (`frisur: dutt`); eine Änderung braucht eine neue Sichtprüfung und steht in FÜR DEN NUTZER.
 - **Abbruchregel für die Inhaltsprüfung:** Runde 12 prüft diesen Stand. Hat sie das Urteil ja · ja · ja, werden ihre geringen Befunde gesammelt (FÜR DEN NUTZER) statt weiter gedreht; nur ein „nein“ führt zu einer weiteren Runde.
+
+## E41 · 09.10. 11:34 · Alles auf main (Nutzerentscheidung N-01), Kanon v1.0 eingearbeitet
+- **Nutzerentscheidung N-01:** „Stelle sicher, dass der gesamte Stand auf Main zusammengeführt wurde … dass du keine Arbeiten nur lokal hast.“ Das hebt die Nachtlauf-Regel „kein Push außer `nachtlauf/burgstadt`“ für `main` und den Sitzungs-Branch `claude/nifty-gauss-s82y27` ausdrücklich auf. Weiter gilt: keine PRs, kein Force-Push, keine Geschichte umschreiben. Z-13 im Abnahmewerkzeug lässt deshalb genau diese zwei Ziele zusätzlich zu.
+- **main war weitergelaufen** (d92a675):
+  - Kanon-Commits 9770268 und a4b4c67 („Kanon v1.0“, P-15..P-45) per PR #42.
+  - Jules-PR #41 per „ours“, ohne Änderung am Dateistand.
+  - `nachtlauf/burgstadt` hatte den Kanon nur bis 659d3ed. Der Merge (b1dfbaf) war konfliktfrei, weil der Nachtlauf `krimidinner/` nie geändert hat; main hatte außerhalb von `krimidinner/` nichts geändert.
+- **Abgleich Overlay gegen Kanon v1.0** (Skript: jedes Overlay-Feld gegen die Kanonänderung 659d3ed..main):
+  - Datensätze: 1211 statt 1207 (+4 L-Datensätze), `kanon.py pruefe` 0 Befunde. Die Zählungen in `kanon_test` sind nachgezogen.
+  - Feldkonflikt nur bei `LISTE-ZEITEN`: Kanon v1.0 nennt jetzt mehr Uhrzeiten (23:52, 23:56, 00:01 …). Das Overlay hätte sie mit der alten Liste überdeckt. Es übernimmt jetzt den neuen Wortlaut und hängt nur die Stadt-Ergänzung an (Tore 22:00, Uhrturm, Ofen 03:00, Zeitangaben in O-Datensätzen).
+  - Die R??-STAMM-Familienfelder (E38/E39) sind im Kanon unverändert; kein Konflikt.
+  - Alle ERSETZE-Begriffe greifen weiter („bewusstlos“ jetzt an 8 statt 7 Stellen). „Silberhau“ ist der erfundene Talort des Kanons (GL-02), kein Harz-Rest.
+- **Aussehen aus Kanon v1.0:**
+  - R04 trägt statt der Fleecejacke einen olivgrünen groben Strickpullover über dem karierten Hemd: `rollen.json` Typ `pullover`, Karte `oberteil-hemdkragen` statt `oberteil-fleece`; der Ersatzpfad in `figuren_lager.dart` setzt den Hemdkragen bei Pullover über Hemd.
+  - R03: Das Notizbuch ist aus dem Look-Anker gestrichen (LF-R03) und fällt aus Karte und `rollen.json`. Sichtprüfer 19 hatte es als hellen Gegenstand in der Hand bemerkt; K9 §8 verbietet sichtbare Zettel.
+  - Ohne Notizbuch rückte R03 an R11 heran. R03s erfundene Jeansfarbe ist jetzt blau [6,4] statt hellgrau; `karten_test` und die Näherung `tool/mass5a.py` sind ohne Paar.
+  - Neuer Kartenstand db8e0a6155: Z-03 braucht zwei neue Sichtprüfer (A-605s/t).
+- **Z-12:** Die Kanon-Dateien (`krimidinner/spuk-im-gewoelbe/10_kanon`) sind Spieltext. Das Abnahmewerkzeug zählt sie jetzt zu den Textpfaden; nach dem Merge braucht es eine neue Inhaltsrunde (A-702n).
+- **Nichts nur lokal:** `tool/mass5a.py` (die Bild-Näherung aus E40) liegt jetzt im Repo. Die Agent-Worktrees werden nach dem Abgleich ihrer Dateien entfernt.

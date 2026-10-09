@@ -118,19 +118,20 @@ void main() {
   });
 
   group('Echter Kanon', () {
-    test('1207 Datensätze, keine Lesebefunde', () {
-      expect(original.datensaetze.length, 1207);
+    // Kanon v1.0 (main, PR #42): 1211 Datensätze wie `kanon.py pruefe` (vorher 1207, +4 L-Datensätze)
+    test('1211 Datensätze, keine Lesebefunde', () {
+      expect(original.datensaetze.length, 1211);
       expect(original.lesefehler, isEmpty);
     });
 
     test(
-      'Sichtklassen wie die Zeilen-Regex von kanon.py: O 223 · G 559 · L 425',
+      'Sichtklassen wie die Zeilen-Regex von kanon.py: O 223 · G 559 · L 429',
       () {
         int zaehle(Sicht s) =>
             original.datensaetze.values.where((d) => d.sicht == s).length;
         expect(
           [zaehle(Sicht.o), zaehle(Sicht.g), zaehle(Sicht.l)],
-          [223, 559, 425],
+          [223, 559, 429],
         );
       },
     );
@@ -255,7 +256,7 @@ void main() {
     test('alle Proben am wirksamen Kanon (Original + Overlay): 0 Befunde', () {
       final befunde = alleProben(wirksam);
       expect(befunde.values.expand((x) => x), isEmpty);
-      expect(wirksam.datensaetze.length, 1272); // 1224 + 48 Stadt-Hinweise (A-401a)
+      expect(wirksam.datensaetze.length, 1276); // 1228 + 48 Stadt-Hinweise (A-401a)
     });
 
     test('mitPraefix liefert die Datensätze mit dem Präfix', () {

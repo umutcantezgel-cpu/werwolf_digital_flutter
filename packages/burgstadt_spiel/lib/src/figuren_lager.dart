@@ -64,6 +64,8 @@ Figurenkarte karteAusSteckbrief(Map<String, dynamic> s) {
       case 't-shirt':
         teile.add('aermel-kurz');
     }
+    // Pullover über Hemd: Hemdkragen am Hals (R04)
+    if (typ == 'pullover' && drunter != null && drunter['typ'] == 'hemd') teile.add('oberteil-hemdkragen');
   }
   if (unter['typ'] == 'rock' && typ != 'kleid') teile.add('unterteil-rock');
   if (schuhe['typ'] == 'wanderstiefel' || schuhe['typ'] == 'stiefel') teile.add('schuhe-stiefel');

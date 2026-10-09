@@ -170,8 +170,17 @@ Future<void> main(List<String> args) async {
     seit('packages/burgstadt_core/data'),
     seit('packages/burgstadt_spiel/data/texte'),
     seit('nachtlauf/kanon'),
+    seit('krimidinner/spuk-im-gewoelbe/10_kanon'),
   ].reduce((a, b) => a > b ? a : b);
-  const textPfade = ['packages/burgstadt_core/data', 'packages/burgstadt_spiel/data/texte', 'packages/pixel_engine/data/figuren', 'nachtlauf/kanon'];
+  // Spieltexte: Stadt-, Spiel- und Figurendaten, das Overlay und der Kanon selbst (das Spiel zeigt
+  // seine O-Datensätze; E41)
+  const textPfade = [
+    'packages/burgstadt_core/data',
+    'packages/burgstadt_spiel/data/texte',
+    'packages/pixel_engine/data/figuren',
+    'nachtlauf/kanon',
+    'krimidinner/spuk-im-gewoelbe/10_kanon',
+  ];
   final gueltig = <String>[];
   for (final f in berichte) {
     final t = f.readAsStringSync();
@@ -195,8 +204,11 @@ Future<void> main(List<String> args) async {
   // Beginn des Nachtlaufs: der älteste Commit „Nachtlauf …“
   final start = int.tryParse(_git(['log', '--format=%ct', '--grep=^Nachtlauf', '--reverse']).split('\n').first) ?? 0;
   final fremdePushes = <String>[];
+  // Erlaubte Push-Ziele: der Sicherungs-Branch (N-00) und – auf ausdrücklichen Wunsch des Nutzers,
+  // alles auf main zu bringen (N-01, E41) – main und der Sitzungs-Branch
+  const erlaubt = ['/nachtlauf/burgstadt', '/main', '/claude/nifty-gauss-s82y27'];
   for (final ref in _git(['for-each-ref', '--format=%(refname)', 'refs/remotes']).split('\n')) {
-    if (ref.isEmpty || ref.endsWith('/nachtlauf/burgstadt') || ref.endsWith('/HEAD')) continue;
+    if (ref.isEmpty || ref.endsWith('/HEAD') || erlaubt.any(ref.endsWith)) continue;
     for (final z in _git(['reflog', 'show', '--date=unix', ref]).split('\n')) {
       final m = RegExp(r'@\{(\d+)\}: update by push').firstMatch(z);
       if (m != null && int.parse(m[1]!) >= start) fremdePushes.add(ref);
@@ -204,7 +216,7 @@ Future<void> main(List<String> args) async {
   }
   final fremdeAbrufe = geraete.fold(0, (n, g) => n + g.$3);
   kriterium('Z-13', remotes.length == 1 && remotes.first == 'origin' && fremdePushes.isEmpty && profile.length == 3 && fremdeAbrufe == 0,
-      'Remotes: ${remotes.join(', ')}; Pushes seit Beginn nur auf nachtlauf/burgstadt${fremdePushes.isEmpty ? '' : ' – ABWEICHUNG: ${fremdePushes.join(', ')}'}; '
+      'Remotes: ${remotes.join(', ')}; Pushes seit Beginn nur auf nachtlauf/burgstadt, main und claude/nifty-gauss-s82y27 (N-00, N-01)${fremdePushes.isEmpty ? '' : ' – ABWEICHUNG: ${fremdePushes.join(', ')}'}; '
       'fremde Abrufe im Browser: $fremdeAbrufe (Web-Build ohne CDN)');
 
   // ------------------------------------------------------------------ Z-14 Übergabe
