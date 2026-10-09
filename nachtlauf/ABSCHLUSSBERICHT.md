@@ -81,7 +81,11 @@ Die Tabelle mit Messwerten und Belegen steht in `ABNAHME.md`, das Protokoll des 
 - **Testskript (E28):** Der Gesamttest verschluckte rote Pakettests (`… || echo "keine Tests"`). Drei Commits trugen deshalb einen roten Datentest: 02ab9b5, d511fac und 7574641. Gefunden, behoben und für alle Commits nachgeprüft (`belege/historie_pakettests.txt`). Die Geschichte ist nicht umgeschrieben.
 - **abnahme.dart (E31):** Der erste Lauf endete still ohne Ergebnis, weil ein Future an einem schon beendeten Strom hing. Das ist behoben.
 - **Zeitangaben:** Zwei Einträge im Entscheidungslog trugen geschätzte statt gemessene Uhrzeiten. Sie sind korrigiert. Ein Stundeneintrag im Nachtprotokoll (gegen 03:00) fehlt und wurde zusammengefasst nachgetragen.
-- **Leistungsspitze:** Eine Messung unter Last (vier Agenten kompilierten gleichzeitig) zeigte 54 ms beim Figurenbacken. Wiederholte Läufe liegen bei 7–8 ms; Beleg in `belege/leistung_z09.txt`.
+- **Leistungsspitze (E36):**
+  - Messungen unter Parallellast (Agenten kompilierten gleichzeitig) zeigten beim Figurenbacken einzelne Spitzen von 27 und 54 ms Wanduhrzeit. Ein Lauf war deshalb rot.
+  - Das Speicherbereinigungs-Protokoll schließt die Speicherbereinigung als Ursache aus. Die Ursache war Verdrängung durch andere Prozesse.
+  - Seitdem misst `bin/leistung.dart` die Prozessorzeit des Spielthreads (`CLOCK_THREAD_CPUTIME_ID`); die Wanduhrzeit steht weiter als Information im Protokoll. Beleg in `belege/leistung_z09.txt`.
+- **Figurenkarten von Hand (E38):** Nach Sichtprüfer 13 habe ich vier Bewohnerkarten von Hand nachgeschärft. Die ersten Werte erzeugten drei neue enge Paare. Gefunden hat sie `karten_test` vor dem Commit; eingecheckt wurde erst die Fassung ohne Paare.
 
 ## 6. Nicht gebaut oder nur genähert
 
