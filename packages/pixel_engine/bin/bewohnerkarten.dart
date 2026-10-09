@@ -12,7 +12,7 @@ import 'package:pixel_engine/pixel_engine.dart';
 /// Ähnlichkeit zu allen anderen Figuren am kleinsten ist (Maß der Sichtprüfer, siehe
 /// [vergleiche]). Drei Durchgänge, damit auch frühe Figuren gegen spätere geprüft werden.
 /// Deterministisch. `dart run bin/bewohnerkarten.dart`
-const _varianten = 32, _farbVarianten = 32, _rollenVarianten = 24;
+const _varianten = 32, _farbVarianten = 64, _rollenVarianten = 24;
 
 const _bewohnerPfad = '../burgstadt_core/data/stadt/bewohner.json', _rollenPfad = 'data/figuren/rollen.json';
 

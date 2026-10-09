@@ -70,12 +70,12 @@
           {
             "teil": "Weste",
             "rampe": "blau",
-            "stufe": 6
+            "stufe": 5
           },
           {
             "teil": "Hemd",
-            "rampe": "rot",
-            "stufe": 3
+            "rampe": "bernstein",
+            "stufe": 5
           }
         ],
         "zubehoer": [
@@ -451,7 +451,7 @@
           },
           {
             "teil": "Hose",
-            "rampe": "stein",
+            "rampe": "rot",
             "stufe": 2
           }
         ],
@@ -499,13 +499,13 @@
         "kleidung": [
           {
             "teil": "Overall",
-            "rampe": "stein",
-            "stufe": 3
+            "rampe": "holz",
+            "stufe": 4
           },
           {
             "teil": "Jacke",
-            "rampe": "blau",
-            "stufe": 6
+            "rampe": "rot",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -626,12 +626,12 @@
         "kleidung": [
           {
             "teil": "Weste",
-            "rampe": "bernstein",
+            "rampe": "blau",
             "stufe": 3
           },
           {
             "teil": "Rock",
-            "rampe": "holz",
+            "rampe": "rot",
             "stufe": 2
           }
         ],
@@ -685,7 +685,7 @@
           {
             "teil": "Hose",
             "rampe": "holz",
-            "stufe": 3
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -746,13 +746,13 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "holz",
-            "stufe": 2
+            "rampe": "rot",
+            "stufe": 4
           },
           {
             "teil": "Umhang",
-            "rampe": "neutral",
-            "stufe": 4
+            "rampe": "holz",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -806,13 +806,13 @@
         "kleidung": [
           {
             "teil": "Weste",
-            "rampe": "stein",
+            "rampe": "rot",
             "stufe": 5
           },
           {
             "teil": "Hemd",
             "rampe": "bernstein",
-            "stufe": 4
+            "stufe": 5
           }
         ],
         "zubehoer": [
@@ -1053,13 +1053,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "stein",
+            "rampe": "bernstein",
             "stufe": 4
           },
           {
             "teil": "Hemd",
-            "rampe": "neutral",
-            "stufe": 6
+            "rampe": "holz",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1106,13 +1106,13 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "bernstein",
-            "stufe": 5
+            "rampe": "rot",
+            "stufe": 2
           },
           {
             "teil": "Schal",
             "rampe": "blau",
-            "stufe": 3
+            "stufe": 6
           }
         ],
         "zubehoer": [
@@ -1173,13 +1173,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "neutral",
-            "stufe": 3
+            "rampe": "blau",
+            "stufe": 6
           },
           {
             "teil": "Hemd",
-            "rampe": "blau",
-            "stufe": 5
+            "rampe": "bernstein",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -1360,13 +1360,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "rot",
-            "stufe": 2
+            "rampe": "blau",
+            "stufe": 5
           },
           {
             "teil": "Rock",
-            "rampe": "neutral",
-            "stufe": 3
+            "rampe": "stein",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1413,12 +1413,12 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "bernstein",
-            "stufe": 5
+            "rampe": "blau",
+            "stufe": 6
           },
           {
             "teil": "Hose",
-            "rampe": "holz",
+            "rampe": "stein",
             "stufe": 3
           }
         ],
@@ -1480,13 +1480,13 @@
         "kleidung": [
           {
             "teil": "Bluse",
-            "rampe": "blau",
+            "rampe": "neutral",
             "stufe": 6
           },
           {
             "teil": "Rock",
             "rampe": "holz",
-            "stufe": 4
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -1541,12 +1541,12 @@
           {
             "teil": "Jacke",
             "rampe": "blau",
-            "stufe": 3
+            "stufe": 5
           },
           {
             "teil": "Hose",
-            "rampe": "neutral",
-            "stufe": 2
+            "rampe": "holz",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1593,13 +1593,13 @@
         "kleidung": [
           {
             "teil": "Pullover",
-            "rampe": "rot",
-            "stufe": 5
+            "rampe": "bernstein",
+            "stufe": 3
           },
           {
             "teil": "Hose",
-            "rampe": "stein",
-            "stufe": 2
+            "rampe": "blau",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -1653,13 +1653,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "bernstein",
-            "stufe": 4
+            "rampe": "neutral",
+            "stufe": 6
           },
           {
             "teil": "Hose",
-            "rampe": "blau",
-            "stufe": 4
+            "rampe": "rot",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -1713,12 +1713,12 @@
         "kleidung": [
           {
             "teil": "Schürze",
-            "rampe": "bernstein",
-            "stufe": 5
+            "rampe": "holz",
+            "stufe": 4
           },
           {
             "teil": "Jacke",
-            "rampe": "neutral",
+            "rampe": "blau",
             "stufe": 3
           }
         ],
@@ -1774,12 +1774,12 @@
           {
             "teil": "Jacke",
             "rampe": "bernstein",
-            "stufe": 4
+            "stufe": 5
           },
           {
             "teil": "Hose",
             "rampe": "neutral",
-            "stufe": 2
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1833,12 +1833,12 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "blau",
-            "stufe": 3
+            "rampe": "rot",
+            "stufe": 5
           },
           {
             "teil": "Rock",
-            "rampe": "rot",
+            "rampe": "stein",
             "stufe": 2
           }
         ],
@@ -1894,11 +1894,11 @@
           {
             "teil": "Schürze",
             "rampe": "rot",
-            "stufe": 5
+            "stufe": 3
           },
           {
             "teil": "Hemd",
-            "rampe": "neutral",
+            "rampe": "holz",
             "stufe": 4
           }
         ],
@@ -1953,13 +1953,13 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "blau",
+            "rampe": "stein",
             "stufe": 3
           },
           {
             "teil": "Schal",
-            "rampe": "rot",
-            "stufe": 3
+            "rampe": "blau",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2074,12 +2074,12 @@
           {
             "teil": "Kittel",
             "rampe": "neutral",
-            "stufe": 6
+            "stufe": 5
           },
           {
             "teil": "Hose",
-            "rampe": "holz",
-            "stufe": 4
+            "rampe": "stein",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -2134,12 +2134,12 @@
           {
             "teil": "Jacke",
             "rampe": "rot",
-            "stufe": 3
+            "stufe": 4
           },
           {
             "teil": "Hose",
             "rampe": "neutral",
-            "stufe": 2
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2267,13 +2267,13 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "bernstein",
-            "stufe": 3
+            "rampe": "stein",
+            "stufe": 5
           },
           {
             "teil": "Schürze",
-            "rampe": "neutral",
-            "stufe": 6
+            "rampe": "holz",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2327,13 +2327,13 @@
         "kleidung": [
           {
             "teil": "Weste",
-            "rampe": "rot",
-            "stufe": 3
+            "rampe": "bernstein",
+            "stufe": 5
           },
           {
             "teil": "Hose",
             "rampe": "holz",
-            "stufe": 3
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2394,13 +2394,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "neutral",
-            "stufe": 6
+            "rampe": "blau",
+            "stufe": 3
           },
           {
             "teil": "Hose",
-            "rampe": "stein",
-            "stufe": 4
+            "rampe": "neutral",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -2461,13 +2461,13 @@
         "kleidung": [
           {
             "teil": "Bluse",
-            "rampe": "rot",
-            "stufe": 3
+            "rampe": "bernstein",
+            "stufe": 5
           },
           {
             "teil": "Schürze",
-            "rampe": "stein",
-            "stufe": 5
+            "rampe": "blau",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2528,12 +2528,12 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "stein",
-            "stufe": 5
+            "rampe": "holz",
+            "stufe": 2
           },
           {
             "teil": "Hemd",
-            "rampe": "neutral",
+            "rampe": "blau",
             "stufe": 3
           }
         ],
@@ -2588,13 +2588,13 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "bernstein",
+            "rampe": "holz",
             "stufe": 3
           },
           {
             "teil": "Umhang",
-            "rampe": "blau",
-            "stufe": 5
+            "rampe": "neutral",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -2655,13 +2655,13 @@
         "kleidung": [
           {
             "teil": "Weste",
-            "rampe": "bernstein",
-            "stufe": 3
+            "rampe": "rot",
+            "stufe": 5
           },
           {
             "teil": "Hose",
-            "rampe": "blau",
-            "stufe": 3
+            "rampe": "holz",
+            "stufe": 2
           }
         ],
         "zubehoer": [

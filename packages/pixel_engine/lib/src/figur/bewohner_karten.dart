@@ -312,7 +312,7 @@ const Map<String, (double, double)> kStaturBreite = {
 
 /// Hosenfarben für Rollen, deren Hosenfarbe im Kanon nicht festliegt (`rollen.json`, „erfunden“).
 List<Material> rollenHosen(String typ) => typ == 'jeans'
-    ? const [Material(6, 3), Material(6, 4), Material(6, 5), Material(1, 4), Material(0, 3), Material(1, 3)]
+    ? const [Material(6, 3), Material(6, 4), Material(6, 5), Material(1, 4), Material(0, 3), Material(1, 3), Material(0, 5)]
     : const [Material(0, 2), Material(0, 3), Material(1, 2), Material(1, 3), Material(1, 4), Material(2, 2), Material(2, 3), Material(2, 4), Material(6, 3)];
 
 /// Variante einer Rollenkarte: Kanon-Farben, Kleidung und Größe bleiben; frei sind nur die
@@ -353,6 +353,17 @@ class Figurenbild {
   late final List<int> _flaechen = [for (final m in _masken) _bits(m)];
   late final List<List<double>> _zonen = _zonenFarben(ansichten.first);
   late final List<double> _koerperHisto = _histogramm(ansichten.first);
+  late final Uint32List _form = _formMaske(ansichten.first);
+
+  /// Häufigste Farbklasse am Körper (Hauptfarbe der Kleidung).
+  late final int _hauptfarbe = () {
+    var best = 0;
+    for (var i = 1; i < _koerperHisto.length; i++) {
+      if (_koerperHisto[i] > _koerperHisto[best]) best = i;
+    }
+    return best;
+  }();
+  late final int _formFlaeche = _bits(_form);
 
   Figurenbild(this.ansichten);
 
@@ -385,8 +396,32 @@ class Figurenbild {
     return n;
   }
 
-  /// Anteile der Farbklassen (Rampe × Helligkeitshälfte, 16 Klassen) im Körper
-  /// (unterhalb der Kopfzonen), vorne.
+  /// Silhouette vorne auf 32 Zeilen Höhe normiert (gleiches Seitenverhältnis, mittig am
+  /// Fußpunkt): vergleicht die Form unabhängig von der Körpergröße.
+  static Uint32List _formMaske(SpriteImage s) {
+    var y0 = s.height, y1 = 0;
+    for (var i = 0; i < s.pixels.length; i++) {
+      if (s.pixels[i] == kTransparent) continue;
+      final y = i ~/ s.width;
+      y0 = math.min(y0, y);
+      y1 = math.max(y1, y);
+    }
+    final h = math.max(1, y1 - y0 + 1);
+    final m = Uint32List(32);
+    for (var gy = 0; gy < 32; gy++) {
+      final sy = y0 + (gy + 0.5) * h / 32;
+      for (var gx = 0; gx < 32; gx++) {
+        final sx = s.footX + (gx - 16 + 0.5) * h / 32;
+        final ix = sx.floor(), iy = sy.floor();
+        if (ix < 0 || ix >= s.width || iy < 0 || iy >= s.height) continue;
+        if (s.pixels[iy * s.width + ix] != kTransparent) m[gy] |= 1 << gx;
+      }
+    }
+    return m;
+  }
+
+  /// Anteile der Farbklassen (Grau = Neutral+Stein, sonst je Rampe; × drei Helligkeiten)
+  /// im Körper (unterhalb der Kopfzonen), vorne.
   static List<double> _histogramm(SpriteImage s) {
     var y0 = s.height, y1 = 0;
     for (var i = 0; i < s.pixels.length; i++) {
@@ -396,13 +431,14 @@ class Figurenbild {
       y1 = math.max(y1, y);
     }
     final ab = y0 + (y1 - y0 + 1) * kZonen[2];
-    final h = List<double>.filled(16, 0);
+    final h = List<double>.filled(24, 0);
     var n = 0;
     for (var y = ab.ceil(); y <= y1; y++) {
       for (var x = 0; x < s.width; x++) {
         final p = s.pixels[y * s.width + x];
         if (p == kTransparent || (p & 7) <= 1) continue; // Kontur und tiefste Schatten zählen nicht
-        h[(p >> 3) * 2 + ((p & 7) >= 4 ? 1 : 0)]++;
+        final rampe = p >> 3 == 1 ? 0 : p >> 3; // Stein zählt als Grau wie Neutral
+        h[rampe * 3 + ((p & 7) >= 6 ? 2 : ((p & 7) >= 4 ? 1 : 0))]++;
         n++;
       }
     }
@@ -451,18 +487,26 @@ class Aehnlichkeit {
   /// Überlappung der Körperfarben (Rampe × Helligkeit), 0…1 – gleiche Kleidung bei
   /// anderem Kopf werteten die Sichtprüfer als hohe Verwechslungsgefahr.
   final double koerper;
-  const Aehnlichkeit(this.iou, this.farbe, this.koerper);
+
+  /// Überlappung der höhennormierten Silhouetten vorne (Form unabhängig von der Größe).
+  final double form;
+
+  /// Gleiche Hauptfarbe der Kleidung (häufigste Farbklasse am Körper).
+  final bool hauptfarbeGleich;
+  const Aehnlichkeit(this.iou, this.farbe, this.koerper, this.form, this.hauptfarbeGleich);
 
   /// Verwechselbar im Sinne der Sichtprüfung: fast gleiche Silhouette und kein deutlicher
   /// Farbunterschied – oder ähnliche Silhouette mit gleichfarbigem Körper.
-  bool get verwechselbar => (iou >= 0.84 && farbe <= 46) || (iou >= 0.80 && koerper >= 0.6);
+  /// (Gleiche Hauptfarbe allein macht noch nicht verwechselbar, wirkt aber in [wert] als
+  /// Druck auf die Variantenwahl.)
+  bool get verwechselbar => (iou >= 0.84 && farbe <= 46) || (math.max(iou, form) >= 0.80 && koerper >= 0.62);
 
   /// Je größer, desto ähnlicher (für die Variantenwahl).
-  double get wert => iou + 0.5 * koerper - farbe / 160;
+  double get wert => math.max(iou, form) + 0.5 * koerper + (hauptfarbeGleich ? 0.3 : 0) - farbe / 160;
 
   @override
   String toString() =>
-      'IoU ${iou.toStringAsFixed(2)} · Farbabstand ${farbe.toStringAsFixed(0)} · Körper gleich ${(koerper * 100).round()} %';
+      'IoU ${iou.toStringAsFixed(2)} · Farbabstand ${farbe.toStringAsFixed(0)} · Körper gleich ${(koerper * 100).round()} % · Form ${form.toStringAsFixed(2)}${hauptfarbeGleich ? ' · gleiche Hauptfarbe' : ''}';
 }
 
 Aehnlichkeit vergleiche(Figurenbild a, Figurenbild b) {
@@ -485,8 +529,14 @@ Aehnlichkeit vergleiche(Figurenbild a, Figurenbild b) {
     farbe = math.max(farbe, d);
   }
   var koerper = 0.0;
-  for (var i = 0; i < 16; i++) {
+  for (var i = 0; i < a._koerperHisto.length; i++) {
     koerper += math.min(a._koerperHisto[i], b._koerperHisto[i]);
   }
-  return Aehnlichkeit(iou, farbe, koerper);
+  var schnitt = 0;
+  for (var i = 0; i < 32; i++) {
+    final w = a._form[i] & b._form[i];
+    schnitt += Figurenbild._zaehl16[w & 0xFFFF] + Figurenbild._zaehl16[w >> 16];
+  }
+  final vereint = a._formFlaeche + b._formFlaeche - schnitt;
+  return Aehnlichkeit(iou, farbe, koerper, vereint == 0 ? 1 : schnitt / vereint, a._hauptfarbe == b._hauptfarbe);
 }
