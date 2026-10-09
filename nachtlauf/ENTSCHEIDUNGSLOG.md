@@ -246,3 +246,8 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - **A-702e:** Leitplanken eingehalten, Plagiatsfrei; zwei Kanon-Reste umgesetzt. B38 näht keinen Saum mehr (Nachtplan) und fädelt statt Knopf. B35 sagt „früh am Morgen“ statt „um sieben“.
 - **abnahme.dart:** Das Werkzeug endete still mit Code 0, ohne Ergebnis. Ursache: `asFuture()` an einem bereits beendeten Ausgabestrom erfüllt sich nie, also hatte die VM nichts mehr zu tun. Jetzt werden die Futures (`forEach`) vor dem Warten auf das Prozessende angelegt; mit einem Mini-Skript geprüft.
 - **iOS:** `NSLocalNetworkUsageDescription` in Info.plist (Text auf Deutsch).
+
+## E32 · 09.10. 04:54 · Sichtprüfung Endrunde (A-605k/l) und erster vollständiger Abnahmelauf
+- **Sichtprüfer 11 und 12:** unabhängig, mit dem festen Maßstab aus Z-03. Beide fanden 0 Paare und 0 Verstöße am Kartenstand c44e0c1898. Als knappe Grenzfälle nennen sie BW/B12 (beide), B29/B41, R09/B12, R06/R08, B13/B43, B13/B33 und R02/R14. Sie zählen nicht als Paar. Die Figuren bleiben unverändert, weil jede Änderung beide Prüfungen ungültig machen würde. Die Grenzfälle stehen im Abschlussbericht.
+- **Abnahmelauf (tool/abnahme.dart, Stand 3999fc9):** Alle elf Ebenen sind grün; 11 von 14 Kriterien sind erfüllt. Offen bei diesem Lauf: Z-03 (Berichte noch nicht übernommen), Z-12 (Inhaltsrunde 5 läuft) und Z-14 (Morgen- und Abschlussbericht).
+- Die Zeitstempel in `belege/abnahme.txt` und `belege/alle_tests_voll.txt` sind in UTC (Uhr des Containers).
