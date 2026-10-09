@@ -201,6 +201,35 @@ void main() {
     expect(f, isEmpty, reason: f.join('\n'));
   });
 
+  // F-15: In jedem der 16 Finaltexte steht der Pflichtsatz; kein Finale nennt Blut oder Wunden (E-029).
+  List<String> pflichtsatzFehler(Textsammlung t) => [
+        for (final e in t.bausteine.entries)
+          if (e.key.startsWith('finale.')) ...[
+            if (!e.value.contains('Herr Schneider überlebt')) '${e.key}: Pflichtsatz „Herr Schneider überlebt“ fehlt',
+            if (RegExp(r'\b(Blut|blutet|blutig|Wunde)', caseSensitive: false).hasMatch(e.value)) '${e.key}: Blut oder Wunde',
+          ],
+      ];
+
+  test('Jedes Finale enthält „Herr Schneider überlebt“, keines Blut oder Wunde (F-15)', () {
+    final finale = _textsammlung.bausteine.keys.where((k) => k.startsWith('finale.'));
+    expect(finale, hasLength(16));
+    final f = pflichtsatzFehler(_textsammlung);
+    expect(f, isEmpty, reason: f.join('\n'));
+  });
+
+  test('Rot-Probe: ein Finale ohne Pflichtsatz wird gemeldet', () {
+    final t = _sammlungMit({
+      'texte/erzaehler-finale-olli.json': {
+        ...leseJson(_datei('texte/erzaehler-finale-olli.json')),
+        'eintraege': [
+          for (final e in leseJson(_datei('texte/erzaehler-finale-olli.json'))['eintraege'] as List)
+            if ((e as Map)['id'] == 'finale.olli.ende_meister') {...e, 'text': 'Olli gesteht. Alle gehen nach Hause.'} else e,
+        ],
+      },
+    });
+    expect(pflichtsatzFehler(t), contains('finale.olli.ende_meister: Pflichtsatz „Herr Schneider überlebt“ fehlt'));
+  });
+
   test('Rot-Probe: ein fehlender Finaltext wird in der Lückenliste genannt', () {
     final t = _sammlungMit({
       'texte/erzaehler-finale-ahmet.json': _geaendert(
