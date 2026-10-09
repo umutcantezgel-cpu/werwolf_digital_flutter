@@ -51,7 +51,7 @@ String kleidungsMaterial(String teil, Set<String> alle) {
 /// Haarfarbe aus dem Steckbrief → Material (nie [0,1], das ist die Augenfarbe).
 const Map<String, Material> kHaarfarben = {
   'grau': Material(0, 5),
-  'weiß': Material(0, 7),
+  'weiß': Material(0, 6), // nicht reinweiß: ein weißer Haarkranz unter dem Hut wirkt wie ein Tuch (Sichtprüfung A-605h: B08)
   'braun': Material(2, 3),
   'rot': Material(3, 4),
   'blond': Material(4, 6),
@@ -258,7 +258,10 @@ Figurenkarte bewohnerKarte(Map<String, dynamic> b, int variante, {Map<String, (S
       case 'Kleid':
         teile.add('unterteil-kleid');
       case 'Rock':
-        teile.add(alter >= 55 ? z.waehle(const ['unterteil-rock', 'rock-lang-weit']) : 'unterteil-rock');
+        // Unter einem Mantel nur ein langer Rock sichtbar (sonst verdeckt, Sichtprüfung A-605: B16)
+        teile.add(alle.contains('Mantel')
+            ? 'rock-lang-weit'
+            : (alter >= 55 ? z.waehle(const ['unterteil-rock', 'rock-lang-weit']) : 'unterteil-rock'));
       case 'Overall':
         teile.add('latz-vorn');
       case 'Schürze':

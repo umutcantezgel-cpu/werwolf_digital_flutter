@@ -1,12 +1,8 @@
-# PRÜFPUNKT (für die Fortsetzung nach Unterbrechung zuerst lesen) · Stand 09.10. 00:29
-- Branch: `nachtlauf/burgstadt` (Push nur dorthin, Nutzerentscheidung N-00). Gesamttest: `bash tool/alle_tests.sh schnell` (voll ohne „schnell“: + Server, Web-Build, Playwright).
-- Plan: `nachtlauf/PLAN.md`, Entscheidungen `nachtlauf/ENTSCHEIDUNGSLOG.md` (E1–E14, E5a, E9a).
-- **Phase 1 abgeschlossen:**
-  - `packages/pixel_engine`: Palette/Licht, Rasterer, Sprites, Schrift (141 Zeichen), Pixel-UI, Texturen (36), Figuren-Brenner (Gliederpuppe, 8 Richtungen, 6 Animationen), Prüfwerkzeuge (Palette, Block, Sprite, PNG-Prüfer `bin/pixel_pruef.dart`).
-  - `packages/burgstadt_spiel`: Spiel, Skalierung, Hauptmenü, Optionen, Erkundung (Prüfszene), Steuerung, Ton.
-  - `packages/burgstadt_core`: Kanon-Parser + Overlay + Proben (= kanon.py), Leitplanken-Scanner, Stadtdaten (160 Häuser, 44 Bewohner).
-  - App: Route `/burgstadt` ist Start, `lib/burgstadt/` (FrameSink, Eingabe Touch/Maus/Tastatur/Gamepad, Ton über audioplayers).
-  - `tool/browser/geraete.js`: 3 Geräteprofile, Gamepad-Simulation, keine Konsolenfehler, keine fremden Abrufe.
-- **Laufende Haiku-Aufträge:** A-702a (Klassische Fälle leitplankenkonform), A-601a (Aussehen-Steckbriefe → `packages/pixel_engine/data/figuren/rollen.json`), A-108a/b (Figurenteile → `data/figuren/teile_*.json`). Ergebnisse liegen in `.claude/worktrees/agent-*` (unkommittiert) und werden von Opus kopiert, geprüft, committet.
-- **Nächster Schritt:** Phase 2 Durchstich – Weltmodell (Bereiche als Kachelraster 0,5 m mit Höhe, Portale), Burg-Komplex nach Kanon, Marktplatz + 3 Häuser, KanonRuntime Phase 1, Detektivblick, 2 Rollen, Fallakte, Bots.
-- Offen/beobachten: Bildzeit im Browser (SwiftShader + Agentenlast) 11–18 ms je Bild statt 4 ms im Benchmark → nach Abschluss der Agenten neu messen.
+# PRÜFPUNKT (für die Fortsetzung nach Unterbrechung zuerst lesen) · Stand 09.10. 03:05
+- Branch: `nachtlauf/burgstadt` (Push nur dorthin, Nutzerentscheidung N-00). Commit nur über `bash tool/commit_gruen.sh "<Nachricht>"` (läuft `tool/alle_tests.sh schnell`, committet nur bei „ALLE TESTS GRÜN“, pusht). Reine Dokument-Commits direkt.
+- Entscheidungen: `nachtlauf/ENTSCHEIDUNGSLOG.md` (bis E22), Protokoll `nachtlauf/NACHTPROTOKOLL.md`, Abnahme `nachtlauf/ABNAHME.md`.
+- **Pakete:** `pixel_engine` (Rasterer, Figuren-Brenner, Bewohnerkarten-Generator `bin/bewohnerkarten.dart`, Porträts), `burgstadt_core` (Kanon+Anpassung, Fall, Bots, Fähigkeiten, Stadtgenerator, Stadtleben, Erkunder, BurgstadtRaum), `burgstadt_spiel` (Spiel, Bildschirme, Tutorial/Erzähler, Spielstand, Werkzeuge `bin/*`), `room_host` (WLAN-Host, `test/mp_sim.dart`).
+- **Ebenen im Gesamttest:** 1 Logik (Paket-Tests), 3/4 Durchspiel + Teilen-Nutzen, 5 Pixel (Bildschirmfotos, Spieltest, Stadtansichten), 6 Erkundung, 8 Mehrspieler-Simulation, 10 Leitplanken, 11 Bestand. 7 Leistung: `burgstadt_spiel/bin/leistung.dart` (AOT messen: `dart compile exe`), Beleg `nachtlauf/belege/leistung_z09.txt`.
+- **Figuren:** Daten `burgstadt_core/data/stadt/bewohner.json` und `pixel_engine/data/figuren/{rollen,karten}.json`; nach Änderungen `cd packages/pixel_engine && dart run bin/bewohnerkarten.dart` (wählt Varianten, schreibt Farben zurück, ~3,5 min), dann `bin/aufstellung.dart`. Sichtprüfer-Berichte `nachtlauf/auftraege/A-605/`.
+- **Laufende Haiku-Aufträge:** A-605h (Sichtprüfer 8), A-702b (Gegenprüfung Inhalt), A-404a (Fairness-Löser), A-606a (Belegfotos). Ergebnisse liegen in `.claude/worktrees/agent-*`, werden von Opus geprüft, kopiert, committet.
+- **Offen:** B16 langer Rock unter Mantel (Generator neu laufen lassen), App-Lobby WLAN (Host/Beitritt im Spiel), Karte/Kompass/Schnellreise, Geräte-Test mit neuem Web-Build (Z-10/Z-11 Konsole), Morgenbericht 07:00, tool/abnahme.dart, Abschlussbericht, FÜR DEN NUTZER.

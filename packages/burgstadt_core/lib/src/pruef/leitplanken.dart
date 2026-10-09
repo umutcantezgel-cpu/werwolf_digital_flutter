@@ -364,6 +364,7 @@ List<LeitplankenTreffer> scanneDateien(
 /// - `krimidinner/spuk-im-gewoelbe/10_kanon/K*.md` (ohne FORMAT.md)
 /// - `packages/burgstadt_core/data/**`
 /// - `lib/burgstadt/**.dart`, `packages/burgstadt_spiel/lib/**.dart`
+/// - `packages/burgstadt_spiel/data/**` (Erzähler, Tutorial) und `packages/pixel_engine/data/figuren/**`
 /// - `content/**`, sofern vorhanden
 List<String> spieltextBestand(String wurzel) {
   final out = <String>[];
@@ -396,6 +397,8 @@ List<String> spieltextBestand(String wurzel) {
   rekursiv('packages/burgstadt_core/data', (_) => true);
   rekursiv('lib/burgstadt', (p) => p.endsWith('.dart'));
   rekursiv('packages/burgstadt_spiel/lib', (p) => p.endsWith('.dart'));
+  rekursiv('packages/burgstadt_spiel/data', (p) => p.endsWith('.json'));
+  rekursiv('packages/pixel_engine/data/figuren', (p) => p.endsWith('.json'));
   rekursiv('content', (_) => true);
   // Bestand „Klassische Fälle“: Spieltexte der Oberfläche
   datei('lib/l10n/app_de.arb');

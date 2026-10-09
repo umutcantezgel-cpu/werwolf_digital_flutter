@@ -31,6 +31,7 @@ void ladeAusRepo(Spiel spiel) {
         if (f.path.endsWith('.json')) jsonDecode(f.readAsStringSync()) as Map<String, dynamic>,
     ], haeuser: haeuser));
   }
+  spiel.geometrieVorbauen();
   final texte = '$w/packages/burgstadt_spiel/data/texte';
   if (File('$texte/erzaehler.json').existsSync()) {
     spiel.erzaehler = Erzaehler.ausJson(jsonDecode(File('$texte/erzaehler.json').readAsStringSync()) as Map<String, dynamic>);

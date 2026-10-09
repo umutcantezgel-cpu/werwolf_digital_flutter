@@ -111,6 +111,16 @@ class Spiel {
         seed: seed, tempo: tempo, bewohner: bewohnerDaten, haeuser: haeuserDaten);
   }
 
+  /// Baut die Geometrie aller Bereiche vorab (beim Laden), damit beim ersten Betreten
+  /// keine Nachladespitze entsteht. Liefert die Dauer in ms.
+  double geometrieVorbauen() {
+    final u = Stopwatch()..start();
+    for (final id in stadt.bereiche.keys) {
+      geometrie(id);
+    }
+    return u.elapsedMicroseconds / 1000;
+  }
+
   BereichGeometrie geometrie(String id) => _geometrie.putIfAbsent(id, () => BereichGeometrie(stadt.bereiche[id]!));
 
   /// Tonausgabe (App-Hülle setzt die echte).

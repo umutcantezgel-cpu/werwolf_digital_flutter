@@ -153,6 +153,15 @@ class FigurBaker {
     final ll = math.sqrt(lx0 * lx0 + ly0 * ly0 + lz0 * lz0);
     final lx = lx0 / ll, ly = ly0 / ll, lz = lz0 / ll;
 
+    // Strahlrichtung je Grundkörper ist für das ganze Bild gleich: einmal vorab
+    final np = prims.length;
+    final rich = Float64List(np * 3);
+    for (var i = 0; i < np; i++) {
+      final (rx, ry, rz) = prims[i].inv.richtung(dfx, dfy, dfz);
+      rich[i * 3] = rx;
+      rich[i * 3 + 1] = ry;
+      rich[i * 3 + 2] = rz;
+    }
     for (var py = 0; py < hoehe; py++) {
       final vy = (fussY - (py + 0.5)) / kTexelsPerMeter;
       for (var px = 0; px < breite; px++) {
@@ -161,19 +170,22 @@ class FigurBaker {
         var bestT = double.infinity;
         _Prim? best;
         var bnx = 0.0, bny = 0.0, bnz = 0.0;
-        for (final pr in prims) {
+        for (var pi = 0; pi < np; pi++) {
+          final pr = prims[pi];
           // Begrenzungskugel
           final qx = pr.cx - ox, qy = pr.cy - oy, qz = pr.cz - oz;
           final proj = qx * dfx + qy * dfy + qz * dfz;
           if (qx * qx + qy * qy + qz * qz - proj * proj > pr.r * pr.r) continue;
           final inv = pr.inv;
-          final (ux, uy, uz) = inv.punkt(ox, oy, oz);
-          final (rx, ry, rz) = inv.richtung(dfx, dfy, dfz);
-          final hit = _schneide(pr.form, ux, uy, uz, rx, ry, rz);
-          if (hit == null || hit.$1 >= bestT) continue;
-          bestT = hit.$1;
+          final m = inv.m;
+          // Punkt in den Teil-Raum (ausgeschrieben statt Record je Strahl)
+          final ux = m[0] * ox + m[1] * oy + m[2] * oz + m[3];
+          final uy = m[4] * ox + m[5] * oy + m[6] * oz + m[7];
+          final uz = m[8] * ox + m[9] * oy + m[10] * oz + m[11];
+          if (!_schneide(pr.form, ux, uy, uz, rich[pi * 3], rich[pi * 3 + 1], rich[pi * 3 + 2]) || _treffer[0] >= bestT) continue;
+          bestT = _treffer[0];
           best = pr;
-          final (nx, ny, nz) = inv.normaleAusInverser(hit.$2, hit.$3, hit.$4);
+          final (nx, ny, nz) = inv.normaleAusInverser(_treffer[1], _treffer[2], _treffer[3]);
           final (vnx, vny, vnz) = w.richtung(nx, ny, nz);
           final l = math.sqrt(vnx * vnx + vny * vny + vnz * vnz);
           bnx = vnx / l;
@@ -244,28 +256,40 @@ class FigurBaker {
   }
 
   /// Schnitt mit Einheitskörper; liefert (t, nx, ny, nz) im Einheitsraum.
-  static (double, double, double, double)? _schneide(Form f, double ox, double oy, double oz, double dx, double dy, double dz) {
+  /// Ergebnis des letzten Treffers von [_schneide]: t, Normale x/y/z (im Teil-Raum).
+  /// Ein fester Puffer statt eines Records je Strahl hält den Speicherbereiniger ruhig.
+  static final Float64List _treffer = Float64List(4);
+
+  static bool _setze(double t, double nx, double ny, double nz) {
+    _treffer[0] = t;
+    _treffer[1] = nx;
+    _treffer[2] = ny;
+    _treffer[3] = nz;
+    return true;
+  }
+
+  static bool _schneide(Form f, double ox, double oy, double oz, double dx, double dy, double dz) {
     switch (f) {
       case Form.ellipsoid:
         final a = dx * dx + dy * dy + dz * dz;
         final b = 2 * (ox * dx + oy * dy + oz * dz);
         final c = ox * ox + oy * oy + oz * oz - 1;
         final disk = b * b - 4 * a * c;
-        if (disk < 0) return null;
+        if (disk < 0) return false;
         final t = (-b - math.sqrt(disk)) / (2 * a);
-        if (t < 0) return null;
-        return (t, ox + t * dx, oy + t * dy, oz + t * dz);
+        if (t < 0) return false;
+        return _setze(t, ox + t * dx, oy + t * dy, oz + t * dz);
       case Form.quader:
         var tmin = -double.infinity, tmax = double.infinity;
         var achse = 0;
         var vorz = 1.0;
-        final o = [ox, oy, oz], d = [dx, dy, dz];
         for (var k = 0; k < 3; k++) {
-          if (d[k].abs() < 1e-12) {
-            if (o[k] < -1 || o[k] > 1) return null;
+          final o = k == 0 ? ox : (k == 1 ? oy : oz), d = k == 0 ? dx : (k == 1 ? dy : dz);
+          if (d.abs() < 1e-12) {
+            if (o < -1 || o > 1) return false;
             continue;
           }
-          var t1 = (-1 - o[k]) / d[k], t2 = (1 - o[k]) / d[k];
+          var t1 = (-1 - o) / d, t2 = (1 - o) / d;
           var s = -1.0;
           if (t1 > t2) {
             final tmp = t1;
@@ -279,12 +303,12 @@ class FigurBaker {
             vorz = s;
           }
           if (t2 < tmax) tmax = t2;
-          if (tmin > tmax) return null;
+          if (tmin > tmax) return false;
         }
-        if (tmin < 0) return null;
-        return (tmin, achse == 0 ? vorz : 0, achse == 1 ? vorz : 0, achse == 2 ? vorz : 0);
+        if (tmin < 0) return false;
+        return _setze(tmin, achse == 0 ? vorz : 0, achse == 1 ? vorz : 0, achse == 2 ? vorz : 0);
       case Form.zylinder:
-        double? best;
+        var best = double.infinity;
         var nx = 0.0, ny = 0.0, nz = 0.0;
         final a = dx * dx + dz * dz;
         if (a > 1e-12) {
@@ -302,9 +326,9 @@ class FigurBaker {
           }
         }
         if (dy.abs() > 1e-12) {
-          for (final cap in const [-1.0, 1.0]) {
+          for (var cap = -1.0; cap <= 1.0; cap += 2) {
             final t = (cap - oy) / dy;
-            if (t < 0 || (best != null && t >= best)) continue;
+            if (t < 0 || t >= best) continue;
             final x = ox + t * dx, z = oz + t * dz;
             if (x * x + z * z <= 1) {
               best = t;
@@ -314,7 +338,7 @@ class FigurBaker {
             }
           }
         }
-        return best == null ? null : (best, nx, ny, nz);
+        return best == double.infinity ? false : _setze(best, nx, ny, nz);
     }
   }
 }

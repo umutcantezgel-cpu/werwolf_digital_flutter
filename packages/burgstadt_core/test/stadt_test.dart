@@ -77,4 +77,13 @@ void main() {
     final c = baueWelt(innen, haeuser: haeuser, seed: 99)['stadt']!;
     expect(c.karte.join('\n'), isNot(stadt.karte.join('\n')));
   });
+
+  test('Z-04: sechs Viertel, jedes mit Häusern in der Stadt (Marke vor der Haustür)', () {
+    final jeViertel = <String, int>{};
+    for (final h in haeuser) {
+      if (stadt.marken.containsKey('vor-${h['id']}')) jeViertel[h['viertel'] as String] = (jeViertel[h['viertel']] ?? 0) + 1;
+    }
+    expect(jeViertel.keys.toSet(), {'Burgberg', 'Mauerviertel', 'Kirchhügel', 'Handwerkergasse', 'Untere Stadt', 'Marktviertel'});
+    expect(jeViertel.values.every((n) => n >= 5), isTrue, reason: '$jeViertel');
+  });
 }

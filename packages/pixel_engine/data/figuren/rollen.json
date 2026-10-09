@@ -96,7 +96,7 @@
       "haar": { "rampe": 4, "stufe": 6, "frisur": "kurz", "bart": "keiner" },
       "oberteil": { "typ": "fleece", "rampe": 5, "stufe": 4 },
       "darunter": { "typ": "hemd", "rampe": 6, "stufe": 4 },
-      "unterteil": { "typ": "jeans", "rampe": 0, "stufe": 3 },
+      "unterteil": { "typ": "jeans", "rampe": 1, "stufe": 3 },
       "schuhe": { "typ": "wanderstiefel", "rampe": 2, "stufe": 3 },
       "kopf": "keine",
       "zubehoer": ["uhr"],

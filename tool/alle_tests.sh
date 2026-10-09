@@ -41,7 +41,11 @@ if [ -f packages/burgstadt_core/bin/durchspiel.dart ]; then
   step "Ebene 3/4 · Durchspiel 4…20 mit Bots, Teilen-Nutzen"
   (cd packages/burgstadt_core && dart run bin/durchspiel.dart 2>&1 | filter | grep -E "Teilen-Nutzen|DURCHSPIEL")
 fi
-for t in fairness teilen_nutzen erkundung leistung; do
+if [ -f packages/burgstadt_core/bin/fairness.dart ]; then
+  step "Ebene 2 · Fairness: Löser für N = 4…20 (Absicherung S-1…S-7, Orte in der Welt)"
+  (cd packages/burgstadt_core && dart run bin/fairness.dart 2>&1 | filter | grep -E "FAIRNESS|^  - ")
+fi
+for t in teilen_nutzen; do
   if [ -f "packages/burgstadt_core/bin/$t.dart" ] && [ "${1:-}" != "schnell" ]; then
     step "burgstadt_core: $t"
     (cd packages/burgstadt_core && dart run "bin/$t.dart" 2>&1 | filter | tail -8)

@@ -143,3 +143,13 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - Spielstand = Schema-Version + Fingerabdruck der Falldaten (Datensätze/Hinweise/Gespräche) + Seed/Tempo + Fallzustand (JSON, schon vorhanden) + Lage aller Fall-Figuren + eigene Lage + besuchte Orte + gezeigte Tutorial-Schritte. Bewohner folgen ihrem Plan (aus der Uhr ableitbar). Passt der Stand nicht (andere Version/Daten), wird er abgelehnt statt falsch geladen.
 - Speichern: automatisch jede Minute und nach jedem Phasenwechsel, „Speichern“ im Pausenmenü, beim Gang ins Hauptmenü. „Fortsetzen“ im Hauptmenü, sobald ein Stand da ist. Ablage in der App über `shared_preferences` (schon Abhängigkeit des Bestands, keine neue), in Werkzeugen/Tests im Speicher.
 - Nur der Host speichert (im WLAN-Spiel der Gastgeber).
+
+## E23 · 09.10. 03:25 · Gegenprüfung Inhalt (A-702b) umgesetzt
+- **Entscheidung:** Alle Befunde der Schwere hoch und mittel sind korrigiert, die geringen dort, wo sie Kanon oder Leitplanken berühren. Tabelle: `auftraege/A-702/gegenpruefer_inhalt_bericht.md`.
+- **Grund für M5:** Der Kanon-Datensatz BW-ZUSTAND (O) sagt „bewusstlos“. Er bleibt unverändert, denn der Kanon ist verbindlich. Der Spieltext der Fähigkeit von R06 sagt „eine Weile benommen“ und hält sich damit an die Wortliste der Leitplanken. Dass das Opfer sich an die Sekunden vor dem Schlag nicht erinnert, ist für den Fall nötig: Der Burgwart kann die Täterin nicht nennen.
+- **Gegenprobe:** Leitplanken-Scanner 0 Treffer, Kanon-Test und Stadt-Hinweis-Test grün.
+
+## E24 · 09.10. 03:25 · Sichtprüfung 8 (A-605h) umgesetzt
+- **B16:** Unter einem Mantel ist nur ein langer Rock sichtbar. Regel im Generator.
+- **B08:** Weißes Haar wird mit Stufe 6 statt 7 gemalt. Ein reinweißer Haarkranz unter dem Hut wirkte wie ein Tuch oder Verband (K9 §8).
+- **Generator neu gelaufen:** 0 verwechselbare Paare außer der dokumentierten Ausnahme R01|R11 (E21).

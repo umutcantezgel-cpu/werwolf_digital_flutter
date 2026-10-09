@@ -1,0 +1,8 @@
+Leistungsmessung (AOT-kompiliert, 09.10. 03:04, 4 Kerne, Faktor 4 als Näherung für einen langsameren Prozessor)
+Laden: Geometrie aller 62 Bereiche 27 ms (beim Start, nicht im Spiel)
+Spiellogik je Bild (20 Rollen, 44 Bewohner, 1800 Bilder): Mittel 0.033 ms, 99 % 0.184 ms · × 4 = 0.13 ms · Grenze 4 ms · OK
+Speicher: 20 Spielminuten Erkundung (62 Bereiche, gezeichnet): nach Minute 1 75 MB, höchstens 80 MB · Wachstum 7.1 % · Grenze 10 % · OK
+Nachladespitzen: Figuren backen je Bild höchstens 54.2 ms, Bereichswechsel höchstens 0.0 ms · × 4 = 217.0 ms · Grenze 50 ms · ÜBER DER GRENZE
+Zur Information – Bildzeit mit Zeichnen (VM, 320×180): Mittel 2.9 ms, 99 % 7.8 ms, größte 59.6 ms (Browser-Messung mit Drosselung: Geräte-Test)
+Budget je Ansicht: höchstens 117 Meshes (≤ 300), 9658 Dreiecke (≤ 14 000) · OK
+LEISTUNG FEHLER (1)

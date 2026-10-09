@@ -115,21 +115,41 @@ class FigurenLager {
 
   int get offen => _warteschlange.length;
 
-  /// Brennt höchstens [budgetMs] Millisekunden lang weiter.
+  /// Halb gebrannte Animationsbilder (Richtungen 0…7 werden einzeln gebrannt).
+  final Map<(String, String, int), List<SpriteImage>> _teilweise = {};
+
+  /// Längster einzelner Aufruf von [backe] (ms) – für die Leistungsmessung.
+  double maxBackMs = 0;
+
+  /// Verteilung der Aufrufdauern von [backe] in ganzen Millisekunden (letzter Eimer: ≥ 63 ms).
+  final List<int> backVerteilung = List.filled(64, 0);
+
+  /// Brennt höchstens [budgetMs] Millisekunden lang weiter (je Schritt eine Richtung).
   void backe(double budgetMs) {
+    if (_warteschlange.isEmpty) return;
     final uhr = Stopwatch()..start();
     while (_warteschlange.isNotEmpty && uhr.elapsedMicroseconds < budgetMs * 1000) {
-      final (id, anim, nr) = _warteschlange.removeAt(0);
+      final w = _warteschlange.first;
+      final (id, anim, nr) = w;
       final k = karten[id];
-      if (k == null) continue;
-      final pose = kAnimationen[anim]![nr];
-      final bilder = [for (var r = 0; r < 8; r++) baker.backeEinzel(k, pose, r)];
+      if (k == null) {
+        _warteschlange.removeAt(0);
+        continue;
+      }
+      final bilder = _teilweise.putIfAbsent(w, () => []);
+      bilder.add(baker.backeEinzel(k, kAnimationen[anim]![nr], bilder.length));
+      if (bilder.length < 8) continue;
+      _warteschlange.removeAt(0);
+      _teilweise.remove(w);
       final a = _fertig.putIfAbsent(id, () => {}).putIfAbsent(anim, () => []);
       while (a.length <= nr) {
         a.add(const []);
       }
       a[nr] = bilder;
     }
+    final ms = uhr.elapsedMicroseconds / 1000;
+    if (ms > maxBackMs) maxBackMs = ms;
+    backVerteilung[ms.floor().clamp(0, 63)]++;
   }
 
   void alleBacken() => backe(1e9);

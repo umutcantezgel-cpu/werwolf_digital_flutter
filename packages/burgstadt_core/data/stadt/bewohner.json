@@ -137,12 +137,12 @@
         "kleidung": [
           {
             "teil": "Kittel",
-            "rampe": "stein",
+            "rampe": "neutral",
             "stufe": 6
           },
           {
             "teil": "Schürze",
-            "rampe": "bernstein",
+            "rampe": "rot",
             "stufe": 5
           }
         ],
@@ -424,7 +424,7 @@
       ],
       "saetze": [
         "Du bist durchgefroren, setz dich hin. Dann erzähle ich dir alles, was ich in der Teestube gehört habe.",
-        "Tee gibt es hier, mehr nicht. Trinken darfst du, solange dir der Hals nicht zu rau wird.",
+        "Tee gibt es hier, mehr nicht. Davon darfst du so viel haben, wie die Kanne hergibt.",
         "Viele kommen zum Reden, und keiner will über den Knall reden. Dann rede ich eben, du hörst zu.",
         "Die Laterne über der Theke hat seit dem Ausfall niemand mehr angezündet. Das ist ein schlechtes Zeichen."
       ],
@@ -566,13 +566,13 @@
         "kleidung": [
           {
             "teil": "Schürze",
-            "rampe": "blau",
-            "stufe": 6
+            "rampe": "bernstein",
+            "stufe": 4
           },
           {
             "teil": "Hemd",
-            "rampe": "holz",
-            "stufe": 3
+            "rampe": "neutral",
+            "stufe": 6
           }
         ],
         "zubehoer": [
@@ -934,12 +934,12 @@
           {
             "teil": "Mantel",
             "rampe": "bernstein",
-            "stufe": 3
+            "stufe": 4
           },
           {
             "teil": "Rock",
-            "rampe": "neutral",
-            "stufe": 3
+            "rampe": "holz",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -1053,13 +1053,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "bernstein",
-            "stufe": 4
+            "rampe": "rot",
+            "stufe": 3
           },
           {
             "teil": "Hemd",
             "rampe": "holz",
-            "stufe": 4
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -1106,13 +1106,13 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "rot",
+            "rampe": "holz",
             "stufe": 2
           },
           {
             "teil": "Schal",
-            "rampe": "blau",
-            "stufe": 6
+            "rampe": "neutral",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1173,13 +1173,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "blau",
-            "stufe": 6
+            "rampe": "rot",
+            "stufe": 5
           },
           {
             "teil": "Hemd",
-            "rampe": "bernstein",
-            "stufe": 3
+            "rampe": "neutral",
+            "stufe": 6
           }
         ],
         "zubehoer": [
@@ -1240,13 +1240,13 @@
         "kleidung": [
           {
             "teil": "Bluse",
-            "rampe": "blau",
-            "stufe": 6
+            "rampe": "neutral",
+            "stufe": 3
           },
           {
             "teil": "Rock",
-            "rampe": "neutral",
-            "stufe": 2
+            "rampe": "holz",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1480,13 +1480,13 @@
         "kleidung": [
           {
             "teil": "Bluse",
-            "rampe": "neutral",
+            "rampe": "blau",
             "stufe": 6
           },
           {
             "teil": "Rock",
             "rampe": "holz",
-            "stufe": 2
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1540,12 +1540,12 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "blau",
-            "stufe": 5
+            "rampe": "neutral",
+            "stufe": 6
           },
           {
             "teil": "Hose",
-            "rampe": "holz",
+            "rampe": "blau",
             "stufe": 4
           }
         ],
@@ -1690,7 +1690,7 @@
         }
       ],
       "saetze": [
-        "Du willst die Glocken hören? Die sind alle stumm, seit der Strom weg ist. Heute klingt nichts in dieser Stadt.",
+        "Du willst die Glocken hören? Die Kirchenglocken sind stumm, seit der Strom weg ist. Nur der Uhrturm schlägt noch, der braucht keinen Strom.",
         "Eine Glocke braucht Erz, Feuer und Geduld. Was zu schnell fertig wird, klingt später falsch.",
         "Ich habe den Guss der großen Glocke erlebt, damals gab es keinen Nebelriesen, den man fürchten musste.",
         "Hast du die Glockenhalle gesehen? Dann weißt du, wie leise eine Stadt werden kann, wenn sie Angst hat."
@@ -1713,13 +1713,13 @@
         "kleidung": [
           {
             "teil": "Schürze",
-            "rampe": "holz",
-            "stufe": 4
+            "rampe": "neutral",
+            "stufe": 5
           },
           {
             "teil": "Jacke",
-            "rampe": "blau",
-            "stufe": 3
+            "rampe": "bernstein",
+            "stufe": 5
           }
         ],
         "zubehoer": [
@@ -1773,13 +1773,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "bernstein",
+            "rampe": "rot",
             "stufe": 5
           },
           {
             "teil": "Hose",
-            "rampe": "neutral",
-            "stufe": 4
+            "rampe": "blau",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -1833,12 +1833,12 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "rot",
-            "stufe": 5
+            "rampe": "bernstein",
+            "stufe": 4
           },
           {
             "teil": "Rock",
-            "rampe": "stein",
+            "rampe": "neutral",
             "stufe": 2
           }
         ],
@@ -1919,19 +1919,19 @@
           "bis": "04:30",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
-          "tut": "Er sitzt an der Werkbank, weil eine Sohle ihm keine Ruhe lässt."
+          "tut": "Er sitzt an der Werkbank, weil ihn der Wind nicht schlafen lässt."
         },
         {
           "von": "04:30",
           "bis": "05:30",
           "wo": "arbeitshaus",
           "zustand": "wach",
-          "tut": "Er klebt die Sohle fest und lauscht, ob der Wind die Gasse entlangschiebt."
+          "tut": "Er klebt einen Absatz fest und lauscht, ob der Wind die Gasse entlangschiebt."
         }
       ],
       "saetze": [
         "Du willst einen Schuh reparieren? Dann gib her, aber sag mir, wo du gewesen bist. Schuhe erzählen das auch.",
-        "Die Sohle, die ich heute Nacht klebe, gehört einer Frau, die viel zu früh loslaufen wollte.",
+        "Die Sohle, die ich heute Nacht klebe, hat schon mehr Gassen gesehen als ich.",
         "Mit Leder baut man keine Mauern, aber man hält die Füße trocken. Das reicht für einen Schuster.",
         "Den Nebelriesen würde meine Frau sagen: Der findet bei dir keine Größe. Und das stimmt."
       ],
@@ -1953,12 +1953,12 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "stein",
-            "stufe": 3
+            "rampe": "blau",
+            "stufe": 5
           },
           {
             "teil": "Schal",
-            "rampe": "blau",
+            "rampe": "holz",
             "stufe": 4
           }
         ],
@@ -2013,8 +2013,8 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "rot",
-            "stufe": 5
+            "rampe": "blau",
+            "stufe": 6
           },
           {
             "teil": "Hose",
@@ -2133,13 +2133,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "rot",
-            "stufe": 4
+            "rampe": "blau",
+            "stufe": 3
           },
           {
             "teil": "Hose",
-            "rampe": "neutral",
-            "stufe": 4
+            "rampe": "stein",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -2267,8 +2267,8 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "stein",
-            "stufe": 5
+            "rampe": "blau",
+            "stufe": 3
           },
           {
             "teil": "Schürze",
@@ -2394,12 +2394,12 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "blau",
-            "stufe": 3
+            "rampe": "rot",
+            "stufe": 4
           },
           {
             "teil": "Hose",
-            "rampe": "neutral",
+            "rampe": "holz",
             "stufe": 3
           }
         ],
@@ -2588,13 +2588,13 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "holz",
-            "stufe": 3
+            "rampe": "bernstein",
+            "stufe": 4
           },
           {
             "teil": "Umhang",
-            "rampe": "neutral",
-            "stufe": 3
+            "rampe": "blau",
+            "stufe": 5
           }
         ],
         "zubehoer": [
@@ -2635,7 +2635,7 @@
         "Du bist also der, der Fragen stellt. Ich habe nichts gegen Fragen, nur gegen schlechte Antworten.",
         "Ich lese jede Nacht, auch im Dunkeln. Wer liest, sieht mehr, als die Augen zeigen.",
         "In der Bibliothek gibt es eine Kammer voll Briefe von Schreibern, die längst still sind. Die reden lauter als wir.",
-        "Der Nebelriese in den Büchern ist ein Bär mit Hut. Der echte ist sicher bescheidener, sagt meine Enkelin."
+        "Der Nebelriese in den Büchern trägt eine Laterne aus Mondlicht. Der echte ist sicher bescheidener, sagt meine Enkelin."
       ],
       "gerede": "Man sagt, die alte Schöning lese dem Nebelriesen aus den Büchern vor, aber er schläft lieber, wenn es um Liebesbriefe geht."
     },
@@ -2674,7 +2674,7 @@
           "bis": "02:30",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
-          "tut": "Er dreht im Speicher Seilstränge, die Hände rau vom Hanf, und zählt die Windungen."
+          "tut": "Er dreht im Speicher Seilstränge, die Hände rau von den Fasern, und zählt die Windungen."
         },
         {
           "von": "02:30",
@@ -2693,7 +2693,7 @@
       ],
       "saetze": [
         "Du willst einen Strick? Nein? Dann sag mir wenigstens, wo du dich festhältst. Ein guter Griff ist alles in dieser Nacht.",
-        "Hanf verträgt Nebel besser als Menschen. Er wird nicht schlaff, egal wie kalt es wird.",
+        "Ein gutes Seil verträgt Nebel besser als Menschen. Er wird nicht schlaff, egal wie kalt es wird.",
         "Mein Speicher hat Seilstränge bis zur Decke. Du kannst daran ziehen, aber nicht an mir.",
         "Wer sich verirrt, folgt dem Seil. Das hat mir mein Großvater gesagt, und der Riese hat keinen Faden in der Hand."
       ],

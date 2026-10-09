@@ -139,7 +139,7 @@
    "faehigkeit": "Befund nach Sanitäter-Art",
    "wirkung": {
     "art": "gespraech",
-    "details": "Diyar fragt den Burgwart nach seinem Zustand. Die Antwort kommt aus BW-ZUSTAND: eine Beule am Hinterkopf, keine offene Wunde, kurz bewusstlos, nach Mitternacht wieder wach und orientiert, mit einer Gedächtnislücke für die Sekunden vor dem Schlag. Keine Minutenangabe.",
+    "details": "Diyar fragt den Burgwart nach seinem Zustand. Die Antwort kommt aus BW-ZUSTAND: eine Beule am Hinterkopf, keine offene Wunde, eine Weile benommen, nach Mitternacht wieder wach und orientiert; an die Sekunden vor dem Schlag erinnert er sich nicht. Keine Minutenangabe.",
     "betrifft": [
      "BW-ZUSTAND"
     ]

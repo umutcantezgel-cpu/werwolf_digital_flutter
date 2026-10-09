@@ -63,6 +63,7 @@ Future<void> ladeSpielDaten(Spiel spiel) async {
     ];
   }
   spiel.setzeWelt(baueWelt(innen, haeuser: haeuser));
+  spiel.geometrieVorbauen(); // Ladezeit statt Nachladespitze beim ersten Betreten
   const texte = 'packages/burgstadt_spiel/data/texte/';
   if (da.contains('${texte}erzaehler.json')) {
     spiel.erzaehler = Erzaehler.ausJson(jsonDecode(await rootBundle.loadString('${texte}erzaehler.json')) as Map<String, dynamic>);

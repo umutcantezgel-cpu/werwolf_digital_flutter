@@ -103,7 +103,7 @@ Je Fall-Ort zwei Hinweise (`H-S`, Sichtklasse O) mit Wahrheitsdatensatz (`HW-S`,
 @HW-S12 [L] | Wahrheit: Die Ersatzsicherungen aus dem Torhaus passen nicht in den alten Hauptverteiler; der Strom kommt erst am Morgen, wenn das Stadtwerk aus Silberhau heraufkommt (ORT-06). | Stützt: – | Einstufung: bestätigend (STADT-04: die Ersatzsicherungen passen nicht, der Strom kommt am Morgen) | Blockierbar durch: nein | Unabhängig von: –
 
 ### ORT-07 · Teestube „Zur Laterne“
-@H-S13 [O] | Inhalt: Die Laterne über der Theke brennt heute mit einem Kerzenstummel. Der Tee dampft, und an jedem Tisch geht es nur um den Stromausfall. | Form: Erzähler | Quelle: Station ORT-07 | Phase: 2 | Min: 4
+@H-S13 [O] | Inhalt: Die Laterne über der Theke ist dunkel, auf den Tischen brennen Kerzen. Der Tee dampft, und an jedem Tisch geht es nur um den Stromausfall. | Form: Erzähler | Quelle: Station ORT-07 | Phase: 2 | Min: 4
 @HW-S13 [L] | Wahrheit: Farbe. Die Teestube „Zur Laterne“ ist der Treffpunkt im Marktviertel; dort reden die Leute über den Stromausfall (ORT-07). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 @H-S14 [O] | Inhalt: Die Inhaberin stellt dir eine Kanne Kräutertee hin: „Trink, bevor er kalt wird. Bei uns bleibt es bis zum Morgen dunkel.“ | Form: mündlich | Quelle: Station ORT-07 | Phase: 3 | Min: 4
 @HW-S14 [L] | Wahrheit: Der Strom bleibt bis zum Morgen aus (STADT-04); die Teestube „Zur Laterne“ ist der Treffpunkt (ORT-07). | Stützt: – | Einstufung: bestätigend (STADT-04: der Strom kommt erst am Morgen wieder) | Blockierbar durch: nein | Unabhängig von: –
