@@ -60,6 +60,10 @@ class WahlText {
         a = j['a'] as String,
         b = j['b'] as String,
         sabotage = j['sabotage'] as String?;
+  const WahlText._(this.id, this.a, this.b, this.sabotage);
+
+  /// Dieselbe Wahl ohne Sabotage: So sieht sie eine Kernrolle, die in diesem Pfad unschuldig ist.
+  WahlText get ohneSabotage => WahlText._(id, a, b, null);
 }
 
 /// Die Textsammlung (E-026): alle Dateien aus `texte/index.json`, je Bereich
@@ -260,7 +264,8 @@ class Texte {
       verbirgt: _liste(t?.verbirgt ?? roh.verbirgt, pfad),
       tatwissen: t == null ? const [] : _liste(t.tatwissen, pfad),
       gespraeche: gespraeche,
-      wahlen: {for (var r = 1; r <= 3; r++) r: sammlung.wahlen['gw_${rolle}_$r']},
+      // Die Sabotage sieht nur, wer in diesem Pfad die Tat begangen hat.
+      wahlen: {for (var r = 1; r <= 3; r++) r: t != null ? sammlung.wahlen['gw_${rolle}_$r'] : sammlung.wahlen['gw_${rolle}_$r']?.ohneSabotage},
     );
   }
 }

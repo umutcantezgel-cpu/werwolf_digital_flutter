@@ -123,6 +123,17 @@ void main() {
     expect(unschuldig.verbirgt.single.art, 'nebendelikt');
   });
 
+  test('Sabotage-Text nur im eigenen Pfad der Kernrolle', () {
+    final texte = Texte(kanon, _sammlung());
+    for (final k in kanon.kernverdaechtige) {
+      for (final p in kanon.pfade) {
+        final w = texte.dossier(k, p, 4).wahlen.values.whereType<WahlText>().toList();
+        expect(w, hasLength(3), reason: '$k in $p');
+        expect(w.every((x) => (x.sabotage != null) == (k == p)), isTrue, reason: '$k in $p');
+      }
+    }
+  });
+
   test('Pflichtgespräche: Ersatzpartner bei kleiner Besetzung, P-1 wird erzwungen', () {
     Map<String, Object?> g(String rolle, String partner, List<String> preisgabe) => {
           'id': 'g_${rolle}_1_1',
