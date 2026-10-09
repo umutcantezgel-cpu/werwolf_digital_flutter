@@ -25,5 +25,11 @@
   - Wenn dir die ursprünglichen Details lieber sind, genügt es, diesen Abschnitt im Overlay zu löschen.
 - **Abwägungen der Inhaltsprüfung:** Einige Punkte bleiben bewusst so, mit Begründung in E23, E27, E29 und E38. Dazu gehören die Spuren des Falls, die auf die Täterin zeigen (das ist das Rätsel), „Einspruch!“ bei R18 (Kanon) und die erfundene Figur des Detektivs.
 - **Frisuren älterer Bewohnerinnen (E40):** Mehrere ältere Bewohnerinnen tragen laut `bewohner.json` einen Dutt. Die Inhaltsprüfung (Runde 11) nannte das ein mögliches Altersbild. Eine Änderung ist leicht (Feld `frisur`), braucht aber neue Sichtprüfungen der Figuren. Sie ist deshalb nicht in dieser Nacht gemacht.
+- **Kleine Textpunkte aus der letzten Inhaltsrunde (A-702m, Urteil ja · ja · ja):** Nach der Abbruchregel in E40 sind sie gesammelt statt umgesetzt; jeder ist eine Ein-Satz-Änderung in `bewohner.json` bzw. `haeuser.json`.
+  - B24 nennt „den Brunnen“ der Oberstadt, der nicht in LISTE-ORTE steht. Vorschlag: „Pferdebrunnen“ (H-002) oder „Marktplatz“.
+  - B15 spricht von „den Alten“ und „Schützlingen“. Vorschlag: „Leute im Haus“, „Bewohner“.
+  - B18 nennt die Eule über der Tür „aus Holz“, H-004 eine steinerne Eule über dem Dachfenster. Angleichen.
+  - B44 (Gerücht): „der Riese sei damit ins Tal gerutscht“ streichen, wie schon bei H-034.
+  - Inschriften H-053 und H-132 („wer nicht gesehen werden will“, „was sie verbirgt“): neutraler fassen, damit nichts nach Verstecken klingt.
 - **Figuren:** Die ersten Sichtprüfer bewerteten sehr unterschiedlich (E30). Seitdem gilt ein fester Maßstab, und `karten_test` prüft die Unterscheidbarkeit zusätzlich automatisch. Ein menschlicher Blick auf `bilder/phase3/figuren_aufstellung.png` ist trotzdem sinnvoll.
 - **Rote Pakettests in drei Commits (E28):** Ein Fehler im Testskript hat bei 02ab9b5, d511fac und 7574641 einen roten Datentest verschluckt. Behoben und belegt; die Geschichte ist nicht umgeschrieben.
