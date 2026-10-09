@@ -1,4 +1,4 @@
-Abnahme · Stand a28178c7372a · 2026-10-09T07:15
+Abnahme · Stand 5ab4e827915d · 2026-10-09T07:17
 Gesamtlauf aller Ebenen: ALLE TESTS GRÜN
 Z-01 · erfüllt · Gesamtlauf grün; Bestand: Core-Tests, validate, Server-Smoke, simulate gelaufen; Ausgangswerte phase0_ausgangstests.txt
 Z-02 · erfüllt · Belegfotos (6 Viertel, 10 Innenräume, alle Menüs; Palette + Blocktest): 2 Formate OK (26 + 26 Bilder); Browser-Fotos pixel_pruef im Gesamtlauf; gleiche Pixeldichte: karten_test
