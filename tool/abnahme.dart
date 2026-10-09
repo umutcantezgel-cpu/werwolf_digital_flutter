@@ -171,13 +171,20 @@ Future<void> main(List<String> args) async {
     seit('packages/burgstadt_spiel/data/texte'),
     seit('nachtlauf/kanon'),
   ].reduce((a, b) => a > b ? a : b);
+  const textPfade = ['packages/burgstadt_core/data', 'packages/burgstadt_spiel/data/texte', 'packages/pixel_engine/data/figuren', 'nachtlauf/kanon'];
   final gueltig = <String>[];
   for (final f in berichte) {
     final t = f.readAsStringSync();
     final rel = f.path.substring(wurzel.length + 1);
-    if (RegExp(r'Leitplanken eingehalten: ja').hasMatch(t) && RegExp(r'Kanontreu: ja').hasMatch(t) && RegExp(r'Plagiatsfrei: ja').hasMatch(t) && seit(rel) >= datenStand) {
-      gueltig.add(f.uri.pathSegments.last);
-    }
+    final urteil = RegExp(r'Leitplanken eingehalten: \**ja').hasMatch(t) && RegExp(r'Kanontreu: \**ja').hasMatch(t) && RegExp(r'Plagiatsfrei: \**ja').hasMatch(t);
+    if (!urteil) continue;
+    // Nennt der Bericht den geprüften Stand (HEAD <hash>), müssen die Spieltexte seitdem
+    // unverändert sein; sonst gilt die Commit-Zeit des Berichts gegen die letzte Textänderung.
+    final stand = RegExp(r'HEAD `?([0-9a-f]{7,40})').firstMatch(t)?[1];
+    final aktuell = stand != null
+        ? Process.runSync('git', ['diff', '--quiet', stand, 'HEAD', '--', ...textPfade], workingDirectory: wurzel).exitCode == 0
+        : seit(rel) >= datenStand;
+    if (aktuell) gueltig.add('${f.uri.pathSegments.last}${stand == null ? '' : ' (geprüfter Stand $stand)'}');
   }
   final scanner = erste(r'Summe: (\d+) Treffer', 1);
   kriterium('Z-12', gruen && scanner == '0' && gueltig.isNotEmpty,
