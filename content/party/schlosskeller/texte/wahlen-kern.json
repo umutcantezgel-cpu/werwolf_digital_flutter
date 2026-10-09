@@ -7,13 +7,13 @@
       "id": "gw_ahmet_1",
       "a": "Ich gebe zu, dass die Miete erfunden war. Ich habe von allen hundertfünfzig Euro kassiert, obwohl der Keller nichts gekostet hat.",
       "b": "Ich schweige. Niemand soll vor dem Morgen erfahren, dass die Miete erfunden war.",
-      "sabotage": "Ich halte mich zurück und erzähle lieber vom Programm des Adventsmarkts."
+      "sabotage": "Ich halte mich zurück und erzähle lieber von den Stadtfesten, die meine Agentur plant."
     },
     {
       "id": "gw_ahmet_2",
       "a": "Ich sage dem Detektiv, dass Lejla von der Rechnung weiß und mir versprochen hat zu schweigen. Damit bringe ich meine Cousine in eine blöde Lage.",
       "b": "Lejla und ich halten zusammen. Dem Detektiv sage ich dazu nichts.",
-      "sabotage": "Ich erzähle dem Detektiv lieber vom Essen. Davon gibt es viel zu erzählen."
+      "sabotage": "Ich erzähle dem Detektiv lieber von meiner Arbeit in der Agentur. Davon gibt es viel zu erzählen."
     },
     {
       "id": "gw_ahmet_3",
@@ -25,13 +25,13 @@
       "id": "gw_fatma_1",
       "a": "Ich erzähle dem Detektiv, dass ich die Münzschatulle aus der Turmvitrine mitgenommen habe. Am Montag wollte ich sie zurückbringen.",
       "b": "Die Schatulle soll zurück, ohne dass es alle erfahren. Dafür sage ich nichts.",
-      "sabotage": "Ich halte mich zurück und erzähle lieber von meinem Designstudium."
+      "sabotage": "Ich halte mich zurück und erzähle lieber vom Kommunikationsdesign im letzten Semester."
     },
     {
       "id": "gw_fatma_2",
       "a": "Ich glaube, Emine weiß mehr über meinen Abend, als sie sagt. Das erzähle ich dem Detektiv, auch wenn meine beste Freundin dann in der Klemme steckt.",
       "b": "Emine und ich sind seit der Schulzeit beste Freundinnen. Ich halte zu ihr und sage nichts.",
-      "sabotage": "Ich erzähle lieber von der Schulzeit. Das ist eine ganz andere Geschichte."
+      "sabotage": "Ich erzähle lieber von der Schulzeit. Davon gibt es viel zu erzählen."
     },
     {
       "id": "gw_fatma_3",
@@ -55,13 +55,13 @@
       "id": "gw_olli_3",
       "a": "Ich rede Klartext: Die Bogentür habe ich beschädigt. Die Schramme wollte ich verdecken.",
       "b": "Den Schaden kläre ich selbst mit Herrn Schneider. Die anderen bleiben außen vor.",
-      "sabotage": "Das schaffe ich schon allein. Ich erzähle lieber, wie der Abend bisher lief."
+      "sabotage": "Ich erzähle lieber, wie der Abend bisher lief."
     },
     {
       "id": "gw_can_1",
       "a": "Ich erzähle dem Detektiv, dass ich mich mit einer Leuchtmaske im Vorratsraum versteckt habe. Ich wollte das Geburtstagskind erschrecken.",
       "b": "Der Streich soll nicht herauskommen. Dafür sage ich nichts.",
-      "sabotage": "Ich halte mich zurück und erzähle lieber von der Geburtstagstorte."
+      "sabotage": "Ich halte mich zurück und erzähle lieber von der Musik heute Abend."
     },
     {
       "id": "gw_can_2",
@@ -72,8 +72,8 @@
     {
       "id": "gw_can_3",
       "a": "Ich gebe es zu: Ich habe mich mit der Leuchtmaske versteckt. Das Geburtstagskind wollte ich erschrecken.",
-      "b": "Der Streich soll nicht herauskommen. Darum schweige ich weiter.",
-      "sabotage": "Ich mache lieber Witze über das Gespenst im Keller. Das lockert die Stimmung."
+      "b": "Ich schweige weiter. Der Streich soll nicht herauskommen.",
+      "sabotage": "Ich mache lieber Witze über die Ritterrüstung im Turmgang. Das lockert die Stimmung."
     }
   ]
 }

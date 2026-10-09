@@ -276,7 +276,7 @@
                     "minItems": 1,
                     "items": {
                       "type": "string",
-                      "pattern": "^(beobachtung|fakt|karte|merkmal|zeitleiste):[a-z][a-z0-9_]*$"
+                      "pattern": "^(beobachtung|fakt|karte|merkmal|zeitleiste|luege):[a-z][a-z0-9_]*$"
                     }
                   },
                   "text": {
@@ -297,7 +297,7 @@
                     "minItems": 1,
                     "items": {
                       "type": "string",
-                      "pattern": "^(beobachtung|fakt|karte|merkmal|zeitleiste):[a-z][a-z0-9_]*$"
+                      "pattern": "^(beobachtung|fakt|karte|merkmal|zeitleiste|luege):[a-z][a-z0-9_]*$"
                     }
                   },
                   "text": {
@@ -318,7 +318,7 @@
                     "minItems": 1,
                     "items": {
                       "type": "string",
-                      "pattern": "^(beobachtung|fakt|karte|merkmal|zeitleiste):[a-z][a-z0-9_]*$"
+                      "pattern": "^(beobachtung|fakt|karte|merkmal|zeitleiste|luege):[a-z][a-z0-9_]*$"
                     }
                   },
                   "text": {
@@ -339,7 +339,7 @@
                     "minItems": 1,
                     "items": {
                       "type": "string",
-                      "pattern": "^(beobachtung|fakt|karte|merkmal|zeitleiste):[a-z][a-z0-9_]*$"
+                      "pattern": "^(beobachtung|fakt|karte|merkmal|zeitleiste|luege):[a-z][a-z0-9_]*$"
                     }
                   },
                   "text": {
@@ -360,7 +360,7 @@
                     "minItems": 1,
                     "items": {
                       "type": "string",
-                      "pattern": "^(beobachtung|fakt|karte|merkmal|zeitleiste):[a-z][a-z0-9_]*$"
+                      "pattern": "^(beobachtung|fakt|karte|merkmal|zeitleiste|luege):[a-z][a-z0-9_]*$"
                     }
                   },
                   "text": {

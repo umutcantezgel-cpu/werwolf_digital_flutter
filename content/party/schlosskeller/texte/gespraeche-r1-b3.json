@@ -33,7 +33,7 @@
       "runde": 1,
       "nr": 3,
       "partner": "emine",
-      "thema": "Was hast du mitbekommen?",
+      "thema": "Wer stand um dich herum?",
       "ziel": "Ich will wissen, wer beim Knall in der Nähe war.",
       "preisgabe": [],
       "text": "Wer war beim Knall in deiner Nähe? Und was hast du gehört?"
@@ -49,7 +49,7 @@
       "preisgabe": [
         "beobachtung:b_zeynep_gesicht"
       ],
-      "text": "Im Dunkeln kam ein leuchtendes Gesicht aus dem Durchgang an mir vorbei in den Kaminsaal. Hast du das auch gesehen, und wo warst du da?"
+      "text": "Aus dem Durchgang kam im Dunkeln ein leuchtendes Gesicht an mir vorbei in den Kaminsaal. Hast du das auch gesehen, und wo warst du da?"
     },
     {
       "id": "g_zeynep_1_2",
@@ -60,7 +60,7 @@
       "thema": "Wo warst du eigentlich?",
       "ziel": "Ich will hören, was Can über den Knall erzählt.",
       "preisgabe": [],
-      "text": "Can, du bist mein Bruder. Wo standest du, als es knallte, und was hast du gehört?"
+      "text": "Can, wo standest du, als es knallte, und was hast du gehört?"
     },
     {
       "id": "g_zeynep_1_3",
@@ -106,7 +106,7 @@
       "thema": "Wer stand wo?",
       "ziel": "Ich will wissen, wer beim Knall wo stand.",
       "preisgabe": [],
-      "text": "Was hast du beim Knall gesehen? Und wo bist du dabei gestanden?"
+      "text": "Wer stand beim Knall wo? Und wo standest du?"
     },
     {
       "id": "g_meryem_1_1",

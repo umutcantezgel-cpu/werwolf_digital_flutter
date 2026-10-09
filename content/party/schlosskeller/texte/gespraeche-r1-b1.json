@@ -75,7 +75,7 @@
       "thema": "Wer stand an der Theke?",
       "ziel": "Ich will wissen, wer beim Knall an der Theke stand.",
       "preisgabe": [],
-      "text": "Hast du beim Knall jemanden an der Theke gesehen?"
+      "text": "Hast du beim Knall jemanden an der Theke bemerkt?"
     },
     {
       "id": "g_olli_1_1",
@@ -88,7 +88,7 @@
       "preisgabe": [
         "luege:luege_olli_tafel"
       ],
-      "text": "Am Tisch im Ost-Saal saß ich, die ganze Zeit. Und du, wo warst du, als es knallte?"
+      "text": "Ich saß die ganze Zeit am Tisch im Ost-Saal. Und du, wo warst du, als es knallte?"
     },
     {
       "id": "g_olli_1_2",
@@ -131,7 +131,7 @@
       "runde": 1,
       "nr": 2,
       "partner": "murat",
-      "thema": "Alibi beim Knall",
+      "thema": "Wo du beim Knall warst",
       "ziel": "Ich will wissen, wo die andere Person beim Knall war.",
       "preisgabe": [
         "luege:luege_can_toilette"

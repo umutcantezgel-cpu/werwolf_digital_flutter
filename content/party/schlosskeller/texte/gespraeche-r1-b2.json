@@ -23,7 +23,7 @@
       "nr": 2,
       "partner": "fatma",
       "thema": "Wer stand beim Knall an der Theke?",
-      "ziel": "Ich will wissen, wer beim Knall an der Theke stand.",
+      "ziel": "Ich will wissen, wer sich beim Knall an der Theke aufhielt.",
       "preisgabe": [],
       "text": "Fatma, wo warst du, als es knallte? Wer war noch an der Theke?"
     },
@@ -49,7 +49,7 @@
       "preisgabe": [
         "beobachtung:b_emine_versteck"
       ],
-      "text": "Fatma, beim Knall hab ich mich hinter den linken Buffettisch geduckt. Dort bin ich geblieben, bis das Licht anging. Und du, wo warst du?"
+      "text": "Fatma, beim Knall hab ich mich hinter den linken Buffettisch geduckt. Dort bin ich geblieben, bis das Licht anging. Und du, wo stecktest du?"
     },
     {
       "id": "g_emine_1_2",
@@ -57,7 +57,7 @@
       "runde": 1,
       "nr": 2,
       "partner": "tim",
-      "thema": "Was hast du im Dunkeln gesehen?",
+      "thema": "Was im Dunkeln passierte",
       "ziel": "Ich will wissen, was der andere im Dunkeln gesehen hat.",
       "preisgabe": [],
       "text": "Wo steckst du beim Knall? Und was hast du im Dunkeln gesehen?"
@@ -79,7 +79,7 @@
       "runde": 1,
       "nr": 1,
       "partner": "ahmet",
-      "thema": "Wo warst du beim Knall?",
+      "thema": "Ahmets Platz beim Knall",
       "ziel": "Ich will wissen, wo Ahmet beim Knall war.",
       "preisgabe": [],
       "text": "Ahmet, wo warst du eigentlich beim Knall?"
@@ -95,7 +95,7 @@
       "preisgabe": [
         "beobachtung:b_tim_gesicht"
       ],
-      "text": "Ich war am Sicherungskasten. Dann huschte im Dunkeln ein leuchtendes Gesicht an mir vorbei. Und bei dir? Was hast du mitbekommen?"
+      "text": "Ich war am Sicherungskasten. Dann huschte im Dunkeln ein leuchtendes Gesicht an mir vorbei. Und bei dir, was hast du gehört?"
     },
     {
       "id": "g_tim_1_3",
@@ -114,10 +114,10 @@
       "runde": 1,
       "nr": 1,
       "partner": "detective",
-      "thema": "Die Fotos vom Abend",
+      "thema": "Der Ost-Saal beim Knall",
       "ziel": "Ich will ehrlich bleiben und trotzdem mein Versprechen an Ahmet halten.",
       "preisgabe": [],
-      "text": "Du, ich bin die Fotografin des Abends. Frag mich ruhig nach den Bildern."
+      "text": "Du, ich bin die Fotografin des Abends. Und wo stecktest du beim Knall?"
     },
     {
       "id": "g_johanna_1_2",
@@ -136,10 +136,10 @@
       "runde": 1,
       "nr": 3,
       "partner": "baran",
-      "thema": "Was war aus Richtung Theke zu hören?",
+      "thema": "Die Geräusche beim Knall",
       "ziel": "Ich will wissen, was man beim Knall aus Richtung Theke gehört hat.",
       "preisgabe": [],
-      "text": "Was hast du beim Knall aus Richtung Theke gehört? Erzähl mal."
+      "text": "Was hast du beim Knall mitbekommen? Erzähl mal."
     }
   ]
 }

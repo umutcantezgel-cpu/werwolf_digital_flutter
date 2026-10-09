@@ -23,7 +23,7 @@
       "thema": "Was an der Theke los war",
       "ziel": "Ich will wissen, was man im Dunkeln von der Theke aus mitbekommen hat, ohne Ahmet zu nennen.",
       "preisgabe": [],
-      "text": "Was hast du im Dunkeln von der Theke her mitbekommen? Ich will’s jetzt klar hören."
+      "text": "Was hast du im Dunkeln mitbekommen? Ich will’s jetzt klar hören."
     },
     {
       "id": "g_leyla_3_3",
@@ -36,7 +36,7 @@
       "preisgabe": [
         "beobachtung:b_lejla_ahmet_theke"
       ],
-      "text": "Du fragst nach der Theke? Um drei vor zwölf hab ich Ahmet gesehen. Mit einem dicken Umschlag ist er hinter die Theke geschlüpft. Es fällt mir nicht leicht."
+      "text": "Du fragst nach der Theke? Um drei vor zwölf hab ich Ahmet gesehen. Sein Umschlag war dick, dann war er hinter der Theke verschwunden."
     },
     {
       "id": "g_emine_3_1",
@@ -66,12 +66,12 @@
       "runde": 3,
       "nr": 3,
       "partner": "detective",
-      "thema": "Wo ich beim Knall war",
+      "thema": "Mein Versteck beim Knall",
       "ziel": "Ich will dem Geburtstagskind sagen, wo ich beim Knall war, und sonst nichts Neues.",
       "preisgabe": [
         "beobachtung:b_emine_versteck"
       ],
-      "text": "Du fragst, wo ich beim Knall war? Ich war ganz schön erschrocken und hab mich hinter den linken Buffettisch geduckt. Bis das Licht anging, bin ich dort geblieben."
+      "text": "Du fragst, wo ich beim Knall war? Ich war ganz schön erschrocken und hab mich klein gemacht. Hinter dem linken Buffettisch hab ich gewartet, bis wieder Licht war."
     },
     {
       "id": "g_tim_3_1",
@@ -102,11 +102,11 @@
       "nr": 3,
       "partner": "detective",
       "thema": "Wo ich im Dunkeln war",
-      "ziel": "Ich will ehrlich sagen, was ich gesehen habe, ohne den Abend an mich zu ziehen.",
+      "ziel": "Ich will sagen, was ich gesehen habe, ohne den Abend an mich zu ziehen.",
       "preisgabe": [
         "beobachtung:b_tim_gesicht"
       ],
-      "text": "Du willst wissen, wo ich im Dunkeln war? Ich war am Sicherungskasten. Da huschte ein leuchtendes Gesicht an mir vorbei."
+      "text": "Du willst wissen, wo ich im Dunkeln war? Am Sicherungskasten hab ich getastet. Da sauste ein leuchtendes Gesicht dicht an mir durch."
     },
     {
       "id": "g_johanna_3_1",
@@ -115,9 +115,9 @@
       "nr": 1,
       "partner": "ahmet",
       "thema": "Was jetzt kommt",
-      "ziel": "Ich will Ahmet zeigen, dass ich ehrlich bleibe, ohne ihm etwas vorwegzunehmen.",
+      "ziel": "Ich will Ahmet zeigen, dass ich mein Versprechen halte, ohne ihm etwas vorwegzunehmen.",
       "preisgabe": [],
-      "text": "Ahmet, du weißt, dass ich ehrlich bin. Jetzt bist du dran."
+      "text": "Ahmet, du weißt, wie ich bin. Jetzt bist du dran."
     },
     {
       "id": "g_johanna_3_2",
@@ -125,10 +125,10 @@
       "runde": 3,
       "nr": 2,
       "partner": "hakan",
-      "thema": "Die Bilder vom Abend",
-      "ziel": "Ich will ehrlich antworten und trotzdem nicht alles verraten.",
+      "thema": "Was ich den ganzen Abend gemacht habe",
+      "ziel": "Ich will offen antworten und trotzdem nicht alles verraten.",
       "preisgabe": [],
-      "text": "Zu den Fotos sag ich dir die Wahrheit, ich lüg nicht. Sag du auch, was du weißt."
+      "text": "Ich hab den ganzen Abend fotografiert. Sag du auch, was du weißt."
     },
     {
       "id": "g_johanna_3_3",
@@ -139,7 +139,7 @@
       "thema": "Herr Schneider",
       "ziel": "Ich will wissen, ob Olli schon mit Herrn Schneider geredet hat, ohne etwas über Ahmet zu sagen.",
       "preisgabe": [],
-      "text": "Olli, wir zwei sollten ehrlich miteinander sein. Hast du inzwischen mit Herrn Schneider geredet?"
+      "text": "Olli, wir zwei sollten offen miteinander reden. Hast du inzwischen mit Herrn Schneider geredet?"
     }
   ]
 }

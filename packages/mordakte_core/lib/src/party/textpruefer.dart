@@ -281,7 +281,8 @@ class Textpruefer {
 }
 
 /// Alle Texte, die Spielende sehen oder hören (texte/SCHLUESSEL.md, Abschnitt Sichtbarkeit).
-/// Vorlesen trägt nur der Erzähler; Dossiers, Täterfassungen, Gespräche, Wahlen und Kanon-Felder sind Lesetext.
+/// Vorlesen tragen der Erzähler und die Bonus-Hinweise, die er spricht; Dossiers, Täterfassungen, Gespräche, Wahlen
+/// und die übrigen Kanon-Felder sind Lesetext.
 List<TextQuelle> textQuellen(Kanon kanon, Textsammlung t) {
   final q = <TextQuelle>[];
   void add(String ort, Object? text, {bool vorlesen = false}) {
@@ -352,8 +353,9 @@ List<TextQuelle> textQuellen(Kanon kanon, Textsammlung t) {
       add('entscheidungen.json#$id.begruendung.${b.key}', (b.value as Map)['text']);
     }
   }
+  // Hinweise spricht der Erzähler (Baustein hinweis.<id>), also Vorlesetext.
   for (final h in kanon.bonusJson['hinweise'] as List) {
-    add('bonus.json#${(h as Map)['id']}', h['text']);
+    add('bonus.json#${(h as Map)['id']}', h['text'], vorlesen: true);
   }
   for (final z in kanon.zeitleiste) {
     add('zeitleiste.json#${z['id']}', z['text']);

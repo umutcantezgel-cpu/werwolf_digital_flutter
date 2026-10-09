@@ -1,6 +1,6 @@
 {
   "settingId": "spuk_im_schlosskeller",
-  "hinweis": "Englische Bildbeschreibungen für die Bildprompts (TON-LEITFADEN §9). Nur Kleidung, Farbe, Merkmal, Haltung, Alter, Haar; keine Herkunfts- oder Ethnienwörter.",
+  "hinweis": "Englische Bildbeschreibungen für die Bildprompts (TON-LEITFADEN §9). Nur Kleidung, Farbe, Merkmal, Haltung, Alter, Haar; keine Herkunfts- oder Ethnienwörter. Beweisbilder zeigen den Ort in der pfadgleichen, harmlosen Fassung; was gefunden wird, steht nur im Fundtext (E-029).",
   "stil": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon",
   "negativ": "no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries",
   "personen": [
@@ -43,7 +43,7 @@
     {
       "id": "olli",
       "alter": "late twenties",
-      "kleidung": "grey hooded sweatshirt, down vest, khaki trousers with side pockets",
+      "kleidung": "grey hooded sweatshirt, {farbe} down vest, khaki trousers with side pockets",
       "merkmal": "broad, strong shoulders",
       "haltung": "slightly hunched, rubbing the back of his neck, shifting his weight",
       "haar": "medium brown hair",
@@ -71,8 +71,8 @@
       "id": "emine",
       "alter": "mid-twenties",
       "kleidung": "quilted coat, dark fabric trousers, black boots",
-      "merkmal": "silver vacuum flask held in both hands",
-      "haltung": "calm, upright posture, turning the lid of the flask",
+      "merkmal": "silver thermos bottle held in both hands",
+      "haltung": "calm, upright posture, turning the lid of the thermos bottle",
       "haar": "dark brown hair",
       "kopf": "beige headscarf"
     },
@@ -124,7 +124,7 @@
     {
       "id": "meryem",
       "alter": "mid-twenties",
-      "kleidung": "denim shirt with rolled-up sleeves, sturdy work trousers, lace-up boots",
+      "kleidung": "{farbe} shirt with rolled-up sleeves, sturdy work trousers, lace-up boots",
       "merkmal": "soot smudges on left cheek and hands, fire poker in one hand",
       "haltung": "practical, upright, blowing a strand of hair off her forehead, wiping her hands on a rag",
       "haar": "auburn hair",
@@ -163,8 +163,8 @@
       "kleidung": "velvet dress, long black knit cardigan",
       "merkmal": "small loupe on a silver chain around her neck, striking rings of wood and stone",
       "haltung": "tall, elegant, examining her rings through the loupe",
-      "haar": "black hair",
-      "kopf": "cream headscarf"
+      "haar": "long black hair",
+      "kopf": "no headwear"
     },
     {
       "id": "enes",
@@ -180,7 +180,7 @@
       "alter": "early twenties",
       "kleidung": "knit sweater, light jeans",
       "merkmal": "white fringed scarf pulled up to her chin",
-      "haltung": "small, shoulders pulled up, looking around, flinching at loud noises",
+      "haltung": "shoulders pulled up, looking around, flinching at loud noises",
       "haar": "medium brown hair",
       "kopf": "no headwear"
     },
@@ -200,7 +200,7 @@
       "merkmal": "narrow metal glasses, notebook with gold binding and felt-tip pen",
       "haltung": "organized, brisk, flipping through her notebook, ticking off lines",
       "haar": "black hair",
-      "kopf": "no headwear"
+      "kopf": "gold headscarf"
     }
   ],
   "raeume": [
@@ -236,51 +236,51 @@
   "beweise": [
     {
       "spur": "spur_griff_papier",
-      "beschreibung": "Close-up of a candlestick handle. A torn corner of brown envelope paper is stuck in hardened red candle wax."
+      "beschreibung": "Close-up of a candlestick handle smeared with red candle wax."
     },
     {
       "spur": "spur_griff_leuchtfarbe",
-      "beschreibung": "Close-up of a candlestick handle. The outline of a whole hand in greenish-white glow paint lies around the handle."
+      "beschreibung": "Close-up of a candlestick handle smeared with red candle wax."
     },
     {
       "spur": "spur_fuss_splitter",
-      "beschreibung": "Close-up of a candlestick foot. Fine wood splinters and white lime dust are stuck in hardened red candle wax."
+      "beschreibung": "Close-up of a candlestick foot with red candle wax."
     },
     {
       "spur": "spur_ring_messing",
-      "beschreibung": "Close-up of a wide silver ring. Fresh golden-yellow brass dust lies in a notch of the ring."
+      "beschreibung": "Close-up of a wide silver ring with fine scratches in a notch."
     },
     {
       "spur": "spur_jacke_bund",
-      "beschreibung": "Close-up of the inner pocket of a black fabric jacket. A large bunch of keys is tucked inside."
+      "beschreibung": "Close-up of the inner pocket of a black fabric jacket."
     },
     {
       "spur": "spur_umschlag_wachs",
-      "beschreibung": "Close-up of a brown envelope with one torn corner. Three hardened red candle wax drops sit on it."
+      "beschreibung": "Close-up of a brown envelope with a crease."
     },
     {
       "spur": "spur_schatulle_wachs",
-      "beschreibung": "Close-up of the lid of a small coin box. Red candle wax drops are stuck to the lid."
+      "beschreibung": "Close-up of the lid of a small wooden coin box with reliefs."
     },
     {
       "spur": "spur_maske_wachs",
-      "beschreibung": "Close-up of the forehead of a glowing mask. Red candle wax drops sit on it."
+      "beschreibung": "Close-up of the forehead of a mask with greenish-white glow paint."
     },
     {
       "spur": "spur_eiskuebel_bund",
-      "beschreibung": "Close-up of an ice bucket. A bunch of keys lies under the ice cubes."
+      "beschreibung": "Close-up of an ice bucket with ice cubes and meltwater."
     },
     {
       "spur": "spur_brottasche_bund",
-      "beschreibung": "Close-up of a bread bag. A bunch of keys lies under a loaf of bread."
+      "beschreibung": "Close-up of a bread bag with a loaf and crumbs."
     },
     {
       "spur": "spur_helm_bund",
-      "beschreibung": "Close-up of a knight's armour helmet. A bunch of keys is wedged inside it."
+      "beschreibung": "Close-up of a knight's armour helmet with dust and an old cobweb."
     },
     {
       "spur": "spur_weste_kerzenwachs",
-      "beschreibung": "Close-up of the back of a work glove. Fresh red candle wax drops sit on it."
+      "beschreibung": "Close-up of the back of a work glove with lime dust."
     }
   ]
 }

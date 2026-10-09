@@ -9,7 +9,7 @@
       "runde": 1,
       "nr": 1,
       "partner": "johanna",
-      "thema": "Wo warst du beim Knall?",
+      "thema": "Am Außentor beim Knall",
       "ziel": "Ich will wissen, wer beim Knall wo war.",
       "preisgabe": [
         "beobachtung:b_serkan_tor"
@@ -33,7 +33,7 @@
       "runde": 1,
       "nr": 3,
       "partner": "baran",
-      "thema": "Was hast du gehört?",
+      "thema": "Geräusche im Dunkeln",
       "ziel": "Ich will wissen, was man beim Knall gehört hat.",
       "preisgabe": [],
       "text": "Du, ich fahr heute alle heil nach Hause. Also, hast du beim Knall was gehört?"
@@ -49,7 +49,7 @@
       "preisgabe": [
         "beobachtung:b_aylin_quittung"
       ],
-      "text": "Du, ich heb ja jeden Beleg auf. Ich hab hier einen Quittungszettel von Herrn Schneider. Da steht: Miete, null Euro. Und wo standst du, als es knallte?"
+      "text": "Du, ich heb ja jeden Beleg auf. Ich hab hier einen Quittungszettel von Herrn Schneider, da steht: Miete, null Euro. Und wo standest du, als es knallte?"
     },
     {
       "id": "g_aylin_1_2",
@@ -60,7 +60,7 @@
       "thema": "Der Platz beim Knall",
       "ziel": "Ich will wissen, wer beim Knall am Buffet stand.",
       "preisgabe": [],
-      "text": "Du, sag mal, wo warst du in der Zeit? Ich frag ja nur."
+      "text": "Du, sag mal, wo warst du in der Zeit? Ich will es nur wissen."
     },
     {
       "id": "g_aylin_1_3",
@@ -121,7 +121,7 @@
       "preisgabe": [
         "beobachtung:b_azra_versteck"
       ],
-      "text": "Du, ich hab mich beim Knall am rechten Buffettisch geduckt. Dort bin ich geblieben, bis das Licht anging."
+      "text": "Du, ich hab mich beim Knall am rechten Buffettisch geduckt. Dort blieb ich, bis das Licht anging. Wo warst du denn, als es knallte?"
     },
     {
       "id": "g_dilara_1_2",
@@ -130,11 +130,11 @@
       "nr": 2,
       "partner": "fatma",
       "thema": "Die Tasche",
-      "ziel": "Ich will hören, wie es zu der Tasche kam.",
+      "ziel": "Ich will wissen, wo Fatma um die Zeit war.",
       "preisgabe": [
         "beobachtung:b_azra_tasche"
       ],
-      "text": "Du, um Viertel vor zwölf war deine Tasche auffällig ausgebeult. Wie kam das?"
+      "text": "Du, um Viertel vor zwölf war deine Tasche auffällig ausgebeult. Und wo standest du um die Zeit?"
     },
     {
       "id": "g_dilara_1_3",

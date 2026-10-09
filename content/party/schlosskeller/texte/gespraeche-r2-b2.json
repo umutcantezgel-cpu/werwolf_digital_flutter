@@ -14,7 +14,7 @@
       "preisgabe": [
         "beobachtung:b_lejla_ahmet_theke"
       ],
-      "text": "Ahmet ist um drei vor zwölf hinter die Theke geschlüpft. Er hatte einen dicken Umschlag dabei. Hast du das auch gesehen?"
+      "text": "Ahmet ist um drei vor zwölf hinter die Theke geschlüpft. Er hatte einen dicken Umschlag dabei. Ist dir das auch aufgefallen, oder passt das nicht zu dem, was du vorhin gesagt hast?"
     },
     {
       "id": "g_leyla_2_2",
@@ -22,10 +22,10 @@
       "runde": 2,
       "nr": 2,
       "partner": "tim",
-      "thema": "Was hast du im Dunkeln gemacht?",
+      "thema": "Das Dunkel nach dem Knall",
       "ziel": "Ich will wissen, was der andere im Dunkeln gemacht hat, ohne Ahmet ins Gespräch zu bringen.",
       "preisgabe": [],
-      "text": "Was hast du gemacht, als das Licht weg war? Sag’s ruhig ehrlich."
+      "text": "Es war stockdunkel. Passt das zu dem, was du vorhin gesagt hast?"
     },
     {
       "id": "g_leyla_2_3",
@@ -36,7 +36,7 @@
       "thema": "Ist dir was aufgefallen?",
       "ziel": "Ich will wissen, ob jemand an der Theke etwas bemerkt hat, ohne Ahmet in die Enge zu treiben.",
       "preisgabe": [],
-      "text": "Ist dir um drei vor zwölf etwas aufgefallen? Erzähl ruhig, was du weißt."
+      "text": "Um drei vor zwölf war noch Licht. Was du vorhin gesagt hast, passt das dazu?"
     },
     {
       "id": "g_emine_2_1",
@@ -49,7 +49,7 @@
       "preisgabe": [
         "beobachtung:b_emine_versteck"
       ],
-      "text": "Beim Knall hab ich mich hinter dem linken Buffettisch geduckt. Dort blieb ich, bis das Licht anging. Hast du da was mitbekommen?"
+      "text": "Beim Knall hab ich mich hinter dem linken Buffettisch geduckt, bis das Licht anging. Ist dir in der Zeit etwas aufgefallen, das nicht passt?"
     },
     {
       "id": "g_emine_2_2",
@@ -57,10 +57,10 @@
       "runde": 2,
       "nr": 2,
       "partner": "fatma",
-      "thema": "Wo warst du kurz vor Mitternacht?",
+      "thema": "Dein Wort von vorhin",
       "ziel": "Ich will Fatma Gelegenheit geben, selbst etwas zu sagen, ohne sie zu verraten.",
       "preisgabe": [],
-      "text": "Fatma, wo warst du kurz vor Mitternacht? Du kannst mir alles sagen."
+      "text": "Fatma, du kannst mir alles sagen. Ist das wahr, was du vorhin gesagt hast?"
     },
     {
       "id": "g_emine_2_3",
@@ -71,7 +71,7 @@
       "thema": "Die Theke vor Mitternacht",
       "ziel": "Ich will wissen, ob der andere etwas über die Theke weiß, ohne Fatma ins Spiel zu bringen.",
       "preisgabe": [],
-      "text": "Wer war kurz vor Mitternacht an der Theke? Ich glaub, da stimmt was nicht."
+      "text": "Ich glaub, da stimmt was nicht. Stimmt das, was du vorhin gesagt hast?"
     },
     {
       "id": "g_tim_2_1",
@@ -79,12 +79,12 @@
       "runde": 2,
       "nr": 1,
       "partner": "murat",
-      "thema": "Wo ist das Gesicht hingelaufen?",
-      "ziel": "Ich will herausfinden, wohin das Gesicht lief, und die Angaben der anderen vergleichen.",
+      "thema": "Das Gesicht am Sicherungskasten",
+      "ziel": "Ich will herausfinden, wohin das Gesicht lief, und vergleichen, was die anderen gesehen haben.",
       "preisgabe": [
         "beobachtung:b_tim_gesicht"
       ],
-      "text": "Am Sicherungskasten sah ich ein leuchtendes Gesicht. Es huschte im Dunkeln an mir vorbei. Wohin ist es gelaufen?"
+      "text": "Am Sicherungskasten ist mir im Dunkeln ein leuchtendes Gesicht begegnet. Ist dir dabei irgendwas aufgefallen, das nicht zusammenpasst?"
     },
     {
       "id": "g_tim_2_2",
@@ -92,10 +92,10 @@
       "runde": 2,
       "nr": 2,
       "partner": "olli",
-      "thema": "Wo warst du, als das Licht ausging?",
-      "ziel": "Ich will wissen, wo Olli war, ohne dass es um den Ausfall geht.",
+      "thema": "Wie dunkel es war",
+      "ziel": "Ich will wissen, ob Olli bei dem bleibt, was er vorher gesagt hat, ohne selbst ins Gespräch zu kommen.",
       "preisgabe": [],
-      "text": "Olli, wo warst du, als das Licht ausging? Hat dich jemand gesehen?"
+      "text": "Olli, das Licht ging aus, und es war stockdunkel. Da passt doch was nicht, oder?"
     },
     {
       "id": "g_tim_2_3",
@@ -103,10 +103,10 @@
       "runde": 2,
       "nr": 3,
       "partner": "can",
-      "thema": "Wo warst du im Dunkeln?",
+      "thema": "Wer war bei dir?",
       "ziel": "Ich will wissen, wo Can im Dunkeln war, ohne selbst ins Gespräch zu kommen.",
       "preisgabe": [],
-      "text": "Can, wo warst du eigentlich, als alles dunkel war? Wer war bei dir?"
+      "text": "Can, als alles dunkel war, wer war da bei dir? Stimmt das wirklich, was du vorhin gesagt hast?"
     },
     {
       "id": "g_johanna_2_1",
@@ -114,10 +114,10 @@
       "runde": 2,
       "nr": 1,
       "partner": "ahmet",
-      "thema": "Warum so still?",
+      "thema": "Was du bisher erzählt hast",
       "ziel": "Ich will Ahmet die Chance geben, selbst zu erzählen, ohne etwas Falsches zu sagen.",
       "preisgabe": [],
-      "text": "Ahmet, ich will dir nichts Böses. Warum sagst du so wenig?"
+      "text": "Ahmet, ich will dir nichts Böses. Passt das alles zusammen, was du bisher erzählt hast?"
     },
     {
       "id": "g_johanna_2_2",
@@ -136,10 +136,10 @@
       "runde": 2,
       "nr": 3,
       "partner": "hakan",
-      "thema": "Wie ist Herr Schneider so?",
+      "thema": "Herr Schneider im Vorratsraum",
       "ziel": "Ich will wissen, wie Herr Schneider wirklich tickt, ohne Ahmet ins Spiel zu bringen.",
       "preisgabe": [],
-      "text": "Wie ist Herr Schneider eigentlich so drauf? Was glaubst du?"
+      "text": "Herr Schneider lag bewusstlos im Vorratsraum. Passt das zusammen mit dem, was du vorhin gesagt hast?"
     }
   ]
 }

@@ -28,7 +28,7 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 
 - **Kopftuch bei Fatma (E-014):**
   - Behzads Material gibt Fatma ein Kopftuch; sie ist zugleich eine der vier möglichen Täterinnen und hat die Münzschatulle mitgenommen.
-  - Ich habe es behalten und Gegengewichte gesetzt: Ihr Motiv ist Ehrgeiz für ihre Abschlussarbeit, sie will die Schatulle zurückbringen. Aylin (Kopftuch) ist die kompetente Kassenprüferin, Emine (Kopftuch) Grundschullehrerin.
+  - Ich habe es behalten und Gegengewichte gesetzt: Ihr Motiv ist Ehrgeiz für ihre Abschlussarbeit, sie will die Schatulle zurückbringen. Emine (Kopftuch) ist Grundschullehrerin, Tugba (Kopftuch) die Geburtstags-Planerin, die beruflich Projekte leitet (E-029: das dritte Kopftuch lag zuerst bei Azra, damit standen alle drei Kopftuchträgerinnen im Schatulle-Strang).
   - Wenn ihr es anders wollt, ist es eine Zeile im Kanon (`figuren.json`, Look von Fatma).
 - **Muster der Nebendelikte (SENS-03, E-029):**
   - Ahmet, Fatma und Can tragen Geld, Mitnahme der Schatulle und Streich, Olli Türschaden und Vertuschung. Wer die Namen türkisch oder muslimisch liest, kann darin ein Muster sehen.

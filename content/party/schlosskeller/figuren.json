@@ -310,7 +310,7 @@
       },
       "loyalitaet": {
         "zu": "zeynep",
-        "grund": "Seine Schwester Zeynep hat für ihn Schmiere gestanden."
+        "grund": "Zeynep hat für ihn Schmiere gestanden."
       },
       "luegen": [
         {
@@ -328,12 +328,12 @@
         "actualBehavior": "Er reißt sich los und rennt durch den Durchgang, noch bevor es scheppert. Die leuchtende Maske hält er in der Hand. Im Kaminsaal rennt er zur Bogentür, stopft die Maske in die Bauchtasche seines Pullis und versteckt sich oben auf der Toilette im Turm."
       },
       "killerProfile": {
-        "crimeExecution": "Herr Schneider hält ihn an der Kapuze fest und zischt: „Jetzt kommt die Polizei, Freundchen.“ In Panik greift Can mit der Hand voller Leuchtfarbe den Kerzenständer von der Anrichte und schlägt einmal zu. Herr Schneider stürzt in den Vorratsraum. Can kniet sich neben ihn und reißt in Panik den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er rennt nach dem Scheppern durch den Durchgang und den Kaminsaal, stopft an der Bogentür die Maske in die Bauchtasche, steckt den Bund in den Helm der Ritterrüstung und versteckt sich auf der Toilette im Turm.",
+        "crimeExecution": "Herr Schneider hält ihn an der Kapuze fest und zischt: „Jetzt kommt die Polizei.“ In Panik greift Can mit der Hand voller Leuchtfarbe den Kerzenständer von der Anrichte und schlägt einmal zu. Herr Schneider stürzt in den Vorratsraum. Can kniet sich neben ihn und reißt in Panik den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er rennt nach dem Scheppern durch den Durchgang und den Kaminsaal, stopft an der Bogentür die Maske in die Bauchtasche, steckt den Bund in den Helm der Ritterrüstung und versteckt sich auf der Toilette im Turm.",
         "smokingGun": "Ein Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe um den Griff des Kerzenständers.",
         "zusatzindiz": "Rote Wachstropfen auf der Leuchtmaske."
       },
       "look": {
-        "haut": "#c69270",
+        "haut": "#d9a983",
         "haar": "#1a1412",
         "kopf": "none",
         "statur": "slim",
@@ -379,7 +379,7 @@
       "nebendelikt": null,
       "loyalitaet": {
         "zu": "ahmet",
-        "grund": "Ahmet ist ihr Cousin; sie hat ihm versprochen, nichts über die Rechnung zu sagen."
+        "grund": "Sie hat Ahmet versprochen, nichts über die Rechnung zu sagen."
       },
       "luegen": [],
       "look": {
@@ -616,7 +616,7 @@
       },
       "loyalitaet": {
         "zu": "can",
-        "grund": "Can ist ihr Bruder."
+        "grund": "Sie hat für Can Schmiere gestanden und fühlt sich mitschuldig."
       },
       "luegen": [],
       "look": {
@@ -877,8 +877,8 @@
         "y": 13.5
       },
       "visualSpecs": {
-        "silhouette": "Groß, elegante Bewegungen, cremefarbenes Kopftuch",
-        "outfit": "Pflaumenfarbenes Samtkleid, langer schwarzer Strickcardigan, cremefarbenes Kopftuch",
+        "silhouette": "Groß, elegante Bewegungen, lange schwarze Haare",
+        "outfit": "Pflaumenfarbenes Samtkleid, langer schwarzer Strickcardigan",
         "distinguishingFeature": "Kleine Lupe an einer Silberkette um den Hals, auffällige Ringe aus Holz und Stein",
         "idleAnimation": "Betrachtet ihre Ringe durch die Lupe und schaut zur Theke"
       },
@@ -892,10 +892,9 @@
       "look": {
         "haut": "#c69270",
         "haar": "#1a1412",
-        "kopf": "kopftuch",
+        "kopf": "none",
         "statur": "tall",
-        "schnitt": "dress",
-        "kopftuchFarbe": "#e8dcc4"
+        "schnitt": "dress"
       },
       "alltag": "Studiert Kunstgeschichte und stöbert jedes Wochenende auf Flohmärkten."
     },
@@ -1058,8 +1057,8 @@
         "y": 10.5
       },
       "visualSpecs": {
-        "silhouette": "Organisiert, schwungvoll, geschäftsmäßig",
-        "outfit": "Karminroter Blazer über weißem Shirt, schmale Metallbrille",
+        "silhouette": "Organisiert, schwungvoll, geschäftsmäßig, goldfarbenes Kopftuch",
+        "outfit": "Karminroter Blazer über weißem Shirt, goldfarbenes Kopftuch, schmale Metallbrille",
         "distinguishingFeature": "Notizbuch mit goldenem Einband und Fineliner",
         "idleAnimation": "Blättert im Notizbuch, hakt Zeilen ab und schaut zur Wanduhr"
       },
@@ -1073,9 +1072,10 @@
       "look": {
         "haut": "#d9a983",
         "haar": "#1a1412",
-        "kopf": "none",
+        "kopf": "kopftuch",
         "statur": "normal",
-        "schnitt": "suit"
+        "schnitt": "suit",
+        "kopftuchFarbe": "#c9a227"
       },
       "alltag": "Ist Projektleiterin und plant sogar Geburtstage mit Ablaufplan."
     }

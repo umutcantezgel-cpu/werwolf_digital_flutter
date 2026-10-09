@@ -36,9 +36,9 @@
       "nr": 3,
       "partner": "detective",
       "thema": "Gemeinsam bis zum Ende",
-      "ziel": "Ich will den Detektiv als Verbündeten gewinnen.",
+      "ziel": "Ich will das Geburtstagskind als Verbündeten gewinnen.",
       "preisgabe": [],
-      "text": "Du bist der Detektiv, ich bin der Organisator. Wir sitzen eh bis zum Morgen fest, also zieh mit mir an einem Strang."
+      "text": "Du ermittelst heute, ich bin der Organisator. Wir sitzen eh bis zum Morgen fest, also zieh mit mir an einem Strang."
     },
     {
       "id": "g_fatma_3_1",
@@ -60,7 +60,7 @@
       "nr": 2,
       "partner": "detective",
       "thema": "Meine Tasche",
-      "ziel": "Ich will den Detektiv davon abbringen, weiter nach der Tasche zu fragen.",
+      "ziel": "Ich will das Geburtstagskind davon abbringen, weiter nach der Tasche zu fragen.",
       "preisgabe": [
         "luege:luege_fatma_tasche"
       ],
@@ -72,12 +72,12 @@
       "runde": 3,
       "nr": 3,
       "partner": "tugba",
-      "thema": "Die Angabe festhalten",
-      "ziel": "Ich will, dass die andere Person meine Angabe festhält.",
+      "thema": "Die Version merken",
+      "ziel": "Ich will, dass die andere Person meine Version festhält.",
       "preisgabe": [
         "luege:luege_fatma_buffet"
       ],
-      "text": "Ich stand durchgehend beim Gebäck am linken Buffet. Merk dir das genau."
+      "text": "Ich hab mich die ganze Zeit ans Gebäck gehalten, links am Buffet. Merk dir das genau."
     },
     {
       "id": "g_olli_3_1",
@@ -98,7 +98,7 @@
       "runde": 3,
       "nr": 2,
       "partner": "hakan",
-      "thema": "Herr Schneider und das Geld",
+      "thema": "Herr Schneider beim Geld",
       "ziel": "Ich will wissen, wie Herr Schneider reagiert, wenn es ums Geld geht.",
       "preisgabe": [],
       "text": "Sag mal ehrlich, wie reagiert Herr Schneider, wenn’s ums Geld geht?"
@@ -110,7 +110,7 @@
       "nr": 3,
       "partner": "detective",
       "thema": "Vor der Anklage",
-      "ziel": "Ich will den Detektiv davon abbringen, mich anzuklagen.",
+      "ziel": "Ich will das Geburtstagskind davon abbringen, mich anzuklagen.",
       "preisgabe": [
         "luege:luege_olli_tafel"
       ],
@@ -140,7 +140,7 @@
       "preisgabe": [
         "luege:luege_can_maske"
       ],
-      "text": "Ich hab keine Maske, ehrlich. Hast du im Dunkeln was gesehen? Sag’s mir klar."
+      "text": "Welche Maske? Ich hab keine Maske. Jetzt legen wir unsere Versionen nebeneinander."
     },
     {
       "id": "g_can_3_3",
@@ -151,7 +151,7 @@
       "thema": "Was du gesehen hast",
       "ziel": "Ich will herausfinden, ob die andere Person im Dunkeln etwas Auffälliges gesehen hat.",
       "preisgabe": [],
-      "text": "Was war im Dunkeln bei dir los? Ich will jetzt eine klare Antwort."
+      "text": "Was war im Dunkeln bei dir los?"
     }
   ]
 }

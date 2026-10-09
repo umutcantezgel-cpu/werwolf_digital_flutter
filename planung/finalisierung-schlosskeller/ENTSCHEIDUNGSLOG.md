@@ -706,3 +706,49 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Nicht übernommen:
     - Ein Planeintrag fehlt nicht: Pawel und Tugba haben Pläne in `basis.json`.
     - `b_tugba_notiz` führt weiter nur Ollis Lüge als widerlegt. Fatmas Platz steht erst im Notizbuch selbst (`spur_notiz_fehlende`).
+- **Prüfstapel A (KONT-03, -04, -09, -10, SENS-01, -02, -04, -05, TEST-01):**
+  - **Kopftuch, Denkprotokoll:** SENS-02, -04 und -05 zeigen denselben Befund: Fatma, Emine und Azra trugen das Kopftuch, und alle drei stehen im Schatulle-Strang (Fatma nimmt, Emine schweigt, Azra gab den Tipp).
+    - E-014 wollte das Kopftuch auch bei Aylin. F1-SENS-01 hatte es von Aylin (kurdisch) zu Azra (bosnisch) gelegt, damit nicht zwei von drei kurdischen Figuren es tragen. Dadurch ist der Strang entstanden.
+    - Wege:
+      - (a) Fatma ohne Kopftuch: Das Quellmaterial gibt es ihr; E-014 hat es bewusst gelassen.
+      - (b) Azras Kopftuch an eine Figur außerhalb aller Delikt-Stränge geben, nicht kurdisch.
+      - (c) Azras Tipp streichen: Das nimmt Fatmas Motiv einen Anlass.
+    - Gewählt ist (b): Tugba, die Geburtstags-Planerin (türkisch, leitet Projekte, unbelastet), trägt jetzt ein goldfarbenes Kopftuch. Azra bekommt den Look aus dem Quellmaterial zurück.
+    - Kopftuch tragen jetzt Fatma (kurdisch, Designstudentin), Emine (türkisch, Lehrerin) und Tugba (türkisch, Planerin).
+  - **Familie als Deckung (SENS-02, -05):** Die Loyalitätsgründe von Lejla und Zeynep nennen nicht mehr die Verwandtschaft, sondern das Versprechen und die Mitschuld. Verwandtschaften bleiben Fakten in `wer`.
+  - **Hautton:** Can war der einzige Kernverdächtige mit dunklem Hautton und in jedem Pfad der maskierte Läufer im Dunkeln. Sein Ton ist jetzt wie Ahmets (nur Renderer).
+  - **Beweisbilder (SENS-05, 12 schwere):**
+    - Die Bildbeschreibungen zeigten den Fund, etwa den Bund im Helm. Ein Bild je Spur wäre in drei Pfaden falsch und im vierten ein Spoiler.
+    - Jetzt zeigen sie den Ort in der harmlosen, pfadgleichen Fassung; der Fund steht nur im Fundtext.
+    - Olli und Hana: `{farbe}` an der Weste beziehungsweise am Hemd. Emines Flasche heißt „thermos“, weil „flask“ an Alkohol denken lässt.
+  - **Schneider:** „Freundchen“ ist aus Tatmatrix, Figur, Täterfassung und Rückblende gestrichen (TON §7: er beleidigt niemanden). Die Tatnacht des Detektivs nennt beide Rufe.
+  - **Entscheidungen und Hinweise (KONT-10):**
+    - Begründungstexte nennen nur, was in ihrer Kette steht. Ketten dürfen jetzt Lügen enthalten (`luege:`, Schema und `pruefeBegruendungen`).
+    - Begründungen erscheinen erst in der Auflösung (SCHLUESSEL.md).
+    - Hinweise spricht der Erzähler; sie gelten jetzt als Vorlesetext mit Uhrzeiten in Worten.
+    - Die neutralen Hinweise in Runde 3 haben einen Satz wie die anderen.
+    - Fundtexte verneinen nichts mehr: Handschuh, Laterne, Handykorb, Mietgeld, Umschlag.
+    - e3_2 fragt ohne „genau“.
+  - **Wahltexte (KONT-09, SENS-04):** Sabotagen lenken nicht mehr auf das eigene Geheimnis (Agentur, Stadtfeste, Musik, Ritterrüstung, Studium). Weitere Korrekturen:
+    - Lejlas Kosten nennen ihr Versprechen.
+    - Zeyneps Kosten nennen den Streich.
+    - Aylin zitiert den Zettel wörtlich („0 Euro“).
+    - Emines Schweigegrund verbindet Versprechen und Rückgabe.
+  - **Auflösung (KONT-03, SENS-02):**
+    - Wer etwas verborgen hat, steht jetzt so da: Pawel, Baran, Aylin.
+    - Täterfassungen nennen den Bund und sein Versteck.
+    - Unschuldsfassungen nennen die eigene Lüge.
+    - Lange Sätze sind geteilt.
+  - **Intro:** „dunkel, nur ein paar Kerzen und das Notausgangsschild leuchten“.
+  - **Nicht übernommen:**
+    - SENS-01 Nr. 1 bis 3: Die Fließtexte unter `verbirgt` der Kernrollen gelten nur, wenn die Rolle unschuldig ist. Im eigenen Pfad greift die Täterfassung.
+    - Lehnwörter wie Box, Handy, Design und Catering bleiben (TON §4 ergänzt).
+    - Emines Satz zur Polizeidrohung bleibt unter `verbirgt`, denn er schützt Fatma.
+    - `runde.3.start` bleibt; die Vorratstür ist öffentlich.
+    - Neutrale Hinweise in Runde 1 bleiben ohne „nicht“. Dass sie nicht helfen, ist ihr Zweck; wahr und falsch bleiben ununterscheidbar.
+  - **TEST-01:** `dossier_test` (15), `erzaehler_test` (8), `spoiler_test` (10). ORCH hat Prüfung 16 geschärft: Eine Fünf-Wort-Folge gilt nur als Pfadwissen, wenn ihre Quellen zusammen nicht alle vier Pfade abdecken. Cans „auf der Toilette im Turm“ steht im Täter- und im Unschuldsprofil und ist darum frei; eine Gegenprobe sichert das. Bonus-Hinweise bleiben außerhalb von Prüfung 16, weil wahre und falsche dieselbe Form haben müssen.
+- **Nachbesserung II der Gespräche (AUTOR-75 bis -79):** 133 von 180 Gesprächen geändert, Partner und Preisgaben unverändert.
+  - Runde 2 prüft Behauptungen.
+  - In Runde 3 nur noch selten Klarheitsformeln.
+  - Kein Thema und kein Text doppelt.
+  - Bestätigt: „was du vorhin gesagt hast“ darf voraussetzen, dass in Runde 1 geredet wurde.

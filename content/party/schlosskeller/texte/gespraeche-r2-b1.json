@@ -14,7 +14,7 @@
       "preisgabe": [
         "luege:luege_ahmet_servietten"
       ],
-      "text": "Hinter der Theke hab ich nur Servietten gesucht, sonst nichts. Olli, hast du davon was mitbekommen?"
+      "text": "Nur Servietten hab ich hinter der Theke gesucht. Olli, passt das zu dem, was du vorhin gesagt hast?"
     },
     {
       "id": "g_ahmet_2_2",
@@ -27,7 +27,7 @@
       "preisgabe": [
         "luege:luege_ahmet_miete"
       ],
-      "text": "Das Geld war für die Miete, hundertfünfzig Euro. Was genau hast du dazu mitbekommen?"
+      "text": "Das Geld war für die Miete, hundertfünfzig Euro. Ist dir dazu etwas aufgefallen, das nicht passt?"
     },
     {
       "id": "g_ahmet_2_3",
@@ -38,7 +38,7 @@
       "thema": "Auffälliges im Dunkeln",
       "ziel": "Ich will wissen, ob im Dunkeln jemandem etwas Komisches aufgefallen ist.",
       "preisgabe": [],
-      "text": "Ist dir im Dunkeln was Komisches aufgefallen? Das musst du mir ehrlich sagen."
+      "text": "Ist dir im Dunkeln was aufgefallen, das nicht ins Bild passt?"
     },
     {
       "id": "g_fatma_2_1",
@@ -47,11 +47,11 @@
       "nr": 1,
       "partner": "ahmet",
       "thema": "Wie war das bei dir?",
-      "ziel": "Ich will bei meiner Angabe bleiben, ohne dass Ahmet nachhakt.",
+      "ziel": "Ich will bei meiner Version bleiben, ohne dass Ahmet nachhakt.",
       "preisgabe": [
         "luege:luege_fatma_buffet"
       ],
-      "text": "Am linken Buffet beim Gebäck war ich, die ganze Zeit. Ahmet, wie war das bei dir?"
+      "text": "Am linken Buffet beim Gebäck war ich, die ganze Zeit. Ahmet, wie passt das zu deiner Geschichte von vorhin?"
     },
     {
       "id": "g_fatma_2_2",
@@ -64,7 +64,7 @@
       "preisgabe": [
         "luege:luege_fatma_tasche"
       ],
-      "text": "Bücher sind da drin, mehr nicht. Hast du an meiner Tasche was Auffälliges bemerkt?"
+      "text": "Bücher sind da drin, mehr nicht. Ist dir an meiner Tasche etwas aufgefallen, das nicht zu Büchern passt?"
     },
     {
       "id": "g_fatma_2_3",
@@ -75,7 +75,7 @@
       "thema": "Dein Abend bis zum Knall",
       "ziel": "Ich will Olli zu einer klaren Antwort bringen, damit niemand weiter nachfragt.",
       "preisgabe": [],
-      "text": "Olli, ich will es genau wissen. Wie war dein Abend bis zum Knall?"
+      "text": "Olli, ich will es genau wissen. Wie passt dein Abend zu dem, was du vorhin erzählt hast?"
     },
     {
       "id": "g_olli_2_1",
@@ -83,12 +83,12 @@
       "runde": 2,
       "nr": 1,
       "partner": "kaan",
-      "thema": "Meine Angabe",
-      "ziel": "Ich will, dass die andere Person meine Angabe glaubt.",
+      "thema": "Meine Version",
+      "ziel": "Ich will, dass die andere Person meine Version glaubt.",
       "preisgabe": [
         "luege:luege_olli_tafel"
       ],
-      "text": "Ich saß am Tisch im Ost-Saal, sonst nirgends. Wie passt das zu deiner eigenen Geschichte?"
+      "text": "Ich saß die ganze Zeit am Tisch im Ost-Saal. Ist dir dabei etwas anders in Erinnerung?"
     },
     {
       "id": "g_olli_2_2",
@@ -96,7 +96,7 @@
       "runde": 2,
       "nr": 2,
       "partner": "aylin",
-      "thema": "Herr Schneider",
+      "thema": "Wie es Herrn Schneider geht",
       "ziel": "Ich will wissen, was die andere Person über Herrn Schneider weiß.",
       "preisgabe": [],
       "text": "Wie geht es Herrn Schneider eigentlich? Weißt du da was Genaues oder nur Gerede?"
@@ -110,7 +110,7 @@
       "thema": "Wo steckst du eigentlich?",
       "ziel": "Ich will Can zum Reden bringen, bevor er selbst gefragt wird.",
       "preisgabe": [],
-      "text": "Can, was war bei dir auffällig, als es knallte?"
+      "text": "Can, was war bei dir auffällig, als es knallte? Ich frag mich, ob das zu deiner Geschichte passt."
     },
     {
       "id": "g_can_2_1",
@@ -118,12 +118,12 @@
       "runde": 2,
       "nr": 1,
       "partner": "kaan",
-      "thema": "Wo warst du im Dunkeln?",
+      "thema": "Was nicht zusammenpasst",
       "ziel": "Ich will wissen, was die andere Person im Dunkeln mitbekommen hat.",
       "preisgabe": [
         "luege:luege_can_toilette"
       ],
-      "text": "Auf der Toilette im Turm war ich die ganze Zeit. Erzähl mal genau, wo du im Dunkeln warst."
+      "text": "Auf der Toilette im Turm war ich die ganze Zeit. Fällt dir dazu was auf, das nicht stimmt?"
     },
     {
       "id": "g_can_2_2",
@@ -136,7 +136,7 @@
       "preisgabe": [
         "luege:luege_can_maske"
       ],
-      "text": "Eine Maske? Ich hab keine Maske. Wie war das bei dir im Dunkeln?"
+      "text": "Welche Maske? Ich hab keine Maske. Passt das für dich zusammen?"
     },
     {
       "id": "g_can_2_3",
@@ -147,7 +147,7 @@
       "thema": "Was steckt in deiner Tasche?",
       "ziel": "Ich will Fatma in ein Gespräch über ihre Tasche ziehen, damit niemand nach mir fragt.",
       "preisgabe": [],
-      "text": "Fatma, was steckt eigentlich in deiner Tasche?"
+      "text": "Fatma, deine Tasche ist ganz schön schwer. Wie passt das zu dem, was du vorhin gesagt hast?"
     }
   ]
 }

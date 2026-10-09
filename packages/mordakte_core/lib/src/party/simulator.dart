@@ -215,6 +215,10 @@ class Simulator {
     final f = <String>[];
     final sichtbar = {for (final g in kanon.gegenstaende) if (g['sichtbar'] == true) g['id'] as String};
     final figuren = {for (final x in kanon.figuren) x['id'] as String};
+    final luegen = {
+      for (final x in kanon.figuren)
+        for (final l in (x['luegen'] as List? ?? const [])) (l as Map)['id'] as String,
+    };
     for (final p in kanon.pfade) {
       for (final e in _e) {
         final b = e.begruendungFuer(p);
@@ -245,6 +249,9 @@ class Simulator {
               if (!sichtbar.contains(id)) f.add('${e.id}: $id ist nicht auf der Karte');
             case 'merkmal':
               if (!figuren.contains(id)) f.add('${e.id}: Figur $id unbekannt');
+            case 'luege':
+              // Die Behauptung einer Lüge sagt die Rolle im Pflichtgespräch (P-1); sie ist am Tisch bekannt.
+              if (!luegen.contains(id)) f.add('${e.id}: unbekannte Lüge $id');
             default:
               f.add('${e.id}: unbekannte Kettenart $art');
           }

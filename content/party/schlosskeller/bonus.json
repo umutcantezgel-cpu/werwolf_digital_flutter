@@ -48,7 +48,7 @@
       "pfad": "ahmet",
       "runde": 2,
       "qualitaet": "wahr",
-      "text": "Ahmet hat um 23:51 an der Theke mit Herrn Schneider über die Miete gestritten.",
+      "text": "Ahmet hat um neun vor zwölf an der Theke mit Herrn Schneider über die Miete gestritten.",
       "wirkung": {
         "art": "belastet",
         "person": "ahmet"
@@ -76,7 +76,7 @@
       "pfad": "ahmet",
       "runde": 2,
       "qualitaet": "falsch",
-      "text": "Olli hat um 23:40 die Münzschatulle aus der Vitrine genommen.",
+      "text": "Olli hat um zwanzig vor zwölf die Münzschatulle aus der Vitrine genommen.",
       "wirkung": {
         "art": "belastet",
         "person": "olli"
@@ -104,7 +104,7 @@
       "pfad": "ahmet",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
+      "text": "Serkan stand um zwölf am abgeschlossenen Außentor.",
       "wirkung": {
         "art": "neutral"
       },
@@ -172,7 +172,7 @@
       "pfad": "fatma",
       "runde": 2,
       "qualitaet": "wahr",
-      "text": "Fatma hat um 23:40 die Münzschatulle aus der Vitrine genommen.",
+      "text": "Fatma hat um zwanzig vor zwölf die Münzschatulle aus der Vitrine genommen.",
       "wirkung": {
         "art": "belastet",
         "person": "fatma"
@@ -227,7 +227,7 @@
       "pfad": "fatma",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
+      "text": "Serkan stand um zwölf am abgeschlossenen Außentor.",
       "wirkung": {
         "art": "neutral"
       },
@@ -350,7 +350,7 @@
       "pfad": "olli",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
+      "text": "Serkan stand um zwölf am abgeschlossenen Außentor.",
       "wirkung": {
         "art": "neutral"
       },
@@ -377,7 +377,7 @@
       "pfad": "can",
       "runde": 1,
       "qualitaet": "wahr",
-      "text": "Beim Scheppern war das leuchtende Gesicht noch nicht an Marek vorbei. Es kam erst danach durch den Durchgang.",
+      "text": "Beim Scheppern war das leuchtende Gesicht noch nicht an Marek vorbei, sondern kam erst danach durch den Durchgang.",
       "wirkung": {
         "art": "belastet",
         "person": "can"
@@ -445,7 +445,7 @@
       "pfad": "can",
       "runde": 2,
       "qualitaet": "falsch",
-      "text": "Olli hat um 23:40 die Münzschatulle aus der Vitrine genommen.",
+      "text": "Olli hat um zwanzig vor zwölf die Münzschatulle aus der Vitrine genommen.",
       "wirkung": {
         "art": "belastet",
         "person": "olli"
@@ -473,7 +473,7 @@
       "pfad": "can",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
+      "text": "Serkan stand um zwölf am abgeschlossenen Außentor.",
       "wirkung": {
         "art": "neutral"
       },

@@ -21,7 +21,7 @@
     },
     {
       "id": "aufloesung.leyla",
-      "text": "Lejla hat geschwiegen, weil Ahmet ihr Cousin ist. Sie hatte ihm versprochen, nichts über die Rechnung zu sagen. Sie wollte Ahmet schützen, bis er selbst redet."
+      "text": "Lejla hat geschwiegen. Sie hatte Ahmet versprochen, nichts über die Rechnung zu sagen, und wollte ihn schützen, bis er selbst redet."
     },
     {
       "id": "aufloesung.emine",
@@ -41,11 +41,11 @@
     },
     {
       "id": "aufloesung.zeynep",
-      "text": "Zeynep hat für Cans Streich Schmiere gestanden. Can hat mit der Leuchtmaske im dunklen Vorratsraum auf das Geburtstagskind gewartet. Sie wollte ihren Bruder schützen, und deshalb hat sie geschwiegen."
+      "text": "Zeynep hat für Cans Streich Schmiere gestanden. Can hat mit der Leuchtmaske im dunklen Vorratsraum auf das Geburtstagskind gewartet. Sie wollte Can schützen, und deshalb hat sie geschwiegen."
     },
     {
       "id": "aufloesung.baran",
-      "text": "Baran hat nichts verborgen. Er wollte nur, dass seine Box nicht einkassiert wird."
+      "text": "Baran hat verschwiegen, dass die Musik in den Kopfhörern über seine Box weiterlief, als der Strom weg war. Er wollte nur, dass seine Box nicht einkassiert wird."
     },
     {
       "id": "aufloesung.meryem",
@@ -57,7 +57,7 @@
     },
     {
       "id": "aufloesung.aylin",
-      "text": "Aylin hat nichts verborgen. Sie wollte ihr Geld zurückbekommen, ohne Ahmet vor allen bloßzustellen."
+      "text": "Aylin hat über den Beleg nur geredet, wenn jemand gefragt hat. Sie wollte ihr Geld zurückbekommen, ohne Ahmet vor allen bloßzustellen."
     },
     {
       "id": "aufloesung.kaan",
@@ -77,7 +77,7 @@
     },
     {
       "id": "aufloesung.hakan",
-      "text": "Pawel hat nichts verborgen. Er wollte Herrn Schneider in Schutz nehmen, ohne von Geldsorgen zu reden."
+      "text": "Pawel hat verschwiegen, dass Herr Schneider kleine Schäden oft aus eigener Tasche zahlt. Er wollte ihn in Schutz nehmen."
     },
     {
       "id": "aufloesung.tugba",
@@ -85,35 +85,35 @@
     },
     {
       "id": "aufloesung.ahmet.unschuldig",
-      "text": "Ahmet hat von allen einhundertfünfzig Euro Miete kassiert, obwohl der Keller nichts gekostet hat. Niemand sollte vor dem Morgen erfahren, dass die Miete erfunden war. Beim Knall duckte er sich hinter der Theke am Ostende, neben Damir, und hielt den Umschlag mit dem Mietgeld fest. Später leerte er den Umschlag und warf ihn in den Ascheneimer am Kamin."
+      "text": "Ahmet hat von allen hundertfünfzig Euro Miete kassiert, obwohl der Keller nichts gekostet hat. Niemand sollte vor dem Morgen erfahren, dass die Miete erfunden war. Beim Knall duckte er sich hinter der Theke am Ostende, neben Damir. Dort hielt er den Umschlag mit dem Mietgeld fest. Später leerte er den Umschlag und warf ihn in den Ascheneimer am Kamin. Seine Ausrede mit den Servietten war gelogen."
     },
     {
       "id": "aufloesung.ahmet.taeter",
-      "text": "Ahmet gesteht: In Panik hat er den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt die erfundene Miete: Er hat von allen einhundertfünfzig Euro kassiert, obwohl der Keller nichts gekostet hat."
+      "text": "Ahmet gesteht: In Panik hat er den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt die erfundene Miete: Er hat von allen hundertfünfzig Euro kassiert, obwohl der Keller nichts gekostet hat. Den Schlüsselbund riss er Herrn Schneider vom Gürtel und steckte ihn in seine Jacke."
     },
     {
       "id": "aufloesung.fatma.unschuldig",
-      "text": "Fatma hat die Münzschatulle aus der Turmvitrine mitgenommen. Sie wollte die Schatulle zurückbringen, ohne dass es alle erfahren. Beim Knall zog sie sich mit ihrer Tasche zum linken Buffettisch zurück und kauerte dort neben Emine."
+      "text": "Fatma hat die Münzschatulle aus der Turmvitrine mitgenommen. Sie wollte die Schatulle zurückbringen, ohne dass es alle erfahren. Beim Knall zog sie sich mit ihrer Tasche zum linken Buffettisch zurück und kauerte dort neben Emine. Ihre Ausrede mit den Büchern in der Tasche war gelogen."
     },
     {
       "id": "aufloesung.fatma.taeter",
-      "text": "Fatma gesteht: Sie wollte die Schatulle zurückgeben, doch dann hat sie in Panik den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt die Münzschatulle aus der Turmvitrine, die sie mitgenommen hat."
+      "text": "Fatma gesteht: Sie wollte die Schatulle zurückgeben, doch dann hat sie in Panik den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt die Münzschatulle aus der Turmvitrine, die sie mitgenommen hat. Den Schlüsselbund riss sie Herrn Schneider vom Gürtel und steckte ihn in die Brottasche auf dem linken Buffettisch."
     },
     {
       "id": "aufloesung.olli.unschuldig",
-      "text": "Olli hat die Bogentür beschädigt und wollte die Schramme mit Möbelwachs verdecken. Den Türschaden wollte er selbst mit Herrn Schneider klären, ohne die Gruppe hineinzuziehen. Beim Knall tastete er sich vom Eiskübel zum rechten Buffettisch und kauerte dort neben Azra, bis das Licht anging."
+      "text": "Olli hat die Bogentür beschädigt und wollte die Schramme mit Möbelwachs verdecken. Den Türschaden wollte er selbst mit Herrn Schneider klären, ohne die Gruppe hineinzuziehen. Beim Knall tastete er sich vom Eiskübel zum rechten Buffettisch. Dort kauerte er neben Azra, bis das Licht anging. Seine Ausrede mit dem Tisch im Ost-Saal war gelogen."
     },
     {
       "id": "aufloesung.olli.taeter",
-      "text": "Olli gesteht: Er wollte mit Herrn Schneider reden, und in Panik hat er den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt die Bogentür, die er beschädigt hat, und die Schramme, die er mit Möbelwachs verdecken wollte."
+      "text": "Olli gesteht: Er wollte mit Herrn Schneider reden, und in Panik hat er den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt die Bogentür, die er beschädigt hat, und die Schramme, die er mit Möbelwachs verdecken wollte. Den Schlüsselbund riss er Herrn Schneider vom Gürtel und warf ihn in den Eiskübel."
     },
     {
       "id": "aufloesung.can.unschuldig",
-      "text": "Can hat sich mit der Leuchtmaske im Vorratsraum versteckt, um das Geburtstagskind zu erschrecken. Seine Schwester Zeynep hat für ihn Schmiere gestanden, und der Streich sollte nicht herauskommen. Beim Knall rannte er durch den Durchgang, noch bevor es schepperte, und versteckte sich oben auf der Toilette im Turm."
+      "text": "Can hat sich mit der Leuchtmaske im Vorratsraum versteckt, um das Geburtstagskind zu erschrecken. Zeynep hat für ihn Schmiere gestanden, und der Streich sollte nicht herauskommen. Beim Knall rannte er durch den Durchgang, noch bevor es schepperte. Dann versteckte er sich oben auf der Toilette im Turm. Dass er die ganze Zeit auf der Toilette war, war gelogen."
     },
     {
       "id": "aufloesung.can.taeter",
-      "text": "Can gesteht: Herr Schneider hielt ihn fest, und in Panik hat Can den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt der Streich mit der Leuchtmaske im Vorratsraum, bei dem Zeynep Schmiere gestanden hat."
+      "text": "Can gesteht: Herr Schneider hielt ihn fest, und in Panik hat Can den Kerzenständer genommen und einmal zugeschlagen. Herrn Schneider geht es gut. Dazu kommt der Streich mit der Leuchtmaske im Vorratsraum, bei dem Zeynep Schmiere gestanden hat. Den Schlüsselbund riss er Herrn Schneider vom Gürtel und steckte ihn in den Helm der Ritterrüstung."
     }
   ]
 }

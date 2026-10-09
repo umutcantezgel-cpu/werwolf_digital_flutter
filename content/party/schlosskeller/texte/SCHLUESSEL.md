@@ -41,6 +41,7 @@ Die Kennungen der Erzählerbausteine kommen aus `Erzaehler.katalog()`; andere Ke
   - `thema` und `text` der Pflichtgespräche
 - **Nur die eigene Rolle:** `weiss`, `verbirgt`, `ziel` (Dossier und Pflichtgespräch), Täterfassung, Wahltexte.
 - **Nur der Detektiv:** `detektiv.*` und `ermittlungsbogen.*`.
+- **Erst in der Auflösung:** die Begründungen der Entscheidungen (`entscheidungen.json`, `begruendung` je Pfad) und die Qualität der Hinweise. Vorher verrieten sie den Pfad.
 - **Was der Detektiv findet:** Fundtexte (`zeigt` und `harmlos` der Spuren in `gegenstaende.json`) und Ergebnisse der Entscheidungen erscheinen, sobald eine Entscheidung sie aufdeckt. Ab dann gehören sie zum Wissen des Detektivs und dürfen am Tisch stehen. Fundtexte sind unpersönlich, ohne „du“, und verneinen nichts („kein Messing“ schlösse jemanden aus).
 - **Spoilerregel (S-1):** Sie gilt für alles, was die App oder der Erzähler am Tisch zeigt. Was eine Rolle unter `weiss` kennt, darf ihre Spielerin selbst erzählen; das ist Spiel, kein Spoiler.
   - Einzelregeln:

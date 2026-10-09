@@ -47,10 +47,10 @@
           "ref": "nebendelikt:nd_schmiere"
         },
         {
-          "text": "Du schweigst, weil Can dein Bruder ist."
+          "text": "Du schweigst, weil du für Can Schmiere gestanden hast und dich mitschuldig fühlst."
         }
       ],
-      "ziel": "Du willst deinen Bruder Can schützen.",
+      "ziel": "Du willst Can schützen.",
       "besetzung": "Jede Person kann Zeynep spielen, egal welches Geschlecht sie hat."
     },
     {
@@ -64,7 +64,7 @@
           "text": "Um 22:00 Uhr hat Herr Schneider leise Musik verlangt und gedroht, deine Box einzukassieren."
         },
         {
-          "text": "Um 23:55 Uhr hat das Geburtstagskind deine Kopfhörer mit lauter Musik bekommen."
+          "text": "Um 23:55 Uhr hast du dem Geburtstagskind deine großen Kopfhörer aufgesetzt und laute Musik laufen lassen."
         }
       ],
       "verbirgt": [

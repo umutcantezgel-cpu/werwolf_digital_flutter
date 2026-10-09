@@ -9,10 +9,10 @@
       "runde": 2,
       "nr": 1,
       "partner": "murat",
-      "thema": "Auffälliges im Dunkeln",
+      "thema": "Wer wollte raus?",
       "ziel": "Ich will wissen, ob im Dunkeln jemand raus wollte.",
       "preisgabe": [],
-      "text": "Ist dir im Dunkeln was Komisches aufgefallen? Ich fahr nachher alle heim. Da muss ich wissen, ob jemand raus wollte."
+      "text": "Ich fahr nachher alle heim, da muss ich wissen, wer raus wollte. Im Dunkeln sieht keiner viel. Stimmt das denn so?"
     },
     {
       "id": "g_serkan_2_2",
@@ -21,11 +21,11 @@
       "nr": 2,
       "partner": "meryem",
       "thema": "Der Platz am Tor",
-      "ziel": "Ich will die Angaben der anderen prüfen, ohne selbst verdächtig zu wirken.",
+      "ziel": "Ich will die Aussagen der anderen prüfen, ohne selbst verdächtig zu wirken.",
       "preisgabe": [
         "beobachtung:b_serkan_tor"
       ],
-      "text": "Du, ich stand von kurz vor zwölf bis nach zwölf am Außentor. Das Tor war zu, und keiner ist hinaus. Und du? Erzähl mal genau, was du da gemacht hast."
+      "text": "Ab kurz vor zwölf hab ich am Außentor gestanden, bis kurz danach. Das Tor war zu, raus ist keiner. Stimmt das wirklich, was du vorhin gesagt hast?"
     },
     {
       "id": "g_serkan_2_3",
@@ -36,7 +36,7 @@
       "thema": "Unterwegs im Dunkeln?",
       "ziel": "Ich will wissen, ob im Dunkeln jemand ungewöhnlich unterwegs war.",
       "preisgabe": [],
-      "text": "Warst du im Dunkeln eigentlich irgendwo unterwegs? Ist dir dabei jemand aufgefallen?"
+      "text": "Das Außentor war zu, das wissen alle. Da passt etwas nicht zusammen, oder?"
     },
     {
       "id": "g_aylin_2_1",
@@ -49,7 +49,7 @@
       "preisgabe": [
         "beobachtung:b_aylin_quittung"
       ],
-      "text": "Ahmet, auf Herrn Schneiders Quittungszettel steht: Miete, null Euro. Wie kommt das?"
+      "text": "Ahmet, auf Herrn Schneiders Quittungszettel steht: Miete, null Euro. Passt das zu dem, was du vorhin gesagt hast?"
     },
     {
       "id": "g_aylin_2_2",
@@ -60,7 +60,7 @@
       "thema": "Genau erzählen",
       "ziel": "Ich will genau wissen, wer beim Knall wo stand, ohne gleich über Geld zu reden.",
       "preisgabe": [],
-      "text": "Erzähl mal genau, wo du beim Knall warst. Da will ich nichts übersehen."
+      "text": "Beim Knall war es dunkel, da sieht man nicht viel. Wie will man da genau gesehen haben, wer wo stand?"
     },
     {
       "id": "g_aylin_2_3",
@@ -71,7 +71,7 @@
       "thema": "Auffälliges am Buffet",
       "ziel": "Ich will wissen, ob am Buffet jemand auffällig war.",
       "preisgabe": [],
-      "text": "Was war vorhin am Buffet los? Hat sich da jemand komisch benommen?"
+      "text": "Als es kurz vor Mitternacht knallte, war es stockdunkel. Da passt doch etwas nicht zusammen, oder?"
     },
     {
       "id": "g_kaan_2_1",
@@ -84,7 +84,7 @@
       "preisgabe": [
         "beobachtung:b_wojtek_vorbei"
       ],
-      "text": "Im Dunkeln hat sich jemand an mir vorbeigedrängt, an der Bogentür zum Turm. Wo warst du da eigentlich?"
+      "text": "An der Bogentür zum Turm ist im Dunkeln jemand an mir vorbeigekommen. Wie passt das zu dem, was du vorhin gesagt hast?"
     },
     {
       "id": "g_kaan_2_2",
@@ -93,11 +93,11 @@
       "nr": 2,
       "partner": "olli",
       "thema": "Was wolltest du mit Herrn Schneider?",
-      "ziel": "Ich will wissen, was Olli mit Herrn Schneider besprechen wollte.",
+      "ziel": "Ich will wissen, ob Olli mit Herrn Schneider wirklich geredet hat.",
       "preisgabe": [
         "beobachtung:b_wojtek_olli_satz"
       ],
-      "text": "Olli, um acht vor zwölf hast du mir Eis versprochen. Und dann wolltest du mit Herrn Schneider reden. Was genau wolltest du von ihm?"
+      "text": "Olli, um acht vor zwölf wolltest du mir Eis holen. Und Herrn Schneider wolltest du danach ansprechen. Was ist daraus geworden?"
     },
     {
       "id": "g_kaan_2_3",
@@ -108,7 +108,7 @@
       "thema": "Olli nach dem Knall",
       "ziel": "Ich will wissen, ob jemand Olli nach dem Knall gesehen hat.",
       "preisgabe": [],
-      "text": "Hast du Olli nach dem Knall irgendwo gesehen?"
+      "text": "Kurz nach dem Knall lag alles im Dunkeln. Hast du Olli da gesehen? Passt das zusammen, wenn es so dunkel war?"
     },
     {
       "id": "g_dilara_2_1",
@@ -121,7 +121,7 @@
       "preisgabe": [
         "beobachtung:b_azra_tasche"
       ],
-      "text": "Fatma, deine Tasche war um Viertel vor zwölf auffällig prall. Was war da drin?"
+      "text": "Fatma, deine Tasche war um Viertel vor zwölf ziemlich prall. Stimmt das denn so?"
     },
     {
       "id": "g_dilara_2_2",
@@ -129,12 +129,12 @@
       "runde": 2,
       "nr": 2,
       "partner": "leyla",
-      "thema": "Wie genau beim Knall?",
-      "ziel": "Ich will erfahren, wer beim Knall am Buffet stand.",
+      "thema": "Passt das zusammen?",
+      "ziel": "Ich will sehen, ob mein Gegenüber bei seinen Worten bleibt.",
       "preisgabe": [
         "beobachtung:b_azra_versteck"
       ],
-      "text": "Wie genau warst du beim Knall? Ich kauerte am rechten Buffettisch und blieb dort, bis es wieder hell wurde."
+      "text": "Ich kauerte am rechten Buffettisch und blieb dort, bis es wieder hell wurde. Passt das zu dem, was du vorhin gesagt hast?"
     },
     {
       "id": "g_dilara_2_3",
@@ -145,7 +145,7 @@
       "thema": "Nach dem Knall",
       "ziel": "Ich will wissen, ob nach dem Knall jemand auffällig war.",
       "preisgabe": [],
-      "text": "Ist dir nach dem Knall irgendwas komisch vorgekommen?"
+      "text": "Nach dem Knall war alles dunkel, das weiß jeder. Stimmt das, was du bisher gesagt hast?"
     }
   ]
 }

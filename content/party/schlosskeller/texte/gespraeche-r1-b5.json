@@ -9,7 +9,7 @@
       "runde": 1,
       "nr": 1,
       "partner": "ahmet",
-      "thema": "Wo warst du beim Knall?",
+      "thema": "Die Theke um drei vor zwölf",
       "ziel": "Ich will hören, wie Ahmet seinen Platz beim Knall erklärt.",
       "preisgabe": [
         "beobachtung:b_damir_an_der_theke"
@@ -22,10 +22,10 @@
       "runde": 1,
       "nr": 2,
       "partner": "serkan",
-      "thema": "Wer stand an der Theke?",
+      "thema": "Wer hielt sich an der Theke auf?",
       "ziel": "Ich will wissen, ob jemand an der Theke etwas Auffälliges gesehen hat.",
       "preisgabe": [],
-      "text": "Hast du beim Knall jemanden an der Theke gesehen? Erzähl mal, was dir aufgefallen ist."
+      "text": "Hast du beim Knall jemanden gesehen? Erzähl mal, was dir aufgefallen ist."
     },
     {
       "id": "g_enes_1_3",
@@ -33,7 +33,7 @@
       "runde": 1,
       "nr": 3,
       "partner": "baran",
-      "thema": "Was hast du gehört?",
+      "thema": "Richtung des Knalls",
       "ziel": "Ich will wissen, ob jemand aus Richtung der Theke etwas gehört hat.",
       "preisgabe": [],
       "text": "Was hast du beim Knall gehört? Aus welcher Richtung kam es, deiner Meinung nach?"
@@ -68,10 +68,10 @@
       "runde": 1,
       "nr": 3,
       "partner": "murat",
-      "thema": "Der Durchgang im Dunkeln",
+      "thema": "Wer war im Dunkeln unterwegs?",
       "ziel": "Ich will wissen, ob im Dunkeln jemand im Durchgang war.",
       "preisgabe": [],
-      "text": "Ist dir im Dunkeln im Durchgang was aufgefallen? Erzähl mal, was du gesehen hast."
+      "text": "Wo warst du im Dunkeln? Erzähl mal, was du gesehen hast."
     },
     {
       "id": "g_hakan_1_1",
@@ -95,7 +95,7 @@
       "thema": "Wie war das beim Knall?",
       "ziel": "Ich will wissen, wo mein Gegenüber beim Knall war, und die Stimmung ruhig halten.",
       "preisgabe": [],
-      "text": "Lass uns kurz ruhig über den Knall reden. Wo warst du da?"
+      "text": "Lass uns kurz ruhig über den Knall reden. Wo warst du denn?"
     },
     {
       "id": "g_hakan_1_3",
@@ -103,10 +103,10 @@
       "runde": 1,
       "nr": 3,
       "partner": "serkan",
-      "thema": "Wer war am Außentor?",
+      "thema": "Kurz vor dem Knall",
       "ziel": "Ich will wissen, ob am Außentor in der Zeit jemand vorbeigekommen ist.",
       "preisgabe": [],
-      "text": "Was war am Außentor los, kurz vor dem Knall? Hast du da jemanden gesehen?"
+      "text": "Wo warst du kurz vor dem Knall? Hast du etwas bemerkt?"
     },
     {
       "id": "g_tugba_1_1",
@@ -115,11 +115,11 @@
       "nr": 1,
       "partner": "detective",
       "thema": "Wer fehlt für die Torte?",
-      "ziel": "Ich will wissen, wo die fehlenden Leute gerade sind, damit die Torte um halb eins kommt.",
+      "ziel": "Ich will wissen, wo die fehlenden Leute angeblich gerade sind, damit die Torte um halb eins kommt.",
       "preisgabe": [
         "beobachtung:b_tugba_notiz"
       ],
-      "text": "Hör mal, um drei vor zwölf stand in meinem Notizbuch, wer für die Torte fehlt. Außerdem steht drin, wo die Leute nach eigener Auskunft gerade sind. Wo bist du gerade?"
+      "text": "Hör mal, um drei vor zwölf stand in meinem Notizbuch, wer für die Torte fehlt. Außerdem steht drin, wo die Leute angeblich gerade sind. Wo bist du gerade?"
     },
     {
       "id": "g_tugba_1_2",

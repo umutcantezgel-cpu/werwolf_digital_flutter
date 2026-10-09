@@ -14,7 +14,7 @@
       "preisgabe": [
         "beobachtung:b_damir_an_der_theke"
       ],
-      "text": "Olli, sag mir ehrlich, wo du um drei vor zwölf warst. Ich hab dich an der Theke gesehen."
+      "text": "Olli, um drei vor zwölf hab ich dich bei der Theke erkannt. Sag mir ehrlich, wie das zu deiner Erzählung passt."
     },
     {
       "id": "g_enes_3_2",
@@ -22,10 +22,10 @@
       "runde": 3,
       "nr": 2,
       "partner": "emine",
-      "thema": "Angaben nebeneinanderlegen",
-      "ziel": "Ich will herausfinden, ob mein Gegenüber beim Knall etwas mitbekommen hat, das meine Angaben stützt.",
+      "thema": "Versionen nebeneinanderlegen",
+      "ziel": "Ich will herausfinden, ob mein Gegenüber beim Knall etwas mitbekommen hat, das meine Version stützt.",
       "preisgabe": [],
-      "text": "Lass uns unsere Angaben nebeneinanderlegen. Sag mir, was du beim Knall mitbekommen hast."
+      "text": "Lass uns vergleichen, was wir gesagt haben. Sag mir, was du beim Knall mitbekommen hast."
     },
     {
       "id": "g_enes_3_3",
@@ -34,9 +34,9 @@
       "nr": 3,
       "partner": "zeynep",
       "thema": "Ein Tee zwischendurch",
-      "ziel": "Ich will jemanden auf meine Seite holen, damit der Abend ruhig weitergeht.",
+      "ziel": "Ich will wissen, wer an der Vorratstür war, und den Abend ruhig halten.",
       "preisgabe": [],
-      "text": "Du und ich, wir halten den Abend zusammen. Ich mach uns einen Tee, ob wir wollen oder nicht."
+      "text": "Ich mach uns einen Tee, ob wir wollen oder nicht. Wer war vorhin an der Vorratstür? Sag's mir, wie du es siehst."
     },
     {
       "id": "g_selin_3_1",
@@ -45,9 +45,9 @@
       "nr": 1,
       "partner": "kaan",
       "thema": "Hilfe mit der Rüstung",
-      "ziel": "Ich will jemanden als Verbündeten gewinnen, damit die Rüstung aus dem Turmgang verschwindet.",
+      "ziel": "Ich will wissen, was mein Gegenüber über den Schlüsselbund denkt, und die Rüstung soll weg.",
       "preisgabe": [],
-      "text": "Kannst du mir helfen? Die Rüstung muss aus dem Turmgang weg. Ich hab vor nichts Angst außer vor ihr."
+      "text": "Die Rüstung muss aus dem Turmgang weg, das ist mir wichtig. Ich hab vor nichts Angst außer vor ihr. Und du, wo steckt der Schlüsselbund deiner Meinung nach?"
     },
     {
       "id": "g_selin_3_2",
@@ -55,12 +55,12 @@
       "runde": 3,
       "nr": 2,
       "partner": "zeynep",
-      "thema": "Das leuchtende Gesicht",
-      "ziel": "Ich will Klarheit darüber, ob mein Gegenüber das Gesicht auch gesehen hat.",
+      "thema": "Das Gesicht an der Bogentür",
+      "ziel": "Ich will wissen, ob mein Gegenüber das Gesicht auch gesehen hat.",
       "preisgabe": [
         "beobachtung:b_selin_gesicht"
       ],
-      "text": "Das mit dem leuchtenden Gesicht lass ich nicht auf sich beruhen. Ich weiß genau, was ich zur Bogentür hin gesehen habe."
+      "text": "Das mit dem leuchtenden Gesicht lass ich nicht auf sich beruhen. Zur Bogentür huschte es, das weiß ich genau. Leg du dagegen, was du gesehen hast."
     },
     {
       "id": "g_selin_3_3",
@@ -69,9 +69,9 @@
       "nr": 3,
       "partner": "baran",
       "thema": "Was beim Knall zu hören war",
-      "ziel": "Ich will Klarheit darüber, was beim Knall zu hören war.",
+      "ziel": "Ich will wissen, was beim Knall zu hören war.",
       "preisgabe": [],
-      "text": "Ich will bei dem Knall endlich Klarheit. Was hast du dabei gehört, und wer war in der Nähe?"
+      "text": "Was hast du dabei gehört, und wer war in der Nähe?"
     },
     {
       "id": "g_hakan_3_1",
@@ -80,9 +80,9 @@
       "nr": 1,
       "partner": "leyla",
       "thema": "Den Abend ruhig zu Ende bringen",
-      "ziel": "Ich will einen Verbündeten gewinnen, damit der Abend ohne Streit endet.",
+      "ziel": "Ich will den Abend ohne Streit beenden und den Schlüsselbund ruhig besprechen.",
       "preisgabe": [],
-      "text": "Lass uns den Abend ruhig zu Ende bringen. Ohne Streit geht das am besten, finde ich."
+      "text": "Lass uns den Abend ruhig zu Ende bringen. Ohne Streit geht das am besten, finde ich. Wo, glaubst du, steckt der Schlüsselbund?"
     },
     {
       "id": "g_hakan_3_2",
@@ -95,7 +95,7 @@
       "preisgabe": [
         "beobachtung:b_pawel_schneider"
       ],
-      "text": "Ich will, dass wir Herrn Schneider heute in Ruhe lassen. Seine Strenge kommt daher, dass er jeden Schaden der Stiftung melden muss."
+      "text": "Ich will, dass Herr Schneider heute seine Ruhe hat. Was der Stiftung kaputtgeht, muss er melden. Daher kommt seine Strenge. Wer hat vorhin an der Vorratstür gestanden, weißt du das?"
     },
     {
       "id": "g_hakan_3_3",
@@ -115,9 +115,9 @@
       "nr": 1,
       "partner": "johanna",
       "thema": "Die Torte um halb eins",
-      "ziel": "Ich will einen Verbündeten gewinnen, damit die Torte um halb eins auf den Tisch kommt.",
+      "ziel": "Ich will hören, wer vorhin an der Vorratstür stand, damit die Torte um halb eins auf den Tisch kommt.",
       "preisgabe": [],
-      "text": "Die Torte kommt um halb eins auf den Tisch. Bist du dann dabei? Ich brauch jemanden, der mithilft."
+      "text": "Die Torte kommt um halb eins auf den Tisch. Wer ist vorhin durch die Vorratstür gegangen? Ich schreib's mir auf."
     },
     {
       "id": "g_tugba_3_2",
@@ -126,9 +126,9 @@
       "nr": 2,
       "partner": "murat",
       "thema": "Der Plan für die Torte",
-      "ziel": "Ich will, dass mein Gegenüber fest zusagt, dass die Torte um halb eins fertig ist.",
+      "ziel": "Ich will wissen, ob mein Gegenüber den Schlüsselbund gesehen hat, damit die Torte um halb eins fertig ist.",
       "preisgabe": [],
-      "text": "Kann ich mich auf dich verlassen? Die Torte muss um halb eins fertig sein."
+      "text": "Die Torte muss um halb eins fertig sein. Den Schlüsselbund hast du nicht zufällig gesehen?"
     },
     {
       "id": "g_tugba_3_3",
@@ -137,11 +137,11 @@
       "nr": 3,
       "partner": "dilara",
       "thema": "Wer fehlt noch?",
-      "ziel": "Ich will, dass mein Gegenüber klar sagt, wo es nach eigener Auskunft gerade ist.",
+      "ziel": "Ich will hören, wo mein Gegenüber angeblich gerade ist, und das mit meiner Liste vergleichen.",
       "preisgabe": [
         "beobachtung:b_tugba_notiz"
       ],
-      "text": "Ich brauch jetzt Klarheit. In meinem Notizbuch steht, wer für die Torte fehlt und wo die Leute gerade sind. Sag mir klar, wo du gerade bist."
+      "text": "Auf meiner Liste fehlen ein paar Leute für die Torte, samt ihrem angeblichen Platz. Leg du dagegen, was du gesehen hast."
     }
   ]
 }

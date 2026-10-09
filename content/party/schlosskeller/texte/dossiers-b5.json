@@ -52,7 +52,7 @@
     },
     {
       "rolle": "hakan",
-      "wer": "Du bist Pawel, der Vermittler. Du machst gerade dein Referendariat in Jura und schlichtest seit der Schulzeit jeden Streit. Du sitzt ruhig und aufrecht am Tisch und beobachtest die Gruppe. Man erkennt dich an deiner schokobraunen Steppjacke, der dunkelbraunen Ledertasche neben dir und deiner Teetasse.",
+      "wer": "Du bist Pawel, der Vermittler. Du machst gerade deine Ausbildung zum Juristen und schlichtest seit der Schulzeit jeden Streit. Du sitzt ruhig und aufrecht am Tisch und beobachtest die Gruppe. Man erkennt dich an deiner schokobraunen Steppjacke, der dunkelbraunen Ledertasche neben dir und deiner Teetasse.",
       "weiss": [
         {
           "ref": "beobachtung:b_pawel_schneider"
@@ -74,7 +74,7 @@
     },
     {
       "rolle": "tugba",
-      "wer": "Du bist Tugba, die Geburtstags-Planerin. Du leitest Projekte bei der Arbeit und planst sogar Geburtstage mit Ablaufplan. Den Ablaufplan für diesen Abend hast du geschrieben. Man erkennt dich an deinem karminroten Jackett, der schmalen Metallbrille und dem Notizbuch mit goldenem Einband.",
+      "wer": "Du bist Tugba, die Geburtstags-Planerin. Du leitest Projekte bei der Arbeit und planst sogar Geburtstage mit Ablaufplan. Den Ablaufplan für diesen Abend hast du geschrieben. Man erkennt dich an deinem karminroten Jackett, dem goldfarbenen Kopftuch, der schmalen Metallbrille und dem Notizbuch mit goldenem Einband.",
       "weiss": [
         {
           "ref": "beobachtung:b_tugba_notiz"

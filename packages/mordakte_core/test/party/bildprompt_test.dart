@@ -100,8 +100,9 @@ void main() {
       for (final g in geschlechter) {
         final id = _kennungen(f)[geschlechter.indexOf(g)];
         final p = personen.singleWhere((p) => p.id == id);
-        // Die Signaturfarbe steht am ersten Kleidungsstück (E-028).
-        expect(p.prompt, contains('wearing $farbe '), reason: id);
+        // Die Signaturfarbe steht an der Kleidung: am ersten Stück oder dort, wo bild.json `{farbe}` setzt (E-028, E-029).
+        expect(p.prompt.substring(p.prompt.indexOf('wearing ')), contains('$farbe '), reason: id);
+        expect(p.prompt, isNot(contains('{farbe}')), reason: id);
         expect(_worte(p.prompt), contains(g == 'w' ? 'woman' : 'man'), reason: id);
         final kopf = _kopfWort[look['kopf']];
         if (kopf != null) expect(_worte(p.prompt), contains(kopf), reason: '$id (kopf ${look['kopf']})');

@@ -358,7 +358,7 @@
             "beobachtung:b_damir_an_der_theke",
             "beobachtung:b_detektiv_gehoert"
           ],
-          "text": "Damir stand um 23:57 an der Theke, wo es gescheppert hat. Wer dort im Dunkeln kauerte, weiß, wer beim Scheppern wo war. Joannas Foto zeigt nur einen Streit vor dem Ausfall."
+          "text": "Damir stand um 23:57 an der Theke, wo es gescheppert hat. Wer dort im Dunkeln kauerte, weiß, wer beim Scheppern wo war."
         }
       }
     },
@@ -403,7 +403,7 @@
             "beobachtung:b_emine_versteck",
             "beobachtung:b_detektiv_gehoert"
           ],
-          "text": "Emine duckte sich beim Knall hinter den linken Buffettisch, wenige Schritte von der Theke. Sie weiß, wer neben ihr kauerte. Tugbas Notizbuch zeigt nur, was die Leute über sich behaupten."
+          "text": "Emine duckte sich beim Knall hinter den linken Buffettisch, wenige Schritte von der Theke. Sie weiß, wer neben ihr kauerte."
         }
       }
     },
@@ -448,7 +448,7 @@
             "beobachtung:b_azra_versteck",
             "beobachtung:b_detektiv_gehoert"
           ],
-          "text": "Azra duckte sich beim Knall am rechten Buffettisch, nahe der Theke. Sie weiß, wer neben ihr kauerte. Tim weiß nur, warum der Strom ausfiel."
+          "text": "Azra duckte sich beim Knall am rechten Buffettisch, nahe der Theke. Sie weiß, wer neben ihr kauerte."
         }
       }
     },
@@ -500,7 +500,8 @@
           "kette": [
             "fakt:f_alibi_ahmet",
             "beobachtung:b_lejla_ahmet_theke",
-            "beobachtung:b_hana_umschlag"
+            "beobachtung:b_hana_umschlag",
+            "luege:luege_ahmet_servietten"
           ],
           "text": "Ahmet war beim Scheppern bei Damir, hat aber wegen seines Umschlags gelogen. Was er in den Ascheneimer warf, erklärt das."
         },
@@ -508,7 +509,8 @@
           "kette": [
             "fakt:f_alibi_ahmet",
             "beobachtung:b_lejla_ahmet_theke",
-            "beobachtung:b_hana_umschlag"
+            "beobachtung:b_hana_umschlag",
+            "luege:luege_ahmet_servietten"
           ],
           "text": "Ahmet war beim Scheppern bei Damir, hat aber wegen seines Umschlags gelogen. Was er in den Ascheneimer warf, erklärt das."
         },
@@ -520,7 +522,7 @@
             "beobachtung:b_marek_gesicht",
             "merkmal:can"
           ],
-          "text": "Ahmet, Fatma und Olli haben ein Alibi für das Scheppern, Can hat keins. Vier Gäste sahen ein leuchtendes Gesicht, und seine Bauchtasche ist ausgebeult."
+          "text": "Ahmet, Fatma und Olli haben ein Alibi für das Scheppern, Can hat keins. Marek sah ein leuchtendes Gesicht, und Cans Hand steckt tief in der Bauchtasche seines Pullis."
         }
       }
     },
@@ -563,9 +565,10 @@
         "ahmet": {
           "kette": [
             "fakt:f_alibi_fatma",
-            "beobachtung:b_azra_tasche"
+            "beobachtung:b_azra_tasche",
+            "luege:luege_fatma_tasche"
           ],
-          "text": "Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher."
+          "text": "Fatma war beim Scheppern bei Emine. Ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher."
         },
         "fatma": {
           "kette": [
@@ -577,16 +580,18 @@
         "olli": {
           "kette": [
             "fakt:f_alibi_fatma",
-            "beobachtung:b_azra_tasche"
+            "beobachtung:b_azra_tasche",
+            "luege:luege_fatma_tasche"
           ],
-          "text": "Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher."
+          "text": "Fatma war beim Scheppern bei Emine. Ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher."
         },
         "can": {
           "kette": [
             "fakt:f_alibi_fatma",
-            "beobachtung:b_azra_tasche"
+            "beobachtung:b_azra_tasche",
+            "luege:luege_fatma_tasche"
           ],
-          "text": "Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher."
+          "text": "Fatma war beim Scheppern bei Emine. Ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher."
         }
       }
     },
@@ -747,7 +752,7 @@
       "runde": 3,
       "nr": 2,
       "art": "gegenstand",
-      "frage": "Was untersuchst du jetzt ganz genau?",
+      "frage": "Was untersuchst du jetzt?",
       "optionen": [
         {
           "id": "e3_2_fatma",
@@ -764,7 +769,7 @@
           "ziel": {
             "gegenstand": "kerzenstaender"
           },
-          "text": "Den Kerzenständer genau untersuchen",
+          "text": "Den Kerzenständer untersuchen",
           "fakten": [
             "f_staender_verbogen",
             "f_k_ahmet",

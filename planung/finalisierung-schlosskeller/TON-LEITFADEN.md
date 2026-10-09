@@ -27,6 +27,7 @@ Verbindlich für alle Autoren, Prüfer und Bausteine. Vorbild für Bewährtes is
 - In Vorlesetexten stehen Uhrzeiten und Geldbeträge in Worten („zwei vor zwölf“, „zweitausend Euro“). Auf Karten und in Dossiers sind „23:58 Uhr“ und „2.000 €“ erlaubt.
 - In Vorlesetexten keine Abkürzungen („ca.“, „z. B.“, „Nr.“) und keine Klammern.
 - Aussprache steht nie im Text, sondern im Feld `aussprache` der Figur.
+- Gebräuchliche Lehnwörter des Alltags (Handy, Box, Design, Catering, Hobby, Dips) gelten nicht als Anglizismen. Gemeint sind Wörter, die Freunde Ende zwanzig nicht benutzen würden (E-029).
 
 ## 5. Fachwortliste (Ersatz ist Pflicht)
 | Nicht verwenden | Stattdessen |

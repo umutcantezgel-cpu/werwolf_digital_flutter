@@ -222,13 +222,14 @@ void main() {
       expect(orte.where((o) => o.startsWith('texte/')), unorderedEquals(dateien));
     });
 
-    test('nur der Erzähler wird vorgelesen', () {
+    test('vorgelesen werden nur Erzähler und Bonus-Hinweise (E-029)', () {
       final index = leseJson('$repoWurzel/content/party/schlosskeller/texte/index.json');
       final quellen = textQuellen(kanon, _probeSammlung(index));
-      final erzaehler = quellen.where((q) => q.ort.contains('erzaehler'));
+      bool gesprochen(TextQuelle q) => q.ort.contains('erzaehler') || q.ort.startsWith('bonus.json#');
+      final erzaehler = quellen.where(gesprochen);
       expect(erzaehler, isNotEmpty);
       expect(erzaehler.every((q) => q.vorlesen), isTrue);
-      expect(quellen.where((q) => !q.ort.contains('erzaehler')).any((q) => q.vorlesen), isFalse);
+      expect(quellen.where((q) => !gesprochen(q)).any((q) => q.vorlesen), isFalse);
     });
 
     test('textQuellen erfasst jede genannte Kanon-Feldart als Lesetext', () {
@@ -254,7 +255,7 @@ void main() {
       for (final a in arten) {
         expect(kanonQuellen.any((q) => q.ort.contains(a)), isTrue, reason: 'Kanon-Feldart $a fehlt');
       }
-      expect(kanonQuellen.any((q) => q.vorlesen), isFalse);
+      expect(kanonQuellen.where((q) => !q.ort.startsWith('bonus.json#')).any((q) => q.vorlesen), isFalse);
     });
   });
 

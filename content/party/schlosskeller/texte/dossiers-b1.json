@@ -59,7 +59,7 @@
           "ref": "luege:luege_fatma_tasche"
         },
         {
-          "text": "Du schweigst, weil es dir peinlich ist und die Schatulle still zurück soll. Du wolltest nur die Reliefs auf dem Deckel abzeichnen und die Schatulle am Montag zurückbringen."
+          "text": "Du schweigst, weil es dir peinlich ist und die Schatulle still zurückkommen soll. Du wolltest nur die Verzierungen auf dem Deckel abzeichnen und die Schatulle am Montag zurückbringen."
         }
       ],
       "ziel": "Du willst die Schatulle still zurückbringen, ohne dass es die anderen erfahren.",
@@ -124,7 +124,7 @@
           "ref": "luege:luege_can_maske"
         },
         {
-          "text": "Du schweigst, weil dein Streich nicht auffliegen soll und weil deine Schwester Zeynep für dich Schmiere gestanden hat."
+          "text": "Du schweigst, weil dein Streich nicht auffliegen soll und weil Zeynep für dich Schmiere gestanden hat."
         }
       ],
       "ziel": "Dein Streich darf nicht auffliegen.",
