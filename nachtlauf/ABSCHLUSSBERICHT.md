@@ -76,12 +76,14 @@ Messwerte aus diesem Lauf:
 ## 4. Prüfungen durch unabhängige Prüfer
 
 - **Figuren (Z-03):**
-  - Es gab 20 Sichtprüfungen. Die Prüfer maßen anfangs sehr verschieden (E30). Danach galt ein fester Maßstab (Z-03, Punkt 5a).
+  - Es gab 22 Sichtprüfungen. Die Prüfer maßen anfangs sehr verschieden (E30). Danach galt ein fester Maßstab (Z-03, Punkt 5a).
   - Auch mit festem Maßstab werteten Prüfer Fälle knapp an der Schwelle unterschiedlich (z. B. BW/B12, DET/B24). Seit E40 steckt der Maßstab deshalb im Figurenvergleich selbst: gleiche Farbfamilie an Rumpf und Beinen, Größe bis 5 Sprite-Pixel und gleicher Kopf gilt als verwechselbar. Der Generator verteilt die Bewohner danach, und `karten_test` prüft es.
   - Endrunde am Kartenstand fc94af9295: Sichtprüfer 19 und 20 unabhängig voneinander mit 0 verwechselbaren Paaren und 0 Regelverstößen.
+  - Nach dem Kanon v1.0 aus main (E41) haben sich R03 (ohne Notizbuch, blaue Jeans) und R04 (Strickpullover) geändert. Neuer Kartenstand db8e0a6155: Sichtprüfer 21 und 22 melden je 0 Paare und 0 Verstöße.
   - Gefundene Fehler, die nur Menschenaugen sehen: Kopfbedeckungen in Haarfarben lasen sich als Haar (B13, B14, B34, B39). Die Regel dagegen steht jetzt im Generator und im Test.
 - **Inhalt (Z-12):**
-  - Zwölf Runden Gegenprüfung (A-702b bis m). Jede Runde fand feinere Punkte. Umgesetzt oder begründet abgewogen ist alles in E23 bis E40.
+  - Zwölf Runden Gegenprüfung bis zur ersten Abnahme (A-702b bis m), danach weitere nach dem Kanon v1.0 (A-702n/o). Jede Runde fand feinere Punkte. Umgesetzt oder begründet abgewogen ist alles in E23 bis E42.
+  - Kanon v1.0 brachte einen echten Widerspruch ins Overlay: Das Gespensterlaken ist jetzt Burgwäsche (Z-2140), unsere Stadt-Hinweise hatten es der Pension zugeschrieben. Er ist behoben, ebenso der übersehene Phasenbeginn (00:30 statt 00:25, Z-0030) und ein Harz-Rest (Osterode).
   - Darunter: das Herkunftsmuster in den Familienfeldern des Kanons (E38/E39, per Overlay, Kanon-Dateien unverändert), Altersbilder, Gruppenwörter („Putzfrau“, „Hausfrau“), Spuren-Echos in Stadttexten und eine geschlechtsbezogene Anrede der spielenden Person.
   - Letzte Runde (A-702m, Stand a7f1985): Leitplanken ja, Kanontreu ja, Plagiatsfrei ja. Ihre 5 geringen Befunde stehen nach der Abbruchregel (E40) in `FUER-DEN-NUTZER.md`.
 - **Leitplanken-Scanner:** 0 Treffer in allen Spieltexten.
@@ -105,7 +107,7 @@ Siehe `FUER-DEN-NUTZER.md`. Kurz:
 
 - Nicht gebaut: Neigen (Sensor-Abhängigkeit), Bildschirm wach halten beim Gastgeber, Suche im WLAN ohne Adresse und QR-Code, Wiederverbinden in der App, Desktop-Plattformordner.
 - **Balancing:**
-  - Spielzeit je Phase rund 8, 11 und 11 Minuten (Tempo 65/480).
+  - Spielzeit je Phase rund 7, 11 und 11 Minuten (Phase 1 seit E42 60 Spielminuten ab 00:30).
   - Bots lösen bei jeder Rollenzahl.
   - Feinabstimmung mit echten Gruppen steht aus.
 
