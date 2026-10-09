@@ -126,7 +126,7 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 | F4-BAUMEISTER-04 | Baumeister | Gruppenwahl reihum verdeckt | `lib/party/bildschirme/gruppenwahl.dart` | F4-ORCH-02 | abgenommen (10/10, E-031) |
 | F4-BAUMEISTER-05 | Baumeister | Erzählerfeld mit lokaler Stimme (abschaltbar, Wortgleich-Prüfung) | `lib/party/erzaehler_ausgabe.dart`, `lib/party/stimme_web.dart`, `stimme_stub.dart` | F4-ORCH-02 | abgenommen (9/10, E-031) |
 | F4-BAUMEISTER-06 | Baumeister | Anklage, Finale mit Rückblende-Steuerung, Auflösung für alle | `lib/party/bildschirme/anklage.dart`, `finale.dart`, `aufloesung.dart` | F4-ORCH-02 | abgenommen (9/10, E-031) |
-| F4-BAUMEISTER-07 | Baumeister | E2E-Gerüst (playwright@1.56.1, `PLAYWRIGHT_BROWSERS_PATH`, Netz- und Konsolenprüfung, Fotos, verkürzte Rundendauer per Dev-Parameter) | `tool/e2e/*` | F4-ORCH-02 | offen |
+| F4-BAUMEISTER-07 | Baumeister | E2E-Gerüst (playwright@1.56.1, `PLAYWRIGHT_BROWSERS_PATH`, Netz- und Konsolenprüfung, Fotos, verkürzte Rundendauer per Dev-Parameter) | `tool/e2e/*` | F4-ORCH-02 | erledigt (9/10, E-034) |
 | F4-BAUMEISTER-08 | Baumeister | Titel-, Intro- (mit Lacher-Rückblicken) und Resümee-Bildschirm | `lib/party/bildschirme/titel.dart`, `intro.dart`, `resuemee.dart` | F4-ORCH-02 | abgenommen (10/10, E-031) |
 | F4-BAUMEISTER-09 | Baumeister | NPC-Karte (Befragung unbesetzter Gäste) | `lib/party/bildschirme/npc_karte.dart` | F4-ORCH-02 | abgenommen (10/10, E-031) |
 | F4-ORCH-06 | ORCH | Party-Tafel und Möbel im Renderer: Tische ohne Flaschen und Messingleuchter (Teekanne, Tassen, Karaffe, elektrische Teelichter), Teekocher, Kaffeemaschine, Wendeltreppe, Detektiv-Look (E-016) | `lib/game/scene/prop_painter.dart` (optional, nur Partymodus) | F1-ORCH-11 | erledigt (E-031: Party-Requisiten ohne Flaschen, kalter Kamin, Rüstung, Wendeltreppe, Jackenständer, Kerzenständer am Boden) |
@@ -143,7 +143,7 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 |---|---|---|---|---|---|
 | F5-ORCH-01 | ORCH | NPC-Karten im Druck; Druck-Datenmodell mit neutralen Codes; Kernrollen-Fassungen versiegelt mit Schlüsselkarte; Ermittlungsbogen mit Ausschlussregeln; Stimmkarten-Auszählung | `party/druck/modell.dart` | F3 | erledigt (E-031, E-033: Modell, Gerüst, CLI; Fassungen tragen Rollenname und Code außen) |
 | F5-BAUMEISTER-01..03 | Baumeister | PDF-Layouts: Spielleitungsheft, Detektivbogen, Rollenhefte · Indiz- und Stimmkarten · Umschläge und versiegeltes Auflösungsheft | `party/druck/<teil>.dart` | F5-ORCH-01 | abgenommen (10, 9, 10 von 10; E-033) |
-| F5-BAUMEISTER-04 | Baumeister | CLI `party_druck` und App-Download | `bin/party_druck.dart`, `lib/party/druck_download.dart` | F5-BAUMEISTER-01..03 | offen |
+| F5-BAUMEISTER-04 | Baumeister | CLI `party_druck` und App-Download | `bin/party_druck.dart`, `lib/party/druck_tafel.dart`, `lib/party/druck_speichern*.dart` | F5-BAUMEISTER-01..03 | erledigt (ORCH, E-034) |
 | F5-TEST-01 | TEST | Besetzungsprüfer 4–20 (F-09) | `test/party/besetzung_test.dart` | F5-ORCH-01 | offen |
 | F5-TEST-02 | TEST | Druck gegen Simulator (100 Spiele), Überlaufmessung, Wortgleichheit (F-14, F-10) | `test/party/druck_test.dart` | F5-BAUMEISTER-04 | offen |
 | F5-DRUCK-01..02 | DRUCK | gerenderte Seiten prüfen | – (Bericht) | F5-BAUMEISTER-04 | offen |

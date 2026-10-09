@@ -896,3 +896,20 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
 - **F6-TEST-01 vorgezogen:**
   - `story_text_ausserhalb_test`: In `lib/party` und `druck/` steht kein Spielertext im Code. Technische Zeilen sind ausgenommen (Fehler, Messdokumente, `wo:`). Rot-Probe belegt.
   - Stand: 318 Kern-Tests grün.
+
+## E-034 · E2E-Gerüst abgenommen, Druckfassung in der App (F4-BAUMEISTER-07, F5-BAUMEISTER-04)
+- **Denkprotokoll:**
+  - Das Gerüst (`tool/e2e/e2e.mjs`, `laeufe.mjs`) fährt 80 Läufe (4 Pfade × 4 Enden × 5 Personenzahlen) und 4 Semantik-Läufe. Es prüft Ende, Pfad, Rollen, Phasenfolge, Fotostellen, Konsole, fremde Anfragen und vor dem Finale die Spoilerfreiheit des Bildschirmtexts. Ein Negativtest belegt, dass ein falsches Ende auffällt.
+  - Abnahme 9 von 10. Abzug bei Grenzen: Der Chromium-Pfad ist fest verdrahtet wie in `probe.mjs`. In diesem Container ist das richtig, anderswo hilft `PLAYWRIGHT_BROWSERS_PATH` (README).
+- **Entscheidungen:**
+  - **Takt 400 für Semantik-Läufe bestätigt.** Bei 40 ms war der neue Bildschirm beim Auslesen noch nicht gezeichnet. Die Prüfung soll den gezeichneten Bildschirm lesen, nicht die Geschwindigkeit messen. Die 80 Läufe ohne Fotos bleiben bei 40 ms.
+  - **„Nur für dich“ als Teilstring** prüft beide Marken (Rollen-Bildschirm und Druck). Das ist strenger als ein einzelner Baustein, deshalb bleibt es so.
+  - **Web-Fassung für Prüfläufe aus einem sauberen Worktree auf HEAD.** Testagenten setzen Rot-Proben in den Arbeitsbaum. Ein Build aus dem Arbeitsbaum könnte eine Mutation mitnehmen.
+  - **Druckfassung in der App (ORCH):**
+    - Bei eingestelltem Druck zeigt die Rollenvergabe eine Tafel.
+    - Sie erzeugt den Satz für Fall-Code und Personenzahl im Gerät, die Schriften kommen aus den Assets.
+    - Die acht Dateien werden einzeln angeboten, per Blob-Link über `dart:js_interop`, ohne neue Abhängigkeit und ohne Server.
+    - Ohne Browser erscheint ein Hinweis.
+    - Eigene Bibliothek `party_druck.dart`, damit `mordakte_core.dart` (Server, Spiel) ohne `pdf` bleibt.
+    - Widget-Test: 3 Fälle.
+    - `story_text_ausserhalb_test` behandelt Dateinamen wie `Inter-Bold.ttf` als technisch.
