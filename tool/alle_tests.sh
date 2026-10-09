@@ -29,6 +29,10 @@ if [ -f packages/burgstadt_core/bin/kanon.dart ]; then
   step "Ebene 1/10 · Kanon-Abgleich + Leitplanken"
   (cd packages/burgstadt_core && dart run bin/kanon.dart --pruefe 2>&1 | filter | tail -5)
 fi
+if [ -f tool/layout_pruefsumme.dart ] && [ -f hd/belege/layout_ausgang.txt ]; then
+  step "Burgstadt HD · Layout-Prüfsumme (Karten, Türen, Stationen, Bewohner, Zufallsaufrufe gleich dem Ausgang)"
+  dart run tool/layout_pruefsumme.dart --pruefe 2>&1 | filter | tail -2
+fi
 if [ -f packages/burgstadt_core/bin/erkundung.dart ]; then
   step "Ebene 6 · Welt: Erkundungsbots laufen zu jeder Tür (Kollision wie der Spieler)"
   (cd packages/burgstadt_core && dart run bin/erkundung.dart 2>&1 | filter | grep -E "Türen|Nicht erreicht|Steckenbleiber")
