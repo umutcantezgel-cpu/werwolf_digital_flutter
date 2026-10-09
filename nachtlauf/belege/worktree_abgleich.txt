@@ -1,0 +1,45 @@
+# Abgleich der Agent-Worktrees vor dem Entfernen (09.10. 11:40 Europe/Berlin, E41)
+
+Geprüft: 58 Worktrees unter .claude/worktrees/ (Agenten des Nachtlaufs).
+- Branch-Kopf in nachtlauf/burgstadt enthalten: 58 von 58
+- Nicht eingecheckte Dateien, byte-gleich im Repo: 114
+- Abweichend: 33. Das sind die ersten Lieferstände der Agenten; übernommen und danach weiterentwickelt:
+
+- nicht unter diesem Namen im Repo · agent-a1b41f0c65c9c49b1 · nachtlauf/kanon/vorschlag_stadthinweise.md
+- nicht unter diesem Namen im Repo · agent-a1b41f0c65c9c49b1 · packages/burgstadt_core/test/stadthinweise_vorschlag_test.dart
+- im Repo (weiterentwickelt) · agent-a2b1fecffe0adb454 · packages/burgstadt_core/data/innenraeume/fallorte.json · eingeführt: 2305552 Nachtlauf Phase 2: Marktplatz der Oberstadt und Innenräume
+- im Repo (weiterentwickelt) · agent-a2b1fecffe0adb454 · packages/burgstadt_core/test/innenraeume_fallorte_test.dart · eingeführt: 2305552 Nachtlauf Phase 2: Marktplatz der Oberstadt und Innenräume
+- im Repo (weiterentwickelt) · agent-a2c04af3cb8550017 · packages/burgstadt_spiel/lib/burgstadt_spiel.dart · eingeführt: 6119ef8 Nachtlauf Phase 1: Pixel-UI, Spielpaket, Flutter-Hülle, Schrift, Kanon-Parser, Le
+- im Repo (weiterentwickelt) · agent-a2c04af3cb8550017 · packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart · eingeführt: 7574641 Nachtlauf: WLAN-Spiel in der App, Detektiv-Figur, Stadtkarte/Kompass/Schnellreise,
+- im Repo (weiterentwickelt) · agent-a3d91e2461fd46fc8 · packages/pixel_engine/bin/aufstellung.dart · eingeführt: e493654 Nachtlauf Phase 2: 65 Figurenkarten (Rollen, Burgwart, Bewohner) und Figuren-Aufst
+- im Repo (weiterentwickelt) · agent-a3d91e2461fd46fc8 · packages/pixel_engine/data/figuren/karten.json · eingeführt: e493654 Nachtlauf Phase 2: 65 Figurenkarten (Rollen, Burgwart, Bewohner) und Figuren-Aufst
+- im Repo (weiterentwickelt) · agent-a3d91e2461fd46fc8 · packages/pixel_engine/test/karten_test.dart · eingeführt: e493654 Nachtlauf Phase 2: 65 Figurenkarten (Rollen, Burgwart, Bewohner) und Figuren-Aufst
+- im Repo (weiterentwickelt) · agent-a3eb5037d8c4dc998 · packages/pixel_engine/lib/src/figur/portraet.dart · eingeführt: f5002ef Nachtlauf Phase 6: Figuren Runde 3 (0 verwechselbare Paare) und Porträts mit vier
+- im Repo (weiterentwickelt) · agent-a3eb5037d8c4dc998 · packages/pixel_engine/test/portraet_test.dart · eingeführt: f5002ef Nachtlauf Phase 6: Figuren Runde 3 (0 verwechselbare Paare) und Porträts mit vier
+- im Repo (weiterentwickelt) · agent-a411d8b4d6036b8e4 · packages/pixel_engine/bin/teile_koepfe_probe.dart · eingeführt: 243b261 Nachtlauf Phase 2: Falldaten und Fallzustand, Figurenteile (68), PNG mit zlib in W
+- im Repo (weiterentwickelt) · agent-a60be2c608188a4e4 · packages/pixel_engine/data/figuren/rollen.json · eingeführt: eec0d1c Nachtlauf Phase 2: Weltmodell und begehbare Burg nach Kanon
+- im Repo (weiterentwickelt) · agent-a6296f77ce954da7c · packages/burgstadt_spiel/lib/burgstadt_spiel.dart · eingeführt: 6119ef8 Nachtlauf Phase 1: Pixel-UI, Spielpaket, Flutter-Hülle, Schrift, Kanon-Parser, Le
+- im Repo (weiterentwickelt) · agent-a6dad0733aa6eec7c · packages/burgstadt_core/bin/kanon.dart · eingeführt: 6119ef8 Nachtlauf Phase 1: Pixel-UI, Spielpaket, Flutter-Hülle, Schrift, Kanon-Parser, Le
+- im Repo (weiterentwickelt) · agent-a6dad0733aa6eec7c · packages/burgstadt_core/lib/src/kanon/kanon.dart · eingeführt: 6119ef8 Nachtlauf Phase 1: Pixel-UI, Spielpaket, Flutter-Hülle, Schrift, Kanon-Parser, Le
+- im Repo (weiterentwickelt) · agent-a6dad0733aa6eec7c · packages/burgstadt_core/test/kanon_test.dart · eingeführt: 6119ef8 Nachtlauf Phase 1: Pixel-UI, Spielpaket, Flutter-Hülle, Schrift, Kanon-Parser, Le
+- im Repo (weiterentwickelt) · agent-a76aead57c5245f5b · packages/burgstadt_core/data/stadt/bewohner.json · eingeführt: aa2fe8a Nachtlauf Phase 1: Stadtdaten – 160 Häuser mit Inschriften und Geschichten, 44 
+- im Repo (weiterentwickelt) · agent-a76aead57c5245f5b · packages/burgstadt_core/data/stadt/haeuser.json · eingeführt: aa2fe8a Nachtlauf Phase 1: Stadtdaten – 160 Häuser mit Inschriften und Geschichten, 44 
+- im Repo (weiterentwickelt) · agent-a76aead57c5245f5b · packages/burgstadt_core/test/stadtdaten_test.dart · eingeführt: aa2fe8a Nachtlauf Phase 1: Stadtdaten – 160 Häuser mit Inschriften und Geschichten, 44 
+- im Repo (weiterentwickelt) · agent-a7b0a6fadf55b4e19 · packages/pixel_engine/lib/src/font/schrift_normal.dart · eingeführt: 9655b8d Nachtlauf Phase 1: Schriftformat, burgstadt_core-Gerüst, Aufträge Welle 1
+- im Repo (weiterentwickelt) · agent-a83eb9bddd8389aef · packages/burgstadt_spiel/data/texte/erzaehler.json · eingeführt: fc40abd Nachtlauf Phase 3/6: Erkundungsbots (Ebene 6, A-307a), Tutorial und Erzähler (A-6
+- im Repo (weiterentwickelt) · agent-a83eb9bddd8389aef · packages/burgstadt_spiel/data/texte/tutorial.json · eingeführt: fc40abd Nachtlauf Phase 3/6: Erkundungsbots (Ebene 6, A-307a), Tutorial und Erzähler (A-6
+- im Repo (weiterentwickelt) · agent-aa2fdad65ba6d4daf · packages/pixel_engine/bin/texturprobe.dart · eingeführt: 6269e63 Nachtlauf Phase 1: Texturen-Bibliothek, prozedurale Klänge und Musik, Tonausgabe
+- im Repo (weiterentwickelt) · agent-ab70355f592fcb379 · packages/burgstadt_core/data/innenraeume/haeuser.json · eingeführt: 2305552 Nachtlauf Phase 2: Marktplatz der Oberstadt und Innenräume
+- im Repo (weiterentwickelt) · agent-ac664cbd162929c8c · packages/burgstadt_core/bin/leitplanken.dart · eingeführt: 6119ef8 Nachtlauf Phase 1: Pixel-UI, Spielpaket, Flutter-Hülle, Schrift, Kanon-Parser, Le
+- im Repo (weiterentwickelt) · agent-ac664cbd162929c8c · packages/burgstadt_core/lib/src/pruef/leitplanken.dart · eingeführt: 6119ef8 Nachtlauf Phase 1: Pixel-UI, Spielpaket, Flutter-Hülle, Schrift, Kanon-Parser, Le
+- im Repo (weiterentwickelt) · agent-ac664cbd162929c8c · packages/burgstadt_core/test/leitplanken_test.dart · eingeführt: 6119ef8 Nachtlauf Phase 1: Pixel-UI, Spielpaket, Flutter-Hülle, Schrift, Kanon-Parser, Le
+- im Repo (weiterentwickelt) · agent-aed9df2aecca5bc8b · packages/pixel_engine/bin/teile_kleidung_probe.dart · eingeführt: 243b261 Nachtlauf Phase 2: Falldaten und Fallzustand, Figurenteile (68), PNG mit zlib in W
+- im Repo (weiterentwickelt) · agent-aed9df2aecca5bc8b · packages/pixel_engine/data/figuren/teile_kleidung.json · eingeführt: 243b261 Nachtlauf Phase 2: Falldaten und Fallzustand, Figurenteile (68), PNG mit zlib in W
+- im Repo (weiterentwickelt) · agent-aed9df2aecca5bc8b · packages/pixel_engine/test/teile_kleidung_test.dart · eingeführt: 243b261 Nachtlauf Phase 2: Falldaten und Fallzustand, Figurenteile (68), PNG mit zlib in W
+- im Repo (weiterentwickelt) · agent-af58d4607c5424fb8 · packages/burgstadt_core/lib/burgstadt_core.dart · eingeführt: 9655b8d Nachtlauf Phase 1: Schriftformat, burgstadt_core-Gerüst, Aufträge Welle 1
+- nicht unter diesem Namen im Repo · agent-aff0ba1738810f0f2 · packages/burgstadt_core/test/faehigkeiten_vorschlag_test.dart
+
+Zu den drei Dateien, die nicht unter ihrem Namen im Repo liegen:
+- vorschlag_stadthinweise.md: alle 48 Datensätze (H-S01…24, HW-S01…24) stehen in nachtlauf/kanon/ANPASSUNG.md.
+- stadthinweise_vorschlag_test.dart: ersetzt durch packages/burgstadt_core/test/stadthinweise_test.dart (alle 10 Prüfungen plus 2 weitere).
+- faehigkeiten_vorschlag_test.dart: liegt als nachtlauf/auftraege/A-402a/faehigkeiten_vorschlag_test.dart.txt im Repo. Gegen die heutige Datei meldet er nur, dass das Infofeld beruf bei R04 den Kanon-Zusatz „(so erzählt er es)“ weglässt; das Feld liest kein Code.
