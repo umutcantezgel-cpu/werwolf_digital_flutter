@@ -42,7 +42,7 @@ class SpriteImage {
           for (final v in [a, b, c, d]) {
             if (v != kTransparent) {
               count++;
-              if (best == kTransparent || (v & 7) < (best & 7)) best = v;
+              if (best == kTransparent || (v & 15) < (best & 15)) best = v;
             }
           }
           n[y * nw + x] = count >= 2 ? best : kTransparent;
@@ -454,7 +454,7 @@ class Renderer {
             wq = wq < 0 ? 0 : (wq > 7 ? 7 : wq);
             cq = cq < 0 ? 0 : (cq > 7 ? 7 : cq);
             fq = fq < 0 ? 0 : (fq > 3 ? 3 : fq);
-            col[idx] = table[(((fq * 8 + wq) * 8 + cq) << 6) + texel];
+            col[idx] = table[((fq * 8 + wq) * 8 + cq) * LightTable.colors + texel];
             dep[idx] = iz;
             written++;
           }
@@ -524,7 +524,7 @@ class Renderer {
         wq = wq < 0 ? 0 : (wq > 7 ? 7 : wq);
         cq = cq < 0 ? 0 : (cq > 7 ? 7 : cq);
         fq = fq < 0 ? 0 : (fq > 3 ? 3 : fq);
-        col[idx] = table[(((fq * 8 + wq) * 8 + cq) << 6) + c];
+        col[idx] = table[((fq * 8 + wq) * 8 + cq) * LightTable.colors + c];
         dep[idx] = iz;
       }
     }

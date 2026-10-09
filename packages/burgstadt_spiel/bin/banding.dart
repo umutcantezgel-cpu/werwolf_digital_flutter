@@ -22,11 +22,8 @@ const handyLicht = 0.9;
 /// Kamerahöhe wie im Spiel (erkundung.dart:397–403).
 const kamHoehe = 1.62;
 
-/// Stufe innerhalb der eigenen Rampe (0 = dunkelste Stufe der Rampe).
-/// Heute 8 Stufen je Rampe, Index = Rampe·8 + Stufe (pixel_engine palette.dart): `& 7`.
-/// Bei 16 Stufen je Rampe (Palette v2, STILBLATT §2: Index = Rampe·16 + Stufe) wird daraus `& 15`;
-/// nur diese Funktion ändert sich.
-int stufeVon(int index) => index & 7;
+// Stufe innerhalb der eigenen Rampe: `stufeVon` aus pixel_engine (Palette v2, 16 Stufen je Rampe,
+// Index = Rampe·16 + Stufe). Ein Sprung zwischen zwei Farben der Palette v1 zählt damit 2 Stufen.
 
 /// Luma (0..255) einer Palettenfarbe nach Rec. 709 (0,2126 R + 0,7152 G + 0,0722 B).
 double lumaVon(int index) => 0.2126 * paletteR(index) + 0.7152 * paletteG(index) + 0.0722 * paletteB(index);

@@ -1,0 +1,9 @@
+MIGRATIONSBELEG 1 · Palette v2 (P1-OPUS-03, E-035)
+Palette: 10 Rampen × 16 Stufen = 160 Farben; Palette v1 auf Ramp.at(r, s) = r·16 + 2s + 1; neue Rampen 8 Altrosa, 9 Türkis
+Lichttabelle: Übergang 4 Nebel × 8 warm × 8 kalt × 160 Farben, Suche nur über die 64 Farben der Palette v1
+Bildsatz: tool/hd_migbeleg.sh (jeder Bereich 1280×720 und 1080×2400, Belegfotos, Bildschirme, Oberstadt, Figuren, Porträts, Texturen)
+Ausgang (Basis a389b3d / 64d415f, Palette v1): 198 Bilder
+Palette v2: 198 Bilder
+MIGRATIONSBELEG · Bilder 198 · gleich 198 · anders 0 · fehlt 0
+Eichbilder (bin/eichbilder.dart): 18 von 18 byte-gleich
+Wächter: pixel_test „Palette v1 auf den ungeraden Stufen, Ramp.at-Semantik und Pal-Namen unverändert“

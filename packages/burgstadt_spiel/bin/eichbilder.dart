@@ -22,6 +22,9 @@ const _blockY = (_hoehe - _blockKante) ~/ 2; // 52
 const _nutzung = 'Aufruf (aus packages/burgstadt_spiel):\n'
     '  dart run bin/eichbilder.dart <bildordner> <loesungsdatei>';
 
+/// Stufen je Rampe in der Stufung der Palette v1 (`Ramp.at`): Der Eichsatz bleibt bildgleich.
+const _stufenV1 = 8;
+
 final _helleFarbe = Ramp.at(Ramp.stone, 6);
 final _dunkleFarbe = Ramp.at(Ramp.stone, 2);
 
@@ -98,8 +101,8 @@ int _kachelnFuer(IndexedTexture t) => _blockKante ~/ (_zoom * t.width);
 
 /// Farbe derselben Rampe wie [alt], nie [alt] selbst.
 int _andereFarbe(int alt, int rampe, _Lcg r) {
-  var c = Ramp.at(rampe, r.below(Ramp.shades));
-  if (c == alt) c = Ramp.at(rampe, (c - rampe * Ramp.shades + 1) % Ramp.shades);
+  var c = Ramp.at(rampe, r.below(_stufenV1));
+  if (c == alt) c = Ramp.at(rampe, (stufe8Von(c) + 1) % _stufenV1);
   return c;
 }
 
@@ -119,14 +122,14 @@ int _andereFarbe(int alt, int rampe, _Lcg r) {
 
 /// Rauschen auf einer Bildfläche der Welt: dominante Rampe der Fläche, 30 % der Pixel ersetzt.
 int _rauschenFlaeche(PixelBuffer b, int x0, int y0, int w, int h, _Lcg r) {
-  final zaehl = List<int>.filled(8, 0);
+  final zaehl = List<int>.filled(Ramp.count, 0);
   for (var y = y0; y < y0 + h; y++) {
     for (var x = x0; x < x0 + w; x++) {
-      zaehl[b.get(x, y) >> 3]++;
+      zaehl[rampeVon(b.get(x, y))]++;
     }
   }
   var rampe = 0;
-  for (var k = 1; k < 8; k++) {
+  for (var k = 1; k < Ramp.count; k++) {
     if (zaehl[k] > zaehl[rampe]) rampe = k;
   }
   var geaendert = 0;
@@ -172,7 +175,7 @@ IndexedTexture _schach() => IndexedTexture(32, 32, Uint8List.fromList([for (var 
 
 /// Putz mit weichem Verlauf: 16 Stufen aus zwei Rampen, von links nach rechts nach Helligkeit.
 IndexedTexture _verlaufPutz() {
-  final stufen = [for (final r in [Ramp.skin, Ramp.amber]) for (var s = 0; s < Ramp.shades; s++) Ramp.at(r, s)]
+  final stufen = [for (final r in [Ramp.skin, Ramp.amber]) for (var s = 0; s < _stufenV1; s++) Ramp.at(r, s)]
     ..sort((a, b) => _helligkeit(a).compareTo(_helligkeit(b)));
   const n = 32;
   final px = Uint8List(n * n);

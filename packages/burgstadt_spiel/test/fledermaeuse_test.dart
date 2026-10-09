@@ -76,7 +76,7 @@ void main() {
               b.pixels[y * b.width + x + 1] == kTransparent ||
               b.pixels[(y - 1) * b.width + x] == kTransparent ||
               b.pixels[(y + 1) * b.width + x] == kTransparent;
-          if (rand) expect(c & 7, lessThanOrEqualTo(4), reason: 'Bild $i bei $x/$y: helle Kontur');
+          if (rand) expect(stufe8Von(c), lessThanOrEqualTo(4), reason: 'Bild $i bei $x/$y: helle Kontur');
         }
       }
       expect(sichtbar, greaterThanOrEqualTo(15), reason: 'Bild $i: zu wenig Pixel');

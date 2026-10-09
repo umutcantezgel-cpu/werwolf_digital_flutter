@@ -106,7 +106,7 @@ class FallakteBildschirm extends Bildschirm {
       if (ui.tippflaeche(r)) auswahl = i;
       final hw = f.daten.hinweise[l[i]]!;
       final gewaehlt = i == auswahl;
-      if (gewaehlt) ui.flaeche(r, 51);
+      if (gewaehlt) ui.flaeche(r, Ramp.at(Ramp.blue, 3));
       final faden = f.faeden.any((x) => x.$1 == l[i] || x.$2 == l[i]) ? '~ ' : '';
       var t = '$faden${hw.inhalt}';
       if (ui.font.measure(t) > lr.w - 6) {

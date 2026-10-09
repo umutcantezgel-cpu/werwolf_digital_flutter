@@ -110,7 +110,7 @@ Mesh? baueSpurenMesh(List<Spur> spuren, String bereich, int phase, String schich
 final Uint8List blickFilter = () {
   final t = Uint8List(256);
   for (var i = 0; i < 256; i++) {
-    if (i >= 64) {
+    if (i >= paletteRgb.length) {
       t[i] = i;
       continue;
     }

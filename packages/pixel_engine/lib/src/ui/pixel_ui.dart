@@ -18,13 +18,13 @@ class Rechteck {
 /// Farben der Pixel-Oberfläche (nur Palette, K8-Stilblatt).
 abstract final class UiFarbe {
   static const grund = Pal.nightBlue; // Nachtblau
-  static const grundDunkel = 49;
+  static const grundDunkel = 99; // Ramp.at(blue, 1)
   static const rand = Pal.stone; // Bruchstein
-  static const randHell = 14;
+  static const randHell = 29; // Ramp.at(stone, 6)
   static const text = Pal.parchment; // Pergament
-  static const textGedimmt = 13;
+  static const textGedimmt = 27; // Ramp.at(stone, 5)
   static const akzent = Pal.candle; // Kerzenbernstein
-  static const akzentDunkel = 35;
+  static const akzentDunkel = 71; // Ramp.at(amber, 3)
   static const schatten = Pal.black;
   static const spuk = Pal.ghostCyan; // Spukcyan, sparsam
 }
@@ -163,7 +163,7 @@ class PixelUi {
     if (ausgeloest) ausgeloestImBild++;
     final grund = !aktiv
         ? UiFarbe.grundDunkel
-        : (gedrueckt ? UiFarbe.akzentDunkel : (hervorgehoben ? 51 : UiFarbe.grund));
+        : (gedrueckt ? UiFarbe.akzentDunkel : (hervorgehoben ? Ramp.at(Ramp.blue, 3) : UiFarbe.grund));
     final rand = hatFokus ? UiFarbe.akzent : (hervorgehoben ? UiFarbe.akzent : UiFarbe.rand);
     final dy = gedrueckt ? 1 : 0;
     if (!gedrueckt) fb.fillRect(r.x + 1, r.y + 1, r.w, r.h, UiFarbe.schatten);

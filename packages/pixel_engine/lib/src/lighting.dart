@@ -10,7 +10,8 @@ class LightTable {
   static const warmLevels = 8;
   static const coldLevels = 8;
   static const fogLevels = 4;
-  static const colors = 64;
+  /// Farben der Palette v2 (Zeilenlänge der Tabelle).
+  static const colors = 160;
 
   /// [fog][warm][cold][farbe]
   final Uint8List table;
@@ -59,7 +60,8 @@ class LightTable {
             r = r + (fr - r) * ft;
             g = g + (fg - g) * ft;
             b = b + (fb - b) * ft;
-            t[i++] = nearestPaletteIndexBiased(r.round(), g.round(), b.round(), p >> 3, crossRamp: crossRamp);
+            // Übergang (Migrationsbeleg 1): Suche nur über die 64 Farben der Palette v1
+            t[i++] = nearestPaletteIndexBiased(r.round(), g.round(), b.round(), p >> 4, crossRamp: crossRamp, nurV1: true);
           }
         }
       }
@@ -69,5 +71,5 @@ class LightTable {
 
   @pragma('vm:prefer-inline')
   int lookup(int color, int warm, int cold, int fog) =>
-      table[(((fog * warmLevels + warm) * coldLevels + cold) << 6) + color];
+      table[((fog * warmLevels + warm) * coldLevels + cold) * colors + color];
 }
