@@ -1,8 +1,8 @@
-Abnahme · Stand d3fdf841c582 · 2026-10-09T07:07
+Abnahme · Stand a28178c7372a · 2026-10-09T07:15
 Gesamtlauf aller Ebenen: ALLE TESTS GRÜN
 Z-01 · erfüllt · Gesamtlauf grün; Bestand: Core-Tests, validate, Server-Smoke, simulate gelaufen; Ausgangswerte phase0_ausgangstests.txt
 Z-02 · erfüllt · Belegfotos (6 Viertel, 10 Innenräume, alle Menüs; Palette + Blocktest): 2 Formate OK (26 + 26 Bilder); Browser-Fotos pixel_pruef im Gesamtlauf; gleiche Pixeldichte: karten_test
-Z-03 · OFFEN   · 20 Rollen, 44 Stadtbewohner (Grenze 20 / 40); Sprite-Prüfung und Porträts (4 Ausdrücke) in den Tests; Sichtprüfer ohne Paare und Verstöße am Kartenstand fc94af9295: 0 (Grenze 2)
+Z-03 · erfüllt · 20 Rollen, 44 Stadtbewohner (Grenze 20 / 40); Sprite-Prüfung und Porträts (4 Ausdrücke) in den Tests; Sichtprüfer ohne Paare und Verstöße am Kartenstand fc94af9295: 2 (Grenze 2) – sichtpruefer_19_bericht.md, sichtpruefer_20_bericht.md
 Z-04 · erfüllt · 6 Viertel, 160 Gebäude (≥ 150), 59 betretbare Innenräume (≥ 40), 12 Fall-Orte (12), Keller/Gänge 1, Wehrgang ja; Erkundungsbots: Türen 134/134, nicht erreicht 0, Steckenbleiber 0
 Z-05 · erfüllt · Detektivblick: 7 Spurenarten (≥ 7: fussspur, wachs, faser, staub, fingerabdruck, schleifspur, verwischt); 20 von 20 Rollen mit eigener Sichtschicht/Fähigkeit; Sichtregeln je Rolle: faehigkeiten_test, burgstadt_raum_test
 Z-06 · erfüllt · Teilen an Einzelne und an die Akte im Mehrspielertest; Latenz max 35 / 34 / 43 ms (Grenze 1000); Teilen-Nutzen 72 % weniger Schritte (Grenze 30)
@@ -14,4 +14,4 @@ Z-11 · erfüllt · Konsolenfehler/-warnungen in allen Durchläufen: 0; Speicher
 Z-12 · erfüllt · Leitplanken-Scanner: 0 Treffer; Gegenprüfer-Bericht mit „Leitplanken ja · Kanontreu ja · Plagiatsfrei ja“, jünger als die letzte Textänderung: gegenpruefer_inhalt_12_bericht.md (geprüfter Stand a7f1985)
 Z-13 · erfüllt · Remotes: origin; Pushes seit Beginn nur auf nachtlauf/burgstadt; fremde Abrufe im Browser: 0 (Web-Build ohne CDN)
 Z-14 · erfüllt · Dokumente: alle vorhanden; Abschlussbericht mit Bildschirmfotos und Figuren-Aufstellung: ja
-ZIEL NICHT ERREICHT · offen: Z-03
+ZIEL ERREICHT
