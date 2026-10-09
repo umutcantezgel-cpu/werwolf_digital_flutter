@@ -1,0 +1,144 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "pfad": "fatma",
+  "hinweis": "Tatnacht im Pfad Fatma. Ersetzt den Plan von Fatma aus basis.json und ergänzt Ereignisse und Gegenstandsspuren. Alle anderen Personen handeln wie in basis.json.",
+  "plaene": {
+    "fatma": [
+      {
+        "t": "23:50:00",
+        "ort": "am_linken_buffet",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:57:00",
+        "nach": "theke_klappe",
+        "bis": "23:57:06",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:00",
+        "nach": "vor_theke_west",
+        "bis": "23:58:02",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:31",
+        "nach": "vor_vorratstuer",
+        "bis": "23:58:38",
+        "tempo": "gehen",
+        "ueber": [
+          "theke_klappe"
+        ]
+      },
+      {
+        "t": "23:58:38",
+        "sagt": "Hier, die Schatulle, ich wollte sie zurückbringen …",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "23:58:41",
+        "nach": "vorrat_innen",
+        "bis": "23:58:43",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:46",
+        "nach": "hinter_linkem_buffet",
+        "bis": "23:58:57",
+        "tempo": "gehen",
+        "ueber": [
+          "vor_vorratstuer",
+          "theke_klappe"
+        ]
+      },
+      {
+        "t": "23:59:00",
+        "haltung": "kauert"
+      },
+      {
+        "t": "23:59:02",
+        "sagt": "Emine? Ich bin's, Fatma.",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "00:00:05",
+        "haltung": "steht"
+      }
+    ]
+  },
+  "ereignisse": [
+    {
+      "id": "ev_can_gepackt",
+      "t": "23:58:13",
+      "ort": "vor_vorratstuer",
+      "art": "handlung",
+      "person": "schneider",
+      "ziel": "can",
+      "text": "Herr Schneider packt Can an der Kapuze."
+    },
+    {
+      "id": "ev_can_losgerissen",
+      "t": "23:58:28",
+      "ort": "vor_vorratstuer",
+      "art": "handlung",
+      "person": "can",
+      "text": "Can reißt sich los und rennt mit der leuchtenden Maske in der Hand davon."
+    },
+    {
+      "id": "ev_fatma_gepackt",
+      "t": "23:58:36",
+      "ort": "vor_vorratstuer",
+      "art": "handlung",
+      "person": "schneider",
+      "ziel": "fatma",
+      "text": "Herr Schneider packt den Gurt von Fatmas Tasche: „Her damit!“"
+    },
+    {
+      "id": "ev_fatma_schlag",
+      "t": "23:58:39",
+      "ort": "vor_vorratstuer",
+      "art": "handlung",
+      "person": "fatma",
+      "text": "In Panik greift Fatma den Kerzenständer von der Anrichte und schlägt einmal zu. Ihr Silberring schrammt über das Messing, rote Wachstropfen fallen auf die Schatulle."
+    }
+  ],
+  "gegenstaende": [
+    {
+      "id": "kerzenstaender",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "einrichtung": "anrichte",
+          "stelle": "auf der Anrichte neben der Vorratsraumtür"
+        },
+        {
+          "t": "23:58:39",
+          "traeger": "fatma"
+        },
+        {
+          "t": "23:58:40",
+          "ort": "vor_vorratstuer",
+          "stelle": "umgestoßen auf dem Steinboden vor der Vorratsraumtür, die Kerzen herausgefallen"
+        }
+      ]
+    },
+    {
+      "id": "bund_schneider",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "traeger": "schneider"
+        },
+        {
+          "t": "23:58:45",
+          "traeger": "fatma"
+        },
+        {
+          "t": "23:58:59",
+          "einrichtung": "linkes_buffet_13",
+          "stelle": "in der Brottasche auf dem linken Buffettisch"
+        }
+      ]
+    }
+  ]
+}

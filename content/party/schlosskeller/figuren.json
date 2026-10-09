@@ -1,0 +1,899 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "hinweis": "Kanon der Figuren. IDs aus Behzads JSON bleiben Schlüssel, auch wenn der Anzeigename wegen der Namensbalance wechselt (E-014). Koordinaten in Metern auf dem Raster aus raeume.json; sie zeigen den Platz während der Ermittlungsrunden. Positionen in der Tatnacht stehen in den Tatmatrix-Dateien.",
+  "detektiv": {
+    "id": "detective",
+    "title": "Der Detektiv / Die Detektivin (Geburtstagskind)",
+    "selectableGenders": [
+      "m",
+      "w"
+    ],
+    "colorCode": "#B8A48A",
+    "farbname": "Sandbeige",
+    "startRoom": "ost_saal",
+    "ermittlungsOrt": "geburtstagsplatz",
+    "coordinates": {
+      "x": 24.5,
+      "y": 16.5
+    },
+    "visualSpecs": {
+      "silhouette": "Mittelgroß, aufmerksame Haltung, Kopf leicht schief beim Zuhören",
+      "baseOutfit": "Heller sandbeiger Trenchcoat über Alltagskleidung, schwarze Jeans, dunkle Turnschuhe",
+      "accessories": [
+        "Markante Brille",
+        "Braun karierter Detektivhut",
+        "Unangezündete Pfeife, aus der Seifenblasen steigen"
+      ],
+      "interactiveTool": "Handy in der Hand mit Taschenlampen-Lichtkegel",
+      "idleAnimation": "Bläst mit der Pfeife ein paar Seifenblasen und tippt aufs Handy"
+    },
+    "tatnacht": "Ab 23:55 sitzt das Geburtstagskind mit verbundenen Augen und Kopfhörern im Ost-Saal auf dem Ehrenplatz. Die Musik läuft laut. Durch die Musik hört es nur den Knall, Herrn Schneiders lauten Ruf „Hab ich dich!“ und später ein Scheppern.",
+    "auftrag": "Um 0:20 bittet Herr Schneider das Geburtstagskind: „Finde raus, wer das war. Bis zum Morgen.“",
+    "nieVerdaechtig": true
+  },
+  "opfer": {
+    "id": "schneider",
+    "name": "Herr Schneider",
+    "age": 61,
+    "geschlecht": "m",
+    "roleTitle": "Schlossverwalter",
+    "isNpc": true,
+    "colorCode": "#2E473B",
+    "farbname": "Dunkelgrün",
+    "startRoom": "thekensaal",
+    "ermittlungsOrt": "hinter_rechtem_buffet",
+    "coordinates": {
+      "x": 18.5,
+      "y": 13.5
+    },
+    "status": "Nach dem Schlag kurz bewusstlos. Er wacht um 0:01:30 auf, hat eine Beule und eine Gedächtnislücke für die Sekunden vor dem Schlag. Danach sitzt er mit einem Kühlpack im Buffetsaal und ist bald wieder grantig.",
+    "visualSpecs": {
+      "silhouette": "Breiter, leicht gebeugter Körperbau, Halbglatze, Brille, graues schütteres Haar",
+      "outfit": "Dunkelgrüne Wachsjacke über grobem grauem Rollkragenpullover, derbe Arbeitsstiefel",
+      "distinguishingFeature": "Großer klimpernder Schlüsselbund an der rechten Gürtelschlaufe, Klemmbrett mit Quittungsblock",
+      "idleAnimation": "Tippt auf die Armbanduhr und hakt etwas auf dem Klemmbrett ab"
+    },
+    "motiveAndConflict": "Seit 25 Jahren hält er das Schloss in Schuss. Den Keller hat er Ahmet umsonst überlassen. Heute ärgert er sich über die Tür, den Parkplatz, die Musik und die offene Vitrine. Um zwölf will er alles klären.",
+    "warmeSeite": "Er hat den Messingkerzenständer selbst poliert, weil er Geburtstage mag. Kleine Schäden zahlt er oft aus eigener Tasche.",
+    "erinnerung": "Knall, Dunkelheit, der Weg zur Notlaterne, ein leuchtendes Gespenstergesicht. Er packt eine Kapuze und ruft „Hab ich dich!“. Danach ist alles weg.",
+    "schluesselbund": "bund_schneider",
+    "gedaechtnisLueckeAb": "23:58:14"
+  },
+  "figuren": [
+    {
+      "id": "ahmet",
+      "name": "Ahmet",
+      "aussprache": "Achmet",
+      "age": 27,
+      "geschlecht": "m",
+      "herkunft": "bosnisch",
+      "tier": 1,
+      "besetzungsplatz": 1,
+      "minPlayers": 1,
+      "roleTitle": "Der Organisator",
+      "isPotentialKiller": true,
+      "colorCode": "#1A1A1A",
+      "farbname": "Schwarz und Weiß",
+      "startRoom": "thekensaal",
+      "ermittlungsOrt": "vor_theke",
+      "coordinates": {
+        "x": 14.5,
+        "y": 10.5
+      },
+      "visualSpecs": {
+        "silhouette": "Schlank, aufrecht, sportliche Haltung, Brille, kurzer Bart",
+        "outfit": "Schwarzer Strickpulli über weißem T-Shirt, dunkle Jeans, weiße Turnschuhe. Die schwarze Stoffjacke hängt ab 23:55 am Jackenständer im Ost-Saal.",
+        "distinguishingFeature": "Blaues Schlüsselband aus der Hosentasche, Handy ständig in der Hand",
+        "idleAnimation": "Tippt hektisch Nachrichten und streicht sich nervös durch den Bart"
+      },
+      "motiveAndConflict": "Ahmet hat den Keller umsonst bekommen. Dafür gestaltet er das Programm des Adventsmarkts. Beim Essen hat er viel zu groß bestellt. Statt das zuzugeben, hat er von allen 150 € „Miete“ eingesammelt. Um 23:51 sagt Herr Schneider an der Theke: „Um zwölf sag ich allen, was der Keller gekostet hat.“",
+      "blackoutAlibi": "Behauptet, hinter der Theke nach Servietten gesucht zu haben.",
+      "roleSecret": "Um 23:57 schlüpft er mit dem Umschlag voller Mietgeld hinter die Theke. Er will Herrn Schneider bitten, um zwölf nichts zu sagen. Das Geld will er morgen allen zurückgeben.",
+      "persoenlichesZiel": "Niemand soll vor dem Morgen erfahren, dass die Miete erfunden war.",
+      "nebendelikt": {
+        "id": "nd_mietgeld",
+        "text": "Hat von allen 150 € Miete kassiert, obwohl der Keller nichts gekostet hat."
+      },
+      "loyalitaet": {
+        "zu": "leyla",
+        "grund": "Seine Cousine Lejla hilft ihm seit Jahren aus der Klemme."
+      },
+      "luegen": [
+        {
+          "id": "luege_ahmet_servietten",
+          "behauptung": "Ich hab hinter der Theke nur Servietten gesucht.",
+          "wahrheit": "Er wollte Herrn Schneider mit dem Umschlag um Aufschub bitten."
+        },
+        {
+          "id": "luege_ahmet_miete",
+          "behauptung": "Die 150 € waren für die Miete.",
+          "wahrheit": "Der Keller hat nichts gekostet; das Geld deckt seine zu große Essensbestellung."
+        }
+      ],
+      "innocentProfile": {
+        "actualBehavior": "Duckt sich beim Knall am Ostende der Theke neben Damir und hält den Umschlag fest. Er bleibt dort, bis das Licht angeht. Später leert er den Umschlag und wirft ihn in den Ascheneimer am Kamin."
+      },
+      "killerProfile": {
+        "crimeExecution": "Kauert erst am Ostende der Theke neben Damir. Dann geht er zum Kerzenlicht an der Anrichte, um Herrn Schneider zu bitten. Herr Schneider packt ihn am Arm. In Panik greift Ahmet den Kerzenständer und schlägt einmal zu. Er reißt den Bund vom Gürtel, hält ihn fest in der Faust, steckt ihn im Ost-Saal in seine eigene Jacke und kauert danach wieder neben Damir.",
+        "smokingGun": "Schneiders Schlüsselbund steckt in Ahmets schwarzer Jacke am Jackenständer im Ost-Saal.",
+        "zusatzindiz": "Rote Wachstropfen auf dem leeren Umschlag im Ascheneimer am Kamin."
+      }
+    },
+    {
+      "id": "fatma",
+      "name": "Fatma",
+      "aussprache": "Fatma",
+      "age": 26,
+      "geschlecht": "w",
+      "herkunft": "kurdisch",
+      "tier": 1,
+      "besetzungsplatz": 2,
+      "minPlayers": 2,
+      "roleTitle": "Die Designstudentin",
+      "isPotentialKiller": true,
+      "colorCode": "#6B1D2F",
+      "farbname": "Weinrot",
+      "startRoom": "thekensaal",
+      "ermittlungsOrt": "am_linken_buffet",
+      "coordinates": {
+        "x": 13.5,
+        "y": 13.5
+      },
+      "visualSpecs": {
+        "silhouette": "Schlanke Statur, dunkles Kopftuch, knielanger Wollmantel",
+        "outfit": "Weinroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, dunkles Kopftuch",
+        "distinguishingFeature": "Schwere Umhängetasche aus Leder, breiter Silberring an der rechten Hand",
+        "idleAnimation": "Nestelt am Reißverschluss ihrer Tasche und schaut sich schnell um"
+      },
+      "motiveAndConflict": "Fatma schreibt ihre Abschlussarbeit über alte Münzbilder. Azra hat ihr von der Münzschatulle in der Turmvitrine erzählt. Um 23:40 hebt sie die gesprungene Scheibe an und nimmt die Schatulle mit. Sie will die Reliefs zu Hause abzeichnen und die Schatulle am Montag zurückbringen. Um 23:56 sieht Herr Schneider Glassplitter an ihrem Mantel: „Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.“",
+      "blackoutAlibi": "Behauptet, die ganze Zeit beim Gebäck am linken Buffettisch gestanden zu haben.",
+      "roleSecret": "Um 23:57 geht sie mit der Tasche zur Theken-Klappe. Sie will Herrn Schneider die Schatulle zurückgeben und ihn bitten, nicht die Polizei zu rufen.",
+      "persoenlichesZiel": "Die Schatulle soll zurück, ohne dass es alle erfahren.",
+      "nebendelikt": {
+        "id": "nd_schatulle",
+        "text": "Hat die Münzschatulle aus der Turmvitrine mitgenommen."
+      },
+      "loyalitaet": {
+        "zu": "emine",
+        "grund": "Emine ist seit der Schulzeit ihre beste Freundin."
+      },
+      "luegen": [
+        {
+          "id": "luege_fatma_buffet",
+          "behauptung": "Ich stand die ganze Zeit beim Gebäck am linken Buffet.",
+          "wahrheit": "Um 23:57 war sie mit der Tasche an der Theken-Klappe."
+        },
+        {
+          "id": "luege_fatma_tasche",
+          "behauptung": "In meiner Tasche sind nur Bücher.",
+          "wahrheit": "In der Tasche liegt die Münzschatulle aus der Vitrine."
+        }
+      ],
+      "innocentProfile": {
+        "actualBehavior": "Beim Knall zieht sie sich mit der Tasche zum linken Buffettisch zurück. Ab 23:58:10 kauert sie dahinter neben Emine."
+      },
+      "killerProfile": {
+        "crimeExecution": "Beim Knall bleibt sie erschrocken vor der Theke stehen. Dann sieht sie das Kerzenlicht an der Anrichte und geht durch die Klappe hin, um die Schatulle zurückzugeben. Herr Schneider packt den Gurt ihrer Tasche. In Panik greift sie den Kerzenständer und schlägt einmal zu. Sie nimmt den Bund mit, steckt ihn in die Brottasche auf dem linken Buffettisch und kauert sich zu Emine.",
+        "smokingGun": "Frischer Messingabrieb an ihrem breiten Silberring, passend zum Kerzenständer.",
+        "zusatzindiz": "Rote Wachstropfen auf der Münzschatulle in ihrer Tasche."
+      }
+    },
+    {
+      "id": "olli",
+      "name": "Olli",
+      "vollerName": "Olliver",
+      "aussprache": "Olli",
+      "age": 28,
+      "geschlecht": "m",
+      "herkunft": "deutsch",
+      "tier": 1,
+      "besetzungsplatz": 3,
+      "minPlayers": 3,
+      "roleTitle": "Der Anpacker",
+      "isPotentialKiller": true,
+      "colorCode": "#1F3A52",
+      "farbname": "Marineblau und Khaki",
+      "startRoom": "ost_saal",
+      "ermittlungsOrt": "ost_tafel_kopf",
+      "coordinates": {
+        "x": 22.5,
+        "y": 10.5
+      },
+      "visualSpecs": {
+        "silhouette": "Breit gebaut, kräftige Schultern, leicht gebeugte Haltung",
+        "outfit": "Grauer Kapuzenpulli, dunkelblaue Daunenweste, Khakihose mit Seitentaschen",
+        "distinguishingFeature": "Holzsplitter und weißer Kalk an den Ärmeln des Pullis, ein einzelner Arbeitshandschuh hängt aus der Westentasche",
+        "idleAnimation": "Reibt sich den Nacken, wechselt das Standbein und schaut auf seine Hände"
+      },
+      "motiveAndConflict": "Um 18:30 trägt Olli mit Wojtek die Warmhaltebehälter durch den Turm. Dabei schrammt er die geschnitzte Bogentür, ein Beschlag reißt aus. Herr Schneider verlangt 2.000 € bar und schließt die Tore ab: „Keiner geht, bevor das bezahlt ist.“ Um 23:00 streiten die beiden laut.",
+      "blackoutAlibi": "Behauptet, die ganze Zeit am Kopf der Tafel im Ost-Saal gesessen zu haben.",
+      "roleSecret": "Um 23:57 holt er am Eiskübel Eis für Wojteks eingeklemmten Finger. Herr Schneider raunzt ihn an: „Zweitausend, bis zwölf.“",
+      "persoenlichesZiel": "Den Türschaden selbst mit Herrn Schneider klären, ohne die Gruppe hineinzuziehen.",
+      "nebendelikt": {
+        "id": "nd_tuerschaden",
+        "text": "Hat die Bogentür beschädigt und wollte die Schramme mit Möbelwachs verdecken."
+      },
+      "loyalitaet": {
+        "zu": "kaan",
+        "grund": "Wojtek hat ihm beim Tragen geholfen und hält zu ihm."
+      },
+      "luegen": [
+        {
+          "id": "luege_olli_tafel",
+          "behauptung": "Ich saß die ganze Zeit am Tisch im Ost-Saal.",
+          "wahrheit": "Um 23:57 war er am Eiskübel vor der Theke, danach kauerte er am rechten Buffettisch."
+        }
+      ],
+      "innocentProfile": {
+        "actualBehavior": "Beim Knall tastet er sich vom Eiskübel zum rechten Buffettisch und kauert dort ab 23:58:10 neben Azra, bis das Licht angeht. Danach setzt er sich in den Ost-Saal an die Tafel."
+      },
+      "killerProfile": {
+        "crimeExecution": "Er bleibt erst am Eiskübel stehen. Dann geht er vor der Theke entlang und durch die Klappe zum Kerzenlicht, weil er mit Herrn Schneider reden will. Herr Schneider packt ihn am Ärmel. In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. Er nimmt den Bund mit, wirft ihn in den Eiskübel und kauert um 23:59:05 außer Atem neben Azra.",
+        "smokingGun": "Holzsplitter und weißer Kalk von seinen Ärmeln kleben im erstarrten Wachs am Fuß des Kerzenständers.",
+        "zusatzindiz": "Der Schlüsselbund liegt im Eiskübel vor der Theke."
+      }
+    },
+    {
+      "id": "can",
+      "name": "Can",
+      "aussprache": "Dschan",
+      "age": 25,
+      "geschlecht": "m",
+      "herkunft": "türkisch",
+      "tier": 1,
+      "besetzungsplatz": 4,
+      "minPlayers": 4,
+      "roleTitle": "Der Spaßvogel",
+      "isPotentialKiller": true,
+      "colorCode": "#F5C400",
+      "farbname": "Signalgelb",
+      "startRoom": "west_saal",
+      "ermittlungsOrt": "west_bank_west",
+      "coordinates": {
+        "x": 1.5,
+        "y": 10.5
+      },
+      "visualSpecs": {
+        "silhouette": "Jugendlich, schlank, federnder Gang",
+        "outfit": "Signalgelber weiter Kapuzenpulli, weite Jeans, bunte Turnschuhe",
+        "distinguishingFeature": "Auffällige gelbe Kapuze, linke Hand tief in der Bauchtasche des Pullis (dort steckt die Maske)",
+        "idleAnimation": "Zieht an den Kapuzenbändern und wippt auf den Zehenspitzen"
+      },
+      "motiveAndConflict": "Can hat am Nachmittag eine weiße Gespenstermaske mit Leuchtfarbe angemalt. Um 23:54 versteckt er sich damit im dunklen Vorratsraum. Um zwölf soll das Geburtstagskind zur Torte kommen und sich erschrecken. Beim Knall läuft ihm Herr Schneider in die Arme, packt ihn an der Kapuze und ruft: „Hab ich dich!“",
+      "blackoutAlibi": "Behauptet, auf der Toilette im Turm gewesen zu sein.",
+      "roleSecret": "Er hat mit der Leuchtmaske im Vorratsraum gewartet. Herr Schneider hat ihn an der Kapuze gepackt.",
+      "persoenlichesZiel": "Der Streich soll nicht herauskommen.",
+      "nebendelikt": {
+        "id": "nd_streich",
+        "text": "Hat sich mit der Leuchtmaske im Vorratsraum versteckt, um das Geburtstagskind zu erschrecken."
+      },
+      "loyalitaet": {
+        "zu": "zeynep",
+        "grund": "Seine Schwester Zeynep hat für ihn Schmiere gestanden."
+      },
+      "luegen": [
+        {
+          "id": "luege_can_toilette",
+          "behauptung": "Ich war die ganze Zeit auf der Toilette im Turm.",
+          "wahrheit": "Er war im Vorratsraum und ist erst nach dem Zusammenstoß in den Turm gerannt."
+        },
+        {
+          "id": "luege_can_maske",
+          "behauptung": "Welche Maske? Ich hab keine Maske.",
+          "wahrheit": "Die Leuchtmaske steckt in der Bauchtasche seines Pullis."
+        }
+      ],
+      "innocentProfile": {
+        "actualBehavior": "Er reißt sich los und rennt durch den Durchgang, noch bevor es scheppert. Die leuchtende Maske hält er in der Hand. Im Kaminsaal rennt er zur Bogentür, stopft die Maske in die Bauchtasche seines Pullis und versteckt sich oben auf der Toilette im Turm."
+      },
+      "killerProfile": {
+        "crimeExecution": "Herr Schneider hält ihn an der Kapuze fest. In Panik greift Can den Kerzenständer von der Anrichte und schlägt einmal zu. Er reißt den Bund vom Gürtel und rennt nach dem Scheppern durch den Durchgang und den Kaminsaal. An der Bogentür stopft er die Maske in die Bauchtasche, steckt den Bund in den Helm der Ritterrüstung und versteckt sich auf der Toilette im Turm.",
+        "smokingGun": "Nachleuchtende Maskenfarbe am Griff des Kerzenständers.",
+        "zusatzindiz": "Rote Wachstropfen auf der Leuchtmaske."
+      }
+    },
+    {
+      "id": "leyla",
+      "name": "Lejla",
+      "quelle": {
+        "name": "Leyla",
+        "nr": 5
+      },
+      "aussprache": "Leila",
+      "age": 25,
+      "geschlecht": "w",
+      "herkunft": "bosnisch",
+      "tier": 2,
+      "besetzungsplatz": 5,
+      "minPlayers": 5,
+      "roleTitle": "Die Buffet-Chefin",
+      "isPotentialKiller": false,
+      "colorCode": "#178582",
+      "farbname": "Türkis",
+      "startRoom": "thekensaal",
+      "ermittlungsOrt": "hinter_theke_mitte",
+      "coordinates": {
+        "x": 15.5,
+        "y": 8.5
+      },
+      "visualSpecs": {
+        "silhouette": "Zierlich, Haare zu einem straffen Dutt gebunden",
+        "outfit": "Türkise Latzschürze über beigem Strickpulli, dunkle Leggings",
+        "distinguishingFeature": "Abrechnungsblock in der Schürzentasche, Holzlöffel in der Hand",
+        "idleAnimation": "Rückt Schüsseln gerade und rührt im Warmhaltebehälter"
+      },
+      "motiveAndConflict": "Ahmets Cousine. Sie weiß, dass Ahmet mit der Rechnung fürs Essen in der Klemme steckt. Herr Schneider wollte am Nachmittag eine Genehmigung für das mitgebrachte Essen sehen.",
+      "blackoutAlibi": "Trug um 23:57:40 die Tortenteller in den Ost-Saal und stand beim Knall dort an der Tafel.",
+      "roleSecret": "Um 23:57 sah sie, wie Ahmet mit einem dicken Umschlag hinter die Theke schlüpfte.",
+      "persoenlichesZiel": "Ahmet schützen, bis er selbst redet.",
+      "nebendelikt": null,
+      "loyalitaet": {
+        "zu": "ahmet",
+        "grund": "Ahmet ist ihr Cousin; sie hat ihm versprochen, nichts über die Rechnung zu sagen."
+      },
+      "luegen": []
+    },
+    {
+      "id": "tim",
+      "name": "Tim",
+      "aussprache": "Tim",
+      "age": 27,
+      "geschlecht": "m",
+      "herkunft": "deutsch",
+      "tier": 2,
+      "besetzungsplatz": 6,
+      "minPlayers": 6,
+      "roleTitle": "Der Hobby-Elektriker",
+      "isPotentialKiller": false,
+      "colorCode": "#992222",
+      "farbname": "Karorot",
+      "startRoom": "west_saal",
+      "ermittlungsOrt": "am_sicherungskasten",
+      "coordinates": {
+        "x": 6.5,
+        "y": 11.5
+      },
+      "visualSpecs": {
+        "silhouette": "Kräftig, mittelgroß, lockige Haare",
+        "outfit": "Rot-schwarz kariertes Flanellhemd über dunklem Shirt, derbe Arbeitshose",
+        "distinguishingFeature": "Spannungsprüfer-Schraubenzieher hinter dem Ohr, kleine Stirnlampe um den Hals",
+        "idleAnimation": "Klopft prüfend gegen Kabelkanäle und schüttelt den Kopf"
+      },
+      "motiveAndConflict": "Um 23:57:50 steckt er für den Tortenkaffee die Kaffeemaschine in seine alte Mehrfachsteckdose. Herr Schneider hatte ihn gerade davor gewarnt. Um 23:58:00 knallt es, die Hauptsicherung fliegt raus.",
+      "blackoutAlibi": "Tastete sich beim Knall sofort zum Sicherungskasten im Kaminsaal. Im Dunkeln fand er den richtigen Schalter nicht. Um 23:59:40 fand er seine Stirnlampe, um 0:00:00 war das Licht wieder an.",
+      "roleSecret": "Der Kurzschluss kam von seiner alten Mehrfachsteckdose. Am Sicherungskasten huschte im Dunkeln ein leuchtendes Gesicht an ihm vorbei.",
+      "persoenlichesZiel": "Niemand soll erfahren, dass seine Mehrfachsteckdose den Ausfall verursacht hat.",
+      "nebendelikt": {
+        "id": "nd_kurzschluss",
+        "text": "Hat trotz Warnung die alte Mehrfachsteckdose benutzt und den Kurzschluss verursacht."
+      },
+      "loyalitaet": null,
+      "luegen": []
+    },
+    {
+      "id": "emine",
+      "name": "Emine",
+      "aussprache": "Emine",
+      "age": 26,
+      "geschlecht": "w",
+      "herkunft": "türkisch",
+      "tier": 2,
+      "besetzungsplatz": 7,
+      "minPlayers": 7,
+      "roleTitle": "Fatmas Freundin",
+      "isPotentialKiller": false,
+      "colorCode": "#5E6E3A",
+      "farbname": "Olivgrün",
+      "startRoom": "thekensaal",
+      "ermittlungsOrt": "hinter_linkem_buffet",
+      "coordinates": {
+        "x": 11.5,
+        "y": 13.5
+      },
+      "visualSpecs": {
+        "silhouette": "Mittelgroß, ruhige Haltung, beiges Kopftuch",
+        "outfit": "Olivgrüner Steppmantel, beiges Kopftuch, dunkle Stoffhose, schwarze Stiefel",
+        "distinguishingFeature": "Hält eine silberne Thermosflasche mit beiden Händen",
+        "idleAnimation": "Dreht den Deckel der Thermosflasche auf und zu und schaut zu Fatma"
+      },
+      "motiveAndConflict": "Um 23:40 sah sie im Turmgang, wie Fatma die Schatulle aus der Vitrine nahm. Sie hat geschwiegen, weil Fatma versprochen hat, die Schatulle am Montag zurückzubringen.",
+      "blackoutAlibi": "Kauerte beim Knall hinter dem linken Buffettisch.",
+      "roleSecret": "Sie weiß, dass Fatma die Schatulle schon um 23:40 aus der Vitrine genommen hat.",
+      "persoenlichesZiel": "Fatma nicht verraten.",
+      "nebendelikt": null,
+      "loyalitaet": {
+        "zu": "fatma",
+        "grund": "Fatma ist ihre beste Freundin; sie glaubt ihr."
+      },
+      "luegen": []
+    },
+    {
+      "id": "johanna",
+      "name": "Joanna",
+      "quelle": {
+        "name": "Johanna",
+        "nr": 8
+      },
+      "aussprache": "Joanna",
+      "age": 24,
+      "geschlecht": "w",
+      "herkunft": "polnisch",
+      "tier": 2,
+      "besetzungsplatz": 8,
+      "minPlayers": 8,
+      "roleTitle": "Die Fotografin des Abends",
+      "isPotentialKiller": false,
+      "colorCode": "#6A3587",
+      "farbname": "Violett",
+      "startRoom": "ost_saal",
+      "ermittlungsOrt": "am_handykorb",
+      "coordinates": {
+        "x": 24.5,
+        "y": 12.5
+      },
+      "visualSpecs": {
+        "silhouette": "Schlank, aufrecht, schnelle Bewegungen",
+        "outfit": "Violetter Cardigan über weißem Top, schwarze Stoffhose",
+        "distinguishingFeature": "Handy auf einem kleinen Handyhalter mit Aufsteckleuchte",
+        "idleAnimation": "Hebt das Handy, wischt durch Fotos und zoomt hinein"
+      },
+      "motiveAndConflict": "Sie fotografiert den Abend für das Geburtstagskind. Um 23:55 musste ihr Handy in den Handykorb. Ahmet hat sie gebeten, ein Foto zu löschen.",
+      "blackoutAlibi": "Stand im Ost-Saal und hielt die Hände über den Handykorb. Um 23:59:30 schaltete sie als Erste die Handylampen ein.",
+      "roleSecret": "Sie hat ein Foto von 23:51: Herr Schneider und Ahmet streiten an der Theke.",
+      "persoenlichesZiel": "Ihr Versprechen an Ahmet halten, ohne das Geburtstagskind anzulügen.",
+      "nebendelikt": null,
+      "loyalitaet": {
+        "zu": "ahmet",
+        "grund": "Ahmet hat sie gebeten, das Streitfoto zu löschen."
+      },
+      "luegen": []
+    },
+    {
+      "id": "murat",
+      "name": "Marek",
+      "quelle": {
+        "name": "Murat",
+        "nr": 9
+      },
+      "aussprache": "Marek",
+      "age": 28,
+      "geschlecht": "m",
+      "herkunft": "polnisch",
+      "tier": 3,
+      "besetzungsplatz": 9,
+      "minPlayers": 9,
+      "roleTitle": "Der Lieferant",
+      "isPotentialKiller": false,
+      "colorCode": "#664229",
+      "farbname": "Lederbraun",
+      "startRoom": "thekensaal",
+      "ermittlungsOrt": "unter_notausgang",
+      "coordinates": {
+        "x": 14.5,
+        "y": 18.5
+      },
+      "visualSpecs": {
+        "silhouette": "Breitschultrig, sportlich, markante Gesichtszüge",
+        "outfit": "Dunkelbraune Lederjacke, weißer Rollkragen, dunkle Jeans",
+        "distinguishingFeature": "Lässt den Autoschlüssel mit glänzendem Anhänger um den Zeigefinger kreisen",
+        "idleAnimation": "Lässt den Autoschlüssel kreisen und schaut ungeduldig zum Ausgang"
+      },
+      "motiveAndConflict": "Er hat das Essen geliefert und den Lieferwagen im Schlosshof auf Herrn Schneiders reserviertem Platz geparkt. Herr Schneider drohte mit Abschleppen.",
+      "blackoutAlibi": "Holte im Durchgang eine Kiste Saft von den Getränkekisten.",
+      "roleSecret": "Im Dunkeln rannte ein leuchtendes Gespenstergesicht an ihm vorbei durch den Durchgang Richtung Kaminsaal.",
+      "persoenlichesZiel": "Der Lieferwagen soll nicht abgeschleppt werden.",
+      "nebendelikt": {
+        "id": "nd_parken",
+        "text": "Hat auf Herrn Schneiders reserviertem Platz geparkt."
+      },
+      "loyalitaet": null,
+      "luegen": []
+    },
+    {
+      "id": "zeynep",
+      "name": "Zeynep",
+      "aussprache": "Seinep",
+      "age": 23,
+      "geschlecht": "w",
+      "herkunft": "türkisch",
+      "tier": 3,
+      "besetzungsplatz": 10,
+      "minPlayers": 10,
+      "roleTitle": "Cans Schwester",
+      "isPotentialKiller": false,
+      "colorCode": "#3EB489",
+      "farbname": "Minzgrün",
+      "startRoom": "west_saal",
+      "ermittlungsOrt": "west_bogen",
+      "coordinates": {
+        "x": 6.5,
+        "y": 9.5
+      },
+      "visualSpecs": {
+        "silhouette": "Zierlich, sportlich, lässiger Stil",
+        "outfit": "Minzgrüner weiter Pulli, weite hellgraue Hose, Kappe verkehrt herum",
+        "distinguishingFeature": "Weiße Kopfhörer locker um den Hals, kaut Kaugummi",
+        "idleAnimation": "Kaut Kaugummi, wippt auf den Absätzen und behält Can im Blick"
+      },
+      "motiveAndConflict": "Sie steht für Cans Streich Schmiere am Bogen zum Durchgang. Sie fühlt sich schuldig, weil alles aus dem Ruder lief.",
+      "blackoutAlibi": "Stand am Bogen zwischen Kaminsaal und Durchgang und hielt nach dem Geburtstagskind Ausschau.",
+      "roleSecret": "Sie weiß, dass Can mit der Leuchtmaske im dunklen Vorratsraum auf das Geburtstagskind gewartet hat.",
+      "persoenlichesZiel": "Can schützen.",
+      "nebendelikt": {
+        "id": "nd_schmiere",
+        "text": "Hat für Cans Streich Schmiere gestanden."
+      },
+      "loyalitaet": {
+        "zu": "can",
+        "grund": "Can ist ihr Bruder."
+      },
+      "luegen": []
+    },
+    {
+      "id": "baran",
+      "name": "Baran",
+      "aussprache": "Baran",
+      "age": 26,
+      "geschlecht": "m",
+      "herkunft": "kurdisch",
+      "tier": 3,
+      "besetzungsplatz": 11,
+      "minPlayers": 11,
+      "roleTitle": "Der Mann für die Musik",
+      "isPotentialKiller": false,
+      "colorCode": "#333333",
+      "farbname": "Anthrazit mit Neongrün",
+      "startRoom": "ost_saal",
+      "ermittlungsOrt": "ost_bank",
+      "coordinates": {
+        "x": 25.5,
+        "y": 15.5
+      },
+      "visualSpecs": {
+        "silhouette": "Groß, schlank, leicht nach vorn geneigt",
+        "outfit": "Anthrazitfarbener Kapuzenpulli mit neongrünen Kordeln, schwarze Jogginghose",
+        "distinguishingFeature": "Große Kopfhörer auf dem Kopf (in der Tatnacht trägt sie das Geburtstagskind), tragbare Musikbox unter dem Arm",
+        "idleAnimation": "Wippt im Takt und dreht am Lautstärkerad der Box"
+      },
+      "motiveAndConflict": "Herr Schneider verlangte ab 22:00 leise Musik und drohte, die Box einzukassieren. Um 23:55 setzte Baran dem Geburtstagskind seine großen Kopfhörer auf und ließ laute Musik für die Überraschung laufen.",
+      "blackoutAlibi": "Saß im Ost-Saal auf der Wandbank und hielt seine Box fest.",
+      "roleSecret": "Die Musik in den Kopfhörern lief über seine Box weiter, als der Strom weg war. Im Ost-Saal hörte er aus Richtung Theke erst „Hab ich dich!“, dann „Stehen bleiben!“, dann das Scheppern.",
+      "persoenlichesZiel": "Seine Box soll nicht einkassiert werden.",
+      "nebendelikt": null,
+      "loyalitaet": null,
+      "luegen": []
+    },
+    {
+      "id": "meryem",
+      "name": "Hana",
+      "quelle": {
+        "name": "Meryem",
+        "nr": 12
+      },
+      "aussprache": "Hana",
+      "age": 25,
+      "geschlecht": "w",
+      "herkunft": "bosnisch",
+      "tier": 3,
+      "besetzungsplatz": 12,
+      "minPlayers": 12,
+      "roleTitle": "Die Kamin-Heizerin",
+      "isPotentialKiller": false,
+      "colorCode": "#2B4C7E",
+      "farbname": "Jeansblau",
+      "startRoom": "west_saal",
+      "ermittlungsOrt": "am_kamin",
+      "coordinates": {
+        "x": 2.5,
+        "y": 13.5
+      },
+      "visualSpecs": {
+        "silhouette": "Mittelgroß, praktische Statur, hochgekrempelte Ärmel",
+        "outfit": "Dunkelblaues Jeanshemd, feste Arbeitshose, Schnürstiefel",
+        "distinguishingFeature": "Rußflecken auf der linken Wange und an den Händen, Schürhaken in der Hand",
+        "idleAnimation": "Pustet sich eine Strähne aus der Stirn und wischt die Hände an einem alten Lappen ab"
+      },
+      "motiveAndConflict": "Um 23:30 feuert sie den Kamin an, ohne die Kaminklappe zu öffnen. Dichter Qualm füllt den Kaminsaal. Herr Schneider schimpft über den Ruß an der Wand.",
+      "blackoutAlibi": "Stand am Kamin und wischte Ruß von der Wand.",
+      "roleSecret": "Kurz nach dem Ausfall roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke.",
+      "persoenlichesZiel": "Sich bei Herrn Schneider für den Ruß entschuldigen, ohne dass alle wieder lachen.",
+      "nebendelikt": null,
+      "loyalitaet": null,
+      "luegen": []
+    },
+    {
+      "id": "serkan",
+      "name": "Serkan",
+      "aussprache": "Serkan",
+      "age": 29,
+      "geschlecht": "m",
+      "herkunft": "türkisch",
+      "tier": 4,
+      "besetzungsplatz": 13,
+      "minPlayers": 13,
+      "roleTitle": "Der Fahrer",
+      "isPotentialKiller": false,
+      "colorCode": "#3A506B",
+      "farbname": "Stahlblau",
+      "startRoom": "windfang",
+      "ermittlungsOrt": "im_windfang",
+      "coordinates": {
+        "x": 14.5,
+        "y": 20.5
+      },
+      "visualSpecs": {
+        "silhouette": "Kräftig, breite Statur, aufrechte Haltung",
+        "outfit": "Stahlblaue Steppweste über grauem Sweatshirt, dunkle Kappe",
+        "distinguishingFeature": "Klemmbrett mit Fahrzeiten, schwere Taschenlampe",
+        "idleAnimation": "Rüttelt am Riegel des Außentors und leuchtet aufs Schloss"
+      },
+      "motiveAndConflict": "Er soll die Gäste nachts nach Hause fahren. Um 23:56 wollte er Decken aus dem Auto holen und fand das Außentor verschlossen.",
+      "blackoutAlibi": "Stand im Windfang am Außentor und leuchtete mit der Taschenlampe aufs Schloss.",
+      "roleSecret": "Von kurz vor zwölf bis nach zwölf stand er am Außentor. Es war abgeschlossen; niemand ist hinaus.",
+      "persoenlichesZiel": "Alle so schnell wie möglich sicher nach Hause fahren.",
+      "nebendelikt": null,
+      "loyalitaet": null,
+      "luegen": []
+    },
+    {
+      "id": "aylin",
+      "name": "Aylin",
+      "aussprache": "Ailin",
+      "age": 24,
+      "geschlecht": "w",
+      "herkunft": "kurdisch",
+      "tier": 4,
+      "besetzungsplatz": 14,
+      "minPlayers": 14,
+      "roleTitle": "Die Kassenprüferin",
+      "isPotentialKiller": false,
+      "colorCode": "#3A6EA5",
+      "farbname": "Taubenblau",
+      "startRoom": "ost_saal",
+      "ermittlungsOrt": "ost_tafel_west",
+      "coordinates": {
+        "x": 21.5,
+        "y": 13.5
+      },
+      "visualSpecs": {
+        "silhouette": "Sehr gerade Haltung, elegant und förmlich, hellgraues Kopftuch",
+        "outfit": "Taubenblauer Strickcardigan, weiße Bluse, schwarze Stoffhose, hellgraues Kopftuch",
+        "distinguishingFeature": "Schwarze Ledermappe mit Belegen und Kugelschreiber, fest an die Brust gedrückt",
+        "idleAnimation": "Klickt mit dem Kugelschreiber und mustert Ahmet"
+      },
+      "motiveAndConflict": "Sie zahlte die 150 € nur unter Protest und wollte einen Beleg. Um 22:30 fragte sie Herrn Schneider direkt. Er schrieb ihr auf einen Quittungszettel: „Miete: 0 Euro.“",
+      "blackoutAlibi": "Saß im Ost-Saal an der Tafel und hielt ihre Mappe fest.",
+      "roleSecret": "Sie hat Herrn Schneiders handschriftlichen Quittungszettel: „Miete: 0 Euro.“",
+      "persoenlichesZiel": "Ihr Geld zurückbekommen, ohne Ahmet vor allen bloßzustellen.",
+      "nebendelikt": null,
+      "loyalitaet": null,
+      "luegen": []
+    },
+    {
+      "id": "kaan",
+      "name": "Wojtek",
+      "quelle": {
+        "name": "Kaan",
+        "nr": 15
+      },
+      "aussprache": "Woitek",
+      "age": 27,
+      "geschlecht": "m",
+      "herkunft": "polnisch",
+      "tier": 4,
+      "besetzungsplatz": 15,
+      "minPlayers": 15,
+      "roleTitle": "Ollis Partner beim Tragen",
+      "isPotentialKiller": false,
+      "colorCode": "#5C677D",
+      "farbname": "Aschgrau",
+      "startRoom": "west_saal",
+      "ermittlungsOrt": "vor_bogentuer",
+      "coordinates": {
+        "x": 2.5,
+        "y": 8.5
+      },
+      "visualSpecs": {
+        "silhouette": "Muskulös, handwerklich geübt, bodenständig",
+        "outfit": "Aschgrauer Kapuzenpulli, schwarze Arbeitshose mit verstärkten Knien",
+        "distinguishingFeature": "Zimmermannsbleistift hinter dem Ohr, Maßband am Hosenbund, ein Finger mit Pflaster",
+        "idleAnimation": "Streicht mit dem Daumen über die Schramme an der Bogentür"
+      },
+      "motiveAndConflict": "Er hat mit Olli die Warmhaltebehälter durch den Turm getragen. Nach der Schramme riet er Olli, sie mit braunem Möbelwachs aus seiner Werkzeugtasche zu verdecken. Um 23:50 klemmte er sich an der Bogentür den Finger ein.",
+      "blackoutAlibi": "Stand an der Bogentür im Kaminsaal und tastete mit den Fingern die Schramme ab.",
+      "roleSecret": "Um 23:52 sagte Olli zu ihm: „Ich hol dir Eis. Und dann red ich mit Schneider.“",
+      "persoenlichesZiel": "Niemand soll wissen, dass die Idee mit dem Möbelwachs von ihm kam.",
+      "nebendelikt": {
+        "id": "nd_moebelwachs",
+        "text": "Hat Olli geraten, die Schramme mit Möbelwachs zu verdecken."
+      },
+      "loyalitaet": {
+        "zu": "olli",
+        "grund": "Olli ist sein Kumpel vom Tragen und hat ihm Eis geholt."
+      },
+      "luegen": []
+    },
+    {
+      "id": "dilara",
+      "name": "Azra",
+      "quelle": {
+        "name": "Dilara",
+        "nr": 16
+      },
+      "aussprache": "Asra",
+      "age": 26,
+      "geschlecht": "w",
+      "herkunft": "bosnisch",
+      "tier": 4,
+      "besetzungsplatz": 16,
+      "minPlayers": 16,
+      "roleTitle": "Die Flohmarkt-Kennerin",
+      "isPotentialKiller": false,
+      "colorCode": "#7A2E5C",
+      "farbname": "Pflaume",
+      "startRoom": "thekensaal",
+      "ermittlungsOrt": "am_rechten_buffet",
+      "coordinates": {
+        "x": 16.5,
+        "y": 13.5
+      },
+      "visualSpecs": {
+        "silhouette": "Groß, modisch, elegante Bewegungen",
+        "outfit": "Pflaumenfarbenes Samtkleid, langer schwarzer Strickcardigan",
+        "distinguishingFeature": "Kleine Lupe an einer Silberkette um den Hals, auffällige Ringe",
+        "idleAnimation": "Betrachtet ihre Ringe durch die Lupe und schaut zur Theke"
+      },
+      "motiveAndConflict": "Sie kennt sich mit alten Münzen aus und hat Fatma von der Schatulle in der Turmvitrine erzählt. Herr Schneider fand es seltsam, wie lange sie vor der Vitrine stand.",
+      "blackoutAlibi": "Stand am rechten Buffettisch und füllte Gebäck auf einen Pappteller.",
+      "roleSecret": "Um 23:45 sah sie, dass Fatmas Tasche auffällig ausgebeult war.",
+      "persoenlichesZiel": "Niemand soll denken, sie hätte Fatma zu etwas angestiftet.",
+      "nebendelikt": null,
+      "loyalitaet": null,
+      "luegen": []
+    },
+    {
+      "id": "enes",
+      "name": "Damir",
+      "quelle": {
+        "name": "Enes",
+        "nr": 17
+      },
+      "aussprache": "Damir",
+      "age": 25,
+      "geschlecht": "m",
+      "herkunft": "bosnisch",
+      "tier": 5,
+      "besetzungsplatz": 17,
+      "minPlayers": 17,
+      "roleTitle": "Der Teemeister",
+      "isPotentialKiller": false,
+      "colorCode": "#E5E5E5",
+      "farbname": "Weiß mit Schwarz",
+      "startRoom": "thekensaal",
+      "ermittlungsOrt": "hinter_theke_west",
+      "coordinates": {
+        "x": 11.5,
+        "y": 8.5
+      },
+      "visualSpecs": {
+        "silhouette": "Schlank, aufmerksam, flinke Hände",
+        "outfit": "Weißes Hemd mit hochgekrempelten Ärmeln, schwarze Schürze",
+        "distinguishingFeature": "Hält ein schmales Teeglas auf einer Untertasse",
+        "idleAnimation": "Poliert Teegläser mit einem weißen Tuch und prüft den Teekocher"
+      },
+      "motiveAndConflict": "Er schenkt den ganzen Abend Tee aus. Herr Schneider warf ihm vor, das Teegeschirr des Schlosses ohne Erlaubnis zu benutzen.",
+      "blackoutAlibi": "Duckte sich am Ostende hinter die Theke, um nicht an heiße Kannen zu stoßen.",
+      "roleSecret": "Um 23:57 sah er Ahmet, Fatma und Olli an der Theke, Herrn Schneider mittendrin. Can war nicht da.",
+      "persoenlichesZiel": "Sein Ärger mit Herrn Schneider über das Teegeschirr soll nicht zur Sprache kommen.",
+      "nebendelikt": null,
+      "loyalitaet": null,
+      "luegen": []
+    },
+    {
+      "id": "selin",
+      "name": "Selin",
+      "aussprache": "Selin",
+      "age": 23,
+      "geschlecht": "w",
+      "herkunft": "türkisch",
+      "tier": 5,
+      "besetzungsplatz": 18,
+      "minPlayers": 18,
+      "roleTitle": "Die Schreckhafte",
+      "isPotentialKiller": false,
+      "colorCode": "#D8A7B1",
+      "farbname": "Pastellrosa",
+      "startRoom": "west_saal",
+      "ermittlungsOrt": "west_bank_sued",
+      "coordinates": {
+        "x": 3.5,
+        "y": 18.5
+      },
+      "visualSpecs": {
+        "silhouette": "Klein, zieht oft die Schultern hoch",
+        "outfit": "Pastellrosa Strickpulli, helle Jeans, weißer Fransenschal",
+        "distinguishingFeature": "Zieht den Fransenschal bis übers Kinn",
+        "idleAnimation": "Schaut sich um und zuckt bei lauten Geräuschen zusammen"
+      },
+      "motiveAndConflict": "Um 21:00 hielt sie die Ritterrüstung im Turmgang für einen Menschen, schrie auf und stieß gegen die Vitrine. Seitdem traut sie sich nicht mehr allein zur Toilette.",
+      "blackoutAlibi": "Kauerte auf der Wandbank im Kaminsaal.",
+      "roleSecret": "Im Dunkeln huschte ein leuchtendes Gesicht unter einer Kapuze vom Durchgang quer durch den Kaminsaal zur Bogentür.",
+      "persoenlichesZiel": "Nicht wieder ausgelacht werden.",
+      "nebendelikt": null,
+      "loyalitaet": null,
+      "luegen": []
+    },
+    {
+      "id": "hakan",
+      "name": "Pawel",
+      "quelle": {
+        "name": "Hakan",
+        "nr": 19
+      },
+      "aussprache": "Pawel",
+      "age": 30,
+      "geschlecht": "m",
+      "herkunft": "polnisch",
+      "tier": 5,
+      "besetzungsplatz": 19,
+      "minPlayers": 19,
+      "roleTitle": "Der Vermittler",
+      "isPotentialKiller": false,
+      "colorCode": "#4A3728",
+      "farbname": "Schokobraun",
+      "startRoom": "ost_saal",
+      "ermittlungsOrt": "ost_tafel_ost",
+      "coordinates": {
+        "x": 24.5,
+        "y": 13.5
+      },
+      "visualSpecs": {
+        "silhouette": "Ruhig, aufrecht, gelassene Haltung",
+        "outfit": "Schokobraune Steppjacke über beigem Rollkragen, Halbschuhe",
+        "distinguishingFeature": "Dunkelbraune Ledertasche neben sich, Teetasse in der Hand",
+        "idleAnimation": "Nimmt einen langsamen Schluck Tee und beobachtet die Gruppe"
+      },
+      "motiveAndConflict": "Um 23:00 versuchte er, den Streit zwischen Herrn Schneider und Olli zu schlichten. Herr Schneider wies ihn barsch ab. Im Sommer hat Pawel bei der Schlossstiftung gejobbt.",
+      "blackoutAlibi": "Blieb im Ost-Saal ruhig am Tisch und bat alle, keine Panik zu machen.",
+      "roleSecret": "Herr Schneider muss jeden Schaden der Stiftung melden. Kleine Schäden zahlt er oft aus eigener Tasche. Darum ist er beim Geld so streng.",
+      "persoenlichesZiel": "Herrn Schneider in Schutz nehmen, ohne seine Geldsorgen auszuplaudern.",
+      "nebendelikt": null,
+      "loyalitaet": null,
+      "luegen": []
+    },
+    {
+      "id": "tugba",
+      "name": "Tugba",
+      "aussprache": "Tuuba",
+      "age": 27,
+      "geschlecht": "w",
+      "herkunft": "türkisch",
+      "tier": 5,
+      "besetzungsplatz": 20,
+      "minPlayers": 20,
+      "roleTitle": "Die Geburtstags-Planerin",
+      "isPotentialKiller": false,
+      "colorCode": "#800020",
+      "farbname": "Bordeaux mit Gold",
+      "startRoom": "ost_saal",
+      "ermittlungsOrt": "an_der_wandtafel",
+      "coordinates": {
+        "x": 24.5,
+        "y": 10.5
+      },
+      "visualSpecs": {
+        "silhouette": "Organisiert, schwungvoll, geschäftsmäßig",
+        "outfit": "Bordeauxroter Blazer über weißem Shirt, schmale Metallbrille",
+        "distinguishingFeature": "Notizbuch mit goldenem Einband und Fineliner",
+        "idleAnimation": "Blättert im Notizbuch, hakt Zeilen ab und schaut zur Wanduhr"
+      },
+      "motiveAndConflict": "Sie hat den Ablaufplan des Abends geschrieben. Um zwölf sollte das Geburtstagskind mit verbundenen Augen zur Torte in den Vorratsraum geführt werden. Herr Schneider hatte nur widerwillig erlaubt, die Torte dort zu kühlen.",
+      "blackoutAlibi": "Stand im Ost-Saal an der Wandtafel mit dem Ablaufplan.",
+      "roleSecret": "Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute nach eigener Auskunft gerade sind.",
+      "persoenlichesZiel": "Den Abend retten: Torte um halb eins, egal was passiert.",
+      "nebendelikt": null,
+      "loyalitaet": null,
+      "luegen": []
+    }
+  ]
+}

@@ -1,0 +1,483 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "hinweis": "Gemeinsame Zeitleiste vom Eintreffen der Gäste bis zum Morgen. Sie ist in allen Pfaden gleich; was im Fenster 23:58–0:00 je Pfad anders ist, steht in den Tatmatrix-Dateien.",
+  "eintraege": [
+    {
+      "id": "z_ankunft",
+      "zeit": "18:00",
+      "ort": "im_windfang",
+      "wer": [
+        "alle"
+      ],
+      "text": "Die Gäste kommen über die fünf Sandsteinstufen und das Außentor in den Keller. Herr Schneider begrüßt alle knapp und zeigt den Weg.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_lieferung",
+      "zeit": "18:30",
+      "ort": "an_der_ruestung",
+      "wer": [
+        "murat",
+        "olli",
+        "kaan"
+      ],
+      "text": "Marek liefert das Essen über den Schlosshof und parkt auf Herrn Schneiders reserviertem Platz. Olli und Wojtek tragen die Warmhaltebehälter durch Hoftür, Turmgang und Bogentür.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_tuerschaden",
+      "zeit": "18:35",
+      "ort": "vor_bogentuer",
+      "wer": [
+        "olli",
+        "kaan"
+      ],
+      "text": "Olli schrammt mit einem Warmhaltebehälter die geschnitzte Bogentür. Ein Beschlag reißt aus, Holzsplitter und weißer Kalk bleiben an seinen Pulli-Ärmeln.",
+      "pfade": "alle",
+      "quelle": "B-07"
+    },
+    {
+      "id": "z_moebelwachs",
+      "zeit": "18:45",
+      "ort": "vor_bogentuer",
+      "wer": [
+        "olli",
+        "kaan"
+      ],
+      "text": "Wojtek gibt Olli braunes Möbelwachs aus seiner Werkzeugtasche, um die Schramme zu verdecken.",
+      "pfade": "alle",
+      "quelle": "B-16"
+    },
+    {
+      "id": "z_forderung",
+      "zeit": "18:50",
+      "ort": "vor_bogentuer",
+      "wer": [
+        "schneider",
+        "olli"
+      ],
+      "text": "Herr Schneider entdeckt den Schaden, verlangt 2.000 € bar und schreibt es in seinen Quittungsblock. Er schließt Hoftür und Außentor ab: „Keiner geht, bevor das bezahlt ist.“",
+      "pfade": "alle",
+      "quelle": "B-02"
+    },
+    {
+      "id": "z_buffet",
+      "zeit": "19:00",
+      "ort": "vor_theke",
+      "wer": [
+        "alle"
+      ],
+      "text": "Das Buffet ist eröffnet: warmes Essen, Brot, Dips, Gebäck. Dazu schwarzer Tee aus dem großen Teekocher, Kaffee, alkoholfreier Apfelpunsch, Wasser und Säfte.",
+      "pfade": "alle",
+      "quelle": "B-14"
+    },
+    {
+      "id": "z_handschuh",
+      "zeit": "19:30",
+      "ort": "am_kamin",
+      "wer": [
+        "olli"
+      ],
+      "text": "Olli wärmt sich am noch kalten Kamin die Hände und vergisst dort einen Arbeitshandschuh mit Möbelwachs an den Fingerkuppen.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_verlaufen",
+      "zeit": "20:15",
+      "ort": "vorrat_mitte",
+      "wer": [
+        "olli"
+      ],
+      "text": "Lacher: Olli sucht die Toilette, nimmt die falsche Tür hinter der Theke und steht im dunklen Vorratsraum vor der Geburtstagstorte. „Ich wollte nur aufs Klo!“",
+      "pfade": "alle",
+      "quelle": "B-17"
+    },
+    {
+      "id": "z_ruestung",
+      "zeit": "21:00",
+      "ort": "an_der_ruestung",
+      "wer": [
+        "selin"
+      ],
+      "text": "Lacher: Selin hält die Ritterrüstung für einen Menschen, schreit auf und stolpert gegen die Schauvitrine. Die Scheibe bekommt einen feinen Sprung.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_kerzen",
+      "zeit": "22:00",
+      "ort": "an_anrichte",
+      "wer": [
+        "schneider"
+      ],
+      "text": "Herr Schneider zündet die drei roten Kerzen im Messingkerzenständer auf der Anrichte an. Es sind die einzigen echten Kerzen im Keller.",
+      "pfade": "alle",
+      "quelle": "B-04"
+    },
+    {
+      "id": "z_musik",
+      "zeit": "22:00",
+      "ort": "ost_bank",
+      "wer": [
+        "schneider",
+        "baran"
+      ],
+      "text": "Herr Schneider verlangt leise Musik und droht, Barans Box einzukassieren.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_quittung",
+      "zeit": "22:30",
+      "ort": "ost_tafel_west",
+      "wer": [
+        "aylin",
+        "schneider"
+      ],
+      "text": "Aylin fragt Herrn Schneider nach einem Beleg für die Miete. Er schreibt ihr auf einen Quittungszettel: „Miete: 0 Euro.“",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_streit_olli",
+      "zeit": "23:00",
+      "ort": "vor_theke",
+      "wer": [
+        "schneider",
+        "olli",
+        "hakan"
+      ],
+      "text": "Lauter Streit zwischen Herrn Schneider und Olli um die 2.000 €. Pawel versucht zu schlichten und wird barsch abgewiesen.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_kamin",
+      "zeit": "23:20",
+      "ort": "am_kamin",
+      "wer": [
+        "meryem"
+      ],
+      "text": "Hana feuert den Kamin an, ohne die Kaminklappe zu öffnen.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_qualm",
+      "zeit": "23:30",
+      "ort": "am_kamin",
+      "wer": [
+        "meryem",
+        "schneider"
+      ],
+      "text": "Lacher: Dichter Qualm füllt den Kaminsaal, alle husten. Die Klappen der Lichtschächte werden aufgerissen, das Feuer wird gelöscht. Seitdem zieht Luft vom Buffetsaal in den Kaminsaal.",
+      "pfade": "alle",
+      "quelle": "B-17"
+    },
+    {
+      "id": "z_vitrine_schatulle",
+      "zeit": "23:40",
+      "ort": "an_der_vitrine",
+      "wer": [
+        "fatma",
+        "emine"
+      ],
+      "text": "Fatma hebt die gesprungene Scheibe der Vitrine an und nimmt die Münzschatulle mit. Emine sieht es.",
+      "pfade": "alle",
+      "quelle": "B-08"
+    },
+    {
+      "id": "z_tasche_ausgebeult",
+      "zeit": "23:45",
+      "ort": "am_linken_buffet",
+      "wer": [
+        "dilara",
+        "fatma"
+      ],
+      "text": "Azra sieht, dass Fatmas Tasche auffällig ausgebeult ist.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_finger",
+      "zeit": "23:50",
+      "ort": "vor_bogentuer",
+      "wer": [
+        "kaan"
+      ],
+      "text": "Wojtek klemmt sich an der Bogentür den Finger ein.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_foto_streit",
+      "zeit": "23:51",
+      "ort": "vor_theke",
+      "wer": [
+        "schneider",
+        "ahmet",
+        "johanna"
+      ],
+      "text": "Herr Schneider zu Ahmet an der Theke: „Um zwölf sag ich allen, was der Keller gekostet hat.“ Joanna fotografiert den Streit.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_olli_eis",
+      "zeit": "23:52",
+      "ort": "vor_bogentuer",
+      "wer": [
+        "olli",
+        "kaan"
+      ],
+      "text": "Olli zu Wojtek: „Ich hol dir Eis. Und dann red ich mit Schneider.“",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_vitrine_offen",
+      "zeit": "23:53",
+      "ort": "an_der_vitrine",
+      "wer": [
+        "schneider"
+      ],
+      "text": "Herr Schneider entdeckt auf seiner Runde die offene Vitrine und die Scherben.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_can_vorrat",
+      "zeit": "23:54",
+      "ort": "vorrat_mitte",
+      "wer": [
+        "can",
+        "zeynep"
+      ],
+      "text": "Can schleicht über den Durchgang hinter die Theke in den Vorratsraum, macht dort das Licht aus und wartet mit der Leuchtmaske auf das Geburtstagskind. Zeynep steht am Bogen zum Durchgang Schmiere.",
+      "pfade": "alle",
+      "quelle": "B-05"
+    },
+    {
+      "id": "z_tortenplan",
+      "zeit": "23:55",
+      "ort": "an_der_wandtafel",
+      "wer": [
+        "tugba",
+        "detective",
+        "baran"
+      ],
+      "text": "Tugba ruft alle in den Ost-Saal, die Handys kommen in den Handykorb. Das Geburtstagskind bekommt eine Augenbinde und Barans Kopfhörer mit lauter Musik. Um zwölf soll es zur Torte in den Vorratsraum geführt werden.",
+      "pfade": "alle",
+      "quelle": "B-05"
+    },
+    {
+      "id": "z_jacke",
+      "zeit": "23:55",
+      "ort": "am_jackenstaender",
+      "wer": [
+        "ahmet"
+      ],
+      "text": "Ahmet hängt seine schwarze Jacke an den Jackenständer im Ost-Saal.",
+      "pfade": "alle",
+      "quelle": "V-03"
+    },
+    {
+      "id": "z_serkan_tor",
+      "zeit": "23:56",
+      "ort": "am_aussentor",
+      "wer": [
+        "serkan"
+      ],
+      "text": "Serkan will Decken aus dem Auto holen und findet das Außentor verschlossen.",
+      "pfade": "alle",
+      "quelle": "B-03"
+    },
+    {
+      "id": "z_schatulle_entdeckt",
+      "zeit": "23:56",
+      "ort": "am_linken_buffet",
+      "wer": [
+        "schneider",
+        "fatma",
+        "emine"
+      ],
+      "text": "Herr Schneider sieht Glassplitter an Fatmas Mantel: „Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.“",
+      "pfade": "alle",
+      "quelle": "B-08"
+    },
+    {
+      "id": "z_theke_2357",
+      "zeit": "23:57",
+      "ort": "vor_theke",
+      "wer": [
+        "ahmet",
+        "fatma",
+        "olli",
+        "schneider",
+        "enes",
+        "leyla"
+      ],
+      "text": "Fatma geht mit der Tasche zur Theken-Klappe, Olli holt am Eiskübel Eis, Ahmet schlüpft mit dem Umschlag hinter die Theke. Herr Schneider raunzt Olli an: „Zweitausend, bis zwölf.“",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_steckdose",
+      "zeit": "23:57:50",
+      "ort": "hinter_theke_ost",
+      "wer": [
+        "tim",
+        "schneider"
+      ],
+      "text": "Herr Schneider warnt Tim vor der alten Leiste. Tim steckt die Kaffeemaschine trotzdem in seine Mehrfachsteckdose.",
+      "pfade": "alle",
+      "quelle": "V-06"
+    },
+    {
+      "id": "z_ausfall",
+      "zeit": "23:58",
+      "ort": "hinter_theke_ost",
+      "wer": [
+        "alle"
+      ],
+      "text": "Knall. Die Hauptsicherung fliegt raus, überall ist es dunkel. Nur die Kerzen an der Anrichte und das grüne Notausgangsschild leuchten.",
+      "pfade": "alle",
+      "quelle": "B-04"
+    },
+    {
+      "id": "z_zusammenstoss",
+      "zeit": "23:58:13",
+      "ort": "vor_vorratstuer",
+      "wer": [
+        "schneider",
+        "can"
+      ],
+      "text": "Herr Schneider will die Notlaterne holen. Can springt mit der leuchtenden Maske aus dem Vorratsraum, Herr Schneider packt ihn an der Kapuze: „Hab ich dich!“",
+      "pfade": "alle",
+      "quelle": "B-05"
+    },
+    {
+      "id": "z_schlag",
+      "zeit": "23:58:40",
+      "ort": "vor_vorratstuer",
+      "wer": [
+        "schneider"
+      ],
+      "text": "Ein dumpfer Schlag, Poltern, Metall scheppert über den Steinboden. Die Kerzen erlöschen. Herr Schneider stürzt in den Vorratsraum. Wer zugeschlagen hat, hängt vom Fall-Code ab.",
+      "pfade": "alle",
+      "quelle": "B-05"
+    },
+    {
+      "id": "z_bund_weg",
+      "zeit": "23:58:45",
+      "ort": "vorrat_innen",
+      "wer": [],
+      "text": "Der Schlüsselbund wird vom Gürtel gezogen. Wer ihn nimmt und wo er landet, hängt vom Fall-Code ab.",
+      "pfade": "alle",
+      "quelle": "B-02"
+    },
+    {
+      "id": "z_licht",
+      "zeit": "00:00",
+      "ort": "am_sicherungskasten",
+      "wer": [
+        "tim"
+      ],
+      "text": "Tim schaltet die Hauptsicherung wieder ein.",
+      "pfade": "alle",
+      "quelle": "V-06"
+    },
+    {
+      "id": "z_gefunden",
+      "zeit": "00:00:20",
+      "ort": "vorrat_innen",
+      "wer": [
+        "enes",
+        "schneider"
+      ],
+      "text": "Damir findet Herrn Schneider im Vorratsraum.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_wach",
+      "zeit": "00:01:30",
+      "ort": "vorrat_innen",
+      "wer": [
+        "schneider"
+      ],
+      "text": "Herr Schneider kommt zu sich: Beule, Gedächtnislücke. „Mein Schlüsselbund! Der ist weg!“",
+      "pfade": "alle",
+      "quelle": "V-05"
+    },
+    {
+      "id": "z_festgesetzt",
+      "zeit": "00:03",
+      "ort": "unter_notausgang",
+      "wer": [
+        "alle"
+      ],
+      "text": "Das Außentor ist zu, der Bund ist weg, hinter den Mauern gibt es keinen Empfang. Die Gruppe sitzt bis zum Morgen fest.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_umschlag",
+      "zeit": "00:12",
+      "ort": "am_kamin",
+      "wer": [
+        "ahmet"
+      ],
+      "text": "Ahmet leert unbemerkt den Umschlag mit dem Mietgeld und wirft ihn in den Ascheneimer am Kamin.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_auftrag",
+      "zeit": "00:20",
+      "ort": "hinter_rechtem_buffet",
+      "wer": [
+        "schneider",
+        "detective"
+      ],
+      "text": "Herr Schneider bittet das Geburtstagskind: „Finde raus, wer das war. Bis zum Morgen.“",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_runde1",
+      "zeit": "00:30",
+      "ort": "vor_theke",
+      "wer": [
+        "alle"
+      ],
+      "text": "Runde 1: Das Alibi-Geflecht.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_runde2",
+      "zeit": "01:15",
+      "ort": "vor_theke",
+      "wer": [
+        "alle"
+      ],
+      "text": "Runde 2: Die Indizien-Filterung.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_runde3",
+      "zeit": "02:00",
+      "ort": "vor_theke",
+      "wer": [
+        "alle"
+      ],
+      "text": "Runde 3: Die finale Gegenüberstellung.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_finale",
+      "zeit": "02:45",
+      "ort": "vor_theke",
+      "wer": [
+        "alle"
+      ],
+      "text": "Finale: die Anklage.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_morgen",
+      "zeit": "07:00",
+      "ort": "im_windfang",
+      "wer": [
+        "schneider"
+      ],
+      "text": "Herrn Schneiders Kollegin kommt mit dem Ersatzschlüssel und schließt das Außentor auf.",
+      "pfade": "alle"
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "pfad": "olli",
+  "hinweis": "Tatnacht im Pfad Olli. Ersetzt den Plan von Olli aus basis.json und ergänzt Ereignisse und Gegenstandsspuren. Alle anderen Personen handeln wie in basis.json.",
+  "plaene": {
+    "olli": [
+      {
+        "t": "23:50:00",
+        "ort": "vor_bogentuer",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:52:00",
+        "sagt": "Ich hol dir Eis. Und dann red ich mit Schneider.",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "23:52:30",
+        "nach": "am_handykorb",
+        "bis": "23:54:00",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:56:30",
+        "nach": "am_eiskuebel",
+        "bis": "23:56:50",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:20",
+        "nach": "vor_theke_west",
+        "bis": "23:58:26",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:31",
+        "nach": "vor_vorratstuer",
+        "bis": "23:58:38",
+        "tempo": "gehen",
+        "ueber": [
+          "theke_klappe"
+        ]
+      },
+      {
+        "t": "23:58:38",
+        "sagt": "Lass uns reden, nur kurz.",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "23:58:41",
+        "nach": "vorrat_innen",
+        "bis": "23:58:43",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:46",
+        "nach": "am_eiskuebel",
+        "bis": "23:59:00",
+        "tempo": "gehen",
+        "ueber": [
+          "vor_vorratstuer",
+          "theke_klappe",
+          "vor_theke_west"
+        ]
+      },
+      {
+        "t": "23:59:00",
+        "geraeusch": "Eis klirrt im Eiskübel",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "23:59:01",
+        "nach": "am_rechten_buffet",
+        "bis": "23:59:05",
+        "tempo": "gehen",
+        "haltung": "kauert"
+      },
+      {
+        "t": "23:59:06",
+        "sagt": "Azra? Ich bin's, Olli.",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "00:00:05",
+        "haltung": "steht"
+      },
+      {
+        "t": "00:00:30",
+        "nach": "ost_tafel_kopf",
+        "bis": "00:00:45",
+        "tempo": "gehen",
+        "haltung": "sitzt"
+      }
+    ]
+  },
+  "ereignisse": [
+    {
+      "id": "ev_can_gepackt",
+      "t": "23:58:13",
+      "ort": "vor_vorratstuer",
+      "art": "handlung",
+      "person": "schneider",
+      "ziel": "can",
+      "text": "Herr Schneider packt Can an der Kapuze."
+    },
+    {
+      "id": "ev_can_losgerissen",
+      "t": "23:58:28",
+      "ort": "vor_vorratstuer",
+      "art": "handlung",
+      "person": "can",
+      "text": "Can reißt sich los und rennt mit der leuchtenden Maske in der Hand davon."
+    },
+    {
+      "id": "ev_olli_gepackt",
+      "t": "23:58:36",
+      "ort": "vor_vorratstuer",
+      "art": "handlung",
+      "person": "schneider",
+      "ziel": "olli",
+      "text": "Herr Schneider packt Olli am Ärmel: „Zweitausend, hab ich gesagt!“"
+    },
+    {
+      "id": "ev_olli_schlag",
+      "t": "23:58:39",
+      "ort": "vor_vorratstuer",
+      "art": "handlung",
+      "person": "olli",
+      "text": "In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. Holzsplitter und weißer Kalk von seinem Ärmel bleiben im weichen Wachs am Fuß kleben."
+    }
+  ],
+  "gegenstaende": [
+    {
+      "id": "kerzenstaender",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "einrichtung": "anrichte",
+          "stelle": "auf der Anrichte neben der Vorratsraumtür"
+        },
+        {
+          "t": "23:58:39",
+          "traeger": "olli"
+        },
+        {
+          "t": "23:58:40",
+          "ort": "vor_vorratstuer",
+          "stelle": "umgestoßen auf dem Steinboden vor der Vorratsraumtür, die Kerzen herausgefallen"
+        }
+      ]
+    },
+    {
+      "id": "bund_schneider",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "traeger": "schneider"
+        },
+        {
+          "t": "23:58:45",
+          "traeger": "olli"
+        },
+        {
+          "t": "23:59:00",
+          "ort": "am_eiskuebel",
+          "stelle": "unter dem Eis im Eiskübel"
+        }
+      ]
+    }
+  ]
+}

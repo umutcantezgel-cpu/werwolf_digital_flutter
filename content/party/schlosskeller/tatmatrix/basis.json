@@ -1,0 +1,745 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "pfad": "basis",
+  "hinweis": "Gemeinsamer Ablauf aller vier Pfade von 23:50 bis 0:10. Die Kernverdächtigen stehen hier mit ihrem unschuldigen Verhalten. Jede Pfaddatei ersetzt den Plan der Person, die zugeschlagen hat, und ergänzt Ereignisse und Gegenstandsspuren. Ein Plan besteht aus Schritten: Aufenthalt (t, ort, haltung), Weg (t, nach, bis, tempo, ueber), Haltungswechsel, Gesagtes (sagt, lautstaerke), Geräusch (geraeusch, lautstaerke) und getragenes Licht (licht).",
+  "plaene": {
+    "detective": [
+      {
+        "t": "23:50:00",
+        "ort": "ost_tafel_ost",
+        "haltung": "sitzt"
+      },
+      {
+        "t": "23:55:00",
+        "nach": "geburtstagsplatz",
+        "bis": "23:55:10",
+        "tempo": "gehen",
+        "haltung": "augenbinde"
+      },
+      {
+        "t": "00:00:35",
+        "haltung": "sitzt"
+      }
+    ],
+    "schneider": [
+      {
+        "t": "23:50:00",
+        "ort": "vor_theke",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:51:00",
+        "sagt": "Um zwölf sag ich allen, was der Keller gekostet hat.",
+        "lautstaerke": "laut"
+      },
+      {
+        "t": "23:51:30",
+        "nach": "an_der_vitrine",
+        "bis": "23:52:30",
+        "tempo": "gehen",
+        "ueber": [
+          "theke_klappe",
+          "durchgang_mitte",
+          "vor_bogentuer"
+        ]
+      },
+      {
+        "t": "23:53:00",
+        "sagt": "Wer war an der Vitrine?",
+        "lautstaerke": "laut"
+      },
+      {
+        "t": "23:54:40",
+        "nach": "am_linken_buffet",
+        "bis": "23:55:50",
+        "tempo": "gehen",
+        "ueber": [
+          "vor_bogentuer",
+          "durchgang_mitte",
+          "theke_klappe"
+        ]
+      },
+      {
+        "t": "23:56:00",
+        "sagt": "Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.",
+        "lautstaerke": "laut"
+      },
+      {
+        "t": "23:56:30",
+        "nach": "theke_ostende",
+        "bis": "23:56:50",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:57:00",
+        "sagt": "Zweitausend, bis zwölf.",
+        "lautstaerke": "laut"
+      },
+      {
+        "t": "23:57:25",
+        "nach": "hinter_theke_ost",
+        "bis": "23:57:30",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:57:40",
+        "sagt": "Nicht die alte Leiste!",
+        "lautstaerke": "laut"
+      },
+      {
+        "t": "23:58:05",
+        "sagt": "Ruhe! Ich hol die Notlaterne.",
+        "lautstaerke": "laut"
+      },
+      {
+        "t": "23:58:05",
+        "nach": "vor_vorratstuer",
+        "bis": "23:58:09",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:13",
+        "sagt": "Hab ich dich!",
+        "lautstaerke": "sehr_laut"
+      },
+      {
+        "t": "23:58:30",
+        "sagt": "Stehen bleiben!",
+        "lautstaerke": "sehr_laut"
+      },
+      {
+        "t": "23:58:40",
+        "nach": "vorrat_innen",
+        "bis": "23:58:42",
+        "tempo": "gehen",
+        "haltung": "liegt"
+      },
+      {
+        "t": "00:01:30",
+        "haltung": "sitzt"
+      },
+      {
+        "t": "00:01:35",
+        "sagt": "Mein Kopf …",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "00:02:00",
+        "sagt": "Mein Schlüsselbund! Der ist weg!",
+        "lautstaerke": "laut"
+      }
+    ],
+    "ahmet": [
+      {
+        "t": "23:50:00",
+        "ort": "vor_theke",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:53:00",
+        "nach": "am_handykorb",
+        "bis": "23:53:30",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:55:10",
+        "nach": "am_jackenstaender",
+        "bis": "23:55:30",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:56:50",
+        "nach": "hinter_theke_ost",
+        "bis": "23:56:58",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:00",
+        "haltung": "kauert"
+      },
+      {
+        "t": "23:58:03",
+        "sagt": "Damir? Ich bin's, Ahmet.",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "00:00:05",
+        "haltung": "steht"
+      }
+    ],
+    "fatma": [
+      {
+        "t": "23:50:00",
+        "ort": "am_linken_buffet",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:57:00",
+        "nach": "theke_klappe",
+        "bis": "23:57:06",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:01",
+        "nach": "hinter_linkem_buffet",
+        "bis": "23:58:06",
+        "tempo": "gehen",
+        "haltung": "kauert"
+      },
+      {
+        "t": "23:58:08",
+        "sagt": "Emine? Ich bin's, Fatma.",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "00:00:05",
+        "haltung": "steht"
+      }
+    ],
+    "olli": [
+      {
+        "t": "23:50:00",
+        "ort": "vor_bogentuer",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:52:00",
+        "sagt": "Ich hol dir Eis. Und dann red ich mit Schneider.",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "23:52:30",
+        "nach": "am_handykorb",
+        "bis": "23:54:00",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:56:30",
+        "nach": "am_eiskuebel",
+        "bis": "23:56:50",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:01",
+        "nach": "am_rechten_buffet",
+        "bis": "23:58:05",
+        "tempo": "gehen",
+        "haltung": "kauert"
+      },
+      {
+        "t": "23:58:08",
+        "sagt": "Azra? Ich bin's, Olli.",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "00:00:05",
+        "haltung": "steht"
+      },
+      {
+        "t": "00:00:30",
+        "nach": "ost_tafel_kopf",
+        "bis": "00:00:45",
+        "tempo": "gehen",
+        "haltung": "sitzt"
+      }
+    ],
+    "can": [
+      {
+        "t": "23:50:00",
+        "ort": "west_bank_west",
+        "haltung": "sitzt"
+      },
+      {
+        "t": "23:54:00",
+        "nach": "vorrat_mitte",
+        "bis": "23:54:20",
+        "tempo": "gehen",
+        "ueber": [
+          "durchgang_mitte",
+          "theke_klappe",
+          "vor_vorratstuer"
+        ]
+      },
+      {
+        "t": "23:54:20",
+        "licht": "licht_maske",
+        "an": true
+      },
+      {
+        "t": "23:57:00",
+        "nach": "vorrat_innen",
+        "bis": "23:57:03",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:09",
+        "nach": "vor_vorratstuer",
+        "bis": "23:58:11",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:11",
+        "sagt": "Buuuh!",
+        "lautstaerke": "laut"
+      },
+      {
+        "t": "23:58:28",
+        "nach": "vor_bogentuer",
+        "bis": "23:58:34",
+        "tempo": "rennen",
+        "ueber": [
+          "theke_klappe",
+          "durchgang_mitte"
+        ]
+      },
+      {
+        "t": "23:58:35",
+        "licht": "licht_maske",
+        "an": false
+      },
+      {
+        "t": "23:58:36",
+        "nach": "wc",
+        "bis": "23:58:55",
+        "tempo": "gehen"
+      },
+      {
+        "t": "00:01:00",
+        "nach": "west_bank_west",
+        "bis": "00:01:30",
+        "tempo": "gehen"
+      }
+    ],
+    "leyla": [
+      {
+        "t": "23:50:00",
+        "ort": "hinter_theke_mitte",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:57:40",
+        "nach": "ost_tafel_west",
+        "bis": "23:57:50",
+        "tempo": "gehen"
+      }
+    ],
+    "tim": [
+      {
+        "t": "23:50:00",
+        "ort": "hinter_theke_ost",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:58:00",
+        "nach": "am_sicherungskasten",
+        "bis": "23:58:14",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:20",
+        "sagt": "Wo ist denn der Hauptschalter …",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "23:59:40",
+        "licht": "licht_stirnlampe",
+        "an": true
+      }
+    ],
+    "emine": [
+      {
+        "t": "23:50:00",
+        "ort": "hinter_linkem_buffet",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:58:00",
+        "haltung": "kauert"
+      },
+      {
+        "t": "00:00:05",
+        "haltung": "steht"
+      }
+    ],
+    "johanna": [
+      {
+        "t": "23:50:00",
+        "ort": "saalmitte",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:53:00",
+        "nach": "am_handykorb",
+        "bis": "23:53:30",
+        "tempo": "gehen"
+      }
+    ],
+    "murat": [
+      {
+        "t": "23:50:00",
+        "ort": "unter_notausgang",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:57:00",
+        "nach": "bei_den_kisten",
+        "bis": "23:57:20",
+        "tempo": "gehen",
+        "ueber": [
+          "theke_klappe"
+        ]
+      }
+    ],
+    "zeynep": [
+      {
+        "t": "23:50:00",
+        "ort": "west_bank_west",
+        "haltung": "sitzt"
+      },
+      {
+        "t": "23:54:00",
+        "nach": "west_bogen",
+        "bis": "23:54:10",
+        "tempo": "gehen",
+        "haltung": "steht"
+      }
+    ],
+    "baran": [
+      {
+        "t": "23:50:00",
+        "ort": "ost_bank",
+        "haltung": "sitzt"
+      },
+      {
+        "t": "23:55:00",
+        "nach": "geburtstagsplatz",
+        "bis": "23:55:05",
+        "tempo": "gehen",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:55:20",
+        "nach": "ost_bank",
+        "bis": "23:55:25",
+        "tempo": "gehen",
+        "haltung": "sitzt"
+      }
+    ],
+    "meryem": [
+      {
+        "t": "23:50:00",
+        "ort": "am_kamin",
+        "haltung": "steht"
+      }
+    ],
+    "serkan": [
+      {
+        "t": "23:50:00",
+        "ort": "unter_notausgang",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:55:30",
+        "nach": "am_aussentor",
+        "bis": "23:55:45",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:56:00",
+        "licht": "licht_serkan",
+        "an": true
+      },
+      {
+        "t": "00:01:00",
+        "licht": "licht_serkan",
+        "an": false
+      },
+      {
+        "t": "00:02:30",
+        "nach": "unter_notausgang",
+        "bis": "00:02:40",
+        "tempo": "gehen"
+      },
+      {
+        "t": "00:02:45",
+        "sagt": "Das Tor ist zu. Abgeschlossen.",
+        "lautstaerke": "laut"
+      }
+    ],
+    "aylin": [
+      {
+        "t": "23:50:00",
+        "ort": "ost_tafel_west",
+        "haltung": "sitzt"
+      }
+    ],
+    "kaan": [
+      {
+        "t": "23:50:00",
+        "ort": "vor_bogentuer",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:50:00",
+        "sagt": "Au! Mein Finger!",
+        "lautstaerke": "laut"
+      }
+    ],
+    "dilara": [
+      {
+        "t": "23:50:00",
+        "ort": "am_rechten_buffet",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:58:00",
+        "haltung": "kauert"
+      },
+      {
+        "t": "00:00:05",
+        "haltung": "steht"
+      }
+    ],
+    "enes": [
+      {
+        "t": "23:50:00",
+        "ort": "hinter_theke_mitte",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:57:30",
+        "nach": "hinter_theke_ost",
+        "bis": "23:57:33",
+        "tempo": "gehen"
+      },
+      {
+        "t": "23:58:00",
+        "haltung": "kauert"
+      },
+      {
+        "t": "00:00:05",
+        "haltung": "steht"
+      },
+      {
+        "t": "00:00:10",
+        "nach": "vorrat_innen",
+        "bis": "00:00:16",
+        "tempo": "gehen",
+        "ueber": [
+          "vor_vorratstuer"
+        ]
+      },
+      {
+        "t": "00:00:20",
+        "sagt": "Hier liegt Herr Schneider!",
+        "lautstaerke": "sehr_laut"
+      }
+    ],
+    "selin": [
+      {
+        "t": "23:50:00",
+        "ort": "west_bank_sued",
+        "haltung": "sitzt"
+      }
+    ],
+    "hakan": [
+      {
+        "t": "23:50:00",
+        "ort": "ost_tafel_ost",
+        "haltung": "sitzt"
+      },
+      {
+        "t": "23:58:10",
+        "sagt": "Ruhig bleiben, alle! Keine Panik.",
+        "lautstaerke": "laut"
+      }
+    ],
+    "tugba": [
+      {
+        "t": "23:50:00",
+        "ort": "an_der_wandtafel",
+        "haltung": "steht"
+      },
+      {
+        "t": "23:55:00",
+        "sagt": "Alle in den Ost-Saal! Handys in den Korb, um zwölf gibt's Torte!",
+        "lautstaerke": "laut"
+      },
+      {
+        "t": "23:55:10",
+        "nach": "geburtstagsplatz",
+        "bis": "23:55:20",
+        "tempo": "gehen"
+      },
+      {
+        "t": "00:00:35",
+        "sagt": "So, Augen auf. Das war nicht die Überraschung.",
+        "lautstaerke": "leise"
+      }
+    ]
+  },
+  "ereignisse": [
+    {
+      "id": "ev_tim_steckdose",
+      "t": "23:57:50",
+      "ort": "hinter_theke_ost",
+      "art": "handlung",
+      "person": "tim",
+      "text": "Tim steckt die Kaffeemaschine in seine alte Mehrfachsteckdose."
+    },
+    {
+      "id": "ev_vorratstuer_auf",
+      "t": "23:58:09",
+      "ort": "vor_vorratstuer",
+      "art": "tuer",
+      "tuer": "vorrat_tuer",
+      "zustand": "offen",
+      "person": "schneider",
+      "text": "Herr Schneider zieht die angelehnte Tür zum Vorratsraum auf."
+    },
+    {
+      "id": "ev_knall",
+      "t": "23:58:00",
+      "ort": "hinter_theke_ost",
+      "art": "geraeusch",
+      "lautstaerke": "sehr_laut",
+      "text": "Ein Knall an der Mehrfachsteckdose, die Hauptsicherung fliegt raus. Überall geht das Licht aus."
+    },
+    {
+      "id": "ev_scheppern",
+      "t": "23:58:40",
+      "ort": "vor_vorratstuer",
+      "art": "geraeusch",
+      "lautstaerke": "sehr_laut",
+      "text": "Ein dumpfer Schlag, Poltern, Metall scheppert über den Steinboden. Das Kerzenlicht an der Theke erlischt."
+    },
+    {
+      "id": "ev_wachsgeruch",
+      "t": "23:58:40",
+      "ort": "an_anrichte",
+      "art": "geruch",
+      "text": "Geruch von frisch erloschenem Kerzenwachs."
+    },
+    {
+      "id": "ev_klimpern_bund",
+      "t": "23:58:45",
+      "ort": "vorrat_innen",
+      "art": "geraeusch",
+      "lautstaerke": "leise",
+      "text": "Klimpern: Der Schlüsselbund wird vom Gürtel gezogen."
+    },
+    {
+      "id": "ev_handylicht",
+      "t": "23:59:30",
+      "ort": "am_handykorb",
+      "art": "handlung",
+      "person": "johanna",
+      "text": "Joanna schaltet die ersten Handylampen aus dem Korb ein."
+    },
+    {
+      "id": "ev_licht_an",
+      "t": "00:00:00",
+      "ort": "am_sicherungskasten",
+      "art": "handlung",
+      "person": "tim",
+      "text": "Tim schaltet die Hauptsicherung wieder ein. Überall ist Licht."
+    },
+    {
+      "id": "ev_vorratslicht",
+      "t": "00:00:18",
+      "ort": "vorrat_innen",
+      "art": "handlung",
+      "person": "enes",
+      "text": "Damir schaltet die Lampe im Vorratsraum ein."
+    },
+    {
+      "id": "ev_augenbinde",
+      "t": "00:00:35",
+      "ort": "geburtstagsplatz",
+      "art": "handlung",
+      "person": "tugba",
+      "text": "Tugba nimmt dem Geburtstagskind Augenbinde und Kopfhörer ab."
+    },
+    {
+      "id": "ev_schneider_wach",
+      "t": "00:01:30",
+      "ort": "vorrat_innen",
+      "art": "handlung",
+      "person": "schneider",
+      "text": "Herr Schneider kommt zu sich. Er hat eine Beule und weiß nicht mehr, was nach dem Griff an die Kapuze geschah."
+    }
+  ],
+  "gegenstaende": [
+    {
+      "id": "bund_schneider",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "traeger": "schneider"
+        }
+      ]
+    },
+    {
+      "id": "kerzenstaender",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "einrichtung": "anrichte",
+          "stelle": "auf der Anrichte neben der Vorratsraumtür"
+        }
+      ]
+    },
+    {
+      "id": "jacke_ahmet",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "traeger": "ahmet"
+        },
+        {
+          "t": "23:55:30",
+          "einrichtung": "jackenstaender",
+          "stelle": "am vordersten Haken des Jackenständers"
+        }
+      ]
+    },
+    {
+      "id": "umschlag_mietgeld",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "traeger": "ahmet"
+        }
+      ]
+    },
+    {
+      "id": "muenzschatulle",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "traeger": "fatma",
+          "stelle": "in Fatmas Umhängetasche"
+        }
+      ]
+    },
+    {
+      "id": "leuchtmaske",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "traeger": "can",
+          "stelle": "in der Bauchtasche des Pullis, ab 23:54:20 in der Hand"
+        }
+      ]
+    },
+    {
+      "id": "stirnlampe_tim",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "traeger": "tim"
+        }
+      ]
+    }
+  ]
+}

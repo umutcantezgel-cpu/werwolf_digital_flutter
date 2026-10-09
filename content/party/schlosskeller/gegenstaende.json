@@ -1,0 +1,746 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "hinweis": "Gegenstände und Indizien. Lage = wo der Gegenstand während der Ermittlungsrunden ist; sie ist in allen Pfaden gleich (Regel K-1), außer beim versteckten Schlüsselbund. Jede Spur nennt, in welchem Pfad sie entsteht (entstehtWenn), was sie dort zeigt und was in den anderen Pfaden zu sehen ist (harmlos). Der Beweistest prüft entstehtWenn gegen die Tatmatrix.",
+  "gegenstaende": [
+    {
+      "id": "kerzenstaender",
+      "name": "Messingkerzenständer",
+      "beschreibung": "Schwerer Kerzenständer aus Messing für drei rote Wachskerzen. Herr Schneider hat ihn selbst poliert.",
+      "lage": {
+        "ort": "vor_vorratstuer",
+        "stelle": "umgestoßen auf dem Steinboden vor der Vorratsraumtür; Tugba hat verboten, ihn anzufassen"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_griff_leuchtfarbe",
+          "stelle": "Griff",
+          "entstehtWenn": {
+            "kerzenstaenderGegriffenVon": "can"
+          },
+          "zeigt": "Am Griff schimmert im Dunkeln grünliche Leuchtfarbe.",
+          "harmlos": "Der Griff ist blank poliert, nichts leuchtet.",
+          "rolle": {
+            "can": "schluesselbeweis"
+          }
+        },
+        {
+          "id": "spur_fuss_splitter",
+          "stelle": "Fuß",
+          "entstehtWenn": {
+            "kerzenstaenderGegriffenVon": "olli"
+          },
+          "zeigt": "Im erstarrten roten Wachs am Fuß kleben feine Holzsplitter und weißer Kalk.",
+          "harmlos": "Am Fuß klebt nur rotes Wachs.",
+          "rolle": {
+            "olli": "schluesselbeweis"
+          }
+        }
+      ]
+    },
+    {
+      "id": "silberring_fatma",
+      "name": "Fatmas breiter Silberring",
+      "beschreibung": "Ein breiter, glatter Silberring an Fatmas rechter Hand.",
+      "lage": {
+        "traeger": "fatma"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_ring_messing",
+          "stelle": "Außenseite",
+          "entstehtWenn": {
+            "kerzenstaenderGegriffenVon": "fatma"
+          },
+          "zeigt": "Frischer goldgelber Messingabrieb in einer Kerbe des Rings.",
+          "harmlos": "Nur feine Kratzer von der Glasscheibe der Vitrine, kein Messing.",
+          "rolle": {
+            "fatma": "schluesselbeweis"
+          }
+        }
+      ]
+    },
+    {
+      "id": "jacke_ahmet",
+      "name": "Ahmets schwarze Stoffjacke",
+      "beschreibung": "Ahmets Jacke hängt seit 23:55 am vordersten Haken des Jackenständers im Ost-Saal.",
+      "lage": {
+        "einrichtung": "jackenstaender",
+        "ort": "am_jackenstaender",
+        "stelle": "vorderster Haken"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_jacke_namensliste",
+          "stelle": "Brusttasche",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Eine Liste mit allen Namen der Gäste, hinter jedem „150 € ✓“.",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_mietgeld"
+        },
+        {
+          "id": "spur_jacke_bund",
+          "stelle": "Innentasche",
+          "entstehtWenn": {
+            "bundEndetBei": "jackenstaender"
+          },
+          "zeigt": "In der Innentasche steckt Herrn Schneiders großer Schlüsselbund.",
+          "harmlos": "Die Innentasche ist leer bis auf ein Kaugummipapier.",
+          "rolle": {
+            "ahmet": "schluesselbeweis"
+          }
+        }
+      ]
+    },
+    {
+      "id": "umschlag_mietgeld",
+      "name": "Umschlag mit dem Mietgeld",
+      "beschreibung": "Ein brauner Umschlag mit Ahmets Handschrift: „Miete Schlosskeller“. Gegen 0:12 leert Ahmet ihn und wirft ihn in den Ascheneimer am Kamin.",
+      "lage": {
+        "ort": "am_kamin",
+        "stelle": "leer im Ascheneimer neben der Kamin-Nische"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_umschlag_aufschrift",
+          "stelle": "Vorderseite",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "„Miete Schlosskeller“ in Ahmets Handschrift. Der Umschlag ist leer.",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_mietgeld"
+        },
+        {
+          "id": "spur_umschlag_wachs",
+          "stelle": "Rückseite",
+          "entstehtWenn": {
+            "kerzenstaenderGegriffenVon": "ahmet"
+          },
+          "zeigt": "Drei erstarrte rote Wachstropfen.",
+          "harmlos": "Kein Wachs, nur ein Knick.",
+          "rolle": {
+            "ahmet": "zusatzindiz"
+          }
+        }
+      ]
+    },
+    {
+      "id": "muenzschatulle",
+      "name": "Münzschatulle aus der Turmvitrine",
+      "beschreibung": "Kleine schwere Holzschatulle mit alten Schlossmünzen, Reliefs auf dem Deckel.",
+      "lage": {
+        "traeger": "fatma",
+        "stelle": "in Fatmas Umhängetasche"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_schatulle_da",
+          "stelle": "Tasche",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Die Schatulle aus der Vitrine liegt in Fatmas Tasche, zwischen Skizzenblock und Stiften.",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_schatulle",
+          "widerlegt": [
+            "luege_fatma_tasche"
+          ]
+        },
+        {
+          "id": "spur_schatulle_wachs",
+          "stelle": "Deckel",
+          "entstehtWenn": {
+            "kerzenstaenderGegriffenVon": "fatma"
+          },
+          "zeigt": "Auf dem Deckel kleben rote Wachstropfen.",
+          "harmlos": "Der Deckel ist sauber.",
+          "rolle": {
+            "fatma": "zusatzindiz"
+          }
+        }
+      ]
+    },
+    {
+      "id": "leuchtmaske",
+      "name": "Leuchtmaske",
+      "beschreibung": "Weiße Gespenstermaske aus Kunststoff, am Nachmittag mit nachleuchtender Farbe bemalt.",
+      "lage": {
+        "traeger": "can",
+        "stelle": "in der Bauchtasche von Cans Pulli"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_maske_da",
+          "stelle": "Bauchtasche",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Die Maske steckt zusammengefaltet in Cans Bauchtasche. Die Farbe ist noch leicht klebrig.",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_streich",
+          "widerlegt": [
+            "luege_can_maske"
+          ]
+        },
+        {
+          "id": "spur_maske_wachs",
+          "stelle": "Stirn der Maske",
+          "entstehtWenn": {
+            "kerzenstaenderGegriffenVon": "can"
+          },
+          "zeigt": "Rote Wachstropfen auf der Stirn der Maske.",
+          "harmlos": "Kein Wachs, nur Leuchtfarbe.",
+          "rolle": {
+            "can": "zusatzindiz"
+          }
+        }
+      ]
+    },
+    {
+      "id": "bund_schneider",
+      "name": "Herrn Schneiders Schlüsselbund",
+      "beschreibung": "Großer Bund mit dem Schlüssel für das Außentor, die Hoftür und den Turm.",
+      "lage": {
+        "versteckt": true
+      },
+      "sichtbar": false,
+      "versteckJePfad": {
+        "ahmet": {
+          "einrichtung": "jackenstaender",
+          "ort": "am_jackenstaender",
+          "stelle": "in der Innentasche von Ahmets Jacke"
+        },
+        "fatma": {
+          "einrichtung": "linkes_buffet_13",
+          "ort": "hinter_linkem_buffet",
+          "stelle": "in der Brottasche auf dem linken Buffettisch"
+        },
+        "olli": {
+          "ort": "am_eiskuebel",
+          "stelle": "unter dem Eis im Eiskübel"
+        },
+        "can": {
+          "ort": "an_der_ruestung",
+          "stelle": "im Helm der Ritterrüstung"
+        }
+      }
+    },
+    {
+      "id": "eiskuebel",
+      "name": "Eiskübel",
+      "beschreibung": "Metallkübel mit Eiswürfeln am Ostende der Theke.",
+      "lage": {
+        "ort": "am_eiskuebel"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_eiskuebel_bund",
+          "stelle": "unter dem Eis",
+          "entstehtWenn": {
+            "bundEndetBei": "am_eiskuebel"
+          },
+          "zeigt": "Unter den Eiswürfeln liegt Herrn Schneiders Schlüsselbund.",
+          "harmlos": "Nur Eis und Schmelzwasser.",
+          "rolle": {
+            "olli": "zusatzindiz"
+          }
+        }
+      ]
+    },
+    {
+      "id": "brottasche",
+      "name": "Brottasche",
+      "beschreibung": "Leinentasche mit Fladenbrot und Baguette auf dem linken Buffettisch.",
+      "lage": {
+        "einrichtung": "linkes_buffet_13",
+        "ort": "hinter_linkem_buffet"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_brottasche_bund",
+          "stelle": "unter dem Brot",
+          "entstehtWenn": {
+            "bundEndetBei": "linkes_buffet_13"
+          },
+          "zeigt": "Unter dem Brot liegt Herrn Schneiders Schlüsselbund.",
+          "harmlos": "Nur Brot und Krümel.",
+          "rolle": {
+            "fatma": "fundort"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ruestungshelm",
+      "name": "Helm der Ritterrüstung",
+      "beschreibung": "Der Helm der alten Ritterrüstung im Turmgang, das Visier klemmt.",
+      "lage": {
+        "einrichtung": "ruestung",
+        "ort": "an_der_ruestung"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_helm_bund",
+          "stelle": "im Helm",
+          "entstehtWenn": {
+            "bundEndetBei": "an_der_ruestung"
+          },
+          "zeigt": "Im Helm klemmt Herrn Schneiders Schlüsselbund.",
+          "harmlos": "Im Helm nur Staub und eine alte Spinnwebe.",
+          "rolle": {
+            "can": "fundort"
+          }
+        }
+      ]
+    },
+    {
+      "id": "quittung_aylin",
+      "name": "Quittungszettel „Miete: 0 Euro“",
+      "beschreibung": "Ein Zettel aus Herrn Schneiders Quittungsblock, um 22:30 für Aylin geschrieben und unterschrieben.",
+      "lage": {
+        "traeger": "aylin",
+        "stelle": "in Aylins Ledermappe"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_quittung",
+          "stelle": "Zettel",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "„Miete: 0 Euro. Schneider“",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_mietgeld",
+          "widerlegt": [
+            "luege_ahmet_miete"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "klemmbrett_schneider",
+      "name": "Herrn Schneiders Klemmbrett mit Quittungsblock",
+      "beschreibung": "Klemmbrett mit Durchschlägen aller Quittungen des Abends.",
+      "lage": {
+        "traeger": "schneider"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_klemmbrett_tuer",
+          "stelle": "Durchschlag 18:50",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "„Bogentür, Beschlag ausgerissen: 2.000 € bar. Bis Mitternacht.“",
+          "rolle": {
+            "alle": "motiv"
+          },
+          "belastet": [
+            "olli"
+          ]
+        },
+        {
+          "id": "spur_klemmbrett_miete",
+          "stelle": "Durchschlag 22:30",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "„Miete: 0 Euro.“",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_mietgeld",
+          "widerlegt": [
+            "luege_ahmet_miete"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bogentuer_schaden",
+      "name": "Schaden an der Bogentür",
+      "beschreibung": "Die geschnitzte Bogentür zwischen Kaminsaal und Turmgang.",
+      "lage": {
+        "ort": "vor_bogentuer",
+        "stelle": "an der Bogentür"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_tuer_beschlag",
+          "stelle": "Türrahmen",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Ein Beschlag ist ausgerissen, frische Holzsplitter, weißer Kalk vom Türbogen, darüber ein Rest braunes Möbelwachs.",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_tuerschaden"
+        }
+      ]
+    },
+    {
+      "id": "arbeitshandschuh_olli",
+      "name": "Ollis Arbeitshandschuh",
+      "beschreibung": "Ein einzelner Arbeitshandschuh, den Olli am Abend beim Wärmen am Kamin liegen ließ.",
+      "lage": {
+        "ort": "am_kamin",
+        "stelle": "in der Kamin-Nische"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_handschuh_wachs",
+          "stelle": "Fingerkuppen",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Braune Wachsreste an den Fingerkuppen. Es ist Möbelwachs, kein rotes Kerzenwachs.",
+          "rolle": {
+            "alle": "falsche_faehrte"
+          },
+          "belastet": [
+            "olli"
+          ],
+          "widerlegtDurch": "Die Farbe: braunes Möbelwachs von der Bogentür, nicht das rote Wachs der Kerzen."
+        }
+      ]
+    },
+    {
+      "id": "moebelwachs_dose",
+      "name": "Dose mit braunem Möbelwachs",
+      "beschreibung": "Aus Wojteks Werkzeugtasche.",
+      "lage": {
+        "traeger": "kaan",
+        "stelle": "in Wojteks Werkzeugtasche"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_moebelwachs",
+          "stelle": "Deckel",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Halb leer, am Rand Holzstaub.",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_moebelwachs"
+        }
+      ]
+    },
+    {
+      "id": "mehrfachsteckdose_tim",
+      "name": "Tims alte Mehrfachsteckdose",
+      "beschreibung": "Eine alte Steckdosenleiste, an der die Kaffeemaschine hängt.",
+      "lage": {
+        "ort": "hinter_theke_ost",
+        "stelle": "auf dem Boden hinter der Theke beim Kaffeeautomaten"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_steckdose_verschmort",
+          "stelle": "Stecker",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Ein Steckplatz ist schwarz verschmort. Hier kam der Kurzschluss her.",
+          "rolle": {
+            "alle": "ausgangslage"
+          },
+          "nebendelikt": "nd_kurzschluss"
+        }
+      ]
+    },
+    {
+      "id": "notlaterne",
+      "name": "Notlaterne",
+      "beschreibung": "Akkulaterne am Haken direkt hinter der Vorratsraumtür.",
+      "lage": {
+        "ort": "vorrat_innen",
+        "stelle": "am Haken neben der Tür"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_laterne_unberuehrt",
+          "stelle": "Haken",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Die Laterne hängt unberührt am Haken. Herr Schneider ist nie bis zu ihr gekommen.",
+          "rolle": {
+            "alle": "umgebung"
+          }
+        }
+      ]
+    },
+    {
+      "id": "vitrine",
+      "name": "Schauvitrine im Turmgang",
+      "beschreibung": "Alte Vitrine mit Holzrahmen ohne Messing; seit 21:00 hat die Scheibe einen Sprung.",
+      "lage": {
+        "einrichtung": "vitrine",
+        "ort": "an_der_vitrine"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_vitrine_leer",
+          "stelle": "Samtbett",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Die gesprungene Scheibe ist angehoben, Scherben am Boden, das Samtbett der Münzschatulle ist leer.",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_schatulle"
+        }
+      ]
+    },
+    {
+      "id": "glassplitter_mantel",
+      "name": "Glassplitter an Fatmas Mantel",
+      "beschreibung": "Winzige Glassplitter im Wollmantel.",
+      "lage": {
+        "traeger": "fatma",
+        "stelle": "am rechten Ärmel des weinroten Mantels"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_mantel_glas",
+          "stelle": "Ärmel",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Feine Glassplitter, wie von der Vitrinenscheibe.",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_schatulle",
+          "widerlegt": [
+            "luege_fatma_tasche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gelbe_fasern",
+      "name": "Gelbe Fasern",
+      "beschreibung": "Fasern zwischen Herrn Schneiders Fingern.",
+      "lage": {
+        "traeger": "schneider",
+        "stelle": "an der rechten Hand"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_fasern_kapuze",
+          "stelle": "rechte Hand",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Knallgelbe Fasern, wie von einer Kapuze.",
+          "rolle": {
+            "alle": "falsche_faehrte"
+          },
+          "belastet": [
+            "can"
+          ],
+          "widerlegtDurch": "Herr Schneider hat Can an der Kapuze gepackt, bevor es dunkel um ihn wurde. Die Fasern zeigen den Griff, nicht den Schlag.",
+          "widerlegt": [
+            "luege_can_toilette"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wachs_boden",
+      "name": "Rotes Wachs auf dem Boden",
+      "beschreibung": "Spritzer von rotem Kerzenwachs.",
+      "lage": {
+        "ort": "vor_vorratstuer",
+        "stelle": "auf dem Steinboden vor der Vorratsraumtür"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_wachs_boden",
+          "stelle": "Boden",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Rote Wachsspritzer rund um die Stelle, an der der Kerzenständer liegt.",
+          "rolle": {
+            "alle": "umgebung"
+          }
+        }
+      ]
+    },
+    {
+      "id": "foto_joanna",
+      "name": "Joannas Foto von 23:51",
+      "beschreibung": "Ein Foto auf Joannas Handy.",
+      "lage": {
+        "traeger": "johanna",
+        "stelle": "auf ihrem Handy"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_foto_streit",
+          "stelle": "Galerie",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "23:51: Herr Schneider und Ahmet streiten an der Theke, Ahmet hält einen dicken Umschlag.",
+          "rolle": {
+            "alle": "motiv"
+          },
+          "belastet": [
+            "ahmet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "notizbuch_tugba",
+      "name": "Tugbas Notizbuch",
+      "beschreibung": "Goldenes Notizbuch mit dem Ablaufplan.",
+      "lage": {
+        "traeger": "tugba"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_notiz_fehlende",
+          "stelle": "Seite 23:57",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "„Fehlen für die Torte: Ahmet (Theke, Servietten), Fatma (Theke), Olli (Eis), Can (?), Emine und Azra (Buffet), Damir und Tim (Kaffee), Marek (Saft), Zeynep, Hana, Wojtek, Selin (Kaminsaal), Serkan (Auto).“",
+          "rolle": {
+            "alle": "ueberblick"
+          },
+          "widerlegt": [
+            "luege_olli_tafel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "handykorb",
+      "name": "Handykorb",
+      "beschreibung": "Korb mit allen Handys, seit 23:55 auf der Tafel im Ost-Saal.",
+      "lage": {
+        "ort": "am_handykorb"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_handykorb",
+          "stelle": "Korb",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Alle Handys liegen darin. Hinter den Mauern hat keines Empfang.",
+          "rolle": {
+            "alle": "ausgangslage"
+          }
+        }
+      ]
+    },
+    {
+      "id": "torte",
+      "name": "Geburtstagstorte",
+      "beschreibung": "Die Torte auf dem Regal im kühlen Vorratsraum.",
+      "lage": {
+        "ort": "vorrat_mitte"
+      },
+      "sichtbar": true,
+      "spuren": [
+        {
+          "id": "spur_torte",
+          "stelle": "Regal",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Unversehrt. Wenigstens etwas.",
+          "rolle": {
+            "alle": "umgebung"
+          }
+        }
+      ]
+    }
+  ],
+  "nebendelikte": [
+    {
+      "id": "nd_mietgeld",
+      "person": "ahmet",
+      "text": "150 € Miete von allen kassiert, obwohl der Keller nichts gekostet hat."
+    },
+    {
+      "id": "nd_schatulle",
+      "person": "fatma",
+      "text": "Münzschatulle aus der Turmvitrine mitgenommen."
+    },
+    {
+      "id": "nd_tuerschaden",
+      "person": "olli",
+      "text": "Bogentür beschädigt und die Schramme mit Möbelwachs verdeckt."
+    },
+    {
+      "id": "nd_streich",
+      "person": "can",
+      "text": "Mit der Leuchtmaske im Vorratsraum versteckt."
+    },
+    {
+      "id": "nd_kurzschluss",
+      "person": "tim",
+      "text": "Trotz Warnung die alte Mehrfachsteckdose benutzt."
+    },
+    {
+      "id": "nd_parken",
+      "person": "murat",
+      "text": "Auf Herrn Schneiders reserviertem Platz geparkt."
+    },
+    {
+      "id": "nd_schmiere",
+      "person": "zeynep",
+      "text": "Für Cans Streich Schmiere gestanden."
+    },
+    {
+      "id": "nd_moebelwachs",
+      "person": "kaan",
+      "text": "Olli das Möbelwachs zum Verdecken der Schramme gegeben."
+    }
+  ]
+}
