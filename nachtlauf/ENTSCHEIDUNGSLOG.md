@@ -712,3 +712,38 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Drei Läufe danach: 4,2 / 4,6 / 4,1 ms (einzeln gemessen 4,4 / 5,1 / 4,1 ms).
   - Neuer Test `figuren_lager_test`, mit roter Gegenprobe: Ein eingespeister Aussetzer von 60 ms zählt nicht als Arbeit, und die Arbeit wird wirklich noch einmal getan.
 - Der rote Lauf ist nicht committet (Belege zurückgesetzt); der neue volle Lauf folgt am neuen Stand.
+
+## E57 · 09.10. 21:58 · Sichtrunde A-605y/z und Inhaltsrunde A-702v (Prüfer 31–33) mit Gegenproben; Auswertung
+- **Sicht (Kartenstand 88600ae6c9):**
+  - Sichtprüfer 27: 0 Paare, 0 Verstöße, **Abnahme ja**.
+  - Sichtprüfer 28: 0 Paare, 1 Verstoß. R06 (Dreitagebart laut `rollen.json`) wirkt wie Vollbart mit Haar bis zum Kiefer.
+  - Der Befund stimmt. Die Karte hat zwar `bart-dreitage`, aber ohne eigenes Bartmaterial erbt der Bart das tiefschwarze Haar [0,0] und deckt Kinn und Kiefer vollflächig.
+  - **Behoben:** R06 hat jetzt einen Bartschatten im dunklen Hautton (`bart` [7,1]), das Haar endet an den Ohren.
+  - Neuer Test in `karten_test`, mit roter Gegenprobe: Ein Dreitagebart ist nie fast schwarz; Bartschatten im Hautton ist erlaubt.
+  - Neuer Kartenstand 850245deb6, Figurenstand 2f77614620; `karten_test` und `mass5a.py` ohne Paar.
+  - Weil der Kartenstand neu ist, läuft eine neue Sichtrunde A-605aa/ab (Prüfer 29 und 30).
+- **Inhalt (Stand e13255f):** Alle drei Prüfer urteilen „Leitplanken nein · Kanontreu ja · Plagiatsfrei ja“ (31: mittel 1, gering 8; 32: hoch 1, mittel 2, gering 3; 33: hoch 2, mittel 9, gering 5).
+  - Prüfer 32 hat seinen Bericht nicht als Datei geschrieben. Er steht unverändert aus dem Rückgabefeld in `auftraege/A-702/gegenpruefer_inhalt_32_bericht.md`.
+  - Zu allen 15 Befunden „hoch“ und „mittel“ lief eine Gegenprobe (`auftraege/A-702/gegenproben_a702v.md`). **1 von 15 ist haltbar.**
+  - **Haltbar: Berufe der Eltern nach Geschlecht** (Familienfelder R01–R20, im Spiel nicht angezeigt). Keine Mutter arbeitete in Technik oder Handwerk; 17 von 19 Vätern taten es.
+    - Im Overlay sind die Elternberufe bei R08, R09, R13 und R16 getauscht bzw. gemischt. Mütter: Vermessungstechnikerin, Busfahrerin, Mechatronikerin, Schlosserin. Väter: PTA, Fliesenleger und Koch der Familie, Erzieher, Kantinenkoch.
+    - Neuer Test in `kanon_test`, mit roter Gegenprobe am alten Overlay (0 Mütter in Technik): mindestens drei Mütter in Technik oder Handwerk und drei Väter in Pflege, Bildung oder Küche.
+  - **Nicht haltbar (14):**
+    - Geld- und Kälte-Färbung R13/R15 (zweimal; E47, E50).
+    - Hautton und Haarfarbe nach Namensgruppe: Die Haarfarbe ist Nutzerentscheidung E54; der Hautton ist ein wertfreies Körpermerkmal und nirgends Motiv.
+    - Folklore bei R13 (zweimal; E38, E43).
+    - Verdachts-Färbungen R06 und andere (zweimal; E47, E48).
+    - „Frau organisiert, Mann repariert“: keine durchgehende Verteilung.
+    - Burgwart „grantig“ (E55).
+    - Hexen-Andeutung B31 (zweimal; E55).
+    - Ältere Frauen und Hochzeiten (E55).
+    - E48-Prämisse.
+  - **Kleine Punkte umgesetzt:**
+    - H-035: Pronomen der Buchbinderin.
+    - H-136: „Die Hausleute messen …“. Meine E55-Änderung „Die Hausherrin misst … und kommt immer auf ein anderes Ergebnis“ las ein Prüfer als Witz über Frauen.
+    - B09: Das Gerücht schiebt das Hundegebell nicht mehr der Tierärztin zu.
+  - **Bleibt (gering, schon beim Nutzer oder abgewogen):** Bock-Inschriften und Besen (FÜR DEN NUTZER), Verstecken-Inschriften H-053/H-132 (FÜR DEN NUTZER), „Kunibert“ (FÜR DEN NUTZER), „Einspruch!“ (E27), Requisiten (E55), LISTE-ZEITEN (E44).
+- **Z-12 geht an den Nutzer** (Abbruchregel E40, Plan):
+  - Drei Inhaltsrunden in Folge (A-702t, u, v; neun Berichte) urteilen „Leitplanken nein“. Von 34 Gegenproben waren 3 haltbar, alle sind umgesetzt (E55, E57).
+  - Die übrigen Gründe wiederholen sich und sind abgewogen.
+  - Eine weitere Runde würde nach diesem Muster wieder „nein“ ergeben. Deshalb liegt die Entscheidung über Z-12 jetzt beim Nutzer (FÜR DEN NUTZER).

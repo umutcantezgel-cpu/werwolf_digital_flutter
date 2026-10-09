@@ -17,6 +17,14 @@
 - **Sprachausgabe:** Das Projekt hat keine. Erzählertexte werden angezeigt, nicht vorgelesen.
 
 ## Bitte entscheiden
+- **Z-12 (Inhaltsprüfung) – drei Runden in Folge „nein“ (E50, E55, E57):**
+  - Die Inhaltsprüfer (A-702t, u, v; neun Berichte) urteilen jedes Mal „Leitplanken nein · Kanontreu ja · Plagiatsfrei ja“.
+  - Zu jedem Befund „hoch“ oder „mittel“ lief eine unabhängige Gegenprobe. Von 34 waren 3 haltbar, und die sind umgesetzt: Weinname im Figurendatensatz, Hausarbeit in den Haustexten, Elternberufe nach Geschlecht.
+  - Die übrigen Gründe kehren wieder und sind abgewogen: Haar- und Hautton nach Namensgruppe, Geld-Färbungen von R13 und R15 (Kanon), Burgwart „grantig“, Gärtnerin B31 als Hexen-Andeutung, ältere Frauen und Hochzeiten (`auftraege/A-702/gegenproben_a702t.md`, `…a702u.md`, `…a702v.md`).
+  - Weitere Runden würden nach diesem Muster wieder „nein“ ergeben. Zu entscheiden ist:
+    - ob Z-12 als erfüllt gelten soll, wenn alle Befunde „hoch“ und „mittel“ per Gegenprobe widerlegt oder umgesetzt sind,
+    - oder welche der wiederkehrenden Punkte doch geändert werden sollen (z. B. die Geld-Färbungen im Kanon),
+    - oder ob ein Mensch die Texte liest.
 - **Die drei Gestaltungsfragen zu Z-12 (E50) sind umgesetzt (E54):** Stadtbewohner ausgeglichen, Haarfarben der Rollen gemischt, DW3-3 nennt nur die Spur. Vermerk: Der Kanon-Hinweis H-15 (Sohlenkarten, Phase 3) nennt Merles Absatz weiterhin; er trägt den Schluss S-5 und bleibt. Für die Kanon-Autoren: Wenn die Täterin vor der Anklage nie genannt werden soll, müssten H-15 und die Lösung S-5 im Kanon selbst umgebaut werden.
 - **Herkunft und Fallfunktionen (E47, E48) – entschieden und umgesetzt:** Auf deine Entscheidung hin enthält das Spiel keine Herkunftsangaben mehr. Das Overlay löscht „Wurzeln“ bei allen 20 Rollen und die Herkunftsorte in den Familienfeldern. Der Kanon des Krimidinners in `krimidinner/` behält sie. Zurücknehmen: die `Löschen: Wurzeln`-Angaben im Overlay entfernen (E48). Für die Kanon-Autoren bleibt die Frage, ob die Fallfunktionen im Krimidinner selbst anders verteilt werden sollen.
 - **Strang „Finalisierung Schlosskeller“ (E49):** Auf deinen Wunsch ist der Stand f5190ac in `main` gemergt. Die Sitzung dort arbeitet weiter; ihre späteren Commits müssen wieder zusammengeführt werden.
