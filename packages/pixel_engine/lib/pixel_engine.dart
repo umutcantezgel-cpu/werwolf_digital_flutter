@@ -24,3 +24,4 @@ export 'src/figur/teile_basis.dart';
 export 'src/figur/sprite_pruef.dart';
 export 'src/kit/texturen.dart';
 export 'src/figur/bewohner_karten.dart';
+export 'src/figur/portraet.dart';

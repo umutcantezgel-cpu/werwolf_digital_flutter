@@ -12,7 +12,9 @@ import 'package:pixel_engine/pixel_engine.dart';
 /// Ähnlichkeit zu allen anderen Figuren am kleinsten ist (Maß der Sichtprüfer, siehe
 /// [vergleiche]). Drei Durchgänge, damit auch frühe Figuren gegen spätere geprüft werden.
 /// Deterministisch. `dart run bin/bewohnerkarten.dart`
-const _varianten = 32, _rollenVarianten = 16;
+const _varianten = 32, _farbVarianten = 32, _rollenVarianten = 24;
+
+const _bewohnerPfad = '../burgstadt_core/data/stadt/bewohner.json', _rollenPfad = 'data/figuren/rollen.json';
 
 Map<String, dynamic> _lies(String pfad) => jsonDecode(File(pfad).readAsStringSync()) as Map<String, dynamic>;
 
@@ -20,18 +22,19 @@ void main() {
   const kartenPfad = 'data/figuren/karten.json';
   final daten = _lies(kartenPfad);
   final alt = [for (final k in daten['karten'] as List) k as Map<String, dynamic>];
-  final bewohner = [
-    for (final b in _lies('../burgstadt_core/data/stadt/bewohner.json')['bewohner'] as List) b as Map<String, dynamic>,
-  ];
+  final bewohnerDatei = _lies(_bewohnerPfad);
+  final bewohner = [for (final b in bewohnerDatei['bewohner'] as List) b as Map<String, dynamic>];
   final baker = FigurBaker({
     ...kTeileBasis,
     ...teileAusJson(_lies('data/figuren/teile_koepfe.json')),
     ...teileAusJson(_lies('data/figuren/teile_kleidung.json')),
   });
-  final statur = {
-    for (final f in _lies('data/figuren/rollen.json')['figuren'] as List)
-      (f as Map<String, dynamic>)['id'] as String: f['statur'] as String? ?? 'normal',
+  final rollenDaten = {
+    for (final f in _lies(_rollenPfad)['figuren'] as List) (f as Map<String, dynamic>)['id'] as String: f,
   };
+  final statur = {for (final e in rollenDaten.entries) e.key: e.value['statur'] as String? ?? 'normal'};
+  bool hoseErfunden(String id) =>
+      ((rollenDaten[id]?['erfunden'] as List?) ?? const []).any((e) => (e as String).startsWith('Hose'));
   final bewohnerNach = {for (final b in bewohner) b['id'] as String: b};
 
   // Kandidaten je Figur einmal brennen: BW fest, Rollen [_rollenVarianten], Bewohner [_varianten]
@@ -47,15 +50,26 @@ void main() {
     return out;
   }
 
+  // Umgefärbte Bewohner-Kandidaten → ihre Kleiderfarben (werden bei Wahl zurückgeschrieben)
+  final umgefaerbt = Map<Figurenkarte, Map<String, (String, int)>>.identity();
   // Karten, wie sie in der Datei stehen (für Rollen: Variante 0 = genau dieses Objekt)
   final ausDatei = [for (final j in alt) Figurenkarte.ausJson(j)];
   for (var i = 0; i < alt.length; i++) {
     final id = ausDatei[i].id;
     ids.add(id);
     if (RegExp(r'^B\d').hasMatch(id)) {
-      kandidaten.add(gueltig([for (var v = 0; v < _varianten; v++) mit(bewohnerKarte(bewohnerNach[id]!, v))], id));
+      final b = bewohnerNach[id]!;
+      final liste = <(Figurenkarte, Figurenbild)?>[for (var v = 0; v < _varianten; v++) mit(bewohnerKarte(b, v))];
+      for (var v = 0; v < _farbVarianten; v++) {
+        final f = umfaerbung(b, v);
+        final k = mit(bewohnerKarte(b, v, farben: f));
+        if (k != null) umgefaerbt[k.$1] = f;
+        liste.add(k);
+      }
+      kandidaten.add(gueltig(liste, id));
     } else if (id.startsWith('R')) {
-      kandidaten.add(gueltig([for (var v = 0; v < _rollenVarianten; v++) mit(rollenVariante(ausDatei[i], statur[id]!, v))], id));
+      final hosen = hoseErfunden(id) ? rollenHosen((rollenDaten[id]!['unterteil'] as Map)['typ'] as String) : null;
+      kandidaten.add(gueltig([for (var v = 0; v < _rollenVarianten; v++) mit(rollenVariante(ausDatei[i], statur[id]!, v, hosen: hosen))], id));
     } else {
       kandidaten.add(gueltig([mit(ausDatei[i])], id));
     }
@@ -75,10 +89,14 @@ void main() {
         for (var j = 0; j < ids.length; j++) {
           final w = wahl[j];
           if (j == i || w == null) continue;
-          schlimmste = math.max(schlimmste, vergleiche(bild, kandidaten[j][w].$2).wert);
+          final a = vergleiche(bild, kandidaten[j][w].$2);
+          // Grenzüberschreitungen zählen weit stärker als bloße Ähnlichkeit
+          schlimmste = math.max(schlimmste, a.wert + (a.verwechselbar ? 1.0 : 0.0));
         }
-        // kleine Vorliebe für die Fassung aus der Datei (Rollen: Kanon-Werte)
+        // kleine Vorliebe für die Fassung aus der Datei (Rollen: Kanon-Werte) und für die
+        // Kleiderfarben des Datensatzes (Bewohner)
         if (identical(kandidaten[i][v].$1, ausDatei[i])) schlimmste -= 0.01;
+        if (umgefaerbt.containsKey(kandidaten[i][v].$1)) schlimmste += 0.03;
         if (schlimmste < besteWert) {
           besteWert = schlimmste;
           besteV = v;
@@ -96,6 +114,34 @@ void main() {
   final zeilen = [
     for (var i = 0; i < ids.length; i++) identical(karten[i], ausDatei[i]) ? jsonEncode(alt[i]) : jsonEncode(karteAlsJson(karten[i])),
   ];
+  // Geänderte (erfundene) Hosenfarben der Rollen in rollen.json zurückschreiben
+  var rollenText = File(_rollenPfad).readAsStringSync();
+  for (var i = 0; i < ids.length; i++) {
+    if (!ids[i].startsWith('R')) continue;
+    final neu = karten[i].materialien['hose'], alt = ausDatei[i].materialien['hose'];
+    if (neu == null || alt == null || (neu.rampe == alt.rampe && neu.stufe == alt.stufe)) continue;
+    final start = rollenText.indexOf('"id": "${ids[i]}"');
+    final u = rollenText.indexOf('"unterteil":', start);
+    final ende = rollenText.indexOf('}', u) + 1;
+    final typ = (rollenDaten[ids[i]]!['unterteil'] as Map)['typ'];
+    rollenText = '${rollenText.substring(0, u)}"unterteil": { "typ": "$typ", "rampe": ${neu.rampe}, "stufe": ${neu.stufe} }${rollenText.substring(ende)}';
+    stdout.writeln('${ids[i]}: Hose (erfunden) → [${neu.rampe},${neu.stufe}]');
+  }
+  File(_rollenPfad).writeAsStringSync(rollenText);
+  // Gewählte Umfärbungen in bewohner.json zurückschreiben (Daten und Figuren bleiben gleich)
+  var neuGefaerbt = 0;
+  for (var i = 0; i < ids.length; i++) {
+    final f = umgefaerbt[karten[i]];
+    if (f == null) continue;
+    neuGefaerbt++;
+    for (final k in (bewohnerNach[ids[i]]!['aussehen'] as Map)['kleidung'] as List) {
+      final x = f[(k as Map)['teil']]!;
+      k['rampe'] = x.$1;
+      k['stufe'] = x.$2;
+    }
+  }
+  File(_bewohnerPfad).writeAsStringSync('${const JsonEncoder.withIndent('  ').convert(bewohnerDatei)}\n');
+  stdout.writeln('Umgefärbt (Datensatz angepasst): $neuGefaerbt Bewohner');
   File(kartenPfad).writeAsStringSync('{"version":1,"karten":[\n${zeilen.join(',\n')}\n]}\n');
 
   // Bericht: ähnlichste Paare über alle Figuren

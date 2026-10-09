@@ -106,16 +106,13 @@ void main() {
     }
   });
 
-  test('Unterscheidbarkeit nach dem Maß der Sichtprüfer: kein Paar mit IoU ≥ 0,84 und Farbabstand ≤ 46', () {
-    // Geprüfte Ausnahme (Kanon-Farben, beide Sichtprüfer A-605 ohne Befund): grüne Strickjacke und
-    // braunes Haar gegen dunkelblaues Oberteil und blondes Haar – das Maß unterschätzt Farbtöne im Dunkeln.
-    const ausnahmen = {'R03|R05'};
+  test('Unterscheidbarkeit nach dem Maß der Sichtprüfer: kein Paar verwechselbar (Silhouette + Farbe, Körperfarben)', () {
     final bilder = [for (final k in karten) Figurenbild.backe(baker, k)];
     final befunde = <String>[];
     for (var i = 0; i < karten.length; i++) {
       for (var j = i + 1; j < karten.length; j++) {
         final a = vergleiche(bilder[i], bilder[j]);
-        if (a.verwechselbar && !ausnahmen.contains('${karten[i].id}|${karten[j].id}')) {
+        if (a.verwechselbar) {
           befunde.add('${karten[i].id} ≈ ${karten[j].id}: $a');
         }
       }

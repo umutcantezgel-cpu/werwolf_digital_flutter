@@ -166,5 +166,7 @@
  {"form":"quader","knochen":"rumpf","mitte":[0.075,0.36,0.1],"groesse":[0.014,0.12,0.01],"material":"hose"}]},
 {"id":"rock-lang-weit","art":"unterteil","koerper":[
  {"form":"ellipsoid","knochen":"becken","mitte":[0,-0.27,0],"groesse":[0.2,0.4,0.155],"material":"hose"}],
- "umleitung":{"unterbein":"strumpf"}}
+ "umleitung":{"unterbein":"strumpf"}},
+{"id":"hemd-ausschnitt","art":"oberteil","koerper":[
+ {"form":"quader","knochen":"rumpf","mitte":[0,0.36,0.124],"groesse":[0.038,0.11,0.01],"material":"darunter"}]}
 ]}

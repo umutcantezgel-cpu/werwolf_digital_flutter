@@ -23,7 +23,7 @@ void main(List<String> args) {
   const spalten = 9, skala = 2;
   const zellBreite = 3 * bw + 2 * 4 + 12, zellHoehe = bh + 14;
   final zeilen = (karten.length + spalten - 1) ~/ spalten;
-  final fb = PixelBuffer(spalten * zellBreite, zeilen * zellHoehe)..clear(Pal.nightBlue);
+  final fb = PixelBuffer(spalten * zellBreite, zeilen * zellHoehe)..clear(Ramp.at(Ramp.neutral, 4)); // heller als Nacht- und Nebelblau, damit dunkle Kleidung sichtbar bleibt
   final sw = Stopwatch()..start();
   for (var i = 0; i < karten.length; i++) {
     final k = karten[i];
