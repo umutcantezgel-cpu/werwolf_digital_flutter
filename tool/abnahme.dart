@@ -206,7 +206,8 @@ Future<void> main(List<String> args) async {
   final fremdePushes = <String>[];
   // Erlaubte Push-Ziele: der Sicherungs-Branch (N-00) und – auf ausdrücklichen Wunsch des Nutzers,
   // alles auf main zu bringen (N-01, E41) – main und der Sitzungs-Branch
-  const erlaubt = ['/nachtlauf/burgstadt', '/main', '/claude/nifty-gauss-s82y27'];
+  const erlaubt = ['/nachtlauf/burgstadt', '/main', '/claude/nifty-gauss-s82y27',
+      '/claude/pensive-gates-ajtp7x']; // Burgstadt HD: Arbeitsbranch (N-HD-01, Nutzerentscheidung „Mitführen“)
   for (final ref in _git(['for-each-ref', '--format=%(refname)', 'refs/remotes']).split('\n')) {
     if (ref.isEmpty || ref.endsWith('/HEAD') || erlaubt.any(ref.endsWith)) continue;
     for (final z in _git(['reflog', 'show', '--date=unix', ref]).split('\n')) {
@@ -216,7 +217,7 @@ Future<void> main(List<String> args) async {
   }
   final fremdeAbrufe = geraete.fold(0, (n, g) => n + g.$3);
   kriterium('Z-13', remotes.length == 1 && remotes.first == 'origin' && fremdePushes.isEmpty && profile.length == 3 && fremdeAbrufe == 0,
-      'Remotes: ${remotes.join(', ')}; Pushes seit Beginn nur auf nachtlauf/burgstadt, main und claude/nifty-gauss-s82y27 (N-00, N-01)${fremdePushes.isEmpty ? '' : ' – ABWEICHUNG: ${fremdePushes.join(', ')}'}; '
+      'Remotes: ${remotes.join(', ')}; Pushes seit Beginn nur auf nachtlauf/burgstadt, main, claude/nifty-gauss-s82y27 (N-00, N-01) und claude/pensive-gates-ajtp7x (N-HD-01)${fremdePushes.isEmpty ? '' : ' – ABWEICHUNG: ${fremdePushes.join(', ')}'}; '
       'fremde Abrufe im Browser: $fremdeAbrufe (Web-Build ohne CDN)');
 
   // ------------------------------------------------------------------ Z-14 Übergabe
