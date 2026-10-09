@@ -67,6 +67,8 @@ void main(List<String> args) {
       _texturen(pos, zoom, licht: true);
     case 'bereich':
       _bereich(pos);
+    case 'kandidaten':
+      _kandidaten(pos, zoom);
     default:
       _abbruch('unbekannter Modus „${pos[0]}“');
   }
@@ -103,6 +105,36 @@ void _texturen(List<String> pos, int zoom, {required bool licht}) {
   final spalten = licht ? 4 : math.max(1, math.sqrt(zellen.length).ceil());
   final bild = _raster(zellen, spalten, zoom, tafel);
   _fertig(licht ? 'texturen-licht' : 'texturen', bild, zellen.length, pos[1]);
+}
+
+/// Textur-Kandidaten (kit/texturen/kandidaten.dart) in Weltdichte neben ihrer Bestandstextur
+/// (Name bis zum letzten „_“), je mit Befunden der Stilblatt-Prüfung; Befunde auch auf stdout.
+void _kandidaten(List<String> pos, int zoom) {
+  if (pos.length < 2 || pos.length > 3) _abbruch('Ausgabedatei fehlt oder zu viele Argumente');
+  final namen = pos.length == 3
+      ? pos[2].split(',').map((n) => n.trim()).where((n) => n.isNotEmpty).toList()
+      : kTexturKandidaten.keys.toList();
+  if (namen.isEmpty) _abbruch('keine Kandidaten eingetragen');
+  final ids = TexturId.values.asNameMap();
+  final zellen = <_Zelle>[];
+  final gezeigt = <String>{};
+  var befundeGesamt = 0;
+  for (final n in namen) {
+    final e = kTexturKandidaten[n];
+    if (e == null) _abbruch('unbekannter Kandidat „$n“ (siehe kit/texturen/kandidaten.dart)');
+    final basis = n.contains('_') ? n.substring(0, n.lastIndexOf('_')) : n;
+    final id = ids[basis];
+    if (id != null && gezeigt.add(basis)) zellen.add(_Zelle(baueWeltTextur(id), [basis, 'Bestand'], null));
+    final t = e.bauer();
+    final befunde = pruefeHdTextur(n, t);
+    befundeGesamt += befunde.length;
+    stdout.writeln('KANDIDAT $n · ${t.width}×${t.height} · ${befunde.isEmpty ? 'Stilblatt OK' : '${befunde.length} Befunde: ${befunde.join('; ')}'}');
+    zellen.add(_Zelle(t, [n, befunde.isEmpty ? 'Stilblatt OK' : '${befunde.length} Befunde'], null));
+  }
+  final spalten = math.max(1, math.sqrt(zellen.length).ceil());
+  final bild = _raster(zellen, spalten, zoom, null);
+  _fertig('kandidaten', bild, zellen.length, pos[1]);
+  if (befundeGesamt > 0) exitCode = 1;
 }
 
 /// Ein Bereich aus drei Blickwinkeln (Bereichsfotos-Aufbau über ladeAusRepo).

@@ -243,27 +243,9 @@ void main() {
       });
 
       if (hd) {
-        test('Streupixel ≤ 8 % (HD)', () {
-          final anteil = _streuAnteil(baueTextur(id));
-          expect(anteil, lessThanOrEqualTo(0.08), reason: 'Streupixel ${_prozent(anteil)}');
-        });
-
-        test('Lichtkante (HD): ≥ 20 Kantenpixel je Seite, Licht oben links', () {
-          final k = _lichtkanten(baueTextur(id));
-          expect(
-            [k.nOben, k.nUnten, k.nLinks, k.nRechts].every((n) => n >= 20),
-            isTrue,
-            reason: 'Kantenpixel oben/unten/links/rechts: ${k.nOben}/${k.nUnten}/${k.nLinks}/${k.nRechts}',
-          );
-          expect(
-            _lichtVonObenLinks(k),
-            isTrue,
-            reason: 'oben ${k.oben}, unten ${k.unten}, links ${k.links}, rechts ${k.rechts}',
-          );
-        });
-
-        test('Mip (HD): mindestens 5 Mip-Stufen', () {
-          expect(baueTextur(id).levels.length, greaterThanOrEqualTo(5));
+        test('Stilblatt v2 (HD): pruefeHdTextur ohne Befund (Größe, Stufen, Grün, Streupixel, Lichtkante, Mip)', () {
+          final befunde = pruefeHdTextur(id.name, baueTextur(id), gruenErlaubt: _gruenErlaubt.contains(id.name));
+          expect(befunde, isEmpty, reason: befunde.join('; '));
         });
       }
 
@@ -276,6 +258,18 @@ void main() {
       });
     });
   }
+
+  group('Kandidaten (kit/texturen/kandidaten.dart)', () {
+    for (final e in kTexturKandidaten.entries) {
+      test('${e.key}: Dichte 64, Stilblatt v2 ohne Befund, deterministisch', () {
+        expect(e.value.dichte, 64);
+        final t = e.value.bauer();
+        final befunde = pruefeHdTextur(e.key, t);
+        expect(befunde, isEmpty, reason: befunde.join('; '));
+        expect(e.value.bauer().levels[0], orderedEquals(t.levels[0]));
+      });
+    }
+  });
 
   test('Bestand-Bericht: Streupixel und Lichtkante je Bestandstextur (nur Ausgabe, keine Prüfung)', () {
     for (final id in TexturId.values) {
