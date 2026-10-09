@@ -1,3 +1,4 @@
+import 'spielstand_prefs.dart';
 import 'dart:ui' as dui;
 
 import 'package:burgstadt_spiel/burgstadt_spiel.dart';
@@ -59,7 +60,9 @@ class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerPr
     spiel.beiAktion = (a) => widget.beiAktion?.call(a);
     spiel.ton = _ton;
     spiel.starteTon();
-    ladeSpielDaten(spiel).then((_) {
+    spiel.spielstand = PrefsSpielstand();
+    ladeSpielDaten(spiel).then((_) async {
+      spiel.letzterStand = await spiel.spielstand!.lade();
       if (!mounted) return;
       if (widget.start == 'fall') {
         final s = spiel.starteFall();

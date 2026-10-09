@@ -138,3 +138,8 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - Sichtprüfer 5/6 (Runde 3): 0 Regelverstöße; 5 bzw. 6 Paare, drei bei beiden (B15/B35, B38/B43, B22/B24) – gleiche Kleiderfarbe bei ähnlicher Form, unabhängig von der Körpergröße.
 - Maß ergänzt: Form auf normierter Höhe (Silhouette unabhängig von der Größe), Körperfarben-Histogramm mit Grau = Neutral + Stein und drei Helligkeiten, gleiche Hauptfarbe als Druck in der Variantenwahl. Grenze kalibriert: verwechselbar, wenn Silhouette/Form ≥ 0,80 und ≥ 62 % gleiche Körperfarben (oder IoU ≥ 0,84 mit Farbabstand ≤ 46). Ein strengeres Kriterium (jede gleiche Hauptfarbe) hätte 32 Paare gemeldet, die kein Prüfer sah – verworfen.
 - Ergebnis: alle 8 von Prüfern genannten Paare getrennt (Körperfarben-Überlappung jetzt 4–59 %); 1 Grenzfall im Maß (R01/R11, 63 %, Kanon-Oberkörper Schwarz/Dunkelblau, Köpfe klar verschieden) als begründete Ausnahme im Test. Vierte Sichtprüfung folgt.
+
+## E22 · 09.10. 02:54 · Speichern und Fortsetzen (Z-11)
+- Spielstand = Schema-Version + Fingerabdruck der Falldaten (Datensätze/Hinweise/Gespräche) + Seed/Tempo + Fallzustand (JSON, schon vorhanden) + Lage aller Fall-Figuren + eigene Lage + besuchte Orte + gezeigte Tutorial-Schritte. Bewohner folgen ihrem Plan (aus der Uhr ableitbar). Passt der Stand nicht (andere Version/Daten), wird er abgelehnt statt falsch geladen.
+- Speichern: automatisch jede Minute und nach jedem Phasenwechsel, „Speichern“ im Pausenmenü, beim Gang ins Hauptmenü. „Fortsetzen“ im Hauptmenü, sobald ein Stand da ist. Ablage in der App über `shared_preferences` (schon Abhängigkeit des Bestands, keine neue), in Werkzeugen/Tests im Speicher.
+- Nur der Host speichert (im WLAN-Spiel der Gastgeber).

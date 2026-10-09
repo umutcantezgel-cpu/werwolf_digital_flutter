@@ -87,6 +87,29 @@ class Simulation {
     _stadtlebenAnlegen(bewohnerDaten, haeuser);
   }
 
+  // ---------------------------------------------------------------- Speichern
+
+  /// Lage der Fall-Figuren (Rollen, Burgwart, Detektiv); Bewohner folgen ihrem Plan.
+  Map<String, Object?> figurenZuJson() => {
+        for (final f in figuren.values)
+          if (!f.bewohner) f.id: [f.bereich, f.x, f.z, f.yaw],
+      };
+
+  void figurenAusJson(Map<String, dynamic> j) {
+    for (final e in j.entries) {
+      final f = figuren[e.key];
+      final l = e.value as List;
+      if (f == null || !welt.bereiche.containsKey(l[0])) continue;
+      f
+        ..bereich = l[0] as String
+        ..x = (l[1] as num).toDouble()
+        ..z = (l[2] as num).toDouble()
+        ..yaw = (l[3] as num).toDouble()
+        ..pfad = []
+        ..auftrag = null;
+    }
+  }
+
   // ---------------------------------------------------------------- Stadtleben
 
   void _stadtlebenAnlegen(List<Map<String, dynamic>> daten, List<Map<String, dynamic>> haeuser) {

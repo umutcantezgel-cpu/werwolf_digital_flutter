@@ -13,7 +13,43 @@ class Fallsitzung {
   final List<Ereignis> anzeige = [];
   int neueAkte = 0;
 
-  Fallsitzung(this.fall, this.sim, this.figuren);
+  final int seed;
+  final double tempo;
+
+  Fallsitzung(this.fall, this.sim, this.figuren, {this.seed = 7, this.tempo = 65 / 480});
+
+  /// Schema des Spielstands; ändert es sich, passen alte Stände nicht mehr.
+  static const schema = 1;
+
+  /// Fingerabdruck der Falldaten (Kanon + Anpassung): passt der Stand zu diesen Daten?
+  static String fingerabdruck(FallDaten d) => '${d.kanon.datensaetze.length}:${d.hinweise.length}:${d.gespraeche.length}';
+
+  Map<String, Object?> zuJson() => {
+        'schema': schema,
+        'daten': fingerabdruck(fall.daten),
+        'seed': seed,
+        'tempo': tempo,
+        'fall': fall.zuJson(),
+        'figuren': sim.figurenZuJson(),
+      };
+
+  /// Stellt eine Sitzung aus [j] wieder her; `null`, wenn der Stand nicht passt.
+  static Fallsitzung? ausJson(FallDaten daten, Welt welt, Map<String, Teil> teile, Map<String, Figurenkarte> karten,
+      Map<String, dynamic> j,
+      {List<Map<String, dynamic>> bewohner = const [], List<Map<String, dynamic>> haeuser = const []}) {
+    if (j['schema'] != schema || j['daten'] != fingerabdruck(daten)) return null;
+    final fall = FallZustand.ausJson(daten, j['fall'] as Map<String, dynamic>);
+    final seed = (j['seed'] as num).toInt(), tempo = (j['tempo'] as num).toDouble();
+    final sim = Simulation(welt, fall, seed: seed, tempo: tempo, bewohnerDaten: bewohner, haeuser: haeuser);
+    sim.figurenAusJson(j['figuren'] as Map<String, dynamic>);
+    sim.abholen(); // Start-Ereignisse der Simulation sind beim Fortsetzen schon bekannt
+    final lager = FigurenLager(teile);
+    for (final id in ['BW', ...fall.rollen, ...sim.bewohner.keys]) {
+      final k = karten[id];
+      if (k != null) lager.karte(k);
+    }
+    return Fallsitzung(fall, sim, lager, seed: seed, tempo: tempo);
+  }
 
   factory Fallsitzung.starte(FallDaten daten, Welt welt, int n, Map<String, Teil> teile, Map<String, Figurenkarte> karten,
       {int seed = 7,
@@ -28,7 +64,7 @@ class Fallsitzung {
       final k = karten[id];
       if (k != null) lager.karte(k);
     }
-    final s = Fallsitzung(fall, sim, lager);
+    final s = Fallsitzung(fall, sim, lager, seed: seed, tempo: tempo);
     s._uebernimm(start);
     return s;
   }

@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:burgstadt_core/burgstadt_core.dart';
@@ -67,6 +68,48 @@ class Erkundung extends Bildschirm {
 
   double _schrittWeg = 0;
   double _gelaufen = 0;
+
+  double _seitSpeichern = 0;
+
+  /// Spielstand sichern (Fall, eigene Lage, besuchte Orte, gezeigte Tutorial-Schritte).
+  void speichern(Spiel spiel) {
+    final sz = sitzung;
+    if (sz == null || sz.fall.abschnitt == Abschnitt.ende) return;
+    _seitSpeichern = 0;
+    final j = jsonEncode({
+      'sitzung': sz.zuJson(),
+      'ort': ort,
+      'x': x,
+      'z': z,
+      'yaw': yaw,
+      'besucht': [...spiel.besucht],
+      'tutorial': [...spiel.tutorial.gezeigt],
+    });
+    spiel.letzterStand = j;
+    spiel.spielstand?.speichere(j);
+  }
+
+  /// Gespeicherten Stand fortsetzen; `null`, wenn keiner da ist oder er nicht passt.
+  static Erkundung? fortsetzen(Spiel spiel) {
+    final roh = spiel.letzterStand, daten = spiel.fallDaten;
+    if (roh == null || daten == null) return null;
+    final j = jsonDecode(roh) as Map<String, dynamic>;
+    final s = Fallsitzung.ausJson(daten, spiel.stadt, spiel.teile, spiel.karten, j['sitzung'] as Map<String, dynamic>,
+        bewohner: spiel.bewohnerDaten, haeuser: spiel.haeuserDaten);
+    final ort = j['ort'] as String;
+    if (s == null || !spiel.stadt.bereiche.containsKey(ort)) return null;
+    spiel.besucht
+      ..clear()
+      ..addAll([for (final b in j['besucht'] as List) b as String]);
+    spiel.tutorial.gezeigt
+      ..clear()
+      ..addAll([for (final t in j['tutorial'] as List) t as String]);
+    return Erkundung(sitzung: s)
+      ..ort = ort
+      ..x = (j['x'] as num).toDouble()
+      ..z = (j['z'] as num).toDouble()
+      ..yaw = (j['yaw'] as num).toDouble();
+  }
 
   void _tutorial(Spiel spiel, String ausloeser) {
     if (sitzung != null) spiel.tutorial.ausloesen(ausloeser, an: spiel.optionen.tutorial);
@@ -148,6 +191,7 @@ class Erkundung extends Bildschirm {
         if (ev.art == 'fund') _tutorial(spiel, 'erster_fund');
         if (ev.art == 'teilen') _tutorial(spiel, 'teilen');
         if (ev.art == 'phase') {
+          _seitSpeichern = 1e9; // nach dem Phasenwechsel sichern
           spiel.ton.spiele('uhrturm_schlag', lautstaerke: 0.8);
           final p = sz.fall.phase;
           final t = spiel.erzaehler?.uhr('phase$p', p);
@@ -156,6 +200,8 @@ class Erkundung extends Bildschirm {
         }
       }
       sz.anzeige.clear();
+      _seitSpeichern += dt;
+      if (_seitSpeichern > 60) speichern(spiel);
       while (_karten.length > 3) {
         _karten.removeAt(0);
       }
@@ -186,7 +232,7 @@ class Erkundung extends Bildschirm {
     if (e.gedrueckt(Taste.blick)) _blickUmschalten(spiel);
     if (blick) _tutorial(spiel, 'blick');
     zielSpur = blick ? _naechsteSpur(spiel) : null;
-    if (e.gedrueckt(Taste.menue) || e.gedrueckt(Taste.zurueck)) spiel.oeffne(_Pause());
+    if (e.gedrueckt(Taste.menue) || e.gedrueckt(Taste.zurueck)) spiel.oeffne(_Pause(this));
     if (steuerung.tippAktion || e.gedrueckt(Taste.aktion)) _handle(spiel);
     _meldungZeit -= dt;
   }
@@ -427,7 +473,7 @@ class Erkundung extends Bildschirm {
       }
     }
     by += bh + 4;
-    if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), 'Menü')) spiel.oeffne(_Pause());
+    if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), 'Menü')) spiel.oeffne(_Pause(this));
     final j = steuerung.joystick;
     if (j != null) {
       ui.kreis(j.$1, j.$2, Steuerung.joyRadius.round(), UiFarbe.rand);
@@ -468,6 +514,10 @@ class Erkundung extends Bildschirm {
 }
 
 class _Pause extends Bildschirm {
+  final Erkundung erkundung;
+  _Pause(this.erkundung);
+  String _meldung = '';
+
   @override
   bool get zeigtWelt => false;
 
@@ -479,16 +529,24 @@ class _Pause extends Bildschirm {
   @override
   void zeichneUi(Spiel spiel, PixelUi ui) {
     final w = ui.fb.width, h = ui.fb.height;
-    final p = Rechteck(w ~/ 2 - 90, h ~/ 2 - 60, 180, 120);
+    final p = Rechteck(w ~/ 2 - 90, h ~/ 2 - 66, 180, 140);
     ui.panel(p);
     ui.textMittig('Pause', w ~/ 2, p.y + 6, farbe: UiFarbe.akzent);
-    switch (ui.menue(const ['Weiter', 'Optionen', 'Hauptmenü'], w ~/ 2, p.y + 24, breite: 150)) {
-      case 0:
+    final mitFall = erkundung.sitzung != null;
+    final eintraege = ['Weiter', if (mitFall) 'Speichern', 'Optionen', 'Hauptmenü'];
+    final wahl = ui.menue(eintraege, w ~/ 2, p.y + 24, breite: 150);
+    switch (wahl < 0 ? '' : eintraege[wahl]) {
+      case 'Weiter':
         spiel.schliesse();
-      case 1:
+      case 'Speichern':
+        erkundung.speichern(spiel);
+        _meldung = 'Gespeichert.';
+      case 'Optionen':
         spiel.oeffne(OptionenBildschirm());
-      case 2:
+      case 'Hauptmenü':
+        erkundung.speichern(spiel);
         spiel.wechsle(Hauptmenue());
     }
+    if (_meldung.isNotEmpty) ui.textMittig(_meldung, w ~/ 2, p.unten - ui.zeilenHoehe - 4, farbe: UiFarbe.spuk);
   }
 }

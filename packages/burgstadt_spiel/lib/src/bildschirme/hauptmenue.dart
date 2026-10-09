@@ -43,29 +43,44 @@ class Hauptmenue extends Bildschirm {
     ui.textMittig('Spuk im Gewölbe', cx, y, farbe: UiFarbe.text);
     y += ui.zeilenHoehe + (hoch ? 24 : 12);
     final breite = math.min(w - 32, 180);
-    final wahl = ui.menue([
-      'Allein spielen (Detektiv)',
-      'Besetzung: ${spiel.besetzung} Rollen',
+    const neu = 'Allein spielen (Detektiv)', weiter = 'Fortsetzen';
+    final besetzung = 'Besetzung: ${spiel.besetzung} Rollen';
+    final eintraege = [
+      if (spiel.letzterStand != null) weiter,
+      neu,
+      besetzung,
       'Im WLAN spielen',
       'Optionen',
       'Klassische Fälle',
-    ], cx, y, breite: breite);
-    switch (wahl) {
-      case 0:
+    ];
+    final wahl = ui.menue(eintraege, cx, y, breite: breite);
+    switch (wahl < 0 ? '' : eintraege[wahl]) {
+      case weiter:
+        final e = Erkundung.fortsetzen(spiel);
+        if (e == null) {
+          hinweis = 'Der Spielstand passt nicht mehr zu dieser Version.';
+          spiel.letzterStand = null;
+        } else {
+          spiel.wechsle(e);
+        }
+      case neu:
         final s = spiel.starteFall();
+        spiel.besucht.clear();
+        spiel.tutorial.gezeigt.clear();
         if (s == null) {
           spiel.wechsle(Erkundung());
         } else {
           spiel.wechsle(Erkundung(sitzung: s));
         }
-      case 1:
-        spiel.besetzung = spiel.besetzung >= 20 ? 4 : spiel.besetzung + 2;
-      case 2:
-        hinweis = 'WLAN-Spiel kommt in Phase 5 des Nachtlaufs.';
-      case 3:
+      case 'Im WLAN spielen':
+        spiel.beiAktion?.call('wlan');
+        hinweis ??= 'WLAN-Spiel: siehe Mehrspieler-Menü der App.';
+      case 'Optionen':
         spiel.oeffne(OptionenBildschirm());
-      case 4:
+      case 'Klassische Fälle':
         spiel.beiAktion?.call('klassisch');
+      default:
+        if (wahl >= 0 && eintraege[wahl] == besetzung) spiel.besetzung = spiel.besetzung >= 20 ? 4 : spiel.besetzung + 2;
     }
     if (hinweis != null) ui.textMittig(hinweis!, cx, h - ui.zeilenHoehe * 3, farbe: UiFarbe.spuk);
     ui.textMittig('Tippen, klicken oder Pfeiltasten + Eingabe', cx, h - ui.zeilenHoehe - 2, farbe: UiFarbe.textGedimmt);

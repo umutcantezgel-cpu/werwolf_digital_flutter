@@ -13,6 +13,23 @@ import 'spuren_geometrie.dart';
 import 'texte.dart';
 import 'welt_geometrie.dart';
 
+/// Ablage für den Spielstand (App: `shared_preferences`; Werkzeuge und Tests: im Speicher).
+abstract interface class Spielstand {
+  Future<String?> lade();
+  Future<void> speichere(String json);
+  Future<void> loesche();
+}
+
+class SpielstandImSpeicher implements Spielstand {
+  String? inhalt;
+  @override
+  Future<String?> lade() async => inhalt;
+  @override
+  Future<void> speichere(String json) async => inhalt = json;
+  @override
+  Future<void> loesche() async => inhalt = null;
+}
+
 /// Ein Bildschirm des Spiels (Hauptmenü, Erkundung, Fallakte …).
 abstract class Bildschirm {
   /// Zeigt der Bildschirm die 3D-Welt im Hintergrund?
@@ -68,6 +85,10 @@ class Spiel {
   final Map<String, Teil> teile = {...kTeileBasis};
   final Map<String, Figurenkarte> karten = {};
   int besetzung = 4;
+
+  /// Spielstand-Ablage und zuletzt gespeicherter Stand (JSON) für „Fortsetzen“.
+  Spielstand? spielstand;
+  String? letzterStand;
 
   /// Erzähler-Texte und Tutorial (aus `data/texte/`).
   Erzaehler? erzaehler;
