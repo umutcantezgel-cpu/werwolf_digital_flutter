@@ -1,6 +1,6 @@
 # Burgstadt HD – STATUS
 
-STAND · Kern v1.0 · Phase 0/1 von 9 · Tag 1 · Schicht 3 · Zielabstand 0 von 14 · Pakete 22 von 306 · Plätze 4 von 4 · nächster Schritt: REP-01…03, P0-PROBE-02/03, P1-OPUS-02
+STAND · Kern v1.0 · Phase 1 von 9 (P0 abgeschlossen, P1/P7 laufen) · Tag 1 · Schicht T2/S3 · Zielabstand 0 von 14 · Pakete 45 von 306 · Plätze 4 von 4 · nächster Schritt: P1-OPUS-07 Leistung, Durchstich-Texturen, P1-OPUS-12
 
 ## Phase 0 – Fundament (Zielbeitrag)
 1. P0 schafft die Werkzeuge, mit denen jede spätere Verbesserung gemessen wird: Layout-Prüfsumme, Kontaktbogen, Flimmer-, Banding- und Szenenmessung, `hd_abnahme`.
@@ -14,6 +14,8 @@ STAND · Kern v1.0 · Phase 0/1 von 9 · Tag 1 · Schicht 3 · Zielabstand 0 von
 | T1/S2 | P0-OPUS-03, P0-AUTOR-01, P0-AUTOR-02 (3 von 7) | 0 | 6ca419c, 0ac2248 | Z-13-Zeile, hd_commit.sh, Layout-Prüfsumme 35a1b855fb2fd753 im Schnelllauf, Kontaktbogen; Migrationsbeleg-Bildsatz (198 Bilder) deterministisch; alle 7 angenommen |
 | T1/S3 | P0-AUTOR-05, P0-AUTOR-06, P0-GEGEN-01, P0-SICHT-01…03 (vorgezogen aus T2/S1) (6) | REP-01…03 laufen | 700989a, d00b73e, 920a863 | Eichbilder; hd_abnahme-Gerüst (0/14, Figurenstand e5bb30ea3c); Gegenprüfung 17 Befunde (8 schwer) → REP-01…03; Eichlauf 77,8 % → E-047; Ausgang Nachtlauf 13/14 (E-048) |
 | T2/S1 (Opus) | P1-OPUS-03 Palette v2 | 0 | d29628e | MIGRATIONSBELEG 1: 198/198 Bilder byte-gleich, Eichbilder 18/18 gleich |
+| T2/S2 | P1-OPUS-02 Skalierung v2, P1-OPUS-01 Werkzeugkasten, P1-OPUS-05 Dichte 64, REP-01…03, P0-PROBE-02/03, P1-AUTOR-01/03, P7-AUTOR-01/02/04/07/10 | 3 REP | f60e38f, f955512, 96e9e5b, fccd652, e12254b, 0e5b9b2, 82b5b58, 56ad7eb, 2cc225e | „scharf“ 640×360 bei 720p; MIGRATIONSBELEG 2 (Dichte 64) 198/198 + Detektivblick 16/16; Ausgang eingefroren (115 Bilder, 52,6 ns/Pixel, Flimmern FERNE 0,242, Banding 5) |
+| T2/S3 | P1-OPUS-04 Lichttabelle v2, Kandidaten-Register, P1-AUTOR-04/05, P1-VAR-01 | 0 | f654c35, 194bf2c, 512f685 | Banding 5 → 8 Stufen, Sprung 2 → 1; Grün im Licht 0 %; erste HD-Texturen (pflaster_a/b, putzOcker_a) |
 
 ## Zielabstand (HZ erfüllt)
 | HZ | Stand |
