@@ -30,7 +30,7 @@ Stand: Entwurf während der F4-Bildschirmwelle. Code entsteht erst nach dem F4-T
 
 ## PDF (`druck/*.dart`, Paket `pdf`)
 - A4 hoch, Schriften Inter und Special Elite aus `assets/fonts` (Bytes von außen, Kern ohne `dart:io`).
-- Ein Dokument je Teil, Dateinamen nur mit Codes: `00-spielleitung.pdf`, `01-detektivbogen.pdf`, `10-rollen.pdf`, `20-umschlaege-<code>.pdf`, `90-aufloesung-versiegelt.pdf`.
+- Ein Dokument je Teil, Dateinamen nur mit Nummer und Teil (Stand E-033/E-035): `00-spielleitung.pdf`, `01-detektivbogen.pdf`, `10-rollenhefte.pdf`, `11-fassungen.pdf`, `12-stimmkarten.pdf`, `20-indizkarten.pdf`, `21-umschlaege.pdf`, `90-aufloesung-versiegelt.pdf`. Umschläge stehen gesammelt in einer Datei; ein Code im Dateinamen hätte nichts genützt.
 - **Überlaufschutz:**
   - Jede Seite wird mit `pw.MultiPage` gesetzt.
   - Karten haben eine feste Größe; ihr Text wird vor dem Satz mit der Textmessung des Pakets geprüft. Läuft er über, verkleinert sich die Schrift bis 9 pt. Reicht das nicht, ist das ein Fehler und der Test wird rot.

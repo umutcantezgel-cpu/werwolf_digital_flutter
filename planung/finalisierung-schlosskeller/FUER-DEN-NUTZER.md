@@ -16,14 +16,14 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
   - Die Datei wird dadurch etwa 37 MB größer, wenn das Deployment den Ordner ausliefert. Das ist die Bedingung für „zur Laufzeit keine fremden Server“.
 - **Spoilerschutz:** Wer im Browser die Entwicklerwerkzeuge öffnet, kann die Kanon-Dateien und damit die Lösung lesen. Das zu verhindern ist in einer lokalen Web-App nicht möglich und kein Ziel (E-013).
 
-- **Druck und Spoiler:** Wer das Druck-PDF absichtlich am Bildschirm durchliest, kann die versiegelten Täterfassungen lesen. Außen stehen nur neutrale Codes; vor dem Drucken sollte niemand aus der Runde das PDF durchblättern.
+- **Druck und Spoiler (E-035):** Außen steht überall nur ein neutraler Code, auch auf den Fassungen; keine Seite verrät sich durch Zahl, Rahmen oder Überschrift. Wer beim Ausschneiden bewusst die Rückseiten liest, kann trotzdem Funde und die Täterfassung lesen. Druckt einseitig, sortiert nur nach Codes, und am besten druckt jemand, der nicht das Geburtstagskind ist.
 
 - **Gruppenwahl ohne Ergebnisanzeige (E-025):** Die Runde sieht nach ihrer Wahl nicht, ob der Hinweis wahr, neutral oder ein Gerücht war, und auch keine Stimmenzahl. Sonst ließe sich ein Gerücht als Freispruch lesen und die Sabotage der Täterrolle bei vier Rollen erkennen. Erst die Auflösung zeigt, wie oft die Gruppe zusammengehalten hat.
 - **Wer mehrere Fall-Codes nacheinander spielt,** kann mit der Zeit lernen, welche Satzform der Hinweise in Runde 3 meist stimmt. Für einen Partyabend mit einem Fall ist das ohne Bedeutung.
 
 - **Helligkeit der Karte (Master 7.13):** Die Ermittlung zeigt das verlangte Grundlicht von 23 % in kühlem Blaugrau, dazu warme Kerzenpunkte und den Lichtkegel des Geburtstagskinds. Auf hellen Bildschirmen wirkt das stimmungsvoll; auf einem dunklen Beamer kann es zu düster sein. Der Wert ist eine Zahl in `lib/party/karte_session.dart` (`dunkel: 0.77`).
 - **Erzählerstimme:** Sie nutzt nur Stimmen, die der Browser als lokal meldet, und liest genau den Bausteintext vor. Fehlt eine deutsche lokale Stimme, steht der Text da und ein Hinweis erscheint. Chrome kann sehr lange Sätze manchmal abbrechen; dann hilft „Noch einmal vorlesen“.
-- **Sabotage auf Papier (F5):** Im Druckspiel zählt die Spielleitung verdeckte Stimmkarten mit den Werten +1, 0 und −1. Sie sieht dabei, ob eine Sabotage dabei war, aber nicht von wem. Am Bildschirm sieht das niemand.
+- **Sabotage auf Papier (E-035):** Im Druckspiel reißt jede Person den Streifen ihrer Stimmkarte ab; darauf steht nur ein Code. Die Spielleitung zählt die Streifen über die Codetabelle im Heft. Sie merkt dabei, ob sabotiert wurde, aber nicht von wem, denn Name und Code stehen nie zusammen in der Schüssel. Am Bildschirm sieht das niemand.
 
 ## Optionen zur Entscheidung
 - **Kernnamen:**
