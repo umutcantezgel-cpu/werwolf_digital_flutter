@@ -108,7 +108,8 @@
             "tempo": {
               "enum": [
                 "gehen",
-                "rennen"
+                "rennen",
+                "faellt"
               ]
             },
             "ueber": {

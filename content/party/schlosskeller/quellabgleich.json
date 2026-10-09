@@ -3902,8 +3902,11 @@
       "ziel": [
         "figuren.json#selin.name"
       ],
-      "status": "übernommen",
-      "grund": []
+      "status": "angepasst",
+      "grund": [
+        "A-28",
+        "E-020"
+      ]
     },
     {
       "id": "J-303",

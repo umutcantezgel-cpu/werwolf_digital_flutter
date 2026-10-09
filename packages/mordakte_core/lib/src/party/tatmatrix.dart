@@ -314,7 +314,11 @@ class Ablauf {
           laenge: laenge,
           tempo: s.tempo,
           zielOrt: s.nach,
-          haltung: s.tempo == 'rennen' ? 'rennt' : 'geht',
+          haltung: switch (s.tempo) {
+            'rennen' => 'rennt',
+            'faellt' => 'faellt',
+            _ => 'geht',
+          },
         ));
         ort = s.nach!;
         haltung = s.haltung ?? 'steht';

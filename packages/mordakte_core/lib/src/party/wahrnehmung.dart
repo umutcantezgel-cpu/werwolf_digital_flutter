@@ -64,6 +64,7 @@ class WahrnehmungsRegeln {
           e.key as String: (sieht: (e.value as Map)['sieht'] as bool, hoert: (e.value as Map)['hoert'] as String),
         'geht': (sieht: true, hoert: 'alles'),
         'rennt': (sieht: true, hoert: 'alles'),
+        'faellt': (sieht: false, hoert: 'nichts'),
       },
       planVon: Uhrzeit.parse(plan[0] as String),
       planBis: Uhrzeit.parse(plan[1] as String),
@@ -255,6 +256,7 @@ class WahrnehmungsRechner {
     for (final p in ablauf.personen) {
       final z = ablauf.zustand(p, t);
       if (z == null || !z.bewegtSich) continue;
+      if (z.tempo == 'faellt') continue; // Das Poltern des Sturzes ist Teil des Schepperns.
       if (z.tempo == 'rennen') {
         out.add(_Geraeusch('rennen:$p', 'laut', z.x, z.y, z.raum, p, false, 'Jemand rennt.'));
       } else {

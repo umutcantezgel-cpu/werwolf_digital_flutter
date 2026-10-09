@@ -35,7 +35,7 @@
       "pfade": "alle",
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
-      "text": "Um 23:57 standen Ahmet, Fatma und Olli an der Theke, Herr Schneider mittendrin. Can war nicht zu sehen.",
+      "text": "Um 23:57 standen Ahmet, Fatma und Olli an der Theke, Herr Schneider am Ostende. Can war nicht zu sehen.",
       "beleg": {
         "alle": [
           {
@@ -166,7 +166,7 @@
               "leuchten"
             ],
             "von": "23:58:00",
-            "bis": "00:00:00"
+            "bis": "23:59:30"
           }
         ]
       },
@@ -190,7 +190,7 @@
               "leuchten"
             ],
             "von": "23:58:00",
-            "bis": "00:00:00"
+            "bis": "23:59:30"
           }
         ]
       },
@@ -214,7 +214,7 @@
               "leuchten"
             ],
             "von": "23:58:00",
-            "bis": "00:00:00"
+            "bis": "23:59:30"
           }
         ]
       },
@@ -277,7 +277,7 @@
               "leuchten"
             ],
             "von": "23:58:00",
-            "bis": "00:00:00"
+            "bis": "23:59:30"
           }
         ]
       },
@@ -291,7 +291,7 @@
       "pfade": "alle",
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
-      "text": "Kurz nach dem Ausfall roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke.",
+      "text": "Kurz nach dem Scheppern roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke.",
       "beleg": {
         "alle": [
           {
@@ -543,7 +543,7 @@
       ],
       "art": "pfadabhaengig",
       "kanal": "verborgen",
-      "text": "Gleich nach dem Knall kauerte sich jemand neben sie und flüsterte: „Azra? Ich bin's, Olli.“ Er blieb dort, bis das Licht anging, auch als es an der Theke schepperte.",
+      "text": "Beim Scheppern kauerte Olli neben ihr hinter dem rechten Buffettisch. Er war schon seit dem Knall da und hatte geflüstert: „Azra? Ich bin's, Olli.“",
       "beleg": {
         "reihenfolge": [
           {
@@ -580,7 +580,7 @@
       ],
       "art": "pfadabhaengig",
       "kanal": "verborgen",
-      "text": "Erst nach dem Scheppern kauerte sich jemand außer Atem neben sie und flüsterte: „Azra? Ich bin's, Olli.“",
+      "text": "Beim Scheppern war Olli nicht neben ihr. Er kam erst danach und flüsterte: „Azra? Ich bin's, Olli.“",
       "beleg": {
         "reihenfolge": [
           {
@@ -619,7 +619,7 @@
       ],
       "art": "pfadabhaengig",
       "kanal": "verborgen",
-      "text": "Gleich nach dem Knall kauerte sich Fatma neben sie hinter den Buffettisch und flüsterte: „Ich bin's.“ Sie blieb dort, auch als es an der Theke schepperte.",
+      "text": "Beim Scheppern kauerte Fatma neben ihr hinter dem linken Buffettisch. Sie war schon seit dem Knall da und hatte geflüstert: „Emine? Ich bin's, Fatma.“",
       "beleg": {
         "reihenfolge": [
           {
@@ -656,7 +656,7 @@
       ],
       "art": "pfadabhaengig",
       "kanal": "verborgen",
-      "text": "Erst nach dem Scheppern kauerte sich Fatma außer Atem neben sie und flüsterte: „Emine? Ich bin's.“",
+      "text": "Beim Scheppern war Fatma nicht neben ihr. Sie kam erst danach und flüsterte: „Emine? Ich bin's, Fatma.“",
       "beleg": {
         "reihenfolge": [
           {
@@ -695,7 +695,7 @@
       ],
       "art": "pfadabhaengig",
       "kanal": "verborgen",
-      "text": "Beim Knall kauerte Ahmet direkt neben ihm am Ostende der Theke und flüsterte: „Damir? Ich bin's, Ahmet.“ Er blieb dort, auch als es schepperte.",
+      "text": "Beim Scheppern kauerte Ahmet neben ihm am Ostende der Theke. Er war schon seit dem Knall da und hatte geflüstert: „Damir? Ich bin's, Ahmet.“",
       "beleg": {
         "alle": [
           {
@@ -728,7 +728,7 @@
       ],
       "art": "pfadabhaengig",
       "kanal": "verborgen",
-      "text": "Beim Knall kauerte Ahmet neben ihm. Kurz vor dem Scheppern stand er auf und ging. Erst danach kam er zurück und flüsterte: „Damir, ich bin's wieder.“",
+      "text": "Beim Scheppern war Ahmet nicht neben ihm. Er war kurz davor aufgestanden und kam erst danach zurück: „Damir, ich bin's wieder.“",
       "beleg": {
         "alle": [
           {
@@ -812,7 +812,7 @@
       ],
       "art": "pfadabhaengig",
       "kanal": "verborgen",
-      "text": "Erst nachdem es an der Theke gescheppert hatte, rannte das leuchtende Gesicht an ihm vorbei.",
+      "text": "Das leuchtende Gesicht rannte an ihm vorbei, nachdem es an der Theke gescheppert hatte.",
       "beleg": {
         "reihenfolge": [
           {

@@ -101,6 +101,15 @@
       "art": "handlung",
       "person": "can",
       "text": "In Panik greift Can mit der Hand voller Leuchtfarbe den Kerzenständer von der Anrichte und schlägt einmal zu. Rote Wachstropfen fallen auf die Maske in seiner anderen Hand."
+    },
+    {
+      "id": "ev_can_drohung",
+      "t": "23:58:31",
+      "ort": "vor_vorratstuer",
+      "art": "geraeusch",
+      "lautstaerke": "leise",
+      "person": "schneider",
+      "text": "Herr Schneider zischt: „Jetzt kommt die Polizei, Freundchen.“"
     }
   ],
   "gegenstaende": [

@@ -86,7 +86,7 @@
     },
     {
       "id": "ev_fatma_gepackt",
-      "t": "23:58:36",
+      "t": "23:58:38",
       "ort": "vor_vorratstuer",
       "art": "handlung",
       "person": "schneider",
@@ -100,6 +100,15 @@
       "art": "handlung",
       "person": "fatma",
       "text": "In Panik greift Fatma den Kerzenständer von der Anrichte und schlägt einmal zu. Ihr Silberring schrammt über das Messing, rote Wachstropfen fallen auf die Schatulle."
+    },
+    {
+      "id": "ev_fatma_drohung",
+      "t": "23:58:38",
+      "ort": "vor_vorratstuer",
+      "art": "geraeusch",
+      "lautstaerke": "leise",
+      "person": "schneider",
+      "text": "Herr Schneider zischt: „Zu spät. Die Polizei kommt so oder so.“"
     }
   ],
   "gegenstaende": [
@@ -137,6 +146,26 @@
           "t": "23:58:59",
           "einrichtung": "linkes_buffet_13",
           "stelle": "in der Brottasche auf dem linken Buffettisch"
+        }
+      ]
+    },
+    {
+      "id": "muenzschatulle",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "traeger": "fatma",
+          "stelle": "in Fatmas Umhängetasche"
+        },
+        {
+          "t": "23:58:38",
+          "traeger": "fatma",
+          "stelle": "in Fatmas Hand"
+        },
+        {
+          "t": "23:58:47",
+          "traeger": "fatma",
+          "stelle": "wieder in der Umhängetasche"
         }
       ]
     }

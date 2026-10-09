@@ -371,3 +371,41 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Enis: Klang nah an Emine.
 - **Herkünfte:** deutsch 2, türkisch 6, kurdisch 3, bosnisch 5, polnisch 4.
 - **Sprache:** Das Feld `aussprache` steuert die Stimme (z. B. Can → „Dschan“, Tugba → „Tuuba“, Wojtek → „Woitek“).
+- **Nachtrag (E-021):** Selin heißt Sibel (Reim Selin/Aylin, F1-SENS-01). Damit sind 9 Namen geändert; Stufe V bleibt ausgewogen.
+
+## E-021 · F1-Prüfrunde: Entscheidungen zu F1-KONT-01, F1-KONT-02, F1-GEGEN-01, F1-SENS-01
+- **Abnahmen:** Alle vier Berichte vollständig, mit Fundstellen und Endmarke.
+  - `ABNAHME F1-KONT-01 · FREIGEGEBEN · 10/10`
+  - `ABNAHME F1-KONT-02 · FREIGEGEBEN · 10/10`
+  - `ABNAHME F1-GEGEN-01 · FREIGEGEBEN · 10/10`
+  - `ABNAHME F1-SENS-01 · FREIGEGEBEN · 10/10`
+
+| Befund | Entscheidung | Folge |
+|---|---|---|
+| KONT-01 #4, KONT-02 #3: Grund für das Mitnehmen des Bunds fehlt | Ü | Ein gemeinsamer Grund in allen vier Täterfassungen: In Panik reißt die Person den Bund ab, weil man mit dem Schlüssel rauskommt; gleich danach merkt sie, dass Flucht alles schlimmer macht, und versteckt ihn. |
+| KONT-01 #3, KONT-02 #2: Anlass für Griff und Schlag | Ü | Herr Schneider zischt je Pfad leise einen Satz (Ereignis `ev_<pfad>_drohung`, nur die Täterperson ist näher als 1,5 m; der Wissensvergleich bestätigt das). Griffzeit gleich Ankunftszeit (Fatma, Olli 23:58:38). Fatmas Geheimnis begründet die sofortige Rückgabe. |
+| KONT-01 #2: Sturz statt Gehen | Ü | Neues Tempo `faellt` (ohne Schrittgeräusch, Grenze wie Rennen). |
+| KONT-01 #5: Verbleib des Mietgelds | Ü | Gegenstand `mietgeld` (2.850 € in Ahmets Hosentasche ab 0:12), widerlegt die Miet-Lüge. |
+| KONT-01 #7: Handy-Merkmal nach 23:55 | Ü | Zeitleiste `z_handys` (0:05 Handys zurück); Ahmets Merkmal mit Zeitbezug, neue Ruhe-Animation. |
+| KONT-01 #10: Belegfenster Leuchten | Ü | Bis 23:59:30. |
+| KONT-01 #1, #11: Matrix-Schritte | V | Die 15-Sekunden-Matrix tastet genau zur Zeile ab; wer zur Zeile losgeht, steht dort noch am Start. Ereignisse zwischen den Zeilen stehen in der Tatmatrix-Datei. |
+| KONT-01 #6, #8, #9 | V | Aylin hält die Quittung bewusst zurück (ihr Ziel). Pläne müssen nicht jede Reaktion zeigen. Beweisdichte ist je Pfad gleich: ein Schlüsselbeweis, ein Zusatzindiz. |
+| KONT-02 #1: Schneiders Erinnerung | V | Die Gedächtnislücke für die Sekunden vor dem Schlag ist gewollt (V-05). |
+| KONT-02 #4: Fatmas Beweis nicht sichtbar | V | Entscheidungen zielen auf Orte, Gegenstände und Personen (F-12). Fatmas Ring wird über eine Personen-Entscheidung untersucht, die es in allen Pfaden gibt (F2). |
+| KONT-02 #5, #6 | V | Die Sichtungen sind anonym („leuchtendes Gesicht“) und widerlegen Cans Lüge nicht allein; die Ausbeulung widerlegt „nur Bücher“ nicht. Widerlegt wird über Fasern, Zeynep, Glassplitter und Schatulle. |
+| KONT-02 #7–#11 | Ü | Spur der Schatulle (Hand, Tasche); „Herr Schneider am Ostende“; „kurz nach dem Scheppern“; Fasertext; Notizbuch widerlegt auch Fatmas Buffet-Lüge. |
+| GEGEN-01 #1: Leuchtfarbe nur im Dunkeln | Ü | Spur ist ein Handabdruck aus grünlich-weißer Farbe, im Licht sichtbar. |
+| GEGEN-01 #2: Abkürzung über den Bund | T | Kanon bleibt (vier gleiche Untersuchungsziele, Bund nie Kartenmarker). Regel für F2: Der Bund ist erst in Runde 3 suchbar, in einer Entscheidung mit höchstens drei Bereichen. |
+| GEGEN-01 #3: Wortmarker in Trenner-Fassungen | Ü | Beide Fassungen je Trenner im gleichen Satzbau; „außer Atem“ gestrichen. |
+| GEGEN-01 #4: Trenner-Zeugen bei kleiner Besetzung | Ü | Regel: Ist ein Zeuge unbesetzt, zeigt die Befragung eine NPC-Karte mit seiner Fassung (App: aus dem Kanon, Druck: versiegelt je Fall-Code). Umsetzung F2-ORCH-06, F5. |
+| GEGEN-01 #5: Messing am Ring durch den Bund | Ü | Schlüssel aus dunklem Eisen am Stahlring (`schluesselbundMaterial`). |
+| GEGEN-01 #6: Farbe am Griff in fremden Pfaden | Ü | Die Spur ist ein Handabdruck um den Griff; er entsteht nur durch festes Zupacken. |
+| GEGEN-01 #7, #8, #11 | V | Damirs Spürzeile steht in der Tatmatrix; Ollis Ärmel sind sein Nebendelikt in allen Pfaden, der Schlüsselbeweis ist das Wachs am Fuß; der Hinweis im Kanon regelt den Bund. |
+| GEGEN-01 #9, #10 | Ü | Handschuh-Zeitpunkt (18:45); verbogener Schaft als pfadneutrale Spur; Texte angeglichen. |
+| SENS-01 1/2, B1: „bar“ | Ü | „2.000 € Bargeld“. |
+| SENS-01 B2, B3: Ziffern in Texten | T | Kanon-Felder dürfen Ziffern tragen; Vorlesetexte (`texte/*.json`, F3) schreiben Uhrzeiten und Beträge in Worten. Der Textprüfer prüft nur Vorlesetexte. |
+| SENS-01 B4: „Fall-Code“ in der Zeitleiste | Ü | Neutral formuliert. |
+| SENS-01 B5, B6, B7, B8, B9, B10, B11, B13, B14 | Ü | Loyalität ohne Geldbezug. Marek „Der Caterer“, Parken nach Telefonauskunft. Wojtek „Der Architekturstudent“, schlank, mit Brille. Lejla ohne „trotzdem“. Hana und Sibel: Ziele über Sachen statt Spott. Fatma lächelt Emine zu. Aylin sachlich. Emine „Die Grundschullehrerin“, Zeynep „Die Fußballtrainerin“. |
+| SENS-01 B12: Kopftuch bei 2 von 3 kurdischen Figuren | Ü | Das dritte Kopftuch geht von Aylin (kurdisch) zu Azra (bosnisch). Verteilung: kurdisch 1, türkisch 1, bosnisch 1, je unbelastet und kompetent außer Fatma. |
+| SENS-01 B16 | V | Teemeister ist Quellenrolle und Getränk des Abends. |
+| SENS-01 Namensklang | T | Selin → Sibel (Reim). Serkan, Can und Baran bleiben, weil die Anlaute klar verschieden sind. Hana/Azra bleiben. |

@@ -65,7 +65,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Zeit | Wer | Ort | Was | Trägt |
 |---|---|---|---|---|
-| 21:00 | Selin (selin) | bei der Ritterrüstung (an_der_ruestung) | Selin hält die alte Ritterrüstung im Turmgang für einen Menschen, schreit auf und stolpert rückwärts gegen die Schauvitrine. Die Scheibe bekommt einen feinen Sprung. | Spur: Ab 21:00 ist die Vitrinenscheibe lose. |
+| 21:00 | Sibel (selin) | bei der Ritterrüstung (an_der_ruestung) | Sibel hält die alte Ritterrüstung im Turmgang für einen Menschen, schreit auf und stolpert rückwärts gegen die Schauvitrine. Die Scheibe bekommt einen feinen Sprung. | Spur: Ab 21:00 ist die Vitrinenscheibe lose. |
 | 20:15 | Olli (olli) | im Vorratsraum vor dem Regal mit der Torte (vorrat_mitte) | Olli sucht die Toilette, nimmt die falsche Tür hinter der Theke und steht im dunklen Vorratsraum vor der Geburtstagstorte. „Ich wollte nur aufs Klo!“ | Falsche Fährte: Olli kennt den Vorratsraum. |
 | 23:30 | Hana (meryem) | an der Kamin-Nische (am_kamin) | Hana feuert den Kamin an, ohne die Kaminklappe zu öffnen. Dichter Qualm füllt den Kaminsaal, alle husten, die Lichtschacht-Klappen werden aufgerissen, das Feuer wird gelöscht. | Spur: Seit 23:30 zieht Luft vom Buffetsaal in den Kaminsaal; Gerüche wandern mit. |
 
@@ -226,8 +226,8 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Optik:**
   - Silhouette: Schlank, aufrecht, sportliche Haltung, Brille, kurzer Bart
   - Kleidung: Schwarzer Strickpulli über weißem T-Shirt, dunkle Jeans, weiße Turnschuhe. Die schwarze Stoffjacke hängt ab 23:55 am Jackenständer im Ost-Saal.
-  - Merkmal: Blaues Schlüsselband aus der Hosentasche, Handy ständig in der Hand
-  - Ruhe-Animation: Tippt hektisch Nachrichten und streicht sich nervös durch den Bart
+  - Merkmal: Blaues Schlüsselband aus der Hosentasche, Handy in der Hand (ab 0:05, vorher im Handykorb)
+  - Ruhe-Animation: Dreht das Schlüsselband um den Finger und streicht sich nervös durch den Bart
 - **Look:**
   - Haut: #d9a983
   - Haar: #1a1412
@@ -239,14 +239,14 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Geheimnis:** Um 23:57 schlüpft er mit dem Umschlag voller Mietgeld hinter die Theke. Er will Herrn Schneider bitten, um zwölf nichts zu sagen. Das Geld will er morgen allen zurückgeben.
 - **Persönliches Ziel:** Niemand soll vor dem Morgen erfahren, dass die Miete erfunden war.
 - **Nebendelikt:** Hat von allen 150 € Miete kassiert, obwohl der Keller nichts gekostet hat. (nd_mietgeld)
-- **Loyalität:** Lejla (leyla): Seine Cousine Lejla hilft ihm seit Jahren aus der Klemme.
+- **Loyalität:** Lejla (leyla): Sie sind zusammen aufgewachsen und halten zusammen.
 - **Lügen:**
   - `luege_ahmet_servietten`: Ich hab hinter der Theke nur Servietten gesucht. → Er wollte Herrn Schneider mit dem Umschlag um Aufschub bitten.
   - `luege_ahmet_miete`: Die 150 € waren für die Miete. → Der Keller hat nichts gekostet; das Geld deckt seine zu große Essensbestellung.
 - **Unschuldsfassung:**
   - Verhalten: Duckt sich beim Knall am Ostende der Theke neben Damir und hält den Umschlag fest. Er bleibt dort, bis das Licht angeht. Später leert er den Umschlag und wirft ihn in den Ascheneimer am Kamin.
 - **Täterfassung:**
-  - Tat: Kauert erst am Ostende der Theke neben Damir. Dann geht er zum Kerzenlicht an der Anrichte, um Herrn Schneider zu bitten. Herr Schneider packt ihn am Arm. In Panik greift Ahmet den Kerzenständer und schlägt einmal zu. Er reißt den Bund vom Gürtel, hält ihn fest in der Faust, steckt ihn im Ost-Saal in seine eigene Jacke und kauert danach wieder neben Damir.
+  - Tat: Er kauert erst am Ostende der Theke neben Damir. Dann geht er zum Kerzenlicht an der Anrichte, um Herrn Schneider zu bitten. Herr Schneider, noch außer sich wegen Can, packt ihn am Arm und zischt: „Um zwölf erfahren's alle.“ In Panik greift Ahmet den Kerzenständer und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er steckt den Bund im Ost-Saal in seine eigene Jacke und kauert sich wieder neben Damir.
   - Schlüsselbeweis: Schneiders Schlüsselbund steckt in Ahmets schwarzer Jacke am Jackenständer im Ost-Saal.
   - Zusatzindiz: Rote Wachstropfen auf dem leeren Umschlag im Ascheneimer am Kamin.
 
@@ -265,7 +265,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Silhouette: Schlanke Statur, dunkles Kopftuch, knielanger Wollmantel
   - Kleidung: Weinroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, dunkles Kopftuch
   - Merkmal: Schwere Umhängetasche aus Leder, breiter Silberring an der rechten Hand
-  - Ruhe-Animation: Nestelt am Reißverschluss ihrer Tasche und schaut sich schnell um
+  - Ruhe-Animation: Nestelt am Reißverschluss ihrer Tasche und lächelt Emine zu
 - **Look:**
   - Haut: #e6be9e
   - Haar: #2b1d14
@@ -275,7 +275,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Kopftuchfarbe: #3b3436
 - **Motiv:** Fatma schreibt ihre Abschlussarbeit über alte Münzbilder. Azra hat ihr von der Münzschatulle in der Turmvitrine erzählt. Um 23:40 hebt sie die gesprungene Scheibe an und nimmt die Schatulle mit. Sie will die Reliefs zu Hause abzeichnen und die Schatulle am Montag zurückbringen. Um 23:56 sieht Herr Schneider Glassplitter an ihrem Mantel: „Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.“
 - **Alibi:** Behauptet, die ganze Zeit beim Gebäck am linken Buffettisch gestanden zu haben.
-- **Geheimnis:** Um 23:57 geht sie mit der Tasche zur Theken-Klappe. Sie will Herrn Schneider die Schatulle zurückgeben und ihn bitten, nicht die Polizei zu rufen.
+- **Geheimnis:** Nachdem Herr Schneider sie um 23:56 erwischt hat, will sie ihm die Schatulle sofort zurückgeben. Um 23:57 geht sie mit der Tasche zur Theken-Klappe.
 - **Persönliches Ziel:** Die Schatulle soll zurück, ohne dass es alle erfahren.
 - **Nebendelikt:** Hat die Münzschatulle aus der Turmvitrine mitgenommen. (nd_schatulle)
 - **Loyalität:** Emine (emine): Emine ist seit der Schulzeit ihre beste Freundin.
@@ -285,7 +285,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Unschuldsfassung:**
   - Verhalten: Beim Knall zieht sie sich mit der Tasche zum linken Buffettisch zurück und kauert dort gleich danach neben Emine.
 - **Täterfassung:**
-  - Tat: Beim Knall bleibt sie erschrocken vor der Theke stehen. Dann sieht sie das Kerzenlicht an der Anrichte und geht durch die Klappe hin, um die Schatulle zurückzugeben. Herr Schneider packt den Gurt ihrer Tasche. In Panik greift sie den Kerzenständer und schlägt einmal zu. Sie nimmt den Bund mit, steckt ihn in die Brottasche auf dem linken Buffettisch und kauert sich zu Emine.
+  - Tat: Beim Knall bleibt sie erschrocken vor der Theke stehen. Dann sieht sie das Kerzenlicht an der Anrichte und geht durch die Klappe hin, um die Schatulle sofort zurückzugeben. Herr Schneider packt den Gurt ihrer Tasche und zischt: „Zu spät. Die Polizei kommt so oder so.“ In Panik greift sie den Kerzenständer und schlägt einmal zu. In Panik reißt sie den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt sie, dass Flucht alles schlimmer macht. Sie steckt ihn in die Brottasche auf dem linken Buffettisch und kauert sich zu Emine.
   - Schlüsselbeweis: Frischer Messingabrieb an ihrem breiten Silberring, passend zum Kerzenständer.
   - Zusatzindiz: Rote Wachstropfen auf der Münzschatulle in ihrer Tasche.
 
@@ -311,7 +311,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Kopf: none
   - Statur: broad
   - Schnitt: suit
-- **Motiv:** Um 18:30 trägt Olli mit Wojtek die Warmhaltebehälter durch den Turm. Dabei schrammt er die geschnitzte Bogentür, ein Beschlag reißt aus. Herr Schneider verlangt 2.000 € bar und schließt die Tore ab: „Keiner geht, bevor das bezahlt ist.“ Um 23:00 streiten die beiden laut.
+- **Motiv:** Um 18:30 trägt Olli mit Wojtek die Warmhaltebehälter durch den Turm. Dabei schrammt er die geschnitzte Bogentür, ein Beschlag reißt aus. Herr Schneider verlangt 2.000 € Bargeld und schließt die Tore ab: „Keiner geht, bevor das bezahlt ist.“ Um 23:00 streiten die beiden laut.
 - **Alibi:** Behauptet, die ganze Zeit am Kopf der Tafel im Ost-Saal gesessen zu haben.
 - **Geheimnis:** Um 23:57 holt er am Eiskübel Eis für Wojteks eingeklemmten Finger. Herr Schneider raunzt ihn an: „Zweitausend, bis zwölf.“
 - **Persönliches Ziel:** Den Türschaden selbst mit Herrn Schneider klären, ohne die Gruppe hineinzuziehen.
@@ -322,7 +322,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Unschuldsfassung:**
   - Verhalten: Beim Knall tastet er sich vom Eiskübel zum rechten Buffettisch und kauert dort gleich danach neben Azra, bis das Licht angeht. Danach setzt er sich in den Ost-Saal an die Tafel.
 - **Täterfassung:**
-  - Tat: Er bleibt erst am Eiskübel stehen. Dann geht er vor der Theke entlang und durch die Klappe zum Kerzenlicht, weil er mit Herrn Schneider reden will. Herr Schneider packt ihn am Ärmel. In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. Er nimmt den Bund mit, wirft ihn in den Eiskübel und kauert um 23:59:05 außer Atem neben Azra.
+  - Tat: Er bleibt erst am Eiskübel stehen. Dann geht er vor der Theke entlang und durch die Klappe zum Kerzenlicht, weil er mit Herrn Schneider reden will. Herr Schneider packt ihn am Ärmel und zischt: „Zweitausend. Sonst Polizei.“ In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er wirft ihn in den Eiskübel und kauert sich zu Azra.
   - Schlüsselbeweis: Holzsplitter und weißer Kalk von seinen Ärmeln kleben im erstarrten Wachs am Fuß des Kerzenständers.
   - Zusatzindiz: Der Schlüsselbund liegt im Eiskübel vor der Theke.
 
@@ -360,8 +360,8 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Unschuldsfassung:**
   - Verhalten: Er reißt sich los und rennt durch den Durchgang, noch bevor es scheppert. Die leuchtende Maske hält er in der Hand. Im Kaminsaal rennt er zur Bogentür, stopft die Maske in die Bauchtasche seines Pullis und versteckt sich oben auf der Toilette im Turm.
 - **Täterfassung:**
-  - Tat: Herr Schneider hält ihn an der Kapuze fest. In Panik greift Can den Kerzenständer von der Anrichte und schlägt einmal zu. Er reißt den Bund vom Gürtel und rennt nach dem Scheppern durch den Durchgang und den Kaminsaal. An der Bogentür stopft er die Maske in die Bauchtasche, steckt den Bund in den Helm der Ritterrüstung und versteckt sich auf der Toilette im Turm.
-  - Schlüsselbeweis: Nachleuchtende Maskenfarbe am Griff des Kerzenständers.
+  - Tat: Herr Schneider hält ihn an der Kapuze fest und zischt: „Jetzt kommt die Polizei, Freundchen.“ In Panik greift Can mit der Hand voller Leuchtfarbe den Kerzenständer von der Anrichte und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er rennt nach dem Scheppern durch den Durchgang und den Kaminsaal, stopft an der Bogentür die Maske in die Bauchtasche, steckt den Bund in den Helm der Ritterrüstung und versteckt sich auf der Toilette im Turm.
+  - Schlüsselbeweis: Ein Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe um den Griff des Kerzenständers.
   - Zusatzindiz: Rote Wachstropfen auf der Leuchtmaske.
 - **Beweisfarbe:** Gelbe Kapuzenfasern an Herrn Schneiders Hand (gelbe_fasern) müssen eindeutig Can zugeordnet werden können.
 
@@ -371,7 +371,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Geschlecht:** w
 - **Herkunft:** bosnisch
 - **Aussprache:** Leila
-- **Alltag:** Ist Apothekerin und organisiert bei jeder Feier trotzdem das Essen.
+- **Alltag:** Ist Apothekerin und hat das Buffet für heute Abend geplant.
 - **Stufe:** 2
 - **Farbcode:** #178582 (Türkis)
 - **Startraum:** Buffetsaal (thekensaal)
@@ -394,7 +394,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Loyalität:** Ahmet (ahmet): Ahmet ist ihr Cousin; sie hat ihm versprochen, nichts über die Rechnung zu sagen.
 - **Lügen:**
 
-### 6. Emine (Fatmas Freundin)
+### 6. Emine (Die Grundschullehrerin)
 
 - **Alter:** 26
 - **Geschlecht:** w
@@ -482,7 +482,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Loyalität:** Ahmet (ahmet): Ahmet hat sie gebeten, das Streitfoto zu löschen.
 - **Lügen:**
 
-### 9. Marek (Der Lieferant)
+### 9. Marek (Der Caterer)
 
 - **Alter:** 28
 - **Geschlecht:** m
@@ -497,21 +497,21 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Silhouette: Breitschultrig, sportlich, markante Gesichtszüge
   - Kleidung: Dunkelbraune Lederjacke, weißer Rollkragen, dunkle Jeans
   - Merkmal: Lässt den Autoschlüssel mit glänzendem Anhänger um den Zeigefinger kreisen
-  - Ruhe-Animation: Lässt den Autoschlüssel kreisen und schaut ungeduldig zum Ausgang
+  - Ruhe-Animation: Zählt die Warmhaltebehälter durch und schaut auf die Uhr
 - **Look:**
   - Haut: #d9a983
   - Haar: #2b1d14
   - Kopf: none
   - Statur: broad
   - Schnitt: suit
-- **Motiv:** Er hat das Essen geliefert und den Lieferwagen im Schlosshof auf Herrn Schneiders reserviertem Platz geparkt. Herr Schneider drohte mit Abschleppen.
+- **Motiv:** Er hat das Essen geliefert und den Lieferwagen im Schlosshof auf Herrn Schneiders reserviertem Platz abgestellt; am Telefon hatte ihm jemand gesagt, das gehe in Ordnung. Herr Schneider drohte mit Abschleppen.
 - **Alibi:** Holte im Durchgang eine Kiste Saft von den Getränkekisten.
 - **Geheimnis:** Im Dunkeln rannte ein leuchtendes Gespenstergesicht an ihm vorbei durch den Durchgang Richtung Kaminsaal.
 - **Persönliches Ziel:** Der Lieferwagen soll nicht abgeschleppt werden.
 - **Nebendelikt:** Hat auf Herrn Schneiders reserviertem Platz geparkt. (nd_parken)
 - **Lügen:**
 
-### 10. Zeynep (Cans Schwester)
+### 10. Zeynep (Die Fußballtrainerin)
 
 - **Alter:** 23
 - **Geschlecht:** w
@@ -575,7 +575,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Geschlecht:** w
 - **Herkunft:** bosnisch
 - **Aussprache:** Hana
-- **Alltag:** Ist Försterin und schwört, dass sie Feuer eigentlich kann.
+- **Alltag:** Ist Försterin und kennt Holz besser als Kaminzüge.
 - **Stufe:** 3
 - **Farbcode:** #2B4C7E (Jeansblau)
 - **Startraum:** Kaminsaal (west_saal)
@@ -593,8 +593,8 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Schnitt: suit
 - **Motiv:** Um 23:30 feuert sie den Kamin an, ohne die Kaminklappe zu öffnen. Dichter Qualm füllt den Kaminsaal. Herr Schneider schimpft über den Ruß an der Wand.
 - **Alibi:** Stand am Kamin und wischte Ruß von der Wand.
-- **Geheimnis:** Kurz nach dem Ausfall roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke.
-- **Persönliches Ziel:** Sich bei Herrn Schneider für den Ruß entschuldigen, ohne dass alle wieder lachen.
+- **Geheimnis:** Kurz nach dem Scheppern roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke.
+- **Persönliches Ziel:** Den Kamin wieder zum Ziehen bringen und sich bei Herrn Schneider für den Ruß entschuldigen.
 - **Lügen:**
 
 ### 13. Serkan (Der Fahrdienst-Organisator)
@@ -637,24 +637,23 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Startraum:** Ostsaal (ost_saal)
 - **Ermittlungsort:** an der langen Tafel, Westseite (ost_tafel_west)
 - **Optik:**
-  - Silhouette: Sehr gerade Haltung, elegant und förmlich, hellgraues Kopftuch
-  - Kleidung: Taubenblauer Strickcardigan, weiße Bluse, schwarze Stoffhose, hellgraues Kopftuch
+  - Silhouette: Sehr gerade Haltung, sachlich
+  - Kleidung: Taubenblauer Strickcardigan, weiße Bluse, schwarze Stoffhose
   - Merkmal: Schwarze Ledermappe mit Belegen und Kugelschreiber, fest an die Brust gedrückt
-  - Ruhe-Animation: Klickt mit dem Kugelschreiber und mustert Ahmet
+  - Ruhe-Animation: Klickt mit dem Kugelschreiber und sieht zu Ahmet hinüber
 - **Look:**
   - Haut: #d9a983
   - Haar: #1a1412
-  - Kopf: kopftuch
+  - Kopf: none
   - Statur: slim
   - Schnitt: suit
-  - Kopftuchfarbe: #c9c9c4
 - **Motiv:** Sie zahlte die 150 € nur unter Protest und wollte einen Beleg. Um 22:30 fragte sie Herrn Schneider direkt. Er schrieb ihr auf einen Quittungszettel: „Miete: 0 Euro.“
 - **Alibi:** Saß im Ost-Saal an der Tafel und hielt ihre Mappe fest.
 - **Geheimnis:** Sie hat Herrn Schneiders handschriftlichen Quittungszettel: „Miete: 0 Euro.“
 - **Persönliches Ziel:** Ihr Geld zurückbekommen, ohne Ahmet vor allen bloßzustellen.
 - **Lügen:**
 
-### 15. Wojtek (Ollis Partner beim Tragen)
+### 15. Wojtek (Der Architekturstudent)
 
 - **Alter:** 27
 - **Geschlecht:** m
@@ -666,7 +665,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Startraum:** Kaminsaal (west_saal)
 - **Ermittlungsort:** vor der Bogentür (vor_bogentuer)
 - **Optik:**
-  - Silhouette: Muskulös, bodenständig, packt gern mit an
+  - Silhouette: Schlank, ruhige Haltung, Brille
   - Kleidung: Aschgrauer Kapuzenpulli, schwarze Arbeitshose mit verstärkten Knien
   - Merkmal: Zimmermannsbleistift hinter dem Ohr, Maßband am Hosenbund, ein Finger mit Pflaster
   - Ruhe-Animation: Streicht mit dem Daumen über die Schramme an der Bogentür
@@ -674,7 +673,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Haut: #e6be9e
   - Haar: #c9a86a
   - Kopf: none
-  - Statur: broad
+  - Statur: normal
   - Schnitt: suit
 - **Motiv:** Er hat mit Olli die Warmhaltebehälter durch den Turm getragen. Nach der Schramme riet er Olli, sie mit braunem Möbelwachs aus seiner Werkzeugtasche zu verdecken. Um 23:50 klemmte er sich an der Bogentür den Finger ein.
 - **Alibi:** Stand an der Bogentür im Kaminsaal und tastete mit den Fingern die Schramme ab.
@@ -696,16 +695,17 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Startraum:** Buffetsaal (thekensaal)
 - **Ermittlungsort:** am rechten Buffettisch (am_rechten_buffet)
 - **Optik:**
-  - Silhouette: Groß, modisch, elegante Bewegungen
-  - Kleidung: Pflaumenfarbenes Samtkleid, langer schwarzer Strickcardigan
+  - Silhouette: Groß, elegante Bewegungen, cremefarbenes Kopftuch
+  - Kleidung: Pflaumenfarbenes Samtkleid, langer schwarzer Strickcardigan, cremefarbenes Kopftuch
   - Merkmal: Kleine Lupe an einer Silberkette um den Hals, auffällige Ringe aus Holz und Stein
   - Ruhe-Animation: Betrachtet ihre Ringe durch die Lupe und schaut zur Theke
 - **Look:**
   - Haut: #c69270
   - Haar: #1a1412
-  - Kopf: none
+  - Kopf: kopftuch
   - Statur: tall
   - Schnitt: dress
+  - Kopftuchfarbe: #e8dcc4
 - **Motiv:** Sie kennt sich mit alten Münzen aus und hat Fatma von der Schatulle in der Turmvitrine erzählt. Herr Schneider fand es seltsam, wie lange sie vor der Vitrine stand.
 - **Alibi:** Stand am rechten Buffettisch und füllte Gebäck auf einen Pappteller.
 - **Geheimnis:** Um 23:45 sah sie, dass Fatmas Tasche auffällig ausgebeult war.
@@ -736,16 +736,16 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Schnitt: suit
 - **Motiv:** Er schenkt den ganzen Abend Tee aus. Herr Schneider warf ihm vor, das Teegeschirr des Schlosses ohne Erlaubnis zu benutzen.
 - **Alibi:** Duckte sich am Ostende hinter die Theke, um nicht an heiße Kannen zu stoßen.
-- **Geheimnis:** Um 23:57 sah er Ahmet, Fatma und Olli an der Theke, Herrn Schneider mittendrin. Can war nicht da.
+- **Geheimnis:** Um 23:57 sah er Ahmet, Fatma und Olli an der Theke, Herrn Schneider am Ostende. Can war nicht zu sehen.
 - **Persönliches Ziel:** Sein Ärger mit Herrn Schneider über das Teegeschirr soll nicht zur Sprache kommen.
 - **Lügen:**
 
-### 18. Selin (Die Schreckhafte)
+### 18. Sibel (Die Vorsichtige)
 
 - **Alter:** 23
 - **Geschlecht:** w
 - **Herkunft:** türkisch
-- **Aussprache:** Selin
+- **Aussprache:** Sibel
 - **Alltag:** Studiert Biologie und fürchtet sich vor nichts außer alten Rüstungen.
 - **Stufe:** 5
 - **Farbcode:** #D8A7B1 (Pastellrosa)
@@ -762,10 +762,10 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
   - Kopf: none
   - Statur: small
   - Schnitt: suit
-- **Motiv:** Um 21:00 hielt sie die Ritterrüstung im Turmgang für einen Menschen, schrie auf und stieß gegen die Vitrine. Seitdem traut sie sich nicht mehr allein zur Toilette.
+- **Motiv:** Um 21:00 hielt sie die Ritterrüstung im Turmgang für einen Menschen, schrie auf und stieß gegen die Vitrine. Seitdem macht sie einen Bogen um den Turmgang.
 - **Alibi:** Kauerte auf der Wandbank im Kaminsaal.
 - **Geheimnis:** Im Dunkeln huschte ein leuchtendes Gesicht unter einer Kapuze vom Durchgang quer durch den Kaminsaal zur Bogentür.
-- **Persönliches Ziel:** Nicht wieder ausgelacht werden.
+- **Persönliches Ziel:** Die Rüstung soll aus dem Turmgang verschwinden.
 - **Lügen:**
 
 ### 19. Pawel (Der Vermittler)
@@ -831,12 +831,12 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | 18:00 | im Windfang (im_windfang) | alle | Die Gäste kommen über die fünf Sandsteinstufen und das Außentor in den Keller. Herr Schneider begrüßt alle knapp und zeigt den Weg. |
 | 18:30 | bei der Ritterrüstung (an_der_ruestung) | Marek (murat), Olli (olli), Wojtek (kaan) | Marek liefert das Essen über den Schlosshof und parkt auf Herrn Schneiders reserviertem Platz. Olli und Wojtek tragen die Warmhaltebehälter durch Hoftür, Turmgang und Bogentür. |
 | 18:35 | vor der Bogentür (vor_bogentuer) | Olli (olli), Wojtek (kaan) | Olli schrammt mit einem Warmhaltebehälter die geschnitzte Bogentür. Ein Beschlag reißt aus, Holzsplitter und weißer Kalk bleiben an seinen Pulli-Ärmeln. |
-| 18:45 | vor der Bogentür (vor_bogentuer) | Olli (olli), Wojtek (kaan) | Wojtek gibt Olli braunes Möbelwachs aus seiner Werkzeugtasche, um die Schramme zu verdecken. |
-| 18:50 | vor der Bogentür (vor_bogentuer) | Herr Schneider (schneider), Olli (olli) | Herr Schneider entdeckt den Schaden, verlangt 2.000 € bar und schreibt es in seinen Quittungsblock. Er schließt Hoftür und Außentor ab: „Keiner geht, bevor das bezahlt ist.“ |
+| 18:45 | vor der Bogentür (vor_bogentuer) | Olli (olli), Wojtek (kaan) | Wojtek gibt Olli braunes Möbelwachs aus seiner Werkzeugtasche. Olli reibt es mit seinem Arbeitshandschuh in die Schramme. |
+| 18:50 | vor der Bogentür (vor_bogentuer) | Herr Schneider (schneider), Olli (olli) | Herr Schneider entdeckt den Schaden, verlangt 2.000 € Bargeld und schreibt es in seinen Quittungsblock. Er schließt Hoftür und Außentor ab: „Keiner geht, bevor das bezahlt ist.“ |
 | 19:00 | vor der Theke (vor_theke) | alle | Das Buffet ist eröffnet: warmes Essen, Brot, Dips, Gebäck. Dazu schwarzer Tee aus dem großen Teekocher, Kaffee, alkoholfreier Apfelpunsch, Wasser und Säfte. |
 | 19:30 | an der Kamin-Nische (am_kamin) | Olli (olli) | Olli wärmt sich am noch kalten Kamin die Hände und vergisst dort einen Arbeitshandschuh mit Möbelwachs an den Fingerkuppen. |
 | 20:15 | im Vorratsraum vor dem Regal mit der Torte (vorrat_mitte) | Olli (olli) | Lacher: Olli sucht die Toilette, nimmt die falsche Tür hinter der Theke und steht im dunklen Vorratsraum vor der Geburtstagstorte. „Ich wollte nur aufs Klo!“ |
-| 21:00 | bei der Ritterrüstung (an_der_ruestung) | Selin (selin) | Lacher: Selin hält die Ritterrüstung für einen Menschen, schreit auf und stolpert gegen die Schauvitrine. Die Scheibe bekommt einen feinen Sprung. |
+| 21:00 | bei der Ritterrüstung (an_der_ruestung) | Sibel (selin) | Lacher: Sibel hält die Ritterrüstung für einen Menschen, schreit auf und stolpert gegen die Schauvitrine. Die Scheibe bekommt einen feinen Sprung. |
 | 22:00 | an der Anrichte neben der Vorratsraumtür (an_anrichte) | Herr Schneider (schneider) | Herr Schneider zündet die drei roten Kerzen im Messingkerzenständer auf der Anrichte an. Es sind die einzigen echten Kerzen im Keller. |
 | 22:00 | auf der Wandbank an der Ostwand (ost_bank) | Herr Schneider (schneider), Baran (baran) | Herr Schneider verlangt leise Musik und droht, Barans Box einzukassieren. |
 | 22:30 | an der langen Tafel, Westseite (ost_tafel_west) | Aylin (aylin), Herr Schneider (schneider) | Aylin fragt Herrn Schneider nach einem Beleg für die Miete. Er schreibt ihr auf einen Quittungszettel: „Miete: 0 Euro.“ |
@@ -858,12 +858,13 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | 23:57:50 | hinter der Theke, vor der Kaffeemaschine (hinter_theke_ost) | Tim (tim), Herr Schneider (schneider) | Herr Schneider warnt Tim vor der alten Leiste. Tim steckt die Kaffeemaschine trotzdem in seine Mehrfachsteckdose. |
 | 23:58 | hinter der Theke, vor der Kaffeemaschine (hinter_theke_ost) | alle | Knall. Die Hauptsicherung fliegt raus, überall ist es dunkel. Nur die Kerzen an der Anrichte und das grüne Notausgangsschild leuchten. |
 | 23:58:13 | vor der Vorratsraumtür (vor_vorratstuer) | Herr Schneider (schneider), Can (can) | Herr Schneider will die Notlaterne holen. Can springt mit der leuchtenden Maske aus dem Vorratsraum, Herr Schneider packt ihn an der Kapuze: „Hab ich dich!“ |
-| 23:58:40 | vor der Vorratsraumtür (vor_vorratstuer) | Herr Schneider (schneider) | Ein dumpfer Schlag, Poltern, Metall scheppert über den Steinboden. Die Kerzen erlöschen. Herr Schneider stürzt in den Vorratsraum. Wer zugeschlagen hat, hängt vom Fall-Code ab. |
-| 23:58:45 | direkt hinter der Vorratsraumtür (vorrat_innen) |  | Der Schlüsselbund wird vom Gürtel gezogen. Wer ihn nimmt und wo er landet, hängt vom Fall-Code ab. |
+| 23:58:40 | vor der Vorratsraumtür (vor_vorratstuer) | Herr Schneider (schneider) | Ein dumpfer Schlag, Poltern, Metall scheppert über den Steinboden. Die Kerzen erlöschen. Herr Schneider stürzt in den Vorratsraum. Wer zugeschlagen hat, steht in der Tatmatrix des jeweiligen Pfads. |
+| 23:58:45 | direkt hinter der Vorratsraumtür (vorrat_innen) |  | Der Schlüsselbund wird vom Gürtel gezogen. Wer ihn nimmt und wo er landet, steht in der Tatmatrix des jeweiligen Pfads. |
 | 00:00 | am Sicherungskasten (am_sicherungskasten) | Tim (tim) | Tim schaltet die Hauptsicherung wieder ein. |
 | 00:00:20 | direkt hinter der Vorratsraumtür (vorrat_innen) | Damir (enes), Herr Schneider (schneider) | Damir findet Herrn Schneider im Vorratsraum. |
 | 00:01:30 | direkt hinter der Vorratsraumtür (vorrat_innen) | Herr Schneider (schneider) | Herr Schneider kommt zu sich: Beule, Gedächtnislücke. „Mein Schlüsselbund! Der ist weg!“ |
 | 00:03 | an der Innentür unter dem Notausgangsschild (unter_notausgang) | alle | Das Außentor ist zu, der Bund ist weg, hinter den Mauern gibt es keinen Empfang. Die Gruppe sitzt bis zum Morgen fest. |
+| 00:05 | beim Handykorb auf der Tafel (am_handykorb) | Tugba (tugba) | Tugba gibt die Handys aus dem Korb zurück. Empfang hat keines. |
 | 00:12 | an der Kamin-Nische (am_kamin) | Ahmet (ahmet) | Ahmet leert den Umschlag mit dem Mietgeld und wirft ihn in den Ascheneimer am Kamin. Hana sieht es. |
 | 00:20 | hinter dem rechten Buffettisch (hinter_rechtem_buffet) | Herr Schneider (schneider), Detektiv (detective) | Herr Schneider bittet das Geburtstagskind: „Finde raus, wer das war. Bis zum Morgen.“ |
 | 00:30 | vor der Theke (vor_theke) | alle | Runde 1: Das Alibi-Geflecht. |
@@ -882,7 +883,8 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Griff | kerzenstaenderGegriffenVon: Can (can) | Am Griff schimmert im Dunkeln grünliche Leuchtfarbe. | Der Griff ist blank poliert, nichts leuchtet. | Can (can): schluesselbeweis |
+| Schaft | immer: ja | Der Schaft ist leicht verbogen, die drei roten Kerzen liegen daneben am Boden. | null | alle: umgebung |
+| Griff | kerzenstaenderGegriffenVon: Can (can) | Um den Griff liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe, derselben Farbe wie auf der Maske. | Der Griff ist blank poliert, ohne Farbe. | Can (can): schluesselbeweis |
 | Fuß | kerzenstaenderGegriffenVon: Olli (olli) | Im erstarrten roten Wachs am Fuß kleben feine Holzsplitter und weißer Kalk. | Am Fuß klebt nur rotes Wachs. | Olli (olli): schluesselbeweis |
 
 ### Fatmas breiter Silberring (`silberring_fatma`)
@@ -999,7 +1001,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Durchschlag 18:50 | immer: ja | „Bogentür, Beschlag ausgerissen: 2.000 € bar. Bis Mitternacht.“ | null | alle: motiv |
+| Durchschlag 18:50 | immer: ja | „Bogentür, Beschlag ausgerissen: 2.000 € Bargeld. Bis Mitternacht.“ | null | alle: motiv |
 | Durchschlag 22:30 | immer: ja | „Miete: 0 Euro.“ | null | alle: nebendelikt |
 
 ### Schaden an der Bogentür (`bogentuer_schaden`)
@@ -1020,7 +1022,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Fingerkuppen | immer: ja | Braune Wachsreste an den Fingerkuppen. Es ist Möbelwachs, kein rotes Kerzenwachs. | null | alle: falsche_faehrte |
+| Fingerkuppen | immer: ja | Braune Wachsreste an den Fingerkuppen. Damit hat Olli um 18:45 das Möbelwachs in die Schramme gerieben. Es ist kein rotes Kerzenwachs. | null | alle: falsche_faehrte |
 
 ### Dose mit braunem Möbelwachs (`moebelwachs_dose`)
 
@@ -1110,7 +1112,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Seite 23:57 | immer: ja | „Fehlen für die Torte: Ahmet (Theke, Servietten), Fatma (Theke), Olli (Eis), Can (?), Emine und Azra (Buffet), Damir und Tim (Kaffee), Marek (Saft), Zeynep, Hana, Wojtek, Selin (Kaminsaal), Serkan (Auto).“ | null | alle: ueberblick |
+| Seite 23:57 | immer: ja | „Fehlen für die Torte: Ahmet (Theke, Servietten), Fatma (Theke), Olli (Eis), Can (?), Emine und Azra (Buffet), Damir und Tim (Kaffee), Marek (Saft), Zeynep, Hana, Wojtek, Sibel (Kaminsaal), Serkan (Auto).“ | null | alle: ueberblick |
 
 ### Handykorb (`handykorb`)
 
@@ -1142,6 +1144,16 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 |---|---|---|---|---|
 | Lampe | immer: ja | Funktioniert. Damit hat Tim um Mitternacht den Sicherungskasten gefunden. | null | alle: ausgangslage |
 
+### Bündel mit dem Mietgeld (`mietgeld`)
+
+- **Lage:** bei Ahmet (ahmet); in Ahmets Hosentasche, seit 0:12
+- **Sichtbar:** nein
+- **Beschreibung:** Neunzehnmal 150 €, zusammen 2.850 €.
+
+| Stelle | entsteht wenn | zeigt | harmlos | Rolle |
+|---|---|---|---|---|
+| Hosentasche | immer: ja | Ein dickes Bündel Scheine, 2.850 €. Ahmet hat nichts davon ausgegeben. | null | alle: nebendelikt |
+
 **Nebendelikte**
 
 | Kennung | Person | Text |
@@ -1160,17 +1172,17 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Kennung | Wer | Pfade | Kanal | Text | widerlegt | belastet | entlastet |
 |---|---|---|---|---|---|---|---|
 | b_lejla_ahmet_theke | Lejla (leyla) | alle | pflichtgespraech | Um 23:57 schlüpfte Ahmet mit einem dicken Umschlag hinter die Theke. | luege_ahmet_servietten | Ahmet (ahmet) | – |
-| b_damir_an_der_theke | Damir (enes) | alle | pflichtgespraech | Um 23:57 standen Ahmet, Fatma und Olli an der Theke, Herr Schneider mittendrin. Can war nicht zu sehen. | luege_fatma_buffet, luege_olli_tafel | Ahmet (ahmet), Fatma (fatma), Olli (olli) | – |
+| b_damir_an_der_theke | Damir (enes) | alle | pflichtgespraech | Um 23:57 standen Ahmet, Fatma und Olli an der Theke, Herr Schneider am Ostende. Can war nicht zu sehen. | luege_fatma_buffet, luege_olli_tafel | Ahmet (ahmet), Fatma (fatma), Olli (olli) | – |
 | b_emine_schatulle | Emine (emine) | alle | verborgen | Um 23:40 sah sie im Turmgang, wie Fatma die Münzschatulle aus der Vitrine nahm. | luege_fatma_tasche | Fatma (fatma) | – |
 | b_azra_tasche | Azra (dilara) | alle | pflichtgespraech | Um 23:45 war Fatmas Tasche auffällig ausgebeult. | – | Fatma (fatma) | – |
 | b_joanna_foto | Joanna (johanna) | alle | verborgen | Sie hat ein Foto von 23:51: Herr Schneider und Ahmet streiten an der Theke, Ahmet hält einen dicken Umschlag. | – | Ahmet (ahmet) | – |
 | b_marek_gesicht | Marek (murat) | alle | pflichtgespraech | Im Dunkeln rannte ein leuchtendes Gespenstergesicht an ihm vorbei durch den Durchgang Richtung Kaminsaal. | – | Can (can) | – |
-| b_selin_gesicht | Selin (selin) | alle | pflichtgespraech | Im Dunkeln huschte ein leuchtendes Gesicht unter einer Kapuze quer durch den Kaminsaal zur Bogentür. | – | Can (can) | – |
+| b_selin_gesicht | Sibel (selin) | alle | pflichtgespraech | Im Dunkeln huschte ein leuchtendes Gesicht unter einer Kapuze quer durch den Kaminsaal zur Bogentür. | – | Can (can) | – |
 | b_tim_gesicht | Tim (tim) | alle | pflichtgespraech | Am Sicherungskasten huschte im Dunkeln ein leuchtendes Gesicht an ihm vorbei. | – | Can (can) | – |
 | b_tim_kurzschluss | Tim (tim) | alle | verborgen | Der Kurzschluss kam von seiner alten Mehrfachsteckdose. | – | – | – |
 | b_zeynep_vorrat | Zeynep (zeynep) | alle | verborgen | Can hat mit der Leuchtmaske im dunklen Vorratsraum auf das Geburtstagskind gewartet. | luege_can_toilette, luege_can_maske | Can (can) | – |
 | b_zeynep_gesicht | Zeynep (zeynep) | alle | pflichtgespraech | Ein leuchtendes Gesicht kam aus dem Durchgang an ihr vorbei in den Kaminsaal. | – | Can (can) | – |
-| b_hana_wachs | Hana (meryem) | alle | pflichtgespraech | Kurz nach dem Ausfall roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke. | – | – | – |
+| b_hana_wachs | Hana (meryem) | alle | pflichtgespraech | Kurz nach dem Scheppern roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke. | – | – | – |
 | b_hana_umschlag | Hana (meryem) | alle | pflichtgespraech | Kurz nach zwölf warf Ahmet etwas Raschelndes in den Ascheneimer neben dem Kamin. | – | Ahmet (ahmet) | – |
 | b_baran_rufe | Baran (baran) | alle | pflichtgespraech | Aus Richtung Theke hörte er erst „Hab ich dich!“, dann „Stehen bleiben!“, dann das Scheppern. | – | – | – |
 | b_serkan_tor | Serkan (serkan) | alle | pflichtgespraech | Von kurz vor zwölf bis nach zwölf stand er am Außentor. Es war abgeschlossen; niemand ist hinaus. | – | – | – |
@@ -1181,14 +1193,14 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | b_tugba_notiz | Tugba (tugba) | alle | pflichtgespraech | Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute nach eigener Auskunft gerade sind. | luege_olli_tafel | – | – |
 | b_detektiv_gehoert | Detektiv (detective) | alle | erzaehler | Durch die Musik hast du nur einen Knall gehört, dann Herrn Schneiders Rufe „Hab ich dich!“ und „Stehen bleiben!“ und später ein Scheppern. | – | – | – |
 | b_schneider_erinnerung | Herr Schneider (schneider) | alle | erzaehler | Knall, Dunkelheit, der Weg zur Notlaterne, ein leuchtendes Gespenstergesicht. Er packt eine Kapuze und ruft „Hab ich dich!“. Danach ist alles weg. | – | Can (can) | – |
-| b_azra_olli_frueh | Azra (dilara) | Ahmet (ahmet), Fatma (fatma), Can (can) | verborgen | Gleich nach dem Knall kauerte sich jemand neben sie und flüsterte: „Azra? Ich bin's, Olli.“ Er blieb dort, bis das Licht anging, auch als es an der Theke schepperte. | – | – | Olli (olli) |
-| b_azra_olli_spaet | Azra (dilara) | Olli (olli) | verborgen | Erst nach dem Scheppern kauerte sich jemand außer Atem neben sie und flüsterte: „Azra? Ich bin's, Olli.“ | – | Olli (olli) | – |
-| b_emine_fatma_frueh | Emine (emine) | Ahmet (ahmet), Olli (olli), Can (can) | verborgen | Gleich nach dem Knall kauerte sich Fatma neben sie hinter den Buffettisch und flüsterte: „Ich bin's.“ Sie blieb dort, auch als es an der Theke schepperte. | – | – | Fatma (fatma) |
-| b_emine_fatma_spaet | Emine (emine) | Fatma (fatma) | verborgen | Erst nach dem Scheppern kauerte sich Fatma außer Atem neben sie und flüsterte: „Emine? Ich bin's.“ | – | Fatma (fatma) | – |
-| b_damir_ahmet_blieb | Damir (enes) | Fatma (fatma), Olli (olli), Can (can) | verborgen | Beim Knall kauerte Ahmet direkt neben ihm am Ostende der Theke und flüsterte: „Damir? Ich bin's, Ahmet.“ Er blieb dort, auch als es schepperte. | – | – | Ahmet (ahmet) |
-| b_damir_ahmet_weg | Damir (enes) | Ahmet (ahmet) | verborgen | Beim Knall kauerte Ahmet neben ihm. Kurz vor dem Scheppern stand er auf und ging. Erst danach kam er zurück und flüsterte: „Damir, ich bin's wieder.“ | – | Ahmet (ahmet) | – |
+| b_azra_olli_frueh | Azra (dilara) | Ahmet (ahmet), Fatma (fatma), Can (can) | verborgen | Beim Scheppern kauerte Olli neben ihr hinter dem rechten Buffettisch. Er war schon seit dem Knall da und hatte geflüstert: „Azra? Ich bin's, Olli.“ | – | – | Olli (olli) |
+| b_azra_olli_spaet | Azra (dilara) | Olli (olli) | verborgen | Beim Scheppern war Olli nicht neben ihr. Er kam erst danach und flüsterte: „Azra? Ich bin's, Olli.“ | – | Olli (olli) | – |
+| b_emine_fatma_frueh | Emine (emine) | Ahmet (ahmet), Olli (olli), Can (can) | verborgen | Beim Scheppern kauerte Fatma neben ihr hinter dem linken Buffettisch. Sie war schon seit dem Knall da und hatte geflüstert: „Emine? Ich bin's, Fatma.“ | – | – | Fatma (fatma) |
+| b_emine_fatma_spaet | Emine (emine) | Fatma (fatma) | verborgen | Beim Scheppern war Fatma nicht neben ihr. Sie kam erst danach und flüsterte: „Emine? Ich bin's, Fatma.“ | – | Fatma (fatma) | – |
+| b_damir_ahmet_blieb | Damir (enes) | Fatma (fatma), Olli (olli), Can (can) | verborgen | Beim Scheppern kauerte Ahmet neben ihm am Ostende der Theke. Er war schon seit dem Knall da und hatte geflüstert: „Damir? Ich bin's, Ahmet.“ | – | – | Ahmet (ahmet) |
+| b_damir_ahmet_weg | Damir (enes) | Ahmet (ahmet) | verborgen | Beim Scheppern war Ahmet nicht neben ihm. Er war kurz davor aufgestanden und kam erst danach zurück: „Damir, ich bin's wieder.“ | – | Ahmet (ahmet) | – |
 | b_marek_vor | Marek (murat) | Ahmet (ahmet), Fatma (fatma), Olli (olli) | verborgen | Das leuchtende Gesicht rannte an ihm vorbei, bevor es an der Theke schepperte. | – | – | Can (can) |
-| b_marek_nach | Marek (murat) | Can (can) | verborgen | Erst nachdem es an der Theke gescheppert hatte, rannte das leuchtende Gesicht an ihm vorbei. | – | Can (can) | – |
+| b_marek_nach | Marek (murat) | Can (can) | verborgen | Das leuchtende Gesicht rannte an ihm vorbei, nachdem es an der Theke gescheppert hatte. | – | Can (can) | – |
 
 ## 8. Tatmatrix je Pfad
 

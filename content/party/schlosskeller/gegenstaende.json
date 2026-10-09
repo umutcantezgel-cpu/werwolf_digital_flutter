@@ -1,6 +1,6 @@
 {
   "settingId": "spuk_im_schlosskeller",
-  "hinweis": "Gegenstände und Indizien. Lage = wo der Gegenstand während der Ermittlungsrunden ist; sie ist in allen Pfaden gleich (Regel K-1), außer beim versteckten Schlüsselbund. Jede Spur nennt, in welchem Pfad sie entsteht (entstehtWenn), was sie dort zeigt und was in den anderen Pfaden zu sehen ist (harmlos). Der Beweistest prüft entstehtWenn gegen die Tatmatrix.",
+  "hinweis": "Gegenstände und Indizien. Lage = wo der Gegenstand während der Ermittlungsrunden ist; sie ist in allen Pfaden gleich (Regel K-1), außer beim versteckten Schlüsselbund. Jede Spur nennt, in welchem Pfad sie entsteht (entstehtWenn), was sie dort zeigt und was in den anderen Pfaden zu sehen ist (harmlos). Der Beweistest prüft entstehtWenn gegen die Tatmatrix. Der Schlüsselbund ist nie ein Kartenmarker; seine vier möglichen Verstecke (Jacke, Brottasche, Eiskübel, Rüstungshelm) gibt es in allen Pfaden als gleiche Untersuchungsziele.",
   "gegenstaende": [
     {
       "id": "kerzenstaender",
@@ -13,13 +13,24 @@
       "sichtbar": true,
       "spuren": [
         {
+          "id": "spur_staender_verbogen",
+          "stelle": "Schaft",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Der Schaft ist leicht verbogen, die drei roten Kerzen liegen daneben am Boden.",
+          "rolle": {
+            "alle": "umgebung"
+          }
+        },
+        {
           "id": "spur_griff_leuchtfarbe",
           "stelle": "Griff",
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "can"
           },
-          "zeigt": "Am Griff schimmert im Dunkeln grünliche Leuchtfarbe.",
-          "harmlos": "Der Griff ist blank poliert, nichts leuchtet.",
+          "zeigt": "Um den Griff liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe, derselben Farbe wie auf der Maske.",
+          "harmlos": "Der Griff ist blank poliert, ohne Farbe.",
           "rolle": {
             "can": "schluesselbeweis"
           }
@@ -355,7 +366,7 @@
           "entstehtWenn": {
             "immer": true
           },
-          "zeigt": "„Bogentür, Beschlag ausgerissen: 2.000 € bar. Bis Mitternacht.“",
+          "zeigt": "„Bogentür, Beschlag ausgerissen: 2.000 € Bargeld. Bis Mitternacht.“",
           "rolle": {
             "alle": "motiv"
           },
@@ -420,7 +431,7 @@
           "entstehtWenn": {
             "immer": true
           },
-          "zeigt": "Braune Wachsreste an den Fingerkuppen. Es ist Möbelwachs, kein rotes Kerzenwachs.",
+          "zeigt": "Braune Wachsreste an den Fingerkuppen. Damit hat Olli um 18:45 das Möbelwachs in die Schramme gerieben. Es ist kein rotes Kerzenwachs.",
           "rolle": {
             "alle": "falsche_faehrte"
           },
@@ -576,7 +587,7 @@
           "belastet": [
             "can"
           ],
-          "widerlegtDurch": "Herr Schneider hat Can an der Kapuze gepackt, bevor es dunkel um ihn wurde. Die Fasern zeigen den Griff, nicht den Schlag.",
+          "widerlegtDurch": "Herr Schneider hat Can im Dunkeln an der Kapuze gepackt, noch vor seiner Gedächtnislücke. Die Fasern zeigen den Griff, nicht den Schlag.",
           "widerlegt": [
             "luege_can_toilette"
           ]
@@ -647,12 +658,13 @@
           "entstehtWenn": {
             "immer": true
           },
-          "zeigt": "„Fehlen für die Torte: Ahmet (Theke, Servietten), Fatma (Theke), Olli (Eis), Can (?), Emine und Azra (Buffet), Damir und Tim (Kaffee), Marek (Saft), Zeynep, Hana, Wojtek, Selin (Kaminsaal), Serkan (Auto).“",
+          "zeigt": "„Fehlen für die Torte: Ahmet (Theke, Servietten), Fatma (Theke), Olli (Eis), Can (?), Emine und Azra (Buffet), Damir und Tim (Kaffee), Marek (Saft), Zeynep, Hana, Wojtek, Sibel (Kaminsaal), Serkan (Auto).“",
           "rolle": {
             "alle": "ueberblick"
           },
           "widerlegt": [
-            "luege_olli_tafel"
+            "luege_olli_tafel",
+            "luege_fatma_buffet"
           ]
         }
       ]
@@ -721,6 +733,33 @@
           "rolle": {
             "alle": "ausgangslage"
           }
+        }
+      ]
+    },
+    {
+      "id": "mietgeld",
+      "name": "Bündel mit dem Mietgeld",
+      "beschreibung": "Neunzehnmal 150 €, zusammen 2.850 €.",
+      "lage": {
+        "traeger": "ahmet",
+        "stelle": "in Ahmets Hosentasche, seit 0:12"
+      },
+      "sichtbar": false,
+      "spuren": [
+        {
+          "id": "spur_mietgeld",
+          "stelle": "Hosentasche",
+          "entstehtWenn": {
+            "immer": true
+          },
+          "zeigt": "Ein dickes Bündel Scheine, 2.850 €. Ahmet hat nichts davon ausgegeben.",
+          "rolle": {
+            "alle": "nebendelikt"
+          },
+          "nebendelikt": "nd_mietgeld",
+          "widerlegt": [
+            "luege_ahmet_miete"
+          ]
         }
       ]
     }

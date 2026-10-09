@@ -73,7 +73,7 @@ class Plausibilitaet {
     for (final e in a.ablauf.matrix.plaene.entries) {
       for (final s in e.value) {
         if (s.haltung != null && !haltungen.contains(s.haltung)) _v(a.pfad, 'Plan', '${e.key} @${s.t}: unbekannte Haltung ${s.haltung}');
-        if (s.istWeg && s.tempo != 'gehen' && s.tempo != 'rennen') _v(a.pfad, 'Plan', '${e.key} @${s.t}: unbekanntes Tempo ${s.tempo}');
+        if (s.istWeg && s.tempo != 'gehen' && s.tempo != 'rennen' && s.tempo != 'faellt') _v(a.pfad, 'Plan', '${e.key} @${s.t}: unbekanntes Tempo ${s.tempo}');
         if (s.licht != null && !graph.lichtquellen.containsKey(s.licht)) _v(a.pfad, 'Plan', '${e.key} @${s.t}: unbekanntes Licht ${s.licht}');
         if (s.lautstaerke != 'leise' && s.lautstaerke != 'laut' && s.lautstaerke != 'sehr_laut') {
           _v(a.pfad, 'Plan', '${e.key} @${s.t}: unbekannte Lautstärke ${s.lautstaerke}');
@@ -95,7 +95,7 @@ class Plausibilitaet {
         final dauer = ab.bis.minus(ab.von);
         final v = ab.laenge / dauer;
         final double grenze;
-        if (ab.tempo == 'rennen') {
+        if (ab.tempo == 'rennen' || ab.tempo == 'faellt') {
           grenze = regeln.tempoRennen;
         } else {
           final s = ab.linie.first, z = ab.linie.last;

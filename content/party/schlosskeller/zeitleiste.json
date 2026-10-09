@@ -44,7 +44,7 @@
         "olli",
         "kaan"
       ],
-      "text": "Wojtek gibt Olli braunes Möbelwachs aus seiner Werkzeugtasche, um die Schramme zu verdecken.",
+      "text": "Wojtek gibt Olli braunes Möbelwachs aus seiner Werkzeugtasche. Olli reibt es mit seinem Arbeitshandschuh in die Schramme.",
       "pfade": "alle",
       "quelle": "B-16"
     },
@@ -56,7 +56,7 @@
         "schneider",
         "olli"
       ],
-      "text": "Herr Schneider entdeckt den Schaden, verlangt 2.000 € bar und schreibt es in seinen Quittungsblock. Er schließt Hoftür und Außentor ab: „Keiner geht, bevor das bezahlt ist.“",
+      "text": "Herr Schneider entdeckt den Schaden, verlangt 2.000 € Bargeld und schreibt es in seinen Quittungsblock. Er schließt Hoftür und Außentor ab: „Keiner geht, bevor das bezahlt ist.“",
       "pfade": "alle",
       "quelle": "B-02"
     },
@@ -99,7 +99,7 @@
       "wer": [
         "selin"
       ],
-      "text": "Lacher: Selin hält die Ritterrüstung für einen Menschen, schreit auf und stolpert gegen die Schauvitrine. Die Scheibe bekommt einen feinen Sprung.",
+      "text": "Lacher: Sibel hält die Ritterrüstung für einen Menschen, schreit auf und stolpert gegen die Schauvitrine. Die Scheibe bekommt einen feinen Sprung.",
       "pfade": "alle"
     },
     {
@@ -352,7 +352,7 @@
       "wer": [
         "schneider"
       ],
-      "text": "Ein dumpfer Schlag, Poltern, Metall scheppert über den Steinboden. Die Kerzen erlöschen. Herr Schneider stürzt in den Vorratsraum. Wer zugeschlagen hat, hängt vom Fall-Code ab.",
+      "text": "Ein dumpfer Schlag, Poltern, Metall scheppert über den Steinboden. Die Kerzen erlöschen. Herr Schneider stürzt in den Vorratsraum. Wer zugeschlagen hat, steht in der Tatmatrix des jeweiligen Pfads.",
       "pfade": "alle",
       "quelle": "B-05"
     },
@@ -361,7 +361,7 @@
       "zeit": "23:58:45",
       "ort": "vorrat_innen",
       "wer": [],
-      "text": "Der Schlüsselbund wird vom Gürtel gezogen. Wer ihn nimmt und wo er landet, hängt vom Fall-Code ab.",
+      "text": "Der Schlüsselbund wird vom Gürtel gezogen. Wer ihn nimmt und wo er landet, steht in der Tatmatrix des jeweiligen Pfads.",
       "pfade": "alle",
       "quelle": "B-02"
     },
@@ -406,6 +406,16 @@
         "alle"
       ],
       "text": "Das Außentor ist zu, der Bund ist weg, hinter den Mauern gibt es keinen Empfang. Die Gruppe sitzt bis zum Morgen fest.",
+      "pfade": "alle"
+    },
+    {
+      "id": "z_handys",
+      "zeit": "00:05",
+      "ort": "am_handykorb",
+      "wer": [
+        "tugba"
+      ],
+      "text": "Tugba gibt die Handys aus dem Korb zurück. Empfang hat keines.",
       "pfade": "alle"
     },
     {

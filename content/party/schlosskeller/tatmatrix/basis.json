@@ -111,7 +111,7 @@
         "t": "23:58:40",
         "nach": "vorrat_innen",
         "bis": "23:58:42",
-        "tempo": "gehen",
+        "tempo": "faellt",
         "haltung": "liegt"
       },
       {
@@ -636,7 +636,7 @@
       "ort": "vor_vorratstuer",
       "art": "geraeusch",
       "lautstaerke": "sehr_laut",
-      "text": "Ein dumpfer Schlag, Poltern, Metall scheppert über den Steinboden. Das Kerzenlicht an der Theke erlischt."
+      "text": "Ein dumpfer Schlag, Poltern, Metall scheppert über den Steinboden. Das Kerzenlicht an der Anrichte hinter der Theke erlischt."
     },
     {
       "id": "ev_wachsgeruch",

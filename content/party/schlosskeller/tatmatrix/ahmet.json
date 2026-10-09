@@ -141,6 +141,15 @@
       "art": "handlung",
       "person": "ahmet",
       "text": "In Panik greift Ahmet den Kerzenständer von der Anrichte und schlägt einmal zu. Rote Wachstropfen fallen auf den Umschlag in seiner Hand."
+    },
+    {
+      "id": "ev_ahmet_drohung",
+      "t": "23:58:36",
+      "ort": "vor_vorratstuer",
+      "art": "geraeusch",
+      "lautstaerke": "leise",
+      "person": "schneider",
+      "text": "Herr Schneider zischt: „Um zwölf erfahren's alle.“"
     }
   ],
   "gegenstaende": [

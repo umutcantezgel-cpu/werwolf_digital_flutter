@@ -113,7 +113,7 @@
     },
     {
       "id": "ev_olli_gepackt",
-      "t": "23:58:36",
+      "t": "23:58:38",
       "ort": "vor_vorratstuer",
       "art": "handlung",
       "person": "schneider",
@@ -127,6 +127,15 @@
       "art": "handlung",
       "person": "olli",
       "text": "In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. Holzsplitter und weißer Kalk von seinem Ärmel bleiben im weichen Wachs am Fuß kleben."
+    },
+    {
+      "id": "ev_olli_drohung",
+      "t": "23:58:38",
+      "ort": "vor_vorratstuer",
+      "art": "geraeusch",
+      "lautstaerke": "leise",
+      "person": "schneider",
+      "text": "Herr Schneider zischt: „Zweitausend. Sonst Polizei.“"
     }
   ],
   "gegenstaende": [

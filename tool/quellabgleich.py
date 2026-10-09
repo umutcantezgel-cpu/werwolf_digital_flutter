@@ -38,7 +38,7 @@ A = {'detective': 'A-09', 'schneider': 'A-10', 'ahmet': 'A-11', 'fatma': 'A-12',
      'zeynep': 'A-15', 'leyla': 'A-16', 'tim': 'A-17', 'emine': 'A-18', 'johanna': 'A-19', 'murat': 'A-20',
      'baran': 'A-21', 'meryem': 'A-22', 'serkan': 'A-23', 'aylin': 'A-24', 'kaan': 'A-25', 'dilara': 'A-26',
      'enes': 'A-27', 'selin': 'A-28', 'hakan': 'A-29', 'tugba': 'A-30'}
-UMBENANNT = {'leyla', 'johanna', 'murat', 'meryem', 'kaan', 'dilara', 'enes', 'hakan'}
+UMBENANNT = {'leyla', 'johanna', 'murat', 'meryem', 'kaan', 'dilara', 'enes', 'hakan', 'selin'}
 
 
 def zeile_von(muster, ab=1, bis=None):

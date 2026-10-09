@@ -394,6 +394,9 @@
             }
           },
           "additionalProperties": false
+        },
+        "schluesselbundMaterial": {
+          "$ref": "#/$defs/text"
         }
       },
       "additionalProperties": false

@@ -72,7 +72,8 @@
       "statur": "broad",
       "schnitt": "suit",
       "glatze": true
-    }
+    },
+    "schluesselbundMaterial": "Schlüssel aus dunklem Eisen an einem Stahlring, kein Messing."
   },
   "figuren": [
     {
@@ -98,8 +99,8 @@
       "visualSpecs": {
         "silhouette": "Schlank, aufrecht, sportliche Haltung, Brille, kurzer Bart",
         "outfit": "Schwarzer Strickpulli über weißem T-Shirt, dunkle Jeans, weiße Turnschuhe. Die schwarze Stoffjacke hängt ab 23:55 am Jackenständer im Ost-Saal.",
-        "distinguishingFeature": "Blaues Schlüsselband aus der Hosentasche, Handy ständig in der Hand",
-        "idleAnimation": "Tippt hektisch Nachrichten und streicht sich nervös durch den Bart"
+        "distinguishingFeature": "Blaues Schlüsselband aus der Hosentasche, Handy in der Hand (ab 0:05, vorher im Handykorb)",
+        "idleAnimation": "Dreht das Schlüsselband um den Finger und streicht sich nervös durch den Bart"
       },
       "motiveAndConflict": "Ahmet hat den Keller umsonst bekommen. Dafür gestaltet er das Programm des Adventsmarkts. Beim Essen hat er viel zu groß bestellt. Statt das zuzugeben, hat er von allen 150 € „Miete“ eingesammelt. Um 23:51 sagt Herr Schneider an der Theke: „Um zwölf sag ich allen, was der Keller gekostet hat.“",
       "blackoutAlibi": "Behauptet, hinter der Theke nach Servietten gesucht zu haben.",
@@ -111,7 +112,7 @@
       },
       "loyalitaet": {
         "zu": "leyla",
-        "grund": "Seine Cousine Lejla hilft ihm seit Jahren aus der Klemme."
+        "grund": "Sie sind zusammen aufgewachsen und halten zusammen."
       },
       "luegen": [
         {
@@ -129,7 +130,7 @@
         "actualBehavior": "Duckt sich beim Knall am Ostende der Theke neben Damir und hält den Umschlag fest. Er bleibt dort, bis das Licht angeht. Später leert er den Umschlag und wirft ihn in den Ascheneimer am Kamin."
       },
       "killerProfile": {
-        "crimeExecution": "Kauert erst am Ostende der Theke neben Damir. Dann geht er zum Kerzenlicht an der Anrichte, um Herrn Schneider zu bitten. Herr Schneider packt ihn am Arm. In Panik greift Ahmet den Kerzenständer und schlägt einmal zu. Er reißt den Bund vom Gürtel, hält ihn fest in der Faust, steckt ihn im Ost-Saal in seine eigene Jacke und kauert danach wieder neben Damir.",
+        "crimeExecution": "Er kauert erst am Ostende der Theke neben Damir. Dann geht er zum Kerzenlicht an der Anrichte, um Herrn Schneider zu bitten. Herr Schneider, noch außer sich wegen Can, packt ihn am Arm und zischt: „Um zwölf erfahren's alle.“ In Panik greift Ahmet den Kerzenständer und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er steckt den Bund im Ost-Saal in seine eigene Jacke und kauert sich wieder neben Damir.",
         "smokingGun": "Schneiders Schlüsselbund steckt in Ahmets schwarzer Jacke am Jackenständer im Ost-Saal.",
         "zusatzindiz": "Rote Wachstropfen auf dem leeren Umschlag im Ascheneimer am Kamin."
       },
@@ -166,11 +167,11 @@
         "silhouette": "Schlanke Statur, dunkles Kopftuch, knielanger Wollmantel",
         "outfit": "Weinroter Wollmantel, dunkler Rollkragen, schwarze Stoffhose, dunkles Kopftuch",
         "distinguishingFeature": "Schwere Umhängetasche aus Leder, breiter Silberring an der rechten Hand",
-        "idleAnimation": "Nestelt am Reißverschluss ihrer Tasche und schaut sich schnell um"
+        "idleAnimation": "Nestelt am Reißverschluss ihrer Tasche und lächelt Emine zu"
       },
       "motiveAndConflict": "Fatma schreibt ihre Abschlussarbeit über alte Münzbilder. Azra hat ihr von der Münzschatulle in der Turmvitrine erzählt. Um 23:40 hebt sie die gesprungene Scheibe an und nimmt die Schatulle mit. Sie will die Reliefs zu Hause abzeichnen und die Schatulle am Montag zurückbringen. Um 23:56 sieht Herr Schneider Glassplitter an ihrem Mantel: „Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.“",
       "blackoutAlibi": "Behauptet, die ganze Zeit beim Gebäck am linken Buffettisch gestanden zu haben.",
-      "roleSecret": "Um 23:57 geht sie mit der Tasche zur Theken-Klappe. Sie will Herrn Schneider die Schatulle zurückgeben und ihn bitten, nicht die Polizei zu rufen.",
+      "roleSecret": "Nachdem Herr Schneider sie um 23:56 erwischt hat, will sie ihm die Schatulle sofort zurückgeben. Um 23:57 geht sie mit der Tasche zur Theken-Klappe.",
       "persoenlichesZiel": "Die Schatulle soll zurück, ohne dass es alle erfahren.",
       "nebendelikt": {
         "id": "nd_schatulle",
@@ -196,7 +197,7 @@
         "actualBehavior": "Beim Knall zieht sie sich mit der Tasche zum linken Buffettisch zurück und kauert dort gleich danach neben Emine."
       },
       "killerProfile": {
-        "crimeExecution": "Beim Knall bleibt sie erschrocken vor der Theke stehen. Dann sieht sie das Kerzenlicht an der Anrichte und geht durch die Klappe hin, um die Schatulle zurückzugeben. Herr Schneider packt den Gurt ihrer Tasche. In Panik greift sie den Kerzenständer und schlägt einmal zu. Sie nimmt den Bund mit, steckt ihn in die Brottasche auf dem linken Buffettisch und kauert sich zu Emine.",
+        "crimeExecution": "Beim Knall bleibt sie erschrocken vor der Theke stehen. Dann sieht sie das Kerzenlicht an der Anrichte und geht durch die Klappe hin, um die Schatulle sofort zurückzugeben. Herr Schneider packt den Gurt ihrer Tasche und zischt: „Zu spät. Die Polizei kommt so oder so.“ In Panik greift sie den Kerzenständer und schlägt einmal zu. In Panik reißt sie den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt sie, dass Flucht alles schlimmer macht. Sie steckt ihn in die Brottasche auf dem linken Buffettisch und kauert sich zu Emine.",
         "smokingGun": "Frischer Messingabrieb an ihrem breiten Silberring, passend zum Kerzenständer.",
         "zusatzindiz": "Rote Wachstropfen auf der Münzschatulle in ihrer Tasche."
       },
@@ -237,7 +238,7 @@
         "distinguishingFeature": "Holzsplitter und weißer Kalk an den Ärmeln des Pullis, ein einzelner Arbeitshandschuh hängt aus der Westentasche",
         "idleAnimation": "Reibt sich den Nacken, wechselt das Standbein und schaut auf seine Hände"
       },
-      "motiveAndConflict": "Um 18:30 trägt Olli mit Wojtek die Warmhaltebehälter durch den Turm. Dabei schrammt er die geschnitzte Bogentür, ein Beschlag reißt aus. Herr Schneider verlangt 2.000 € bar und schließt die Tore ab: „Keiner geht, bevor das bezahlt ist.“ Um 23:00 streiten die beiden laut.",
+      "motiveAndConflict": "Um 18:30 trägt Olli mit Wojtek die Warmhaltebehälter durch den Turm. Dabei schrammt er die geschnitzte Bogentür, ein Beschlag reißt aus. Herr Schneider verlangt 2.000 € Bargeld und schließt die Tore ab: „Keiner geht, bevor das bezahlt ist.“ Um 23:00 streiten die beiden laut.",
       "blackoutAlibi": "Behauptet, die ganze Zeit am Kopf der Tafel im Ost-Saal gesessen zu haben.",
       "roleSecret": "Um 23:57 holt er am Eiskübel Eis für Wojteks eingeklemmten Finger. Herr Schneider raunzt ihn an: „Zweitausend, bis zwölf.“",
       "persoenlichesZiel": "Den Türschaden selbst mit Herrn Schneider klären, ohne die Gruppe hineinzuziehen.",
@@ -260,7 +261,7 @@
         "actualBehavior": "Beim Knall tastet er sich vom Eiskübel zum rechten Buffettisch und kauert dort gleich danach neben Azra, bis das Licht angeht. Danach setzt er sich in den Ost-Saal an die Tafel."
       },
       "killerProfile": {
-        "crimeExecution": "Er bleibt erst am Eiskübel stehen. Dann geht er vor der Theke entlang und durch die Klappe zum Kerzenlicht, weil er mit Herrn Schneider reden will. Herr Schneider packt ihn am Ärmel. In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. Er nimmt den Bund mit, wirft ihn in den Eiskübel und kauert um 23:59:05 außer Atem neben Azra.",
+        "crimeExecution": "Er bleibt erst am Eiskübel stehen. Dann geht er vor der Theke entlang und durch die Klappe zum Kerzenlicht, weil er mit Herrn Schneider reden will. Herr Schneider packt ihn am Ärmel und zischt: „Zweitausend. Sonst Polizei.“ In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er wirft ihn in den Eiskübel und kauert sich zu Azra.",
         "smokingGun": "Holzsplitter und weißer Kalk von seinen Ärmeln kleben im erstarrten Wachs am Fuß des Kerzenständers.",
         "zusatzindiz": "Der Schlüsselbund liegt im Eiskübel vor der Theke."
       },
@@ -327,8 +328,8 @@
         "actualBehavior": "Er reißt sich los und rennt durch den Durchgang, noch bevor es scheppert. Die leuchtende Maske hält er in der Hand. Im Kaminsaal rennt er zur Bogentür, stopft die Maske in die Bauchtasche seines Pullis und versteckt sich oben auf der Toilette im Turm."
       },
       "killerProfile": {
-        "crimeExecution": "Herr Schneider hält ihn an der Kapuze fest. In Panik greift Can den Kerzenständer von der Anrichte und schlägt einmal zu. Er reißt den Bund vom Gürtel und rennt nach dem Scheppern durch den Durchgang und den Kaminsaal. An der Bogentür stopft er die Maske in die Bauchtasche, steckt den Bund in den Helm der Ritterrüstung und versteckt sich auf der Toilette im Turm.",
-        "smokingGun": "Nachleuchtende Maskenfarbe am Griff des Kerzenständers.",
+        "crimeExecution": "Herr Schneider hält ihn an der Kapuze fest und zischt: „Jetzt kommt die Polizei, Freundchen.“ In Panik greift Can mit der Hand voller Leuchtfarbe den Kerzenständer von der Anrichte und schlägt einmal zu. In Panik reißt er den Bund vom Gürtel: Wer den Schlüssel hat, kommt raus, bevor das Licht angeht. Gleich danach merkt er, dass Flucht alles schlimmer macht. Er rennt nach dem Scheppern durch den Durchgang und den Kaminsaal, stopft an der Bogentür die Maske in die Bauchtasche, steckt den Bund in den Helm der Ritterrüstung und versteckt sich auf der Toilette im Turm.",
+        "smokingGun": "Ein Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe um den Griff des Kerzenständers.",
         "zusatzindiz": "Rote Wachstropfen auf der Leuchtmaske."
       },
       "look": {
@@ -388,7 +389,7 @@
         "statur": "small",
         "schnitt": "suit"
       },
-      "alltag": "Ist Apothekerin und organisiert bei jeder Feier trotzdem das Essen."
+      "alltag": "Ist Apothekerin und hat das Buffet für heute Abend geplant."
     },
     {
       "id": "emine",
@@ -400,7 +401,7 @@
       "tier": 2,
       "besetzungsplatz": 6,
       "minPlayers": 6,
-      "roleTitle": "Fatmas Freundin",
+      "roleTitle": "Die Grundschullehrerin",
       "isPotentialKiller": false,
       "colorCode": "#5E6E3A",
       "farbname": "Olivgrün",
@@ -544,7 +545,7 @@
       "tier": 3,
       "besetzungsplatz": 9,
       "minPlayers": 9,
-      "roleTitle": "Der Lieferant",
+      "roleTitle": "Der Caterer",
       "isPotentialKiller": false,
       "colorCode": "#664229",
       "farbname": "Lederbraun",
@@ -558,9 +559,9 @@
         "silhouette": "Breitschultrig, sportlich, markante Gesichtszüge",
         "outfit": "Dunkelbraune Lederjacke, weißer Rollkragen, dunkle Jeans",
         "distinguishingFeature": "Lässt den Autoschlüssel mit glänzendem Anhänger um den Zeigefinger kreisen",
-        "idleAnimation": "Lässt den Autoschlüssel kreisen und schaut ungeduldig zum Ausgang"
+        "idleAnimation": "Zählt die Warmhaltebehälter durch und schaut auf die Uhr"
       },
-      "motiveAndConflict": "Er hat das Essen geliefert und den Lieferwagen im Schlosshof auf Herrn Schneiders reserviertem Platz geparkt. Herr Schneider drohte mit Abschleppen.",
+      "motiveAndConflict": "Er hat das Essen geliefert und den Lieferwagen im Schlosshof auf Herrn Schneiders reserviertem Platz abgestellt; am Telefon hatte ihm jemand gesagt, das gehe in Ordnung. Herr Schneider drohte mit Abschleppen.",
       "blackoutAlibi": "Holte im Durchgang eine Kiste Saft von den Getränkekisten.",
       "roleSecret": "Im Dunkeln rannte ein leuchtendes Gespenstergesicht an ihm vorbei durch den Durchgang Richtung Kaminsaal.",
       "persoenlichesZiel": "Der Lieferwagen soll nicht abgeschleppt werden.",
@@ -589,7 +590,7 @@
       "tier": 3,
       "besetzungsplatz": 10,
       "minPlayers": 10,
-      "roleTitle": "Cans Schwester",
+      "roleTitle": "Die Fußballtrainerin",
       "isPotentialKiller": false,
       "colorCode": "#3EB489",
       "farbname": "Minzgrün",
@@ -701,8 +702,8 @@
       },
       "motiveAndConflict": "Um 23:30 feuert sie den Kamin an, ohne die Kaminklappe zu öffnen. Dichter Qualm füllt den Kaminsaal. Herr Schneider schimpft über den Ruß an der Wand.",
       "blackoutAlibi": "Stand am Kamin und wischte Ruß von der Wand.",
-      "roleSecret": "Kurz nach dem Ausfall roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke.",
-      "persoenlichesZiel": "Sich bei Herrn Schneider für den Ruß entschuldigen, ohne dass alle wieder lachen.",
+      "roleSecret": "Kurz nach dem Scheppern roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke.",
+      "persoenlichesZiel": "Den Kamin wieder zum Ziehen bringen und sich bei Herrn Schneider für den Ruß entschuldigen.",
       "nebendelikt": null,
       "loyalitaet": null,
       "luegen": [],
@@ -713,7 +714,7 @@
         "statur": "normal",
         "schnitt": "suit"
       },
-      "alltag": "Ist Försterin und schwört, dass sie Feuer eigentlich kann."
+      "alltag": "Ist Försterin und kennt Holz besser als Kaminzüge."
     },
     {
       "id": "serkan",
@@ -778,10 +779,10 @@
         "y": 13.5
       },
       "visualSpecs": {
-        "silhouette": "Sehr gerade Haltung, elegant und förmlich, hellgraues Kopftuch",
-        "outfit": "Taubenblauer Strickcardigan, weiße Bluse, schwarze Stoffhose, hellgraues Kopftuch",
+        "silhouette": "Sehr gerade Haltung, sachlich",
+        "outfit": "Taubenblauer Strickcardigan, weiße Bluse, schwarze Stoffhose",
         "distinguishingFeature": "Schwarze Ledermappe mit Belegen und Kugelschreiber, fest an die Brust gedrückt",
-        "idleAnimation": "Klickt mit dem Kugelschreiber und mustert Ahmet"
+        "idleAnimation": "Klickt mit dem Kugelschreiber und sieht zu Ahmet hinüber"
       },
       "motiveAndConflict": "Sie zahlte die 150 € nur unter Protest und wollte einen Beleg. Um 22:30 fragte sie Herrn Schneider direkt. Er schrieb ihr auf einen Quittungszettel: „Miete: 0 Euro.“",
       "blackoutAlibi": "Saß im Ost-Saal an der Tafel und hielt ihre Mappe fest.",
@@ -793,10 +794,9 @@
       "look": {
         "haut": "#d9a983",
         "haar": "#1a1412",
-        "kopf": "kopftuch",
+        "kopf": "none",
         "statur": "slim",
-        "schnitt": "suit",
-        "kopftuchFarbe": "#c9c9c4"
+        "schnitt": "suit"
       },
       "alltag": "Ist Steuerfachangestellte und hebt jeden Beleg auf."
     },
@@ -814,7 +814,7 @@
       "tier": 4,
       "besetzungsplatz": 15,
       "minPlayers": 15,
-      "roleTitle": "Ollis Partner beim Tragen",
+      "roleTitle": "Der Architekturstudent",
       "isPotentialKiller": false,
       "colorCode": "#5C677D",
       "farbname": "Aschgrau",
@@ -825,7 +825,7 @@
         "y": 8.5
       },
       "visualSpecs": {
-        "silhouette": "Muskulös, bodenständig, packt gern mit an",
+        "silhouette": "Schlank, ruhige Haltung, Brille",
         "outfit": "Aschgrauer Kapuzenpulli, schwarze Arbeitshose mit verstärkten Knien",
         "distinguishingFeature": "Zimmermannsbleistift hinter dem Ohr, Maßband am Hosenbund, ein Finger mit Pflaster",
         "idleAnimation": "Streicht mit dem Daumen über die Schramme an der Bogentür"
@@ -847,7 +847,7 @@
         "haut": "#e6be9e",
         "haar": "#c9a86a",
         "kopf": "none",
-        "statur": "broad",
+        "statur": "normal",
         "schnitt": "suit"
       },
       "alltag": "Studiert Architektur; Maßband und Bleistift hat er immer dabei."
@@ -877,8 +877,8 @@
         "y": 13.5
       },
       "visualSpecs": {
-        "silhouette": "Groß, modisch, elegante Bewegungen",
-        "outfit": "Pflaumenfarbenes Samtkleid, langer schwarzer Strickcardigan",
+        "silhouette": "Groß, elegante Bewegungen, cremefarbenes Kopftuch",
+        "outfit": "Pflaumenfarbenes Samtkleid, langer schwarzer Strickcardigan, cremefarbenes Kopftuch",
         "distinguishingFeature": "Kleine Lupe an einer Silberkette um den Hals, auffällige Ringe aus Holz und Stein",
         "idleAnimation": "Betrachtet ihre Ringe durch die Lupe und schaut zur Theke"
       },
@@ -892,9 +892,10 @@
       "look": {
         "haut": "#c69270",
         "haar": "#1a1412",
-        "kopf": "none",
+        "kopf": "kopftuch",
         "statur": "tall",
-        "schnitt": "dress"
+        "schnitt": "dress",
+        "kopftuchFarbe": "#e8dcc4"
       },
       "alltag": "Studiert Kunstgeschichte und stöbert jedes Wochenende auf Flohmärkten."
     },
@@ -930,7 +931,7 @@
       },
       "motiveAndConflict": "Er schenkt den ganzen Abend Tee aus. Herr Schneider warf ihm vor, das Teegeschirr des Schlosses ohne Erlaubnis zu benutzen.",
       "blackoutAlibi": "Duckte sich am Ostende hinter die Theke, um nicht an heiße Kannen zu stoßen.",
-      "roleSecret": "Um 23:57 sah er Ahmet, Fatma und Olli an der Theke, Herrn Schneider mittendrin. Can war nicht da.",
+      "roleSecret": "Um 23:57 sah er Ahmet, Fatma und Olli an der Theke, Herrn Schneider am Ostende. Can war nicht zu sehen.",
       "persoenlichesZiel": "Sein Ärger mit Herrn Schneider über das Teegeschirr soll nicht zur Sprache kommen.",
       "nebendelikt": null,
       "loyalitaet": null,
@@ -946,15 +947,15 @@
     },
     {
       "id": "selin",
-      "name": "Selin",
-      "aussprache": "Selin",
+      "name": "Sibel",
+      "aussprache": "Sibel",
       "age": 23,
       "geschlecht": "w",
       "herkunft": "türkisch",
       "tier": 5,
       "besetzungsplatz": 18,
       "minPlayers": 18,
-      "roleTitle": "Die Schreckhafte",
+      "roleTitle": "Die Vorsichtige",
       "isPotentialKiller": false,
       "colorCode": "#D8A7B1",
       "farbname": "Pastellrosa",
@@ -970,10 +971,10 @@
         "distinguishingFeature": "Zieht den Fransenschal bis übers Kinn",
         "idleAnimation": "Schaut sich um und zuckt bei lauten Geräuschen zusammen"
       },
-      "motiveAndConflict": "Um 21:00 hielt sie die Ritterrüstung im Turmgang für einen Menschen, schrie auf und stieß gegen die Vitrine. Seitdem traut sie sich nicht mehr allein zur Toilette.",
+      "motiveAndConflict": "Um 21:00 hielt sie die Ritterrüstung im Turmgang für einen Menschen, schrie auf und stieß gegen die Vitrine. Seitdem macht sie einen Bogen um den Turmgang.",
       "blackoutAlibi": "Kauerte auf der Wandbank im Kaminsaal.",
       "roleSecret": "Im Dunkeln huschte ein leuchtendes Gesicht unter einer Kapuze vom Durchgang quer durch den Kaminsaal zur Bogentür.",
-      "persoenlichesZiel": "Nicht wieder ausgelacht werden.",
+      "persoenlichesZiel": "Die Rüstung soll aus dem Turmgang verschwinden.",
       "nebendelikt": null,
       "loyalitaet": null,
       "luegen": [],
@@ -984,7 +985,11 @@
         "statur": "small",
         "schnitt": "suit"
       },
-      "alltag": "Studiert Biologie und fürchtet sich vor nichts außer alten Rüstungen."
+      "alltag": "Studiert Biologie und fürchtet sich vor nichts außer alten Rüstungen.",
+      "quelle": {
+        "name": "Selin",
+        "nr": 18
+      }
     },
     {
       "id": "hakan",
