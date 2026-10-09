@@ -337,3 +337,23 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Grenzfälle von Prüfer 14 mitgenommen: B34 kleiner (1,74), B43 größer (1,67), B28 mit brauner statt grauer Mütze. Gegen die neue Nähe B13/B33 trägt B33 eine blaue Haube.
   - Ausprobiert und verworfen: R16 mit anderer Hosenfarbe. Jede Variante erzeugte in `karten_test` ein neues enges Paar (R05, R01 oder R19); R16 bleibt.
   - Der neue Kartenstand braucht zwei neue Sichtprüfungen (A-605m) und eine neue Inhaltsrunde (A-702k).
+
+## E39 · 09.10. 07:45 · Inhaltsrunde 10 (A-702k): Urteil ja · ja · ja, geringe Befunde trotzdem umgesetzt
+- **Urteil:** Leitplanken ja, Kanontreu ja, Plagiatsfrei ja; Befunde hoch 0, mittel 0, gering 11.
+- **Umgesetzt**, weil jeder Punkt klein und berechtigt ist. Die Texte ändern sich dadurch; deshalb folgt Runde 11, damit der Beleg für Z-12 zum letzten Textstand passt.
+  - B-01: In H-137 wird der erste Laib für den Turmwärter zurückgelegt; das passt zu seinem Nachtplan am Uhrwerk.
+  - B-02: Der Ladetipp nennt kein Rennen mehr (Touch hat keins): „Wer langsam geht, hört selbst mehr.“
+  - B-03: Die Knöpfe beim Krämer (H-108, B29) sind entfernt. Knöpfe bleiben nur im Kostümfundus (H-S10, Farbe).
+  - B-04: H-136 ohne Spaten in der Nacht, H-047 ohne abgedeckte Grube. H-140 und H-143 bleiben; Klopfen und kalte Dielen sind Gänsehaut ohne Versteck-Bild.
+  - B-05: H-034 ohne Hinabgleiten am Seil.
+  - B-06: H-027 ohne Verdacht gegen die Kustodin.
+  - B-07: B16 und B33 ohne „die Alte“ und ohne Kaffee und Kuchen (Katze, die nie kommt; Schal für den Briefträger).
+  - B-09: H-066 ohne „Handschrift“ (Echo des Code-Zettels BSO-04).
+  - B-08 (Widerspruch zu E38 mit neuem Grund, angenommen): Der Gegenbeleg R10 trug nicht, weil Inge nicht im Haushalt lebt. Die Großmutter, die im Haushalt lebt und die Familie lenkt, gab es nur bei R05, R13 und R18. Im Overlay wohnt sie bei R13 jetzt zwei Straßen weiter; bei R18 ruft sie sonntags an und lässt sich Elifs Woche „wie einen Fall“ vortragen, der Bezug zum Jurastudium bleibt. R05 bleibt, weil ein einzelner Fall kein Muster ist.
+- **Bewusst so:**
+  - B-10: `frisur-afro` und `kopf-kopftuch` liegen ungenutzt in der Teile-Bibliothek. Eine Frisur ist kein Klischee. Regel: Ein Teil wird nur benutzt, wenn der Datensatz der Figur es nennt (wie bisher für alle Teile). Keine Figur nennt diese beiden.
+  - B-11: Teil-Kennungen sind Formen, keine Kleidungsnamen. Cordblazer und Sakko nutzen die Form `oberteil-uniformjacke` (kurze, gerade Jacke mit Revers), Funktions-, Leder- und Daunenjacke die Form `oberteil-arbeitsjacke`. Den Stoff unterscheidet die Farbe aus `rollen.json`. R01s graue Strickmütze ist eine Strickmütze (mit Bommel; der Kanon schließt ihn nicht aus). R15 trägt das schwarze Shirt unter dem Blazer; `oberteil-hemdkragen` zeichnet nur den dunklen Ausschnitt. Ob die Figuren im Bild zum Kanon passen, prüfen die Sichtprüfer (Regeln in A-605m: Kleidung nach Datensatz).
+- **Sichtprüfer 15 (A-605m, Kartenstand e4624201af):** 1 Paar, R06/R08 (Größenunterschied 6 px, dunkelblaues Oberteil, braune Hose). Zuvor war das bei anderen Prüfern ein Grenzfall.
+  - Die Hose von R08 ist erfunden. Jede andere Hosenfarbe erzeugte in `karten_test` neue enge Paare (R11, R13, R18, R20, B20).
+  - Deshalb ist R08 jetzt kleiner: 1,55 statt 1,63 m (Größe erfunden). In der Aufstellung sind es 108 statt 116 px gegen 122 px bei R06 (Δ 14). Zu R11 (106 px) trennt die Hose: braun gegen hellgraue Jeans.
+  - Neuer Kartenstand 901192c463. Er braucht zwei neue Sichtprüfungen (A-605o/p); Sichtprüfer 16 prüft noch den alten Stand.
