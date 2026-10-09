@@ -3,6 +3,9 @@ import 'dart:math' as math;
 import 'package:burgstadt_core/burgstadt_core.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
+import 'bau/form.dart';
+import 'bau/formen/register.dart';
+
 /// Lichtquelle in Weltkoordinaten (Meter).
 class Lichtpunkt {
   final double x, y, z, warm, kalt, weite;
@@ -247,12 +250,13 @@ class BereichGeometrie {
       final t = tex(l.textur, TexturId.holzDielen);
       final x0 = d.x0 * s + 0.04, z0 = d.z0 * s + 0.04, x1 = (d.x1 + 1) * s - 0.04, z1 = (d.z1 + 1) * s - 0.04;
       final (w, k) = licht(d.mitteX, l.hoehe / 2, d.mitteZ);
+      final form = kFormen[l.form];
+      if (form != null) {
+        form.baue(m, FormOrt(ding: d, bereichId: b.id, x0: x0, z0: z0, x1: x1, z1: z1, hoehe: l.hoehe, textur: t, warm: w, kalt: k));
+        meshes.add(m.build());
+        continue;
+      }
       switch (l.form) {
-        case 'tisch':
-          m.box(x0, l.hoehe - 0.06, z0, x1, l.hoehe, z1, t, warm: w, cold: k);
-          for (final (lx, lz) in [(x0 + 0.1, z0 + 0.1), (x1 - 0.18, z0 + 0.1), (x0 + 0.1, z1 - 0.18), (x1 - 0.18, z1 - 0.18)]) {
-            m.box(lx, 0, lz, lx + 0.08, l.hoehe - 0.06, lz + 0.08, t, warm: w * 0.8, cold: k);
-          }
         case 'zinnen':
           m.box(x0 - 0.04, 0, z0 - 0.04, x1 + 0.04, 0.9, z1 + 0.04, t, warm: w, cold: k);
           for (var xx = d.x0; xx <= d.x1; xx += 4) {
