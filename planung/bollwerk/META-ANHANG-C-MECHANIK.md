@@ -79,7 +79,7 @@
 - 2W6 + Modifikator, Modifikator von −1 bis +2.
 - Startschwellen 9+ Erfolg, 6–8 Teilerfolg, ≤ 5 Pech. Damit liegt Pech bei +0 bei 10/36 ≈ 28 %.
 - **Bänder (bindend):**
-  - Züge mit Wurf je Partie: 30–60 % („manchmal“), je Runde ≥ 1 Wurf, nie jede Entscheidung
+  - Züge mit Wurf über das Gelingen je Partie: 30–60 % („manchmal“), in jeder Besetzung 4–20, je Runde ≥ 1 Wurf, nie jede Entscheidung
   - Pech im ersten Anlauf: 20–35 %
   - „gründlich“ würfelt ebenfalls, mit +2 und höheren Kosten
 - **Modifikatoren nur aus pfadgleichen Quellen:**
@@ -238,7 +238,12 @@
 
 ## C8 · Startkriterien für M3 (werden zu BK-Kriterien im Master-Prompt)
 
-1. **Lösbarkeit (Beweis):** erschöpfend über alle Würfelausgänge je Zug (Stufe × Anlauf) × 768 Folgen × 4 Pfade × Besetzung 4–20. Ergebnis: 100 % lösbar, 0 Sackgassen. Seeds (10.000 je Pfad) laufen nur zusätzlich.
+1. **Lösbarkeit (Beweis in drei Teilen):**
+   - (a) **Monotonie, erschöpfend je Zug einzeln:** jede Ausgangsfolge (E, T, PE, PT, PPE, PPT …), jeweils mit zweitem Anlauf oder Umweg, bei sonst neutralen Würfen. Das Wissen am Rundenende ist gleich dem beim Neutralwurf.
+   - (b) **Erschöpfend:** 768 Folgen × 4 Pfade × Besetzung 4–20 mit den Strömen „immer Pech“ und „immer Erfolg“.
+   - (c) **Zusätzlich:** 10.000 Seeds je Pfad.
+
+   Ergebnis: 100 % lösbar, 0 Sackgassen, Laufzeit ≤ 10 min. (Eine Gesamtaufzählung aller Würfelfolgen, ≈ 5·10¹¹ Partien, ist ausdrücklich **nicht** verlangt.)
 2. **Wertung unantastbar:** `Spiel.punkte` und `Spiel.ende` sind gleich dem Lauf mit Neutralwürfeln, über 768 × 4 × (100 Ströme + „immer Pech“ + „immer Erfolg“): 100 %.
 3. **„Manchmal“:**
    - Züge mit Wurf je Partie im Band 30–60 %
@@ -259,3 +264,8 @@
     - kein Baustein, in dem Herr Schneider stirbt oder neu verletzt wird
     - Bildregeln aus C6
 12. **Bots:** 1.000 Bot-Partien je Pfad laufen ohne Eingriff bis zum Ende. Die Gruppenwahl-Bots erreichen für jede Rollenzahl von 4 bis 20 jede Qualität.
+13. **Spürbarkeit (bindend, „stark“ heißt spürbar):** 10.000 Seeds je Form und Besetzung 4, 12 und 20:
+    - Würfe über das Gelingen in 30–60 % der Züge, **in jeder Besetzung** (Befragungen besetzter Rollen zählen nicht mit)
+    - je Partie im Median ≥ 2 sichtbare Pech-Szenen und ≥ 2 Erfolge mit Zusatzfund
+    - das untere Glücksquartil schafft im Mittel ≥ 25 % weniger Abstecher und ≥ 25 % weniger Zusatzfunde als das obere
+    - Nr. 2 (Wertung unantastbar) gilt unverändert

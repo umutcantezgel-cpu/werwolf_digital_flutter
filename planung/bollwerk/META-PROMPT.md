@@ -2,7 +2,7 @@
 ## Erarbeite den Master-Prompt, mit dem das Schlosskeller-Spiel in einer Nacht um das 10- bis 100-Fache wächst, sichtbar schöner wird und sauber auf main landet
 
 > Diesen Text gibst du Claude (Opus) in Claude Code. Er baut **nicht** am Spiel.
-> Claude erarbeitet, misst, prüft und übergibt damit den **Master-Prompt BOLLWERK**, geschätzt in 4–6 Stunden.
+> Claude erarbeitet, misst, prüft und übergibt damit den **Master-Prompt BOLLWERK**, in 5–6 Stunden (harte Grenze 6 h).
 > Mit dem Master-Prompt startest du danach den Nachtlauf. Darin orchestriert Opus Tausende Haiku-5.5-Varianten und schützt sie mit einer Prüfmauer.
 > Das große Wachstum beginnt erst, wenn der Lauf „Finalisierung Schlosskeller“ fertig ist. Vorher bereitet der Nachtlauf nur vor.
 >
@@ -20,9 +20,10 @@
 3. Stelle in `/config` **„Dynamic workflow size“** auf `unrestricted` (oder `large`).
 4. Wähle als Berechtigungsmodus **„Auto“** im Menü neben dem Eingabefeld. Sonst hält jede Rückfrage zu einem Werkzeug den Lauf an, bis du antwortest.
 5. Sende diese Nachricht:
-   > Hole den Branch `claude/pensive-gates-ajtp7x` (`git fetch origin claude/pensive-gates-ajtp7x`), lies `planung/bollwerk/META-PROMPT.md` und die drei Anhänge daneben vollständig und führe den Meta-Prompt aus.
+   > Hole den Branch `claude/pensive-gates-ajtp7x` (`git fetch origin claude/pensive-gates-ajtp7x`), lies `planung/bollwerk/META-PROMPT.md` und die drei Anhänge daneben vollständig und führe den Meta-Prompt aus. Danach direkt START BOLLWERK.
 
-   Willst du nicht wach bleiben, hänge an: **„Danach direkt START BOLLWERK.“** Dann gelten alle Standardwahlen, und Claude macht nach M8 ohne Pause mit dem Nachtlauf weiter (§4 M8).
+   Dann gelten alle Standardwahlen, und Claude macht nach M8 ohne Pause mit dem Nachtlauf weiter (§4 M8). Willst du den Master-Prompt erst selbst lesen, lass den letzten Satz weg.
+6. **Was heute Nacht passiert:** Der Lauf „Finalisierung Schlosskeller“ in der anderen Sitzung steht bei F4 von F7 und braucht voraussichtlich noch Tage. Solange er läuft, baut BOLLWERK nur vor: Werkzeuge, Würfelkern, Texte, Posen- und Würfelbühnen-Proben, Bilder in den Chat. Auf main kommt dann nichts. Soll BOLLWERK heute Nacht schon am Spiel selbst bauen, **halte die Finalisierungs-Sitzung an** und hänge zusätzlich an: **„FREIGABE BOLLWERK“**. Dann übernimmt BOLLWERK deren Stand und Rest (Anhang A, MP-2).
 
 Modelle: Orchestrator ist Opus. Arbeiter ist Haiku 5.5: Modellkennung `claude-haiku-5-5`, im Agent-Werkzeug `model: "haiku"`, im Workflow `agent(…, {model: 'claude-haiku-5-5'})`.
 
@@ -107,12 +108,13 @@ Die harten Regeln für den Nachtlauf stehen in Anhang A4. Für den Meta-Lauf gil
 
 ## 4. ABLAUF (M0–M8)
 
-**Zeitbox:**
-- M1–M4 zusammen ≤ 2,5 h.
-- M6 standardmäßig 2 Runden, höchstens 4.
-- M7 höchstens 3 Durchgänge.
+**Zeitbox (hart): höchstens 6 h ab M0** (Startzeit im PRUEFPUNKT).
+- M1–M4 zusammen ≤ 2,5 h, M5 ≤ 1 h.
+- M6: genau 1 Runde. Eine 2. Runde nur, wenn Runde 1 einen bestätigten BLOCKER hatte.
+- M7: genau 1 Durchgang. Ein 2. nur bei einem Blocker und nur vor M0 + 5,25 h.
+- Um M0 + 5,5 h beginnt M8, egal wo der Lauf steht.
 
-Was offen bleibt, wird zum Nachschub-Auftrag im Vorrat des Master-Prompts, nicht zu einer weiteren Runde.
+Was offen bleibt, wird Annahme oder Nachschub-Auftrag im Vorrat des Master-Prompts, nie eine weitere Runde.
 
 **Gleichzeitig (BE-11):**
 - Unabhängige Agenten startest du in **einer** Nachricht als Hintergrund-Agenten oder in mehreren Workflows nebeneinander.
@@ -182,8 +184,8 @@ Was offen bleibt, wird zum Nachschub-Auftrag im Vorrat des Master-Prompts, nicht
    - Wachstum ohne längere Abende
 3. **Synthese:** Grundlage ist der Sieger; die besten Ideen der anderen kommen dazu, jeweils mit Begründung. Alle **bindenden** Punkte aus C1–C8 gelten.
 4. **Simulationsprobe** in `proben/simulation/` (reines Dart, importiert `mordakte_core` auf `origin/finalisierung-schlosskeller`, ändert nichts):
-   - erschöpfender Beweis über Würfelausgänge × 768 Folgen × 4 Pfade × Besetzung 4–20
-   - dazu 10.000 Seeds je Pfad
+   - Lösbarkeitsbeweis nach C8 Nr. 1 (a)–(c)
+   - Spürbarkeit nach C8 Nr. 13
    - Messung aller Schwellen aus C8
    - Verfehlt eine Schwelle, änderst du die Regeln und simulierst neu.
 5. **Ergebnis:** `SPIELMECHANIK.md` mit
@@ -227,7 +229,7 @@ Was offen bleibt, wird zum Nachschub-Auftrag im Vorrat des Master-Prompts, nicht
    - Engpass je Typ
    - Nachtziel (Aufträge und Varianten)
    - Tokenrahmen (Haiku und Opus getrennt)
-   - je Umfangsachse: ob 10× in einer Nacht rechnerisch erreichbar ist (wenn nicht: Annahme)
+   - **Umfangsplan:** welche Kombination der Achsenfaktoren U ≥ 10 erfüllt (40-%-Regel, ≥ 3× je Achse), wie viele Aufträge und Vorlauf- bzw. Hauptlauf-Stunden sie braucht, und ob dafür mehr als eine Nacht nötig ist (dann Zwischenziel je Nacht, Annahme A-11)
    - höchste sichere Stufe
 
 ### M5 · Master-Prompt schreiben
@@ -263,22 +265,23 @@ Was offen bleibt, wird zum Nachschub-Auftrag im Vorrat des Master-Prompts, nicht
 
    Jeder Befund nennt Schwere (BLOCKER, MAJOR, MINOR), Beleg und Ersatztext.
 2. **Bündeln:** Gleiche Befunde legst du zusammen. Befunde, die eine frühere Runde schon bestätigt oder verworfen hat, streichst du.
-3. **Skeptiker:** Je Linse prüfen **3 Skeptiker gleichzeitig alle** BLOCKER und MAJOR dieser Linse in einem Auftrag. Ein Befund gilt bei 2 von 3 Stimmen. MINOR arbeitest du ohne Skeptiker ein oder vermerkst sie.
-4. **Ruhig** ist eine Runde ohne neuen bestätigten BLOCKER oder MAJOR. Schluss nach 2 ruhigen Runden in Folge, spätestens nach Runde 4. Ist dann ein BLOCKER offen, ist M-12 nicht erfüllt, und er steht in der Übergabe ganz oben.
+3. **Skeptiker:** Nur BLOCKER gehen an Skeptiker: 3 je betroffener Linse, gleichzeitig, alle BLOCKER der Linse in einem Auftrag. Ein BLOCKER gilt bei 2 von 3 Stimmen. MAJOR bestätigst oder verwirfst du selbst mit Denkprotokoll. MINOR arbeitest du ein oder vermerkst sie.
+4. **Schluss:** nach Runde 1, wenn sie keinen bestätigten BLOCKER hatte; sonst nach Runde 2 (Zeitbox). Bleibt ein BLOCKER offen, ist M-12 nicht erfüllt, und er steht in der Übergabe ganz oben.
 
 ### M7 · Trockenlauf
 Jeder Trockenlauf läuft in einem **frischen Klon** (`git clone --branch bollwerk <origin-url> /tmp/frisch-<n>`), ohne Zugriff auf Scratchpad, `/home/user/wt`, `/home/user/feinkorn` oder lokale Branches.
 
 1. Ein frischer Agent bekommt nur die Startnachricht aus MP-0:
    - Er spielt die ersten 90 Minuten auf dem Papier durch.
-   - Er führt die 10 Starthandlungen aus MP-19 in einem Wegwerf-Worktree wirklich aus, ohne Push.
+   - Er führt die Starthandlungen 1, 2, 4, 5, 6 (mit 1 Pool-Platz statt 6), 8 und 9 aus MP-19 in einem Wegwerf-Worktree wirklich aus, ohne Push.
+   - Die Handlungen 3, 7 und 10 (Herzschlag, Agenten-Welle, Zugende) schreibt er nur als wörtlichen Werkzeugaufruf in den Beleg; du prüfst sie gegen die Werkzeugschemas. Kein Unteragent legt Routinen an oder startet Agenten.
    - Beleg: `belege/meta_trockenlauf.txt`.
 2. Ein frischer Agent spielt einen Haiku-Auftrag aus dem Vorrat durch: Vorlage, Werkzeuge, Rückgabe, Paketprüfung.
-3. Ein frischer Agent spielt den Vorlauf durch, dazu „B-02 bleibt die ganze Nacht falsch“ und „B-02 wird um 05:00 wahr“.
+3. Ein frischer Agent spielt den Vorlauf durch, dazu „B-02 bleibt die ganze Nacht falsch“, „B-02 wird um 05:00 wahr“ und „FREIGABE BOLLWERK um 23:00“.
 
 **Blocker** heißt: ohne Rückfrage nicht ausführbar. Dazu zählen ein fehlender Pfad oder Befehl, ein Exit ≠ 0, zwei Lesarten mit verschiedener Handlung oder ein fehlender Fakt.
 
-Nach jedem Fix prüft ein **neuer** frischer Agent; höchstens 3 Durchgänge. Der Rest kommt als Annahme in die Übergabe.
+Nach einem Blocker-Fix prüft ein **neuer** frischer Agent (Zeitbox). Der Rest kommt als Annahme in die Übergabe.
 
 ### M8 · Übergabe
 1. **`ANNAHMEN.md`:** die 8 wichtigsten oben, der Rest darunter, je mit Standardwahl und Folge. Mindestens:
@@ -292,6 +295,7 @@ Nach jedem Fix prüft ein **neuer** frischer Agent; höchstens 3 Durchgänge. De
    - A-08 keine Musik
    - A-09 Gewichte g
    - A-10 Design und Umfang gleichrangig
+   - A-11 Zwischenziel je Nacht für U, falls eine Nacht nicht reicht
 2. **Sichern:** Commit und Push von `bollwerk`. Eigene Wegwerf-Worktrees entfernen, nur die aus `PRUEFPUNKT.md`.
 3. **Chat, in Alltagssprache, ohne Kürzel:**
    1. **Was du bekommst** (5 Zeilen): was das Spiel danach kann, wie stark es wächst, wie es aussieht. Dazu die Kontaktbögen Vorher und Design-Proben.
@@ -302,7 +306,7 @@ Nach jedem Fix prüft ein **neuer** frischer Agent; höchstens 3 Durchgänge. De
    4. **Was du ändern kannst:** die Annahmen als nummerierte Liste. „Antworte z. B. ‚A2: lieber …‘. Ohne Antwort gilt die Standardwahl.“
    5. Dateiliste.
 4. **Ist ein BLOCKER offen,** steht er ganz oben.
-5. **Autostart:** Hat der Nutzer „Danach direkt START BOLLWERK“ angehängt, schreibst du den PRUEFPUNKT, liest den Master-Prompt vollständig neu und beginnst ohne Pause mit dessen §19 in dieser Sitzung.
+5. **Autostart (Standard, außer der Nutzer hat „Danach direkt START BOLLWERK“ weggelassen):** PRUEFPUNKT schreiben, den Master-Prompt vollständig neu lesen und ohne Pause mit dessen §19 in dieser Sitzung beginnen. Ab jetzt gelten nur seine Regeln; §3 dieses Meta-Prompts endet. Steht `/home/user/bollwerk` schon auf `bollwerk`, ersetzt `git -C /home/user/bollwerk pull --ff-only origin bollwerk` das `worktree add`. Hat der Nutzer „FREIGABE BOLLWERK“ angehängt, gilt der FREIGABE-Weg (MP-2).
 
 ---
 
@@ -312,7 +316,7 @@ Je Zeile stehen Befehl, Ausgabeauszug und SHA in `planung/bollwerk/ABNAHME-META.
 
 | Nr. | Kriterium | Prüfung |
 |---|---|---|
-| M-01 | Für sich allein ausführbar | Letzter M7-Durchgang mit 0 Blockern; die 10 Starthandlungen sind wirklich ausgeführt (`belege/meta_trockenlauf.txt`). |
+| M-01 | Für sich allein ausführbar | Letzter M7-Durchgang mit 0 Blockern; die Starthandlungen nach M7.1 sind ausgeführt bzw. als Werkzeugaufruf geprüft (`belege/meta_trockenlauf.txt`). |
 | M-02 | Fakten stimmen | Jede Pfad- und Ref-Angabe im Master-Prompt wird per `git cat-file -e <ref>:<pfad>` bzw. `test -e` geprüft: 0 fehlend (neu markierte ausgenommen). Dazu 20 Zahlenfakten, gezogen per `Rng(Rng.hashString('M-02'))`: 0 Fehler. |
 | M-03 | Regeln vollständig | Abgleich gegen namentlich genannte Quellen: `origin/finalisierung-schlosskeller:planung/finalisierung-schlosskeller/MASTER-PROMPT.md` §3, `origin/kern-feinkorn:planung/feinkorn/MASTER-PROMPT.md` §3, `hd/KERN.md` + `hd/rollen/KOPF.md` (auf `origin/claude/pensive-gates-ajtp7x`), `krimidinner/spuk-im-gewoelbe/00_steuerung/MASTER-PROMPT.md`. Ergebnis: 0 fehlende Regeln. |
 | M-04 | Nutzerwunsch abgedeckt | Anforderungsmatrix: jeder Satzteil aus A1 und jede BE-Entscheidung → Abschnitt im Master-Prompt; 0 Lücken. |
@@ -323,7 +327,7 @@ Je Zeile stehen Befehl, Ausgabeauszug und SHA in `planung/bollwerk/ABNAHME-META.
 | M-09 | Vorrat reicht | Σ Schablonen × Parameter ≥ 1,5 × Nachtkapazität in Aufträgen je Typ; Vorlauf-Vorrat ≥ 8 h; Nachschubwerkzeug beschrieben. |
 | M-10 | Bollwerk prüfbar | Jede Schicht L0–L10 hat Befehl, Schwelle, Fallzahl je Modus und Budget. Die Summe je Modus liegt unter dem Modusbudget, gerechnet aus gemessenen Laufzeiten. |
 | M-11 | Kriterien messbar | Ein Skript prüft jede BK-Zeile: Befehl in Backticks und Schwelle mit Zahl oder Vergleich. 0 Treffer für „signifikant/deutlich/angemessen/ausreichend/sinnvoll/hochwertig/schön“ ohne Maß im selben Satz. |
-| M-12 | Gegenprüfung abgeschlossen | 2 ruhige Runden in Folge, oder nach 4 Runden 0 offene BLOCKER (offene MAJOR mit Folge in ANNAHMEN). |
+| M-12 | Gegenprüfung abgeschlossen | M6 endet mit 0 offenen bestätigten BLOCKERN; offene MAJOR stehen mit Folge in ANNAHMEN. |
 | M-13 | Hoheit gewahrt | Kein Auftrag im Vorrat berührt vor B-02 einen Pfad außerhalb der Vorlauf-Pfade (Skriptprüfung gegen `HOHEIT.md`). |
 | M-14 | Zusammenführung geplant | Je Linie Klasse, Kriterien K1–K7, Reihenfolge, Konfliktregel und Vorfahrtests im Master-Prompt; Probe-Merges aus M1 belegt. |
 | M-15 | Form | Hauptteil `wc -w` ≤ 7.000; die Linse „Widerspruch“ in M6 bestätigt 0 Befunde; jede Schwelle steht genau einmal. |

@@ -273,7 +273,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 Inhalt: B8.
 
 Zusätzlich übernommen:
-- **Durchstich vor Breite:** Breite im Hauptlauf erst nach dem BW1-Tor; im Vorlauf nur Arbeit ohne Party-Code.
+- **Durchstich vor Breite:** Im Hauptlauf kommt Breite erst nach dem BW1-Tor. Im Vorlauf zuerst ein Vorlauf-Durchstich in ≤ 2 h (Abstecher-Karte → Posenfolge → Würfelbühne, als Bild in den Chat), dann Breite, nur in den Vorlauf-Pfaden.
 - **Doppelbau-Regel ★:** An Schlüsselstellen bauen 2–3 Haiku parallel; Opus wählt nach dokumentierten Kriterien.
 - **Kürzungsleiter statt stilles Absenken.**
 - **Gestaltungsfragen** gehen sofort nach FUER-DEN-NUTZER, nie in weitere Prüfrunden.
@@ -350,6 +350,14 @@ Rahmen:
 
 Andere Signale reichen nicht: ein Merge ohne Tag, ein Tag nur auf dem Arbeitsbranch, ein offener PR. Einzige Ausnahme ist „FREIGABE BOLLWERK“. B-02 wird stündlich im Herzschlag geprüft.
 
+**FREIGABE-Weg** („FREIGABE BOLLWERK“, auch als Zusatz zur Startnachricht):
+1. Prüfe, dass `origin/finalisierung-schlosskeller` seit ≥ 30 min keinen Commit hat. Sonst bleibst du im Vorlauf, prüfst stündlich neu und schreibst in FUER-DEN-NUTZER: „Bitte die Finalisierungs-Sitzung anhalten.“
+2. Setze S_F = `git rev-parse origin/finalisierung-schlosskeller` und trage S_F im PRUEFPUNKT ein.
+3. BW0 beginnt mit `git merge --no-ff S_F -m "Merge finalisierung-schlosskeller@<sha7> (FREIGABE)"`, danach `bollwerk` ← `origin/main`. S_F ist der B-02-Commit.
+4. Überall, wo `schlosskeller-1.0` steht (L0.3, A4.8, MP-16 Schritt 7), gilt S_F. Den Tag `schlosskeller-1.0` setzt BOLLWERK nie.
+5. Offene F:F-Kriterien aus `P/ABNAHME.md` werden Aufträge in BW0. Was nicht fertig wird, steht im Morgenbericht.
+6. Kommen danach noch Commits auf `origin/finalisierung-schlosskeller`, holst du sie herein und vermerkst sie in FUER-DEN-NUTZER.
+
 **Vorlauf V**
 - Schreiben nur in den Vorlauf-Pfaden (A4.8).
 - Inhalte:
@@ -364,7 +372,7 @@ Andere Signale reichen nicht: ein Merge ohne Tag, ein Tag nur auf dem Arbeitsbra
 - **Später Start:** Wird B-02 erfüllt, wenn bis M weniger als 4 h bleiben, gibt es nur BW0–BW2. BW8 kommt im nächsten Lauf.
 - **B-02 nie erfüllt:** Der Lauf endet mit „VORLAUF FERTIG“; alles ist grün auf `bollwerk` gepusht, nichts auf main. Der Morgenbericht bietet drei Wege:
   - (a) Standard: warten und erneut „START BOLLWERK“ senden.
-  - (b) „FREIGABE BOLLWERK“: BOLLWERK übernimmt den Rest des anderen Laufs als eigene Phase.
+  - (b) „FREIGABE BOLLWERK“: FREIGABE-Weg (oben).
   - (c) BOLLWERK geht ohne F4–F7 auf main, die Party bleibt hinter einem Schalter.
 
 ### MP-3 · AUTONOMIE UND DENKPROTOKOLL
@@ -427,7 +435,9 @@ Andere Signale reichen nicht: ein Merge ohne Tag, ein Tag nur auf dem Arbeitsbra
 **Formel**
 - f_i = Wert nach Füllstoffprüfung ÷ Basis am B-02-Commit, gedeckelt bei 100.
 - U = exp(Σ g_i · ln f_i / Σ g_i).
-- Die Gewichte legt der Meta-Lauf in M1 fest, mit Begründung (Startwert g = 3, 2, 1, 1, 2, 1). Danach ändert sie niemand.
+- Die Gewichte legt der Meta-Lauf in M1 fest, mit Begründung (Startwert g = 3, 2, 1, 1, 1, 2: sichtbare Aktionen hoch, Weißlisten-Funde kanongebunden niedrig). Danach ändert sie niemand.
+- Beispiel, das U ≥ 10 erfüllt: A1 20× (≈ 180), A2, A3 und A5 je 3×, A4 30× (≈ 90 Gags), A6 30× (≈ 30 Aktionsarten) ergibt U ≈ 10,6 bei eingehaltener 40-%-Regel.
+- **Umfangsplan** (aus M4): welche Kombination f_1 … f_6 U ≥ 10 erfüllt und wie viele Aufträge und Stunden (Vorlauf und Hauptlauf) sie braucht. Vorlauf-Ware in `content/runden/` zählt, sobald sie nach B-02 F1–F5 besteht. Reicht eine Hauptlauf-Nacht nicht, setzt der Master-Prompt je Nacht ein Zwischenziel aus diesem Plan (Annahme A-11). Das BK-Kriterium bleibt U ≥ 10; nichts wird still gesenkt.
 
 **Schwellen**
 - U ≥ 10, Streckziel 100.
@@ -514,12 +524,13 @@ Andere Signale reichen nicht: ein Merge ohne Tag, ein Tag nur auf dem Arbeitsbra
 - Das Gremium gilt, wenn die Mehrheit 2/3 ≥ 15/18 richtig liegt und ≤ 1 von 6 einwandfreien Bildern fälschlich meldet.
 - Sonst entscheiden die Strukturmaße allein, und Opus ist Pflichtstimme.
 
-**Stilprüfung** (`python3 tool/bollwerk/stil.py`; Pillow und numpy sind vorhanden)
-- S1: Kanten ≥ 92 % innerhalb ±1 px.
-- S2: ΔE2000 > 10 bei ≤ 3 % der Pixel (in der Effektmaske ≤ 8 %).
+**Stilprüfung** (`python3 tool/bollwerk/stil.py`; Pillow und numpy sind vorhanden). Sie misst Stiltreue, nicht Gleichheit. Verglichen wird dieselbe Szene mit derselben Kamera im selben Lichtzustand am B-02-Commit. Der Renderer gibt Masken für Nebel, Licht und Effekte, neue oder ersetzte Requisiten, Figuren und Overlays mit aus; diese Flächen sind ausgeschlossen.
+- S1: Kanten der Stil-Konstanten-Schicht (Böden, Wände, Türen) ≥ 92 % innerhalb ±1 px.
+- S2: ≥ 97 % der Pixel außerhalb der Nebelmaske liegen mit ΔE2000 ≤ 10 an einer Palettenfarbe.
 - S3: neue Kanten ≥ 85 % innerhalb ±3° von 0°, 90° oder ±26,57°.
-- S4: Luminanz ±15 %, Vignette ±0,05.
+- S4: Luminanz ±15 % und Vignette ±0,05, nur im Sichtkegel.
 - S5: Importregel B-01, Teilchen ≤ 3 px.
+- Die Zahlen aus M2 (an den Proben geeicht) ersetzen diese Startwerte einmal vor M5 und stehen danach genau einmal im Master-Prompt.
 - Gremium ≥ 2/3 „selber Stil“, geeicht mit 6 zusätzlichen Stilbruch-Bildern.
 
 **Leistung und Akku**
@@ -588,9 +599,10 @@ Lernvermerke L-01 bis L-05 und L-01 (FEINKORN).
 | K | Token |
 
 - Zeitfenster:
-  - T ab T0 + 20 min
-  - C und B erst nach dem BW1-Tor (im Vorlauf: C nur in den Vorlauf-Pfaden)
-  - alle Typen bis M − 2 h
+  - T, C und B ab T0 + 20 min.
+  - Im Vorlauf nur in den Vorlauf-Pfaden (A4.8). B rendert dort über `tool/bollwerk/look_anker/` oder über einen Vorschau-Build eines festen SHA von `origin/finalisierung-schlosskeller` im Pool-Worktree (nie committet). Jedes Bild geht in einen Kontaktbogen (BE-09).
+  - Im Hauptlauf berühren C und B Pfade der Finalisierung erst nach dem BW1-Tor.
+  - Alle Typen laufen bis M − 2 h.
 
 **Hebel** (in dieser Reihenfolge)
 1. 10–25 Varianten je Aufruf
