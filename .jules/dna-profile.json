@@ -1,0 +1,11 @@
+{
+  "framework": "Flutter (Dart 3.13.5) + Flame",
+  "styling_engine": "Flutter Material Design + Custom Design Tokens (Noir/semantic colors)",
+  "state_management": "Provider",
+  "navigation": "go_router",
+  "architecture_style": "Packages for core logic, lib for UI/Flame renderer",
+  "ui_language": "Dart + Flutter SDK",
+  "animation_library": "flutter_animate",
+  "icon_library": "Material Icons (cupertino_icons forbidden)",
+  "color_system": "Semantic Tokens via Noir class (no hardcoded HEX or standard framework colors like Colors.black54)"
+}
