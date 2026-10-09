@@ -358,6 +358,44 @@ class Figurenbild {
   late final List<double> _koerperHisto = _histogramm(ansichten.first);
   late final Uint32List _form = _formMaske(ansichten.first);
 
+  /// Häufigste Farbe in der Körpermitte oben (Rumpf) und unten (Beine) und die Höhe in
+  /// Pixeln – so vergleichen Sichtprüfer Figuren auf Abstand (A-605j).
+  late final (int, int, int) _mitte = _mitteFarben(ansichten.first);
+
+  static (int, int, int) _mitteFarben(SpriteImage s) {
+    var y0 = s.height, y1 = -1, sx = 0, n = 0;
+    for (var i = 0; i < s.pixels.length; i++) {
+      if (s.pixels[i] == kTransparent) continue;
+      final y = i ~/ s.width;
+      if (y < y0) y0 = y;
+      if (y > y1) y1 = y;
+      sx += i % s.width;
+      n++;
+    }
+    if (n == 0) return (-1, -1, 0);
+    final h = y1 - y0 + 1, cx = sx ~/ n;
+    int haeufigste(double von, double bis) {
+      final zaehl = <int, int>{};
+      for (var y = y0 + (h * von).round(); y <= y0 + (h * bis).round(); y++) {
+        for (var x = cx - 2; x <= cx + 2; x++) {
+          if (x < 0 || x >= s.width || y < 0 || y >= s.height) continue;
+          final p = s.pixels[y * s.width + x];
+          if (p != kTransparent) zaehl[p] = (zaehl[p] ?? 0) + 1;
+        }
+      }
+      var best = -1, bestN = 0;
+      zaehl.forEach((p, c) {
+        if (c > bestN) {
+          best = p;
+          bestN = c;
+        }
+      });
+      return best;
+    }
+
+    return (haeufigste(0.28, 0.45), haeufigste(0.62, 0.85), h);
+  }
+
   /// Häufigste Farbklasse am Körper (Hauptfarbe der Kleidung).
   late final int _hauptfarbe = () {
     var best = 0;
@@ -496,7 +534,11 @@ class Aehnlichkeit {
 
   /// Gleiche Hauptfarbe der Kleidung (häufigste Farbklasse am Körper).
   final bool hauptfarbeGleich;
-  const Aehnlichkeit(this.iou, this.farbe, this.koerper, this.form, this.hauptfarbeGleich);
+
+  /// Gleiche Farbe in der Körpermitte oben und unten (Rampe gleich, Stufe ±1) bei fast
+  /// gleicher Höhe (±3 Pixel) – auf Abstand das stärkste Verwechslungszeichen (A-605j).
+  final bool mitteGleich;
+  const Aehnlichkeit(this.iou, this.farbe, this.koerper, this.form, this.hauptfarbeGleich, [this.mitteGleich = false]);
 
   /// Verwechselbar im Sinne der Sichtprüfung: fast gleiche Silhouette und kein deutlicher
   /// Farbunterschied – oder ähnliche Silhouette mit gleichfarbigem Körper.
@@ -505,11 +547,11 @@ class Aehnlichkeit {
   bool get verwechselbar => (iou >= 0.84 && farbe <= 46) || (math.max(iou, form) >= 0.80 && koerper >= 0.62);
 
   /// Je größer, desto ähnlicher (für die Variantenwahl).
-  double get wert => math.max(iou, form) + 0.5 * koerper + (hauptfarbeGleich ? 0.3 : 0) - farbe / 160;
+  double get wert => math.max(iou, form) + 0.5 * koerper + (hauptfarbeGleich ? 0.3 : 0) + (mitteGleich ? 0.5 : 0) - farbe / 160;
 
   @override
   String toString() =>
-      'IoU ${iou.toStringAsFixed(2)} · Farbabstand ${farbe.toStringAsFixed(0)} · Körper gleich ${(koerper * 100).round()} % · Form ${form.toStringAsFixed(2)}${hauptfarbeGleich ? ' · gleiche Hauptfarbe' : ''}';
+      'IoU ${iou.toStringAsFixed(2)} · Farbabstand ${farbe.toStringAsFixed(0)} · Körper gleich ${(koerper * 100).round()} % · Form ${form.toStringAsFixed(2)}${hauptfarbeGleich ? ' · gleiche Hauptfarbe' : ''}${mitteGleich ? ' · gleiche Körpermitte' : ''}';
 }
 
 Aehnlichkeit vergleiche(Figurenbild a, Figurenbild b) {
@@ -541,5 +583,9 @@ Aehnlichkeit vergleiche(Figurenbild a, Figurenbild b) {
     schnitt += Figurenbild._zaehl16[w & 0xFFFF] + Figurenbild._zaehl16[w >> 16];
   }
   final vereint = a._formFlaeche + b._formFlaeche - schnitt;
-  return Aehnlichkeit(iou, farbe, koerper, vereint == 0 ? 1 : schnitt / vereint, a._hauptfarbe == b._hauptfarbe);
+  bool nah(int p, int q) => p >= 0 && q >= 0 && p ~/ 8 == q ~/ 8 && (p % 8 - q % 8).abs() <= 1;
+  final (ao, au, ah) = a._mitte;
+  final (bo, bu, bh) = b._mitte;
+  final mitte = nah(ao, bo) && nah(au, bu) && (ah - bh).abs() <= 3;
+  return Aehnlichkeit(iou, farbe, koerper, vereint == 0 ? 1 : schnitt / vereint, a._hauptfarbe == b._hauptfarbe, mitte);
 }

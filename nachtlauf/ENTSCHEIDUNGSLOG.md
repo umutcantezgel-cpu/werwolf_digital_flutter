@@ -229,3 +229,15 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Uhrzeiten in Worten (R04).
 - **B9 (Lederhut gegen Filzhut bei R17):** Nur der interne Teilname ist betroffen. Im Bild ist es ein brauner Hut mit Krempe, in 2,5D-Auflösung nicht unterscheidbar. Keine Änderung.
 - **Historie der Pakettests (E28):** belegt in `belege/historie_pakettests.txt`. Alle 40 Nachtlauf-Commits bis 7926f76 waren grün. 02ab9b5, d511fac und 7574641 hatten einen roten Datentest in burgstadt_core (zwei zu lange Bewohner-Sätze); grün ab ba66f50.
+
+## E30 · 09.10. 04:26 · Sichtprüfung 9 und 10: Größen gespreizt, Körpermitte im Maß, Prüfmaßstab festgelegt
+- **Befund:** Die beiden Prüfer werteten sehr verschieden.
+  - Prüfer 9 fand 23 Paare. Bei ihm genügte eine gleiche Silhouettenklasse plus *ein* gleicher Farbblock, auch bei anderem Oberteil.
+  - Prüfer 10 fand 9 Paare, nach gleicher Farbe der Körpermitte, auch bei klar verschiedenem Kopf, Hut oder Schirm.
+  - Prüfer 7 und 8 fanden am vorigen Stand 0 Paare.
+- **Zwei Punkte waren berechtigt:**
+  1. Die erfundenen Größen der Rollen lagen eng beieinander (Frauen 1,65–1,71 m). Sie sind jetzt gespreizt: Frauen 1,54–1,84 m, Männer 1,68–1,93 m, bei ähnlicher Silhouette abwechselnd. R12 bleibt nach Kanon „groß“.
+  2. Die Hose von B04 hatte die Farbe des Aufstellungsgrunds. Der Grund ist jetzt helles Stein (1,7), eine Farbe, die keine Figur trägt.
+- **Maß des Generators:** Neu ist „gleiche Körpermitte“ als Druck: häufigste Farbe von Rumpf und Beinen, gleiche Rampe, Stufe ±1, Höhe ±3 Pixel. Danach blieben 3 von vorher deutlich mehr Fällen.
+- **Erfundene Hosen:** R20 dunkelrot, R08 bleibt holzfarben. Ergebnis: 0 verwechselbare Paare nach dem Maß, alle Pixeltests grün.
+- **Prüfmaßstab:** Die nächste Runde (A-605k) bekommt die Definition aus Z-03 ausdrücklich vorgegeben: verwechselbar ist ein Paar, das man im Spiel aus 5–8 m nicht sicher auseinanderhält, also gleiche Gesamtsilhouette *und* gleiche Hauptfarben. Ein deutlicher Unterschied am Kopf oder in einer großen Farbfläche trennt. Grenzfälle werden getrennt genannt. So messen beide Prüfer dasselbe.
