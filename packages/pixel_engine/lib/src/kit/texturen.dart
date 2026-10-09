@@ -1,4 +1,5 @@
 import '../palette.dart';
+import '../raster/mesh.dart' show kDichteWelt;
 import '../raster/texture.dart';
 import 'werkzeug.dart';
 
@@ -71,6 +72,18 @@ IndexedTexture baueTextur(TexturId id) => texturEintrag(id).bauer();
 
 /// Alle Texturen; Index = `TexturId.index`.
 List<IndexedTexture> baueAlleTexturen() => [for (final id in TexturId.values) baueTextur(id)];
+
+/// Textur in Weltdichte [kDichteWelt]: Bestand (32 Texel/m) texelverdoppelt, HD-Fassungen (64) direkt.
+IndexedTexture baueWeltTextur(TexturId id) {
+  final e = texturEintrag(id);
+  final t = e.bauer();
+  if (e.dichte == kDichteWelt) return t;
+  if (e.dichte * 2 == kDichteWelt) return IndexedTexture.verdoppelt(t);
+  throw StateError('Textur ${id.name}: Dichte ${e.dichte} passt nicht zur Weltdichte $kDichteWelt');
+}
+
+/// Alle Texturen in Weltdichte; Index = `TexturId.index` (für den Renderer).
+List<IndexedTexture> baueAlleWeltTexturen() => [for (final id in TexturId.values) baueWeltTextur(id)];
 
 typedef _Bauer = IndexedTexture Function();
 

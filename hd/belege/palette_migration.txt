@@ -7,3 +7,10 @@ Palette v2: 198 Bilder
 MIGRATIONSBELEG · Bilder 198 · gleich 198 · anders 0 · fehlt 0
 Eichbilder (bin/eichbilder.dart): 18 von 18 byte-gleich
 Wächter: pixel_test „Palette v1 auf den ungeraden Stufen, Ramp.at-Semantik und Pal-Namen unverändert“
+
+MIGRATIONSBELEG 2 · Dichte (P1-OPUS-05, E-035)
+kDichteWelt = 64 (Bestandstexturen texelverdoppelt: IndexedTexture.verdoppelt, baueWeltTextur), kDichteFigur = 32 (getrennt);
+Mip-Schwellen tpp = kDichteWelt·z/focal mit s = 2, Cap 3 → 4; Spurtexturen texelverdoppelt, Wandversatz in 0,5-m-Schritten
+Ausgang (2cc225e, Dichte 32): 198 Bilder · Dichte 64: 198 Bilder
+MIGRATIONSBELEG · Bilder 198 · gleich 198 · anders 0 · fehlt 0
+Detektivblick (gewoelbe, speisekammer, hof, turmfuss × 4 Richtungen): 16 von 16 byte-gleich
