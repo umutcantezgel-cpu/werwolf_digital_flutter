@@ -19,8 +19,9 @@ Die lauffähigen Musterdateien (Textur, Bauteil, Form, Test) entstehen in P1-OPU
 - Größe 64×64 (1 m) oder 128×128 (2 m); Spuren 32 oder 64. Dichte 64 Texel/m.
 - Höchstens 8 der 16 Stufen je Textur, nur aus den Rampen des Materials.
 - Streupixel (Pixel ohne gleichfarbigen 4-Nachbarn) höchstens 8 %. Keine Rauschflächen, keine reinen Zufallsmuster.
-- Fugen und Ritzen 1–2 Stufen dunkler als der Körper, nie die dunkelste Stufe der Rampe.
-- Licht kommt von oben links: Lichtkante oben und links, Schattenkante unten und rechts, je 1 Texel (bei 128er-Texturen bis 2).
+- Fugen und Ritzen 2–4 Stufen (16er-Skala) dunkler als der Körper, nie Stufe 0–2 der Rampe (die 8er-Angabe „1–2 Stufen“ des Bestands entspricht 2–4 Stufen der Palette v2).
+- Licht kommt von oben links: Lichtkante oben und links, Schattenkante unten und rechts, je 1 Texel (bei 128er-Texturen bis 2) – für erhabene Formen (Steine, Bretter, Ziegel, Flicken). Bei Vertiefungen (Abplatzungen, Löcher, Fugen) umgekehrt: Schattenkante innen oben/links, Lichtkante innen unten/rechts.
+- Flache Materialien (Putz, Erde, Kies, Wiese, Stoff, Tapete, Wasser) haben keine Lichtkantenprüfung; Abwechslung über große, ruhige Flächen (≥ 16 Texel), keine regelmäßig wiederkehrenden Stempel.
 - Kachelbar ohne sichtbare Naht. Abwechslung entsteht über Varianten und `hashTeil`, nicht über Rauschen.
 - In Mip 1 (halbe Größe) muss die Struktur noch lesbar sein: Fugen mindestens 2 Texel breit, Elemente mindestens 6 Texel groß.
 - Zufall nur über `Lcg` aus dem Werkzeugkasten mit festem Seed oder `hashTeil(id, teil)`, nie `dart:math Random`.

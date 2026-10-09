@@ -4,6 +4,10 @@ import '../raster/texture.dart';
 /// Strukturmessungen und Stilblatt-Prüfung für Texturen (Burgstadt HD; texturen_test v2, E-047).
 /// Werkzeuge und Tests nutzen dieselben Funktionen, damit Kontaktbogen und Test gleich urteilen.
 
+/// Flache Materialien ohne Relief (Putz, Erde, Kies, Wiese, Stoff, Tapete, Wasser): keine Lichtkanten-
+/// Prüfung, ihre Flecken und Vertiefungen haben keine eindeutige Kantenrichtung (Sichtprüfer urteilen).
+const List<String> kFlacheMaterialien = ['putz', 'erde', 'kies', 'wiese', 'teppich', 'tapete', 'vorhang', 'tischDecke', 'bettDecke', 'wasser', 'raureif'];
+
 /// Texturen, die Grün (Rampe 5) tragen dürfen (Grünregel E-025).
 const Set<String> kGruenErlaubt = {'dachBiberschwanzMoos', 'wiese', 'bruchsteinMauer'};
 
@@ -110,10 +114,11 @@ List<String> pruefeHdTextur(String name, IndexedTexture t, {bool? gruenErlaubt})
   final s = streuAnteil(t);
   if (s > 0.08) b.add('Streupixel ${(s * 100).toStringAsFixed(1)} % (höchstens 8 %)');
   final k = lichtkanten(t);
-  if (k.nOben >= 20 && k.nUnten >= 20 && k.oben < k.unten + 2) {
+  final flach = kFlacheMaterialien.any(name.startsWith);
+  if (!flach && k.nOben >= 20 && k.nUnten >= 20 && k.oben < k.unten + 2) {
     b.add('Lichtkante: oben ${k.oben.toStringAsFixed(1)} nicht heller als unten ${k.unten.toStringAsFixed(1)}');
   }
-  if (k.nLinks >= 20 && k.nRechts >= 20 && k.links < k.rechts + 2) {
+  if (!flach && k.nLinks >= 20 && k.nRechts >= 20 && k.links < k.rechts + 2) {
     b.add('Lichtkante: links ${k.links.toStringAsFixed(1)} nicht heller als rechts ${k.rechts.toStringAsFixed(1)}');
   }
   if (t.levels.length < 5) b.add('${t.levels.length} Mip-Stufen (mindestens 5)');
