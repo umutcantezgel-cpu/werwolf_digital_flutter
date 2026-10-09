@@ -212,3 +212,20 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - **Gefunden:** beim Einbau von A-702c. `stadtdaten_test` war seit Commit 02ab9b5 rot, weil zwei Bewohner-Sätze zu lang waren. `commit_gruen.sh` hatte trotzdem „ALLE TESTS GRÜN“ gemeldet.
 - **Behoben:** `if [ -d test ]; then dart test …; else echo "keine Tests"; fi`. Die Bildschirmfotos laufen jetzt über eine Variable, damit ein Absturz mit `set -e` abbricht.
 - **Aufarbeitung:** Ein Hintergrundlauf prüft jeden Nachtlauf-Commit einzeln (eigener Arbeitsbaum im Scratchpad). Das Ergebnis steht in `belege/historie_pakettests.txt`, und betroffene Commits werden im Abschlussbericht genannt. Die Geschichte wird nicht umgeschrieben.
+
+## E29 · 09.10. 04:07 · Gegenprüfung Inhalt Runde 3 (A-702d) umgesetzt
+- **B1 (Verletzung):** Der Prüfer widerspricht E23/M5 mit neuem Grund. Die öffentlichen Kanonzeilen (OA-20, BW-ZUSTAND) werden im Spiel angezeigt bzw. vom Erzähler gelesen, und E4 sieht ausdrücklich Ersetzungen im Overlay vor. Deshalb gibt es jetzt `@ERSETZE-17 | Von: bewusstlos | Nach: benommen`. Die K-Dateien bleiben unverändert, keine S-Zeile ist betroffen; der wirksame Kanon sagt „Kurz benommen …“.
+- **B2 (Muster „Angst“ nur bei Frauen):**
+  - Die Angst-Sätze von B15, B21, B38 und B41 sind ersetzt (Kälte, Docht, ruhige Nacht).
+  - Der Saum bei H-S10/HW-S10 und H-104 ist gestrichen (Knöpfe).
+  - „die Bewohnerin“ bei H-014 heißt jetzt „die Leute im Haus“.
+  - B09 („Angst vor dem Dunkel“ beim Hund) bleibt.
+- **B3 (Zeiten):** `@LISTE-ZEITEN` im Overlay um die öffentlichen Stadtzeiten ergänzt: Tore 22:00, Uhrturm 00:25/01:30/03:00/04:30, Ofen 03:00.
+- **B4–B8:**
+  - „Pensionsinhaberin“.
+  - „Gasse am Untertor“ und „breite Gasse“.
+  - „Obsthänge“.
+  - „Der Bewohner“ (H-078).
+  - Uhrzeiten in Worten (R04).
+- **B9 (Lederhut gegen Filzhut bei R17):** Nur der interne Teilname ist betroffen. Im Bild ist es ein brauner Hut mit Krempe, in 2,5D-Auflösung nicht unterscheidbar. Keine Änderung.
+- **Historie der Pakettests (E28):** belegt in `belege/historie_pakettests.txt`. Alle 40 Nachtlauf-Commits bis 7926f76 waren grün. 02ab9b5, d511fac und 7574641 hatten einen roten Datentest in burgstadt_core (zwei zu lange Bewohner-Sätze); grün ab ba66f50.

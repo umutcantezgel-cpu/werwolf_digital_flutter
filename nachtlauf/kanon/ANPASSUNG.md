@@ -25,6 +25,7 @@ Regeln für das Overlay:
 @ERSETZE-14 [O] | Von: in the Harz mountains | Nach: in high wooded mountains
 @ERSETZE-15 [O] | Von: from the Harz mountains | Nach: from the mountains
 @ERSETZE-16 [O] | Von: im Harz | Nach: im Bergland
+@ERSETZE-17 [O] | Von: bewusstlos | Nach: benommen
 
 ## Ort und Rahmen
 @K-001 [O] | Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist die kleine, renovierte Stadtburg am höchsten Punkt der erfundenen, ummauerten Oberstadt Schartenfels: Gassen mit Kopfsteinpflaster, Häuser mit Dachgauben, die wie Augen schauen, eine Stadtmauer mit Wehrgang und Zunfttürmen, ein Uhrturm am Marktplatz und eine Kirchenburg auf dem Hügel. Unten im Tal liegt das erfundene Bergstädtchen Silberhau (SIL-ber-hau). Burg und Heimatmuseum gehören einer Stiftung; Burgwart ist Eckehard Lüddecke.
@@ -61,6 +62,7 @@ Regeln für das Overlay:
 @ORT-11 [O] | Ort: Apotheke | Viertel: Untere Stadt | Rolle im Fall: Farbe (Kühlpack, Ersthilfe)
 @ORT-12 [O] | Ort: Kirchenburg mit Friedhof und überdachter Holztreppe | Viertel: Kirchhügel | Rolle im Fall: Farbe
 @LISTE-ORTE [O] | Orte: Kamin-Gewölbe (mit Kamin, Festtafel, Punschkessel, Nische neben der Eichentür) · Speisekammer (Tatort) · Wendeltreppenturm mit Turm-Fuß (Sicherungskasten, Holztruhe, Eisentür, Turmtür), erstem Absatz (Rüstung Kunibert), Hofebene (Hoftür, Schauvitrine, Toilette), Wehrgang (dritte Zinne) · Hof (Brunnen mit Geleucht, Burgtor, Torhaus, Kellerhals) · Burgweg (Zufahrt, außerhalb) · Oberstadt (ab Phase 2): Marktplatz mit Uhrturm, Stadtmuseum, Pension „Zum Uhrturm“, Schreinerei an der Mauergasse, Kostümfundus der Volksbühne, Stromhaus am Obertor, Teestube „Zur Laterne“, Bäckerei am Untertor, Rathaus, Bibliothek mit Archiv, Apotheke, Kirchenburg mit Friedhof, Stadtmauer mit Wehrgang, Gewölbegänge unter der Stadt · Wohn- und Werkstatthäuser der sechs Viertel (Burgberg, Mauerviertel, Kirchhügel, Handwerkergasse, Untere Stadt, Marktviertel) mit ihren Hausnamen, Gassen und Inschriften aus der Stadtdatei (nur Farbe: nie Ort eines Hinweises oder eines lösungsrelevanten Gegenstands)
+@LISTE-ZEITEN [O] | Öffentlich bekannte Zeitpunkte: 17:40 Türschaden an der Eichentür · 20:30 Begrüßungsrede mit Box-Echo · 21:15 bis 21:35 Burgführung · 22:45 Ultimatum des Burgwarts · 23:00 Burgtor abgeschlossen · 23:35 der Burgwart sagt, er gehe ins Bett · 23:48 Kamin-Qualm · 23:54 Box meldet „Verbindung getrennt“ · kurz vor zwölf meldet die Box „Verbunden“ · Knall und Stromausfall kurz vor zwölf · um Mitternacht der Schrei · kurz nach Mitternacht wird der Burgwart in der Speisekammer gefunden · Oberstadt (Ergänzung): die Stadttore schließen um 22:00 · der Uhrturm schlägt die Nacht um 00:25, 01:30, 03:00 und 04:30 · die Bäckerin heizt um 03:00 den Ofen an
 
 ## Stadt-Hinweise an den Fall-Orten (Auftrag A-401a, geprüft von Opus)
 
@@ -93,8 +95,8 @@ Je Fall-Ort zwei Hinweise (`H-S`, Sichtklasse O) mit Wahrheitsdatensatz (`HW-S`,
 ### ORT-05 · Kostümfundus der Volksbühne
 @H-S09 [O] | Inhalt: Die Inventarliste der Volksbühne ist vollständig: Jeder Kittel ist gezählt, und kein Laken fehlt. | Form: Karte | Quelle: Station ORT-05 | Phase: 2 | Min: 4
 @HW-S09 [L] | Wahrheit: Im Fundus fehlt kein Laken; das Gespensterlaken stammt aus der Pension (ORT-05, Strang c). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
-@H-S10 [O] | Inhalt: Im Fundus hängen Kostüme aus drei Jahrhunderten, nach Farben sortiert. Die Schneiderin flickt abends die Säume, weil die Bühne am Samstag wieder spielt. | Form: Erzähler | Quelle: Station ORT-05 | Phase: 3 | Min: 4
-@HW-S10 [L] | Wahrheit: Farbe. Die Schneiderin flickt die Säume, weil die Bühne am Samstag wieder spielt (ORT-05). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
+@H-S10 [O] | Inhalt: Im Fundus hängen Kostüme aus drei Jahrhunderten, nach Farben sortiert. Die Schneiderin näht abends Knöpfe an, weil die Bühne am Samstag wieder spielt. | Form: Erzähler | Quelle: Station ORT-05 | Phase: 3 | Min: 4
+@HW-S10 [L] | Wahrheit: Farbe. Die Schneiderin näht Knöpfe an, weil die Bühne am Samstag wieder spielt (ORT-05). | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
 ### ORT-06 · Stromhaus am Obertor
 @H-S11 [O] | Inhalt: Auf dem Schaltplan im Stromhaus laufen alle Leitungen der Oberstadt am Fuß des Burgturms zusammen. Der Wärter hat den Weg mit Rotstift nachgezogen. | Form: Karte | Quelle: Station ORT-06 | Phase: 2 | Min: 4

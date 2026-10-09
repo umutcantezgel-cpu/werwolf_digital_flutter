@@ -1,8 +1,8 @@
-# PRÜFPUNKT (für die Fortsetzung nach Unterbrechung zuerst lesen) · Stand 09.10. 03:05
-- Branch: `nachtlauf/burgstadt` (Push nur dorthin, Nutzerentscheidung N-00). Commit nur über `bash tool/commit_gruen.sh "<Nachricht>"` (läuft `tool/alle_tests.sh schnell`, committet nur bei „ALLE TESTS GRÜN“, pusht). Reine Dokument-Commits direkt.
-- Entscheidungen: `nachtlauf/ENTSCHEIDUNGSLOG.md` (bis E22), Protokoll `nachtlauf/NACHTPROTOKOLL.md`, Abnahme `nachtlauf/ABNAHME.md`.
-- **Pakete:** `pixel_engine` (Rasterer, Figuren-Brenner, Bewohnerkarten-Generator `bin/bewohnerkarten.dart`, Porträts), `burgstadt_core` (Kanon+Anpassung, Fall, Bots, Fähigkeiten, Stadtgenerator, Stadtleben, Erkunder, BurgstadtRaum), `burgstadt_spiel` (Spiel, Bildschirme, Tutorial/Erzähler, Spielstand, Werkzeuge `bin/*`), `room_host` (WLAN-Host, `test/mp_sim.dart`).
-- **Ebenen im Gesamttest:** 1 Logik (Paket-Tests), 3/4 Durchspiel + Teilen-Nutzen, 5 Pixel (Bildschirmfotos, Spieltest, Stadtansichten), 6 Erkundung, 8 Mehrspieler-Simulation, 10 Leitplanken, 11 Bestand. 7 Leistung: `burgstadt_spiel/bin/leistung.dart` (AOT messen: `dart compile exe`), Beleg `nachtlauf/belege/leistung_z09.txt`.
-- **Figuren:** Daten `burgstadt_core/data/stadt/bewohner.json` und `pixel_engine/data/figuren/{rollen,karten}.json`; nach Änderungen `cd packages/pixel_engine && dart run bin/bewohnerkarten.dart` (wählt Varianten, schreibt Farben zurück, ~3,5 min), dann `bin/aufstellung.dart`. Sichtprüfer-Berichte `nachtlauf/auftraege/A-605/`.
-- **Laufende Haiku-Aufträge:** A-605h (Sichtprüfer 8), A-702b (Gegenprüfung Inhalt), A-404a (Fairness-Löser), A-606a (Belegfotos). Ergebnisse liegen in `.claude/worktrees/agent-*`, werden von Opus geprüft, kopiert, committet.
-- **Offen:** B16 langer Rock unter Mantel (Generator neu laufen lassen), App-Lobby WLAN (Host/Beitritt im Spiel), Karte/Kompass/Schnellreise, Geräte-Test mit neuem Web-Build (Z-10/Z-11 Konsole), Morgenbericht 07:00, tool/abnahme.dart, Abschlussbericht, FÜR DEN NUTZER.
+# PRÜFPUNKT (für eine Fortsetzung nach Unterbrechung)
+- Stand 03:55: Branch `nachtlauf/burgstadt`, letzter grüner Commit siehe `git log -1`; Sicherung auf origin/nachtlauf/burgstadt.
+- Commits nur über `bash tool/commit_gruen.sh "<Nachricht>"` (Gesamttest „schnell“, seit E28 ohne verschluckte rote Tests). Während des Laufs nichts im Baum ändern.
+- Abnahme ausschließlich mit `dart run tool/abnahme.dart` (läuft `tool/alle_tests.sh` vollständig; Protokoll in belege/alle_tests_voll.txt, Ergebnis in belege/abnahme.txt).
+- Offene Prüfer: Sichtprüfer 9 und 10 (A-605i, Berichte nachtlauf/auftraege/A-605/sichtpruefer_9|10_bericht.md mit Schlusszeile ERGEBNIS · Paare · Verstöße · Karten <stand>), Gegenprüfer Inhalt 3 (A-702d, Bericht A-702/gegenpruefer_inhalt_3_bericht.md). Ergebnis aus dem jeweiligen Worktree unter .claude/worktrees/agent-* übernehmen.
+- Ändert sich karten.json, gelten Sichtprüfer-Berichte nicht mehr (Kartenstand); ändern sich Spieltexte, gilt der Gegenprüfer-Bericht nicht mehr (Commit-Zeit).
+- Morgenbericht 07:00 Europe/Berlin nach nachtlauf/MORGENBERICHT.md (Bildschirmfotos: nachtlauf/bilder/z02/, Figuren: nachtlauf/bilder/phase3/figuren_aufstellung.png), danach weiterarbeiten.
+- Stündlich NACHTPROTOKOLL ergänzen (echte Uhrzeit: `TZ=Europe/Berlin date +%H:%M`).

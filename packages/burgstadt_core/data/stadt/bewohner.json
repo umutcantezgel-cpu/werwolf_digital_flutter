@@ -6,7 +6,7 @@
       "name": "Gerlinde Thal",
       "alter": 66,
       "geschlecht": "w",
-      "beruf": "Pensionswirtin",
+      "beruf": "Pensionsinhaberin",
       "wohnhaus": "H-028",
       "arbeitshaus": "H-028",
       "wesen": "Streng im Ton und weich im Herzen, sie begrüßt jeden Menschen mit Namen und kann Unordnung im Flur nicht ausstehen.",
@@ -525,7 +525,7 @@
           "bis": "01:10",
           "wo": "fenster",
           "zustand": "wach",
-          "tut": "Sie sitzt am Fenster, die Tasche gepackt, und hört im Nebel ein Bellen aus der Untertorgasse."
+          "tut": "Sie sitzt am Fenster, die Tasche gepackt, und hört im Nebel ein Bellen aus der Gasse am Untertor."
         },
         {
           "von": "01:10",
@@ -910,7 +910,7 @@
         }
       ],
       "saetze": [
-        "Du sprichst hier mit einer Pflegekraft. Heute Nacht war es ruhiger, als die Alten Angst hatten.",
+        "Du sprichst hier mit einer Pflegekraft. Heute Nacht war es ruhiger als sonst, die Alten schlafen fest.",
         "Meine Schützlinge schlafen wie Kinder, wenn man sie lässt. Heute haben sie es zum Glück gelassen.",
         "Wenn du mit einer Alten sprichst, sprich langsam und laut. Die Ohren sind alt, das Gedächtnis manchmal jung.",
         "Der Strom ist aus, aber die Nachtliste habe ich noch auf Papier. Das ist mein Trost."
@@ -1279,7 +1279,7 @@
       "saetze": [
         "Setz dich auf den Stuhl, ich mache dir die Haare, während du erzählst. Das beruhigt die Leute immer.",
         "Ich frisiere die halbe Stadt, und heute Nacht hat niemand bei mir geklopft, der mir etwas Gutes wollte.",
-        "Wer Angst hat, wackelt beim Schneiden. Du hast ein ruhiges Händchen, das merke ich dir an.",
+        "Wer friert, wackelt beim Schneiden. Du hast ein ruhiges Händchen, das merke ich dir an.",
         "Klopfen an der Tür? Das war vielleicht der Wind. Oder jemand, der spät heimkommt."
       ],
       "gerede": "Man sagt, der Nebelriese sei unter der Dachrinne vorbeigezogen und habe die Locken von der Wäscheleine geholt, aber das ist Unsinn."
@@ -1457,7 +1457,7 @@
         }
       ],
       "saetze": [
-        "Du willst zum Rathaus? Nimm den Pfad hinter dem Brunnen, da sind weniger Pfützen als auf der Hauptgasse.",
+        "Du willst zum Rathaus? Nimm den Pfad hinter dem Brunnen, da sind weniger Pfützen als auf der breiten Gasse.",
         "Ich habe heute Nacht Bekanntmachungen verteilt: Die Tore bleiben zu, und der Strom kommt erst am Morgen.",
         "Die Abkürzung über den Kirchhügel kenne ich blind. Über die Mauer kommt man trotzdem nicht, nicht mal als Bote.",
         "Wer mich fragt, bekommt eine ehrliche Antwort, aber nur die, die ich selbst auch weiß."
@@ -2306,7 +2306,7 @@
       "saetze": [
         "Du bist zu zerzaust für einen Anzug. Setz dich hin, ich messe dich, dann redest du besser.",
         "Hochzeitskleider nähe ich seit vierzig Jahren. Die halten, wenn die Naht richtig sitzt, sonst nicht.",
-        "Den Knopf habe ich heute Nacht zweimal angenäht, weil die Hand nicht ruhig war. Das passiert, wenn man Angst hat.",
+        "Den Knopf habe ich heute Nacht zweimal angenäht, weil die Hand vor Kälte nicht ruhig war.",
         "Der Nebelriese, sagt man, hat keine Schneiderin. Deshalb läuft er zerlumpt durch die Gassen. Da hast du's."
       ],
       "gerede": "Im Viertel flüstert man, die Schneiderin habe dem Nebelriesen einen Mantel geschneidert, aber sie hat ihn nie gesehen, nur das Maß genommen."
@@ -2508,7 +2508,7 @@
         "Du willst Tee? Ich koche dir einen, aber nur, wenn du nicht über den Knall redest. Das macht die Tassen bitter.",
         "Der Tee im Regal ist grün, der im Glas schwarz. Die Mischung kennt nur die Chefin, und die verrät nichts.",
         "Wenn der Nebel kommt, bleiben alle länger sitzen. Heute war es das erste Mal, dass keiner gegangen ist.",
-        "Die Laterne über der Theke ist meine Lieblingslampe. Heute Nacht habe ich sie nicht angezündet, weil ich Angst hatte."
+        "Die Laterne über der Theke ist meine Lieblingslampe. Heute Nacht blieb sie aus, der Docht war zu kurz."
       ],
       "gerede": "Im Viertel heißt es, die Bedienung kenne den Nebelriesen vom Teetrinken, aber der Riese bestellt nur Schweigen."
     },
