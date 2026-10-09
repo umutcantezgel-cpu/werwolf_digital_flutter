@@ -241,3 +241,8 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - **Maß des Generators:** Neu ist „gleiche Körpermitte“ als Druck: häufigste Farbe von Rumpf und Beinen, gleiche Rampe, Stufe ±1, Höhe ±3 Pixel. Danach blieben 3 von vorher deutlich mehr Fällen.
 - **Erfundene Hosen:** R20 dunkelrot, R08 bleibt holzfarben. Ergebnis: 0 verwechselbare Paare nach dem Maß, alle Pixeltests grün.
 - **Prüfmaßstab:** Die nächste Runde (A-605k) bekommt die Definition aus Z-03 ausdrücklich vorgegeben: verwechselbar ist ein Paar, das man im Spiel aus 5–8 m nicht sicher auseinanderhält, also gleiche Gesamtsilhouette *und* gleiche Hauptfarben. Ein deutlicher Unterschied am Kopf oder in einer großen Farbfläche trennt. Grenzfälle werden getrennt genannt. So messen beide Prüfer dasselbe.
+
+## E31 · 09.10. 04:42 · Inhaltsprüfung Runde 4 (A-702e), abnahme.dart-Fehler, iOS
+- **A-702e:** Leitplanken eingehalten, Plagiatsfrei; zwei Kanon-Reste umgesetzt. B38 näht keinen Saum mehr (Nachtplan) und fädelt statt Knopf. B35 sagt „früh am Morgen“ statt „um sieben“.
+- **abnahme.dart:** Das Werkzeug endete still mit Code 0, ohne Ergebnis. Ursache: `asFuture()` an einem bereits beendeten Ausgabestrom erfüllt sich nie, also hatte die VM nichts mehr zu tun. Jetzt werden die Futures (`forEach`) vor dem Warten auf das Prozessende angelegt; mit einem Mini-Skript geprüft.
+- **iOS:** `NSLocalNetworkUsageDescription` in Info.plist (Text auf Deutsch).

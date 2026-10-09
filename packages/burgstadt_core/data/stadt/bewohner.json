@@ -2092,7 +2092,7 @@
           "bis": "03:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Sie schläft in ihrem Bett, die Schürze am Haken, weil sie morgens um sieben im Rathaus sein muss."
+          "tut": "Sie schläft in ihrem Bett, die Schürze am Haken, weil sie früh am Morgen im Rathaus sein muss."
         },
         {
           "von": "03:00",
@@ -2293,7 +2293,7 @@
           "bis": "05:00",
           "wo": "wohnhaus",
           "zustand": "wach",
-          "tut": "Sie steht auf und näht im Halbdunkel einen Saum, weil der Gedanke an eine Hochzeit sie nicht loslässt."
+          "tut": "Sie steht auf und stickt im Halbdunkel an einem Hochzeitskissen, weil der Gedanke an das Fest sie nicht loslässt."
         },
         {
           "von": "05:00",
@@ -2306,7 +2306,7 @@
       "saetze": [
         "Du bist zu zerzaust für einen Anzug. Setz dich hin, ich messe dich, dann redest du besser.",
         "Hochzeitskleider nähe ich seit vierzig Jahren. Die halten, wenn die Naht richtig sitzt, sonst nicht.",
-        "Den Knopf habe ich heute Nacht zweimal angenäht, weil die Hand vor Kälte nicht ruhig war.",
+        "Heute Nacht habe ich zweimal neu eingefädelt, weil die Hand vor Kälte nicht ruhig war.",
         "Der Nebelriese, sagt man, hat keine Schneiderin. Deshalb läuft er zerlumpt durch die Gassen. Da hast du's."
       ],
       "gerede": "Im Viertel flüstert man, die Schneiderin habe dem Nebelriesen einen Mantel geschneidert, aber sie hat ihn nie gesehen, nur das Maß genommen."

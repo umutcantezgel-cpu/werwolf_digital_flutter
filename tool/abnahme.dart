@@ -49,11 +49,12 @@ Future<void> main(List<String> args) async {
     stdout.writeln('Vollständiger Testlauf: bash tool/alle_tests.sh (alle Ebenen) …');
     final p = await Process.start('bash', ['tool/alle_tests.sh'], workingDirectory: wurzel);
     final puffer = StringBuffer();
-    final a = p.stdout.transform(utf8.decoder).listen(puffer.write);
-    final b = p.stderr.transform(utf8.decoder).listen(puffer.write);
+    // Die Futures vor dem Warten anlegen: ein später angehängtes asFuture() an einen schon
+    // beendeten Strom erfüllt sich nie, und die VM endet dann still mit Code 0
+    final aus = p.stdout.transform(utf8.decoder).forEach(puffer.write);
+    final fehler = p.stderr.transform(utf8.decoder).forEach(puffer.write);
     final code = await p.exitCode;
-    await a.asFuture<void>();
-    await b.asFuture<void>();
+    await Future.wait([aus, fehler]);
     final zeit = DateTime.now().toIso8601String().substring(0, 16);
     log = 'HEAD $head · $zeit · Exit $code${sauber ? '' : ' · Code-Stand nicht eingecheckt'}\n$puffer';
     File(logPfad).writeAsStringSync(log);

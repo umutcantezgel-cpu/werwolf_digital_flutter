@@ -21,3 +21,12 @@
   - **Leistung:** Die Back-Spitze von 54 ms war ein Ausreißer unter Last. Drei Läufe danach lagen bei 7–8 ms (× 4 < 50).
   - **Stadtkarte mit Schnellreise, Kompass, Fledermäuse** (A-604a, A-306a).
   - **Bedienung:** Fallakte mit Tastatur und Gamepad bedienbar, Teilen an Einzelne in der Oberfläche, Tutorial-Texte an die echte Steuerung angepasst (Befunde aus A-801a).
+- 04:30 Phase 7 (Härtung):
+  - **Gesamttest:** Das Skript verschluckte rote Pakettests. Das ist behoben (E28). Die Historie aller Nachtlauf-Commits ist geprüft: rot waren nur 02ab9b5, d511fac und 7574641 (ein Datentest).
+  - **Inhaltsprüfung:** Runde 2 und 3 sind umgesetzt (u. a. „bewusstlos“ → „benommen“ per Overlay, Nachtpläne passend zu den Stationen, kein Angst-Muster bei Frauen). Runde 4 läuft.
+  - **Figuren:**
+    - Die Sichtprüfer 9 und 10 werteten uneinheitlich (23 bzw. 9 Paare nach eigenen Maßstäben).
+    - Berechtigte Punkte sind umgesetzt: Rollengrößen gespreizt, Körpermitte im Maß, Aufstellungsgrund.
+    - Die Endrunde (11/12) läuft mit festem Maßstab aus Z-03.
+  - **Bedienung und Anleitung:** Optionen werden gespeichert, Neigen ist ersetzt, die Anleitung (ANLEITUNG.md) und FÜR DEN NUTZER sind aktualisiert.
+  - **Abnahme:** Der erste vollständige Abnahmelauf () läuft.
