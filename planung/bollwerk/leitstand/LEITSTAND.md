@@ -20,6 +20,7 @@ Der Freigabeabschnitt im Plan lautet:
 | Meta-Sitzung | `session_01V8nVEJcaAbNDmTCrmHBoBq` (Branch `bollwerk-plan`, Meta-Prompt v4.1 aus `f2759297c4f5f9a627199b8fe52655f0d3d13e77`) | gestartet 21:18 UTC |
 | Nachtlauf-Generationen | – | – |
 | Merge-Bau | – | – |
+| Branch `bollwerk` | `f84715d` (versehentlich vom Meta-Lauf angelegt, 22:57 UTC, Inhalt = damaliger `bollwerk-plan`; Vorfahr des Übergabe-SHA → Leitstand übernimmt per Fast-Forward) | vorhanden |
 
 **Fremd, nie anfassen** (nur lesen): Sitzung „Krimidinner-Produktion“ `session_01Y7GqaaTYTmzoji6hpfHPLj`; die Sitzungen der Finalisierung und des Nachtlaufs Burgstadt (nur über Git sichtbar); jede Routine, deren ID hier nicht steht.
 
@@ -29,7 +30,7 @@ Der Freigabeabschnitt im Plan lautet:
 | L0 v4 bauen | fertig: v4.1 `f275929` (10 Linsen, 6 BLOCKER und ~70 MAJOR eingearbeitet) |
 | L1 Leitstand | fertig (Routine aktiv) |
 | L1b Kinder-Probe | fertig |
-| L2 Meta-Lauf | läuft seit 21:18 UTC · 22:39: M0 und M1 fertig (e2b27da), M3 Fabrikprobe läuft, kein Limit |
+| L2 Meta-Lauf | läuft seit 21:18 UTC · 23:39: M4/M5 fertig (1b4d5d7: Master-Prompt, Anhänge A-1…A-9, Startpaket), M6 Prüfrunde 2b (7b9e62b), Rubrik-Zwischenstand 17/26 |
 | L3 Generationen | offen |
 | L4 main | offen |
 | L5 Abschluss | offen |
@@ -42,10 +43,11 @@ Wahr nur, wenn alles zutrifft:
 4. PR #43 ist gemergt oder geschlossen (lesend prüfen).
 Sonst nur „FREIGABE BOLLWERK“ des Nutzers (nachdem er die Finalisierung angehalten hat).
 
-Letzte Prüfung: 2026-10-09 22:39 UTC · Finalisierung F5 von F7, Abnahme 9/17, letzter Commit 87103ea (22:24 UTC, Merge von main), kein ZIEL ERREICHT · **offen**
+Letzte Prüfung: 2026-10-09 23:39 UTC · Finalisierung F5 von F7, Abnahme 9/17, letzter Commit ea8d765 (23:09 UTC), kein ZIEL ERREICHT · **offen**
 
 ## Gezeigte Bilder
 - 22:39 UTC · `bilder/meta/m1-bildverfahren-fin-5c83242.jpg` (bollwerk-plan e2b27da)
+- 23:39 UTC · `bilder/meta/m3-design-vorher-r1-r2-buffetsaal.jpg`, `m3-streifen-r2-buffetsaal.jpg`, `m3-design-runde2-ostsaal.jpg`, `m3-design-runde2-ausschnitt.jpg`
 
 ## Termine (Europe/Berlin)
 - Herzschlag stündlich (Routine).
@@ -113,3 +115,5 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-09 21:18 UTC · Meta-Lauf gestartet.
 - 2026-10-09 21:39 UTC · Herzschlag 1: Meta in M0 (working, kein Limit), `bollwerk-plan` = cf06ca9; B-02 offen (F5 von F7).
 - 2026-10-09 22:39 UTC · Herzschlag 2: Meta M0+M1 fertig, M3 läuft; erstes Bild gezeigt; B-02 offen.
+- 2026-10-09 23:39 UTC · Herzschlag 3: Meta in M6 (Rubrik 17/26 Zwischenstand); Meta hat `bollwerk` versehentlich angelegt (Heredoc mit Backticks, offengelegt in FUER-DEN-NUTZER §1) – harmlos, Fast-Forward-fähig; 4 Design-Bilder gezeigt; B-02 offen.
+- Prüfpunkt für L2-Abnahme: Die Meta-Fassung schreibt in FUER-DEN-NUTZER „Merge auf main nur nach menschlicher Freigabe“ – der Plan hat diese Freigabe (Leitstand, nach allen Toren); bei der Abnahme angleichen.
