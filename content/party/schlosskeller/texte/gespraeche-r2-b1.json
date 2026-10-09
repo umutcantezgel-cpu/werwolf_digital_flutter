@@ -2,5 +2,152 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "gespraech",
   "hinweis": "Pflichtgespräche Runde 2, Besetzungsplätze 1 bis 4.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "g_ahmet_2_1",
+      "rolle": "ahmet",
+      "runde": 2,
+      "nr": 1,
+      "partner": "olli",
+      "thema": "Was war an der Theke los?",
+      "ziel": "Ich will wissen, was Olli zur Theke sagt, ohne selbst mehr zu verraten.",
+      "preisgabe": [
+        "luege:luege_ahmet_servietten"
+      ],
+      "text": "Hinter der Theke hab ich nur Servietten gesucht, sonst nichts. Olli, hast du davon was mitbekommen?"
+    },
+    {
+      "id": "g_ahmet_2_2",
+      "rolle": "ahmet",
+      "runde": 2,
+      "nr": 2,
+      "partner": "enes",
+      "thema": "Das Geld, nochmal",
+      "ziel": "Ich will, dass beim Geld niemand nachhakt.",
+      "preisgabe": [
+        "luege:luege_ahmet_miete"
+      ],
+      "text": "Das Geld war für die Miete, hundertfünfzig Euro. Was genau hast du dazu mitbekommen?"
+    },
+    {
+      "id": "g_ahmet_2_3",
+      "rolle": "ahmet",
+      "runde": 2,
+      "nr": 3,
+      "partner": "baran",
+      "thema": "Auffälliges im Dunkeln",
+      "ziel": "Ich will wissen, ob im Dunkeln jemandem etwas Komisches aufgefallen ist.",
+      "preisgabe": [],
+      "text": "Ist dir im Dunkeln was Komisches aufgefallen? Das musst du mir ehrlich sagen."
+    },
+    {
+      "id": "g_fatma_2_1",
+      "rolle": "fatma",
+      "runde": 2,
+      "nr": 1,
+      "partner": "ahmet",
+      "thema": "Wie war das bei dir?",
+      "ziel": "Ich will bei meiner Angabe bleiben, ohne dass Ahmet nachhakt.",
+      "preisgabe": [
+        "luege:luege_fatma_buffet"
+      ],
+      "text": "Am linken Buffet beim Gebäck war ich, die ganze Zeit. Ahmet, wie war das bei dir?"
+    },
+    {
+      "id": "g_fatma_2_2",
+      "rolle": "fatma",
+      "runde": 2,
+      "nr": 2,
+      "partner": "dilara",
+      "thema": "Meine Tasche, nochmal",
+      "ziel": "Ich will die Tasche unauffällig halten und das Gespräch schnell beenden.",
+      "preisgabe": [
+        "luege:luege_fatma_tasche"
+      ],
+      "text": "Bücher sind da drin, mehr nicht. Hast du an meiner Tasche was Auffälliges bemerkt?"
+    },
+    {
+      "id": "g_fatma_2_3",
+      "rolle": "fatma",
+      "runde": 2,
+      "nr": 3,
+      "partner": "olli",
+      "thema": "Dein Abend bis zum Knall",
+      "ziel": "Ich will Olli zu einer klaren Antwort bringen, damit niemand weiter nachfragt.",
+      "preisgabe": [],
+      "text": "Olli, ich will es genau wissen. Wie war dein Abend bis zum Knall?"
+    },
+    {
+      "id": "g_olli_2_1",
+      "rolle": "olli",
+      "runde": 2,
+      "nr": 1,
+      "partner": "kaan",
+      "thema": "Meine Angabe",
+      "ziel": "Ich will, dass die andere Person meine Angabe glaubt.",
+      "preisgabe": [
+        "luege:luege_olli_tafel"
+      ],
+      "text": "Ich saß am Tisch im Ost-Saal, sonst nirgends. Wie passt das zu deiner eigenen Geschichte?"
+    },
+    {
+      "id": "g_olli_2_2",
+      "rolle": "olli",
+      "runde": 2,
+      "nr": 2,
+      "partner": "aylin",
+      "thema": "Herr Schneider",
+      "ziel": "Ich will wissen, was die andere Person über Herrn Schneider weiß.",
+      "preisgabe": [],
+      "text": "Wie geht es Herrn Schneider eigentlich? Weißt du da was Genaues oder nur Gerede?"
+    },
+    {
+      "id": "g_olli_2_3",
+      "rolle": "olli",
+      "runde": 2,
+      "nr": 3,
+      "partner": "can",
+      "thema": "Wo steckst du eigentlich?",
+      "ziel": "Ich will Can zum Reden bringen, bevor er selbst gefragt wird.",
+      "preisgabe": [],
+      "text": "Can, was war bei dir auffällig, als es knallte?"
+    },
+    {
+      "id": "g_can_2_1",
+      "rolle": "can",
+      "runde": 2,
+      "nr": 1,
+      "partner": "kaan",
+      "thema": "Wo warst du im Dunkeln?",
+      "ziel": "Ich will wissen, was die andere Person im Dunkeln mitbekommen hat.",
+      "preisgabe": [
+        "luege:luege_can_toilette"
+      ],
+      "text": "Auf der Toilette im Turm war ich die ganze Zeit. Erzähl mal genau, wo du im Dunkeln warst."
+    },
+    {
+      "id": "g_can_2_2",
+      "rolle": "can",
+      "runde": 2,
+      "nr": 2,
+      "partner": "zeynep",
+      "thema": "Die Maske",
+      "ziel": "Ich will die andere Person auf meine Seite ziehen, ohne dass es auffällt.",
+      "preisgabe": [
+        "luege:luege_can_maske"
+      ],
+      "text": "Eine Maske? Ich hab keine Maske. Wie war das bei dir im Dunkeln?"
+    },
+    {
+      "id": "g_can_2_3",
+      "rolle": "can",
+      "runde": 2,
+      "nr": 3,
+      "partner": "fatma",
+      "thema": "Was steckt in deiner Tasche?",
+      "ziel": "Ich will Fatma in ein Gespräch über ihre Tasche ziehen, damit niemand nach mir fragt.",
+      "preisgabe": [],
+      "text": "Fatma, was steckt eigentlich in deiner Tasche?"
+    }
+  ]
 }
