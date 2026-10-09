@@ -2,5 +2,66 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "wahl",
   "hinweis": "Rundenwahl der Besetzungsplätze 17 bis 20.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "gw_enes_1",
+      "a": "Ich erzähle dem Detektiv, dass Herr Schneider mir vorgeworfen hat, das Teegeschirr ohne Erlaubnis zu benutzen. Damit kommt mein Ärger mit ihm ans Licht.",
+      "b": "Über das Teegeschirr sage ich nichts. Mein Ärger mit Herrn Schneider soll nicht zur Sprache kommen."
+    },
+    {
+      "id": "gw_enes_2",
+      "a": "Ich erzähle dem Detektiv, dass ich den ganzen Abend Tee ausschenke. Dabei gebe ich zu, dass ich mit Herrn Schneider Ärger wegen des Geschirrs habe.",
+      "b": "Den Tee schenke ich weiter aus und halte den Mund. Mein Ärger mit Herrn Schneider geht den Detektiv nichts an."
+    },
+    {
+      "id": "gw_enes_3",
+      "a": "Ich erzähle dem Detektiv, dass mein Ärger mit Herrn Schneider sich ums Teegeschirr dreht. Das habe ich bisher verschwiegen.",
+      "b": "Ich schweige, egal wer nachfragt. Über den Ärger mit Herrn Schneider rede ich nicht."
+    },
+    {
+      "id": "gw_selin_1",
+      "a": "Ich erzähle dem Detektiv, dass ich um neun Uhr abends die Ritterrüstung im Turmgang für einen Menschen hielt. Damit gebe ich zu, dass die Rüstung aus dem Turmgang verschwinden soll.",
+      "b": "Vom Turmgang sage ich nichts. Dann verschwindet die Rüstung still, ohne dass alle lachen."
+    },
+    {
+      "id": "gw_selin_2",
+      "a": "Ich erzähle dem Detektiv, dass ich seit dem Schreck einen Bogen um den Turmgang mache. Das wollte ich bisher für mich behalten.",
+      "b": "Über den Turmgang sage ich nichts. Ohne Gerede über die Rüstung kann ich sie in Ruhe aus dem Turmgang schaffen."
+    },
+    {
+      "id": "gw_selin_3",
+      "a": "Ich erzähle dem Detektiv, dass ich beim Schreck gegen die Vitrine gestoßen bin. Dabei gebe ich zu, dass mir die Rüstung nicht geheuer ist.",
+      "b": "Von der Vitrine sage ich nichts. Die Rüstung soll aus dem Turmgang verschwinden, und das regle ich lieber allein."
+    },
+    {
+      "id": "gw_hakan_1",
+      "a": "Ich erzähle dem Detektiv vom Streit um elf Uhr abends zwischen Herrn Schneider und Olli. Damit zeige ich, wie sehr ich Herrn Schneider in Schutz nehmen will.",
+      "b": "Vom Streit um elf Uhr sage ich nichts. Herr Schneider soll nicht schlecht dastehen, und seine Geldsorgen bleiben bei mir."
+    },
+    {
+      "id": "gw_hakan_2",
+      "a": "Ich erzähle dem Detektiv, dass Herr Schneider Geldsorgen hat. Das hätte ich eigentlich für mich behalten sollen.",
+      "b": "Über Herrn Schneider und sein Geld sage ich nichts. Er soll nicht vor allen bloßgestellt werden, und ich halte ihn raus."
+    },
+    {
+      "id": "gw_hakan_3",
+      "a": "Ich erzähle dem Detektiv, dass ich im Sommer bei der Schlossstiftung gejobbt habe. Damit verrate ich, dass Herrn Schneiders guter Ruf mir wichtig ist.",
+      "b": "Von meiner Zeit bei der Stiftung sage ich nichts. So bleibt Herr Schneider aus der Sache raus, und seine Geldsorgen auch."
+    },
+    {
+      "id": "gw_tugba_1",
+      "a": "Ich erzähle dem Detektiv, dass ich den Ablaufplan geschrieben habe. Damit verrate ich, wie sehr mir die Torte um halb eins am Herzen liegt.",
+      "b": "Den Ablaufplan erwähne ich nicht. Die Torte soll um halb eins trotzdem kommen, egal was passiert."
+    },
+    {
+      "id": "gw_tugba_2",
+      "a": "Ich erzähle dem Detektiv, dass Herr Schneider nur widerwillig erlaubt hat, die Torte im Vorratsraum zu kühlen. Dabei gebe ich zu, dass ich bis halb eins an nichts anderes denke.",
+      "b": "Über Herrn Schneider und die Kühlung sage ich nichts. Den Abend will ich retten, und das geht nur ohne Streit."
+    },
+    {
+      "id": "gw_tugba_3",
+      "a": "Ich erzähle dem Detektiv, dass das Geburtstagskind um zwölf mit verbundenen Augen zur Torte in den Vorratsraum geführt werden sollte. Damit verrate ich, dass ich den Abend retten will.",
+      "b": "Vom Plan für zwölf sage ich nichts. Den Abend rette ich lieber allein, egal was passiert."
+    }
+  ]
 }

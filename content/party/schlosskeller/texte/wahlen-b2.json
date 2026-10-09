@@ -2,5 +2,66 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "wahl",
   "hinweis": "Rundenwahl der Besetzungsplätze 5 bis 8.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "gw_leyla_1",
+      "a": "Ich erzähle dem Detektiv, dass Ahmet mit der Rechnung fürs Essen in der Klemme steckt. Mein Versprechen an ihn ist damit hin.",
+      "b": "Ich schütze Ahmet, bis er selbst redet. Zur Rechnung sage ich dem Detektiv nichts."
+    },
+    {
+      "id": "gw_leyla_2",
+      "a": "Ich erzähle dem Detektiv von der Rechnung fürs Essen. Dann gerät mein Cousin Ahmet ins Licht.",
+      "b": "Ahmet ist mein Cousin, und ich halte ihn raus. Dem Detektiv sage ich dazu nichts."
+    },
+    {
+      "id": "gw_leyla_3",
+      "a": "Ich erzähle dem Detektiv, was Herr Schneider am Nachmittag verlangt hat. Er wollte eine Genehmigung für das mitgebrachte Essen sehen.",
+      "b": "Ahmet soll selbst reden, nicht ich. Bis dahin halte ich den Mund."
+    },
+    {
+      "id": "gw_emine_1",
+      "a": "Ich erzähle dem Detektiv, dass ich um zwanzig vor zwölf im Turmgang etwas gesehen habe. Mehr sage ich noch nicht.",
+      "b": "Ich verrate Fatma nicht. Was ich im Turmgang gesehen habe, bleibt bei mir."
+    },
+    {
+      "id": "gw_emine_2",
+      "a": "Ich erzähle dem Detektiv, dass ich gesehen habe, wie Fatma die Münzschatulle aus der Vitrine nahm. Dann gerät meine beste Freundin ins Licht.",
+      "b": "Fatma ist meine beste Freundin, und ich glaube ihr. Ich lasse sie nicht im Stich."
+    },
+    {
+      "id": "gw_emine_3",
+      "a": "Ich erzähle dem Detektiv, dass Fatma versprochen hat, die Schatulle am Montag zurückzubringen. Darum habe ich bisher geschwiegen.",
+      "b": "Ich schweige weiter. Fatma soll die Schatulle am Montag selbst zurückbringen, und ich verrate Fatma nicht."
+    },
+    {
+      "id": "gw_tim_1",
+      "a": "Ich erzähle dem Detektiv, dass ich die alte Mehrfachsteckdose benutzt habe. Mehr sage ich erst mal nicht.",
+      "b": "Ich sage kein Wort zur Steckdose. Niemand soll erfahren, dass meine alte Mehrfachsteckdose den Ausfall verursacht hat."
+    },
+    {
+      "id": "gw_tim_2",
+      "a": "Ich erzähle dem Detektiv, dass der Kurzschluss von meiner alten Mehrfachsteckdose kam. Den Rest behalte ich für mich.",
+      "b": "Ich halte den Mund. Niemand soll meine Mehrfachsteckdose mit dem Kurzschluss in Verbindung bringen."
+    },
+    {
+      "id": "gw_tim_3",
+      "a": "Ich erzähle dem Detektiv, dass Herr Schneider mich gerade davor gewarnt hat. Trotzdem habe ich für den Tortenkaffee die Kaffeemaschine in die alte Mehrfachsteckdose gesteckt.",
+      "b": "Ich schweige weiter. Keiner soll wissen, dass ich den Kurzschluss verursacht habe."
+    },
+    {
+      "id": "gw_johanna_1",
+      "a": "Ich erzähle dem Detektiv, dass ich um neun vor zwölf ein Foto gemacht habe. Darauf sieht man einen Streit an der Theke.",
+      "b": "Ich sage nichts über das Foto. Mein Versprechen an Ahmet halte ich, ohne zu lügen."
+    },
+    {
+      "id": "gw_johanna_2",
+      "a": "Ich erzähle dem Detektiv von dem Foto. Darauf hält Ahmet einen dicken Umschlag.",
+      "b": "Ich halte Ahmet raus. Er hat mich gebeten, das Streitfoto zu löschen."
+    },
+    {
+      "id": "gw_johanna_3",
+      "a": "Ich erzähle dem Detektiv, dass mein Handy um fünf vor zwölf in den Handykorb musste. Das Foto habe ich davor gemacht.",
+      "b": "Ich belüge den Detektiv nicht. Aber mein Versprechen an Ahmet halte ich."
+    }
+  ]
 }

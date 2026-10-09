@@ -29,7 +29,7 @@
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "ahmet"
           },
-          "zeigt": "Im erstarrten Wachs am Griff klebt eine abgerissene Ecke braunes Umschlagpapier. Darauf steht „…keller“, in Ahmets Handschrift.",
+          "zeigt": "Am Griff klebt im erstarrten Wachs eine abgerissene Ecke braunes Umschlagpapier. Darauf steht „…keller“, in Ahmets Handschrift.",
           "harmlos": "Der Griff ist mit rotem Wachs verschmiert.",
           "rolle": {
             "ahmet": "schluesselbeweis"
@@ -41,7 +41,7 @@
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "can"
           },
-          "zeigt": "Um den Griff liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe, derselben Farbe wie auf der Maske.",
+          "zeigt": "Um den Griff liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe. Es ist dieselbe Farbe wie auf der Maske.",
           "harmlos": "Der Griff ist mit rotem Wachs verschmiert.",
           "rolle": {
             "can": "schluesselbeweis"
@@ -53,7 +53,7 @@
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "olli"
           },
-          "zeigt": "Im roten Wachs am Fuß, das inzwischen erstarrt ist, kleben feine Holzsplitter und weißer Kalk.",
+          "zeigt": "Im erstarrten roten Wachs am Fuß kleben feine Holzsplitter und weißer Kalk.",
           "harmlos": "Am Fuß klebt rotes Wachs.",
           "rolle": {
             "olli": "schluesselbeweis"
@@ -76,8 +76,8 @@
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "fatma"
           },
-          "zeigt": "Frischer goldgelber Messingabrieb in einer Kerbe des Rings.",
-          "harmlos": "Nur feine Kratzer von der Glasscheibe der Vitrine, kein Messing.",
+          "zeigt": "In einer Kerbe des Rings steckt frischer, goldgelber Messingabrieb.",
+          "harmlos": "In einer Kerbe des Rings sind feine Kratzer von der Glasscheibe der Vitrine.",
           "rolle": {
             "fatma": "schluesselbeweis"
           }
@@ -113,8 +113,8 @@
           "entstehtWenn": {
             "bundEndetBei": "jackenstaender"
           },
-          "zeigt": "In der Innentasche steckt Herrn Schneiders großer Schlüsselbund.",
-          "harmlos": "Die Innentasche ist leer bis auf ein Kaugummipapier.",
+          "zeigt": "In der Innentasche der Jacke steckt Herrn Schneiders großer Schlüsselbund.",
+          "harmlos": "In der Innentasche liegt ein Kaugummipapier.",
           "rolle": {
             "ahmet": "fundort"
           }
@@ -150,8 +150,8 @@
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "ahmet"
           },
-          "zeigt": "Drei erstarrte rote Wachstropfen. Eine Ecke des Umschlags ist abgerissen.",
-          "harmlos": "Kein Wachs, nur ein Knick.",
+          "zeigt": "Auf dem Umschlag sind drei erstarrte rote Wachstropfen. Eine Ecke des Umschlags ist abgerissen.",
+          "harmlos": "Auf dem Umschlag ist ein Knick.",
           "rolle": {
             "ahmet": "zusatzindiz"
           }
@@ -189,8 +189,8 @@
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "fatma"
           },
-          "zeigt": "Auf dem Deckel kleben rote Wachstropfen.",
-          "harmlos": "Der Deckel ist sauber.",
+          "zeigt": "Auf dem Deckel der Münzschatulle kleben rote Wachstropfen.",
+          "harmlos": "Der Deckel sieht unauffällig aus.",
           "rolle": {
             "fatma": "zusatzindiz"
           }
@@ -228,8 +228,8 @@
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "can"
           },
-          "zeigt": "Rote Wachstropfen auf der Stirn der Maske.",
-          "harmlos": "Kein Wachs, nur Leuchtfarbe.",
+          "zeigt": "Auf der Stirn der Maske kleben rote Wachstropfen.",
+          "harmlos": "Auf der Stirn der Maske ist grünlich-weiße Leuchtfarbe.",
           "rolle": {
             "can": "zusatzindiz"
           }
@@ -280,8 +280,8 @@
           "entstehtWenn": {
             "bundEndetBei": "am_eiskuebel"
           },
-          "zeigt": "Unter den Eiswürfeln liegt Herrn Schneiders Schlüsselbund.",
-          "harmlos": "Nur Eis und Schmelzwasser.",
+          "zeigt": "Im Eiskübel liegt unter den Eiswürfeln Herrn Schneiders Schlüsselbund.",
+          "harmlos": "Im Eiskübel sind Eiswürfel und Schmelzwasser.",
           "rolle": {
             "olli": "fundort"
           }
@@ -304,8 +304,8 @@
           "entstehtWenn": {
             "bundEndetBei": "linkes_buffet_13"
           },
-          "zeigt": "Unter dem Brot liegt Herrn Schneiders Schlüsselbund.",
-          "harmlos": "Nur Brot und Krümel.",
+          "zeigt": "In der Brottasche liegt unter dem Brot Herrn Schneiders Schlüsselbund.",
+          "harmlos": "In der Brottasche liegen Brot und Krümel.",
           "rolle": {
             "fatma": "fundort"
           }
@@ -329,7 +329,7 @@
             "bundEndetBei": "an_der_ruestung"
           },
           "zeigt": "Im Helm klemmt Herrn Schneiders Schlüsselbund.",
-          "harmlos": "Im Helm nur Staub und eine alte Spinnwebe.",
+          "harmlos": "Im Helm sind Staub und eine alte Spinnwebe.",
           "rolle": {
             "can": "fundort"
           }
@@ -478,8 +478,8 @@
           "entstehtWenn": {
             "kerzenstaenderGegriffenVon": "olli"
           },
-          "zeigt": "Auf dem Handrücken kleben frische rote Kerzenwachstropfen.",
-          "harmlos": "Kein rotes Wachs, nur Kalkstaub.",
+          "zeigt": "Auf dem Handrücken des Handschuhs kleben frische rote Kerzenwachstropfen.",
+          "harmlos": "Auf dem Handrücken des Handschuhs ist Kalkstaub.",
           "rolle": {
             "olli": "zusatzindiz"
           }

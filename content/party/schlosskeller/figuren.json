@@ -1050,7 +1050,7 @@
       "roleTitle": "Die Geburtstags-Planerin",
       "isPotentialKiller": false,
       "colorCode": "#800020",
-      "farbname": "Bordeaux mit Gold",
+      "farbname": "Karminrot mit Gold",
       "startRoom": "ost_saal",
       "ermittlungsOrt": "an_der_wandtafel",
       "coordinates": {
@@ -1059,7 +1059,7 @@
       },
       "visualSpecs": {
         "silhouette": "Organisiert, schwungvoll, geschäftsmäßig",
-        "outfit": "Bordeauxroter Blazer über weißem Shirt, schmale Metallbrille",
+        "outfit": "Karminroter Blazer über weißem Shirt, schmale Metallbrille",
         "distinguishingFeature": "Notizbuch mit goldenem Einband und Fineliner",
         "idleAnimation": "Blättert im Notizbuch, hakt Zeilen ab und schaut zur Wanduhr"
       },

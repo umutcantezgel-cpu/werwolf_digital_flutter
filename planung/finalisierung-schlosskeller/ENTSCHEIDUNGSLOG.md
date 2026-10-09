@@ -603,3 +603,15 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Beträge stehen in Worten.
   - Gegenseitige Paare sind erlaubt.
   - Pawels Beobachtung darf ganz gesagt werden, sie betrifft Herrn Schneiders Geld, nicht Pawels.
+- **Abgleich mit main:** Der parallele Strang hat den Stand `f5190ac` dieses Branches nach `main` gebracht (dort E49) und Fatmas Farbnamen „Weinrot“ zu „Beerenrot“ geändert. Der Merge zurück lief ohne Konflikte.
+  - Sein Hinweis auf „Bordeaux mit Gold“ (Tugba) trifft zu. Die Farbe heißt jetzt „Karminrot mit Gold“, Farbcode unverändert; „Beerenrot“ und „Brombeerrot“ wären am Tisch zu leicht zu verwechseln.
+  - Die Ausnahme „weinrot“ ist aus `textregeln.json` gestrichen. Neu auf der Alkoholliste stehen bordeaux, champagner, burgunder, rotwein, weißwein und portwein. Test angepasst.
+  - Seine Entscheidung E48 („Herkunft ist nicht Teil der Spieldaten“) gilt für die dortigen Spieldaten. Hier zeigt kein Spielertext eine Herkunft; das Feld `herkunft` dient nur der Namensbalance. Die Frage steht unter FÜR DEN NUTZER.
+- **Fundtexte (Varianten-Regel, AUTOR-49 und -50):** Fassung 1 ist gewählt.
+  - Kriterien: kurz, vorlesbar, keine Verneinung, die jemanden ausschließt; derselbe harmlose Text an derselben Stelle (Griff).
+  - Fassung 2 stellt jedem Fund einen Gruselmoment voran („du zuckst zusammen“, fünfmal). Das gehört in Ton und Licht der App, nicht in Fundtexte, die auch gedruckt werden.
+  - Übernommen in `gegenstaende.json`, alle zwölf Spuren. Sichtbarkeit und Form stehen in SCHLUESSEL.md.
+- **Wahltexte der Kernrollen (Varianten-Regel, AUTOR-57 und -58):** Grundlage ist Fassung 1, weil sie knapp und konkret ist. Fassung 2 wiederholt „Mein Gewissen …“ und „Mein Herz flüstert“ als Formel.
+  - ORCH hat geschärft:
+    - Die drei Freundes-Wahlen nennen jetzt, was die Rolle verrät: Ahmet Lejlas Versprechen, Fatma Emines Schweigen, Olli Wojteks Wachs-Idee. Vorher stand dort nur „was ich weiß“.
+    - Vier Sabotagen lenkten auf das eigene Geheimnis (Münzbilder, Tragen durch den Turm, Schneiders Forderung) oder verrieten die Absicht („harmloser“, „Nebensächliches“). Sie sind ersetzt.

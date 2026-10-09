@@ -1,0 +1,79 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "bereich": "wahl",
+  "hinweis": "Fassung 2",
+  "eintraege": [
+    {
+      "id": "gw_ahmet_1",
+      "a": "Mein Gewissen gewinnt, ausnahmsweise. Die Miete war erfunden, und ich habe von allen hundertfünfzig Euro kassiert, obwohl der Keller nichts gekostet hat.",
+      "b": "Mein Herz flüstert: Ich schweige. Ich will, dass vor dem Morgen niemand erfährt, dass die Miete erfunden war.",
+      "sabotage": "Mein Bauchgefühl sagt: Ich schweige. Lieber erzähle ich vom Programm des Adventsmarkts."
+    },
+    {
+      "id": "gw_ahmet_2",
+      "a": "Lejla und ich sind zusammen aufgewachsen. Das tut weh, aber ich erzähle dem Detektiv, was ich weiß.",
+      "b": "Lejla und ich halten zusammen, egal was kommt. Ich schweige, ihr zuliebe.",
+      "sabotage": "Ich halte zu Lejla, das steht fest. Lieber erzähle ich von etwas Nebensächlichem."
+    },
+    {
+      "id": "gw_ahmet_3",
+      "a": "Schluss mit dem Versteckspiel, mein Gewissen hat genug geschwitzt. Den Keller habe ich umsonst bekommen, und trotzdem habe ich hundertfünfzig Euro Miete kassiert.",
+      "b": "Ich halte dicht, versprochen. Mir ist wichtig, dass niemand vor dem Morgen erfährt, dass die Miete erfunden war.",
+      "sabotage": "Ich halte dicht, klar. Lieber erzähle ich von etwas ganz anderem."
+    },
+    {
+      "id": "gw_fatma_1",
+      "a": "Mein Gewissen klimpert lauter als jede alte Münze. Ich habe die Münzschatulle aus der Turmvitrine mitgenommen, um die Reliefs zu Hause abzuzeichnen.",
+      "b": "Ich will, dass die Schatulle zurückkommt, ohne dass es alle erfahren. Dafür halte ich den Mund.",
+      "sabotage": "Mein Herz flüstert: Ich halte den Mund. Lieber rede ich von meiner Abschlussarbeit über alte Münzbilder."
+    },
+    {
+      "id": "gw_fatma_2",
+      "a": "Emine ist seit der Schulzeit meine beste Freundin. Mein Gewissen will trotzdem reden, also sage ich dem Detektiv, was ich weiß.",
+      "b": "Emine und ich sind seit der Schulzeit beste Freundinnen. Ich halte zu ihr und sage nichts.",
+      "sabotage": "Ich halte zu Emine, ehrlich. Lieber erzähle ich von meinem Designstudium."
+    },
+    {
+      "id": "gw_fatma_3",
+      "a": "Ich gestehe es vor allen, auch wenn ich es lieber für mich behalten hätte. Aus der Turmvitrine habe ich die Münzschatulle mitgenommen, und am Montag wollte ich sie zurückbringen.",
+      "b": "Mir ist wichtig, dass die Schatulle zurückkommt, ohne dass es alle erfahren. Ich schweige, auch wenn es mir schwerfällt.",
+      "sabotage": "Ich will die Schatulle zurück, das ist mir wichtig. Lieber erzähle ich von der Geburtstagsfeier."
+    },
+    {
+      "id": "gw_olli_1",
+      "a": "Mein Gewissen hält das nicht länger aus. Ich habe die Bogentür beschädigt, und die Schramme wollte ich selbst verdecken.",
+      "b": "Den Türschaden kläre ich selbst mit Herrn Schneider. Ich ziehe die Gruppe da lieber nicht hinein.",
+      "sabotage": "Das kläre ich unter vier Augen. Lieber erzähle ich von der Geburtstagsfeier im Allgemeinen."
+    },
+    {
+      "id": "gw_olli_2",
+      "a": "Wojtek hat mir beim Tragen geholfen. Petzen ist nicht mein Hobby, aber ich erzähle dem Detektiv, was ich weiß.",
+      "b": "Wojtek hat mir beim Tragen geholfen und hält zu mir. Ich halte zu ihm und sage dem Detektiv nichts.",
+      "sabotage": "Mein Gefühl sagt: Ich halte zu Wojtek. Lieber rede ich über etwas ganz Nebensächliches."
+    },
+    {
+      "id": "gw_olli_3",
+      "a": "Ich rede Klartext, ganz ohne Ausreden. Die Bogentür habe ich beschädigt, und die Schramme wollte ich verdecken.",
+      "b": "Den Schaden kläre ich selbst mit Herrn Schneider. Die anderen lasse ich da lieber außen vor.",
+      "sabotage": "Das schaffe ich schon allein. Ich erzähle lieber, wie der Abend bisher lief."
+    },
+    {
+      "id": "gw_can_1",
+      "a": "Ich verrate meinen eigenen Streich. Ich habe mich mit der Leuchtmaske versteckt, um das Geburtstagskind zu erschrecken.",
+      "b": "Ich will nicht, dass mein Streich herauskommt. Sonst ist mein ganzer Spaß hin.",
+      "sabotage": "Mein Streich bleibt geheim, klar. Lieber erzähle ich von der Geburtstagstorte."
+    },
+    {
+      "id": "gw_can_2",
+      "a": "Meine Schwester Zeynep hat für mich Schmiere gestanden. Trotzdem erzähle ich das dem Detektiv, auch wenn es wehtut.",
+      "b": "Zeynep hat für mich Schmiere gestanden, und dafür halte ich sie raus. Dem Detektiv sage ich nichts.",
+      "sabotage": "Ich halte Zeynep raus, das ist klar. Lieber erzähle ich vom Buffet, da bin ich in meinem Element."
+    },
+    {
+      "id": "gw_can_3",
+      "a": "Mein Gewissen leuchtet heller als meine Maske. Ich wollte das Geburtstagskind erschrecken und habe mich mit der Leuchtmaske versteckt.",
+      "b": "Mir ist wichtig, dass mein Streich nicht herauskommt. Darum schweige ich weiter, so gut es geht.",
+      "sabotage": "Schweigen fällt mir schwer, wirklich. Lieber erzähle ich von etwas Nebensächlichem."
+    }
+  ]
+}

@@ -804,12 +804,12 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Aussprache:** Tuuba
 - **Alltag:** Ist Projektleiterin und plant sogar Geburtstage mit Ablaufplan.
 - **Stufe:** 5
-- **Farbcode:** #800020 (Bordeaux mit Gold)
+- **Farbcode:** #800020 (Karminrot mit Gold)
 - **Startraum:** Ostsaal (ost_saal)
 - **Ermittlungsort:** an der Wandtafel mit dem Ablaufplan (an_der_wandtafel)
 - **Optik:**
   - Silhouette: Organisiert, schwungvoll, geschäftsmäßig
-  - Kleidung: Bordeauxroter Blazer über weißem Shirt, schmale Metallbrille
+  - Kleidung: Karminroter Blazer über weißem Shirt, schmale Metallbrille
   - Merkmal: Notizbuch mit goldenem Einband und Fineliner
   - Ruhe-Animation: Blättert im Notizbuch, hakt Zeilen ab und schaut zur Wanduhr
 - **Look:**
@@ -884,9 +884,9 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
 | Schaft | immer: ja | Der Schaft ist leicht verbogen, die drei roten Kerzen liegen daneben am Boden. | null | alle: umgebung |
-| Griff | kerzenstaenderGegriffenVon: Ahmet (ahmet) | Im erstarrten Wachs am Griff klebt eine abgerissene Ecke braunes Umschlagpapier. Darauf steht „…keller“, in Ahmets Handschrift. | Der Griff ist mit rotem Wachs verschmiert. | Ahmet (ahmet): schluesselbeweis |
-| Griff | kerzenstaenderGegriffenVon: Can (can) | Um den Griff liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe, derselben Farbe wie auf der Maske. | Der Griff ist mit rotem Wachs verschmiert. | Can (can): schluesselbeweis |
-| Fuß | kerzenstaenderGegriffenVon: Olli (olli) | Im roten Wachs am Fuß, das inzwischen erstarrt ist, kleben feine Holzsplitter und weißer Kalk. | Am Fuß klebt rotes Wachs. | Olli (olli): schluesselbeweis |
+| Griff | kerzenstaenderGegriffenVon: Ahmet (ahmet) | Am Griff klebt im erstarrten Wachs eine abgerissene Ecke braunes Umschlagpapier. Darauf steht „…keller“, in Ahmets Handschrift. | Der Griff ist mit rotem Wachs verschmiert. | Ahmet (ahmet): schluesselbeweis |
+| Griff | kerzenstaenderGegriffenVon: Can (can) | Um den Griff liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe. Es ist dieselbe Farbe wie auf der Maske. | Der Griff ist mit rotem Wachs verschmiert. | Can (can): schluesselbeweis |
+| Fuß | kerzenstaenderGegriffenVon: Olli (olli) | Im erstarrten roten Wachs am Fuß kleben feine Holzsplitter und weißer Kalk. | Am Fuß klebt rotes Wachs. | Olli (olli): schluesselbeweis |
 
 ### Fatmas breiter Silberring (`silberring_fatma`)
 
@@ -896,7 +896,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Außenseite | kerzenstaenderGegriffenVon: Fatma (fatma) | Frischer goldgelber Messingabrieb in einer Kerbe des Rings. | Nur feine Kratzer von der Glasscheibe der Vitrine, kein Messing. | Fatma (fatma): schluesselbeweis |
+| Außenseite | kerzenstaenderGegriffenVon: Fatma (fatma) | In einer Kerbe des Rings steckt frischer, goldgelber Messingabrieb. | In einer Kerbe des Rings sind feine Kratzer von der Glasscheibe der Vitrine. | Fatma (fatma): schluesselbeweis |
 
 ### Ahmets schwarze Stoffjacke (`jacke_ahmet`)
 
@@ -907,7 +907,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
 | Brusttasche | immer: ja | Eine Liste mit allen Namen der Gäste, hinter jedem „150 € ✓“. | null | alle: nebendelikt |
-| Innentasche | bundEndetBei: jackenstaender | In der Innentasche steckt Herrn Schneiders großer Schlüsselbund. | Die Innentasche ist leer bis auf ein Kaugummipapier. | Ahmet (ahmet): fundort |
+| Innentasche | bundEndetBei: jackenstaender | In der Innentasche der Jacke steckt Herrn Schneiders großer Schlüsselbund. | In der Innentasche liegt ein Kaugummipapier. | Ahmet (ahmet): fundort |
 
 ### Umschlag mit dem Mietgeld (`umschlag_mietgeld`)
 
@@ -918,7 +918,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
 | Vorderseite | immer: ja | „Miete Schlosskeller“ in Ahmets Handschrift. Der Umschlag ist leer. Darauf angesprochen gibt Ahmet zu: Er hat von allen 150 € Miete eingesammelt, obwohl der Keller nichts kostet. | null | alle: nebendelikt |
-| Rückseite | kerzenstaenderGegriffenVon: Ahmet (ahmet) | Drei erstarrte rote Wachstropfen. Eine Ecke des Umschlags ist abgerissen. | Kein Wachs, nur ein Knick. | Ahmet (ahmet): zusatzindiz |
+| Rückseite | kerzenstaenderGegriffenVon: Ahmet (ahmet) | Auf dem Umschlag sind drei erstarrte rote Wachstropfen. Eine Ecke des Umschlags ist abgerissen. | Auf dem Umschlag ist ein Knick. | Ahmet (ahmet): zusatzindiz |
 
 ### Münzschatulle aus der Turmvitrine (`muenzschatulle`)
 
@@ -929,7 +929,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
 | Tasche | immer: ja | Die Schatulle aus der Vitrine liegt in Fatmas Tasche, zwischen Skizzenblock und Stiften. Darauf angesprochen gibt Fatma zu: Sie hat die Schatulle um 23:40 aus der Vitrine genommen. | null | alle: nebendelikt |
-| Deckel | kerzenstaenderGegriffenVon: Fatma (fatma) | Auf dem Deckel kleben rote Wachstropfen. | Der Deckel ist sauber. | Fatma (fatma): zusatzindiz |
+| Deckel | kerzenstaenderGegriffenVon: Fatma (fatma) | Auf dem Deckel der Münzschatulle kleben rote Wachstropfen. | Der Deckel sieht unauffällig aus. | Fatma (fatma): zusatzindiz |
 
 ### Leuchtmaske (`leuchtmaske`)
 
@@ -940,7 +940,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
 | Bauchtasche | immer: ja | Die Maske steckt zusammengefaltet in Cans Bauchtasche. Die Farbe ist noch leicht klebrig. Darauf angesprochen gibt Can zu: Er hat im dunklen Vorratsraum gewartet, um das Geburtstagskind zu erschrecken. | null | alle: nebendelikt |
-| Stirn der Maske | kerzenstaenderGegriffenVon: Can (can) | Rote Wachstropfen auf der Stirn der Maske. | Kein Wachs, nur Leuchtfarbe. | Can (can): zusatzindiz |
+| Stirn der Maske | kerzenstaenderGegriffenVon: Can (can) | Auf der Stirn der Maske kleben rote Wachstropfen. | Auf der Stirn der Maske ist grünlich-weiße Leuchtfarbe. | Can (can): zusatzindiz |
 
 ### Herrn Schneiders Schlüsselbund (`bund_schneider`)
 
@@ -962,7 +962,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| unter dem Eis | bundEndetBei: am_eiskuebel | Unter den Eiswürfeln liegt Herrn Schneiders Schlüsselbund. | Nur Eis und Schmelzwasser. | Olli (olli): fundort |
+| unter dem Eis | bundEndetBei: am_eiskuebel | Im Eiskübel liegt unter den Eiswürfeln Herrn Schneiders Schlüsselbund. | Im Eiskübel sind Eiswürfel und Schmelzwasser. | Olli (olli): fundort |
 
 ### Brottasche (`brottasche`)
 
@@ -972,7 +972,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| unter dem Brot | bundEndetBei: linkes_buffet_13 | Unter dem Brot liegt Herrn Schneiders Schlüsselbund. | Nur Brot und Krümel. | Fatma (fatma): fundort |
+| unter dem Brot | bundEndetBei: linkes_buffet_13 | In der Brottasche liegt unter dem Brot Herrn Schneiders Schlüsselbund. | In der Brottasche liegen Brot und Krümel. | Fatma (fatma): fundort |
 
 ### Helm der Ritterrüstung (`ruestungshelm`)
 
@@ -982,7 +982,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| im Helm | bundEndetBei: an_der_ruestung | Im Helm klemmt Herrn Schneiders Schlüsselbund. | Im Helm nur Staub und eine alte Spinnwebe. | Can (can): fundort |
+| im Helm | bundEndetBei: an_der_ruestung | Im Helm klemmt Herrn Schneiders Schlüsselbund. | Im Helm sind Staub und eine alte Spinnwebe. | Can (can): fundort |
 
 ### Quittungszettel „Miete: 0 Euro“ (`quittung_aylin`)
 
@@ -1034,7 +1034,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
 | Fingerkuppen | immer: ja | Braunes Möbelwachs und weißer Kalk an den Fingerkuppen. Darauf angesprochen gibt Olli zu: Er hat um 18:35 den Beschlag der Bogentür ausgerissen und die Schramme mit Wojteks Möbelwachs zugerieben. | null | alle: nebendelikt |
-| Handrücken | kerzenstaenderGegriffenVon: Olli (olli) | Auf dem Handrücken kleben frische rote Kerzenwachstropfen. | Kein rotes Wachs, nur Kalkstaub. | Olli (olli): zusatzindiz |
+| Handrücken | kerzenstaenderGegriffenVon: Olli (olli) | Auf dem Handrücken des Handschuhs kleben frische rote Kerzenwachstropfen. | Auf dem Handrücken des Handschuhs ist Kalkstaub. | Olli (olli): zusatzindiz |
 
 ### Dose mit braunem Möbelwachs (`moebelwachs_dose`)
 
