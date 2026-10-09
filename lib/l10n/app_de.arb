@@ -54,6 +54,8 @@
   "hub_cases_sub": "Solo mit KI-Partnern",
   "hub_online": "Online spielen",
   "hub_online_sub": "Mit bis zu fünf Freunden",
+  "hub_party": "Partyabend: Spuk im Schlosskeller",
+  "hub_party_sub": "Ein Krimi für den Geburtstag, für 4 bis 20 Personen und ein Geburtstagskind",
   "hub_online_rejoin": "Zurück zu Raum {code}",
   "@hub_online_rejoin": {
     "placeholders": {

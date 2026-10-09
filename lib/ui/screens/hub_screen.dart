@@ -173,6 +173,21 @@ class _HubScreenState extends State<HubScreen> {
                     ),
                   ),
                   const SizedBox(height: gap),
+                  // Partymodus (F4-ORCH-02): eigener Abend mit Kanon, Karte und Druck
+                  SizedBox(
+                    height: 112,
+                    child: stagger(
+                      BentoTile(
+                        onTap: () => context.go(Routes.party),
+                        child: _TileBody(
+                          icon: Icons.celebration_rounded,
+                          title: l.hub_party,
+                          subtitle: l.hub_party_sub,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: gap),
                   // Reihe 4: Sammlung + Profil
                   SizedBox(
                     height: 112,

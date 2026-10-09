@@ -77,6 +77,13 @@ class LDe extends L {
   String get hub_online_sub => 'Mit bis zu fünf Freunden';
 
   @override
+  String get hub_party => 'Partyabend: Spuk im Schlosskeller';
+
+  @override
+  String get hub_party_sub =>
+      'Ein Krimi für den Geburtstag, für 4 bis 20 Personen und ein Geburtstagskind';
+
+  @override
   String hub_online_rejoin(String code) {
     return 'Zurück zu Raum $code';
   }

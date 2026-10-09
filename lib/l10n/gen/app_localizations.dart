@@ -207,6 +207,18 @@ abstract class L {
   /// **'Mit bis zu fünf Freunden'**
   String get hub_online_sub;
 
+  /// No description provided for @hub_party.
+  ///
+  /// In de, this message translates to:
+  /// **'Partyabend: Spuk im Schlosskeller'**
+  String get hub_party;
+
+  /// No description provided for @hub_party_sub.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Krimi für den Geburtstag, für 4 bis 20 Personen und ein Geburtstagskind'**
+  String get hub_party_sub;
+
   /// No description provided for @hub_online_rejoin.
   ///
   /// In de, this message translates to:
