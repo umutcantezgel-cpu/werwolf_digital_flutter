@@ -2,5 +2,66 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "wahl",
   "hinweis": "Rundenwahl der Besetzungsplätze 9 bis 12.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "gw_murat_1",
+      "a": "Ich erzähle dem Detektiv, dass ich auf Herrn Schneiders reserviertem Platz geparkt habe. Dann kommen wir alle schneller weiter.",
+      "b": "Ich halte den Mund über den Lieferwagen. Ich will, dass er nicht abgeschleppt wird."
+    },
+    {
+      "id": "gw_murat_2",
+      "a": "Ich sage dem Detektiv, dass der Lieferwagen auf Herrn Schneiders reserviertem Platz stand. Damit fliegt meine Sache auf.",
+      "b": "Über den Platz sage ich nichts. Ich will nur, dass der Lieferwagen nicht abgeschleppt wird."
+    },
+    {
+      "id": "gw_murat_3",
+      "a": "Ich erzähle dem Detektiv, dass ich den Lieferwagen auf Herrn Schneiders reserviertem Platz abgestellt habe. Das hilft uns allen.",
+      "b": "Ich schweige über den Platz, damit der Lieferwagen nicht abgeschleppt wird. Das ist mir wichtig."
+    },
+    {
+      "id": "gw_zeynep_1",
+      "a": "Ich erzähle dem Detektiv, dass ich für Cans Streich Schmiere gestanden habe. Dann wird vieles klarer.",
+      "b": "Ich schütze Can und sage zu seinem Streich nichts. Das bleibt bei mir."
+    },
+    {
+      "id": "gw_zeynep_2",
+      "a": "Ich erzähle dem Detektiv alles, was ich über Can weiß. Dann gerät mein Bruder ins Licht.",
+      "b": "Can ist mein Bruder, und ich halte ihn raus. Dem Detektiv sage ich dazu nichts."
+    },
+    {
+      "id": "gw_zeynep_3",
+      "a": "Ich gebe zu, dass ich am Bogen zum Durchgang Schmiere gestanden habe. Ich fühle mich schuldig, weil alles aus dem Ruder lief.",
+      "b": "Ich will Can schützen. Deshalb sage ich kein Wort über Cans Streich."
+    },
+    {
+      "id": "gw_baran_1",
+      "a": "Ich erzähle dem Detektiv, dass ich meine Box behalten will. Und dass ich laute Musik für die Überraschung laufen ließ.",
+      "b": "Ich sage nichts über die Musik. Dann darf ich meine Box behalten."
+    },
+    {
+      "id": "gw_baran_2",
+      "a": "Ich sage dem Detektiv, dass Herr Schneider gedroht hat, meine Box einzukassieren. Dann rede ich auch über die Musik.",
+      "b": "Über die Musik schweige ich. Ich will nicht, dass meine Box einkassiert wird."
+    },
+    {
+      "id": "gw_baran_3",
+      "a": "Ich gebe zu, dass meine Box auf dem Spiel stand. Um fünf vor zwölf habe ich dem Geburtstagskind die großen Kopfhörer aufgesetzt.",
+      "b": "Ich halte den Mund über die Musik und die Kopfhörer. So bleibt meine Box bei mir."
+    },
+    {
+      "id": "gw_meryem_1",
+      "a": "Ich erzähle dem Detektiv, dass ich den Kamin angefeuert habe, ohne die Kaminklappe zu öffnen. Und dass ich mich bei Herrn Schneider für den Ruß entschuldigen will.",
+      "b": "Ich schweige über den Kamin. Dann kann ich mich in Ruhe entschuldigen."
+    },
+    {
+      "id": "gw_meryem_2",
+      "a": "Ich sage dem Detektiv, dass ich den Qualm im Kaminsaal verursacht habe. Und ich gebe zu, dass ich mich entschuldigen will.",
+      "b": "Ich will nicht, dass Herr Schneider hört, wer den Kamin angefeuert hat. Sonst schimpft er nur weiter."
+    },
+    {
+      "id": "gw_meryem_3",
+      "a": "Ich sage dem Detektiv, dass die Klappe zu blieb, als ich den Kamin anfeuerte. Dabei verrate ich, dass ich den Kamin wieder zum Ziehen bringen will.",
+      "b": "Erst bringe ich den Kamin wieder zum Ziehen. Über das Feuer sage ich bis dahin nichts."
+    }
+  ]
 }

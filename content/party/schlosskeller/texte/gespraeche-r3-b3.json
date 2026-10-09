@@ -2,5 +2,148 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "gespraech",
   "hinweis": "Pflichtgespräche Runde 3, Besetzungsplätze 9 bis 12.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "g_murat_3_1",
+      "rolle": "murat",
+      "runde": 3,
+      "nr": 1,
+      "partner": "leyla",
+      "thema": "Halten wir zusammen?",
+      "ziel": "Ich will das Gegenüber auf meine Seite holen und hören, wie die Person den Abend sieht.",
+      "preisgabe": [],
+      "text": "Wir zwei sollten zusammenhalten, bis der Abend vorbei ist. Sonst wird's für uns beide ungemütlich."
+    },
+    {
+      "id": "g_murat_3_2",
+      "rolle": "murat",
+      "runde": 3,
+      "nr": 2,
+      "partner": "can",
+      "thema": "Wer war das im Dunkeln?",
+      "ziel": "Ich will Can zu einer klaren Antwort drängen, bevor der Abend zu Ende geht.",
+      "preisgabe": [
+        "beobachtung:b_marek_gesicht"
+      ],
+      "text": "Can, im Dunkeln ist ein leuchtendes Gespenstergesicht an mir vorbeigesaust, durch den Durchgang Richtung Kaminsaal. Ich will jetzt wissen, wer das war."
+    },
+    {
+      "id": "g_murat_3_3",
+      "rolle": "murat",
+      "runde": 3,
+      "nr": 3,
+      "partner": "enes",
+      "thema": "Klartext zwischen uns?",
+      "ziel": "Ich will dem Gegenüber zeigen, dass ich offen bin, und jemanden auf meine Seite ziehen.",
+      "preisgabe": [],
+      "text": "Ich will heute Abend Klartext reden. Frag mich ruhig."
+    },
+    {
+      "id": "g_zeynep_3_1",
+      "rolle": "zeynep",
+      "runde": 3,
+      "nr": 1,
+      "partner": "can",
+      "thema": "Sag mir die Wahrheit",
+      "ziel": "Ich will, dass Can mir ehrlich sagt, was er im Dunkeln gemacht hat, bevor es jemand anders herausfindet.",
+      "preisgabe": [],
+      "text": "Can, ich will dir helfen. Dafür musst du mir klar sagen, wo du beim Knall warst."
+    },
+    {
+      "id": "g_zeynep_3_2",
+      "rolle": "zeynep",
+      "runde": 3,
+      "nr": 2,
+      "partner": "tim",
+      "thema": "Wer will ehrlich sein?",
+      "ziel": "Ich will das Gegenüber auf meine Seite holen und hören, was im Dunkeln passiert ist.",
+      "preisgabe": [],
+      "text": "Lass uns ehrlich zueinander sein. Was hast du im Dunkeln mitgekriegt?"
+    },
+    {
+      "id": "g_zeynep_3_3",
+      "rolle": "zeynep",
+      "runde": 3,
+      "nr": 3,
+      "partner": "aylin",
+      "thema": "Was ich auch gesehen hab",
+      "ziel": "Ich will dem Gegenüber ehrlich sagen, was ich im Dunkeln gesehen habe, und auf Klarheit drängen.",
+      "preisgabe": [
+        "beobachtung:b_zeynep_gesicht"
+      ],
+      "text": "Ich hab im Dunkeln auch was gesehen, und ich sag's dir ehrlich. Ein leuchtendes Gesicht huschte aus dem Durchgang, lief an mir vorbei und dann in den Kaminsaal."
+    },
+    {
+      "id": "g_baran_3_1",
+      "rolle": "baran",
+      "runde": 3,
+      "nr": 1,
+      "partner": "ahmet",
+      "thema": "Was war beim Knall los?",
+      "ziel": "Ich will von Ahmet hören, was an der Theke passiert ist, und ihn zur Klarheit bringen.",
+      "preisgabe": [],
+      "text": "Ahmet, jetzt brauch ich mal ein paar ehrliche Worte. Was war bei dir los, als das Licht ausging?"
+    },
+    {
+      "id": "g_baran_3_2",
+      "rolle": "baran",
+      "runde": 3,
+      "nr": 2,
+      "partner": "olli",
+      "thema": "Olli und der Knall",
+      "ziel": "Ich will von Olli wissen, wo er beim Knall war, und ihn auf meine Seite holen.",
+      "preisgabe": [],
+      "text": "Olli, wenn du mir hilfst, helf ich dir auch. Was hast du beim Knall mitbekommen?"
+    },
+    {
+      "id": "g_baran_3_3",
+      "rolle": "baran",
+      "runde": 3,
+      "nr": 3,
+      "partner": "meryem",
+      "thema": "Was ich gehört hab",
+      "ziel": "Ich will dem Gegenüber sagen, was ich gehört habe, und auf Klarheit drängen.",
+      "preisgabe": [
+        "beobachtung:b_baran_rufe"
+      ],
+      "text": "Ich sag dir, was ich gehört hab. Aus der Richtung der Theke kam erst „Hab ich dich!“, dann „Stehen bleiben!“, und dann das Scheppern. Jetzt bist du dran."
+    },
+    {
+      "id": "g_meryem_3_1",
+      "rolle": "meryem",
+      "runde": 3,
+      "nr": 1,
+      "partner": "ahmet",
+      "thema": "Was war im Ascheneimer?",
+      "ziel": "Ich will Ahmet zu einer klaren Antwort bringen, was er neben dem Kamin in den Ascheneimer geworfen hat.",
+      "preisgabe": [
+        "beobachtung:b_hana_umschlag"
+      ],
+      "text": "Ahmet, kurz nach zwölf hast du was Raschelndes in den Ascheneimer geworfen. Was war das? Gib mir eine klare Antwort."
+    },
+    {
+      "id": "g_meryem_3_2",
+      "rolle": "meryem",
+      "runde": 3,
+      "nr": 2,
+      "partner": "emine",
+      "thema": "Der Ruß am Kamin",
+      "ziel": "Ich will herausfinden, wie Herr Schneider gerade drauf ist, und mich bei ihm für den Ruß entschuldigen.",
+      "preisgabe": [],
+      "text": "Wegen dem Ruß tut es mir leid. Lass uns jetzt zusammen rausfinden, wie es Herrn Schneider geht."
+    },
+    {
+      "id": "g_meryem_3_3",
+      "rolle": "meryem",
+      "runde": 3,
+      "nr": 3,
+      "partner": "serkan",
+      "thema": "Was ich gerochen hab",
+      "ziel": "Ich will dem Gegenüber sagen, was ich nach dem Scheppern gerochen habe.",
+      "preisgabe": [
+        "beobachtung:b_hana_wachs"
+      ],
+      "text": "Nach dem Scheppern ist mir frisch erloschenes Kerzenwachs in die Nase gestiegen. Der Luftzug kam aus Richtung Theke und trug den Geruch zu mir. Du bist jetzt an der Reihe."
+    }
+  ]
 }

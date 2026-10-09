@@ -156,9 +156,10 @@ void main() {
       expect(_regelnVon('Prost!'), ['Alkohol']);
     });
 
-    test('Ausnahmen: alkoholfrei, weinrot, Bargeld, weinen, Baran', () {
+    test('Ausnahmen: alkoholfrei, Bargeld, weinen, Baran; Weinrot und Bordeaux sind Alkohol (E-028)', () {
       expect(_regelnVon('Apfelpunsch, alkoholfrei, ist der Renner.'), isEmpty);
-      expect(_regelnVon('Am Ärmel des weinroten Mantels klebt Farbe.'), isEmpty);
+      expect(_regelnVon('Am Ärmel des weinroten Mantels klebt Farbe.'), ['Alkohol']);
+      expect(_regelnVon('Sie trägt ein Jackett in Bordeaux.'), ['Alkohol']);
       expect(_regelnVon('Herr Schneider will 2.000 € Bargeld.'), isEmpty);
       expect(_regelnVon('Sie fängt an zu weinen.'), isEmpty);
       expect(_regelnVon('Baran steht am Fenster.'), isEmpty);
@@ -291,7 +292,7 @@ void main() {
       expect(verboten['rauchen'] as List, containsAll(['e-zigarette', 'zigarette', 'dampfen', 'shisha', 'rauch', 'qualm']));
       expect(verboten['drogen'] as List, containsAll(['rauschmittel', 'joint', 'kiffen', 'drogen']));
       final ausnahmen = [for (final a in _regeln()['ausnahmen'] as List) a as String];
-      expect(ausnahmen, containsAll(['weinrot', 'bargeld', 'alkoholfrei', 'kater:katze', 'rauch:kamin', 'qualm:kamin']));
+      expect(ausnahmen, containsAll(['bargeld', 'alkoholfrei', 'kater:katze', 'rauch:kamin', 'qualm:kamin']));
     });
   });
 }

@@ -2,5 +2,150 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "gespraech",
   "hinweis": "Pflichtgespräche Runde 3, Besetzungsplätze 13 bis 16.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "g_serkan_3_1",
+      "rolle": "serkan",
+      "runde": 3,
+      "nr": 1,
+      "partner": "selin",
+      "thema": "Alle heil heim",
+      "ziel": "Ich will einen Verbündeten gewinnen, damit alle so schnell wie möglich sicher nach Hause kommen.",
+      "preisgabe": [],
+      "text": "Ich fahr heute alle sicher nach Hause. Lass uns zusammen dafür sorgen, dass alle heil ankommen."
+    },
+    {
+      "id": "g_serkan_3_2",
+      "rolle": "serkan",
+      "runde": 3,
+      "nr": 2,
+      "partner": "johanna",
+      "thema": "Das Außentor, nochmal",
+      "ziel": "Ich will, dass klar wird, dass niemand durch das Außentor hinausgekommen ist.",
+      "preisgabe": [
+        "beobachtung:b_serkan_tor"
+      ],
+      "text": "Ich will jetzt Klarheit. Von kurz vor zwölf bis nach zwölf stand ich am Außentor. Das Außentor war verschlossen, und hinaus kam niemand."
+    },
+    {
+      "id": "g_serkan_3_3",
+      "rolle": "serkan",
+      "runde": 3,
+      "nr": 3,
+      "partner": "tim",
+      "thema": "Klare Worte, bitte",
+      "ziel": "Ich will einen Verbündeten gewinnen und hören, was im Dunkeln passiert ist.",
+      "preisgabe": [],
+      "text": "Wir müssen alle heil heimbringen, da hilft nur Klartext. Sag mir offen, was du weißt."
+    },
+    {
+      "id": "g_aylin_3_1",
+      "rolle": "aylin",
+      "runde": 3,
+      "nr": 1,
+      "partner": "dilara",
+      "thema": "Hilfe beim Geld",
+      "ziel": "Ich will mit Ahmet privat klären, wie ich mein Geld zurückbekomme, ohne ihn vor allen bloßzustellen.",
+      "preisgabe": [],
+      "text": "Kannst du mir helfen? Mit Ahmet würde ich gern kurz unter vier Augen reden. Mein Geld will ich zurück, ohne Ärger vor allen."
+    },
+    {
+      "id": "g_aylin_3_2",
+      "rolle": "aylin",
+      "runde": 3,
+      "nr": 2,
+      "partner": "selin",
+      "thema": "Die Miete",
+      "ziel": "Ich will, dass alle klar sehen, was auf dem Zettel steht.",
+      "preisgabe": [
+        "beobachtung:b_aylin_quittung"
+      ],
+      "text": "Schau mal, das hier ist ein Quittungszettel von Herrn Schneider. Darauf steht schwarz auf weiß: Miete, null Euro. Erklär mir das."
+    },
+    {
+      "id": "g_aylin_3_3",
+      "rolle": "aylin",
+      "runde": 3,
+      "nr": 3,
+      "partner": "leyla",
+      "thema": "Ohne Streit",
+      "ziel": "Ich will jemanden finden, der mir hilft, das Geld ohne Streit zu klären.",
+      "preisgabe": [],
+      "text": "Du, ich brauch jemanden auf meiner Seite. Das Geld will ich klären, aber ohne Streit."
+    },
+    {
+      "id": "g_kaan_3_1",
+      "rolle": "kaan",
+      "runde": 3,
+      "nr": 1,
+      "partner": "olli",
+      "thema": "Unter Freunden",
+      "ziel": "Ich will Olli dazu bringen, selbst zu reden, bevor ich etwas sagen muss.",
+      "preisgabe": [],
+      "text": "Olli, du bist mein Kumpel. Ich halt zu dir. Aber ehrlich sollten wir alle sein."
+    },
+    {
+      "id": "g_kaan_3_2",
+      "rolle": "kaan",
+      "runde": 3,
+      "nr": 2,
+      "partner": "dilara",
+      "thema": "Was ich gehört habe",
+      "ziel": "Ich will ehrlich sagen, was ich gehört habe, und sonst nichts.",
+      "preisgabe": [
+        "beobachtung:b_wojtek_olli_satz"
+      ],
+      "text": "Ich sag dir, was ich gehört hab. Um acht vor zwölf hat Olli gesagt, dass er mir Eis holt. Danach wollte er mit Herrn Schneider reden."
+    },
+    {
+      "id": "g_kaan_3_3",
+      "rolle": "kaan",
+      "runde": 3,
+      "nr": 3,
+      "partner": "can",
+      "thema": "Wo warst du im Dunkeln?",
+      "ziel": "Ich will Can dazu bringen, dass er erzählt, wo er im Dunkeln war.",
+      "preisgabe": [
+        "beobachtung:b_wojtek_vorbei"
+      ],
+      "text": "Can, ich erzähl dir, was ich im Dunkeln erlebt hab. Da hat sich jemand an mir vorbeigequetscht, durch die Bogentür rein in den Turm. Sag du mir jetzt auch die Wahrheit."
+    },
+    {
+      "id": "g_dilara_3_1",
+      "rolle": "dilara",
+      "runde": 3,
+      "nr": 1,
+      "partner": "fatma",
+      "thema": "Was ich gesehen habe",
+      "ziel": "Ich will Fatma klarmachen, dass ich ihr nichts unterstelle und nur sage, was ich gesehen hab.",
+      "preisgabe": [
+        "beobachtung:b_azra_tasche"
+      ],
+      "text": "Fatma, ich will dir nichts anhängen. Ich hab gesehen, dass deine Tasche ausgebeult war. Sag mir ehrlich, was das war."
+    },
+    {
+      "id": "g_dilara_3_2",
+      "rolle": "dilara",
+      "runde": 3,
+      "nr": 2,
+      "partner": "enes",
+      "thema": "Wo ich beim Knall war",
+      "ziel": "Ich will meinen Platz beim Knall sagen, ohne dass es nach mehr klingt.",
+      "preisgabe": [
+        "beobachtung:b_azra_versteck"
+      ],
+      "text": "Ich sag dir offen, wo ich beim Knall war. Am rechten Buffettisch hab ich mich geduckt. Dort blieb ich, bis das Licht zurückkam."
+    },
+    {
+      "id": "g_dilara_3_3",
+      "rolle": "dilara",
+      "runde": 3,
+      "nr": 3,
+      "partner": "emine",
+      "thema": "Ehrlich zueinander sein",
+      "ziel": "Ich will, dass niemand denkt, ich hätte Fatma zu etwas gebracht.",
+      "preisgabe": [],
+      "text": "Ich will nicht, dass man mir etwas Falsches unterstellt. Lass uns ehrlich zueinander sein. Wo warst du beim Knall?"
+    }
+  ]
 }

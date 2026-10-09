@@ -2,5 +2,144 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "gespraech",
   "hinweis": "Pflichtgespräche Runde 3, Besetzungsplätze 5 bis 8.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "g_leyla_3_1",
+      "rolle": "leyla",
+      "runde": 3,
+      "nr": 1,
+      "partner": "ahmet",
+      "thema": "Wie es jetzt weitergeht",
+      "ziel": "Ich will, dass Ahmet selbst redet, und ihn bis dahin schützen.",
+      "preisgabe": [],
+      "text": "Ahmet, du musst nicht alles allein tragen. Red selbst, bevor ich’s tun muss."
+    },
+    {
+      "id": "g_leyla_3_2",
+      "rolle": "leyla",
+      "runde": 3,
+      "nr": 2,
+      "partner": "baran",
+      "thema": "Was an der Theke los war",
+      "ziel": "Ich will wissen, was man im Dunkeln von der Theke aus mitbekommen hat, ohne Ahmet zu nennen.",
+      "preisgabe": [],
+      "text": "Was hast du im Dunkeln von der Theke her mitbekommen? Ich will’s jetzt klar hören."
+    },
+    {
+      "id": "g_leyla_3_3",
+      "rolle": "leyla",
+      "runde": 3,
+      "nr": 3,
+      "partner": "detective",
+      "thema": "Wer war an der Theke?",
+      "ziel": "Ich will dem Geburtstagskind sagen, was ich gesehen habe, und Ahmet so gut es geht schützen.",
+      "preisgabe": [
+        "beobachtung:b_lejla_ahmet_theke"
+      ],
+      "text": "Du fragst nach der Theke? Um drei vor zwölf hab ich Ahmet gesehen. Mit einem dicken Umschlag ist er hinter die Theke geschlüpft. Es fällt mir nicht leicht."
+    },
+    {
+      "id": "g_emine_3_1",
+      "rolle": "emine",
+      "runde": 3,
+      "nr": 1,
+      "partner": "fatma",
+      "thema": "Wir zwei",
+      "ziel": "Ich will Fatma zum Reden bringen und ihr zeigen, dass sie sich auf mich verlassen kann.",
+      "preisgabe": [],
+      "text": "Fatma, du bist meine beste Freundin. Sag mir einfach, was los ist."
+    },
+    {
+      "id": "g_emine_3_2",
+      "rolle": "emine",
+      "runde": 3,
+      "nr": 2,
+      "partner": "meryem",
+      "thema": "Wer hat heute was gesehen?",
+      "ziel": "Ich will wissen, ob der andere im Dunkeln etwas Ungewöhnliches gesehen hat, ohne Fatma ins Spiel zu bringen.",
+      "preisgabe": [],
+      "text": "Hast du heute Abend irgendwas Komisches bemerkt? Sag’s mir endlich."
+    },
+    {
+      "id": "g_emine_3_3",
+      "rolle": "emine",
+      "runde": 3,
+      "nr": 3,
+      "partner": "detective",
+      "thema": "Wo ich beim Knall war",
+      "ziel": "Ich will dem Geburtstagskind sagen, wo ich beim Knall war, und sonst nichts Neues.",
+      "preisgabe": [
+        "beobachtung:b_emine_versteck"
+      ],
+      "text": "Du fragst, wo ich beim Knall war? Ich war ganz schön erschrocken und hab mich hinter den linken Buffettisch geduckt. Bis das Licht anging, bin ich dort geblieben."
+    },
+    {
+      "id": "g_tim_3_1",
+      "rolle": "tim",
+      "runde": 3,
+      "nr": 1,
+      "partner": "can",
+      "thema": "Was im Dunkeln passiert ist",
+      "ziel": "Ich will das Gespräch auf Can lenken, damit niemand genauer auf mich schaut.",
+      "preisgabe": [],
+      "text": "Can, was hast du im Dunkeln eigentlich gemacht?"
+    },
+    {
+      "id": "g_tim_3_2",
+      "rolle": "tim",
+      "runde": 3,
+      "nr": 2,
+      "partner": "zeynep",
+      "thema": "Seltsames im Dunkeln",
+      "ziel": "Ich will wissen, ob jemand im Dunkeln Seltsames gesehen hat, und selbst unauffällig bleiben.",
+      "preisgabe": [],
+      "text": "Hast du im Dunkeln was Seltsames gesehen? Dann rück damit raus."
+    },
+    {
+      "id": "g_tim_3_3",
+      "rolle": "tim",
+      "runde": 3,
+      "nr": 3,
+      "partner": "detective",
+      "thema": "Wo ich im Dunkeln war",
+      "ziel": "Ich will ehrlich sagen, was ich gesehen habe, ohne den Abend an mich zu ziehen.",
+      "preisgabe": [
+        "beobachtung:b_tim_gesicht"
+      ],
+      "text": "Du willst wissen, wo ich im Dunkeln war? Ich war am Sicherungskasten. Da huschte ein leuchtendes Gesicht an mir vorbei."
+    },
+    {
+      "id": "g_johanna_3_1",
+      "rolle": "johanna",
+      "runde": 3,
+      "nr": 1,
+      "partner": "ahmet",
+      "thema": "Was jetzt kommt",
+      "ziel": "Ich will Ahmet zeigen, dass ich ehrlich bleibe, ohne ihm etwas vorwegzunehmen.",
+      "preisgabe": [],
+      "text": "Ahmet, du weißt, dass ich ehrlich bin. Jetzt bist du dran."
+    },
+    {
+      "id": "g_johanna_3_2",
+      "rolle": "johanna",
+      "runde": 3,
+      "nr": 2,
+      "partner": "hakan",
+      "thema": "Die Bilder vom Abend",
+      "ziel": "Ich will ehrlich antworten und trotzdem nicht alles verraten.",
+      "preisgabe": [],
+      "text": "Zu den Fotos sag ich dir die Wahrheit, ich lüg nicht. Sag du auch, was du weißt."
+    },
+    {
+      "id": "g_johanna_3_3",
+      "rolle": "johanna",
+      "runde": 3,
+      "nr": 3,
+      "partner": "olli",
+      "thema": "Herr Schneider",
+      "ziel": "Ich will wissen, ob Olli schon mit Herrn Schneider geredet hat, ohne etwas über Ahmet zu sagen.",
+      "preisgabe": [],
+      "text": "Olli, wir zwei sollten ehrlich miteinander sein. Hast du inzwischen mit Herrn Schneider geredet?"
+    }
+  ]
 }

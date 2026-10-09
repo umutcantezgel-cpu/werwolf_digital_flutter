@@ -2,5 +2,144 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "gespraech",
   "hinweis": "Pflichtgespräche Runde 2, Besetzungsplätze 5 bis 8.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "g_leyla_2_1",
+      "rolle": "leyla",
+      "runde": 2,
+      "nr": 1,
+      "partner": "enes",
+      "thema": "Wer stand um drei vor zwölf an der Theke?",
+      "ziel": "Ich will wissen, was der andere noch weiß, und Ahmet die Chance lassen, selbst zu reden.",
+      "preisgabe": [
+        "beobachtung:b_lejla_ahmet_theke"
+      ],
+      "text": "Ahmet ist um drei vor zwölf hinter die Theke geschlüpft. Er hatte einen dicken Umschlag dabei. Hast du das auch gesehen?"
+    },
+    {
+      "id": "g_leyla_2_2",
+      "rolle": "leyla",
+      "runde": 2,
+      "nr": 2,
+      "partner": "tim",
+      "thema": "Was hast du im Dunkeln gemacht?",
+      "ziel": "Ich will wissen, was der andere im Dunkeln gemacht hat, ohne Ahmet ins Gespräch zu bringen.",
+      "preisgabe": [],
+      "text": "Was hast du gemacht, als das Licht weg war? Sag’s ruhig ehrlich."
+    },
+    {
+      "id": "g_leyla_2_3",
+      "rolle": "leyla",
+      "runde": 2,
+      "nr": 3,
+      "partner": "johanna",
+      "thema": "Ist dir was aufgefallen?",
+      "ziel": "Ich will wissen, ob jemand an der Theke etwas bemerkt hat, ohne Ahmet in die Enge zu treiben.",
+      "preisgabe": [],
+      "text": "Ist dir um drei vor zwölf etwas aufgefallen? Erzähl ruhig, was du weißt."
+    },
+    {
+      "id": "g_emine_2_1",
+      "rolle": "emine",
+      "runde": 2,
+      "nr": 1,
+      "partner": "dilara",
+      "thema": "Wer war beim Knall am Buffet?",
+      "ziel": "Ich will prüfen, ob der andere am Buffet mehr mitbekommen hat, ohne selbst mehr zu verraten.",
+      "preisgabe": [
+        "beobachtung:b_emine_versteck"
+      ],
+      "text": "Beim Knall hab ich mich hinter dem linken Buffettisch geduckt. Dort blieb ich, bis das Licht anging. Hast du da was mitbekommen?"
+    },
+    {
+      "id": "g_emine_2_2",
+      "rolle": "emine",
+      "runde": 2,
+      "nr": 2,
+      "partner": "fatma",
+      "thema": "Wo warst du kurz vor Mitternacht?",
+      "ziel": "Ich will Fatma Gelegenheit geben, selbst etwas zu sagen, ohne sie zu verraten.",
+      "preisgabe": [],
+      "text": "Fatma, wo warst du kurz vor Mitternacht? Du kannst mir alles sagen."
+    },
+    {
+      "id": "g_emine_2_3",
+      "rolle": "emine",
+      "runde": 2,
+      "nr": 3,
+      "partner": "leyla",
+      "thema": "Die Theke vor Mitternacht",
+      "ziel": "Ich will wissen, ob der andere etwas über die Theke weiß, ohne Fatma ins Spiel zu bringen.",
+      "preisgabe": [],
+      "text": "Wer war kurz vor Mitternacht an der Theke? Ich glaub, da stimmt was nicht."
+    },
+    {
+      "id": "g_tim_2_1",
+      "rolle": "tim",
+      "runde": 2,
+      "nr": 1,
+      "partner": "murat",
+      "thema": "Wo ist das Gesicht hingelaufen?",
+      "ziel": "Ich will herausfinden, wohin das Gesicht lief, und die Angaben der anderen vergleichen.",
+      "preisgabe": [
+        "beobachtung:b_tim_gesicht"
+      ],
+      "text": "Am Sicherungskasten sah ich ein leuchtendes Gesicht. Es huschte im Dunkeln an mir vorbei. Wohin ist es gelaufen?"
+    },
+    {
+      "id": "g_tim_2_2",
+      "rolle": "tim",
+      "runde": 2,
+      "nr": 2,
+      "partner": "olli",
+      "thema": "Wo warst du, als das Licht ausging?",
+      "ziel": "Ich will wissen, wo Olli war, ohne dass es um den Ausfall geht.",
+      "preisgabe": [],
+      "text": "Olli, wo warst du, als das Licht ausging? Hat dich jemand gesehen?"
+    },
+    {
+      "id": "g_tim_2_3",
+      "rolle": "tim",
+      "runde": 2,
+      "nr": 3,
+      "partner": "can",
+      "thema": "Wo warst du im Dunkeln?",
+      "ziel": "Ich will wissen, wo Can im Dunkeln war, ohne selbst ins Gespräch zu kommen.",
+      "preisgabe": [],
+      "text": "Can, wo warst du eigentlich, als alles dunkel war? Wer war bei dir?"
+    },
+    {
+      "id": "g_johanna_2_1",
+      "rolle": "johanna",
+      "runde": 2,
+      "nr": 1,
+      "partner": "ahmet",
+      "thema": "Warum so still?",
+      "ziel": "Ich will Ahmet die Chance geben, selbst zu erzählen, ohne etwas Falsches zu sagen.",
+      "preisgabe": [],
+      "text": "Ahmet, ich will dir nichts Böses. Warum sagst du so wenig?"
+    },
+    {
+      "id": "g_johanna_2_2",
+      "rolle": "johanna",
+      "runde": 2,
+      "nr": 2,
+      "partner": "aylin",
+      "thema": "Ist das wirklich so?",
+      "ziel": "Ich will wissen, ob der andere ehrlich ist, ohne selbst etwas über den Abend zu verraten.",
+      "preisgabe": [],
+      "text": "Stimmt das, was du bisher gesagt hast? Ich glaub dir nicht ganz."
+    },
+    {
+      "id": "g_johanna_2_3",
+      "rolle": "johanna",
+      "runde": 2,
+      "nr": 3,
+      "partner": "hakan",
+      "thema": "Wie ist Herr Schneider so?",
+      "ziel": "Ich will wissen, wie Herr Schneider wirklich tickt, ohne Ahmet ins Spiel zu bringen.",
+      "preisgabe": [],
+      "text": "Wie ist Herr Schneider eigentlich so drauf? Was glaubst du?"
+    }
+  ]
 }

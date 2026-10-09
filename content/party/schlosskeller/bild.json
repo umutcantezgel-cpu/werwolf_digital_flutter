@@ -1,0 +1,286 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "hinweis": "Englische Bildbeschreibungen für die Bildprompts (TON-LEITFADEN §9). Nur Kleidung, Farbe, Merkmal, Haltung, Alter, Haar; keine Herkunfts- oder Ethnienwörter.",
+  "stil": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon",
+  "negativ": "no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries",
+  "personen": [
+    {
+      "id": "detective",
+      "alter": "late twenties",
+      "kleidung": "trench coat over everyday clothes, black jeans, dark sneakers",
+      "merkmal": "striking glasses, an unlit bubble pipe blowing soap bubbles, phone in hand with a flashlight beam",
+      "haltung": "attentive posture, head tilted slightly to one side while listening",
+      "haar": "dark brown hair",
+      "kopf": "brown checked detective hat"
+    },
+    {
+      "id": "schneider",
+      "alter": "early sixties",
+      "kleidung": "waxed jacket over coarse grey roll-neck sweater, sturdy work boots",
+      "merkmal": "glasses, large jangling bunch of keys on right belt loop, clipboard with receipt pad",
+      "haltung": "broad, slightly stooped, tapping his wristwatch",
+      "haar": "thin grey hair with a bald patch",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "ahmet",
+      "alter": "late twenties",
+      "kleidung": "knit sweater over white T-shirt, dark jeans, white sneakers",
+      "merkmal": "glasses, short beard, blue key strap from trouser pocket, phone in hand",
+      "haltung": "upright, sporty posture, twirling the key strap around one finger, stroking his beard",
+      "haar": "black hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "fatma",
+      "alter": "mid-twenties",
+      "kleidung": "knee-length wool coat, dark turtleneck, black fabric trousers",
+      "merkmal": "heavy leather shoulder bag, wide silver ring on right hand",
+      "haltung": "slim, calm posture, fiddling with the zipper of her bag, smiling",
+      "haar": "dark brown hair",
+      "kopf": "dark headscarf"
+    },
+    {
+      "id": "olli",
+      "alter": "late twenties",
+      "kleidung": "grey hooded sweatshirt, down vest, khaki trousers with side pockets",
+      "merkmal": "broad, strong shoulders",
+      "haltung": "slightly hunched, rubbing the back of his neck, shifting his weight",
+      "haar": "medium brown hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "can",
+      "alter": "mid-twenties",
+      "kleidung": "wide hooded sweatshirt, wide jeans, colourful sneakers",
+      "merkmal": "striking hood, left hand deep in the front pouch of the sweatshirt",
+      "haltung": "slim, springy walk, tugging at the hood strings, rocking on his toes",
+      "haar": "black hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "leyla",
+      "alter": "mid-twenties",
+      "kleidung": "bib apron over beige knit sweater, dark leggings",
+      "merkmal": "billing notepad in apron pocket, wooden spoon in hand",
+      "haltung": "small, neat posture, straightening bowls, stirring a warming container",
+      "haar": "dark brown hair in a tight bun",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "emine",
+      "alter": "mid-twenties",
+      "kleidung": "quilted coat, dark fabric trousers, black boots",
+      "merkmal": "silver vacuum flask held in both hands",
+      "haltung": "calm, upright posture, turning the lid of the flask",
+      "haar": "dark brown hair",
+      "kopf": "beige headscarf"
+    },
+    {
+      "id": "tim",
+      "alter": "late twenties",
+      "kleidung": "{farbe} and black checked flannel shirt over dark shirt, sturdy work trousers",
+      "merkmal": "voltage tester screwdriver behind his ear, small headlamp around his neck",
+      "haltung": "sturdy, medium height, tapping cable ducts and shaking his head",
+      "haar": "curly dark brown hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "johanna",
+      "alter": "mid-twenties",
+      "kleidung": "cardigan over white top, black fabric trousers",
+      "merkmal": "phone on a small phone holder with clip-on light",
+      "haltung": "slim, upright, quick movements, lifting her phone",
+      "haar": "blonde hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "murat",
+      "alter": "late twenties",
+      "kleidung": "leather jacket, white roll-neck, dark jeans",
+      "merkmal": "car key with a shiny key fob",
+      "haltung": "broad-shouldered, sporty, twirling the car key around one index finger",
+      "haar": "dark brown hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "zeynep",
+      "alter": "early twenties",
+      "kleidung": "wide sweater, wide light grey trousers",
+      "merkmal": "white headphones around her neck",
+      "haltung": "slim, sporty, relaxed, chewing gum, rocking on her heels",
+      "haar": "dark brown hair",
+      "kopf": "cap worn backwards"
+    },
+    {
+      "id": "baran",
+      "alter": "mid-twenties",
+      "kleidung": "hooded sweatshirt with neon green drawstrings, black tracksuit trousers",
+      "merkmal": "portable speaker under one arm",
+      "haltung": "tall, slim, leaning forward slightly, swaying to the beat, turning the volume knob",
+      "haar": "black hair",
+      "kopf": "large headphones on his head"
+    },
+    {
+      "id": "meryem",
+      "alter": "mid-twenties",
+      "kleidung": "denim shirt with rolled-up sleeves, sturdy work trousers, lace-up boots",
+      "merkmal": "soot smudges on left cheek and hands, fire poker in one hand",
+      "haltung": "practical, upright, blowing a strand of hair off her forehead, wiping her hands on a rag",
+      "haar": "auburn hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "serkan",
+      "alter": "late twenties",
+      "kleidung": "quilted vest over grey sweatshirt",
+      "merkmal": "clipboard with ride schedule, heavy flashlight",
+      "haltung": "broad, upright, standing tall",
+      "haar": "dark brown hair",
+      "kopf": "dark cap"
+    },
+    {
+      "id": "aylin",
+      "alter": "mid-twenties",
+      "kleidung": "knit cardigan, white blouse, black fabric trousers",
+      "merkmal": "black leather folder with receipts and a pen, pressed to her chest",
+      "haltung": "very upright, matter-of-fact, clicking a pen",
+      "haar": "black hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "kaan",
+      "alter": "late twenties",
+      "kleidung": "hooded sweatshirt, black work trousers with reinforced knees",
+      "merkmal": "glasses, carpenter's pencil behind ear, tape measure at waistband",
+      "haltung": "slim, calm posture",
+      "haar": "blonde hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "dilara",
+      "alter": "mid-twenties",
+      "kleidung": "velvet dress, long black knit cardigan",
+      "merkmal": "small loupe on a silver chain around her neck, striking rings of wood and stone",
+      "haltung": "tall, elegant, examining her rings through the loupe",
+      "haar": "black hair",
+      "kopf": "cream headscarf"
+    },
+    {
+      "id": "enes",
+      "alter": "mid-twenties",
+      "kleidung": "shirt with rolled-up sleeves, black apron",
+      "merkmal": "narrow tea glass on a saucer",
+      "haltung": "slim, attentive, polishing tea glasses with a cloth",
+      "haar": "dark brown hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "selin",
+      "alter": "early twenties",
+      "kleidung": "knit sweater, light jeans",
+      "merkmal": "white fringed scarf pulled up to her chin",
+      "haltung": "small, shoulders pulled up, looking around, flinching at loud noises",
+      "haar": "medium brown hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "hakan",
+      "alter": "early thirties",
+      "kleidung": "quilted jacket over beige roll-neck, low shoes",
+      "merkmal": "leather bag beside him, tea cup in hand",
+      "haltung": "calm, upright, taking a slow sip of tea",
+      "haar": "dark brown hair",
+      "kopf": "no headwear"
+    },
+    {
+      "id": "tugba",
+      "alter": "late twenties",
+      "kleidung": "blazer over white shirt",
+      "merkmal": "narrow metal glasses, notebook with gold binding and felt-tip pen",
+      "haltung": "organized, brisk, flipping through her notebook, ticking off lines",
+      "haar": "black hair",
+      "kopf": "no headwear"
+    }
+  ],
+  "raeume": [
+    {
+      "id": "thekensaal",
+      "beschreibung": "Long vaulted stone hall in dim, warm light. A dark wooden buffet counter stands opposite the entrance. A large tea kettle and a coffee machine stand on it. A sideboard stands against the north wall behind the counter. Buffet tables line both long walls. A sink and an ice bucket stand in the hall. An emergency exit sign is mounted on the wall. Stone floor."
+    },
+    {
+      "id": "vorratsraum",
+      "beschreibung": "Small, cool room without windows behind the buffet counter. Shelves line the walls. A birthday cake sits on the shelves. An emergency lantern hangs from a hook. The only way in is the door beside the sideboard. Stone floor."
+    },
+    {
+      "id": "durchgang",
+      "beschreibung": "Short, low passage between the west hall and the buffet hall. Stacked crates stand here. Stone floor."
+    },
+    {
+      "id": "west_saal",
+      "beschreibung": "Communal hall with two long tables and benches along the walls. A cold, unlit fireplace niche is set into the west wall. Two light shafts with flaps sit high in the north wall. A fuse box is mounted on the wall. In the northwest corner, a carved arched door leads to the tower passage. Stone floor."
+    },
+    {
+      "id": "turmgang",
+      "beschreibung": "Narrow passage at the foot of the castle tower. An old knight's armour stands here, next to a display case. A spiral staircase leads up to the toilets. The rest of the tower is locked with a padlock. A courtyard door is locked too. Stone floor."
+    },
+    {
+      "id": "ost_saal",
+      "beschreibung": "Quiet communal hall with no other outside door. A coat rack stands at the entrance. A large wall board hangs on the east wall. Long tables and benches fill the room. A basket for phones stands here. Stone floor."
+    },
+    {
+      "id": "windfang",
+      "beschreibung": "Small lobby between the inner door of the buffet hall and the outer gate. Stone floor."
+    }
+  ],
+  "beweise": [
+    {
+      "spur": "spur_griff_papier",
+      "beschreibung": "Close-up of a candlestick handle. A torn corner of brown envelope paper is stuck in hardened red candle wax."
+    },
+    {
+      "spur": "spur_griff_leuchtfarbe",
+      "beschreibung": "Close-up of a candlestick handle. The outline of a whole hand in greenish-white glow paint lies around the handle."
+    },
+    {
+      "spur": "spur_fuss_splitter",
+      "beschreibung": "Close-up of a candlestick foot. Fine wood splinters and white lime dust are stuck in hardened red candle wax."
+    },
+    {
+      "spur": "spur_ring_messing",
+      "beschreibung": "Close-up of a wide silver ring. Fresh golden-yellow brass dust lies in a notch of the ring."
+    },
+    {
+      "spur": "spur_jacke_bund",
+      "beschreibung": "Close-up of the inner pocket of a black fabric jacket. A large bunch of keys is tucked inside."
+    },
+    {
+      "spur": "spur_umschlag_wachs",
+      "beschreibung": "Close-up of a brown envelope with one torn corner. Three hardened red candle wax drops sit on it."
+    },
+    {
+      "spur": "spur_schatulle_wachs",
+      "beschreibung": "Close-up of the lid of a small coin box. Red candle wax drops are stuck to the lid."
+    },
+    {
+      "spur": "spur_maske_wachs",
+      "beschreibung": "Close-up of the forehead of a glowing mask. Red candle wax drops sit on it."
+    },
+    {
+      "spur": "spur_eiskuebel_bund",
+      "beschreibung": "Close-up of an ice bucket. A bunch of keys lies under the ice cubes."
+    },
+    {
+      "spur": "spur_brottasche_bund",
+      "beschreibung": "Close-up of a bread bag. A bunch of keys lies under a loaf of bread."
+    },
+    {
+      "spur": "spur_helm_bund",
+      "beschreibung": "Close-up of a knight's armour helmet. A bunch of keys is wedged inside it."
+    },
+    {
+      "spur": "spur_weste_kerzenwachs",
+      "beschreibung": "Close-up of the back of a work glove. Fresh red candle wax drops sit on it."
+    }
+  ]
+}

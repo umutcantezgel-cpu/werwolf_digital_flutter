@@ -36,6 +36,7 @@ export 'src/party/gruppenwahl.dart';
 export 'src/party/enden.dart';
 export 'src/party/fall_code.dart';
 export 'src/party/besetzung.dart';
+export 'src/party/bildprompts.dart';
 export 'src/party/ablauf.dart';
 export 'src/party/erzaehler.dart';
 export 'src/party/simulator.dart';

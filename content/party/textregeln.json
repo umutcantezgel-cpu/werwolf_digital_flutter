@@ -54,7 +54,13 @@
       "whiskey",
       "wodka",
       "likör",
-      "tequila"
+      "tequila",
+      "bordeaux",
+      "champagner",
+      "burgunder",
+      "rotwein",
+      "weißwein",
+      "portwein"
     ],
     "drogen": [
       "droge",
@@ -116,7 +122,6 @@
   },
   "ausnahmen": [
     "alkoholfrei",
-    "weinrot",
     "weinen",
     "weint",
     "weiner",

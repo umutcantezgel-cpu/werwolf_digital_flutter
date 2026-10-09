@@ -1,0 +1,79 @@
+{
+  "settingId": "spuk_im_schlosskeller",
+  "bereich": "wahl",
+  "hinweis": "Fassung 1",
+  "eintraege": [
+    {
+      "id": "gw_ahmet_1",
+      "a": "Ich gebe zu, dass die Miete erfunden war. Ich habe von allen hundertfünfzig Euro kassiert, obwohl der Keller nichts gekostet hat.",
+      "b": "Ich schweige. Niemand soll vor dem Morgen erfahren, dass die Miete erfunden war.",
+      "sabotage": "Ich halte mich zurück und erzähle lieber vom Programm des Adventsmarkts."
+    },
+    {
+      "id": "gw_ahmet_2",
+      "a": "Lejla und ich sind zusammen aufgewachsen. Trotzdem sage ich dem Detektiv, was ich weiß.",
+      "b": "Lejla und ich halten zusammen. Dem Detektiv sage ich dazu nichts.",
+      "sabotage": "Ich erzähle dem Detektiv lieber vom Essen. Davon gibt es viel zu erzählen."
+    },
+    {
+      "id": "gw_ahmet_3",
+      "a": "Ich sage es offen: Die Miete war erfunden. Ich habe von allen hundertfünfzig Euro eingesammelt.",
+      "b": "Vor dem Morgen soll niemand erfahren, dass die Miete erfunden war. Ich halte dicht.",
+      "sabotage": "Ich halte mich zurück und erzähle lieber von etwas ganz anderem."
+    },
+    {
+      "id": "gw_fatma_1",
+      "a": "Ich erzähle dem Detektiv, dass ich die Münzschatulle aus der Turmvitrine mitgenommen habe. Am Montag wollte ich sie zurückbringen.",
+      "b": "Die Schatulle soll zurück, ohne dass es alle erfahren. Dafür sage ich nichts.",
+      "sabotage": "Ich rede lieber über meine Abschlussarbeit. Die dreht sich um alte Münzbilder."
+    },
+    {
+      "id": "gw_fatma_2",
+      "a": "Emine ist seit der Schulzeit meine beste Freundin. Trotzdem sage ich dem Detektiv, was ich weiß.",
+      "b": "Emine und ich sind seit der Schulzeit beste Freundinnen. Ich halte zu ihr und sage nichts.",
+      "sabotage": "Ich erzähle lieber von der Schulzeit. Das ist eine ganz andere Geschichte."
+    },
+    {
+      "id": "gw_fatma_3",
+      "a": "Ich sage dem Detektiv, dass ich die Münzschatulle mitgenommen habe. Am Montag sollte sie zurück.",
+      "b": "Ich schweige. Die Schatulle soll zurück, ohne dass es alle erfahren.",
+      "sabotage": "Ich erzähle lieber von meinem Designstudium. Darüber rede ich viel lieber."
+    },
+    {
+      "id": "gw_olli_1",
+      "a": "Ich erzähle dem Detektiv, dass ich die Bogentür beschädigt habe. Die Schramme wollte ich selbst verdecken.",
+      "b": "Den Türschaden kläre ich selbst mit Herrn Schneider. Die Gruppe soll da nicht hineingezogen werden.",
+      "sabotage": "Ich halte mich zurück und erzähle lieber vom Tragen der Warmhaltebehälter durch den Turm."
+    },
+    {
+      "id": "gw_olli_2",
+      "a": "Wojtek hat mir beim Tragen geholfen. Trotzdem sage ich dem Detektiv, was ich weiß.",
+      "b": "Wojtek hält zu mir, also halte ich zu ihm. Dem Detektiv sage ich nichts.",
+      "sabotage": "Ich rede lieber über die Geburtstagsfeier im Allgemeinen. Das ist viel harmloser."
+    },
+    {
+      "id": "gw_olli_3",
+      "a": "Ich rede Klartext: Die Bogentür habe ich beschädigt. Die Schramme wollte ich verdecken.",
+      "b": "Den Schaden kläre ich selbst mit Herrn Schneider. Die anderen bleiben außen vor.",
+      "sabotage": "Ich erzähle lieber, was Herr Schneider von mir verlangt hat."
+    },
+    {
+      "id": "gw_can_1",
+      "a": "Ich erzähle dem Detektiv, dass ich mich mit einer Leuchtmaske im Vorratsraum versteckt habe. Ich wollte das Geburtstagskind erschrecken.",
+      "b": "Der Streich soll nicht herauskommen. Dafür sage ich nichts.",
+      "sabotage": "Ich halte mich zurück und erzähle lieber von der Geburtstagstorte."
+    },
+    {
+      "id": "gw_can_2",
+      "a": "Zeynep hat für mich Schmiere gestanden. Trotzdem erzähle ich das dem Detektiv.",
+      "b": "Meine Schwester Zeynep hat für mich Schmiere gestanden. Ich halte sie raus und sage nichts.",
+      "sabotage": "Ich erzähle lieber vom Buffet. Darüber rede ich gern."
+    },
+    {
+      "id": "gw_can_3",
+      "a": "Ich gebe es zu: Ich habe mich mit der Leuchtmaske versteckt. Das Geburtstagskind wollte ich erschrecken.",
+      "b": "Der Streich soll nicht herauskommen. Darum schweige ich weiter.",
+      "sabotage": "Ich rede lieber über etwas Nebensächliches. Davon gibt es genug."
+    }
+  ]
+}

@@ -123,6 +123,17 @@ void main() {
     expect(unschuldig.verbirgt.single.art, 'nebendelikt');
   });
 
+  test('Sabotage-Text nur im eigenen Pfad der Kernrolle', () {
+    final texte = Texte(kanon, _sammlung());
+    for (final k in kanon.kernverdaechtige) {
+      for (final p in kanon.pfade) {
+        final w = texte.dossier(k, p, 4).wahlen.values.whereType<WahlText>().toList();
+        expect(w, hasLength(3), reason: '$k in $p');
+        expect(w.every((x) => (x.sabotage != null) == (k == p)), isTrue, reason: '$k in $p');
+      }
+    }
+  });
+
   test('Pflichtgespräche: Ersatzpartner bei kleiner Besetzung, P-1 wird erzwungen', () {
     Map<String, Object?> g(String rolle, String partner, List<String> preisgabe) => {
           'id': 'g_${rolle}_1_1',
@@ -149,6 +160,68 @@ void main() {
     expect(f.where((x) => x.contains('nicht erlaubt')), hasLength(1));
     expect(f.where((x) => x.contains('gehört nicht zu')), hasLength(1));
     expect(f.where((x) => x.contains('nicht die Lüge')), hasLength(1));
+  });
+
+  test('P-2: ein ersetzbarer Partner steht nicht im Text, eine Kernrolle darf', () {
+    Map<String, Object?> g(String partner, String text, int nr) => {
+          'id': 'g_enes_1_$nr',
+          'rolle': 'enes',
+          'runde': 1,
+          'nr': nr,
+          'partner': partner,
+          'thema': 'Der Abend',
+          'ziel': 'Wissen, wer wo war',
+          'preisgabe': [],
+          'text': text,
+        };
+    final f = textVerweise(
+        kanon,
+        _probe(gespraeche: [
+          g('leyla', 'Lejla, wo warst du beim Knall?', 1),
+          g('ahmet', 'Ahmet, wo warst du beim Knall?', 2),
+          g('tim', 'Wo warst du beim Knall?', 3),
+        ]));
+    expect(f.where((x) => x.contains('(P-2)') && x.contains('g_enes_1_')), ['Gespräch g_enes_1_1: nennt den Partner Lejla, der ersetzt werden kann (P-2)']);
+  });
+
+  test('Gesprächsplan 4 bis 20: Höchstlast, Wunschpartner bleibt, nie mit sich selbst (V-19, E-028)', () {
+    final t = _sammlung();
+    final texte = Texte(kanon, t);
+    final v = texte.lastVerstoesse();
+    expect(v, isEmpty, reason: v.join('\n'));
+    final b = texte.besetzung;
+    for (var n = b.minRollen; n <= b.maxRollen; n++) {
+      final plan = texte.gespraechsplan(n);
+      for (final g in t.gespraeche) {
+        final p = plan[g.id];
+        if (!b.istBesetzt(g.rolle, n)) {
+          expect(p, isNull, reason: '${g.id} bei $n');
+          continue;
+        }
+        expect(p, isNot(g.rolle), reason: '${g.id} bei $n');
+        expect(b.istBesetzt(p!, n), isTrue, reason: '${g.id} bei $n');
+        if (b.istBesetzt(g.partner, n)) expect(p, g.partner, reason: '${g.id} bei $n');
+      }
+    }
+  });
+
+  test('Rot-Probe: zu viele Gespräche mit einer Kernrolle werden gemeldet', () {
+    final t = _probe(gespraeche: [
+      for (final r in ['enes', 'selin', 'hakan', 'tugba'])
+        for (var nr = 1; nr <= 3; nr++)
+          {
+            'id': 'g_${r}_1_$nr',
+            'rolle': r,
+            'runde': 1,
+            'nr': nr,
+            'partner': 'ahmet',
+            'thema': 'Der Abend',
+            'ziel': 'Wissen, wer wo war',
+            'preisgabe': [],
+            'text': 'Wo warst du beim Knall?',
+          },
+    ]);
+    expect(Texte(kanon, t).lastVerstoesse().where((x) => x.startsWith('20 Rollen, Runde 1: ahmet')), isNotEmpty);
   });
 
   test('doppelte Kennungen und unbekannte Verweise werden gemeldet', () {

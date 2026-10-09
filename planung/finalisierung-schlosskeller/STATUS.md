@@ -1,4 +1,4 @@
-STAND · Bauphase F3 von F7 · Abnahme 6 von 17 (F-01..F-05, F-07; F-06/F-08 vorläufig) · Brüche offen 0 · Aufträge 44 von 169 · Agenten aktiv 0 · nächster Schritt: F3-ORCH-00 Textsammlung festschreiben (Entwurf F3-ENTWURF-TEXTSAMMLUNG.md), dann Textprüfer und Autoren
+STAND · Bauphase F3 von F7 · Abnahme 6 von 17 (F-01..F-05, F-07; F-06/F-08 vorläufig) · Brüche offen 0 · Aufträge 74 von 175 · Agenten aktiv 4 · nächster Schritt: Welle 2b (Finale Can, Bild, Bildprompts) und Nachbesserung F3-AUTOR-70..74 abnehmen, dann F3-KONT/SENS und F3-TEST-01, dann F3-Tor
 
 # STATUS
 
@@ -10,6 +10,7 @@ STAND · Bauphase F3 von F7 · Abnahme 6 von 17 (F-01..F-05, F-07; F-06/F-08 vor
 | 09.10.2026, Nachmittag | F0-Tor bestanden; F1: Kanon (13 Dateien), Tatmatrix, Plausibilitätsprüfer 0 Verstöße, Beweisprüfung, Schemas, 24 Tests grün, Karten-Probelauf mit Fotos | 0 / 17 | 81 (Entscheidung in F1-ORCH-03) | E-014 bis E-017 |
 | 09.10.2026, Abend | F1-Tor bestanden: 83 Brüche entschieden, Quellabgleich 542 Einträge, 6 Prüfberichte abgenommen (je 10/10), 49 Party-Tests grün, PDF-Probeseite | 5 / 17 | 0 | E-018 bis E-023 |
 | 09.10.2026, später Abend | F2-Tor bestanden: Entscheidungsmodell (E-024), 36 Hinweise, Gruppenwahl-Gerüst, Simulator 0,3 s, 142 Party-Tests; Gegenprüfung eingearbeitet (E-025: Qualität verborgen, Überführung braucht Fundort, Optionen gemischt) | 6 / 17 | 0 | E-024, E-025 |
+| 09.10.2026, Nacht | F3: Welle 1 (Dossiers, Täter, Detektiv, Intro) und Welle 2a (180 Gespräche, Runden, Auflösung) abgenommen; Gesprächsplan mit Höchstlast; Fundtexte und Kern-Wahltexte gewählt; main (Burgstadt-Strang) zurückgemergt | 6 / 17 | 0 | E-026 bis E-028 |
 
 ## Nutzerwünsche (gelten dauerhaft)
 - **Bilder immer im Chat zeigen:** Jedes erzeugte Bild (Bildschirmfotos aus E2E- und Probeläufen, gerenderte Karten, PDF-Seiten als Bild) wird sofort mit SendUserFile im Chat gezeigt (Nachricht vom 09.10.2026, 11:10).

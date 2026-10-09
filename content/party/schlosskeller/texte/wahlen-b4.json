@@ -2,5 +2,66 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "wahl",
   "hinweis": "Rundenwahl der Besetzungsplätze 13 bis 16.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "gw_serkan_1",
+      "a": "Ich erzähle dem Detektiv, dass ich um vier vor zwölf das Außentor verschlossen fand. Damit verrate ich mein Ziel: alle so schnell wie möglich sicher nach Hause fahren.",
+      "b": "Vom Außentor sage ich nichts, damit niemand merkt, wie wichtig mir die sichere Heimfahrt ist. So kommt die Gruppe nicht weiter."
+    },
+    {
+      "id": "gw_serkan_2",
+      "a": "Um vier vor zwölf wollte ich Decken aus dem Auto holen. Dabei verrate ich, wie eilig ich es habe, alle nach Hause zu bringen.",
+      "b": "Über die Decken schweige ich. Dann kommen wir nicht schneller weiter, und niemand merkt, wie eilig ich es habe."
+    },
+    {
+      "id": "gw_serkan_3",
+      "a": "Ich erzähle dem Detektiv, dass das Außentor um vier vor zwölf verschlossen war. Damit ist klar, wie sehr mir die Heimfahrt aller am Herzen liegt.",
+      "b": "Über das Tor rede ich nicht. Dann tappt die Gruppe im Dunkeln, aber mein Ziel bleibt bei mir."
+    },
+    {
+      "id": "gw_aylin_1",
+      "a": "Ich erzähle dem Detektiv von Herrn Schneiders Quittungszettel: „Miete: null Euro.“ Damit verrate ich, dass ich mein Geld unbedingt zurückhaben will.",
+      "b": "Den Zettel verschweige ich, und dem Detektiv fehlt damit ein Beleg. So bekomme ich mein Geld in Ruhe zurück, ohne dass Ahmet vor allen dasteht."
+    },
+    {
+      "id": "gw_aylin_2",
+      "a": "Um halb elf am Abend habe ich Herrn Schneider direkt nach einem Beleg gefragt. Damit zeige ich, wie wichtig mir mein Geld ist.",
+      "b": "Über meine Frage an Herrn Schneider schweige ich, damit Ahmet nicht vor allen bloßgestellt wird. Dem Detektiv fehlt dann ein Stück, aber mein Geld hole ich still zurück."
+    },
+    {
+      "id": "gw_aylin_3",
+      "a": "Ich erzähle dem Detektiv, dass ich den Quittungszettel von Herrn Schneider habe. Dann ist mein stiller Plan hin, das Geld ohne Krach zurückzuholen.",
+      "b": "Den Zettel behalte ich lieber für mich. Dann bleibt Ahmet verschont, und die Gruppe rätselt weiter."
+    },
+    {
+      "id": "gw_kaan_1",
+      "a": "Ich erzähle dem Detektiv, dass ich Olli geraten habe, die Schramme mit Möbelwachs zu verdecken. Damit ist meine Idee nicht mehr geheim.",
+      "b": "Über das Möbelwachs sage ich nichts. Dann kommen wir nur zäh voran, aber niemand erfährt, dass die Idee von mir kam."
+    },
+    {
+      "id": "gw_kaan_2",
+      "a": "Olli und ich haben die Warmhaltebehälter durch den Turm getragen. Dann steht Olli im Licht.",
+      "b": "Olli ist mein Kumpel vom Tragen, und er hat mir Eis geholt. Ich halte ihn raus, auch wenn dem Detektiv dann etwas fehlt."
+    },
+    {
+      "id": "gw_kaan_3",
+      "a": "Das braune Möbelwachs kam aus meiner Werkzeugtasche. Ich sage dem Detektiv, dass die Idee dazu von mir kam.",
+      "b": "Zum Wachs sage ich nichts. Niemand soll wissen, dass das Möbelwachs von mir kam, und die Gruppe bleibt ratlos."
+    },
+    {
+      "id": "gw_dilara_1",
+      "a": "Ich erzähle dem Detektiv, dass ich Fatma von der Schatulle in der Turmvitrine erzählt habe. Dann kann man mir vorwerfen, ich hätte sie angestiftet.",
+      "b": "Von der Schatulle sage ich nichts. Dem Detektiv fehlt dann ein Stück, aber niemand denkt, ich hätte Fatma angestiftet."
+    },
+    {
+      "id": "gw_dilara_2",
+      "a": "Ich erzähle dem Detektiv, dass Herr Schneider es seltsam fand, wie lange ich vor der Vitrine stand. Damit klingt es nach meiner Absicht, und das will ich nicht.",
+      "b": "Über die Vitrine schweige ich. Dann fehlt dem Detektiv ein Teil, und ich bleibe ohne Verdacht."
+    },
+    {
+      "id": "gw_dilara_3",
+      "a": "Ich erzähle dem Detektiv, dass ich mich mit alten Münzen auskenne. Dann sieht es so aus, als hätte ich Fatma auf die Schatulle gebracht.",
+      "b": "Über Fatma und die Schatulle rede ich nicht. So denkt niemand, dass ich sie angestiftet habe, aber der Detektiv bekommt weniger zu hören."
+    }
+  ]
 }

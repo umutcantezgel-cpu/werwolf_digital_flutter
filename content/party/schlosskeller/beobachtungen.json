@@ -457,12 +457,11 @@
       "pfade": "alle",
       "art": "pfadneutral",
       "kanal": "verborgen",
-      "text": "Er weiß: Olli hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt zweitausend Euro dafür. Das Möbelwachs zum Verdecken kam von ihm.",
+      "text": "Er weiß: Olli hat am Abend die Bogentür beschädigt. Das Möbelwachs zum Verdecken kam von ihm.",
       "beleg": {
         "zeitleiste": [
           "z_tuerschaden",
-          "z_moebelwachs",
-          "z_streit_olli"
+          "z_moebelwachs"
         ]
       },
       "belastet": [
@@ -476,7 +475,7 @@
       "pfade": "alle",
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
-      "text": "Herr Schneider muss jeden Schaden der Stiftung melden und zahlt kleine Schäden oft aus eigener Tasche. Darum ist er beim Geld so streng.",
+      "text": "Herr Schneider muss jeden Schaden der Stiftung melden. Darum ist er beim Geld so streng.",
       "beleg": {
         "wissen": "Hintergrund aus Pawels Ferienjob bei der Schlossstiftung."
       }

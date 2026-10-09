@@ -2,5 +2,156 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "gespraech",
   "hinweis": "Pflichtgespräche Runde 3, Besetzungsplätze 1 bis 4.",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "g_ahmet_3_1",
+      "rolle": "ahmet",
+      "runde": 3,
+      "nr": 1,
+      "partner": "leyla",
+      "thema": "Kannst du schweigen?",
+      "ziel": "Ich will die andere Person bitten, bis morgen still zu sein.",
+      "preisgabe": [
+        "luege:luege_ahmet_servietten"
+      ],
+      "text": "Ich halte zu dir, also halt du auch zu mir. Servietten, mehr hab ich hinter der Theke nicht gesucht."
+    },
+    {
+      "id": "g_ahmet_3_2",
+      "rolle": "ahmet",
+      "runde": 3,
+      "nr": 2,
+      "partner": "aylin",
+      "thema": "Was ist mit dem Geld?",
+      "ziel": "Ich will die andere Person davon überzeugen, dass beim Geld alles seine Ordnung hat.",
+      "preisgabe": [
+        "luege:luege_ahmet_miete"
+      ],
+      "text": "Hundertfünfzig Euro, für die Miete, so war’s. Sag mir jetzt ehrlich, was du davon hältst."
+    },
+    {
+      "id": "g_ahmet_3_3",
+      "rolle": "ahmet",
+      "runde": 3,
+      "nr": 3,
+      "partner": "detective",
+      "thema": "Gemeinsam bis zum Ende",
+      "ziel": "Ich will den Detektiv als Verbündeten gewinnen.",
+      "preisgabe": [],
+      "text": "Du bist der Detektiv, ich bin der Organisator. Wir sitzen eh bis zum Morgen fest, also zieh mit mir an einem Strang."
+    },
+    {
+      "id": "g_fatma_3_1",
+      "rolle": "fatma",
+      "runde": 3,
+      "nr": 1,
+      "partner": "emine",
+      "thema": "Bist du auf meiner Seite?",
+      "ziel": "Ich will die andere Person bitten, für mich einzustehen.",
+      "preisgabe": [
+        "luege:luege_fatma_buffet"
+      ],
+      "text": "Egal was kommt, ich steh zu dir. Die ganze Zeit stand ich beim Gebäck, links am Buffet."
+    },
+    {
+      "id": "g_fatma_3_2",
+      "rolle": "fatma",
+      "runde": 3,
+      "nr": 2,
+      "partner": "detective",
+      "thema": "Meine Tasche",
+      "ziel": "Ich will den Detektiv davon abbringen, weiter nach der Tasche zu fragen.",
+      "preisgabe": [
+        "luege:luege_fatma_tasche"
+      ],
+      "text": "Was willst du eigentlich von meiner Tasche? Sag es mir jetzt klar. Da drin sind nur Bücher."
+    },
+    {
+      "id": "g_fatma_3_3",
+      "rolle": "fatma",
+      "runde": 3,
+      "nr": 3,
+      "partner": "tugba",
+      "thema": "Die Angabe festhalten",
+      "ziel": "Ich will, dass die andere Person meine Angabe festhält.",
+      "preisgabe": [
+        "luege:luege_fatma_buffet"
+      ],
+      "text": "Ich stand durchgehend beim Gebäck am linken Buffet. Merk dir das genau."
+    },
+    {
+      "id": "g_olli_3_1",
+      "rolle": "olli",
+      "runde": 3,
+      "nr": 1,
+      "partner": "kaan",
+      "thema": "Rückendeckung",
+      "ziel": "Ich will die andere Person bitten, bei meiner Version zu bleiben.",
+      "preisgabe": [
+        "luege:luege_olli_tafel"
+      ],
+      "text": "Halt mir den Rücken frei, ja? Am Tisch im Ost-Saal bin ich geblieben. Ich lass dich auch nicht hängen."
+    },
+    {
+      "id": "g_olli_3_2",
+      "rolle": "olli",
+      "runde": 3,
+      "nr": 2,
+      "partner": "hakan",
+      "thema": "Herr Schneider und das Geld",
+      "ziel": "Ich will wissen, wie Herr Schneider reagiert, wenn es ums Geld geht.",
+      "preisgabe": [],
+      "text": "Sag mal ehrlich, wie reagiert Herr Schneider, wenn’s ums Geld geht?"
+    },
+    {
+      "id": "g_olli_3_3",
+      "rolle": "olli",
+      "runde": 3,
+      "nr": 3,
+      "partner": "detective",
+      "thema": "Vor der Anklage",
+      "ziel": "Ich will den Detektiv davon abbringen, mich anzuklagen.",
+      "preisgabe": [
+        "luege:luege_olli_tafel"
+      ],
+      "text": "Bevor du gleich anklagst, will ich dir was sagen. Ich saß die ganze Zeit am Tisch im Ost-Saal."
+    },
+    {
+      "id": "g_can_3_1",
+      "rolle": "can",
+      "runde": 3,
+      "nr": 1,
+      "partner": "zeynep",
+      "thema": "Halt zu mir",
+      "ziel": "Ich will die andere Person bitten, mich nicht zu verraten.",
+      "preisgabe": [
+        "luege:luege_can_toilette"
+      ],
+      "text": "Die ganze Zeit war ich auf dem Klo im Turm. Bitte halt zu mir."
+    },
+    {
+      "id": "g_can_3_2",
+      "rolle": "can",
+      "runde": 3,
+      "nr": 2,
+      "partner": "tim",
+      "thema": "Wie viel hast du gesehen?",
+      "ziel": "Ich will vorsichtig herausfinden, wie viel die andere Person gesehen hat.",
+      "preisgabe": [
+        "luege:luege_can_maske"
+      ],
+      "text": "Ich hab keine Maske, ehrlich. Hast du im Dunkeln was gesehen? Sag’s mir klar."
+    },
+    {
+      "id": "g_can_3_3",
+      "rolle": "can",
+      "runde": 3,
+      "nr": 3,
+      "partner": "murat",
+      "thema": "Was du gesehen hast",
+      "ziel": "Ich will herausfinden, ob die andere Person im Dunkeln etwas Auffälliges gesehen hat.",
+      "preisgabe": [],
+      "text": "Was war im Dunkeln bei dir los? Ich will jetzt eine klare Antwort."
+    }
+  ]
 }

@@ -570,3 +570,113 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Kriterien: vorlesbar, Grusel mit Humor, Knall wie im Kanon, nicht besetzte Rollen neutral als „ein Gast“.
   - Fassung 1 lässt den Knall weg.
   - Fassung 3 erzählt als Erinnerung, obwohl das Intro am Abend spielt, und verrät mit „eine Freundin“ das Geschlecht nicht besetzter Rollen.
+
+## E-028 · F3 Welle 2: Gesprächsplan, partnerneutrale Gespräche, Abnahmen
+- **Befund bei der Abnahme von Welle 2a:** Alle 180 Pflichtgespräche lagen vor, Tests und Textprüfer waren grün. Zwei Strukturfehler fand erst der Blick über alle Dateien:
+  - **Last:** Bei 20 Rollen hätten Ahmet, Lejla und Emine in Runde 1 je 10 Gespräche gehabt, Olli in Runde 2 11, der Detektiv in Runde 3 16. V-19 erlaubt höchstens 7.
+  - **Anrede:** 86 Texte sprachen einen ersetzbaren Partner mit Namen an oder schrieben ihm etwas zu („du standest am Sicherungskasten“). Springt bei kleiner Besetzung ein Ersatz ein, passt der Text nicht mehr.
+  - Ursache ist der Auftrag (ORCH), nicht die Autoren: Jeder Auftrag sah nur eine Datei, und die Regel zur Anrede fehlte.
+- **Denkprotokoll Last:**
+  - (a) Die Last in den Texten belassen und den Ersatz zur Laufzeit regeln. Verworfen, denn bei 20 Rollen fehlt niemand, also greift kein Ersatz.
+  - (b) Wunschpartner einmalig ausgleichen und am Abend einen Plan mit Lastgrenze rechnen. Gewählt.
+  - Umsetzung:
+    - Ein Ausgleichslauf hat 43 von 180 Wunschpartnern verschoben. Gespräche, deren Preisgabe den Partner betrifft, sind zuletzt gewandert. Bei 20 Rollen hat jetzt niemand mehr als 7 Gespräche je Runde, der Detektiv höchstens 6.
+    - `Besetzung.gespraechsplan` behält jeden besetzten Wunschpartner. Für fehlende nimmt er den ersten Ersatz mit freier Last, sonst die besetzte Person mit der kleinsten Last; neue Paare gehen vor Wiederholungen.
+    - `Texte.dossier` nutzt den Plan. Der Test „Gesprächsplan 4 bis 20“ prüft für jede Besetzung Höchstlast, Wunschpartner und dass niemand mit sich selbst spricht. Eine Rot-Probe gibt es auch.
+- **Denkprotokoll Anrede:**
+  - (a) Den Namen zur Laufzeit ersetzen. Verworfen, denn Zuschreibungen wie Beruf, Ort oder Verwandtschaft bleiben falsch.
+  - (b) Die Texte partnerneutral schreiben; die App zeigt den Partner auf der Karte. Gewählt.
+  - Neue Regeln in SCHLUESSEL.md:
+    - P-2 partnerneutral; Kernrollen und den Detektiv darf der Text ansprechen.
+    - P-3 nur eigenes Wissen.
+    - P-4 Abwechslung.
+  - P-2 prüft `textVerweise` maschinell. P-3 und P-4 prüfen Kontinuitätsprüfer und Sensibilitätsleser.
+  - Nachbesserung: F3-AUTOR-70 bis -74, je Besetzungsband alle drei Runden.
+- **Sichtbarkeit:** `thema` und `text` eines Gesprächs stehen auf der Karte, `ziel` sieht nur die eigene Rolle (SCHLUESSEL.md).
+- **Erzählerbausteine Runden (AUTOR-39):** ORCH hat drei Texte neu gefasst.
+  - `runde.2.start`: vorher „Nebendelikte werden von echter Gewalt getrennt“, ein Fachwort.
+  - `runde.3.start`: vorher ein Satz über „gutes Spiel“, der die Regeln von außen erklärt.
+  - `anklage.start`: vorher „eine von ihnen“, jetzt „eine Person“.
+- **Auflösung (AUTOR-47):** Die Texte der Zeugen Emine, Azra, Damir und Marek nannten, was nur in einigen Pfaden stimmt, etwa „Fatma war im Dunkeln bei ihr“. Die Auflösung der Nebenrollen gilt aber in allen Pfaden. ORCH hat sie pfadneutral gefasst („was sie im Dunkeln über Fatma wusste“); das Genaue erzählen Finale und Rückblende.
+- **Offene Fragen der Autoren:**
+  - „Turm“ ist erlaubt (E-027).
+  - Beträge stehen in Worten.
+  - Gegenseitige Paare sind erlaubt.
+  - Pawels Beobachtung darf ganz gesagt werden, sie betrifft Herrn Schneiders Geld, nicht Pawels.
+- **Abgleich mit main:** Der parallele Strang hat den Stand `f5190ac` dieses Branches nach `main` gebracht (dort E49) und Fatmas Farbnamen „Weinrot“ zu „Beerenrot“ geändert. Der Merge zurück lief ohne Konflikte.
+  - Sein Hinweis auf „Bordeaux mit Gold“ (Tugba) trifft zu. Die Farbe heißt jetzt „Karminrot mit Gold“, Farbcode unverändert; „Beerenrot“ und „Brombeerrot“ wären am Tisch zu leicht zu verwechseln.
+  - Die Ausnahme „weinrot“ ist aus `textregeln.json` gestrichen. Neu auf der Alkoholliste stehen bordeaux, champagner, burgunder, rotwein, weißwein und portwein. Test angepasst.
+  - Seine Entscheidung E48 („Herkunft ist nicht Teil der Spieldaten“) gilt für die dortigen Spieldaten. Hier zeigt kein Spielertext eine Herkunft; das Feld `herkunft` dient nur der Namensbalance. Die Frage steht unter FÜR DEN NUTZER.
+- **Fundtexte (Varianten-Regel, AUTOR-49 und -50):** Fassung 1 ist gewählt.
+  - Kriterien: kurz, vorlesbar, keine Verneinung, die jemanden ausschließt; derselbe harmlose Text an derselben Stelle (Griff).
+  - Fassung 2 stellt jedem Fund einen Gruselmoment voran („du zuckst zusammen“, fünfmal). Das gehört in Ton und Licht der App, nicht in Fundtexte, die auch gedruckt werden.
+  - Übernommen in `gegenstaende.json`, alle zwölf Spuren. Sichtbarkeit und Form stehen in SCHLUESSEL.md.
+- **Wahltexte der Kernrollen (Varianten-Regel, AUTOR-57 und -58):** Grundlage ist Fassung 1, weil sie knapp und konkret ist. Fassung 2 wiederholt „Mein Gewissen …“ und „Mein Herz flüstert“ als Formel.
+  - ORCH hat geschärft:
+    - Die drei Freundes-Wahlen nennen jetzt, was die Rolle verrät: Ahmet Lejlas Versprechen, Fatma Emines Schweigen, Olli Wojteks Wachs-Idee. Vorher stand dort nur „was ich weiß“.
+    - Vier Sabotagen lenkten auf das eigene Geheimnis (Münzbilder, Tragen durch den Turm, Schneiders Forderung) oder verrieten die Absicht („harmloser“, „Nebensächliches“). Sie sind ersetzt.
+- **Welle 2b, Abnahmen:**
+
+  | Bericht | Punkte | Grund für Abzug |
+  |---|---|---|
+  | AUTOR-21 bis -25 | je 8 | wie Welle 2a: Partner im Text (P-2); Nachbesserung über AUTOR-70 bis -74 |
+  | AUTOR-26 bis -29 | je 9 | Ziffer im Zitat („0 Euro“) bei -28, von ORCH in Worten; sonst Prüfung in KONT-09 |
+  | AUTOR-43 bis -46 | je 9 | Prüfung in KONT-04 und -05 |
+  | AUTOR-49 | 10 | gewählte Fassung |
+  | AUTOR-50 | 9 | – |
+  | AUTOR-57 | 9 | gewählt, von ORCH geschärft |
+  | AUTOR-58 | 9 | – |
+  | AUTOR-65 | 9 | Tims Hemd „black checked“, Kanon sagt rot-schwarz |
+  | BAUMEISTER-02 | 8 | Farbe am letzten statt am ersten Kleidungsstück („black fabric trousers in burgundy“ bei Fatma); „burgundy“ ist ein Weinname |
+
+- **Bildprompts:**
+  - Die Signaturfarbe steht jetzt am ersten Kleidungsstück. Ein Platzhalter `{farbe}` in `bild.json` setzt sie an eine bestimmte Stelle (Tim: „dark red and black checked flannel shirt“).
+  - Aus „burgundy“ wurden zwei Namen: „dark berry red“ (Fatma, #6B1D2F) und „carmine red“ (Tugba, #800020). So tragen die beiden auch im Bild verschiedene Farben.
+  - Die Farbtabelle bleibt eine Konstante im Code (`lib` ohne Dateizugriff). Der Test hält sie gleich mit `farbnamen.json`.
+  - Die Verbotsprüfung gilt nur dem Motiv, nicht der festen Negativliste („no bar counter“, „no vape“).
+  - Täterdetails (Splitter an Ollis Ärmeln, Maske in Cans Bauchtasche, Wojteks Pflaster) bleiben aus den Bildern, weil Bilder vor dem Finale sichtbar sein können.
+  - Barrel-Export ergänzt; `pruefen.sh` prüft, ob `bildprompts.json` aktuell ist.
+- **Anrede:** Gesprächseröffnungen und Wahltexte stehen in der Ich-Form (TON-LEITFADEN §3 angepasst). Dossiers bleiben bei „du“.
+- **Offene Fragen der Autoren:**
+  - Das Außentor öffnet sich mit dem Bund oder um sieben Uhr mit dem Ersatzschlüssel der Kollegin; beides ist Kanon (`z_morgen`).
+  - Fatmas zwei Fassungen beim Knall (Buffet oder Theke) sind kein Widerspruch: Die eine gilt, wenn sie unschuldig ist, die andere, wenn sie die Tat begangen hat.
+  - Der Gesprächsplan überspringt den Sprecher in der Ersatzkette.
+  - „Box“ bleibt; das Wort ist Alltagssprache.
+- **Nachbesserung der Pflichtgespräche (AUTOR-70 bis -74, je 10/10):**
+  - Alle 180 Gespräche sind partnerneutral. Jede Pflichtgespräch-Beobachtung und jede Lüge kommt über die drei Runden mindestens einmal vor. Kein Text ist doppelt, kein Platzhalter steht im Text.
+  - Bestätigt: Kurze Behauptungen wie „Ich hab keine Maske“ dürfen in mehreren Texten stehen (P-4 meint ganze Texte). Ahmets Umschlag und Cans Maske bleiben aus den Eröffnungen, weil sie Geheimnisse der Rolle sind (P-3). Pawel lässt „zahlt aus eigener Tasche“ weg; der Kern seiner Beobachtung bleibt.
+
+## E-029 · F3-Prüfrunde: Entscheidungen zu F3-KONT-01..10, F3-SENS-01..05, F3-TEST-01
+- **Wiederaufnahme:** Nach einem Container-Neustart kam der UNIVERSAL-PROMPT erneut. Der Nutzer hat entschieden: Schlosskeller fortsetzen. Prüfstapel A lief aus dem Zwischenspeicher weiter (KONT-01, -02, -05 schon fertig), Prüfstapel B neu.
+- **KONT-01 (Dossiers):**
+  - **Ahmet:** Schneiders Satz um 23:51 („Um zwölf sag ich allen, was der Keller gekostet hat“) verrät Ahmets Motiv. Er steht jetzt unter `verbirgt`.
+  - **Pawel:** Seine Pflichtgespräch-Beobachtung enthielt Schneiders Geldsorgen, die er laut Ziel nicht ausplaudern will. Getrennt:
+    - Am Tisch sagt er nur noch: „muss jeden Schaden der Stiftung melden, darum streng“.
+    - „Zahlt kleine Schäden aus eigener Tasche“ steht unter `verbirgt`.
+  - **Wojtek:** Er konnte von den zweitausend Euro nichts wissen, denn beim Streit um 23:00 war er nicht dabei. Gestrichen in `b_wojtek_tuer` und in seiner Auflösung.
+    - Der wahre Hinweis `h_olli_2_wahr` nennt jetzt Schaden und Möbelwachs; beides ist durch Wojteks Beobachtung belegt.
+  - Fatmas Schweigegrund nennt die Reliefs wie der Kanon.
+  - Sibels `roleSecret` ohne „unter einer Kapuze“ (wie `b_selin_gesicht`).
+  - Neue Regeln in SCHLUESSEL.md:
+    - Schweigegründe dürfen aus `persoenlichesZiel` kommen.
+    - S-1 gilt für das, was App und Erzähler zeigen. Was eine Rolle unter `weiss` kennt, darf ihre Spielerin erzählen.
+  - Nicht übernommen:
+    - Eigene Geheimnisse der Kernrollen unter `weiss` (Vorschlag Nr. 10). Sie gehören unter `verbirgt`.
+    - Barans Box-Musik als neue Beobachtung. Sie ist ein harmloses Geheimnis ohne Spielwirkung und bleibt Text aus `roleSecret`.
+- **KONT-02 (Täter, Detektiv):**
+  - Ahmets Tarnung nennt die hundertfünfzig Euro wie die Lüge.
+  - Sein Tatwissen endet mit dem Mietgeld in der Hosentasche (`gegenstaende.json`).
+  - Detektiv in Jeans.
+  - Der Ermittlungsbogen sagt „beim Scheppern“ wie R-ENTLASTET.
+  - Der Folgesatz am Ende von `verbirgt` bleibt; der Auftrag hat ihn verlangt.
+- **KONT-05 und Ausgang (Denkprotokoll):**
+  - Befund: Finaltexte behaupten einen Bund-Fund in der Nacht (Meister) oder dass niemand ihn findet (Teilerfolg). Das Finale kennt aber nur Pfad, Ende und Punkte. Mit 7 Punkten kann die Bund-Suche falsch gewesen sein, mit 3 richtig.
+  - Wege:
+    - (a) Je Ende zwei Fassungen, mit Bund gefunden und ohne: 32 statt 16 Texte, und der Erzähler müsste den Verlauf kennen.
+    - (b) Der Bund kommt im Finale über das Geständnis.
+    - (c) Den Bund in Finaltexten nie nennen.
+  - Gewählt ist (b). Bei richtiger Anklage gesteht die Täterperson und gibt den Bund heraus; das Tor geht noch in der Nacht auf. Bei falscher Anklage öffnet um sieben Uhr die Kollegin (`z_morgen`), und das Geständnis folgt später.
+  - Umkehrprobe: Falsch wäre (b), wenn ein Spiel mit gefundenem Bund und falscher Anklage endet. Dann liegt der Bund schon da, und trotzdem wartet die Gruppe bis sieben. Das kann vorkommen.
+    - Darum sagt die Regel bei falscher Anklage nur: „Der Bund bleibt verschwunden“ heißt, das Tor geht nicht auf, weil niemand den Bund herausgibt.
+    - Texte formulieren das neutral: „Das Tor bleibt zu bis zum Morgen.“
+  - Regel in SCHLUESSEL.md (Finale und Ausgang). Umsetzung mit den Befunden aus KONT-04, KONT-05 und SENS-02 in einer Nachbesserung der vier Finaldateien.

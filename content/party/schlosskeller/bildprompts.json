@@ -1,0 +1,215 @@
+{
+  "hinweis": "Erzeugt, nicht von Hand ändern: dart run bin/party_prompts.dart",
+  "prompts": [
+    {
+      "id": "detective_m",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a late-twenties man, dark brown hair, brown checked detective hat, average build, wearing tan trench coat over everyday clothes, black jeans, dark sneakers, striking glasses, an unlit bubble pipe blowing soap bubbles, phone in hand with a flashlight beam, attentive posture, head tilted slightly to one side while listening, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "detective_w",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a late-twenties woman, dark brown hair, brown checked detective hat, average build, wearing tan trench coat over everyday clothes, black jeans, dark sneakers, striking glasses, an unlit bubble pipe blowing soap bubbles, phone in hand with a flashlight beam, attentive posture, head tilted slightly to one side while listening, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "schneider",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of an early-sixties man, thin grey hair with a bald patch, broad build, wearing dark green waxed jacket over coarse grey roll-neck sweater, sturdy work boots, glasses, large jangling bunch of keys on right belt loop, clipboard with receipt pad, broad, slightly stooped, tapping his wristwatch, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "ahmet",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a late-twenties man, black hair, slim build, wearing black knit sweater over white T-shirt, dark jeans, white sneakers, glasses, short beard, blue key strap from trouser pocket, phone in hand, upright, sporty posture, twirling the key strap around one finger, stroking his beard, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "fatma",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a mid-twenties woman, dark brown hair, dark headscarf, slim build, wearing dark berry red knee-length wool coat, dark turtleneck, black fabric trousers, heavy leather shoulder bag, wide silver ring on right hand, slim, calm posture, fiddling with the zipper of her bag, smiling, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "olli",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a late-twenties man, medium brown hair, broad build, wearing navy grey hooded sweatshirt, down vest, khaki trousers with side pockets, broad, strong shoulders, slightly hunched, rubbing the back of his neck, shifting his weight, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "can",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a mid-twenties man, black hair, slim build, wearing yellow wide hooded sweatshirt, wide jeans, colourful sneakers, striking hood, left hand deep in the front pouch of the sweatshirt, slim, springy walk, tugging at the hood strings, rocking on his toes, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "leyla",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a mid-twenties woman, dark brown hair in a tight bun, small build, wearing teal bib apron over beige knit sweater, dark leggings, billing notepad in apron pocket, wooden spoon in hand, small, neat posture, straightening bowls, stirring a warming container, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "emine",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a mid-twenties woman, dark brown hair, beige headscarf, average build, wearing olive quilted coat, dark fabric trousers, black boots, silver vacuum flask held in both hands, calm, upright posture, turning the lid of the flask, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "tim",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a late-twenties man, curly dark brown hair, average build, wearing dark red and black checked flannel shirt over dark shirt, sturdy work trousers, voltage tester screwdriver behind his ear, small headlamp around his neck, sturdy, medium height, tapping cable ducts and shaking his head, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "johanna",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a mid-twenties woman, blonde hair, slim build, wearing purple cardigan over white top, black fabric trousers, phone on a small phone holder with clip-on light, slim, upright, quick movements, lifting her phone, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "murat",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a late-twenties man, dark brown hair, broad build, wearing dark brown leather jacket, white roll-neck, dark jeans, car key with a shiny key fob, broad-shouldered, sporty, twirling the car key around one index finger, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "zeynep",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of an early-twenties woman, dark brown hair, cap worn backwards, small build, wearing mint green wide sweater, wide light grey trousers, white headphones around her neck, slim, sporty, relaxed, chewing gum, rocking on her heels, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "baran",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a mid-twenties man, black hair, large headphones on his head, tall build, wearing charcoal hooded sweatshirt with neon green drawstrings, black tracksuit trousers, portable speaker under one arm, tall, slim, leaning forward slightly, swaying to the beat, turning the volume knob, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "meryem",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a mid-twenties woman, auburn hair, average build, wearing denim blue denim shirt with rolled-up sleeves, sturdy work trousers, lace-up boots, soot smudges on left cheek and hands, fire poker in one hand, practical, upright, blowing a strand of hair off her forehead, wiping her hands on a rag, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "serkan",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a late-twenties man, dark brown hair, dark cap, broad build, wearing steel blue quilted vest over grey sweatshirt, clipboard with ride schedule, heavy flashlight, broad, upright, standing tall, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "aylin",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a mid-twenties woman, black hair, slim build, wearing dove blue knit cardigan, white blouse, black fabric trousers, black leather folder with receipts and a pen, pressed to her chest, very upright, matter-of-fact, clicking a pen, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "kaan",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a late-twenties man, blonde hair, average build, wearing slate grey hooded sweatshirt, black work trousers with reinforced knees, glasses, carpenter's pencil behind ear, tape measure at waistband, slim, calm posture, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "dilara",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a mid-twenties woman, black hair, cream headscarf, tall build, wearing plum velvet dress, long black knit cardigan, small loupe on a silver chain around her neck, striking rings of wood and stone, tall, elegant, examining her rings through the loupe, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "enes",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a mid-twenties man, dark brown hair, slim build, wearing light grey shirt with rolled-up sleeves, black apron, narrow tea glass on a saucer, slim, attentive, polishing tea glasses with a cloth, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "selin",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of an early-twenties woman, medium brown hair, small build, wearing pastel pink knit sweater, light jeans, white fringed scarf pulled up to her chin, small, shoulders pulled up, looking around, flinching at loud noises, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "hakan",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of an early-thirties man, dark brown hair, average build, wearing dark brown quilted jacket over beige roll-neck, low shoes, leather bag beside him, tea cup in hand, calm, upright, taking a slow sip of tea, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "tugba",
+      "art": "person",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. portrait of a late-twenties woman, black hair, average build, wearing carmine red blazer over white shirt, narrow metal glasses, notebook with gold binding and felt-tip pen, organized, brisk, flipping through her notebook, ticking off lines, in a vaulted castle cellar at night, warm candle light. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "thekensaal",
+      "art": "raum",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Long vaulted stone hall in dim, warm light. A dark wooden buffet counter stands opposite the entrance. A large tea kettle and a coffee machine stand on it. A sideboard stands against the north wall behind the counter. Buffet tables line both long walls. A sink and an ice bucket stand in the hall. An emergency exit sign is mounted on the wall. Stone floor. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "vorratsraum",
+      "art": "raum",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Small, cool room without windows behind the buffet counter. Shelves line the walls. A birthday cake sits on the shelves. An emergency lantern hangs from a hook. The only way in is the door beside the sideboard. Stone floor. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "durchgang",
+      "art": "raum",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Short, low passage between the west hall and the buffet hall. Stacked crates stand here. Stone floor. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "west_saal",
+      "art": "raum",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Communal hall with two long tables and benches along the walls. A cold, unlit fireplace niche is set into the west wall. Two light shafts with flaps sit high in the north wall. A fuse box is mounted on the wall. In the northwest corner, a carved arched door leads to the tower passage. Stone floor. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "turmgang",
+      "art": "raum",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Narrow passage at the foot of the castle tower. An old knight's armour stands here, next to a display case. A spiral staircase leads up to the toilets. The rest of the tower is locked with a padlock. A courtyard door is locked too. Stone floor. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "ost_saal",
+      "art": "raum",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Quiet communal hall with no other outside door. A coat rack stands at the entrance. A large wall board hangs on the east wall. Long tables and benches fill the room. A basket for phones stands here. Stone floor. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "windfang",
+      "art": "raum",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Small lobby between the inner door of the buffet hall and the outer gate. Stone floor. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_griff_papier",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of a candlestick handle. A torn corner of brown envelope paper is stuck in hardened red candle wax. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_griff_leuchtfarbe",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of a candlestick handle. The outline of a whole hand in greenish-white glow paint lies around the handle. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_fuss_splitter",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of a candlestick foot. Fine wood splinters and white lime dust are stuck in hardened red candle wax. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_ring_messing",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of a wide silver ring. Fresh golden-yellow brass dust lies in a notch of the ring. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_jacke_bund",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of the inner pocket of a black fabric jacket. A large bunch of keys is tucked inside. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_umschlag_wachs",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of a brown envelope with one torn corner. Three hardened red candle wax drops sit on it. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_schatulle_wachs",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of the lid of a small coin box. Red candle wax drops are stuck to the lid. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_maske_wachs",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of the forehead of a glowing mask. Red candle wax drops sit on it. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_eiskuebel_bund",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of an ice bucket. A bunch of keys lies under the ice cubes. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_brottasche_bund",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of a bread bag. A bunch of keys lies under a loaf of bread. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_helm_bund",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of a knight's armour helmet. A bunch of keys is wedged inside it. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    },
+    {
+      "id": "spur_weste_kerzenwachs",
+      "art": "beweis",
+      "prompt": "cinematic documentary film still, 35mm, natural dramatic lighting, real-life texture, no CGI, no cartoon. Close-up of the back of a work glove. Fresh red candle wax drops sit on it. no text, no letters, no logos, no brand names, no real people, no celebrities, no alcohol, no wine, no beer, no bottles, no bar counter, no barrels, no cigarettes, no smoke from pipes, no vape, no blood, no injuries"
+    }
+  ]
+}

@@ -973,7 +973,7 @@
       },
       "motiveAndConflict": "Um 21:00 hielt sie die Ritterrüstung im Turmgang für einen Menschen, schrie auf und stieß gegen die Vitrine. Seitdem macht sie einen Bogen um den Turmgang.",
       "blackoutAlibi": "Kauerte auf der Wandbank im Kaminsaal.",
-      "roleSecret": "Im Dunkeln huschte ein leuchtendes Gesicht unter einer Kapuze vom Durchgang quer durch den Kaminsaal zur Bogentür.",
+      "roleSecret": "Im Dunkeln huschte ein leuchtendes Gesicht vom Durchgang quer durch den Kaminsaal zur Bogentür.",
       "persoenlichesZiel": "Die Rüstung soll aus dem Turmgang verschwinden.",
       "nebendelikt": null,
       "loyalitaet": null,
@@ -1050,7 +1050,7 @@
       "roleTitle": "Die Geburtstags-Planerin",
       "isPotentialKiller": false,
       "colorCode": "#800020",
-      "farbname": "Bordeaux mit Gold",
+      "farbname": "Karminrot mit Gold",
       "startRoom": "ost_saal",
       "ermittlungsOrt": "an_der_wandtafel",
       "coordinates": {
@@ -1059,7 +1059,7 @@
       },
       "visualSpecs": {
         "silhouette": "Organisiert, schwungvoll, geschäftsmäßig",
-        "outfit": "Bordeauxroter Blazer über weißem Shirt, schmale Metallbrille",
+        "outfit": "Karminroter Blazer über weißem Shirt, schmale Metallbrille",
         "distinguishingFeature": "Notizbuch mit goldenem Einband und Fineliner",
         "idleAnimation": "Blättert im Notizbuch, hakt Zeilen ab und schaut zur Wanduhr"
       },

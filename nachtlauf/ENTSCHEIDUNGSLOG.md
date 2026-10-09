@@ -611,3 +611,15 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - `alle_tests.sh` prüft direkt nach dem Build, dass beide Manifeste da sind, und bricht sonst mit klarer Meldung ab. Die Wache ist getestet.
   - `pruefen.sh` gehört dem Schlosskeller-Strang; die eine Zeile ist dort kommentiert.
 - **Folge:** c54fe9c ging um 16:37 nach dem schnellen Test auf `main`. Sein zweiter voller Lauf war grün (E50-Vorlauf); `main` war also spielbar. Ab jetzt geht `main` erst nach einem grünen vollen Lauf.
+
+## E53 · 09.10. 18:43 · HD-Strang und Schlosskeller nach main (Nutzerentscheidungen N-03, N-04)
+- **N-03:** Der aktive Strang „Burgstadt HD“ (`claude/pensive-gates-ajtp7x`) wird jetzt gemergt. Gemergt ist der Stand 96e9e5b (Merge 0304eb2), ohne Konflikt.
+  - Neu im Gesamttest ist der Schritt „Layout-Prüfsumme“ des HD-Strangs (`tool/layout_pruefsumme.dart --pruefe`). Er bricht ab, sobald sich Innenräume, Hauslage oder Wohn- und Arbeitshäuser der Bewohner ändern; nach dem Merge: LAYOUT GLEICH.
+  - `tool/abnahme.dart` Z-13 erlaubt seitdem auch Pushes auf den HD-Arbeitsbranch (N-HD-01, Zeile des HD-Strangs).
+  - Palette v2 behält die 8-Stufen-Daten über `Ramp.at`; die Figurendaten bleiben gültig.
+  - **Hinweis an den HD-Strang:** Die Z-12-Änderungen (E54) ändern Figurenkarten. Damit ändern sich Kartenstand und „Figurenstand“, und Sichtprüfungen des HD-Strangs zum alten Stand gelten nicht mehr. Der HD-Strang führt `pixel_engine/data/figuren`, `burgstadt_core/data` und `nachtlauf/kanon` selbst als Nachtlauf-Pfade.
+- **N-04:** Der Schlosskeller-Strang wird erneut nachgemergt, Stand 68cd35f, ohne Konflikt.
+  - Er hat „Beerenrot“ übernommen, Tugba heißt „Karminrot“, und die Ausnahme „weinrot“ ist aus seinem Textprüfer entfernt (seine E-028).
+  - Unsere Build-Cache-Zeile in `tool/pruefen.sh` (E52) bleibt erhalten.
+  - Seine neuen Commits berühren nur `planung/` und `content/party/`.
+- Beide Stränge arbeiten weiter. Ihre späteren Commits sind erst nach einem weiteren Merge in `main`.

@@ -295,7 +295,7 @@
       "pfad": "olli",
       "runde": 2,
       "qualitaet": "wahr",
-      "text": "Olli hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt zweitausend Euro dafür.",
+      "text": "Olli hat am Abend die Bogentür beschädigt und die Schramme mit Möbelwachs verdeckt.",
       "wirkung": {
         "art": "belastet",
         "person": "olli"

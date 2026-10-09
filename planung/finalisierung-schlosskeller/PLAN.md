@@ -94,21 +94,23 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 | F3-AUTOR-01..05 | Autor | Dossiers „wer ich bin / was ich weiß / was ich verberge / mein Ziel“ je Viererblock (Rollen 1–4, 5–8, 9–12, 13–16, 17–20) | `texte/dossier-blockN.json` | F3-BAUMEISTER-01 | abgenommen (8–9/10, ORCH-Korrekturen, E-027) |
 | F3-AUTOR-06..09 | Autor | Täterfassungen Ahmet, Fatma, Olli, Can (Tarngeschichte, Tatwissen) | `texte/taeter-<name>.json` | F3-AUTOR-01 | abgenommen (je 10/10, E-027) |
 | F3-AUTOR-10 | Autor | Detektiv-Bogen m und w | `texte/detektiv.json` | F2 | abgenommen (10/10, E-027) |
-| F3-AUTOR-11..25 | Autor | Pflichtgespräche je Runde und Viererblock (5 Blöcke × 3 Runden) | `texte/gespraeche-rR-blockN.json` | F3-AUTOR-01..05 | offen |
-| F3-AUTOR-26..29 | Autor | Rundenwahl-Texte der Blöcke 2–5 (Kernblock nur über Dilemma-Dateien) | `texte/wahl-blockN.json` | F3-AUTOR-01..05 | offen |
+| F3-AUTOR-11..25 | Autor | Pflichtgespräche je Runde und Viererblock (5 Blöcke × 3 Runden) | `texte/gespraeche-rR-blockN.json` | F3-AUTOR-01..05 | abgenommen (8–10/10, E-028); Nachbesserung P-2 über 70–74 |
+| F3-AUTOR-70..74 | Autor | Nachbesserung Pflichtgespräche je Block über alle drei Runden: partnerneutral, eigenes Wissen, Abwechslung (P-2 bis P-4) | `texte/gespraeche-r1..3-bN.json` (nur thema, ziel, text) | F3-AUTOR-11..25, Gesprächsplan | abgenommen (je 10/10, E-028) |
+| F3-AUTOR-26..29 | Autor | Rundenwahl-Texte der Blöcke 2–5 (Kernblock nur über Dilemma-Dateien) | `texte/wahl-blockN.json` | F3-AUTOR-01..05 | abgenommen (9/10, E-028; Prüfung KONT-09, SENS-04) |
 | F3-AUTOR-31..33 | Autor | Bonus-Hinweise je Runde (4 Pfade × 3 Qualitäten) | `texte/bonus-rR.json` | F2 | entfällt (Hinweise stehen im Kanon, E-024/E-026; Prüfung in KONT/SENS) |
 | F3-AUTOR-34..35 | Autor | Indiztexte (Fundtexte, Ergebnistexte der Detektiv-Entscheidungen) | `texte/indizien.json`, `texte/entscheidungen.json` | F2 | entfällt (Fund- und Entscheidungstexte stehen im Kanon, E-026; Prüfung in KONT/SENS) |
 | F3-AUTOR-36..38 | Autor | Intro, 3 Varianten (Varianten-Regel) | `texte/intro-vN.json` | F2 | abgenommen (Fassung 2 gewählt, E-027) |
-| F3-AUTOR-39..41 | Autor | Resümee-Fächer je Runde | `texte/resuemee-rR.json` | F2 | offen |
-| F3-AUTOR-42 | Autor | Anklage und Eingrenzung | `texte/anklage.json` | F2 | offen |
-| F3-AUTOR-43..46 | Autor | 4 Finaltexte je Pfad (16) und Rückblende je Pfad (4) | `texte/finale-<pfad>.json` | F2 | offen |
-| F3-AUTOR-47..48 | Autor | Auflösung je Rolle (20) | `texte/aufloesung-1.json`, `-2.json` | F3-AUTOR-01..05 | offen |
-| F3-AUTOR-49..50 | Autor | Varianten-Regel: Texte der 4 Schlüsselbeweise (Spur `zeigt`/`harmlos`), 2 Fassungen als Vorschlag | – (Bericht, ORCH übernimmt in den Kanon) | F2 | offen |
-| F3-AUTOR-57..58 | Autor | Varianten-Regel: Rundenwahl der 4 Kernrollen mit Sabotage, 2 Fassungen | `texte/wahlen-kern.json` (Fassung im Bericht, ORCH wählt) | F2 | offen |
-| F3-BAUMEISTER-02 | Baumeister | Bildprompt-Generator aus Kanon-Feldern + Test | `party/bildprompts.dart`, `bin/party_prompts.dart`, `bildprompts.json`, `test/party/bildprompt_test.dart` | F1 | offen |
-| F3-KONT-01..10 | KONT | Stapelprüfung gegen Kanon und Tatmatrix | – (Bericht) | Autoren | offen |
-| F3-SENS-01..05 | SENS | Stapelprüfung Ton, Inhalt, Klischee, Namensbalance | – (Bericht) | Autoren | offen |
-| F3-TEST-01 | TEST | Dossier-, Erzähler-, Spoiler-Tests (F-10, F-11; Spoiler über alle Bausteine vor dem Finale × 4 Pfade, S-1) | `test/party/dossier_test.dart`, `erzaehler_test.dart`, `spoiler_test.dart` | F3-AUTOR-* | offen |
+| F3-AUTOR-39..41 | Autor | Resümee-Fächer je Runde | `texte/resuemee-rR.json` | F2 | abgenommen als AUTOR-39 in `erzaehler-runden.json` (9/10, E-028); 40–41 entfallen |
+| F3-AUTOR-42 | Autor | Anklage und Eingrenzung | `texte/anklage.json` | F2 | entfällt (`anklage.start` in AUTOR-39) |
+| F3-AUTOR-43..46 | Autor | 4 Finaltexte je Pfad (16) und Rückblende je Pfad (4) | `texte/finale-<pfad>.json` | F2 | abgenommen (9/10, E-028; Prüfung KONT-04/05, SENS-02) |
+| F3-AUTOR-47..48 | Autor | Auflösung je Rolle (20) | `texte/aufloesung-1.json`, `-2.json` | F3-AUTOR-01..05 | abgenommen als AUTOR-47 in `erzaehler-aufloesung.json` (9/10, E-028); 48 entfällt |
+| F3-AUTOR-49..50 | Autor | Varianten-Regel: Texte der 4 Schlüsselbeweise (Spur `zeigt`/`harmlos`), 2 Fassungen als Vorschlag | – (Bericht, ORCH übernimmt in den Kanon) | F2 | abgenommen (Fassung 1 im Kanon, E-028) |
+| F3-AUTOR-57..58 | Autor | Varianten-Regel: Rundenwahl der 4 Kernrollen mit Sabotage, 2 Fassungen | `texte/wahlen-kern.json` (Fassung im Bericht, ORCH wählt) | F2 | abgenommen (Fassung 1, von ORCH geschärft, E-028) |
+| F3-AUTOR-65 | Autor | Bildbeschreibungen der Personen, Räume und Beweise | `bild.json` | F1 | abgenommen (9/10, E-028) |
+| F3-BAUMEISTER-02 | Baumeister | Bildprompt-Generator aus Kanon-Feldern + Test | `party/bildprompts.dart`, `bin/party_prompts.dart`, `bildprompts.json`, `test/party/bildprompt_test.dart` | F1 | abgenommen (8/10, ORCH-Korrektur Farbe, E-028) |
+| F3-KONT-01..10 | KONT | Stapelprüfung gegen Kanon und Tatmatrix (01 Dossiers, 02 Täter und Detektiv, 03 Intro/Runden/Auflösung, 04–05 Finale, 06–08 Gespräche je Runde, 09 Wahlen, 10 Bonus/Entscheidungen/Fundtexte) | – (Bericht) | Autoren | Aufträge bereit |
+| F3-SENS-01..05 | SENS | Stapelprüfung Ton, Inhalt, Klischee, Namensbalance (01 Dossiers, 02 Erzähler, 03 Gespräche, 04 Wahlen/Bonus/Entscheidungen/Fundtexte, 05 Bild und Verteilung) | – (Bericht) | Autoren | Aufträge bereit |
+| F3-TEST-01 | TEST | Dossier-, Erzähler-, Spoiler-Tests (F-10, F-11; Spoiler über alle Bausteine vor dem Finale × 4 Pfade, S-1) | `test/party/dossier_test.dart`, `erzaehler_test.dart`, `spoiler_test.dart` | F3-AUTOR-* | Auftrag bereit |
 | F3-ORCH-01 | ORCH | Variantenwahl, Integration, Tor, Commit, Push | Textsammlung | alle F3 | offen |
 
 ## F4 – Spiel und Bild (Tor F-12, F-13)
