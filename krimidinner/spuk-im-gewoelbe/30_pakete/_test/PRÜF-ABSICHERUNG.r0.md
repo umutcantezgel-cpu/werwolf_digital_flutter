@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-PRÜF-ABSICHERUNG · PRÜF · Welle 6 · Kanon v0.9 · erwarteter Umfang 600–1.400 Wörter
+PRÜF-ABSICHERUNG · PRÜF · Welle 6 · Kanon v1.0 · erwarteter Umfang 600–1.400 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -13,11 +13,11 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 1. [K-001] (öffentlich)
    - Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist eine renovierte mittelalterliche Höhenburg im Oberharz über dem erfundenen Bergstädtchen Silberhau (SIL-ber-hau). Sie gehört einer Stiftung; Burgwart ist Eckehard Lüddecke.
 2. [K-002] (öffentlich)
-   - Tatsache: Es ist ein Samstag im November. Klarer Himmel, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
+   - Tatsache: Es ist ein Samstag im November. Über der Burg ist der Himmel klar, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Im Tal um Silberhau und auf dem unteren Burgweg liegt dichter Eisnebel (Inversionswetterlage), die Straße ist spiegelglatt. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
 3. [K-003] (öffentlich)
    - Tatsache: Das Kamin-Gewölbe (Festsaal im Keller) hat drei Türen: die Turmtür zum Fuß des Wendeltreppenturms, den Kellerhals (Treppe hinauf in den Hof) und die alte Eichentür zur Speisekammer.
 4. [K-004] (öffentlich)
-   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut beim Öffnen und beim Schließen. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
+   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut, sobald man sie aufzieht; ihr Zufallen hört man kaum. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
 5. [K-005] (öffentlich)
    - Tatsache: Der Wendeltreppenturm verbindet alle Ebenen. Unten am Turm-Fuß: Turmtür zum Gewölbe, Eisentür zur Speisekammer, der Sicherungskasten mit Zahlenschloss und eine alte Holztruhe. Acht Stufen höher, auf dem ersten Absatz: die Ritterrüstung „Kunibert“. Darüber die Hofebene mit der Hoftür, der Schauvitrine und der Toilette. Ganz oben der Wehrgang.
 6. [K-006] (öffentlich)
@@ -37,7 +37,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 13. [LISTE-GEGENSTÄNDE] (öffentlich)
    - Gegenstände: eiserner Kerzenständer mit drei Kerzen · Blechdose des Burgwarts · Ausbeutetaler · Schlüsselbund mit Karabiner · Rüstung Kunibert mit Panzerhandschuh und Helmvisier · Bluetooth-Box · Sicherungskasten mit Hauptschalter · Code-Zettel (zwei Handschriften) · Stablampe mit Klebeband „HODŽIĆ VT · 3“ · weißes Bettlaken mit rotem Wäschezeichen „Schartenfels 7“ · Holztruhe · Schadenszettel des Burgwarts · Punschkessel · Heißluftpistole · Wanderstiefel · Sohlenkarten · Sofortbild der Burgführung · Handys mit Taschenlampe · Kühlpack (Tiefkühlerbsen) · Wolldecke · Geburtstagstorte · Azads Kamerafotos mit Uhrzeit (nur wenn Rolle 19 besetzt)
 14. [LISTE-ZEITEN] (öffentlich)
-   - Öffentlich bekannte Zeitpunkte: 17:40 Türschaden an der Eichentür · 20:30 Begrüßungsrede mit Box-Echo · 21:15 bis 21:35 Burgführung · 22:45 Ultimatum des Burgwarts · 23:00 Burgtor abgeschlossen · 23:35 der Burgwart sagt, er gehe ins Bett · 23:48 Kamin-Qualm · 23:54 Box meldet „Verbindung getrennt“ · kurz vor zwölf meldet die Box „Verbunden“ · Knall und Stromausfall kurz vor zwölf · um Mitternacht der Schrei · kurz nach Mitternacht wird der Burgwart in der Speisekammer gefunden
+   - Öffentlich bekannte Zeitpunkte: 17:40 Türschaden an der Eichentür · 20:30 Begrüßungsrede mit Box-Echo · 21:15 bis 21:35 Burgführung · 22:45 Ultimatum des Burgwarts · 23:00 Burgtor abgeschlossen · 23:35 der Burgwart sagt, er gehe ins Bett · 23:48 Kamin-Qualm · 23:52 Adnan reißt die Turmtür auf, Merle geht aufs Klo, kurz danach geht Jonas Luft schnappen · 23:54 Box meldet „Verbindung getrennt“ · 23:56 Rojda schickt das Geburtstagskind an die Eichentür, kurz darauf meldet die Box „Verbunden“ · 23:58 Knall und Stromausfall · um Mitternacht der Schrei · 00:01 der Burgwart wird in der Speisekammer gefunden und kommt zu sich · 00:02 Jonas kommt die Treppe herunter · 00:03 der Bund fehlt · ab 00:05 Versorgung, Tor- und Torhausprobe, Anruf bei der Leitstelle, Beschluss zum Weiterfeiern (bis 00:30). Andere Uhrzeiten nennen nur Rollenkarten, Hinweise und Beweisstücke.
 15. [S-1] (Lösung)
    - Schlussfolgerung: Der Täter ist noch in der Burg, es ist jemand aus der Runde.
    - Notwendig: ja
@@ -57,7 +57,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 19. [S-5] (Lösung)
    - Schlussfolgerung: Das Gespenst war Merle: Stiefel mit fehlendem Stollen, Strickjacke unter dem Laken, Lampe fast leer.
    - Notwendig: ja
-   - Hinweise: H-15, H-14
+   - Hinweise: H-06, H-15, H-14
 20. [S-6] (Lösung)
    - Schlussfolgerung: Merles Alibi trägt nicht. Zwischen dem Wehrgang (23:54) und dem Kamin (23:59:40) hat sie keine Zeugen, und sie wusste, dass der Schrei aus der Box kommt. Adnan, Rojda und Jonas haben für die Tatminute eine Erklärung.
    - Notwendig: ja
@@ -73,11 +73,11 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 23. [S-9] (Lösung)
    - Schlussfolgerung: Rojda war es nicht: Sie stand am Sicherungskasten und zog den Hebel, das Gespenst war jemand anderes; ihre Turnschuhe haben glatte Sohlen.
    - Notwendig: nein
-   - Hinweise: H-25, H-07, H-15
+   - Hinweise: H-25, H-07, H-06, H-15, H-14
 24. [S-10] (Lösung)
    - Schlussfolgerung: Jonas war es nicht: Er war um 23:54 oben auf dem Wehrgang (Merle selbst sagt es), und an seinen Stiefeln sind alle Stollen heil.
    - Notwendig: nein
-   - Hinweise: H-26, H-15
+   - Hinweise: H-26, H-43, H-06, H-15, H-52
 
 ## 3b. Prüfmaterial (zu prüfende Texte, unverändert)
 Absicherungstabelle (Schlussfolgerung: Besetzung:Anzahl unabhängiger Quellen)
@@ -86,7 +86,7 @@ S-2: 4:4 5:4 6:4 7:4 8:4 9:4 10:7 11:10 12:7 13:9 14:11 15:11 16:14 17:16 18:17 
 S-3: 4:11 5:14 6:12 7:15 8:15 9:19 10:18 11:21 12:21 13:22 14:23 15:23 16:23 17:23 18:23 19:23 20:23
 S-4: 4:10 5:10 6:11 7:12 8:15 9:15 10:15 11:15 12:15 13:15 14:16 15:16 16:16 17:16 18:16 19:18 20:19
 S-5: 4:13 5:13 6:12 7:13 8:13 9:13 10:16 11:16 12:16 13:16 14:16 15:17 16:17 17:18 18:22 19:24 20:24
-S-6: 4:17 5:19 6:24 7:23 8:25 9:26 10:30 11:32 12:34 13:35 14:37 15:38 16:38 17:38 18:39 19:41 20:43
+S-6: 4:16 5:18 6:23 7:22 8:24 9:25 10:29 11:31 12:33 13:34 14:36 15:37 16:37 17:37 18:38 19:40 20:42
 S-7: 4:9 5:9 6:8 7:9 8:15 9:16 10:19 11:20 12:21 13:21 14:21 15:23 16:23 17:24 18:26 19:29 20:29
 
 

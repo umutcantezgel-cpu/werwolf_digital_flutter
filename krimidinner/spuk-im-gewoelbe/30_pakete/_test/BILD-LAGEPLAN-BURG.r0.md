@@ -1,4 +1,4 @@
-BILD-LAGEPLAN-BURG · SCHREIB · Welle 1 · Kanon v0.9 · erwarteter Umfang 600–900 Wörter
+BILD-LAGEPLAN-BURG · SCHREIB · Welle 1 · Kanon v1.0 · erwarteter Umfang 600–900 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -14,7 +14,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 2. [K-001] (öffentlich)
    - Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist eine renovierte mittelalterliche Höhenburg im Oberharz über dem erfundenen Bergstädtchen Silberhau (SIL-ber-hau). Sie gehört einer Stiftung; Burgwart ist Eckehard Lüddecke.
 3. [K-002] (öffentlich)
-   - Tatsache: Es ist ein Samstag im November. Klarer Himmel, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
+   - Tatsache: Es ist ein Samstag im November. Über der Burg ist der Himmel klar, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Im Tal um Silberhau und auf dem unteren Burgweg liegt dichter Eisnebel (Inversionswetterlage), die Straße ist spiegelglatt. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
 4. [LA-07] (öffentlich)
    - Ort: Lageplan
    - Anker (EN): top-down hand-drawn parchment map of a small castle: courtyard with well, gatehouse and gate, round tower, cellar hall with fireplace, adjoining small pantry with two doors, no labels, no letters
@@ -30,7 +30,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 8. [K-003] (öffentlich)
    - Tatsache: Das Kamin-Gewölbe (Festsaal im Keller) hat drei Türen: die Turmtür zum Fuß des Wendeltreppenturms, den Kellerhals (Treppe hinauf in den Hof) und die alte Eichentür zur Speisekammer.
 9. [K-004] (öffentlich)
-   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut beim Öffnen und beim Schließen. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
+   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut, sobald man sie aufzieht; ihr Zufallen hört man kaum. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
 10. [K-005] (öffentlich)
    - Tatsache: Der Wendeltreppenturm verbindet alle Ebenen. Unten am Turm-Fuß: Turmtür zum Gewölbe, Eisentür zur Speisekammer, der Sicherungskasten mit Zahlenschloss und eine alte Holztruhe. Acht Stufen höher, auf dem ersten Absatz: die Ritterrüstung „Kunibert“. Darüber die Hofebene mit der Hoftür, der Schauvitrine und der Toilette. Ganz oben der Wehrgang.
 11. [K-006] (öffentlich)

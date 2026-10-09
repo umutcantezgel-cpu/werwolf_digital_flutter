@@ -1,4 +1,4 @@
-HINW-STAT-1 · SCHREIB · Welle 1 · Kanon v0.9 · erwarteter Umfang 500–900 Wörter
+HINW-STAT-1 · SCHREIB · Welle 1 · Kanon v1.0 · erwarteter Umfang 500–900 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -16,7 +16,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Phase: 1
    - Min: 4
 2. [H-06] (öffentlich)
-   - Inhalt: Erstarrte Wachsspritzer auf dem Steinboden neben der Eisentür; in einem der Teilabdruck eines Absatzes mit Stollenprofil, die Spitze zeigt zur Eisentür.
+   - Inhalt: Erstarrte Wachsspritzer auf dem Steinboden neben der Eisentür; in einem der Teilabdruck eines Absatzes mit Stollenprofil. Am Absatzrand fehlt ein Stollen (eine glatte Lücke im Muster); die Spitze zeigt zur Eisentür.
    - Form: Beweisstück
    - Quelle: Beweisstück BS-01 (Station Speisekammer)
    - Phase: 1
@@ -43,7 +43,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Beweisstück: Wachsspritzer mit Teilabdruck
    - Fundort: Speisekammer, neben der Eisentür
    - Phase: 1
-   - Aussehen: Erstarrte Wachsspritzer auf dem Steinboden; in einem der Abdruck eines Absatzes mit Stollenprofil, Spitze Richtung Eisentür.
+   - Aussehen: Erstarrte Wachsspritzer auf dem Steinboden; in einem der Abdruck eines Absatzes mit Stollenprofil, am Absatzrand fehlt ein Stollen (glatte Lücke im Muster), Spitze Richtung Eisentür.
 7. [BSO-02] (öffentlich)
    - Beweisstück: Stofffetzen
    - Fundort: Panzerhandschuh der Rüstung Kunibert (erster Turmabsatz)
@@ -93,7 +93,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Beweisstück: Raureif-Spuren
    - Fundort: Hof
    - Phase: 1
-   - Aussehen: Zwei Stiefelspuren zwischen Kellerhals, Torhaus und Hoftür; frischere Spuren von zwei Personen zum Tor; vor dem Tor unberührter Reif.
+   - Aussehen: Zwei Stiefelspuren zwischen Kellerhals, Torhaus und Hoftür; frischere Spuren von zwei Personen zum Tor; draußen vor dem Tor auf dem Burgweg (vom Wehrgang aus zu sehen) unberührter Reif.
 17. [BSO-12] (öffentlich)
    - Beweisstück: Sofortbild der Burgführung
    - Fundort: Fotowand im Kamin-Gewölbe
@@ -107,7 +107,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 19. [K-003] (öffentlich)
    - Tatsache: Das Kamin-Gewölbe (Festsaal im Keller) hat drei Türen: die Turmtür zum Fuß des Wendeltreppenturms, den Kellerhals (Treppe hinauf in den Hof) und die alte Eichentür zur Speisekammer.
 20. [K-004] (öffentlich)
-   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut beim Öffnen und beim Schließen. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
+   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut, sobald man sie aufzieht; ihr Zufallen hört man kaum. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
 21. [K-005] (öffentlich)
    - Tatsache: Der Wendeltreppenturm verbindet alle Ebenen. Unten am Turm-Fuß: Turmtür zum Gewölbe, Eisentür zur Speisekammer, der Sicherungskasten mit Zahlenschloss und eine alte Holztruhe. Acht Stufen höher, auf dem ersten Absatz: die Ritterrüstung „Kunibert“. Darüber die Hofebene mit der Hoftür, der Schauvitrine und der Toilette. Ganz oben der Wehrgang.
 22. [K-006] (öffentlich)
@@ -159,8 +159,8 @@ Zahlen, Uhrzeiten, Aussprache:
 
 ## 7. Muster (nur für Format und Ton – nicht abschreiben, keine Sätze daraus übernehmen)
 ### M-11 Hinweiskarte (30–90 Wörter)
-    HINWEIS H-27 · Station Wendeltreppenturm · ab Phase 1
-    Am rechten Panzerhandschuh von Kunibert sind die Fingerplatten nach vorn verbogen, seit um zwanzig nach neun jemand bei der Führung dagegen gekracht ist. Die Kanten sind scharf.
+    HINWEIS H-00 · Station Beispiel · ab Phase 1 (nur Muster)
+    Auf der Fensterbank liegt ein Streichholzbriefchen, halb leer. Drei Hölzer sind abgebrannt, eins nur angekokelt. Daneben ein Rest Kerzenwachs, längst kalt.
 
 ### M-18 Raum- und Dekoleitfaden (Ausschnitt)
     STATION HOF · Ecke am Fenster oder an der Balkontür

@@ -1,4 +1,4 @@
-REGELBLATT · SCHREIB · Welle 5 · Kanon v0.9 · erwarteter Umfang 600–900 Wörter
+REGELBLATT · SCHREIB · Welle 5 · Kanon v1.0 · erwarteter Umfang 600–900 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -16,7 +16,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 3. [LR-2] (öffentlich)
    - Regel: Aktiv lügen, also etwas Falsches als Tatsache behaupten, darf eine Rolle nur zu Themen, die auf ihrer Karte mit „Du darfst hier lügen“ markiert sind.
 4. [LR-3] (öffentlich)
-   - Regel: Bei jeder erlaubten Lüge steht auf der Karte ein Gegenbeweis. Wird dir dieser Gegenbeweis vorgelegt, gibst du zu, was er zeigt. Danach darfst du ihn nur noch anders deuten.
+   - Regel: Bei jeder erlaubten Lüge steht auf der Karte ein Gegenbeweis. Wird dir dieser Gegenbeweis vorgelegt, gibst du zu, was er zeigt, und darfst ihn danach nur noch anders deuten. Innerhalb derselben Phase gelten deine übrigen Karten weiter so, wie sie stehen (LR-8).
 5. [LR-4] (öffentlich)
    - Regel: Was eine vorgelegte Hinweiskarte oder ein Beweisstück zeigt, bestreitet niemand.
 6. [LR-5] (öffentlich)
@@ -34,7 +34,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 12. [IF-4] (öffentlich)
    - Regel: Die Detektiv-Mappe enthält von Anfang an die eigenen Beobachtungen des Geburtstagskinds (DET-B1 bis DET-B6).
 13. [IF-5] (öffentlich)
-   - Regel: Am Ende jeder Phase gibt es eine Lagerunde von fünf Minuten. Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
+   - Regel: Am Ende jeder Phase gibt es eine Lagerunde (Dauer nach ZM-2). Jede besetzte Rolle 1–4 liest zuerst ihre Meldekarte der Phase laut vor; das ist Pflicht. Danach setzt jede Rolle um, was die gewählte Option ihrer Rollen-Entscheidung vorsieht: eine erhaltene Hinweiskarte offen in die Tischmitte legen, den vorgegebenen Satz aus ihrem eigenen Wissen laut sagen oder dem Detektiv etwas unter vier Augen weitergeben; der Erzähler liest die gewählten Ansagen. Was unter vier Augen weitergegeben werden soll, schreibt die Rolle beim Ankreuzen auf ihre Entscheidungskarte; die Spielleitung übergibt es dem Detektiv als Notizkarte. Die Rollen-Entscheidungen fallen vorher: Am Ende des Gesprächsfensters kreuzt jede Rolle in drei Minuten verdeckt eine Option auf ihrer Entscheidungskarte an, und die Spielleitung sammelt die Karten ein.
 14. [IF-8] (öffentlich)
    - Regel: Was eine Rolle in der Lagerunde laut sagt oder dem Detektiv unter vier Augen weitergibt, schreibt die Spielleitung auf eine Notizkarte (Kennung der Rollen-Entscheidung und Option). Notizkarten liegen danach in der Tischmitte und gelten wie Hinweiskarten.
 15. [IF-6] (öffentlich)
@@ -42,13 +42,13 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 16. [IF-7] (öffentlich)
    - Regel: Nach der Lagerunde trifft der Detektiv seine drei Entscheidungen der Phase. Er darf vorher eine Minute mit niemandem sprechen und nachdenken.
 17. [ZM-1] (öffentlich)
-   - Regel: Ein Gespräch dauert vier Minuten, ein zusammengelegtes Gespräch fünf. Die Box (Spielleitung) gibt alle vier Minuten einen leisen Gong.
+   - Regel: Ein Gespräch dauert vier Minuten, ein zusammengelegtes fünf. Die Box (Spielleitung) gibt alle fünf Minuten einen leisen Gong; je Gong beginnt eine Gesprächsrunde.
 18. [ZM-2] (öffentlich)
-   - Regel: Gesprächsfenster je Phase: bei 4 bis 8 Rollen 20 Minuten, bei 9 bis 16 Rollen 25 Minuten, bei 17 bis 20 Rollen 30 Minuten.
+   - Regel: Gesprächsfenster je Phase: bei 4 bis 6 Rollen 20 Minuten (4 Runden), bei 7 bis 12 Rollen 25 Minuten (5 Runden), bei 13 bis 16 Rollen 30 Minuten (6 Runden), bei 17 bis 20 Rollen 35 Minuten (7 Runden). Lagerunde: 5 Minuten bei 4 bis 8 Rollen, 8 Minuten bei 9 bis 12, 10 Minuten bei 13 bis 16, 12 Minuten bei 17 bis 20 Rollen.
 19. [ZM-3] (öffentlich)
-   - Ablauf: 0:00 Ankommen, Mappen lesen (15 Min.) · 0:15 Einführung mit Steckbrief-Vorstellungen (20 Min.) · 0:35 Phase 1, Vorspeise (Phasenstart 2, Gesprächsfenster, Rollen-Entscheidungen 3, Lagerunde 5, Detektiv-Entscheidungen 5) · Gangwechsel mit Zwischenresümee 1 und Einwurf (10 Min.) · Phase 2, Hauptgang (wie Phase 1, plus 5 Minuten Essen) · Gangwechsel mit Zwischenresümee 2 (10 Min.) · Phase 3, Nachtisch (wie Phase 1) · Zwischenresümee 3, Eingrenzung und Anklage (15 Min.) · Ende und Geständnis (8 Min.) · Ausklang mit Torte.
+   - Ablauf: 0:00 Ankommen, Mappen lesen (15 Min.) · 0:15 Einführung mit Steckbrief-Vorstellungen (20 Min.) · 0:35 Phase 1, Vorspeise (Phasenstart 2, Gesprächsfenster nach ZM-2, Rollen-Entscheidungen 3, Lagerunde nach ZM-2, Detektiv-Entscheidungen 5) · Gangwechsel mit Zwischenresümee 1 und Einwurf (10 Min.) · Phase 2, Hauptgang (wie Phase 1, plus 5 Minuten Essen) · Gangwechsel mit Zwischenresümee 2 (10 Min.) · Phase 3, Nachtisch (wie Phase 1) · Zwischenresümee 3, Eingrenzung und Anklage (15 Min.) · Ende und Geständnis (8 Min.) · Ausklang mit Torte.
 20. [ZM-4] (öffentlich)
-   - Dauer: bei 4 Rollen etwa 3 Stunden 15 Minuten, bei 20 Rollen etwa 3 Stunden 50 Minuten.
+   - Dauer: ohne Ausklang bei 4 Rollen etwa 3 Stunden 10 Minuten, bei 12 Rollen etwa 3 Stunden 35 Minuten, bei 16 Rollen etwa 3 Stunden 55 Minuten, bei 20 Rollen etwa 4 Stunden 15 Minuten.
 21. [ZM-5] (öffentlich)
    - Regel: Je Phase liest der Erzähler höchstens zehn Ansagen zu Rollen-Entscheidungen. Atmosphäre-Einwürfe liegen in den Gangwechseln und zwischen Gesprächsrunden, fünf je Phase.
 
@@ -92,8 +92,8 @@ Zahlen, Uhrzeiten, Aussprache:
 
 ## 7. Muster (nur für Format und Ton – nicht abschreiben, keine Sätze daraus übernehmen)
 ### M-11 Hinweiskarte (30–90 Wörter)
-    HINWEIS H-27 · Station Wendeltreppenturm · ab Phase 1
-    Am rechten Panzerhandschuh von Kunibert sind die Fingerplatten nach vorn verbogen, seit um zwanzig nach neun jemand bei der Führung dagegen gekracht ist. Die Kanten sind scharf.
+    HINWEIS H-00 · Station Beispiel · ab Phase 1 (nur Muster)
+    Auf der Fensterbank liegt ein Streichholzbriefchen, halb leer. Drei Hölzer sind abgebrannt, eins nur angekokelt. Daneben ein Rest Kerzenwachs, längst kalt.
 
 ## 8. Ausgabeformular (feste Feldnamen in fester Reihenfolge)
 KENNUNG: REGELBLATT

@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-ERZ-EINGRENZ-1 · SCHREIB · Welle 5 · Kanon v0.9 · erwarteter Umfang 600–1.000 Wörter
+ERZ-EINGRENZ-1 · SCHREIB · Welle 5 · Kanon v1.0 · erwarteter Umfang 600–1.000 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -22,7 +22,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 3. [AB-4-6] (Lösung)
    - Punkte: 4 bis 6
    - Verdächtigenkreis: R01, R03, R04
-   - Entlastet: R02 Rojda (glatte Turnschuhe, der Abdruck im Wachs hat Stollen; sie stand am Sicherungskasten, während das Gespenst laut Zettel woanders wartete)
+   - Entlastet: R02 Rojda (glatte Turnschuhe, der Abdruck im Wachs hat Stollen; unter dem Laken war Strickwolle, Rojda trägt einen Hoodie)
    - Erzähler nennt: Den Schlüsselhinweis nur als Richtung: „Der Schrei um Mitternacht kam aus der Box. Fragt euch, wann der Burgwart wirklich gefallen ist.“
 4. [AB-7-8] (Lösung)
    - Punkte: 7 oder 8
@@ -33,7 +33,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Punkte: 9
    - Verdächtigenkreis: R03, R04
    - Entlastet: R02 und R01 wie oben
-   - Erzähler nennt: Den Widerspruch ausdrücklich: „Jonas telefonierte bis kurz nach zwei vor zwölf oben an der dritten Zinne, vier Stockwerke über der Speisekammer, als dort zugeschlagen wurde. Merle stand erst eine knappe Minute nach dem Schlag neben Adnan und rief laut ihren Namen. Und sie wusste seit zwanzig nach elf, dass der Schrei aus der Box kommen würde.“ Damit ist die Wahl eindeutig.
+   - Erzähler nennt: Den Widerspruch ausdrücklich: „Jonas saß oben an der dritten Zinne, vier Stockwerke über der Speisekammer. Sein Telefonat lief noch, als unten die Eisentür quietschte, und als zugeschlagen wurde, war er immer noch oben. Merle kam erst über eine Minute nach dem Schlag an den Kamin, zwanzig Sekunden vor dem Schrei, und rief laut ihren Namen. Und sie wusste seit zwanzig nach elf, dass der Schrei aus der Box kommen würde.“ Damit ist die Wahl eindeutig.
 6. [S-8] (Lösung)
    - Schlussfolgerung: Adnan war es nicht: Ruß an Händen und Gesicht, aber Kerzenständer, Helm und Bund sind sauber; der Türschaden war um 23:30 erledigt; wer den Hebel zog, missachtete seine eigene Warnung.
    - Notwendig: nein
@@ -41,11 +41,11 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 7. [S-9] (Lösung)
    - Schlussfolgerung: Rojda war es nicht: Sie stand am Sicherungskasten und zog den Hebel, das Gespenst war jemand anderes; ihre Turnschuhe haben glatte Sohlen.
    - Notwendig: nein
-   - Hinweise: H-25, H-07, H-15
+   - Hinweise: H-25, H-07, H-06, H-15, H-14
 8. [S-10] (Lösung)
    - Schlussfolgerung: Jonas war es nicht: Er war um 23:54 oben auf dem Wehrgang (Merle selbst sagt es), und an seinen Stiefeln sind alle Stollen heil.
    - Notwendig: nein
-   - Hinweise: H-26, H-15
+   - Hinweise: H-26, H-43, H-06, H-15, H-52
 9. [K-092] (Lösung)
    - Tatsache: Unschuldig sind Adnan (R01), Rojda (R02) und Jonas (R04) sowie alle Erweiterungsrollen. Rojda verursachte den Stromausfall, Jonas betrog beim Mietgeld, Adnan beschädigte die Tür; keiner von ihnen hat den Burgwart angegriffen.
 
@@ -53,7 +53,7 @@ Namen weiterer Personen (nur zur korrekten Schreibweise):
    - R01 = Adnan Hodžić (Aussprache: AD-nan HOD-schitsch; m, 33; selbstständiger Veranstaltungstechniker („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma mit Transporter), ausgebildeter Ersthelfer)
    - R02 = Rojda Baran (Aussprache: ROSCH-da BA-ran (das J wie in „Journal“); w, 29; Mediengestalterin Bild und Ton beim Lokalradio, Geräuschemacherin aus Leidenschaft)
    - R03 = Merle Hartwig (Aussprache: MER-le HART-wich; w, 28; Studienreferendarin für Geschichte und Deutsch an einem Gymnasium; im Februar ist Examen, danach soll die Verbeamtung auf Probe kommen)
-   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik (so erzählt er es))
+   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik)
 
 ## 4. Stil und Ton
 - Erzählerstimme nach Stilblatt, vorlesbar, Uhrzeiten und Zahlen in Worten, Bedingungen nur in der Markierungssyntax des Stilblatts, nie verschachtelt.

@@ -1,4 +1,4 @@
-PROFIL-R01 · SCHREIB · Welle 1 · Kanon v0.9 · erwarteter Umfang 650–1.000 Wörter
+PROFIL-R01 · SCHREIB · Welle 1 · Kanon v1.0 · erwarteter Umfang 650–1.000 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -32,7 +32,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Beziehung zum Burgwart (wahr): mag ihn – „stur, aber gerecht“; der Handschlag war ihm wichtig.
 4. [R01-WISSEN] (geheim)
    - Rolle: R01
-   - Wissen: 18:30 gibt er Rojda Zettel und Lampe für „ihren Streich um Mitternacht, Licht kurz aus“ ; 23:30 Handschlag, der Burgwart streicht den Schadenszettel durch und steckt ihn in die Weste ; 23:40 Merle bittet ihn um AAA-Batterien: „Meine Lampe ist fast leer“ – er hat keine dabei ; 23:48 Kamin, Qualm ; 23:52 Merle geht mit ihrer Tasche „aufs Klo“ ; 23:53 Jonas geht „frische Luft“, mit erhobenem Handy in den Turm ; 23:54 die Box dröhnt „Verbindung getrennt“ ; kurz vor zwölf meldet die Box „Verbunden“ und spielt Wind ; 23:58 Knall – er weiß sofort: „Unter Last gezogen, Hauptsicherung hin“ ; durch den Qualm und die laute Box hört er sonst nichts aus der Speisekammer ; 23:59:40 Merle neben ihm, außer Atem, eiskalte Hände, laut: „Adnan? Ich bin's, Merle! Ich hab mich total verlaufen.“ ; als Merle um 23:59:40 neben ihm steht, knarzt die Box gerade wie eine Tür ; 00:00 der Schrei kommt aus der Ecke mit der Box ; 00:00:15 Rojda steht am offenen Sicherungskasten: „Ich wollte nur das Licht wieder …“ ; 00:00:25 der Burgwart bewusstlos, Kerzenständer neben ihm, Wachsspritzer ; 00:02 Hauptsicherung durchgebrannt, Ersatz im Torhaus ; 00:06 Taler liegt in der Dose ; 00:07 Tor und Torhaus zu, im Raureif nur die Stiefelspuren des Burgwarts.
+   - Wissen: 18:30 gibt er Rojda Zettel und Lampe für „ihren Streich um Mitternacht, Licht kurz aus“ ; 23:30 Handschlag, der Burgwart streicht den Schadenszettel durch und steckt ihn in die Weste ; 23:40 Merle bittet ihn um AAA-Batterien: „Meine Lampe ist fast leer“ – er hat keine dabei ; 23:48 Kamin, Qualm ; 23:52 Merle geht mit ihrer Tasche „aufs Klo“ ; 23:53 Jonas geht „frische Luft“, mit erhobenem Handy in den Turm ; 23:54 die Box dröhnt „Verbindung getrennt“ ; kurz vor zwölf meldet die Box „Verbunden“ und spielt Wind ; 23:58 Knall – er weiß sofort: „Unter Last gezogen, Hauptsicherung hin“ ; durch den Qualm und die laute Box hört er sonst nichts aus der Speisekammer ; 23:59:40 er hört jemanden von der Turmtür-Seite her an der Wand entlangtasten, dann steht Merle neben ihm, außer Atem, eiskalte Hände, laut: „Adnan? Ich bin's, Merle! Ich hab mich total verlaufen.“ ; als Merle um 23:59:40 neben ihm steht, knarzt die Box gerade wie eine Tür ; 00:00 der Schrei kommt aus der Ecke mit der Box ; 00:00:15 Rojda steht am offenen Sicherungskasten: „Ich wollte nur das Licht wieder …“ ; 00:00:25 der Burgwart bewusstlos, Kerzenständer neben ihm, Wachsspritzer ; 00:02 Hauptsicherung durchgebrannt, Ersatz im Torhaus ; 00:06 Taler liegt in der Dose ; 00:07 Tor und Torhaus zu, im Raureif nur die Stiefelspuren des Burgwarts.
 5. [R01-VERBINDUNGEN] (geheim)
    - Rolle: R01
    - Verbindungen: R02 (Code und Lampe für ihren Streich) ; R03 (Freundin aus der Clique, bat ihn um Batterien) ; R04 (alter Kumpel aus dem Fußballverein; Adnan ahnt das Mietgeld) ; BW (Auftraggeber bei Burgfesten, Handschlag) ; Erweiterungsrollen siehe deren Einträge.
@@ -43,11 +43,11 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 7. [K-001] (öffentlich)
    - Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist eine renovierte mittelalterliche Höhenburg im Oberharz über dem erfundenen Bergstädtchen Silberhau (SIL-ber-hau). Sie gehört einer Stiftung; Burgwart ist Eckehard Lüddecke.
 8. [K-002] (öffentlich)
-   - Tatsache: Es ist ein Samstag im November. Klarer Himmel, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
+   - Tatsache: Es ist ein Samstag im November. Über der Burg ist der Himmel klar, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Im Tal um Silberhau und auf dem unteren Burgweg liegt dichter Eisnebel (Inversionswetterlage), die Straße ist spiegelglatt. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
 9. [K-003] (öffentlich)
    - Tatsache: Das Kamin-Gewölbe (Festsaal im Keller) hat drei Türen: die Turmtür zum Fuß des Wendeltreppenturms, den Kellerhals (Treppe hinauf in den Hof) und die alte Eichentür zur Speisekammer.
 10. [K-004] (öffentlich)
-   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut beim Öffnen und beim Schließen. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
+   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut, sobald man sie aufzieht; ihr Zufallen hört man kaum. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
 11. [K-005] (öffentlich)
    - Tatsache: Der Wendeltreppenturm verbindet alle Ebenen. Unten am Turm-Fuß: Turmtür zum Gewölbe, Eisentür zur Speisekammer, der Sicherungskasten mit Zahlenschloss und eine alte Holztruhe. Acht Stufen höher, auf dem ersten Absatz: die Ritterrüstung „Kunibert“. Darüber die Hofebene mit der Hoftür, der Schauvitrine und der Toilette. Ganz oben der Wehrgang.
 12. [K-006] (öffentlich)
@@ -67,7 +67,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 19. [LISTE-GEGENSTÄNDE] (öffentlich)
    - Gegenstände: eiserner Kerzenständer mit drei Kerzen · Blechdose des Burgwarts · Ausbeutetaler · Schlüsselbund mit Karabiner · Rüstung Kunibert mit Panzerhandschuh und Helmvisier · Bluetooth-Box · Sicherungskasten mit Hauptschalter · Code-Zettel (zwei Handschriften) · Stablampe mit Klebeband „HODŽIĆ VT · 3“ · weißes Bettlaken mit rotem Wäschezeichen „Schartenfels 7“ · Holztruhe · Schadenszettel des Burgwarts · Punschkessel · Heißluftpistole · Wanderstiefel · Sohlenkarten · Sofortbild der Burgführung · Handys mit Taschenlampe · Kühlpack (Tiefkühlerbsen) · Wolldecke · Geburtstagstorte · Azads Kamerafotos mit Uhrzeit (nur wenn Rolle 19 besetzt)
 20. [LISTE-ZEITEN] (öffentlich)
-   - Öffentlich bekannte Zeitpunkte: 17:40 Türschaden an der Eichentür · 20:30 Begrüßungsrede mit Box-Echo · 21:15 bis 21:35 Burgführung · 22:45 Ultimatum des Burgwarts · 23:00 Burgtor abgeschlossen · 23:35 der Burgwart sagt, er gehe ins Bett · 23:48 Kamin-Qualm · 23:54 Box meldet „Verbindung getrennt“ · kurz vor zwölf meldet die Box „Verbunden“ · Knall und Stromausfall kurz vor zwölf · um Mitternacht der Schrei · kurz nach Mitternacht wird der Burgwart in der Speisekammer gefunden
+   - Öffentlich bekannte Zeitpunkte: 17:40 Türschaden an der Eichentür · 20:30 Begrüßungsrede mit Box-Echo · 21:15 bis 21:35 Burgführung · 22:45 Ultimatum des Burgwarts · 23:00 Burgtor abgeschlossen · 23:35 der Burgwart sagt, er gehe ins Bett · 23:48 Kamin-Qualm · 23:52 Adnan reißt die Turmtür auf, Merle geht aufs Klo, kurz danach geht Jonas Luft schnappen · 23:54 Box meldet „Verbindung getrennt“ · 23:56 Rojda schickt das Geburtstagskind an die Eichentür, kurz darauf meldet die Box „Verbunden“ · 23:58 Knall und Stromausfall · um Mitternacht der Schrei · 00:01 der Burgwart wird in der Speisekammer gefunden und kommt zu sich · 00:02 Jonas kommt die Treppe herunter · 00:03 der Bund fehlt · ab 00:05 Versorgung, Tor- und Torhausprobe, Anruf bei der Leitstelle, Beschluss zum Weiterfeiern (bis 00:30). Andere Uhrzeiten nennen nur Rollenkarten, Hinweise und Beweisstücke.
 21. [OA-01] (öffentlich)
    - Zeit: 16:30
    - Was alle erlebt haben: Adnan und der Burgwart schließen den Gewölbekeller auf; Adnan baut Licht und die Bluetooth-Box auf.
@@ -175,7 +175,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 53. [LR-2] (öffentlich)
    - Regel: Aktiv lügen, also etwas Falsches als Tatsache behaupten, darf eine Rolle nur zu Themen, die auf ihrer Karte mit „Du darfst hier lügen“ markiert sind.
 54. [LR-3] (öffentlich)
-   - Regel: Bei jeder erlaubten Lüge steht auf der Karte ein Gegenbeweis. Wird dir dieser Gegenbeweis vorgelegt, gibst du zu, was er zeigt. Danach darfst du ihn nur noch anders deuten.
+   - Regel: Bei jeder erlaubten Lüge steht auf der Karte ein Gegenbeweis. Wird dir dieser Gegenbeweis vorgelegt, gibst du zu, was er zeigt, und darfst ihn danach nur noch anders deuten. Innerhalb derselben Phase gelten deine übrigen Karten weiter so, wie sie stehen (LR-8).
 55. [LR-4] (öffentlich)
    - Regel: Was eine vorgelegte Hinweiskarte oder ein Beweisstück zeigt, bestreitet niemand.
 56. [LR-5] (öffentlich)
@@ -188,7 +188,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 Namen weiterer Personen (nur zur korrekten Schreibweise):
    - R02 = Rojda Baran (Aussprache: ROSCH-da BA-ran (das J wie in „Journal“); w, 29; Mediengestalterin Bild und Ton beim Lokalradio, Geräuschemacherin aus Leidenschaft)
    - R03 = Merle Hartwig (Aussprache: MER-le HART-wich; w, 28; Studienreferendarin für Geschichte und Deutsch an einem Gymnasium; im Februar ist Examen, danach soll die Verbeamtung auf Probe kommen)
-   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik (so erzählt er es))
+   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik)
 
 ## 4. Stil und Ton
 - Steckbrief: lebendig, in der dritten Person, für alle Mitspieler lesbar. Er enthält nur, was in den Datensätzen STAMM und ÖFFENTLICH steht.

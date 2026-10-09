@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-DET-P1 · SCHREIB · Welle 2 · Kanon v0.9 · erwarteter Umfang 1.000–1.700 Wörter
+DET-P1 · SCHREIB · Welle 2 · Kanon v1.0 · erwarteter Umfang 1.000–1.700 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -23,7 +23,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Ablenkung: C
    - Punkte: B=1, A=0, C=0
    - Ergebnis A: Klebeband „HODŽIĆ VT · 3“: Es ist Adnans Lampe. Der Schalter steht auf AN, die Batterie ist leer. Wer sie zuletzt hatte, verrät sie nicht; sie zeigt auf Adnan.
-   - Ergebnis B: Das Wachs ist aus den Tüllen gespritzt, als der Kerzenständer geschwungen wurde, und sofort auf dem kalten Stein erstarrt. In einem Spritzer steckt der Abdruck eines Absatzes mit Stollenprofil, die Spitze zeigt zur Eisentür. Wer zuschlug, ging durch die Eisentür hinaus; merk dir das Profil.
+   - Ergebnis B: Das Wachs ist aus den Tüllen gespritzt, als der Kerzenständer geschwungen wurde, und sofort auf dem kalten Stein erstarrt. In einem Spritzer steckt der Abdruck eines Absatzes mit Stollenprofil; am Absatzrand fehlt ein Stollen, die Spitze zeigt zur Eisentür. Wer zuschlug, ging durch die Eisentür hinaus; merk dir die Lücke im Profil.
    - Ergebnis C: Die Torte ist unversehrt, obendrauf ein Marzipan-Kunibert. Hübsch, aber sie verrät nichts.
 3. [H-04] (öffentlich)
    - Inhalt: Die Eichentür ist von der Speisekammerseite mit einem Holzbalken verkeilt; Staub und Spinnweben am Balken sind unberührt. Die Speisekammer hat keine Fenster; der einzige andere Zugang ist die Eisentür zum Turm-Fuß.
@@ -50,26 +50,25 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Option A: die Rüstung Kunibert auf dem ersten Absatz
    - Option B: den offenen Sicherungskasten am Turm-Fuß
    - Option C: die Schauvitrine auf der Hofebene
-   - Begründbar durch: H-04, H-27, H-09
+   - Begründbar durch: H-12, H-27, H-04
 7. [DW1-2] (Lösung)
    - Echte Spur: A
    - Falsche Fährte: B
    - Ablenkung: C
    - Punkte: A=1, B=0, C=0
-   - Ergebnis A: Am verbogenen Panzerhandschuh hängt ein Streifen weißes Leinen mit rotem Wäschezeichen „Schartenfels 7“. Wer nach der Tat hier hinaufging, trug ein Laken. Das Visier sitzt schief und klemmt; ohne den Burgwart bekommst du es nicht auf.
-   - Ergebnis B: Der Code-Zettel trägt vorn Adnans Schrift: „3108 · nur der große Hebel · nach 2 Min wieder hoch – A.“ Die Hauptsicherung ist durchgeschmort. Alles sieht nach dem Techniker aus.
+   - Ergebnis A: Am verbogenen Panzerhandschuh hängt ein Streifen weißes Leinen mit rotem Wäschezeichen „Schartenfels 7“. Wer nach der Tat hier hinaufging, trug ein Laken. Das Visier ist zu; an der Rüstung des Burgwarts herumzuschrauben traust du dich nicht.
+   - Ergebnis B: Der Code-Zettel trägt vorn Adnans Schrift: „Kasten Turm unten · 3108 · nur der große Hebel · VORHER Kessel + Heizstrahler AUS, sonst knallt's! · nach 2 Min wieder hoch · A.“ Die Hauptsicherung ist durchgeschmort. Alles sieht nach dem Techniker aus.
    - Ergebnis C: Die Vitrine ist abgeschlossen und leer, um die Samtmulde ein Staubrand. Der Taler liegt ja längst wieder in der Dose.
-8. [H-27] (öffentlich)
+8. [H-12] (öffentlich)
+   - Inhalt: Am nach vorn verbogenen Panzerhandschuh von Kunibert hängt ein Streifen weißes Leinen mit rotem Wäschezeichen „Schartenfels 7“.
+   - Form: Beweisstück
+   - Quelle: Beweisstück BS-02 (Station Turm)
+   - Phase: 1
+   - Min: 4
+9. [H-27] (öffentlich)
    - Inhalt: Am Panzerhandschuh von Kunibert sind die Fingerplatten nach vorn verbogen, seit Jonas um 21:20 dagegen gerannt ist.
    - Form: Karte
    - Quelle: Station Turm (Kunibert)
-   - Phase: 1
-   - Min: 4
-9. [H-09] (geheim)
-   - Rolle: DET
-   - Inhalt: Kurz nach dem Knall, noch bevor aus der Box Kettenrasseln kam, hörtest du durch die gesplitterte Tür ein Klimpern, einen tiefen Ruf, einen dumpfen Schlag, Poltern und rollende Dosen. Dann eine Weile nur Box-Geräusche, dann der Schrei direkt neben dir.
-   - Form: Detektiv-Mappe
-   - Quelle: Detektiv-Mappe DET-B3
    - Phase: 1
    - Min: 4
 10. [D1-3] (öffentlich)
@@ -87,27 +86,34 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Ergebnis A: Nasses Holz, eine Heißluftpistole, Ruß bis zur Tafel. Adnan war hier – aber wer weiß schon, wie lange, im Qualm und im Dunkeln?
    - Ergebnis B: Der Punsch ist noch warm und duftet nach Zimt. Der Kessel lief bis zum Knall; mehr verrät er nicht.
    - Ergebnis C: Auf der Track-Karte „Geisterstunde“ steht: Wind, bei 1:30 Ketten, bei 3:00 ein langer hoher Schrei. Auf der Zettel-Rückseite steht als Startzeit drei vor zwölf. Der Schrei kam also um Mitternacht aus der Box. Was du kurz nach dem Knall gehört hast, noch vor den Ketten, war echt.
-12. [H-07] (öffentlich)
+12. [H-09] (geheim)
+   - Rolle: DET
+   - Inhalt: Kurz nach dem Knall quietschte drüben in der Speisekammer eine Tür. Dann, noch bevor aus der Box Kettenrasseln kam, hörtest du durch die gesplitterte Tür ein Klimpern, einen tiefen Ruf, einen dumpfen Schlag, Poltern und rollende Dosen. Unter dem Kettenrasseln quietschte die Tür drüben noch einmal. Dann eine Weile nur Box-Geräusche, dann der Schrei direkt neben dir.
+   - Form: Detektiv-Mappe
+   - Quelle: Detektiv-Mappe DET-B3
+   - Phase: 1
+   - Min: 4
+13. [H-07] (öffentlich)
    - Inhalt: Rückseite des Code-Zettels, andere Handschrift: „23:57 Track ▶ · 23:58 Hebel · Gespenst wartet unten · 0:00 Schrei!! → Gespenst durch Turmtür hinter GK · 0:02 Licht + Torte“.
    - Form: Beweisstück
    - Quelle: Beweisstück BS-04 Rückseite (Station Turm)
    - Phase: 1
    - Min: 4
-13. [H-10] (öffentlich)
+14. [H-10] (öffentlich)
    - Inhalt: Der Burgwart: „Geschrien? Ich? Dreißig Jahre unter Tage, ich hab nie geschrien.“
    - Form: Erzähler
    - Quelle: Erzähler BW-AUSSAGE-1
    - Phase: 1
    - Min: 4
-14. [DET-STAMM] (öffentlich)
+15. [DET-STAMM] (öffentlich)
    - Bezeichnung: das Geburtstagskind
    - Anrede: du
    - Name, Alter, Geschlecht: werden nie genannt
    - Rolle im Spiel: Detektiv; spielt sich selbst als Gast; ist nie verdächtig
    - Rolle im Streich: Ziel des Geisterschrecks
-15. [DET-ALIBI] (öffentlich)
+16. [DET-ALIBI] (öffentlich)
    - Alibi: 23:30–23:56 im Gewölbe (ab 23:48 im Qualm). 23:56:00 schickt Rojda dich an die Speisekammertür („Geh mal lauschen, gleich spukt's“). Von 23:56:10 bis 00:00:05 stehst du an der verkeilten Eichentür. 00:00:15 gehst du mit Adnan über den Turm, 00:00:25 bist du in der Speisekammer.
-16. [BW-STAMM] (öffentlich)
+17. [BW-STAMM] (öffentlich)
    - Name: Eckehard Lüddecke
    - Aussprache: E-ke-hart LÜD-de-ke
    - Alter: 71
@@ -121,7 +127,7 @@ Namen weiterer Personen (nur zur korrekten Schreibweise):
    - R01 = Adnan Hodžić (Aussprache: AD-nan HOD-schitsch; m, 33; selbstständiger Veranstaltungstechniker („Hodžić Veranstaltungstechnik“, eine Ein-Mann-Firma mit Transporter), ausgebildeter Ersthelfer)
    - R02 = Rojda Baran (Aussprache: ROSCH-da BA-ran (das J wie in „Journal“); w, 29; Mediengestalterin Bild und Ton beim Lokalradio, Geräuschemacherin aus Leidenschaft)
    - R03 = Merle Hartwig (Aussprache: MER-le HART-wich; w, 28; Studienreferendarin für Geschichte und Deutsch an einem Gymnasium; im Februar ist Examen, danach soll die Verbeamtung auf Probe kommen)
-   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik (so erzählt er es))
+   - R04 = Jonas Brinkmann (Aussprache: JO-nas BRINK-man; m, 34; Vertriebler für Medizintechnik)
 
 ## 4. Stil und Ton
 - Entscheidungskarte: Kopf „DETEKTIV · ENTSCHEIDUNG D1-k“, die Frage wörtlich, die drei Optionen A, B, C wörtlich. Keine Punkte, keine Wertung.
@@ -169,8 +175,8 @@ Zahlen, Uhrzeiten, Aussprache:
 
 ## 7. Muster (nur für Format und Ton – nicht abschreiben, keine Sätze daraus übernehmen)
 ### M-05 Ergebnistext einer Detektiv-Option (80–140 Wörter)
-    Du gehst hinaus in den Hof. Der Atem dampft, das Geleucht am Brunnen wirft einen kleinen, kalten Lichtkreis. Im Raureif zeichnen sich Stiefelspuren ab: eine vom Kellerhals zum Torhaus, eine vom Torhaus zurück zur Hoftür des Turms. Vor dem Burgtor liegt der Reif unberührt, glatt wie Zuckerguss. Durch dieses Tor ist heute Nacht niemand gegangen. Wer auch immer zugeschlagen hat, sitzt noch mit euch am Tisch.
-    (Muster für Form und Ton; keine echte Detektiv-Option.)
+    Du gehst hinüber zur Beispielstation. Der Atem dampft, eine Laterne wirft einen kleinen, kalten Lichtkreis. Auf der Fensterbank liegt ein Streichholzbriefchen, halb leer; drei Hölzer sind abgebrannt, eins nur angekokelt. Daneben ein Rest Kerzenwachs, längst kalt. Wer hier gezündelt hat, hatte es eilig und kam nicht mehr zurück, um aufzuräumen. Merk dir das angekokelte Holz.
+    (Muster für Form und Ton; erfundener Inhalt, keine echte Detektiv-Option.)
 
 ## 8. Ausgabeformular (feste Feldnamen in fester Reihenfolge)
 KENNUNG: DET-P1

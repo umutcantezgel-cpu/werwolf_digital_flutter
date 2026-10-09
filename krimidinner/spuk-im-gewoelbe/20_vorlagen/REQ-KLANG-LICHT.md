@@ -6,7 +6,7 @@ Schreibe die Klang- und Lichtliste für den ganzen Abend: 25 bis 35 Cues mit Zei
 ## STIL
 - Je Cue eine Zeile im festen Format: „CUE K-nn · <Zeitpunkt im Ablauf> · Klang: … · Licht: … · Auslöser: Spielleitung / Erzähler-App“ (30–45 Wörter).
 - Reihenfolge entlang des Ablaufs (ZM-3): Ankommen, Einführung, Phase 1, Gangwechsel, Phase 2, Gangwechsel, Phase 3, Auflösung, Ende, Ausklang.
-- Pflicht-Cues: Wind zu Beginn, Box-Echo bei der Begrüßung, „Verbindung getrennt“, der Knall, Dunkelheit, Wind/Ketten/Schritte aus der Box, der Schrei, Gong alle vier Minuten, Gangwechsel, Eingrenzung, Ende, Torte.
+- Pflicht-Cues: Wind zu Beginn, Box-Echo bei der Begrüßung, „Verbindung getrennt“, der Knall, Dunkelheit, Wind/Ketten/Schritte aus der Box, der Schrei, Gong alle fünf Minuten, Gangwechsel, Eingrenzung, Ende, Torte.
 - Ein eigener Abschnitt „Track Geisterstunde“: wie die Spielleitung den Track (3:20, Ablauf laut Track-Karte) vorbereitet und abspielt.
 Licht-Grundsätze:
 {{LICHT}}

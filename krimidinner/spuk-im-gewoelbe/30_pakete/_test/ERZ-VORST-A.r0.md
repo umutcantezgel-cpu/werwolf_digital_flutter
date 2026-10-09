@@ -1,4 +1,4 @@
-ERZ-VORST-A · SCHREIB · Welle 1 · Kanon v0.9 · erwarteter Umfang 600–850 Wörter
+ERZ-VORST-A · SCHREIB · Welle 1 · Kanon v1.0 · erwarteter Umfang 600–850 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -58,9 +58,9 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Alter: 34
    - Wurzeln: deutsch
    - Familie: aus Salzgitter-Bad. Der Vater ist Schichtleiter im Stahlwerk, sein Satz lautet: „Brinkmanns zahlen ihre Rechnungen.“ Die Mutter ist Schulsekretärin, der jüngere Bruder Lukas Elektriker.
-   - Beruf: Vertriebler für Medizintechnik (so erzählt er es)
+   - Beruf: Vertriebler für Medizintechnik
    - Beziehung zum Geburtstagskind: Fußballverein seit der Jugend; der Organisator mit Tabellen und großen Versprechen („Mitternacht am lodernden Kamin!“)
-   - Kleidung: olivgrüne Fleecejacke, kariertes Hemd, Jeans, braune Wanderstiefel (Sonderangebot), Armbanduhr mit großem Ziffernblatt
+   - Kleidung: olivgrüner grober Strickpullover, kariertes Hemd, Jeans, braune Wanderstiefel (Sonderangebot), Armbanduhr mit großem Ziffernblatt
    - Sprechweise: 1) Verkäuferton: „Leute, Leute, Leute!“ 2) zählt alles auf („Punkt eins, Punkt zwei“) 3) wenn er ausweicht, wird er besonders fröhlich
 8. [R04-ÖFFENTLICH] (öffentlich)
    - Beziehung zum Burgwart (bekannt): Bei der Begrüßung rief der Burgwart laut „Welche Miete?“; seitdem macht Jonas einen Bogen um ihn.

@@ -1,5 +1,5 @@
 [ENTHÄLT LÖSUNG]
-REQ-BAU-1 · SCHREIB · Welle 1 · Kanon v0.9 · erwarteter Umfang 750–1.250 Wörter
+REQ-BAU-1 · SCHREIB · Welle 1 · Kanon v1.0 · erwarteter Umfang 750–1.250 Wörter
 
 Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
 
@@ -12,18 +12,18 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
 ## 3. Kanon-Auszug (unveränderlich; nichts davon ändern, nichts Lösungsrelevantes hinzuerfinden)
 1. [BS-01] (Lösung)
    - Beweisstück: Wachsabdruck am Boden
-   - Wahrheit: Beim Schlag um 23:58:22 spritzte flüssiges Wachs aus den Tüllen des Kerzenständers, den der Burgwart erst um 23:56:20 ausgeblasen hatte. Um 23:58:25 trat Merle mit dem linken Wanderstiefel hinein. Am Absatz fehlt ein Stollen (seit 17:35); die Spitze zeigt zur Eisentür.
-   - Scheinbare Deutung: Abdruck eines Helfers, der um 00:00:25 in die Speisekammer kam, oder von Jonas (gleiches Stiefelmodell).
+   - Wahrheit: Beim Schlag um 23:58:22 spritzte flüssiges Wachs aus den Tüllen des Kerzenständers, den der Burgwart erst um 23:56:20 ausgeblasen hatte. Um 23:58:25 trat Merle mit dem linken Wanderstiefel hinein. Am Absatz fehlt ein Stollen (seit 17:35); die Spitze zeigt zur Eisentür. Auf dem kalten Stein erstarrte das Wachs binnen Sekunden; als Adnan und das Geburtstagskind um 00:00:25 hereinkamen, war es hart und der Abdruck schon darin. Er stammt also aus den Sekunden nach dem Schlag.
+   - Scheinbare Deutung: Abdruck eines Helfers, der um 00:00:25 in die Speisekammer kam (widerlegt: das Wachs war da schon hart), oder von Jonas (gleiches Stiefelmodell, aber alle Stollen heil).
    - Wirkt belastend für: R04, R01
 2. [BSO-01] (öffentlich)
    - Beweisstück: Wachsspritzer mit Teilabdruck
    - Fundort: Speisekammer, neben der Eisentür
    - Phase: 1
-   - Aussehen: Erstarrte Wachsspritzer auf dem Steinboden; in einem der Abdruck eines Absatzes mit Stollenprofil, Spitze Richtung Eisentür.
+   - Aussehen: Erstarrte Wachsspritzer auf dem Steinboden; in einem der Abdruck eines Absatzes mit Stollenprofil, am Absatzrand fehlt ein Stollen (glatte Lücke im Muster), Spitze Richtung Eisentür.
 3. [BS-02] (Lösung)
    - Beweisstück: Stofffetzen an der Rüstungshand
    - Wahrheit: ein Streifen weißes Leinen mit rotem Wäschezeichen „Schartenfels 7“ aus dem Gespenster-Laken. Er riss um 23:58:55 am Panzerhandschuh, den Jonas um 21:20 verbogen hatte.
-   - Scheinbare Deutung: von Jonas' Rüstungsschreck, oder jemand hat am Gästezimmer-Wäscheschrank etwas versteckt.
+   - Scheinbare Deutung: von Jonas' Rüstungsschreck, oder jemand hat sich an der Burgwäsche bedient (das Laken stammt aus dem Wäschekorb neben der Toilette, Z-2140).
    - Wirkt belastend für: R04
 4. [BSO-02] (öffentlich)
    - Beweisstück: Stofffetzen
@@ -61,7 +61,7 @@ Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenf
    - Phase: 1
    - Aussehen: Schwer, Eisen, drei Tüllen mit kalten Kerzen; Wachs an Fuß und Tüllen; der Griff ist sauber.
 11. [K-004] (öffentlich)
-   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut beim Öffnen und beim Schließen. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
+   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut, sobald man sie aufzieht; ihr Zufallen hört man kaum. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
 12. [K-005] (öffentlich)
    - Tatsache: Der Wendeltreppenturm verbindet alle Ebenen. Unten am Turm-Fuß: Turmtür zum Gewölbe, Eisentür zur Speisekammer, der Sicherungskasten mit Zahlenschloss und eine alte Holztruhe. Acht Stufen höher, auf dem ersten Absatz: die Ritterrüstung „Kunibert“. Darüber die Hofebene mit der Hoftür, der Schauvitrine und der Toilette. Ganz oben der Wehrgang.
 13. [K-007] (öffentlich)
