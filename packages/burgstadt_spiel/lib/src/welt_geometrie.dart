@@ -24,6 +24,34 @@ class BereichGeometrie {
     _bauen();
   }
 
+  /// Seite, an der [d] anliegt (für [FormOrt.rueckseite]): die Seite mit den meisten nicht begehbaren
+  /// Nachbarkacheln; bei Gleichstand die erste in der Reihenfolge −z, +x, +z, −x. Reine Darstellung.
+  static int rueckseite(Bereich b, Ding d) {
+    var beste = 0, besteZahl = -1;
+    for (var s = 0; s < 4; s++) {
+      var n = 0;
+      if (s == 0 || s == 2) {
+        final z = s == 0 ? d.z0 - 1 : d.z1 + 1;
+        for (var x = d.x0; x <= d.x1; x++) {
+          if (!b.begehbar(x, z)) n++;
+        }
+      } else {
+        final x = s == 3 ? d.x0 - 1 : d.x1 + 1;
+        for (var z = d.z0; z <= d.z1; z++) {
+          if (!b.begehbar(x, z)) n++;
+        }
+      }
+      final l = (s == 0 || s == 2) ? d.x1 - d.x0 + 1 : d.z1 - d.z0 + 1;
+      // Anteil der Seite, damit kurze und lange Seiten vergleichbar sind
+      final anteil = n * 1000 ~/ l;
+      if (anteil > besteZahl) {
+        besteZahl = anteil;
+        beste = s;
+      }
+    }
+    return beste;
+  }
+
   static int tex(String? name, [TexturId ersatz = TexturId.quaderMauer]) {
     if (name == null) return ersatz.index;
     for (final t in TexturId.values) {
@@ -252,7 +280,8 @@ class BereichGeometrie {
       final (w, k) = licht(d.mitteX, l.hoehe / 2, d.mitteZ);
       final form = kFormen[l.form];
       if (form != null) {
-        form.baue(m, FormOrt(ding: d, bereichId: b.id, x0: x0, z0: z0, x1: x1, z1: z1, hoehe: l.hoehe, textur: t, warm: w, kalt: k));
+        form.baue(m, FormOrt(ding: d, bereichId: b.id, x0: x0, z0: z0, x1: x1, z1: z1, hoehe: l.hoehe, textur: t, warm: w, kalt: k,
+            rueckseite: rueckseite(b, d)));
         meshes.add(m.build());
         continue;
       }

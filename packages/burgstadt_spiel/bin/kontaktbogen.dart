@@ -5,6 +5,7 @@
 //   dart run bin/kontaktbogen.dart texturen <ausgabe.png> [name1,name2,…] [--zoom N]
 //   dart run bin/kontaktbogen.dart texturen-licht <ausgabe.png> [namen] [--zoom N]
 //   dart run bin/kontaktbogen.dart bereich <bereich-id> <ausgabe.png>
+//   dart run bin/kontaktbogen.dart formen <ausgabe.png> [form1,form2,…]
 //
 // Jeder Lauf endet mit „KONTAKTBOGEN <modus> · <n> Zellen · Palette OK“ bzw.
 // „… · PALETTE FEHLER <n>“ (Exit 1). Geprüft wird, ob jeder Palettenindex unter
@@ -14,6 +15,7 @@ import 'dart:io';
 import 'dart:math' as math;
 import 'dart:typed_data';
 
+import 'package:burgstadt_core/burgstadt_core.dart';
 import 'package:burgstadt_spiel/burgstadt_spiel.dart';
 import 'package:burgstadt_spiel/burgstadt_spiel_io.dart';
 import 'package:pixel_engine/pixel_engine.dart';
@@ -21,7 +23,9 @@ import 'package:pixel_engine/pixel_engine.dart';
 const _nutzung = 'Aufruf (aus packages/burgstadt_spiel):\n'
     '  dart run bin/kontaktbogen.dart texturen <ausgabe.png> [name1,name2,…] [--zoom N]\n'
     '  dart run bin/kontaktbogen.dart texturen-licht <ausgabe.png> [namen] [--zoom N]\n'
-    '  dart run bin/kontaktbogen.dart bereich <bereich-id> <ausgabe.png>';
+    '  dart run bin/kontaktbogen.dart bereich <bereich-id> <ausgabe.png>\n'
+    '  dart run bin/kontaktbogen.dart kandidaten <ausgabe.png> [namen] [--zoom N]\n'
+    '  dart run bin/kontaktbogen.dart formen <ausgabe.png> [form1,form2,…]';
 
 /// Lichtlage einer Zelle: Warm- und Kaltlicht je 0..1, Nebelstufe 0..3 (Index der LightTable).
 class _Lage {
@@ -69,6 +73,8 @@ void main(List<String> args) {
       _bereich(pos);
     case 'kandidaten':
       _kandidaten(pos, zoom);
+    case 'formen':
+      _formen(pos);
     default:
       _abbruch('unbekannter Modus „${pos[0]}“');
   }
@@ -151,6 +157,52 @@ void _bereich(List<String> pos) {
   _fertig('bereich', bild, 3, pos[2]);
 }
 
+/// Möbel- und Objektformen (HZ-07): je Form bis zu zwei echte Dinge aus der Stadt mit verschiedenen Maßen,
+/// gebaut wie in BereichGeometrie (Grundfläche um 0,04 m eingerückt, Textur aus der Legende), auf einer
+/// Bodenplatte, je Ding eine Zeile mit drei Blickwinkeln. Ohne Namen alle Formen aus [kFormen].
+void _formen(List<String> pos) {
+  if (pos.length < 2 || pos.length > 3) _abbruch('Ausgabedatei und optional Formnamen nötig');
+  final namen = pos.length == 3 ? pos[2].split(',') : (kFormen.keys.toList()..sort());
+  final spiel = Spiel();
+  ladeAusRepo(spiel);
+  const s = kKachel;
+  final zeilen = <PixelBuffer>[];
+  for (final name in namen) {
+    final form = kFormen[name];
+    if (form == null) _abbruch('unbekannte Form „$name“ (registriert: ${kFormen.keys.join(', ')})');
+    final gesehen = <String>{};
+    final ids = spiel.stadt.bereiche.keys.toList()..sort();
+    for (final id in ids) {
+      final b = spiel.stadt.bereiche[id]!;
+      for (final d in b.dinge) {
+        final l = d.legende;
+        if (l.form != name || l.art != KachelArt.objekt) continue;
+        final masse = '${d.x1 - d.x0 + 1}x${d.z1 - d.z0 + 1}x${l.hoehe}';
+        if (gesehen.length >= 2 || !gesehen.add(masse)) continue;
+        final x0 = d.x0 * s + 0.04, z0 = d.z0 * s + 0.04, x1 = (d.x1 + 1) * s - 0.04, z1 = (d.z1 + 1) * s - 0.04;
+        final m = MeshBuilder();
+        form.baue(m, FormOrt(ding: d, bereichId: id, x0: x0, z0: z0, x1: x1, z1: z1, hoehe: l.hoehe,
+            textur: BereichGeometrie.tex(l.textur, TexturId.holzDielen), warm: 0.35, kalt: 0.15,
+            rueckseite: BereichGeometrie.rueckseite(b, d)));
+        final boden = MeshBuilder()
+          ..floor(x0 - 1, z0 - 1, x1 + 1, z1 + 1, 0, TexturId.gewoelbeDecke.index, warm: 0.2, cold: 0.1);
+        zeilen.add(rendereMeshBlicke([m.build()], spiel.texturen,
+            titel: '$name · ${l.name} · $masse m · ${m.triangleCount} Dreiecke · $id',
+            kulisse: [boden.build()], abstand: 1.4, neigung: -0.3));
+      }
+    }
+    if (gesehen.isEmpty) _abbruch('Form „$name“ kommt in keinem Bereich vor');
+  }
+  final breite = zeilen.map((z) => z.width).reduce(math.max);
+  final bild = PixelBuffer(breite, zeilen.fold(0, (h, z) => h + z.height))..clear(Pal.black);
+  var y = 0;
+  for (final z in zeilen) {
+    bild.blit(z, 0, y);
+    y += z.height;
+  }
+  _fertig('formen', bild, zeilen.length * 3, pos[1]);
+}
+
 /// Rendert [meshes] aus drei Blickwinkeln (von Süden, Südosten, Osten) nebeneinander.
 /// Die Kamera steht außerhalb des Bounding-Rechtecks der Meshes auf 1,62 m Höhe und
 /// schaut zur Mitte. Öffentlich, damit Bauteile und Formen dasselbe Bild bekommen.
@@ -161,6 +213,9 @@ PixelBuffer rendereMeshBlicke(
   bool innen = true,
   int bildBreite = 320,
   int bildHoehe = 180,
+  List<Mesh> kulisse = const [],
+  double abstand = 2.0,
+  double neigung = 0,
 }) {
   final font = BitmapFont.parse(kSchriftNormal);
   final tafel = LightTable.nacht;
@@ -182,7 +237,8 @@ PixelBuffer rendereMeshBlicke(
   }
   final cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
   final diagonale = math.sqrt((x1 - x0) * (x1 - x0) + (z1 - z0) * (z1 - z0));
-  const abstand = 2.0; // Meter außerhalb des Rechtecks
+  // [abstand]: Meter außerhalb des Rechtecks; [kulisse] (z. B. Boden) wird mitgezeichnet, zählt aber nicht
+  // zum Rechteck; [neigung]: Blick nach unten (Bogenmaß, negativ).
   final ansichten = <(String, double, double)>[
     ('von Süden', cx, z1 + abstand),
     ('von Südosten', x1 + abstand, z1 + abstand),
@@ -198,8 +254,8 @@ PixelBuffer rendereMeshBlicke(
   if (titel.isNotEmpty) font.draw(bild, titel, rand, rand, Pal.parchment, shadow: Pal.black);
   for (var i = 0; i < ansichten.length; i++) {
     final (name, kx, kz) = ansichten[i];
-    final ansicht = _ansicht(meshes, tafel, texturen, kx, kz, cx, cz, innen, bildBreite, bildHoehe,
-        diagonale + 2 * abstand);
+    final ansicht = _ansicht([...kulisse, ...meshes], tafel, texturen, kx, kz, cx, cz, innen, bildBreite,
+        bildHoehe, diagonale + 2 * abstand, neigung);
     final rx = rand + i * (bildBreite + 2 + zwischen);
     _rahmen(bild, rx, oben, bildBreite + 2, bildHoehe + 2);
     bild.blit(ansicht, rx + 1, oben + 1);
@@ -211,7 +267,7 @@ PixelBuffer rendereMeshBlicke(
 
 /// Eine Ansicht: Kamera bei ([x], 1,62, [z]), Blick auf ([cx], [cz]).
 PixelBuffer _ansicht(List<Mesh> meshes, LightTable tafel, List<IndexedTexture> texturen, double x,
-    double z, double cx, double cz, bool innen, int w, int h, double ferne) {
+    double z, double cx, double cz, bool innen, int w, int h, double ferne, double neigung) {
   final fb = PixelBuffer(w, h);
   final r = Renderer(fb, tafel, texturen);
   r.camera
@@ -219,7 +275,7 @@ PixelBuffer _ansicht(List<Mesh> meshes, LightTable tafel, List<IndexedTexture> t
     ..y = 1.62
     ..z = z
     ..yaw = math.atan2(cz - z, cx - x)
-    ..pitch = 0
+    ..pitch = neigung
     ..far = math.max(48.0, ferne + 4);
   r.fogStart = innen ? 3.0 : 8.0;
   r.fogEnd = innen ? 20.0 : 46.0;

@@ -15,6 +15,7 @@ class FormOrt {
     required this.textur,
     required this.warm,
     required this.kalt,
+    this.rueckseite = 0,
   });
 
   final Ding ding;
@@ -22,6 +23,10 @@ class FormOrt {
   final double x0, z0, x1, z1, hoehe;
   final int textur;
   final double warm, kalt;
+
+  /// Seite, an der das Ding anliegt (Wand oder blockierte Nachbarkacheln): 0 = −z (Norden), 1 = +x (Osten),
+  /// 2 = +z (Süden), 3 = −x (Westen). Lehnen und Rückwände gehören dorthin, die Vorderseite zeigt in den Raum.
+  final int rueckseite;
 
   double get breite => x1 - x0;
   double get tiefe => z1 - z0;
