@@ -6,27 +6,19 @@ import 'package:burgstadt_spiel/burgstadt_spiel.dart';
 import 'package:burgstadt_spiel/burgstadt_spiel_io.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
-/// Banding-Messung (P0-AUTOR-03, HZ-03): radiales Helligkeitsprofil des Handylichts auf einer glatten
-/// Wand. Kamera 2,0 m vor einer Wand, senkrecht darauf blickend, Handylicht an, Raumlicht wie im Spiel.
+import 'mess/banding_hilfen.dart';
+
+/// Banding-Messung v2 (HZ-02, REP-02): wie fein das Licht auf einer glatten Fläche abgestuft ist,
+/// getrennt von der Textur. Standard ist eine eigene Prüfwand (6 × 3 m, Kamera 2,0 m davor auf 1,62 m,
+/// Vertex-Licht warm 0 / kalt 0,05, eine Textur je Grundfarbe), mit Handylicht und Nebel wie innen.
 ///
-/// `dart run bin/banding.dart [breite höhe] [--qualitaet name] [--csv pfad] [--png pfad]`
-/// Standard 1280 720 und Qualität `mittel`. Profil: Mittelzeile (y = Höhe/2) von der Bildmitte nach rechts
-/// bis zum Rand. Luma je Spalte = Mittel über 8 Zeilen um die Mitte; Stufen und Sprünge je Spalte
-/// aus dem Palettenindex der Mittelzeile.
+/// `dart run bin/banding.dart [--welt BxH] [--csv ordner] [--png ordner]`
+///   Standard Welt 320x180. `--csv` schreibt je Farbe `<farbe>.csv`, `--png` je Farbe `<farbe>.png`.
+/// `dart run bin/banding.dart --spielwand [breite höhe] [--qualitaet sparsam|mittel|hoch] [--csv datei] [--png datei]`
+///   Bisherige Messung an einer Spielwand (Standard 1280 720, Qualität mittel). `--csv` und `--png` sind dort Dateien.
 
-const _nutzung = 'Aufruf: dart run bin/banding.dart [breite höhe] [--qualitaet sparsam|mittel|hoch] [--csv pfad] [--png pfad]';
-
-/// Handylicht beim Einschalten (erkundung.dart:404: `flash = licht ? 0.9 : 0.0`), ohne Flackern (Option `flackernAus`).
-const handyLicht = 0.9;
-
-/// Kamerahöhe wie im Spiel (erkundung.dart:397–403).
-const kamHoehe = 1.62;
-
-// Stufe innerhalb der eigenen Rampe: `stufeVon` aus pixel_engine (Palette v2, 16 Stufen je Rampe,
-// Index = Rampe·16 + Stufe). Ein Sprung zwischen zwei Farben der Palette v1 zählt damit 2 Stufen.
-
-/// Luma (0..255) einer Palettenfarbe nach Rec. 709 (0,2126 R + 0,7152 G + 0,0722 B).
-double lumaVon(int index) => 0.2126 * paletteR(index) + 0.7152 * paletteG(index) + 0.0722 * paletteB(index);
+const _nutzung = 'Aufruf: dart run bin/banding.dart [--welt BxH] [--csv ordner] [--png ordner]\n'
+    '       dart run bin/banding.dart --spielwand [breite höhe] [--qualitaet sparsam|mittel|hoch] [--csv datei] [--png datei]';
 
 /// Kopie aus bin/belegfotos.dart (dort unverändert): freie Sichtweite ab (x, z) in Blickrichtung [yaw].
 double sichtweite(Bereich b, double x, double z, double yaw, {double max = 14}) {
@@ -96,9 +88,6 @@ Wandwahl? waehleWand(Spiel spiel) {
   return beste;
 }
 
-/// Dezimalzahl mit Komma und [stellen] Nachkommastellen.
-String dez(double v, [int stellen = 2]) => v.toStringAsFixed(stellen).replaceAll('.', ',');
-
 Never _abbruch(String meldung) {
   stderr.writeln('$meldung\n$_nutzung');
   exit(2);
@@ -106,11 +95,14 @@ Never _abbruch(String meldung) {
 
 void main(List<String> args) {
   final zahlen = <int>[];
-  var qualitaet = Qualitaet.mittel;
-  String? csv, png;
+  var qualitaet = Qualitaet.mittel, qualitaetGesetzt = false;
+  String? csv, png, welt;
+  var spielwand = false;
   for (var i = 0; i < args.length; i++) {
     final a = args[i];
-    if (a == '--qualitaet' || a == '--csv' || a == '--png') {
+    if (a == '--spielwand') {
+      spielwand = true;
+    } else if (a == '--qualitaet' || a == '--csv' || a == '--png' || a == '--welt') {
       if (i + 1 >= args.length) _abbruch('$a braucht einen Wert');
       final wert = args[++i];
       switch (a) {
@@ -118,9 +110,12 @@ void main(List<String> args) {
           csv = wert;
         case '--png':
           png = wert;
+        case '--welt':
+          welt = wert;
         default:
           qualitaet = Qualitaet.values.asNameMap()[wert] ??
               _abbruch('unbekannte Qualität „$wert“ (sparsam, mittel, hoch)');
+          qualitaetGesetzt = true;
       }
     } else {
       final n = int.tryParse(a);
@@ -128,6 +123,52 @@ void main(List<String> args) {
       zahlen.add(n);
     }
   }
+
+  if (spielwand) {
+    if (welt != null) _abbruch('--welt gibt es nur ohne --spielwand');
+    _spielwand(zahlen, qualitaet, csv, png);
+  } else {
+    if (zahlen.isNotEmpty || qualitaetGesetzt) _abbruch('Breite, Höhe und --qualitaet gibt es nur mit --spielwand');
+    final (bw, bh) = welt == null ? (320, 180) : _welt(welt);
+    _pruefwand(bw, bh, csv, png);
+  }
+}
+
+/// `--welt BxH`, z. B. 320x180 oder 640x360.
+(int, int) _welt(String wert) {
+  final teile = wert.toLowerCase().split('x');
+  final b = teile.length == 2 ? int.tryParse(teile[0]) : null;
+  final h = teile.length == 2 ? int.tryParse(teile[1]) : null;
+  if (b == null || h == null || b < 2 || h < pruefZeilen) {
+    _abbruch('--welt erwartet BxH mit B ≥ 2 und H ≥ $pruefZeilen, z. B. 320x180, nicht „$wert“');
+  }
+  return (b, h);
+}
+
+/// Prüfwand: je Grundfarbe ein Bild, Profil und Kennzahlen; Ausgabe je Farbe und eine Gesamtzeile.
+void _pruefwand(int bw, int bh, String? csv, String? png) {
+  if (csv != null) Directory(csv).createSync(recursive: true);
+  if (png != null) Directory(png).createSync(recursive: true);
+  final werte = <PruefWerte>[];
+  for (final farbe in pruefFarben) {
+    final fb = rendrePruefwand(farbe.index, bw, bh);
+    final profil = messeProfil(fb);
+    final w = bewertePruefprofil(profil);
+    werte.add(w);
+    stdout.writeln('BANDING ${farbe.name} · Stufen ${w.stufen} · größter Sprung ${w.groesterSprung} Stufen · '
+        'Luma-Sprung ${dez(w.lumaSprung, 1)} · Sprünge>1 ${w.sprungUeber1}');
+    if (csv != null) File('$csv/${farbe.name}.csv').writeAsStringSync(profilCsv(profil));
+    if (png != null) {
+      File('$png/${farbe.name}.png').writeAsBytesSync(encodePngRgba(bw, bh, fb.toRgbaBytes(), zlib: zlib.encode));
+    }
+  }
+  final minStufen = werte.map((w) => w.stufen).reduce((a, b) => math.min(a, b));
+  final maxSprung = werte.map((w) => w.groesterSprung).reduce((a, b) => math.max(a, b));
+  stdout.writeln('BANDING v2 · Stufen (min) $minStufen · größter Sprung (max) $maxSprung · Welt ${bw}x$bh');
+}
+
+/// Bisherige Messung an einer Spielwand (unverändert in der Wirkung; `stufeVon` aus pixel_engine).
+void _spielwand(List<int> zahlen, Qualitaet qualitaet, String? csv, String? png) {
   if (zahlen.isNotEmpty && zahlen.length != 2) _abbruch('Breite und Höhe nur gemeinsam angeben');
   final w = zahlen.isEmpty ? 1280 : zahlen[0];
   final h = zahlen.isEmpty ? 720 : zahlen[1];
