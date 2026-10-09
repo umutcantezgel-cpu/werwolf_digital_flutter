@@ -184,7 +184,7 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - **Z-13:** Es gibt nur den Remote `origin`, und seit Beginn gingen keine Pushes außer auf `nachtlauf/burgstadt`. Belegt wird das über die Reflogs der Remote-Refs. Im Browser gab es keine fremden Abrufe.
 - Nur dieses Werkzeug darf „ZIEL ERREICHT“ ausgeben.
 
-## E27 · 09.10. 04:05 · Gegenprüfung Inhalt Runde 2 (A-702c): Umsetzung und Abwägungen
+## E27 · 09.10. 03:45 · Gegenprüfung Inhalt Runde 2 (A-702c): Umsetzung und Abwägungen
 - **Umgesetzt:**
   - **M3:** Die Nachtpläne von B03, B07 und B10 passen jetzt zu den Stationshinweisen ihrer Phase. Die Bäckerin steht ab 02:00 in der Backstube. Die Inhaberin der Teestube zählt um 03:00 auf dem Marktplatz die Schläge und öffnet danach die Teestube. Der Schreinermeister hobelt ab 03:00.
   - **M4:** Die Saum-Andeutung ist gestrichen; es geht jetzt um einen Knopf.
@@ -207,7 +207,7 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - **G7:** Die Uhrzeiten der Nachtpläne werden nicht als Text ausgegeben.
   - **G11:** wie E23/M5.
 
-## E28 · 09.10. 04:05 · Fehler im Gesamttest: rote Pakettests wurden verschluckt
+## E28 · 09.10. 03:45 · Fehler im Gesamttest: rote Pakettests wurden verschluckt
 - **Befund:** In `tool/alle_tests.sh` stand je Paket `{ [ -d test ] && dart test … || echo "keine Tests"; }`. Schlug `dart test` fehl, griff `|| echo` und der Lauf blieb grün. Die Bildschirmfoto-Zeile hatte dieselbe Lücke: Ein Absturz fiel in `|| true`.
 - **Gefunden:** beim Einbau von A-702c. `stadtdaten_test` war seit Commit 02ab9b5 rot, weil zwei Bewohner-Sätze zu lang waren. `commit_gruen.sh` hatte trotzdem „ALLE TESTS GRÜN“ gemeldet.
 - **Behoben:** `if [ -d test ]; then dart test …; else echo "keine Tests"; fi`. Die Bildschirmfotos laufen jetzt über eine Variable, damit ein Absturz mit `set -e` abbricht.
