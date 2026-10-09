@@ -13,4 +13,5 @@
 - Kein `dart:math Random`, keine Farben außerhalb der Palette, keine neuen Lichtquellen, kein „usw.“, kein „analog“, kein TODO.
 - Jede Behauptung mit Beleg `Datei:Zeile`. Nichts erfinden: Was du nicht gefunden hast, schreibst du unter „OFFENE FRAGEN“.
 - Werkzeuge: `/opt/flutter/bin/dart` (falls vorhanden), sonst nur lesen.
+- Benutze NUR Datei-, Such- und Shell-Werkzeuge. Rufe NIE Sitzungs-, Agenten-, Trigger- oder `mcp__claude-code-remote__*`-Werkzeuge auf (auch nicht zum Ausprobieren).
 - Rückgabe endet mit der Zeile `ENDE PAKET <ID>`.
