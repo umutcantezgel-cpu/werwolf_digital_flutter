@@ -1,12 +1,13 @@
 import 'dart:convert';
 
 import 'kanon/kanon.dart';
+import 'karte.dart';
 
 /// Baut aus dem Party-Kanon ein Szenario im Format des Mordakte-Renderers
 /// (`ScenarioDef`-JSON). Grundlage ist ein vorhandenes Szenario als Vorlage,
 /// damit alle Pflichtfelder gefüllt sind; Karte, Thema und Figuren kommen aus
-/// dem Kanon. Spiellogik der Vorlage wird nicht benutzt (Hotspots und
-/// Gegenstände sind leer).
+/// dem Kanon. Spiellogik der Vorlage wird nicht benutzt: Hotspots sind die
+/// Ziele der neun Entscheidungen ([PartyKarte]), Gegenstände sind leer.
 Map<String, dynamic> partySzenarioJson(Kanon kanon, Map<String, dynamic> vorlage, {String id = 'party_schlosskeller'}) {
   final j = jsonDecode(jsonEncode(vorlage)) as Map<String, dynamic>;
   final g = kanon.graph;
@@ -50,13 +51,10 @@ Map<String, dynamic> partySzenarioJson(Kanon kanon, Map<String, dynamic> vorlage
     ],
     'councilRoom': 'thekensaal',
   };
-  j['hotspots'] = <Object>[];
+  j['hotspots'] = PartyKarte(kanon).hotspotJson();
   j['items'] = <Object>[];
   final vorlageVerdaechtige = [for (final s in (vorlage['suspects'] as List)) s as Map<String, dynamic>];
-  final figuren = [
-    (kanon.figurenJson['opfer'] as Map).cast<String, Object?>(),
-    ...kanon.figuren,
-  ];
+  final figuren = _kartenFiguren(kanon);
   final suspects = <Map<String, dynamic>>[];
   for (var i = 0; i < figuren.length; i++) {
     final f = figuren[i];
@@ -81,6 +79,19 @@ Map<String, dynamic> partySzenarioJson(Kanon kanon, Map<String, dynamic> vorlage
   }
   j['suspects'] = suspects;
   return j;
+}
+
+List<Map<String, Object?>> _kartenFiguren(Kanon kanon) => [
+      (kanon.figurenJson['opfer'] as Map).cast<String, Object?>(),
+      ...kanon.figuren,
+    ];
+
+/// Renderer-Kennung je Kanon-Person (Opfer und Rollen). Die ersten Plätze
+/// tragen Kennungen der Vorlage (siehe [partySzenarioJson]).
+Map<String, String> partyNpcKennungen(Kanon kanon, Map<String, dynamic> vorlage) {
+  final v = [for (final s in (vorlage['suspects'] as List)) (s as Map)['id'] as String];
+  final figuren = _kartenFiguren(kanon);
+  return {for (var i = 0; i < figuren.length; i++) figuren[i]['id'] as String: i < v.length ? v[i] : figuren[i]['id'] as String};
 }
 
 /// Renderer-Aussehen einer Figur aus den Kanon-Feldern (`look`), mit

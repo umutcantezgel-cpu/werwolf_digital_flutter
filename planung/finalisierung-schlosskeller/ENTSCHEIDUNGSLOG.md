@@ -769,3 +769,49 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
     - erfüllt: F-06, F-08, F-15
     - vorläufig: F-10 (Druckteil in F5), F-11 (E2E in F4)
   - Neubewertung der NEBELKARTE mit den neuen Risiken 21 und 22. Für F4 am höchsten: Nr. 7, 13 und 22.
+
+## E-030 · F4-ORCH-01/02: Karte, Sitzung, Renderer-Erweiterung
+- **Denkprotokoll:**
+  - Der Renderer der Mordakte bleibt die einzige 2,5D-Ansicht.
+  - Statt zwei kleiner Schnittstellen (`NpcFilter`, `RaumSicht` im Entwurf) gibt es eine optionale `SzenenErweiterung` (`lib/game/szenen_erweiterung.dart`). Sie liefert:
+    - Ziel-Beschriftung an Personen und Hotspots
+    - Licht (Grundlicht, Lichtpunkte, Taschenlampe, helle Räume)
+    - Nebel des Krieges je Raum
+    - Umrisse und Hervorhebung in der Rückblende
+    - Ruhe-Animation
+    - Aussehen des Detektivs aus dem Kanon
+    - festen Kamerapunkt
+  - `MordakteGame` fragt sie mit `session is SzenenErweiterung` ab. Ohne sie bleibt jeder Zweig wie bisher (Bestandsschutz).
+- **Karte (Kern, `karte.dart`):**
+  - Jede der 22 Optionen hat ein Kartenziel an einer Kanon-Stelle:
+    - Person am Ermittlungsort
+    - Gegenstand an Einrichtung oder Ort
+    - Gegenstand eines Trägers an dessen Person
+    - Raum an einem benannten Ort
+  - Die drei Raum-Ziele von e3_1 tragen dazu jetzt `ziel.ort` (an_der_ruestung, am_jackenstaender, vor_theke); das Schema erlaubte das schon.
+  - Offen sind nur die Ziele der laufenden Entscheidung (die erste offene der Runde).
+  - `karte_test` belegt: Vor dem Finale ist der Kartenzustand für dieselbe Eingabe in allen vier Pfaden gleich (bestes Spiel je Pfad, erste und letzte Optionen, 4/12/20 Rollen).
+- **Indizien auf der Karte:**
+  - Vor dem Finale zeigt die Karte in allen Pfaden dieselben Marker (E-008 geht vor 7.13).
+  - Das Indiz des aktiven Pfads erscheint als Fundkarte an der Kanon-Stelle der Handlung, mit dem Wortlaut der Spur oder Beobachtung.
+  - In der Rückblende nach dem Finale sind Weg, Licht und Bund des aktiven Pfads auf der Karte zu sehen.
+- **Licht (Master 7.13, B-04):**
+  - Ermittlung: Grundlicht 23 % in Blaugrau.
+  - Warme Punkte #FF9329 mit Sinus-Flackern auf jeder zweiten Tischreihe und jeder dritten Thekenkachel. Das sind die elektrischen Deko-Kerzen (E-019).
+  - Dazu das Notausgangsschild, das nach der Tat noch brennt, und der Taschenlampenkegel des Detektivs.
+  - Rückblende: Raumlicht und Deko-Kerzen nur, solange der Strom da ist. Im Stromausfall gibt es nur die Kanon-Lichter zur Uhrzeit (Kerzenständer bis 23:58:40, Notausgang, Maske, Handylampen, Stirnlampe).
+- **Nebel des Krieges:**
+  - Sichtbar sind der Raum des Detektivs und Räume hinter offenen Türen (`zustand: offen`). Angelehnte oder geschlossene Türen verdecken.
+  - Kommt ein Raum ins Sichtfeld, blendet er radial von der Stelle des Detektivs in 0,4 s auf.
+- **Sitzung (`lib/party/sitzung.dart`):**
+  - Sie ist die feste API aller Bildschirme.
+  - Dossier, Täterfrage und Rundenwahl gibt es nur in der verdeckten Ansicht der Rolle. Pfad, Ende und Rückblende gibt es erst nach dem Finale; sonst wirft sie `StateError`, belegt durch `test/party_widgets/ablauf_test.dart`.
+  - Die Rundenwahl zeigt jeder Rolle genau zwei Möglichkeiten. Bei der Täterrolle ist B die Sabotage (G-1). So lässt sich am Bildschirm nicht ablesen, wer drei Möglichkeiten hätte.
+- **Oberflächentexte:**
+  - Sie stehen als Bausteine `ui.*` in `texte/ui*.json`: eine Datei für ORCH und je Baumeister eine eigene (Dateihoheit), alle im Index.
+  - Der Textprüfer prüft sie wie alle Texte, aber ohne Vorleseregeln, denn ihr Bereich ist `ui`.
+  - Zwei Annahmen in `textpruefer_test` sind nachgezogen: die Zahl der Dateien (46) und die Erkennung von Erzählertexten über `erzaehler-*` statt über den Namensbestandteil.
+- **Entwickler-Einstieg und Probelauf:**
+  - `?party=schlosskeller&pfad=…&n=…&skript=best,a,richtig&takt=…&zeitraffer=…` spielt einen Abend allein durch und meldet Fotostellen als `PARTY foto=…`.
+  - Erster Probelauf (Ahmet, 7 Rollen, bestes Spiel): Meister-Ende, 9 Punkte, 57 Fotos, 0 Konsolenfehler, 0 fremde Netzaufrufe.
+- **Test-Abhängigkeit:** `flutter_test` (SDK) ist als Entwicklungsabhängigkeit für die Widget-Tests der Bildschirme aufgenommen. Die Paketverwaltung hat dafür `pubspec.lock` ergänzt (Master §3: Netz nur über die Paketverwaltung).

@@ -46,13 +46,18 @@ Map<String, String> get _query {
 /// `?screen=hub|cases|collection|profile|online` springt direkt zu einem Bildschirm.
 /// Zusätzlich: `open=notebook|board|dialog|signals|map`, `life=downed|ghost`,
 /// `name=<Spielername>`, `xp=<Zahl>`. `?autoplay=<scenarioId>` startet ein echtes Solo-Spiel,
-/// in dem die KI den eigenen Detektiv steuert.
+/// in dem die KI den eigenen Detektiv steuert. `?party=<fall>` öffnet den Partymodus.
 String _devEntry(AppState app) {
   final q = _query;
   final name = q['name'];
   if (name != null && name.trim().isNotEmpty) app.meta.name = name;
   final xp = int.tryParse(q['xp'] ?? '');
   if (xp != null) app.meta.debugSetXp(xp);
+
+  // Partymodus: `?party=schlosskeller` (Parameter siehe lib/party/skript.dart),
+  // `&semantik=1` schaltet die Bedienhilfen ein (Klicks in E2E-Läufen).
+  if (q['semantik'] == '1') WidgetsBinding.instance.ensureSemantics();
+  if (q['party'] != null) return Routes.party;
 
   final fake = q['fake'];
   if (fake != null) {

@@ -213,10 +213,10 @@ void main() {
   });
 
   group('Quellen (textQuellen)', () {
-    test('textQuellen deckt jede der 38 Textdateien ab', () {
+    test('textQuellen deckt jede Textdatei des Index ab (38 aus F3, 8 Oberflächendateien aus F4)', () {
       final index = leseJson('$repoWurzel/content/party/schlosskeller/texte/index.json');
       final dateien = [for (final d in index['dateien'] as List) 'texte/${(d as Map)['datei']}'];
-      expect(dateien, hasLength(38));
+      expect(dateien, hasLength(46));
       final quellen = textQuellen(kanon, _probeSammlung(index));
       final orte = {for (final q in quellen) q.ort.split('#').first};
       expect(orte.where((o) => o.startsWith('texte/')), unorderedEquals(dateien));
@@ -225,7 +225,8 @@ void main() {
     test('vorgelesen werden nur Erzähler und Bonus-Hinweise (E-029)', () {
       final index = leseJson('$repoWurzel/content/party/schlosskeller/texte/index.json');
       final quellen = textQuellen(kanon, _probeSammlung(index));
-      bool gesprochen(TextQuelle q) => q.ort.contains('erzaehler') || q.ort.startsWith('bonus.json#');
+      // Erzähler-Dateien heißen erzaehler-*.json (Bereich erzaehler); ui-erzaehler.json ist Oberfläche.
+      bool gesprochen(TextQuelle q) => q.ort.startsWith('texte/erzaehler-') || q.ort.startsWith('bonus.json#');
       final erzaehler = quellen.where(gesprochen);
       expect(erzaehler, isNotEmpty);
       expect(erzaehler.every((q) => q.vorlesen), isTrue);

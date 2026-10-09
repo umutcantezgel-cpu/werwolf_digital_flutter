@@ -12,6 +12,7 @@ import '../session/game_session.dart';
 import 'iso_math.dart';
 import 'scene/figure_painter.dart';
 import 'scene/lighting.dart';
+import 'szenen_erweiterung.dart';
 import 'scene/markers.dart';
 import 'scene/palette.dart';
 import 'scene/prop_painter.dart';
@@ -119,6 +120,13 @@ double _lerpAngle(double a, double b, double t) {
   if (d > math.pi) d -= math.pi * 2;
   if (d < -math.pi) d += math.pi * 2;
   return a + d * t;
+}
+
+class _Nebel {
+  _Nebel(this.sicht) : offen = sicht > 0.5;
+  double sicht;
+  bool offen;
+  Offset? ursprung;
 }
 
 class _Smoke {
@@ -315,6 +323,7 @@ class MordakteGame extends Game with KeyboardEvents {
     } while (rem > 1e-9);
     _updateTracks(dt);
     _updateCamera(dt);
+    _updateNebel(frameDt);
     _updateTarget();
     _updateEffects(dt);
   }
@@ -583,7 +592,10 @@ class MordakteGame extends Game with KeyboardEvents {
     final base = (short / (10.5 * Iso.tileW)).clamp(0.42, 2.4);
     _zoom = base * userZoom.clamp(0.6, 1.8);
     Offset targetCam;
-    if (_hasPos) {
+    final festeKamera = _ext?.kamera;
+    if (festeKamera != null) {
+      targetCam = Iso.toScreen(festeKamera.dx, festeKamera.dy, 0.6);
+    } else if (_hasPos) {
       targetCam = Iso.toScreen(_px, _py, 0.6);
     } else {
       final m = _scene!.map;
@@ -656,7 +668,8 @@ class MordakteGame extends Game with KeyboardEvents {
       if (h == null) continue;
       if (me.hidden && h.kind != HotspotKind.hide) continue;
       if (e.value == HotspotState.searched && h.kind != HotspotKind.lab && h.kind != HotspotKind.hide) continue;
-      final label = switch (h.kind) {
+      if (_nebelSicht(h.x + 0.5, h.y + 0.5) < 0.5) continue;
+      final label = _ext?.hotspotAktion(h.id) ?? switch (h.kind) {
         HotspotKind.search => 'Durchsuchen',
         HotspotKind.lab => 'Analysieren',
         HotspotKind.hide => me.hidden ? 'Rauskommen' : 'Verstecken',
@@ -700,13 +713,16 @@ class MordakteGame extends Game with KeyboardEvents {
           );
           continue;
         }
+        final ext = _ext;
+        final aktion = ext == null ? 'Befragen' : ext.npcAktion(n.id);
+        if (aktion == null) continue;
         final tr = _tracks['n:${n.id}'];
         final nx = tr?.x ?? n.x, ny = tr?.y ?? n.y;
         final sus = s.suspectById[n.id];
         consider(
           ActionTarget(
             id: n.id,
-            label: 'Befragen',
+            label: aktion,
             kind: 'npc',
             x: nx,
             y: ny,
@@ -869,6 +885,45 @@ class MordakteGame extends Game with KeyboardEvents {
     _renderSorted(canvas, scene, cv, cull);
 
     // 4) Licht
+    final szLicht = _ext?.licht;
+    if (szLicht != null) {
+      _renderSzenenLicht(canvas, view, scene, szLicht, cull, t);
+    } else {
+      _renderPhasenLicht(canvas, view, scene, phase, s, cull, t);
+    }
+
+    // 4b) Nebel des Krieges (Partymodus)
+    _renderNebel(canvas, scene);
+
+    // 5) Über der Dunkelheit: Augen, Pings, Notsignale
+    _renderPostLight(canvas, scene, w, cv, cull);
+    canvas.restore();
+
+    // 6) Wetter (Bildschirm)
+    _weather?.render(canvas, viewSize, t);
+
+    // 7) Bildschirm-Overlays: Namen, Blasen, Ringe, Ziel
+    _renderOverlays(canvas, scene, w, markers);
+
+    // 8) Vignette + Blitz
+    final vr = Rect.fromLTWH(0, 0, size.x, size.y);
+    final night = szLicht != null || phase == Phase.night;
+    canvas.drawRect(
+      vr,
+      Paint()
+        ..shader = Gradient.radial(
+          vr.center,
+          vr.longestSide * 0.72,
+          [const Color(0x00000000), withAlpha(const Color(0xFF000000), night ? 0.62 : 0.38)],
+          const [0.45, 1.0],
+        ),
+    );
+    if (_flash > 0.01) {
+      canvas.drawRect(vr, Paint()..color = withAlpha(const Color(0xFFE6EEFF), 0.22 * _flash));
+    }
+  }
+
+  void _renderPhasenLicht(Canvas canvas, Rect view, StaticScene scene, Phase? phase, ScenarioDef s, Rect cull, double t) {
     final lightMode = phase == Phase.night
         ? LightMode.night
         : (phase == Phase.council || phase == Phase.accusation)
@@ -890,32 +945,146 @@ class MordakteGame extends Game with KeyboardEvents {
       flash: _flash,
       dayTint: ((1 - s.theme.dayAmbient) * 0.55).clamp(0.0, 0.5),
     );
+  }
 
-    // 5) Über der Dunkelheit: Augen, Pings, Notsignale
-    _renderPostLight(canvas, scene, w, cv, cull);
-    canvas.restore();
+  // ---------------------------------------------------------------------------
+  // Szenen-Erweiterung (Partymodus, E-030): Licht nach Master 7.13, Nebel des
+  // Krieges je Raum, Umrisse in der Rückblende. Ohne Erweiterung ungenutzt.
 
-    // 6) Wetter (Bildschirm)
-    _weather?.render(canvas, viewSize, t);
+  SzenenErweiterung? get _ext {
+    final s = session;
+    return s is SzenenErweiterung ? s as SzenenErweiterung : null;
+  }
 
-    // 7) Bildschirm-Overlays: Namen, Blasen, Ringe, Ziel
-    _renderOverlays(canvas, scene, w, markers);
-
-    // 8) Vignette + Blitz
-    final vr = Rect.fromLTWH(0, 0, size.x, size.y);
-    final night = lightMode == LightMode.night;
-    canvas.drawRect(
-      vr,
-      Paint()
-        ..shader = Gradient.radial(
-          vr.center,
-          vr.longestSide * 0.72,
-          [const Color(0x00000000), withAlpha(const Color(0xFF000000), night ? 0.62 : 0.38)],
-          const [0.45, 1.0],
-        ),
+  void _renderSzenenLicht(Canvas canvas, Rect view, StaticScene scene, SzenenLicht l, Rect cull, double t) {
+    final lights = <SceneLight>[];
+    if (l.taschenlampe && _hasPos) {
+      lights.add(SceneLight(_px, _py, Tuning.nightLightRadius, cone: _pf));
+      lights.add(SceneLight(_px, _py, 1.2, strength: 0.75));
+    }
+    final glows = _glows(scene, cull, t);
+    for (final p in l.punkte) {
+      final seed = (p.x * 3 + p.y * 7).round();
+      final fl = 1 - p.flackern * 0.3 * (0.5 + 0.5 * math.sin(t * 7 + seed) * math.sin(t * 4.1 + seed * 2));
+      lights.add(SceneLight(p.x, p.y, p.radius * fl, strength: 0.85));
+      glows.add(GlowLight(p.x, p.y, p.z, p.radius * 0.55 * fl, p.farbe, fl));
+    }
+    _lighting!.render(
+      canvas,
+      view.inflate(4),
+      mode: LightMode.night,
+      darkness: l.dunkel.clamp(0.0, 1.0),
+      lights: lights,
+      litRooms: [
+        for (final r in scene.scenario.map.rooms)
+          if (l.helleRaeume.contains(r.id)) r,
+      ],
+      glows: glows,
+      flash: 0,
+      dayTint: 0,
     );
-    if (_flash > 0.01) {
-      canvas.drawRect(vr, Paint()..color = withAlpha(const Color(0xFFE6EEFF), 0.22 * _flash));
+    // Umrisse und Hervorhebungen über der Dunkelheit (Rückblende)
+    final ext = _ext!;
+    for (final n in _world?.npcs ?? const <NpcView>[]) {
+      final h = ext.hervorhebung(n.id);
+      if (h == null) continue;
+      final tr = _tracks['n:${n.id}'];
+      if (tr == null || _nebelSicht(tr.x, tr.y) < 0.5) continue;
+      final o = Iso.toScreen(tr.x, tr.y);
+      if (!cull.contains(o)) continue;
+      final sus = scene.scenario.suspectById[n.id];
+      final look = sus != null ? FigureLook.fromLook(sus.look) : FigureLook.fromLook(const LookDef());
+      if (h > 0) {
+        canvas.save();
+        canvas.translate(o.dx, o.dy);
+        Iso.applyGround(canvas);
+        final ph = 0.5 + 0.5 * math.sin(t * 3);
+        canvas.drawCircle(
+          Offset.zero,
+          0.42 + 0.06 * ph,
+          Paint()
+            ..color = withAlpha(_pal.accent, 0.55 + 0.35 * ph)
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 0.07,
+        );
+        canvas.restore();
+      }
+      canvas.saveLayer(Rect.fromCenter(center: o.translate(0, -30), width: 80, height: 90), Paint()..color = Color.fromRGBO(0, 0, 0, h > 0 ? 0.92 : 0.2));
+      _fig.standing(canvas, o, look, facing: tr.facing, walk: tr.walk, moveAmt: tr.move, shadow: false);
+      canvas.restore();
+    }
+  }
+
+  /// Sichtbarkeit je Raum (0 schwarz … 1 sichtbar) mit radialem Aufblenden.
+  final Map<String, _Nebel> _nebel = {};
+  Set<String>? _sichtbar;
+
+  void _updateNebel(double dt) {
+    final ext = _ext;
+    final scene = _scene;
+    if (ext == null || scene == null || !_hasPos) {
+      _sichtbar = null;
+      return;
+    }
+    final sicht = ext.sichtbareRaeume(_px, _py);
+    _sichtbar = sicht;
+    if (sicht == null) return;
+    for (final r in scene.scenario.map.rooms) {
+      final n = _nebel.putIfAbsent(r.id, () => _Nebel(sicht.contains(r.id) ? 1 : 0));
+      final soll = sicht.contains(r.id);
+      if (soll && !n.offen) {
+        n.offen = true;
+        n.ursprung = Offset(_px, _py);
+      } else if (!soll && n.offen) {
+        n.offen = false;
+        n.ursprung = null;
+      }
+      // 0,4 s bis zur vollen Sicht (Master 7.13).
+      n.sicht = (n.sicht + (n.offen ? dt : -dt) / 0.4).clamp(0.0, 1.0);
+    }
+  }
+
+  /// Sichtbarkeit an einer Kachelposition (1 ohne Nebel).
+  double _nebelSicht(double x, double y) {
+    if (_sichtbar == null) return 1;
+    final s = session.scenario;
+    if (s == null) return 1;
+    for (final r in s.map.rooms) {
+      if (x >= r.x && x < r.x + r.w && y >= r.y && y < r.y + r.h) return _nebel[r.id]?.sicht ?? 1;
+    }
+    return 1;
+  }
+
+  void _renderNebel(Canvas c, StaticScene scene) {
+    if (_sichtbar == null) return;
+    const wand = 1.6;
+    for (final r in scene.scenario.map.rooms) {
+      final n = _nebel[r.id];
+      if (n == null || n.sicht >= 0.999) continue;
+      // Boden randgenau, nur die hinteren Kanten (eigene Rückwände) angehoben.
+      final x0 = r.x.toDouble(), y0 = r.y.toDouble(), x1 = (r.x + r.w).toDouble(), y1 = (r.y + r.h).toDouble();
+      final a = Iso.toScreen(x0, y0), b = Iso.toScreen(x1, y0), d = Iso.toScreen(x1, y1), e = Iso.toScreen(x0, y1);
+      final ah = Iso.toScreen(x0, y0, wand), bh = Iso.toScreen(x1, y0, wand), eh = Iso.toScreen(x0, y1, wand);
+      final path = Path()
+        ..moveTo(ah.dx, ah.dy)
+        ..lineTo(bh.dx, bh.dy)
+        ..lineTo(b.dx, b.dy)
+        ..lineTo(d.dx, d.dy)
+        ..lineTo(e.dx, e.dy)
+        ..lineTo(eh.dx, eh.dy)
+        ..close();
+      final paint = Paint();
+      final u = n.ursprung;
+      if (n.offen && u != null) {
+        // Radialer Übergang von der Stelle, an der der Raum ins Sichtfeld kam.
+        final o = Iso.toScreen(u.dx, u.dy);
+        final weit = (a - d).distance + (b - e).distance;
+        final rad = math.max(1.0, weit * n.sicht);
+        paint.shader = Gradient.radial(o, rad, const [Color(0x00000000), Color(0x00000000), Color(0xFF000000)], const [0.0, 0.7, 1.0]);
+      } else {
+        paint.color = Color.fromRGBO(0, 0, 0, 1 - n.sicht);
+      }
+      c.drawPath(path, paint);
     }
   }
 
@@ -1009,6 +1178,7 @@ class MordakteGame extends Game with KeyboardEvents {
     for (final e in cv?.hotspots.entries ?? const <MapEntry<String, String>>[]) {
       final h = s.hotspotById[e.key];
       if (h == null) continue;
+      if (_nebelSicht(h.x + 0.5, h.y + 0.5) < 0.5) continue;
       final prop = scene.propAt[Pt(h.x, h.y)];
       final z = prop != null ? PropPainter.topZ(prop.prop!) + 0.22 : 0.42;
       final o = Iso.toScreen(h.x + 0.5, h.y + 0.5, z);
@@ -1042,8 +1212,10 @@ class MordakteGame extends Game with KeyboardEvents {
       if (tr == null) continue;
       final o = Iso.toScreen(tr.x, tr.y);
       if (!cull.contains(o)) continue;
+      if (_nebelSicht(tr.x, tr.y) < 0.02) continue;
       final look = sus != null ? FigureLook.fromLook(sus.look) : FigureLook.fromLook(const LookDef());
-      items.add((tr.x + tr.y, 2, () => _fig.standing(c, o, look, facing: tr.facing, walk: tr.walk, moveAmt: tr.move)));
+      final ruhe = _ext?.ruheAnimation == true && tr.move < 0.3 ? _time * (1.1 + (n.id.hashCode % 7) * 0.08) + n.id.hashCode % 13 : 0.0;
+      items.add((tr.x + tr.y, 2, () => _fig.standing(c, o, look, facing: tr.facing, walk: tr.walk, moveAmt: tr.move, ruhe: ruhe)));
     }
     // Detektive
     for (final d in w?.detectives ?? const <DetectiveView>[]) {
@@ -1052,10 +1224,12 @@ class MordakteGame extends Game with KeyboardEvents {
       if (d.hidden && !isMe) continue;
       final tr = _tracks['d:${d.id}'];
       if (!isMe && tr == null) continue;
+      if (isMe && _ext?.kamera != null) continue;
       final x = isMe ? _px : tr!.x, y = isMe ? _py : tr!.y;
       final o = Iso.toScreen(x, y);
       if (!cull.contains(o)) continue;
-      final look = FigureLook.detective(d.coat, d.hat, d.id);
+      final eigenesAussehen = isMe ? _ext?.detektivAussehen : null;
+      final look = eigenesAussehen != null ? FigureLook.fromLook(eigenesAussehen) : FigureLook.detective(d.coat, d.hat, d.id);
       final facing = isMe ? _pf : tr!.facing;
       final walk = isMe ? _walk : tr!.walk;
       final move = isMe ? _moveAmt : tr!.move;

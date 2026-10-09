@@ -86,6 +86,7 @@ class FigurePainter {
     double moveAmt = 0,
     bool ghost = false,
     bool shadow = true,
+    double ruhe = 0,
   }) {
     final (wm, hm) = buildScale(look.build);
     final sd = Iso.facingToScreen(facing);
@@ -100,6 +101,11 @@ class FigurePainter {
     }
     c.save();
     c.translate(feet.dx, feet.dy - bob);
+    if (ruhe != 0) {
+      // Ruhe-Animation (Partymodus): Atmen und leichtes Wiegen um die Füße.
+      c.scale(1 + 0.006 * math.cos(ruhe), 1 + 0.016 * math.sin(ruhe));
+      c.skew(0.025 * math.sin(ruhe * 0.5), 0);
+    }
 
     final dress = look.dress;
     final legTop = -14.0 * hm;

@@ -118,8 +118,8 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 ## F4 – Spiel und Bild (Tor F-12, F-13)
 | Kennung | Rolle | Gegenstand | Eigene Dateien | Abhängig | Status |
 |---|---|---|---|---|---|
-| F4-ORCH-01 | ORCH | PartyGame-Kern: Karte aus Raumgraph, Figuren, Indizien je Pfad, Interaktionen, Licht/Fog/Stromausfall, Taschenlampe | `lib/party/spiel/*` | F2 | offen |
-| F4-ORCH-02 | ORCH | Party-Sitzung (Zustand, Spoilerschutz), Router, Dev-Einstieg `?party=`, `?semantik=1`; Hub-Kachel als letzter F4-Schritt nach dem Holen von origin | `lib/party/sitzung.dart`, `lib/app/router.dart`, `lib/main.dart`, Hub-Kachel | F4-ORCH-01 | offen |
+| F4-ORCH-01 | ORCH | PartyGame-Kern: Karte aus Raumgraph, Figuren, Indizien je Pfad, Interaktionen, Licht/Fog/Stromausfall, Taschenlampe | `lib/party/spiel/*` | F2 | Grundlage steht (E-030: `karte.dart`, `karte_session.dart`, Renderer-Erweiterung, Probelauf mit Fotos) |
+| F4-ORCH-02 | ORCH | Party-Sitzung (Zustand, Spoilerschutz), Router, Dev-Einstieg `?party=`, `?semantik=1`; Hub-Kachel als letzter F4-Schritt nach dem Holen von origin | `lib/party/sitzung.dart`, `lib/app/router.dart`, `lib/main.dart`, Hub-Kachel | F4-ORCH-01 | Grundlage steht (E-030: Sitzung, Route `/party`, Entwickler-Einstieg mit Skript; Hub-Kachel offen) |
 | F4-BAUMEISTER-01 | Baumeister | Einrichtung (Personenzahl, Namen, Detektiv-Geschlecht, Fall-Code/Zufall, Bildschirm/Druck, Rundendauer) | `lib/party/bildschirme/einrichtung.dart` | F4-ORCH-02 | offen |
 | F4-BAUMEISTER-02 | Baumeister | Verdeckte Rollenvergabe und Dossieransicht | `lib/party/bildschirme/rollen.dart` | F4-ORCH-02 | offen |
 | F4-BAUMEISTER-03 | Baumeister | Rundenzentrale mit Uhr, Pflichtgesprächs-Übersicht | `lib/party/bildschirme/runde.dart` | F4-ORCH-02 | offen |

@@ -674,7 +674,8 @@
         {
           "id": "e3_1_turmgang",
           "ziel": {
-            "raum": "turmgang"
+            "raum": "turmgang",
+            "ort": "an_der_ruestung"
           },
           "text": "Im Turmgang bei der Rüstung suchen",
           "fakten": [
@@ -684,7 +685,8 @@
         {
           "id": "e3_1_ostsaal",
           "ziel": {
-            "raum": "ost_saal"
+            "raum": "ost_saal",
+            "ort": "am_jackenstaender"
           },
           "text": "Im Ost-Saal mit dem Jackenständer suchen",
           "fakten": [
@@ -694,7 +696,8 @@
         {
           "id": "e3_1_buffetsaal",
           "ziel": {
-            "raum": "thekensaal"
+            "raum": "thekensaal",
+            "ort": "vor_theke"
           },
           "text": "Im Buffetsaal an Theke und Buffettischen suchen",
           "fakten": [

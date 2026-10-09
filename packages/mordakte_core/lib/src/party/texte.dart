@@ -193,6 +193,20 @@ class Texte {
   Map<String, Object?>? beobachtung(String id) => _beob[id];
   Map<String, Object?>? luege(String id) => _luegen[id];
 
+  late final Map<String, String> _hinweise = {
+    for (final h in kanon.bonusJson['hinweise'] as List) (h as Map)['id'] as String: h['text'] as String,
+  };
+
+  /// Wortlaut eines Bausteins (Erzähler, Oberfläche, Hinweis). Hinweise
+  /// (`hinweis.<id>`) stehen in `bonus.json`, alles andere in der Textsammlung.
+  /// Unbekannte Kennungen sind ein Fehler: Die App erzeugt keinen Text (F-11).
+  String baustein(String kennung) {
+    if (kennung.startsWith('hinweis.')) {
+      return _hinweise[kennung.substring('hinweis.'.length)] ?? (throw ArgumentError('unbekannter Hinweis $kennung'));
+    }
+    return sammlung.bausteine[kennung] ?? (throw ArgumentError('unbekannter Baustein $kennung'));
+  }
+
   (String, String) _teile(String ref) {
     final i = ref.indexOf(':');
     return (ref.substring(0, i), ref.substring(i + 1));

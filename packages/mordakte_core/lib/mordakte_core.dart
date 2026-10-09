@@ -42,3 +42,4 @@ export 'src/party/erzaehler.dart';
 export 'src/party/simulator.dart';
 export 'src/party/texte.dart';
 export 'src/party/textpruefer.dart';
+export 'src/party/karte.dart';

@@ -153,6 +153,38 @@
     {
       "datei": "ui.json",
       "bereich": "ui"
+    },
+    {
+      "datei": "ui-titel.json",
+      "bereich": "ui"
+    },
+    {
+      "datei": "ui-einrichtung.json",
+      "bereich": "ui"
+    },
+    {
+      "datei": "ui-rollen.json",
+      "bereich": "ui"
+    },
+    {
+      "datei": "ui-runde.json",
+      "bereich": "ui"
+    },
+    {
+      "datei": "ui-gruppenwahl.json",
+      "bereich": "ui"
+    },
+    {
+      "datei": "ui-erzaehler.json",
+      "bereich": "ui"
+    },
+    {
+      "datei": "ui-finale.json",
+      "bereich": "ui"
+    },
+    {
+      "datei": "ui-npc.json",
+      "bereich": "ui"
     }
   ]
 }
