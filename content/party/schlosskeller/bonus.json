@@ -1,6 +1,6 @@
 {
   "settingId": "spuk_im_schlosskeller",
-  "hinweis": "Bonus-Hinweise je Pfad, Runde und Qualität (E-024). Alle erscheinen im selben Rahmen ohne Quelle; je Runde haben wahre und falsche Hinweise möglichst dieselbe Satzform. Wahr: ein wahrer Baustein, der nie allein ausschließt (W-1). Neutral: wahre, pfadgleiche Sätze ohne neuen Wert. Falsch: ein Gerücht über einen Unschuldigen, widerlegt durch eine im Pfad richtige Entscheidung.",
+  "hinweis": "Bonus-Hinweise je Pfad, Runde und Qualität (E-024, E-025). Alle erscheinen im selben Rahmen ohne Quelle; je Runde haben die Hinweise möglichst dieselbe Satzform. Vor der Auflösung wird weder die Qualität noch die Stimmenzahl gezeigt. Wahr: ein wahrer Baustein, der nie allein ausschließt (W-1). Neutral: wahre, pfadgleiche Sätze ohne neuen Wert. Falsch: ein Gerücht über einen Unschuldigen, widerlegt durch eine im Pfad richtige Entscheidung.",
   "hinweise": [
     {
       "id": "h_ahmet_1_wahr",
@@ -21,12 +21,12 @@
       "pfad": "ahmet",
       "runde": 1,
       "qualitaet": "neutral",
-      "text": "Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe.",
+      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_theke_2357"
+        "beobachtung:b_tim_gesicht"
       ]
     },
     {
@@ -63,12 +63,12 @@
       "pfad": "ahmet",
       "runde": 2,
       "qualitaet": "neutral",
-      "text": "Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt.",
+      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_jacke"
+        "beobachtung:b_tim_kurzschluss"
       ]
     },
     {
@@ -104,12 +104,12 @@
       "pfad": "ahmet",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen.",
+      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_olli_eis"
+        "beobachtung:b_serkan_tor"
       ]
     },
     {
@@ -145,12 +145,12 @@
       "pfad": "fatma",
       "runde": 1,
       "qualitaet": "neutral",
-      "text": "Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe.",
+      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_theke_2357"
+        "beobachtung:b_tim_gesicht"
       ]
     },
     {
@@ -186,12 +186,12 @@
       "pfad": "fatma",
       "runde": 2,
       "qualitaet": "neutral",
-      "text": "Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt.",
+      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_jacke"
+        "beobachtung:b_tim_kurzschluss"
       ]
     },
     {
@@ -227,12 +227,12 @@
       "pfad": "fatma",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen.",
+      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_olli_eis"
+        "beobachtung:b_serkan_tor"
       ]
     },
     {
@@ -268,12 +268,12 @@
       "pfad": "olli",
       "runde": 1,
       "qualitaet": "neutral",
-      "text": "Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe.",
+      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_theke_2357"
+        "beobachtung:b_tim_gesicht"
       ]
     },
     {
@@ -309,12 +309,12 @@
       "pfad": "olli",
       "runde": 2,
       "qualitaet": "neutral",
-      "text": "Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt.",
+      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_jacke"
+        "beobachtung:b_tim_kurzschluss"
       ]
     },
     {
@@ -350,12 +350,12 @@
       "pfad": "olli",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen.",
+      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_olli_eis"
+        "beobachtung:b_serkan_tor"
       ]
     },
     {
@@ -391,12 +391,12 @@
       "pfad": "can",
       "runde": 1,
       "qualitaet": "neutral",
-      "text": "Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe.",
+      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_theke_2357"
+        "beobachtung:b_tim_gesicht"
       ]
     },
     {
@@ -432,12 +432,12 @@
       "pfad": "can",
       "runde": 2,
       "qualitaet": "neutral",
-      "text": "Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt.",
+      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_jacke"
+        "beobachtung:b_tim_kurzschluss"
       ]
     },
     {
@@ -473,12 +473,12 @@
       "pfad": "can",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen.",
+      "text": "Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "zeitleiste:z_olli_eis"
+        "beobachtung:b_serkan_tor"
       ]
     },
     {

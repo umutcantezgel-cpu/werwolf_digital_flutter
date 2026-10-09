@@ -18,6 +18,9 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 
 - **Druck und Spoiler:** Wer das Druck-PDF absichtlich am Bildschirm durchliest, kann die versiegelten Täterfassungen lesen. Außen stehen nur neutrale Codes; vor dem Drucken sollte niemand aus der Runde das PDF durchblättern.
 
+- **Gruppenwahl ohne Ergebnisanzeige (E-025):** Die Runde sieht nach ihrer Wahl nicht, ob der Hinweis wahr, neutral oder ein Gerücht war, und auch keine Stimmenzahl. Sonst ließe sich ein Gerücht als Freispruch lesen und die Sabotage der Täterrolle bei vier Rollen erkennen. Erst die Auflösung zeigt, wie oft die Gruppe zusammengehalten hat.
+- **Wer mehrere Fall-Codes nacheinander spielt,** kann mit der Zeit lernen, welche Satzform der Hinweise in Runde 3 meist stimmt. Für einen Partyabend mit einem Fall ist das ohne Bedeutung.
+
 ## Optionen zur Entscheidung
 - **Kernnamen:**
   - Laut Einstellungen bleiben Ahmet, Fatma, Olli und Can. Damit es keine Klischees gibt, sind Herkunft, Motive und Kopftuch so verteilt, dass keine Gruppe allein die Verfehlungen trägt (E-007).

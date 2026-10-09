@@ -475,7 +475,7 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Neue Pflichtgespräch-Beobachtungen: `b_emine_versteck` und `b_azra_versteck`. Neue verborgene Beobachtung: `b_wojtek_tuer`.
   - Bei jedem belegten Nebendelikt gibt die Person es auf Nachfrage zu.
 - **Bonus-Hinweise (36):**
-  - **wahr:** Runde 1 Mareks Trenner-Wissen, Runde 2 ein Geheimnis oder Motiv der Täterperson, Runde 3 die Spätankunft der Täterperson.
+  - **wahr:** Runde 1 die Spätankunft der Täterperson (im Pfad Can Mareks Satz über das leuchtende Gesicht), Runde 2 ein Geheimnis oder Motiv der Täterperson, Runde 3 eine Entlastung der zweiten Person, die bei bestem Spiel übrig ist. Die Entlastung schließt nie allein aus, weil R-ENTLASTET zusätzlich das belegte Nebendelikt verlangt (W-1). Korrigiert nach F2-FALL-01.
   - **neutral:** wahre, pfadgleiche Sätze über Kernpersonen ohne neuen Wert.
   - **falsch:** ein Gerücht über einen Unschuldigen in derselben Satzform wie die wahren Hinweise. Jedes Gerücht widerlegt eine Entscheidung, die im selben Pfad richtig ist (`widerlegtDurch`).
   - Hinweise wirken nie auf die Restmenge (W-1 scharf).
@@ -488,3 +488,35 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - **Ergebnis:** Das ist strukturell: In einem Pfad muss die richtige Option statt eines Ausschlusses ein Indiz gegen die Täterperson liefern.
   - **Regel (Prüfung im Simulator):** Eine falsche Option darf nur dann mehr ausschließen als die richtige, wenn die richtige ein belastendes Indiz gegen die Täterperson zeigt (Spätankunft, Zusatzindiz, Fundort, Schlüsselbeweis).
   - **Begründung:** Für die Spielenden ist das auch inhaltlich richtig. Nach drei Alibis ist Cans Bauchtasche die naheliegende Wahl; Ahmets Nebendelikt klärt nur noch eine Lüge.
+
+## E-025 · F2-Prüfrunde: Entscheidungen zu F2-TEST-01..04, F2-FALL-01, F2-GEGEN-01
+- **Abnahmen:**
+  - `F2-TEST-01`, `F2-TEST-02`, `F2-TEST-03`, `F2-TEST-04`: je FREIGEGEBEN · 10/10. 78 neue Tests, jede Prüfung mit Rot-Probe, nur eigene Dateien.
+  - `F2-FALL-01`: FREIGEGEBEN · 10/10. Genaue Zahlen, fand die Abweichung in E-024.
+  - `F2-GEGEN-01`: FREIGEGEBEN · 10/10. Drei schwere Befunde mit Schritten.
+- **Offene Fragen der Testschreiber:**
+  - Sabotage ohne kooperative Stimme ergibt 0 (Untergrenze, gewollt).
+  - Der Laufzeittest unter 60 s bleibt, weil F-06 das Budget verlangt.
+  - J3 (Widerlegung in derselben oder früheren Runde) bleibt als Zusatzprüfung.
+
+| Befund | Entscheidung | Folge |
+|---|---|---|
+| GEGEN #1: Gruppenzeile je Runde verrät mit dem Hinweis die Wahrheit | Ü | Vor der Auflösung zeigt das Spiel weder Qualität noch Stimmenzahl. Das Resümee-Fach „Gruppenergebnis“ sagt nur, dass die Runde etwas zugeflüstert hat (`resuemee.gruppe.<runde>`). Erst die Auflösung nennt, wie oft die Gruppe zusammengehalten hat (`aufloesung.gruppe.<n>`). G-1 in fall.json angepasst. |
+| GEGEN #2: Sabotage bei 4 Rollen sichtbar | Ü (durch #1) | Ohne sichtbare Qualität ist keine Täterwahl ablesbar. |
+| GEGEN #3: Kerzenständer überführt allein in drei Pfaden | Ü | R-UEBERFUEHRT verlangt Schlüsselbeweis und Fundort des Bunds derselben Person. Restmenge 1 mit weniger als 9 Punkten fällt von 383 auf 127 Folgen je Pfad. |
+| GEGEN #4, FALL #1: erste Option meist richtig | Ü | Die App mischt die Anzeige je Fall-Code (`Spiel.optionen`, deterministisch). Die Kanon-Reihenfolge ist ausgeglichen: Ratestrategien kommen auf 3–6 Punkte, kein Pfad erreicht Meister. Fragetexte von e2_2 und e2_3 nennen keine Person mehr. |
+| GEGEN #5a, c, d | Ü | Kette e2_1 (Pfad Can) spricht von Alibis, nicht von Ausschluss. Ketten in Runde 1 nennen das Gegenargument zur falschen Option. |
+| GEGEN #5b | T | e3_3 bleibt eine Entscheidung ohne Wirkung auf die Restmenge in drei Pfaden. Sie deckt das letzte Nebendelikt auf (F-06 „bei bestem Spiel jedes Nebendelikt“). Die Kette nennt jetzt den Grund. |
+| GEGEN #6a, FALL #3 | T | Die R3-Entlastung bleibt; sie schließt nie allein aus. E-024 ist korrigiert. |
+| GEGEN #6b | V | Die R3-Gerüchte über das Bund-Versteck widerlegt die Bundsuche. Eine Fassung in Alibi-Form ließe sich durch keine Entscheidung widerlegen, weil Marek keine Entscheidung ist. Ohne sichtbare Qualität ist die Satzform nur über viele Abende lernbar (NEBELKARTE). |
+| GEGEN #6c | Ü | Neutrale Hinweise haben jetzt die Satzform der Runde und sind wahr in allen Pfaden: Tim am Sicherungskasten, Tims Steckdose, Serkan am Tor. |
+| GEGEN #6d | Ü | Die Vitrine zeigt den Diebstahl, nicht die Person: Rolle `umgebung`. |
+| GEGEN #6e | V | Die Lage-Stufe gibt nur wieder, was der Detektiv gerade selbst gelesen hat. |
+| GEGEN #7 | V | B ist nicht dominant: A kostet die Rolle etwas, hilft aber dem Ende der Gruppe. Die Auflösung zeigt das persönliche Ziel (E-013). F3 macht A im Text verlockend. |
+| FALL #2: wahre Hinweise nennen den Täter | V | Ohne sichtbare Qualität ist ein wahrer Satz über die Täterperson nicht von einem Gerücht über einen Unschuldigen zu unterscheiden. Die Bestätigung kommt erst über eine Entscheidung. |
+| FALL #4 | V | Wie E-024, Nachtrag. |
+| FALL #5 | Ü | Der Simulator-Bericht führt drei Ratestrategien je Pfad. |
+
+- **Regelkreis Lernen:**
+  - **L-04:** Prüfaufträge stellen das Rollenbriefing wortgleich aus ROLLENBRIEFINGS.md voran. In F2-FALL-01 und F2-GEGEN-01 war es gekürzt.
+  - **L-05:** Aufträge, die nur neue Dateien anlegen, laufen ohne eigenen Arbeitsbaum direkt im Repo. Rückgaben werden vor dem Commit selbst nachgeprüft.

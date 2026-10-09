@@ -575,9 +575,8 @@
           },
           "zeigt": "Die gesprungene Scheibe ist angehoben, Scherben am Boden, das Samtbett der Münzschatulle ist leer.",
           "rolle": {
-            "alle": "nebendelikt"
-          },
-          "nebendelikt": "nd_schatulle"
+            "alle": "umgebung"
+          }
         }
       ]
     },

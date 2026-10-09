@@ -64,7 +64,8 @@
               "enum": [
                 "alibi",
                 "nebendelikt",
-                "schluesselbeweis"
+                "schluesselbeweis",
+                "fundort"
               ]
             }
           },

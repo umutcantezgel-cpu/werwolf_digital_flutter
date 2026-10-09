@@ -1,3 +1,4 @@
+import '../util/rng.dart';
 import 'besetzung.dart';
 import 'enden.dart';
 import 'entscheidungen.dart';
@@ -117,6 +118,15 @@ class Spiel {
       case PartyPhase.ende:
         throw StateError('Spiel ist zu Ende');
     }
+  }
+
+  /// Anzeigereihenfolge der Optionen: je Fall-Code gemischt, damit die Lage
+  /// im Kanon nichts verrät (E-025). Gleicher Code, gleiche Reihenfolge.
+  List<EntscheidungsOption> optionen(String entscheidungId) {
+    final e = ermittlung.entscheidung(entscheidungId);
+    final liste = [...e.optionen];
+    Rng(einstellungen.code.seed ^ Rng.hashString(entscheidungId)).shuffle(liste);
+    return liste;
   }
 
   /// Eine Entscheidung der laufenden Runde treffen.

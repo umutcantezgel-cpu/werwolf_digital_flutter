@@ -36,7 +36,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **W-1:** Ein wahrer Bonus-Hinweis liefert einen wahren Baustein, entlastet aber nie allein einen Kernverdächtigen.
 - **S-1:** Resümees nur aus dem Wissen des Detektivs; bei nur einer Restperson kein Name.
 - **D-1:** Optionen mit 0 Punkten zeigen weder Schlüsselbeweis noch Zusatzindiz.
-- **G-1:** Die Option B der Täterrolle (Sabotage) zählt netto −1; sichtbar ist nur die Qualität.
+- **G-1:** Die Option B der Täterrolle (Sabotage) zählt netto −1. Vor der Auflösung wird weder die Qualität des Hinweises noch die Stimmenzahl gezeigt (E-025).
 - **K-1:** Objekte, Marker und Licht auf der Karte sind vor dem Finale in allen Pfaden gleich.
 - **P-1:** Pflichtgespräche geben nur pfadneutrales Wissen preis.
 
@@ -1074,7 +1074,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Stelle | entsteht wenn | zeigt | harmlos | Rolle |
 |---|---|---|---|---|
-| Samtbett | immer: ja | Die gesprungene Scheibe ist angehoben, Scherben am Boden, das Samtbett der Münzschatulle ist leer. | null | alle: nebendelikt |
+| Samtbett | immer: ja | Die gesprungene Scheibe ist angehoben, Scherben am Boden, das Samtbett der Münzschatulle ist leer. | null | alle: umgebung |
 
 ### Glassplitter an Fatmas Mantel (`glassplitter_mantel`)
 
@@ -1406,7 +1406,7 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 ## 9. Entscheidungen des Detektivs
 
 - **R-ENTLASTET:** Wer beim Scheppern nachweislich woanders war und wessen Heimlichtuerei belegt ist, scheidet aus.
-- **R-UEBERFUEHRT:** Ein Schlüsselbeweis überführt eine Person. Alle anderen scheiden aus.
+- **R-UEBERFUEHRT:** Ein Schlüsselbeweis überführt eine Person, wenn auch Herrn Schneiders Schlüsselbund an ihrem Versteck gefunden ist. Alle anderen scheiden aus.
 
 | Fakt | Art | Personen | Quelle |
 |---|---|---|---|
@@ -1445,10 +1445,10 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Option | Text | Fakten | richtig in |
 |---|---|---|---|
-| e1_1_damir | Damir befragen | f_alibi_ahmet, f_spaet_ahmet | Ahmet, Fatma, Olli, Can |
 | e1_1_joanna | Joanna befragen | f_foto_streit |  |
+| e1_1_damir | Damir befragen | f_alibi_ahmet, f_spaet_ahmet | Ahmet, Fatma, Olli, Can |
 
-- **Begründung alle Pfade:** Damir stand um 23:57 an der Theke, wo es gescheppert hat. Wer dort im Dunkeln kauerte, weiß, wer beim Scheppern wo war. (beobachtung:b_damir_an_der_theke, beobachtung:b_detektiv_gehoert)
+- **Begründung alle Pfade:** Damir stand um 23:57 an der Theke, wo es gescheppert hat. Wer dort im Dunkeln kauerte, weiß, wer beim Scheppern wo war. Joannas Foto zeigt nur einen Streit vor dem Ausfall. (beobachtung:b_damir_an_der_theke, beobachtung:b_detektiv_gehoert)
 
 ### Runde 1.2: Wer war im Dunkeln am linken Buffettisch? (`e1_2`)
 
@@ -1457,16 +1457,16 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | e1_2_emine | Emine befragen | f_alibi_fatma, f_spaet_fatma | Ahmet, Fatma, Olli, Can |
 | e1_2_tugba | Tugba nach ihrem Notizbuch fragen | f_notiz_fehlende |  |
 
-- **Begründung alle Pfade:** Emine duckte sich beim Knall hinter den linken Buffettisch, wenige Schritte von der Theke. Sie weiß, wer neben ihr kauerte. (beobachtung:b_emine_versteck, beobachtung:b_detektiv_gehoert)
+- **Begründung alle Pfade:** Emine duckte sich beim Knall hinter den linken Buffettisch, wenige Schritte von der Theke. Sie weiß, wer neben ihr kauerte. Tugbas Notizbuch zeigt nur, was die Leute über sich behaupten. (beobachtung:b_emine_versteck, beobachtung:b_detektiv_gehoert)
 
 ### Runde 1.3: Wer war im Dunkeln am rechten Buffettisch? (`e1_3`)
 
 | Option | Text | Fakten | richtig in |
 |---|---|---|---|
-| e1_3_azra | Azra befragen | f_alibi_olli, f_spaet_olli | Ahmet, Fatma, Olli, Can |
 | e1_3_tim | Tim zum Stromausfall befragen | f_kurzschluss |  |
+| e1_3_azra | Azra befragen | f_alibi_olli, f_spaet_olli | Ahmet, Fatma, Olli, Can |
 
-- **Begründung alle Pfade:** Azra duckte sich beim Knall am rechten Buffettisch, nahe der Theke. Sie weiß, wer neben ihr kauerte. (beobachtung:b_azra_versteck, beobachtung:b_detektiv_gehoert)
+- **Begründung alle Pfade:** Azra duckte sich beim Knall am rechten Buffettisch, nahe der Theke. Sie weiß, wer neben ihr kauerte. Tim weiß nur, warum der Strom ausfiel. (beobachtung:b_azra_versteck, beobachtung:b_detektiv_gehoert)
 
 ### Runde 2.1: Wessen Heimlichtuerei klärst du jetzt? (`e2_1`)
 
@@ -1478,21 +1478,21 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 - **Begründung Ahmet:** Ahmet war beim Scheppern nicht bei Damir. Hana sah ihn kurz nach zwölf etwas in den Ascheneimer werfen. (fakt:f_spaet_ahmet, beobachtung:b_hana_umschlag)
 - **Begründung Fatma:** Ahmet war beim Scheppern bei Damir, hat aber wegen seines Umschlags gelogen. Was er in den Ascheneimer warf, erklärt das. (fakt:f_alibi_ahmet, beobachtung:b_lejla_ahmet_theke, beobachtung:b_hana_umschlag)
 - **Begründung Olli:** Ahmet war beim Scheppern bei Damir, hat aber wegen seines Umschlags gelogen. Was er in den Ascheneimer warf, erklärt das. (fakt:f_alibi_ahmet, beobachtung:b_lejla_ahmet_theke, beobachtung:b_hana_umschlag)
-- **Begründung Can:** Ahmet, Fatma und Olli waren beim Scheppern woanders. Nur Can ist ungeklärt, und vier Gäste sahen ein leuchtendes Gesicht. Seine Bauchtasche ist ausgebeult. (fakt:f_alibi_ahmet, fakt:f_alibi_fatma, fakt:f_alibi_olli, beobachtung:b_marek_gesicht, merkmal:can)
+- **Begründung Can:** Ahmet, Fatma und Olli haben ein Alibi für das Scheppern, Can hat keins. Vier Gäste sahen ein leuchtendes Gesicht, und seine Bauchtasche ist ausgebeult. (fakt:f_alibi_ahmet, fakt:f_alibi_fatma, fakt:f_alibi_olli, beobachtung:b_marek_gesicht, merkmal:can)
 
-### Runde 2.2: Fatmas Tasche ist ausgebeult. Wo setzt du an? (`e2_2`)
+### Runde 2.2: Was untersuchst du als Nächstes? (`e2_2`)
 
 | Option | Text | Fakten | richtig in |
 |---|---|---|---|
-| e2_2_tasche | Fatmas Tasche untersuchen | f_nd_fatma, f_z_fatma | Ahmet, Fatma, Olli, Can |
 | e2_2_vitrine | Die Vitrine im Turmgang untersuchen | f_vitrine_leer |  |
+| e2_2_tasche | Fatmas Tasche untersuchen | f_nd_fatma, f_z_fatma | Ahmet, Fatma, Olli, Can |
 
 - **Begründung Ahmet:** Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher. (fakt:f_alibi_fatma, beobachtung:b_azra_tasche)
 - **Begründung Fatma:** Fatma kam erst nach dem Scheppern zu Emine, und ihre Tasche ist auffällig ausgebeult. (fakt:f_spaet_fatma, beobachtung:b_azra_tasche)
 - **Begründung Olli:** Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher. (fakt:f_alibi_fatma, beobachtung:b_azra_tasche)
 - **Begründung Can:** Fatma war beim Scheppern bei Emine, aber ihre Tasche ist auffällig ausgebeult, und sie sagt, darin seien nur Bücher. (fakt:f_alibi_fatma, beobachtung:b_azra_tasche)
 
-### Runde 2.3: Ollis Ärmel sind voller Splitter und Kalk. Wo setzt du an? (`e2_3`)
+### Runde 2.3: Wo suchst du weiter? (`e2_3`)
 
 | Option | Text | Fakten | richtig in |
 |---|---|---|---|
@@ -1508,9 +1508,9 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Option | Text | Fakten | richtig in |
 |---|---|---|---|
+| e3_1_turmgang | Im Turmgang bei der Rüstung suchen | f_fundort_can | Can |
 | e3_1_ostsaal | Im Ost-Saal mit dem Jackenständer suchen | f_fundort_ahmet | Ahmet |
 | e3_1_buffetsaal | Im Buffetsaal an Theke und Buffettischen suchen | f_fundort_fatma, f_fundort_olli | Fatma, Olli |
-| e3_1_turmgang | Im Turmgang bei der Rüstung suchen | f_fundort_can | Can |
 
 - **Begründung Ahmet:** Ahmet war beim Scheppern weg, und an seinem Umschlag klebt Wachs vom Tatort. Seine Jacke hängt im Ost-Saal. (fakt:f_spaet_ahmet, fakt:f_z_ahmet, karte:jacke_ahmet)
 - **Begründung Fatma:** Fatma kam erst nach dem Scheppern zum linken Buffettisch, und auf ihrer Schatulle ist Wachs vom Tatort. Auf dem Weg dorthin konnte sie etwas ablegen. (fakt:f_spaet_fatma, fakt:f_z_fatma, beobachtung:b_emine_versteck, karte:brottasche)
@@ -1521,8 +1521,8 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 
 | Option | Text | Fakten | richtig in |
 |---|---|---|---|
-| e3_2_kerzenstaender | Den Kerzenständer genau untersuchen | f_staender_verbogen, f_k_ahmet, f_k_can, f_k_olli | Ahmet, Olli, Can |
 | e3_2_fatma | Fatmas Hände und ihren Ring untersuchen | f_k_fatma | Fatma |
+| e3_2_kerzenstaender | Den Kerzenständer genau untersuchen | f_staender_verbogen, f_k_ahmet, f_k_can, f_k_olli | Ahmet, Olli, Can |
 
 - **Begründung Ahmet:** An Ahmets Umschlag ist Wachs vom Tatort, und eine Ecke fehlt. Vielleicht ist sie am Kerzenständer geblieben. (fakt:f_z_ahmet, karte:kerzenstaender)
 - **Begründung Fatma:** Auf der Schatulle in Fatmas Tasche ist Wachs vom Tatort. Ihr breiter Silberring trifft beim Zupacken auf das Messing. (fakt:f_z_fatma, merkmal:fatma)
@@ -1536,9 +1536,9 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | e3_3_zeynep | Zeynep befragen | f_nd_can_zeynep | Ahmet, Fatma, Olli |
 | e3_3_aylin | Aylin nach ihrem Beleg fragen | f_nd_ahmet_quittung | Can |
 
-- **Begründung Ahmet:** Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester. (beobachtung:b_zeynep_gesicht, beobachtung:b_marek_gesicht)
-- **Begründung Fatma:** Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester. (beobachtung:b_zeynep_gesicht, beobachtung:b_marek_gesicht)
-- **Begründung Olli:** Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester. (beobachtung:b_zeynep_gesicht, beobachtung:b_marek_gesicht)
+- **Begründung Ahmet:** Ahmets Miete ist schon geklärt, das leuchtende Gesicht nicht. Zeynep stand am Bogen zum Durchgang und sah es vorbeikommen. (fakt:f_nd_ahmet_umschlag, beobachtung:b_zeynep_gesicht, beobachtung:b_marek_gesicht)
+- **Begründung Fatma:** Ahmets Miete ist schon geklärt, das leuchtende Gesicht nicht. Zeynep stand am Bogen zum Durchgang und sah es vorbeikommen. (fakt:f_nd_ahmet_umschlag, beobachtung:b_zeynep_gesicht, beobachtung:b_marek_gesicht)
+- **Begründung Olli:** Ahmets Miete ist schon geklärt, das leuchtende Gesicht nicht. Zeynep stand am Bogen zum Durchgang und sah es vorbeikommen. (fakt:f_nd_ahmet_umschlag, beobachtung:b_zeynep_gesicht, beobachtung:b_marek_gesicht)
 - **Begründung Can:** Ahmet war beim Scheppern bei Damir, aber seine Miete ist ungeklärt. Aylin hat einen Beleg von Herrn Schneider. (fakt:f_alibi_ahmet, beobachtung:b_aylin_quittung)
 
 ## 10. Bonus-Hinweise
@@ -1546,38 +1546,38 @@ Erzeugt aus dem Kanon (Version 1.0.0). Nicht von Hand ändern: dart run bin/part
 | Kennung | Pfad | Runde | Qualität | Text | Wirkung | widerlegt durch |
 |---|---|---|---|---|---|---|
 | h_ahmet_1_wahr | Ahmet | 1 | wahr | Beim Scheppern war Ahmet nicht bei Damir am Ostende der Theke. | belastet Ahmet (ahmet) |  |
-| h_ahmet_1_neutral | Ahmet | 1 | neutral | Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe. | neutral |  |
+| h_ahmet_1_neutral | Ahmet | 1 | neutral | Beim Scheppern war Tim am Sicherungskasten im Kaminsaal. | neutral |  |
 | h_ahmet_1_falsch | Ahmet | 1 | falsch | Beim Scheppern war Olli nicht bei Azra am rechten Buffettisch. | belastet Olli (olli) | e1_3_azra |
 | h_ahmet_2_wahr | Ahmet | 2 | wahr | Ahmet hat um 23:51 an der Theke mit Herrn Schneider über die Miete gestritten. | belastet Ahmet (ahmet) |  |
-| h_ahmet_2_neutral | Ahmet | 2 | neutral | Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt. | neutral |  |
+| h_ahmet_2_neutral | Ahmet | 2 | neutral | Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt. | neutral |  |
 | h_ahmet_2_falsch | Ahmet | 2 | falsch | Olli hat um 23:40 die Münzschatulle aus der Vitrine genommen. | belastet Olli (olli) | e2_2_tasche |
 | h_ahmet_3_wahr | Ahmet | 3 | wahr | Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang. | entlastet Can (can) |  |
-| h_ahmet_3_neutral | Ahmet | 3 | neutral | Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen. | neutral |  |
+| h_ahmet_3_neutral | Ahmet | 3 | neutral | Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus. | neutral |  |
 | h_ahmet_3_falsch | Ahmet | 3 | falsch | Can hat den Schlüsselbund im Helm der Ritterrüstung versteckt. | belastet Can (can) | e3_1_ostsaal |
 | h_fatma_1_wahr | Fatma | 1 | wahr | Beim Scheppern war Fatma nicht bei Emine am linken Buffettisch. | belastet Fatma (fatma) |  |
-| h_fatma_1_neutral | Fatma | 1 | neutral | Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe. | neutral |  |
+| h_fatma_1_neutral | Fatma | 1 | neutral | Beim Scheppern war Tim am Sicherungskasten im Kaminsaal. | neutral |  |
 | h_fatma_1_falsch | Fatma | 1 | falsch | Beim Scheppern war Ahmet nicht bei Damir am Ostende der Theke. | belastet Ahmet (ahmet) | e1_1_damir |
 | h_fatma_2_wahr | Fatma | 2 | wahr | Fatma hat um 23:40 die Münzschatulle aus der Vitrine genommen. | belastet Fatma (fatma) |  |
-| h_fatma_2_neutral | Fatma | 2 | neutral | Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt. | neutral |  |
+| h_fatma_2_neutral | Fatma | 2 | neutral | Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt. | neutral |  |
 | h_fatma_2_falsch | Fatma | 2 | falsch | Ahmet hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt Geld dafür. | belastet Ahmet (ahmet) | e2_3_olli |
 | h_fatma_3_wahr | Fatma | 3 | wahr | Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang. | entlastet Can (can) |  |
-| h_fatma_3_neutral | Fatma | 3 | neutral | Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen. | neutral |  |
+| h_fatma_3_neutral | Fatma | 3 | neutral | Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus. | neutral |  |
 | h_fatma_3_falsch | Fatma | 3 | falsch | Can hat den Schlüsselbund im Helm der Ritterrüstung versteckt. | belastet Can (can) | e3_1_buffetsaal |
 | h_olli_1_wahr | Olli | 1 | wahr | Beim Scheppern war Olli nicht bei Azra am rechten Buffettisch. | belastet Olli (olli) |  |
-| h_olli_1_neutral | Olli | 1 | neutral | Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe. | neutral |  |
+| h_olli_1_neutral | Olli | 1 | neutral | Beim Scheppern war Tim am Sicherungskasten im Kaminsaal. | neutral |  |
 | h_olli_1_falsch | Olli | 1 | falsch | Beim Scheppern war Fatma nicht bei Emine am linken Buffettisch. | belastet Fatma (fatma) | e1_2_emine |
 | h_olli_2_wahr | Olli | 2 | wahr | Olli hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt zweitausend Euro dafür. | belastet Olli (olli) |  |
-| h_olli_2_neutral | Olli | 2 | neutral | Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt. | neutral |  |
+| h_olli_2_neutral | Olli | 2 | neutral | Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt. | neutral |  |
 | h_olli_2_falsch | Olli | 2 | falsch | Fatma hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt Geld dafür. | belastet Fatma (fatma) | e2_3_olli |
 | h_olli_3_wahr | Olli | 3 | wahr | Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang. | entlastet Can (can) |  |
-| h_olli_3_neutral | Olli | 3 | neutral | Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen. | neutral |  |
+| h_olli_3_neutral | Olli | 3 | neutral | Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus. | neutral |  |
 | h_olli_3_falsch | Olli | 3 | falsch | Can hat den Schlüsselbund im Helm der Ritterrüstung versteckt. | belastet Can (can) | e3_1_buffetsaal |
 | h_can_1_wahr | Can | 1 | wahr | Beim Scheppern war das leuchtende Gesicht noch nicht an Marek vorbei. Es kam erst danach durch den Durchgang. | belastet Can (can) |  |
-| h_can_1_neutral | Can | 1 | neutral | Fatma stand um 23:57 mit ihrer Tasche an der Theken-Klappe. | neutral |  |
+| h_can_1_neutral | Can | 1 | neutral | Beim Scheppern war Tim am Sicherungskasten im Kaminsaal. | neutral |  |
 | h_can_1_falsch | Can | 1 | falsch | Beim Scheppern war Fatma nicht bei Emine am linken Buffettisch. | belastet Fatma (fatma) | e1_2_emine |
 | h_can_2_wahr | Can | 2 | wahr | Can hat mit einer Leuchtmaske im dunklen Vorratsraum gewartet. | belastet Can (can) |  |
-| h_can_2_neutral | Can | 2 | neutral | Ahmet hat um 23:55 seine Jacke an den Jackenständer im Ost-Saal gehängt. | neutral |  |
+| h_can_2_neutral | Can | 2 | neutral | Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt. | neutral |  |
 | h_can_2_falsch | Can | 2 | falsch | Olli hat um 23:40 die Münzschatulle aus der Vitrine genommen. | belastet Olli (olli) | e2_2_tasche |
 | h_can_3_wahr | Can | 3 | wahr | Beim Scheppern kauerte Ahmet neben Damir am Ostende der Theke. | entlastet Ahmet (ahmet) |  |
-| h_can_3_neutral | Can | 3 | neutral | Olli hat Wojtek um 23:52 versprochen, ihm Eis zu holen. | neutral |  |
+| h_can_3_neutral | Can | 3 | neutral | Serkan stand die ganze Zeit am Außentor. Es war abgeschlossen, niemand ist hinaus. | neutral |  |
 | h_can_3_falsch | Can | 3 | falsch | Ahmet hat den Schlüsselbund in seiner Jacke im Ost-Saal versteckt. | belastet Ahmet (ahmet) | e3_1_turmgang |

@@ -6,9 +6,9 @@ import 'kanon/kanon.dart';
 /// Kennungen; die Texte stehen in der Textsammlung des Kanons (F3).
 ///
 /// Vor dem Finale hängt jede Wahl nur am Wissen des Detektivs (S-1): an
-/// aufgedeckten Fakten, Restmenge und dem sichtbaren Gruppenergebnis. Einzige
+/// aufgedeckten Fakten und der Restmenge. Einzige
 /// Ausnahme ist der Bonus-Hinweis selbst, der als wahrer, neutraler oder
-/// falscher Satz im selben Rahmen kommt.
+/// falscher Satz im selben Rahmen kommt; seine Qualität bleibt verborgen.
 class Erzaehler {
   final Kanon kanon;
   Erzaehler(this.kanon);
@@ -32,12 +32,13 @@ class Erzaehler {
     return ['bonus.rahmen', 'hinweis.${h['id']}'];
   }
 
-  /// Drei Fächer: Gruppenergebnis, Stand der Restverdächtigen, Lage.
+  /// Drei Fächer: Gruppenergebnis, Stand der Restverdächtigen, Lage. Das
+  /// Gruppenergebnis nennt nur, dass die Runde etwas zugeflüstert hat; Qualität
+  /// und Stimmenzahl bleiben bis zur Auflösung verborgen (E-025).
   List<String> resuemee(Spiel s) {
-    final q = s.qualitaeten[s.runde]!;
     final fakten = s.bekannteFakten(s.runde);
     return [
-      'resuemee.gruppe.${Gruppenwahl.zusammengehalten(q) ? 'zusammen' : 'uneins'}',
+      'resuemee.gruppe.${s.runde}',
       restSchluessel(s.ermittlung.restmenge(fakten)),
       'resuemee.lage.${s.runde}.${lageStufe(s, fakten)}',
     ];
@@ -62,7 +63,9 @@ class Erzaehler {
 
   List<String> finale(Spiel s) => ['finale.${s.pfad}.${s.ende.id}', 'rueckblende.${s.pfad}'];
 
+  /// Auflösung: erst jetzt, wie oft die Gruppe zusammengehalten hat, dann je Rolle.
   List<String> aufloesung(Spiel s) => [
+        'aufloesung.gruppe.${[for (var r = 1; r <= 3; r++) if (Gruppenwahl.zusammengehalten(s.qualitaeten[r]!)) r].length}',
         for (final r in s.besetzt)
           if (kanon.kernverdaechtige.contains(r)) 'aufloesung.$r.${r == s.pfad ? 'taeter' : 'unschuldig'}' else 'aufloesung.$r',
       ];
@@ -88,8 +91,7 @@ class Erzaehler {
       'intro.auftrag.w',
       for (var r = 1; r <= 3; r++) 'runde.$r.start',
       'bonus.rahmen',
-      'resuemee.gruppe.zusammen',
-      'resuemee.gruppe.uneins',
+      for (var r = 1; r <= 3; r++) 'resuemee.gruppe.$r',
       'resuemee.rest.alle',
       ...dreier,
       ...paare,
@@ -97,6 +99,7 @@ class Erzaehler {
       for (var r = 1; r <= 3; r++) for (final st in ['offen', 'spur', 'klar']) 'resuemee.lage.$r.$st',
       'anklage.start',
       for (final p in kanon.pfade) ...[for (final e in enden) 'finale.$p.$e', 'rueckblende.$p'],
+      for (var n = 0; n <= 3; n++) 'aufloesung.gruppe.$n',
       for (final r in kanon.figuren.map((f) => f['id'] as String))
         if (kern.contains(r)) ...['aufloesung.$r.taeter', 'aufloesung.$r.unschuldig'] else 'aufloesung.$r',
     ];

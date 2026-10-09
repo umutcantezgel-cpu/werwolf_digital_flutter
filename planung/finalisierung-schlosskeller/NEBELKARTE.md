@@ -31,3 +31,4 @@ Format: Risiko → Frühwarnzeichen → Gegenmaßnahme. Wirkung (W) und Unsicher
 3. **Die App ist auf dem Handy schwer bedienbar.** Frühwarnzeichen: Spieltester-Befunde. Gegenmaßnahme: einfacher Ablauf, große Schaltflächen, Spielleiter-Modus.
 4. **Der Druck ist unbrauchbar.** Frühwarnzeichen: Überlauf, falsche Codes. Gegenmaßnahme: Layout-Messung im Test, Druckprüfer mit gerenderten Seiten.
 5. **Die Übergabe scheitert an der Umgebung.** Frühwarnzeichen: Push-Ablehnung. Gegenmaßnahme: E-003, früher Probe-Push am F0-Tor.
+6. **Hinweise werden über viele Abende durchschaubar.** Frühwarnzeichen: eine Gruppe spielt mehrere Fall-Codes und lernt, welche Satzform in Runde 3 stimmt. Gegenmaßnahme: Qualität bleibt bis zur Auflösung verborgen (E-025), gleiche Satzform in Runde 1 und 2; Restrisiko in Runde 3 steht unter FÜR DEN NUTZER.

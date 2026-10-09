@@ -143,4 +143,28 @@ void main() {
     }
     expect(folgen.values.map((l) => l.join('|')).toSet(), hasLength(1), reason: '$folgen');
   });
+
+  test('Optionen erscheinen je Fall-Code gemischt, bei gleichem Code immer gleich (E-025)', () {
+    final reihen = <String>{};
+    for (final p in kanon.pfade) {
+      for (var i = 0; i < 20; i++) {
+        final code = FallCode.zufall(Rng(1000 + i));
+        final a = Spiel(kanon, ermittlung: e)..einrichten(Einstellungen(rollen: 4, detektiv: 'm', code: code));
+        final b = Spiel(kanon, ermittlung: e)..einrichten(Einstellungen(rollen: 9, detektiv: 'w', code: code));
+        for (final x in e.entscheidungen) {
+          final ra = [for (final o in a.optionen(x.id)) o.id];
+          expect(ra, [for (final o in b.optionen(x.id)) o.id]);
+          expect(ra.toSet(), {for (final o in x.optionen) o.id});
+          reihen.add('${x.id}:${ra.first}');
+        }
+      }
+      expect(p, isNotEmpty);
+    }
+    // Jede Option steht bei manchen Codes vorn.
+    for (final x in e.entscheidungen) {
+      for (final o in x.optionen) {
+        expect(reihen, contains('${x.id}:${o.id}'), reason: '${o.id} nie vorn');
+      }
+    }
+  });
 }

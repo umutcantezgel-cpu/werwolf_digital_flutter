@@ -40,6 +40,16 @@ void main(List<String> args) {
       final best = sim.verlauf(b.pfad, sim.ermittlung.bestesSpiel(b.pfad));
       stdout.writeln('  Bestes Spiel: Restmenge nach Runde 1/2/3 = ${best.restNachRunde.map((r) => r.length).join('/')}');
     }
+    stdout.writeln('Ratestrategien (Kanon-Reihenfolge; die App mischt die Anzeige je Fall-Code), Punkte je Pfad:');
+    final e = sim.ermittlung.entscheidungen;
+    final strategien = <String, List<String> Function(String)>{
+      'immer erste Option': (p) => [for (final x in e) x.optionen.first.id],
+      'immer letzte Option': (p) => [for (final x in e) x.optionen.last.id],
+      'immer Person, sonst erste': (p) => [for (final x in e) (x.optionen.where((o) => o.ziel.containsKey('person')).firstOrNull ?? x.optionen.first).id],
+    };
+    for (final s in strategien.entries) {
+      stdout.writeln('  ${s.key}: ${[for (final p in kanon.pfade) '$p ${sim.verlauf(p, s.value(p)).punkte}'].join(' · ')}');
+    }
     stdout.writeln('');
   }
   stdout.writeln(verstoesse.isEmpty ? 'Simulator: OK (${uhr.elapsedMilliseconds} ms)' : 'Simulator: ${verstoesse.length} Verstöße');

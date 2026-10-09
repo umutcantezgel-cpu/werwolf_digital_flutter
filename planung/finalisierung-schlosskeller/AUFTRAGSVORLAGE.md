@@ -24,6 +24,10 @@ Jeder Auftrag an einen Unteragenten folgt diesem Aufbau. Aufträge liegen als Da
 
 **Arbeitsbaum (seit F1, L-03):** Code-Aufträge mit eigenem Arbeitsbaum beginnen mit `git checkout --detach <Commit>` (vom Orchestrator genannt). Offene Fragen stehen vor der Endmarke.
 
+**Briefing wortgleich (seit F2, L-04):** Jeder Auftrag stellt das Rollenbriefing wortgleich aus ROLLENBRIEFINGS.md voran, auch bei Prüfaufträgen.
+
+**Ohne Arbeitsbaum (seit F2, L-05):** Aufträge, die nur neue Dateien anlegen, laufen direkt im Repo. Der Orchestrator prüft jede Rückgabe selbst nach (Tests, Analyse, `git status`), bevor er committet.
+
 Reicht der Platz nicht: `=== UNTERBROCHEN BEI <Stelle> · WEITER MIT „weiter“ ===`.
 Platzhalter wie „usw.“, „analog“ oder „folgt später“ führen zur Ablehnung.
 

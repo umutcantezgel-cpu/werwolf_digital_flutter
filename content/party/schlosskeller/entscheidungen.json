@@ -14,10 +14,11 @@
     {
       "id": "R-UEBERFUEHRT",
       "wenn": [
-        "schluesselbeweis"
+        "schluesselbeweis",
+        "fundort"
       ],
       "folge": "ueberfuehrt",
-      "text": "Ein Schlüsselbeweis überführt eine Person. Alle anderen scheiden aus."
+      "text": "Ein Schlüsselbeweis überführt eine Person, wenn auch Herrn Schneiders Schlüsselbund an ihrem Versteck gefunden ist. Alle anderen scheiden aus."
     }
   ],
   "fakten": [
@@ -324,6 +325,16 @@
       "frage": "Wer weiß, wer im Dunkeln am Ostende der Theke war?",
       "optionen": [
         {
+          "id": "e1_1_joanna",
+          "ziel": {
+            "person": "johanna"
+          },
+          "text": "Joanna befragen",
+          "fakten": [
+            "f_foto_streit"
+          ]
+        },
+        {
           "id": "e1_1_damir",
           "ziel": {
             "person": "enes"
@@ -332,16 +343,6 @@
           "fakten": [
             "f_alibi_ahmet",
             "f_spaet_ahmet"
-          ]
-        },
-        {
-          "id": "e1_1_joanna",
-          "ziel": {
-            "person": "johanna"
-          },
-          "text": "Joanna befragen",
-          "fakten": [
-            "f_foto_streit"
           ]
         }
       ],
@@ -357,7 +358,7 @@
             "beobachtung:b_damir_an_der_theke",
             "beobachtung:b_detektiv_gehoert"
           ],
-          "text": "Damir stand um 23:57 an der Theke, wo es gescheppert hat. Wer dort im Dunkeln kauerte, weiß, wer beim Scheppern wo war."
+          "text": "Damir stand um 23:57 an der Theke, wo es gescheppert hat. Wer dort im Dunkeln kauerte, weiß, wer beim Scheppern wo war. Joannas Foto zeigt nur einen Streit vor dem Ausfall."
         }
       }
     },
@@ -402,7 +403,7 @@
             "beobachtung:b_emine_versteck",
             "beobachtung:b_detektiv_gehoert"
           ],
-          "text": "Emine duckte sich beim Knall hinter den linken Buffettisch, wenige Schritte von der Theke. Sie weiß, wer neben ihr kauerte."
+          "text": "Emine duckte sich beim Knall hinter den linken Buffettisch, wenige Schritte von der Theke. Sie weiß, wer neben ihr kauerte. Tugbas Notizbuch zeigt nur, was die Leute über sich behaupten."
         }
       }
     },
@@ -414,6 +415,16 @@
       "frage": "Wer war im Dunkeln am rechten Buffettisch?",
       "optionen": [
         {
+          "id": "e1_3_tim",
+          "ziel": {
+            "person": "tim"
+          },
+          "text": "Tim zum Stromausfall befragen",
+          "fakten": [
+            "f_kurzschluss"
+          ]
+        },
+        {
           "id": "e1_3_azra",
           "ziel": {
             "person": "dilara"
@@ -422,16 +433,6 @@
           "fakten": [
             "f_alibi_olli",
             "f_spaet_olli"
-          ]
-        },
-        {
-          "id": "e1_3_tim",
-          "ziel": {
-            "person": "tim"
-          },
-          "text": "Tim zum Stromausfall befragen",
-          "fakten": [
-            "f_kurzschluss"
           ]
         }
       ],
@@ -447,7 +448,7 @@
             "beobachtung:b_azra_versteck",
             "beobachtung:b_detektiv_gehoert"
           ],
-          "text": "Azra duckte sich beim Knall am rechten Buffettisch, nahe der Theke. Sie weiß, wer neben ihr kauerte."
+          "text": "Azra duckte sich beim Knall am rechten Buffettisch, nahe der Theke. Sie weiß, wer neben ihr kauerte. Tim weiß nur, warum der Strom ausfiel."
         }
       }
     },
@@ -519,7 +520,7 @@
             "beobachtung:b_marek_gesicht",
             "merkmal:can"
           ],
-          "text": "Ahmet, Fatma und Olli waren beim Scheppern woanders. Nur Can ist ungeklärt, und vier Gäste sahen ein leuchtendes Gesicht. Seine Bauchtasche ist ausgebeult."
+          "text": "Ahmet, Fatma und Olli haben ein Alibi für das Scheppern, Can hat keins. Vier Gäste sahen ein leuchtendes Gesicht, und seine Bauchtasche ist ausgebeult."
         }
       }
     },
@@ -528,8 +529,18 @@
       "runde": 2,
       "nr": 2,
       "art": "gegenstand",
-      "frage": "Fatmas Tasche ist ausgebeult. Wo setzt du an?",
+      "frage": "Was untersuchst du als Nächstes?",
       "optionen": [
+        {
+          "id": "e2_2_vitrine",
+          "ziel": {
+            "gegenstand": "vitrine"
+          },
+          "text": "Die Vitrine im Turmgang untersuchen",
+          "fakten": [
+            "f_vitrine_leer"
+          ]
+        },
         {
           "id": "e2_2_tasche",
           "ziel": {
@@ -539,16 +550,6 @@
           "fakten": [
             "f_nd_fatma",
             "f_z_fatma"
-          ]
-        },
-        {
-          "id": "e2_2_vitrine",
-          "ziel": {
-            "gegenstand": "vitrine"
-          },
-          "text": "Die Vitrine im Turmgang untersuchen",
-          "fakten": [
-            "f_vitrine_leer"
           ]
         }
       ],
@@ -594,7 +595,7 @@
       "runde": 2,
       "nr": 3,
       "art": "person",
-      "frage": "Ollis Ärmel sind voller Splitter und Kalk. Wo setzt du an?",
+      "frage": "Wo suchst du weiter?",
       "optionen": [
         {
           "id": "e2_3_olli",
@@ -666,6 +667,16 @@
       "frage": "Wo suchst du nach Herrn Schneiders Schlüsselbund?",
       "optionen": [
         {
+          "id": "e3_1_turmgang",
+          "ziel": {
+            "raum": "turmgang"
+          },
+          "text": "Im Turmgang bei der Rüstung suchen",
+          "fakten": [
+            "f_fundort_can"
+          ]
+        },
+        {
           "id": "e3_1_ostsaal",
           "ziel": {
             "raum": "ost_saal"
@@ -684,16 +695,6 @@
           "fakten": [
             "f_fundort_fatma",
             "f_fundort_olli"
-          ]
-        },
-        {
-          "id": "e3_1_turmgang",
-          "ziel": {
-            "raum": "turmgang"
-          },
-          "text": "Im Turmgang bei der Rüstung suchen",
-          "fakten": [
-            "f_fundort_can"
           ]
         }
       ],
@@ -749,6 +750,16 @@
       "frage": "Was untersuchst du jetzt ganz genau?",
       "optionen": [
         {
+          "id": "e3_2_fatma",
+          "ziel": {
+            "person": "fatma"
+          },
+          "text": "Fatmas Hände und ihren Ring untersuchen",
+          "fakten": [
+            "f_k_fatma"
+          ]
+        },
+        {
           "id": "e3_2_kerzenstaender",
           "ziel": {
             "gegenstand": "kerzenstaender"
@@ -759,16 +770,6 @@
             "f_k_ahmet",
             "f_k_can",
             "f_k_olli"
-          ]
-        },
-        {
-          "id": "e3_2_fatma",
-          "ziel": {
-            "person": "fatma"
-          },
-          "text": "Fatmas Hände und ihren Ring untersuchen",
-          "fakten": [
-            "f_k_fatma"
           ]
         }
       ],
@@ -848,24 +849,27 @@
       "begruendung": {
         "ahmet": {
           "kette": [
+            "fakt:f_nd_ahmet_umschlag",
             "beobachtung:b_zeynep_gesicht",
             "beobachtung:b_marek_gesicht"
           ],
-          "text": "Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester."
+          "text": "Ahmets Miete ist schon geklärt, das leuchtende Gesicht nicht. Zeynep stand am Bogen zum Durchgang und sah es vorbeikommen."
         },
         "fatma": {
           "kette": [
+            "fakt:f_nd_ahmet_umschlag",
             "beobachtung:b_zeynep_gesicht",
             "beobachtung:b_marek_gesicht"
           ],
-          "text": "Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester."
+          "text": "Ahmets Miete ist schon geklärt, das leuchtende Gesicht nicht. Zeynep stand am Bogen zum Durchgang und sah es vorbeikommen."
         },
         "olli": {
           "kette": [
+            "fakt:f_nd_ahmet_umschlag",
             "beobachtung:b_zeynep_gesicht",
             "beobachtung:b_marek_gesicht"
           ],
-          "text": "Das leuchtende Gesicht ist noch ungeklärt. Zeynep hat es gesehen, und sie ist Cans Schwester."
+          "text": "Ahmets Miete ist schon geklärt, das leuchtende Gesicht nicht. Zeynep stand am Bogen zum Durchgang und sah es vorbeikommen."
         },
         "can": {
           "kette": [
