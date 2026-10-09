@@ -21,6 +21,10 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 - **Gruppenwahl ohne Ergebnisanzeige (E-025):** Die Runde sieht nach ihrer Wahl nicht, ob der Hinweis wahr, neutral oder ein Gerücht war, und auch keine Stimmenzahl. Sonst ließe sich ein Gerücht als Freispruch lesen und die Sabotage der Täterrolle bei vier Rollen erkennen. Erst die Auflösung zeigt, wie oft die Gruppe zusammengehalten hat.
 - **Wer mehrere Fall-Codes nacheinander spielt,** kann mit der Zeit lernen, welche Satzform der Hinweise in Runde 3 meist stimmt. Für einen Partyabend mit einem Fall ist das ohne Bedeutung.
 
+- **Helligkeit der Karte (Master 7.13):** Die Ermittlung zeigt das verlangte Grundlicht von 23 % in kühlem Blaugrau, dazu warme Kerzenpunkte und den Lichtkegel des Geburtstagskinds. Auf hellen Bildschirmen wirkt das stimmungsvoll; auf einem dunklen Beamer kann es zu düster sein. Der Wert ist eine Zahl in `lib/party/karte_session.dart` (`dunkel: 0.77`).
+- **Erzählerstimme:** Sie nutzt nur Stimmen, die der Browser als lokal meldet, und liest genau den Bausteintext vor. Fehlt eine deutsche lokale Stimme, steht der Text da und ein Hinweis erscheint. Chrome kann sehr lange Sätze manchmal abbrechen; dann hilft „Noch einmal vorlesen“.
+- **Sabotage auf Papier (F5):** Im Druckspiel zählt die Spielleitung verdeckte Stimmkarten mit den Werten +1, 0 und −1. Sie sieht dabei, ob eine Sabotage dabei war, aber nicht von wem. Am Bildschirm sieht das niemand.
+
 ## Optionen zur Entscheidung
 - **Kernnamen:**
   - Laut Einstellungen bleiben Ahmet, Fatma, Olli und Can. Damit es keine Klischees gibt, sind Herkunft, Motive und Kopftuch so verteilt, dass keine Gruppe allein die Verfehlungen trägt (E-007).
@@ -47,3 +51,5 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 - Die Wirkung der Figuren und der Bilder aus den Bildprompts.
 - Die Stimme: welche lokale Stimme das Gerät anbietet und wie sie klingt.
 - Ob sich die Gruppe in den Figuren wiederfindet.
+- Wie hell die Karte auf eurem Bildschirm oder Beamer wirken soll (siehe oben).
+- Ob die Seifenblasen, der Staub an der Rüstung und die Rußwolke am Kamin witzig sind oder stören.
