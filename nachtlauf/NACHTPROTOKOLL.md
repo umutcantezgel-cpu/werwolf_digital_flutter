@@ -74,3 +74,6 @@
   - Ein Web-Build von Hand direkt danach schrieb beide Manifeste. Der zweite volle Lauf am **identischen** Commit war vollständig grün (16:51): Konsole 0, fremde Abrufe 0, 13 von 14.
   - Die Ursache ist nicht sicher geklärt. Die Prüfer haben im Hauptverzeichnis keinen Flutter-Befehl ausgeführt. Wahrscheinlich ist der inkrementelle Web-Build nach der Asset-Änderung in `content/party` (Beerenrot) nach dem Build in `pruefen.sh`.
   - Lehre: `main` erst nach dem vollen Lauf pushen, nicht schon nach „schnell“.
+- 17:10 Inhaltsrunde 25–27 (A-702t): dreimal „Leitplanken nein“. Die unabhängigen Gegenproben halten 10 von 10 Befunden „hoch“ oder „mittel“ für nicht haltbar. Kleines ist umgesetzt (E50); drei Gestaltungsfragen gehen an den Nutzer (Haarfarben, Alters- und Geschlechtermuster der Stadtbewohner, DW3-3).
+- 17:18 Schlosskeller-Strang nachgezogen (3aff435, E51); unser Leitplanken-Scanner nimmt `content/party` aus, weil der Strang einen eigenen Textprüfer hat.
+- 17:27 Voller Lauf an 147e0e0 wieder rot, mit demselben Bild wie um 16:41. Der Versuch A–G zeigt die Ursache: Nach einem Wechsel der Build-Aufrufform schreibt Flutter die Asset-Manifeste nicht neu. Behoben in beiden Prüfskripten (E52), und eine Wache bricht sofort mit klarer Meldung ab.
