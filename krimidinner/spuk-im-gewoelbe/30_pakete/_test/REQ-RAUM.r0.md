@@ -1,0 +1,224 @@
+REQ-RAUM · SCHREIB · Welle 1 · Kanon v1.0 · erwarteter Umfang 900–1.500 Wörter
+
+Du arbeitest allein an diesem Paket. Außer diesem Text kennst du nichts: keine anderen Pakete, keine früheren Ergebnisse. Alles Lösungsrelevante steht im Kanon-Auszug (Abschnitt 3); er ist unveränderlich. Lies das ganze Paket, bevor du schreibst.
+
+## 1. Deine Aufgabe in einem Satz
+Schreibe den Raum- und Dekoleitfaden: wie die Spielleitung einen normalen Wohn- oder Gastraum in Burg Schartenfels mit Festtafel und vier Stationen verwandelt, und wo ab welcher Phase welches Beweisstück liegt.
+
+## 2. Das Spiel in fünf Sätzen
+Eine Freundesclique feiert einen Geburtstag im Gewölbekeller von Burg Schartenfels im Oberharz, bei Kerzenlicht, Fladenbrot und warmem, alkoholfreiem Apfel-Zimt-Punsch. Kurz vor Mitternacht knallt die Hauptsicherung, und im Dunkeln wird Burgwart Eckehard Lüddecke in der Speisekammer niedergeschlagen; er erholt sich, aber sein Schlüsselbund ist weg und das Burgtor verschlossen. Das Geburtstagskind ermittelt als Detektiv, während alle anderen in drei Phasen je drei Gespräche nach ihren Karten führen, Hinweise sammeln und je Phase eine Entscheidung treffen. Ein KI-Erzähler liest alle Texte wortgetreu vor; nur die neun Entscheidungen des Detektivs bringen Punkte. Am Ende grenzt der Erzähler die Verdächtigen nach Punkten ein, das Geburtstagskind klagt an, und eines von vier Enden deckt auf, was wirklich geschah.
+
+## 3. Kanon-Auszug (unveränderlich; nichts davon ändern, nichts Lösungsrelevantes hinzuerfinden)
+1. [K-001] (öffentlich)
+   - Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist eine renovierte mittelalterliche Höhenburg im Oberharz über dem erfundenen Bergstädtchen Silberhau (SIL-ber-hau). Sie gehört einer Stiftung; Burgwart ist Eckehard Lüddecke.
+2. [K-002] (öffentlich)
+   - Tatsache: Es ist ein Samstag im November. Über der Burg ist der Himmel klar, minus vier Grad, auf dem Hof liegt seit etwa 23 Uhr Raureif. Im Tal um Silberhau und auf dem unteren Burgweg liegt dichter Eisnebel (Inversionswetterlage), die Straße ist spiegelglatt. Hinter den meterdicken Mauern gibt es keinen Handyempfang, außer an einer einzigen Stelle: an der dritten Zinne des Wehrgangs.
+3. [K-003] (öffentlich)
+   - Tatsache: Das Kamin-Gewölbe (Festsaal im Keller) hat drei Türen: die Turmtür zum Fuß des Wendeltreppenturms, den Kellerhals (Treppe hinauf in den Hof) und die alte Eichentür zur Speisekammer.
+4. [K-004] (öffentlich)
+   - Tatsache: Die Speisekammer hat keine Fenster und genau zwei Türen: die Eichentür zum Gewölbe und die Eisentür zum Turm-Fuß. Die Eisentür quietscht laut, sobald man sie aufzieht; ihr Zufallen hört man kaum. Rechts neben der Eisentür steht ein Regal mit Konserven; darin die alte Blechdose des Burgwarts. In der Mitte steht ein Fass, darauf der schwere eiserne Kerzenständer mit drei dicken Bienenwachskerzen. Dazu Kartoffelkisten, eine Tiefkühltruhe und die Geburtstagstorte im Regal.
+5. [K-005] (öffentlich)
+   - Tatsache: Der Wendeltreppenturm verbindet alle Ebenen. Unten am Turm-Fuß: Turmtür zum Gewölbe, Eisentür zur Speisekammer, der Sicherungskasten mit Zahlenschloss und eine alte Holztruhe. Acht Stufen höher, auf dem ersten Absatz: die Ritterrüstung „Kunibert“. Darüber die Hofebene mit der Hoftür, der Schauvitrine und der Toilette. Ganz oben der Wehrgang.
+6. [K-006] (öffentlich)
+   - Tatsache: Der Hof hat einen Brunnen mit einer Solarlaterne, die der Burgwart „Geleucht“ nennt, das Torhaus (Wohnung des Burgwarts, Festnetztelefon, Ersatzsicherungen) und das Burgtor. Das Burgtor hat ein altes Kastenschloss, das man auch von innen nur mit dem Schlüssel öffnen kann. Die Ausfallpforte ist seit über hundert Jahren zugemauert; die Ringmauer fällt acht Meter tief auf Fels ab.
+7. [K-007] (öffentlich)
+   - Tatsache: Am Schlüsselbund des Burgwarts hängen die großen Buntbartschlüssel für Burgtor und Torhaus sowie der kleine Vitrinenschlüssel. Er trägt den Bund an einem Karabinerhaken am Gürtel.
+8. [K-008] (öffentlich)
+   - Tatsache: In der Schauvitrine auf der Hofebene liegt der Silberhauer Ausbeutetaler von 1752 (AUS-beu-te-ta-ler), eine Silbermünze aus der Zeit des Harzer Silberbergbaus mit etwa dreitausend Euro Sammlerwert. Der Burgwart ist stolz auf ihn und lässt ihn bei Führungen herumgehen.
+9. [K-009] (öffentlich)
+   - Tatsache: Der Burgwart sieht ohne Brille nur Umrisse und Farben. Bei der Burgführung trug er seine Brille nicht.
+10. [K-010] (öffentlich)
+   - Tatsache: In der Burg sind in dieser Nacht nur die Festgesellschaft (alle besetzten Rollen und das Geburtstagskind) und der Burgwart. Seine Frau Gerda ist bei ihrer Schwester in Osterode; die Aushilfe ist um 18:00 gegangen.
+11. [K-011] (öffentlich)
+   - Tatsache: Der Gewölbekeller kostet die Gruppe offiziell nichts: Adnan hat ihn über einen Gefallen bekommen (er erneuert umsonst die Lichtanlage für das Burgfest). Das wissen anfangs nur Adnan und der Burgwart. Jonas hat trotzdem von allen 55 Euro „Miete“ eingesammelt.
+12. [LISTE-ORTE] (öffentlich)
+   - Orte: Kamin-Gewölbe (mit Kamin, Festtafel, Punschkessel, Nische neben der Eichentür) · Speisekammer (Tatort) · Wendeltreppenturm mit Turm-Fuß (Sicherungskasten, Holztruhe, Eisentür, Turmtür), erstem Absatz (Rüstung Kunibert), Hofebene (Hoftür, Schauvitrine, Toilette), Wehrgang (dritte Zinne) · Hof (Brunnen mit Geleucht, Burgtor, Torhaus, Kellerhals) · Burgweg (Zufahrt, außerhalb)
+13. [LISTE-GEGENSTÄNDE] (öffentlich)
+   - Gegenstände: eiserner Kerzenständer mit drei Kerzen · Blechdose des Burgwarts · Ausbeutetaler · Schlüsselbund mit Karabiner · Rüstung Kunibert mit Panzerhandschuh und Helmvisier · Bluetooth-Box · Sicherungskasten mit Hauptschalter · Code-Zettel (zwei Handschriften) · Stablampe mit Klebeband „HODŽIĆ VT · 3“ · weißes Bettlaken mit rotem Wäschezeichen „Schartenfels 7“ · Holztruhe · Schadenszettel des Burgwarts · Punschkessel · Heißluftpistole · Wanderstiefel · Sohlenkarten · Sofortbild der Burgführung · Handys mit Taschenlampe · Kühlpack (Tiefkühlerbsen) · Wolldecke · Geburtstagstorte · Azads Kamerafotos mit Uhrzeit (nur wenn Rolle 19 besetzt)
+14. [LISTE-ZEITEN] (öffentlich)
+   - Öffentlich bekannte Zeitpunkte: 17:40 Türschaden an der Eichentür · 20:30 Begrüßungsrede mit Box-Echo · 21:15 bis 21:35 Burgführung · 22:45 Ultimatum des Burgwarts · 23:00 Burgtor abgeschlossen · 23:35 der Burgwart sagt, er gehe ins Bett · 23:48 Kamin-Qualm · 23:52 Adnan reißt die Turmtür auf, Merle geht aufs Klo, kurz danach geht Jonas Luft schnappen · 23:54 Box meldet „Verbindung getrennt“ · 23:56 Rojda schickt das Geburtstagskind an die Eichentür, kurz darauf meldet die Box „Verbunden“ · 23:58 Knall und Stromausfall · um Mitternacht der Schrei · 00:01 der Burgwart wird in der Speisekammer gefunden und kommt zu sich · 00:02 Jonas kommt die Treppe herunter · 00:03 der Bund fehlt · ab 00:05 Versorgung, Tor- und Torhausprobe, Anruf bei der Leitstelle, Beschluss zum Weiterfeiern (bis 00:30). Andere Uhrzeiten nennen nur Rollenkarten, Hinweise und Beweisstücke.
+15. [BSO-01] (öffentlich)
+   - Beweisstück: Wachsspritzer mit Teilabdruck
+   - Fundort: Speisekammer, neben der Eisentür
+   - Phase: 1
+   - Aussehen: Erstarrte Wachsspritzer auf dem Steinboden; in einem der Abdruck eines Absatzes mit Stollenprofil, am Absatzrand fehlt ein Stollen (glatte Lücke im Muster), Spitze Richtung Eisentür.
+16. [BSO-02] (öffentlich)
+   - Beweisstück: Stofffetzen
+   - Fundort: Panzerhandschuh der Rüstung Kunibert (erster Turmabsatz)
+   - Phase: 1
+   - Aussehen: Ein Streifen weißes Leinen mit rotem eingesticktem Wäschezeichen „Schartenfels 7“.
+17. [BSO-03] (öffentlich)
+   - Beweisstück: Stablampe
+   - Fundort: Speisekammer, unter dem Regal neben der Eisentür
+   - Phase: 1
+   - Aussehen: Schwarze Stablampe mit Klebeband „HODŽIĆ VT · 3“, Schalter auf AN, leuchtet nicht (Batterie leer).
+18. [BSO-04] (öffentlich)
+   - Beweisstück: Code-Zettel
+   - Fundort: Turm-Fuß, unter dem Sicherungskasten
+   - Phase: 1
+   - Aussehen: Kariertes Papier, beidseitig in zwei verschiedenen Handschriften beschrieben (Wortlaut siehe BS-04, beide Seiten öffentlich lesbar).
+19. [BSO-05] (öffentlich)
+   - Beweisstück: Blechdose
+   - Fundort: Speisekammer, Regal rechts neben der Eisentür
+   - Phase: 1
+   - Aussehen: Alte Kaffeedose; darin der Ausbeutetaler.
+20. [BSO-06] (öffentlich)
+   - Beweisstück: Bettlaken
+   - Fundort: Holztruhe am Turm-Fuß
+   - Phase: 2
+   - Aussehen: Weißes Leinen mit zwei Sehschlitzen; am Saum fehlt ein Streifen; rotes Wäschezeichen „Schartenfels 7“.
+21. [BSO-07] (öffentlich)
+   - Beweisstück: Schlüsselbund
+   - Fundort: Helm der Rüstung Kunibert
+   - Phase: 2
+   - Aussehen: Großer Bund mit Buntbartschlüsseln und kleinem Vitrinenschlüssel, Karabiner offen und heil, sauber.
+22. [BSO-08] (öffentlich)
+   - Beweisstück: Bluetooth-Box mit Track-Karte
+   - Fundort: Kamin-Gewölbe, Nische neben der Eichentür
+   - Phase: 1
+   - Aussehen: Die wackelige Box. Die Spielleitung gibt auf Verlangen die Track-Karte „Geisterstunde“ heraus (Ablauf siehe BS-08, ohne Startzeit). Die Startzeit 23:57 steht nur auf der Rückseite des Code-Zettels.
+23. [BSO-09] (öffentlich)
+   - Beweisstück: Kerzenständer
+   - Fundort: Speisekammer, am Boden neben dem Burgwart
+   - Phase: 1
+   - Aussehen: Schwer, Eisen, drei Tüllen mit kalten Kerzen; Wachs an Fuß und Tüllen; der Griff ist sauber.
+24. [BSO-10] (öffentlich)
+   - Beweisstück: Schadenszettel
+   - Fundort: Westentasche des Burgwarts (der Burgwart zeigt ihn in Phase 2)
+   - Phase: 2
+   - Aussehen: siehe BS-10.
+25. [BSO-11] (öffentlich)
+   - Beweisstück: Raureif-Spuren
+   - Fundort: Hof
+   - Phase: 1
+   - Aussehen: Zwei Stiefelspuren zwischen Kellerhals, Torhaus und Hoftür; frischere Spuren von zwei Personen zum Tor; draußen vor dem Tor auf dem Burgweg (vom Wehrgang aus zu sehen) unberührter Reif.
+26. [BSO-12] (öffentlich)
+   - Beweisstück: Sofortbild der Burgführung
+   - Fundort: Fotowand im Kamin-Gewölbe
+   - Phase: 1
+   - Aussehen: siehe BS-12.
+27. [BSO-13] (öffentlich)
+   - Beweisstück: Sohlenkarten
+   - Fundort: bei der Spielleitung, auf Verlangen
+   - Phase: 3
+   - Aussehen: siehe BS-13.
+28. [LA-01] (öffentlich)
+   - Ort: Burg außen
+   - Anker (EN): a compact medieval hilltop castle of dark grey rubble stone above a small mining town in the Harz mountains, one round stair tower with a crenellated wall walk, a gatehouse with a heavy arched wooden gate, fir forest and drifting night fog around it
+29. [LA-02] (öffentlich)
+   - Ort: Kamin-Gewölbe
+   - Anker (EN): a vaulted cellar hall of rough grey rubble stone, long heavy oak tables with massive benches, many candles in iron candelabras (LED-style flicker), a large open stone fireplace, platters of flatbread and dips, a large copper cauldron of warm non-alcoholic apple-cinnamon punch with ceramic mugs, a small wobbly bluetooth speaker in a wall niche next to an old split oak door
+30. [LA-03] (öffentlich)
+   - Ort: Speisekammer
+   - Anker (EN): a small windowless pantry vault with stone floor, wooden shelves of canned goods, potato crates, a wooden barrel in the middle, an old chest freezer, a heavy iron door on the far side and an old oak door with a split panel and a wooden beam wedged against it
+31. [LA-04] (öffentlich)
+   - Ort: Wendeltreppenturm
+   - Anker (EN): a narrow stone spiral staircase lit only by a few candles, a heavy squeaking iron door at the bottom next to an old wooden chest and a grey fuse box, a full suit of medieval armor standing on the first landing with one gauntlet bent forward, arrow slits letting in cold blue moonlight
+32. [LA-05] (öffentlich)
+   - Ort: Wehrgang
+   - Anker (EN): a narrow crenellated wall walk on top of the tower, frost on the stone, wind, a wide view over dark fir forest and distant town lights
+33. [LA-06] (öffentlich)
+   - Ort: Hof
+   - Anker (EN): a small cobbled castle courtyard covered in glittering hoarfrost, an old stone well with a small solar lantern, a gatehouse with a locked arched gate, a cellar stairway glowing with warm amber light
+34. [LA-07] (öffentlich)
+   - Ort: Lageplan
+   - Anker (EN): top-down hand-drawn parchment map of a small castle: courtyard with well, gatehouse and gate, round tower, cellar hall with fireplace, adjoining small pantry with two doors, no labels, no letters
+
+## 4. Stil und Ton
+- 900 bis 1.500 Wörter, praktische Du-Form an die Spielleitung.
+- Gliederung: Grundidee und Raumaufteilung · Festtafel (Kamin-Gewölbe) · Station Kamin-Gewölbe · Station Speisekammer · Station Wendeltreppenturm (mit Kunibert) · Station Hof · Beweisstücke je Station und Phase (Tabelle in Textform: Station – Phase – Stück) · Licht und Sicherheit · Abbau.
+- Je Station: Stimmung, Aufbau, Material, Sicherheit.
+Erlaubte Momente für Deko-Ideen:
+Jeder Moment darf in Erzähltexten und Karten vorkommen, genau so, wie er hier steht. Kein Moment wird erfunden, und keiner verrät mehr, als in der Spalte „Darf zeigen“ steht.
+
+| Kennung | Moment | Wann im Spiel | Darf zeigen |
+|---|---|---|---|
+| GM-01 | Wind pfeift durch die Schießscharten, die Kerzen ducken sich | Einführung, Einwürfe | Atmosphäre |
+| GM-02 | Die Eisentür zur Speisekammer quietscht wie eine Katze im Keller | Einführung, Phase 1–3 | dass sie laut quietscht, sobald man sie aufzieht |
+| GM-03 | Der Knall: die Hauptsicherung, dann Stockdunkel | Einführung | Knall, Dunkelheit, Handylichter |
+| GM-04 | Kettenrasseln, Schritte, eine knarrende Tür aus der Box | Einführung (Rückblick), Phase 1 | dass die Box im Dunkeln weiterspielte |
+| GM-05 | Der Schrei um Mitternacht, hoch und lang, mit Kathedralen-Hall | Einführung | den Schrei selbst; nicht, woher er kam |
+| GM-06 | Kunibert im Kerzenschein, das Visier geschlossen, als ob er schläft | Phase 1–3 | die Rüstung, den verbogenen Handschuh |
+| GM-07 | Raureif auf dem Hof, der Atem dampft, das Geleucht am Brunnen | Phase 1, Einwürfe | Stiefelspuren im Reif |
+| GM-08 | Das Brockengespenst: ein Riesenschatten im Nebel, der sich bewegt, wenn du dich bewegst | Einwürfe | die Legende und ihre nüchterne Erklärung |
+| GM-09 | Kein Handyempfang, außer an der dritten Zinne, wo einer mit erhobenem Arm im Wind steht | Einführung, Phase 2 | die dritte Zinne als einziger Netzplatz |
+| KM-01 | Rüstungsschreck: Jonas hält Kunibert für einen Menschen und kracht dagegen | Einführung (Rückblick 21:20) | Schreck, Klappern, verbogener Handschuh, „Der beißt nicht, der ist seit 1911 tot.“ |
+| KM-02 | Verlaufen im Treppenturm: Merle will aufs Klo und landet auf dem Wehrgang | Einführung (Merles eigene Darstellung) | nur, was Merle selbst erzählt |
+| KM-03 | Die Box hallt wie in einer Kathedrale: „Die Miete ist bezahlt … bezahlt … bezahlt!“ – „Welche Miete?“; später „Verbindung getrennt“ | Einführung | beide Box-Ansagen mit Uhrzeit sechs vor zwölf |
+| KM-04 | Adnan und die Heißluftpistole: Qualm, Husten, aufgerissene Türen | Einführung | Qualm, Ruß, offene Turmtür |
+| KM-05 | Der Burgwart grantelt mit Kühlpack aus Tiefkühlerbsen auf dem Kopf | Phasenstarts, Einwürfe | seine Sätze aus BW-AUSSAGE der jeweiligen Phase |
+| KM-06 | „Kunibert, du alter Hehler.“ (Bund im Helm) | Phasenstart 2 | Fund des Bunds |
+
+Allgemeine Regeln aus dem Stilblatt:
+- Die ganze Runde: „ihr“, „euch“, „eure“.
+- Das Geburtstagskind als Detektiv: „du“, „dich“, „dein“. Bezeichnung in der dritten Person: „das Geburtstagskind“ (sächlich, ohne Pronomen „er“ oder „sie“; Rückbezug mit „es“ vermeiden, lieber „das Geburtstagskind“ wiederholen oder „du“ verwenden).
+- Einzelne Spielerinnen und Spieler: „du“.
+- Niemals siezen, auch nicht in wörtlicher Rede gegenüber dem Burgwart (die Clique duzt ihn nach seinem eigenen Wunsch; er selbst duzt alle).
+
+1. Geerdet: Alltagssprache einer Freundesgruppe Anfang bis Ende dreißig. Keine Mittelalter-Floskeln („holde Maid“, „wohlan“), kein Pseudo-Altdeutsch.
+2. Konkret statt allgemein: lieber „der Kessel mit Apfel-Zimt-Punsch dampft“ als „es ist gemütlich“.
+3. Kurze Sätze beim Grusel, längere Sätze beim Gemütlichen.
+4. Jede Figur ist liebenswert, auch die Täterin oder der Täter. Niemand ist ein Monster.
+5. Das Opfer ist nie in ernster Gefahr: Beule, kurz benommen, versorgt, grantig, erholt sich.
+6. Kultur im Alltag: Familienanrufe, Essen von zu Hause, Redewendungen in der Familiensprache nur als warme Farbe, nie als Witz über die Herkunft.
+7. Keine Hexen-, Walpurgis- oder Teufelsmotive. Der Spuk bleibt ein Spuk der Burg (Wind, Schatten, Legende).
+
+Zahlen, Uhrzeiten, Aussprache:
+- In allen vorlesbaren Texten Uhrzeiten in Worten: „zehn vor zwölf“, „kurz nach Mitternacht“, „drei Minuten vor zwölf“. Keine Ziffern, keine Abkürzungen („ca.“, „z. B.“, „Nr.“).
+- Geldbeträge in Worten: „dreitausend Euro“.
+- Aussprachehilfen stehen nie im Vorlesetext, sondern im eigenen Feld `Aussprache:` der Karte bzw. im Glossar.
+- Auf Karten für Spieler (nicht vorgelesen) sind Uhrzeiten als „23:47 Uhr“ erlaubt.
+
+## 5. Verbote
+- Kein Alkohol, keine Drogen, keine Rauschmittel – auch nicht als Witz, Andeutung oder Redewendung. Verboten sind zum Beispiel: Wein, Bier, Met, Sekt, Schnaps, Glühwein, Likör, Cocktail, Bar, Kneipe, Prost, anstoßen, betrunken, beschwipst, Kater, Promille, Rausch, Joint, kiffen. Getrunken wird nur der warme, alkoholfreie Apfel-Zimt-Punsch, Wasser, Tee oder Ayran.
+- Die Freundesgruppe hat türkische, kurdische, polnische, bosnische und deutsche Wurzeln. Herkunft ist niemals Motiv, Indiz oder Pointe. Keine Milieu-Klischees, keine Akzentwitze, keine Kriminalitätsstereotype. Kulturelle Details nur konkret, respektvoll und alltagsnah.
+- „Ehre“ bedeutet Verlässlichkeit, Würde und Verantwortung – niemals eine Rechtfertigung von Gewalt.
+- Grusel-Komödie: Gänsehaut und Lacher, kein Blut im Detail, keine Verletzungsbeschreibung über „Beule“, „benommen“, „Kühlpack“ hinaus. Komik entsteht aus Situationen, nie aus der Bloßstellung einer Person.
+- Alle Figuren sind erfunden. Keine realen Personen, Marken oder Prominenten als Vorlage oder Vergleich.
+- Spieler werden geduzt (Einzelne: du; Gruppe: ihr). Niemals siezen.
+- Erfinde nichts Lösungsrelevantes: keine neuen Uhrzeiten, Orte, Gegenstände, Beobachtungen, Beziehungen oder Geldbeträge. Fehlt dir etwas, schreibe an der Stelle „OFFENE FRAGE: …“ und arbeite weiter.
+- Keine Platzhalter wie „usw.“, „etc.“, „analog“, „weitere folgen“, „…“ als Auslassung.
+- LED-Kerzen statt Flammen, kein echter Rauch, keine Nebelmaschine, keine schweren oder scharfen Gegenstände, Kabel sichern.
+- Keine Getränkeflaschen in der Deko; der Punsch ist alkoholfrei.
+- Keine Beweisstücke erfinden; nur die BSO-Datensätze verwenden.
+
+## 6. Arbeitsschritte
+1. Lies Orte (K-003 bis K-007, LISTE-ORTE), Ortsanker (LA) und Beweisstücke (BSO mit Fundort und Phase).
+2. Schreibe den Leitfaden in der Gliederung.
+3. Prüfe, dass jedes BSO genau einer Station und Phase zugeordnet ist.
+
+## 7. Muster (nur für Format und Ton – nicht abschreiben, keine Sätze daraus übernehmen)
+### M-18 Raum- und Dekoleitfaden (Ausschnitt)
+    STATION HOF · Ecke am Fenster oder an der Balkontür
+    Stimmung: kalt, still, Mondlicht.
+    Aufbau: eine LED-Laterne als Geleucht auf einem Hocker, darum eine graue Decke als Brunnenrand, auf dem Boden ein Streifen weißes Papier mit Stiefelspuren als Raureif.
+    Sicherheit: Kabel abkleben, keine Flammen.
+    Was hier ab welcher Phase ausliegt: siehe Liste der Beweisstücke.
+
+## 8. Ausgabeformular (feste Feldnamen in fester Reihenfolge)
+KENNUNG: REQ-RAUM
+    LEITFADEN:
+    Grundidee und Raumaufteilung: …
+    Festtafel: …
+    Station Kamin-Gewölbe: …
+    Station Speisekammer: …
+    Station Wendeltreppenturm: …
+    Station Hof: …
+    Beweisstücke je Station und Phase: …
+    Licht und Sicherheit: …
+    Abbau: …
+    OFFENE FRAGEN: …
+
+## 9. Selbstprüfung (am Ende deiner Ausgabe ausfüllen)
+SELBSTPRÜFUNG:
+    - Wörter: [Zahl] (Soll 900–1.500)
+    - Alle neun Abschnitte vorhanden: ja/nein
+    - Jedes Beweisstück einer Station und Phase zugeordnet: ja/nein
+    - Sicherheit: keine Flammen, kein Rauch, keine schweren Gegenstände: ja/nein
+    - Offene Fragen: [Anzahl]
+
+## 10. Endmarke
+Die letzte Zeile deiner Ausgabe lautet exakt:
+=== ENDE REQ-RAUM · BEREIT ZUR RÜCKGABE ===
+Reicht der Platz nicht, hörst du an einer Feldgrenze auf mit:
+=== UNTERBROCHEN BEI [Feld] · WEITER MIT „weiter“ ===
