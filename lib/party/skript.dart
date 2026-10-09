@@ -15,6 +15,9 @@ import 'sitzung.dart';
 /// - `takt`: Pause zwischen zwei Schritten in Millisekunden
 /// - `zeitraffer`: Spielsekunden je echter Sekunde in der Rückblende
 /// - `fotos=0`: Fotostellen nur melden, ohne auf den Fotografen zu warten
+/// - `fotopause`: Wartezeit an einer Fotostelle in Millisekunden (Vorgabe 1200)
+/// - `bis=<phase>` (ohne Skript): bis zu diesem Abschnitt vorspielen (beste Wahl, alle A, richtige Anklage)
+/// - `at=x,y`: Detektiv auf der Karte an diese Stelle setzen; `zoom`: Zoom der Karte
 class PartyDev {
   final String fall;
   final String? code;
@@ -26,6 +29,10 @@ class PartyDev {
   final int takt;
   final double? zeitraffer;
   final bool fotos;
+  final int fotopause;
+  final PartyPhase? bis;
+  final (double, double)? at;
+  final double? zoom;
 
   const PartyDev({
     this.fall = 'schlosskeller',
@@ -38,6 +45,10 @@ class PartyDev {
     this.takt = 700,
     this.zeitraffer,
     this.fotos = true,
+    this.fotopause = 1200,
+    this.bis,
+    this.at,
+    this.zoom,
   });
 
   /// Aus den URL-Parametern; `null` ohne `party=`.
@@ -55,6 +66,13 @@ class PartyDev {
       takt: int.tryParse(q['takt'] ?? '') ?? 700,
       zeitraffer: double.tryParse(q['zeitraffer'] ?? ''),
       fotos: q['fotos'] != '0',
+      fotopause: int.tryParse(q['fotopause'] ?? '') ?? 1200,
+      bis: PartyPhase.values.where((p) => p.name == q['bis']).firstOrNull,
+      at: switch ((q['at'] ?? '').split(',').map(double.tryParse).toList()) {
+        [final double x, final double y] => (x, y),
+        _ => null,
+      },
+      zoom: double.tryParse(q['zoom'] ?? ''),
     );
   }
 
@@ -80,7 +98,7 @@ class PartySkript {
   /// Fotostelle melden und dem Fotografen Zeit lassen (mindestens 1,2 s).
   Future<void> _foto(String name) {
     debugPrint('PARTY foto=$name');
-    return Future<void>.delayed(Duration(milliseconds: dev.fotos && dev.takt < 1200 ? 1200 : dev.takt));
+    return Future<void>.delayed(Duration(milliseconds: dev.fotos && dev.takt < dev.fotopause ? dev.fotopause : dev.takt));
   }
 
   Future<void> starten() async {
@@ -160,6 +178,41 @@ class PartySkript {
       default:
         await _foto('${s.phase.name}${s.runde > 0 ? '_r${s.runde}' : ''}');
         s.weiter();
+    }
+  }
+
+  /// Ohne Pausen bis zu [ziel] vorspielen (Sichtprüfung, Fotos einzelner Abschnitte).
+  static void vorspielen(PartySitzung s, PartyDev dev, PartyPhase ziel) {
+    var schritte = 0;
+    while (s.phase != ziel && s.phase != PartyPhase.ende && schritte++ < 500) {
+      switch (s.phase) {
+        case PartyPhase.titel:
+          s.zurEinrichtung();
+        case PartyPhase.einrichtung:
+          s.einrichten(rollen: dev.rollen ?? 7, detektiv: dev.detektiv, code: dev.fallCode(s.kanon));
+        case PartyPhase.entscheidungen:
+          final e = s.laufendeEntscheidung;
+          if (e == null) {
+            s.weiter();
+          } else {
+            s.schlageVor(e.richtig[s.spiel.pfad]!);
+            s.bestaetigen();
+            s.fundGelesen();
+          }
+        case PartyPhase.gruppenwahl:
+          if (s.offeneWaehler.isEmpty) {
+            s.weiter();
+          } else {
+            final r = s.offeneWaehler.first;
+            s.zeigeVerdeckt(r);
+            s.stimme(r, kooperativ: true);
+          }
+        case PartyPhase.anklage:
+          if (s.angeklagt == null) s.anklagen(s.spiel.pfad);
+          s.weiter();
+        default:
+          s.weiter();
+      }
     }
   }
 

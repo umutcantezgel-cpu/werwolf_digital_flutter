@@ -300,6 +300,9 @@ class PartySitzung extends ChangeNotifier {
   /// Ziel (Skript für E2E-Läufe). Im Spiel bleibt er leer.
   final ValueNotifier<KartenZiel?> detektivSetzen = ValueNotifier(null);
 
+  /// Entwickler-Hook: Der Kartenbildschirm stellt den Detektiv an diese Stelle.
+  final ValueNotifier<(double, double)?> detektivAn = ValueNotifier(null);
+
   final Map<String, List<Aufdeckung>> _funde = {};
 
   /// Alle bisherigen Funde je Entscheidung (Notizbuch des Detektivs).

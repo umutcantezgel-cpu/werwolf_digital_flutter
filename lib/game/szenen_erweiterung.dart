@@ -27,6 +27,11 @@ abstract interface class SzenenErweiterung {
   /// Ruhe-Animation einer stehenden Figur (Atmen, leichtes Wiegen).
   bool get ruheAnimation;
 
+  /// Kleine Effekte (Master 7.13): Seifenblasen aus der Pfeife des eigenen
+  /// Detektivs im Stand, Gags an Rüstung (`party_ruestung`) und Kamin
+  /// (`party_kamin`), wenn der Detektiv vorbeikommt.
+  bool get kleineEffekte;
+
   /// Aussehen des eigenen Detektivs aus dem Kanon; `null` heißt: Vorgabe.
   LookDef? get detektivAussehen;
 

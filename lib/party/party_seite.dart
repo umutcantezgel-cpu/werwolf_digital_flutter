@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
+import '../game/mordakte_game.dart';
 import 'bildschirme/anklage.dart';
 import 'bildschirme/aufloesung.dart';
 import 'bildschirme/einrichtung.dart';
@@ -43,8 +44,13 @@ class _PartySeiteState extends State<PartySeite> {
       if (dev != null) {
         PartySitzung.protokoll = true;
         debugPrint('PARTY geladen fall=${d.fall}');
+        if (dev.zoom != null) MordakteGame.debugInitialZoom = dev.zoom!;
+        if (dev.at != null) s.detektivAn.value = dev.at;
         if (dev.skript != null) {
           PartySkript(s, dev).starten();
+        } else if (dev.bis != null) {
+          PartySkript.vorspielen(s, dev, dev.bis!);
+          debugPrint('PARTY foto=${dev.bis!.name}');
         } else if (dev.rollen != null) {
           s.einrichten(rollen: dev.rollen!, detektiv: dev.detektiv, code: dev.fallCode(d.kanon));
           if (dev.dauerSekunden != null) s.rundendauer = Duration(seconds: dev.dauerSekunden!);

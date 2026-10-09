@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import '../scenario/scenario_def.dart';
 import 'kanon/kanon.dart';
 import 'karte.dart';
 
@@ -45,7 +46,7 @@ Map<String, dynamic> partySzenarioJson(Kanon kanon, Map<String, dynamic> vorlage
       for (final r in g.raeume.values)
         {'id': r.id, 'name': {'de': r.anzeigename}, 'x': r.x, 'y': r.y, 'w': r.b, 'h': r.l, 'floor': 'stone'},
     ],
-    'props': [for (final p in karte.props) {'type': p.type, 'x': p.x, 'y': p.y}],
+    'props': partyProps(kanon),
     'spawn': [
       [spawnOrt.x.floor(), spawnOrt.y.floor()],
     ],
@@ -79,6 +80,41 @@ Map<String, dynamic> partySzenarioJson(Kanon kanon, Map<String, dynamic> vorlage
   }
   j['suspects'] = suspects;
   return j;
+}
+
+/// Möbel des Partymodus für den Renderer (F4-ORCH-06): dieselben Kacheln und
+/// dieselbe Begehbarkeit wie das Kanon-Raster, aber eigene Darstellungen ohne
+/// Flaschen; dazu der Ascheneimer und der umgestoßene Kerzenständer vor der
+/// Vorratstür als begehbares Dekor (Kanon: gegenstaende.json).
+List<Map<String, Object?>> partyProps(Kanon kanon) {
+  final g = kanon.graph;
+  final anStelle = {for (final e in g.einrichtung.values) (e.x, e.y): e};
+  String typ(PropDef p) {
+    final e = anStelle[(p.x, p.y)];
+    final id = e?.id ?? '';
+    if (id.startsWith('linkes_buffet') || id.startsWith('rechtes_buffet')) return 'party_buffet';
+    if (p.type == 'table') return 'party_tafel';
+    return switch (id) {
+      'teekocher' => 'party_teekocher',
+      'kaffeemaschine' => 'party_kaffee',
+      'anrichte' || 'anrichte_ost' => 'party_anrichte',
+      'kamin' => 'party_kamin',
+      'wendeltreppe' => 'party_wendeltreppe',
+      'ruestung' => 'party_ruestung',
+      'jackenstaender' => 'party_jackenstaender',
+      _ when id.startsWith('theke_') => 'party_theke',
+      _ => p.type,
+    };
+  }
+
+  final kerzenstaender = (kanon.gegenstaende.firstWhere((x) => x['id'] == 'kerzenstaender')['lage'] as Map)['ort'] as String;
+  final liegt = g.orte[kerzenstaender]!;
+  final eimer = g.einrichtung['ascheneimer'];
+  return [
+    for (final p in g.karte.props) {'type': typ(p), 'x': p.x, 'y': p.y},
+    if (eimer != null) {'type': 'party_ascheneimer', 'x': eimer.x, 'y': eimer.y},
+    {'type': 'party_kerzenstaender', 'x': liegt.x.floor(), 'y': liegt.y.floor()},
+  ];
 }
 
 List<Map<String, Object?>> _kartenFiguren(Kanon kanon) => [

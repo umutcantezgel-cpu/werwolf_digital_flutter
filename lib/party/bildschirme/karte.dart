@@ -32,11 +32,20 @@ class _KartenBildschirmState extends State<KartenBildschirm> {
     _session = PartyKartenSession(s);
     _raster = TileGrid(s.daten.szenario.map);
     s.detektivSetzen.addListener(_setzeDetektiv);
+    s.detektivAn.addListener(_detektivAn);
+    _detektivAn();
+  }
+
+  /// Entwickler-Einstieg `at=x,y`: Detektiv an eine feste Stelle.
+  void _detektivAn() {
+    final p = s.detektivAn.value;
+    if (p != null) _session.setzeDetektiv(p.$1, p.$2);
   }
 
   @override
   void dispose() {
     s.detektivSetzen.removeListener(_setzeDetektiv);
+    s.detektivAn.removeListener(_detektivAn);
     _session.dispose();
     super.dispose();
   }

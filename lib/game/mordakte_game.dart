@@ -122,6 +122,15 @@ double _lerpAngle(double a, double b, double t) {
   return a + d * t;
 }
 
+/// Teilchen der kleinen Effekte (Seifenblasen, Staub, Ruß) in Szenen-Pixeln.
+class _Teilchen {
+  _Teilchen(this.x, this.y, this.vx, this.vy, this.max, this.r, this.farbe, {this.blase = false, this.wachsen = 0});
+  double x, y, vx, vy, r, life = 0;
+  final double max, wachsen;
+  final Color farbe;
+  final bool blase;
+}
+
 class _Nebel {
   _Nebel(this.sicht) : offen = sicht > 0.5;
   double sicht;
@@ -764,7 +773,79 @@ class MordakteGame extends Game with KeyboardEvents {
     return best;
   }
 
+  // --- kleine Effekte (Partymodus) ---
+  final List<_Teilchen> _teilchen = [];
+  double _stillT = 0, _blasenT = 0;
+  final Map<String, double> _gagSperre = {};
+
+  void _updateKleineEffekte(double dt) {
+    final scene = _scene;
+    if (scene == null || _ext?.kleineEffekte != true || !_hasPos) return;
+    // Seifenblasen aus der Pfeife, wenn das Geburtstagskind kurz stillsteht.
+    _stillT = _moveAmt < 0.08 ? _stillT + dt : 0;
+    if (_stillT > 1.4 && _ext?.kamera == null) {
+      _blasenT -= dt;
+      if (_blasenT <= 0) {
+        _blasenT = 0.35 + _rnd.nextDouble() * 0.5;
+        final o = Iso.toScreen(_px, _py).translate(9 + _rnd.nextDouble() * 4, -40);
+        _teilchen.add(_Teilchen(o.dx, o.dy, 4 + _rnd.nextDouble() * 8, -16 - _rnd.nextDouble() * 10, 2.2 + _rnd.nextDouble(), 2.2 + _rnd.nextDouble() * 2.4, const Color(0xFFE8F4FF), blase: true));
+      }
+    }
+    // Gags an Rüstung und Kamin, höchstens alle 10 s je Stück.
+    for (final p in scene.scenario.map.props) {
+      if (p.type != 'party_ruestung' && p.type != 'party_kamin') continue;
+      final k = '${p.type}@${p.x},${p.y}';
+      _gagSperre[k] = math.max(0, (_gagSperre[k] ?? 0) - dt);
+      if (_gagSperre[k]! > 0 || dist(_px, _py, p.x + 0.5, p.y + 0.5) > 1.7) continue;
+      _gagSperre[k] = 10;
+      if (p.type == 'party_ruestung') {
+        // Das Visier klappert: Staub rieselt vom Helm, ein kurzes Blitzen.
+        final o = Iso.toScreen(p.x + 0.5, p.y + 0.5, 1.45);
+        for (var i = 0; i < 9; i++) {
+          _teilchen.add(_Teilchen(o.dx + (_rnd.nextDouble() - 0.5) * 10, o.dy, (_rnd.nextDouble() - 0.5) * 14, 6 + _rnd.nextDouble() * 18, 1.2 + _rnd.nextDouble() * 0.6, 1.2, const Color(0xFFBFB8AA)));
+        }
+        _teilchen.add(_Teilchen(o.dx + 4, o.dy - 2, 0, 0, 0.45, 6, const Color(0xFFFFFFFF), wachsen: 18));
+      } else {
+        // Aus dem kalten Kamin pufft eine Rußwolke.
+        final o = Iso.toScreen(p.x + 0.5, p.y + 0.9, 0.3);
+        for (var i = 0; i < 14; i++) {
+          _teilchen.add(_Teilchen(o.dx + (_rnd.nextDouble() - 0.5) * 18, o.dy, (_rnd.nextDouble() - 0.5) * 22, -10 - _rnd.nextDouble() * 22, 1.4 + _rnd.nextDouble() * 0.8, 3 + _rnd.nextDouble() * 3, const Color(0xFF3B3632), wachsen: 7));
+        }
+      }
+    }
+    for (var i = _teilchen.length - 1; i >= 0; i--) {
+      final t = _teilchen[i];
+      t.life += dt;
+      t.x += t.vx * dt + (t.blase ? math.sin(t.life * 3 + i) * 6 * dt : 0);
+      t.y += t.vy * dt;
+      t.r += t.wachsen * dt;
+      if (t.life >= t.max) _teilchen.removeAt(i);
+    }
+  }
+
+  void _zeichneKleineEffekte(Canvas c) {
+    for (final t in _teilchen) {
+      final a = (1 - t.life / t.max).clamp(0.0, 1.0);
+      final o = Offset(t.x, t.y);
+      if (t.blase) {
+        c.drawCircle(o, t.r, Paint()..color = withAlpha(t.farbe, 0.10 * a));
+        c.drawCircle(
+          o,
+          t.r,
+          Paint()
+            ..color = withAlpha(t.farbe, 0.65 * a)
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 0.7,
+        );
+        c.drawCircle(o.translate(-t.r * 0.35, -t.r * 0.35), t.r * 0.25, Paint()..color = withAlpha(const Color(0xFFFFFFFF), 0.8 * a));
+      } else {
+        c.drawCircle(o, t.r, Paint()..color = withAlpha(t.farbe, 0.75 * a));
+      }
+    }
+  }
+
   void _updateEffects(double dt) {
+    _updateKleineEffekte(dt);
     _actionPulse = math.max(0, _actionPulse - dt * 3);
     for (var i = _localPings.length - 1; i >= 0; i--) {
       _localPings[i].age += dt;
@@ -1416,6 +1497,7 @@ class MordakteGame extends Game with KeyboardEvents {
   }
 
   void _renderPostLight(Canvas c, StaticScene scene, WorldSnapshot? w, CaseView? cv, Rect cull) {
+    if (_teilchen.isNotEmpty) _zeichneKleineEffekte(c);
     // Augen des Schattens
     final sh = w?.shadow;
     final st = _tracks['shadow'];

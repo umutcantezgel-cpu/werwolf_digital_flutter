@@ -292,6 +292,9 @@ class PartyKartenSession implements GameSession, SzenenErweiterung {
   bool get ruheAnimation => true;
 
   @override
+  bool get kleineEffekte => !rueckblendeModus;
+
+  @override
   LookDef? get detektivAussehen => _aussehen;
 
   @override

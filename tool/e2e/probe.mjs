@@ -34,7 +34,7 @@ page.on('console', (m) => {
   const f = /^PARTY foto=(\S+)/.exec(t);
   if (f) {
     const n = String(++fotos).padStart(3, '0');
-    kette = kette.then(() => new Promise((ok) => setTimeout(ok, 250))).then(() => page.screenshot({ path: path.join(aus, `${n}_${f[1]}.png`) })).catch((e) => fehler.push(String(e)));
+    kette = kette.then(() => new Promise((ok) => setTimeout(ok, 100))).then(() => page.screenshot({ path: path.join(aus, `${n}_${f[1]}.png`) })).catch((e) => fehler.push(String(e)));
   }
   if (t.startsWith('PARTY fertig')) fertig = t;
   if (t.startsWith('PARTY fehler')) fehler.push(t);

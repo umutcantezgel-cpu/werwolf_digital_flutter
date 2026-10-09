@@ -5,6 +5,7 @@ import 'package:mordakte_core/mordakte_core.dart';
 
 import 'iso_pen.dart';
 import 'palette.dart';
+import 'party_props.dart';
 
 /// Lichtquelle eines Props.
 class PropLight {
@@ -24,7 +25,9 @@ class PropPainter {
   final ScenePalette pal;
   final String weather;
 
-  PropPainter(this.pal, {this.weather = 'none'});
+  PropPainter(this.pal, {this.weather = 'none'}) : _party = PartyProps(pal);
+
+  final PartyProps _party;
 
   static const _black = Color(0xFF000000);
   static const _white = Color(0xFFFFFFFF);
@@ -36,6 +39,8 @@ class PropPainter {
 
   /// Höhe des oberen Rands (für Hotspot-Marker auf Props).
   static double topZ(PropDef p) {
+    final party = PartyProps.topZ(p.type);
+    if (party != null) return party;
     switch (p.type) {
       case 'table':
         return 0.45;
@@ -76,6 +81,7 @@ class PropPainter {
     final pen = IsoPen(c, p.x.toDouble(), p.y.toDouble(), east: east);
     final custom = parseHex(p.color);
     final rng = Rng((p.x * 7919 + p.y * 104729 + p.type.hashCode) & 0x7fffffff);
+    if (p.type.startsWith('party_') && _party.paint(pen, p)) return;
     switch (p.type) {
       case 'table':
         _table(pen, custom, rng);
