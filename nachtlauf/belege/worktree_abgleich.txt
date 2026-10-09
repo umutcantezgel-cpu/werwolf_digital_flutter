@@ -43,3 +43,12 @@ Zu den drei Dateien, die nicht unter ihrem Namen im Repo liegen:
 - vorschlag_stadthinweise.md: alle 48 Datensätze (H-S01…24, HW-S01…24) stehen in nachtlauf/kanon/ANPASSUNG.md.
 - stadthinweise_vorschlag_test.dart: ersetzt durch packages/burgstadt_core/test/stadthinweise_test.dart (alle 10 Prüfungen plus 2 weitere).
 - faehigkeiten_vorschlag_test.dart: liegt als nachtlauf/auftraege/A-402a/faehigkeiten_vorschlag_test.dart.txt im Repo. Gegen die heutige Datei meldete er, dass das Infofeld beruf bei R04 noch den Zusatz „(so erzählt er es)“ trug, den Kanon v1.0 gestrichen hat. Das ist behoben, und der Test läuft jetzt als packages/burgstadt_core/test/faehigkeiten_daten_test.dart mit (E42).
+
+# Zweiter Abgleich vor dem Entfernen (09.10. 15:54 Europe/Berlin, nach dem Push auf main)
+
+Geprüft: 72 Worktrees unter .claude/worktrees/ (56 Agenten-Worktrees, 16 Worktrees der Workflow-Prüfer; der erste Abgleich um 11:40 nannte 58 Worktrees).
+- Branch-Köpfe (72) in nachtlauf/burgstadt enthalten: 72 von 72
+- Nicht eingecheckte Dateien, byte-gleich im Repo: 130 (darunter alle Berichte der Prüfrunden)
+- Abweichend: 34. Das sind die 33 Lieferstände aus dem ersten Abgleich und zusätzlich:
+- im Repo (weiterentwickelt) · agent-a60be2c608188a4e4 · packages/pixel_engine/test/rollen_daten_test.dart · identisch mit dem eingecheckten Stand eec0d1c; das Repo hat danach die Frisur „bob“ ergänzt (E45)
+- Ergebnis: Nichts liegt nur lokal. Die Worktrees und ihre Branches werden entfernt.
