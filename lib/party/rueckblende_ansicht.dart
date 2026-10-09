@@ -46,7 +46,7 @@ class _RueckblendeAnsichtState extends State<RueckblendeAnsicht> {
   @override
   Widget build(BuildContext context) => Stack(
         children: [
-          Positioned.fill(child: GameView(session: _session)),
+          Positioned.fill(child: GameView(session: _session, steuerung: false)),
           Positioned(
             left: 12,
             top: 12,

@@ -218,7 +218,8 @@ class Texte {
     switch (art) {
       case 'beobachtung':
         final b = _beob[id]!;
-        return Kanon.giltIn(b['pfade'], pfad) ? DossierZeile(art, b['text'] as String) : null;
+        // Im Dossier spricht die Beobachtung die eigene Rolle mit „du“ an (E-032).
+        return Kanon.giltIn(b['pfade'], pfad) ? DossierZeile(art, (b['duText'] ?? b['text']) as String) : null;
       case 'luege':
         final l = _luegen[id]!;
         return DossierZeile(art, l['wahrheit'] as String, behauptung: l['behauptung'] as String);

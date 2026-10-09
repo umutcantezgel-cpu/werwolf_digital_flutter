@@ -110,6 +110,10 @@
           "text": {
             "$ref": "#/$defs/text"
           },
+          "duText": {
+            "$ref": "#/$defs/text",
+            "description": "Fassung in der Du-Form für das Dossier der beobachtenden Rolle (E-032). Fundkarten und Bibel nutzen text."
+          },
           "beleg": {
             "type": "object",
             "required": [],

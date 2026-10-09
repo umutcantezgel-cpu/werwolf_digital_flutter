@@ -119,7 +119,7 @@ List<String> _verbirgtFehler(Kanon kanon, Textsammlung t) {
       final wo = '$r in $p';
       for (final b in kanon.beobachtungen) {
         if (b['wer'] != r || b['kanal'] != 'verborgen' || !Kanon.giltIn(b['pfade'], p)) continue;
-        if (!v.any((z) => z.art == 'beobachtung' && z.text == b['text'])) {
+        if (!v.any((z) => z.art == 'beobachtung' && z.text == (b['duText'] ?? b['text']))) {
           f.add('$wo: verborgene Beobachtung ${b['id']} fehlt');
         }
       }
@@ -407,4 +407,31 @@ void main() {
     final f = _platzhalterFehler(kanon, t);
     expect(f.any((x) => x.contains('TODO')), isTrue, reason: f.join('\n'));
   });
+
+  test('Beobachtungen der eigenen Rolle stehen im Dossier in der Du-Form (E-032)', () {
+    // In der dritten Person über sich selbst („roch sie“, „neben ihm“) liest
+    // sich das eigene Dossier falsch. Wer eine Du-Fassung hat, bekommt sie.
+    final texte = Texte(kanon, _textsammlung);
+    final fehler = <String>[];
+    final selbst = RegExp(r'\b(sie|er|ihr|ihm|ihn)\b');
+    for (final f in kanon.figuren) {
+      final r = f['id'] as String;
+      for (final p in kanon.pfade) {
+        final d = texte.dossier(r, p, 20);
+        for (final z in [...d.weiss, ...d.verbirgt, ...d.tatwissen]) {
+          if (z.art != 'beobachtung') continue;
+          final b = kanon.beobachtungen.firstWhere((b) => (b['duText'] ?? b['text']) == z.text);
+          if (b['duText'] != null) {
+            if (!RegExp(r'\b([Dd]u|dir|dich|deine?[mnrs]?)\b').hasMatch(z.text)) fehler.add('$r: ${b['id']} ohne du');
+          } else if (b['wer'] == r && selbst.hasMatch(b['text'] as String) && !_dritteErlaubt.contains(b['id'])) {
+            fehler.add('$r: ${b['id']} spricht die eigene Rolle in der dritten Person an');
+          }
+        }
+      }
+    }
+    expect(fehler.toSet(), isEmpty);
+  });
 }
+
+/// Beobachtungen, deren Pronomen der dritten Person eine andere Person meinen.
+const _dritteErlaubt = {'b_pawel_schneider'};

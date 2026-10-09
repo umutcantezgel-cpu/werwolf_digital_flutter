@@ -47,6 +47,7 @@ Map<String, (String, Set<String>)> _pfadwissen(Kanon kanon) {
   }
   for (final b in kanon.beobachtungen) {
     if (b['pfade'] != 'alle') q['Beobachtung ${b['id']}'] = (b['text'] as String, {for (final p in b['pfade'] as List) p as String});
+    if (b['pfade'] != 'alle' && b['duText'] != null) q['Beobachtung ${b['id']} (Du-Fassung)'] = (b['duText'] as String, {for (final p in b['pfade'] as List) p as String});
   }
   for (final k in kanon.kernverdaechtige) {
     for (final (feld, pfade) in [('killerProfile', {k}), ('innocentProfile', alle.difference({k}))]) {
@@ -70,7 +71,7 @@ Map<String, (String, Set<String>)> _pfadwissen(Kanon kanon) {
 Set<String> _pfadneutral(Kanon kanon) {
   final texte = [
     for (final b in kanon.beobachtungen)
-      if (b['pfade'] == 'alle') b['text'] as String,
+      if (b['pfade'] == 'alle') ...[b['text'] as String, ?b['duText'] as String?],
     for (final z in kanon.zeitleiste)
       if (z['pfade'] == 'alle') z['text'] as String,
     for (final g in kanon.gegenstaende)

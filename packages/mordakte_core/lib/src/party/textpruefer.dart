@@ -333,6 +333,7 @@ List<TextQuelle> textQuellen(Kanon kanon, Textsammlung t) {
 
   for (final b in kanon.beobachtungen) {
     add('beobachtungen.json#${b['id']}', b['text']);
+    add('beobachtungen.json#${b['id']}.duText', b['duText']);
   }
   for (final g in kanon.gegenstaende) {
     for (final s in (g['spuren'] as List? ?? const [])) {

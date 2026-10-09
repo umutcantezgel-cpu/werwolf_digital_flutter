@@ -108,7 +108,8 @@ void main() {
       expect(d.weiss, hasLength(1));
       expect(d.verbirgt, hasLength(1), reason: p);
       final erwartet = p == 'ahmet' ? 'b_damir_ahmet_weg' : 'b_damir_ahmet_blieb';
-      expect(d.verbirgt.single.text, kanon.beobachtungen.firstWhere((b) => b['id'] == erwartet)['text']);
+      final b = kanon.beobachtungen.firstWhere((b) => b['id'] == erwartet);
+      expect(d.verbirgt.single.text, b['duText'] ?? b['text']);
     }
   });
 

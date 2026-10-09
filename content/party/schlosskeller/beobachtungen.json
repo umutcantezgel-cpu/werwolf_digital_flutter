@@ -101,6 +101,7 @@
       "art": "pfadneutral",
       "kanal": "verborgen",
       "text": "Um 23:40 sah sie im Turmgang, wie Fatma die Münzschatulle aus der Vitrine nahm.",
+      "duText": "Um 23:40 hast du im Turmgang gesehen, wie Fatma die Münzschatulle aus der Vitrine nahm.",
       "beleg": {
         "zeitleiste": [
           "z_vitrine_schatulle"
@@ -121,6 +122,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Beim Knall duckte sie sich hinter den linken Buffettisch und blieb dort, bis das Licht anging.",
+      "duText": "Beim Knall hast du dich hinter den linken Buffettisch geduckt und bist dort geblieben, bis das Licht anging.",
       "beleg": {
         "aufenthalt": {
           "person": "emine",
@@ -153,6 +155,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Beim Knall duckte sie sich am rechten Buffettisch und blieb dort, bis das Licht anging.",
+      "duText": "Beim Knall hast du dich am rechten Buffettisch geduckt und bist dort geblieben, bis das Licht anging.",
       "beleg": {
         "aufenthalt": {
           "person": "dilara",
@@ -169,6 +172,7 @@
       "art": "pfadneutral",
       "kanal": "verborgen",
       "text": "Sie hat ein Foto von 23:51: Herr Schneider und Ahmet streiten an der Theke, Ahmet hält einen dicken Umschlag.",
+      "duText": "Du hast ein Foto von 23:51: Herr Schneider und Ahmet streiten an der Theke, Ahmet hält einen dicken Umschlag.",
       "beleg": {
         "gegenstand": [
           "foto_joanna"
@@ -189,6 +193,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Im Dunkeln rannte ein leuchtendes Gespenstergesicht an ihm vorbei durch den Durchgang Richtung Kaminsaal.",
+      "duText": "Im Dunkeln rannte ein leuchtendes Gespenstergesicht an dir vorbei durch den Durchgang Richtung Kaminsaal.",
       "beleg": {
         "alle": [
           {
@@ -237,6 +242,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Am Sicherungskasten huschte im Dunkeln ein leuchtendes Gesicht an ihm vorbei.",
+      "duText": "Am Sicherungskasten huschte im Dunkeln ein leuchtendes Gesicht an dir vorbei.",
       "beleg": {
         "alle": [
           {
@@ -261,6 +267,7 @@
       "art": "pfadneutral",
       "kanal": "verborgen",
       "text": "Der Kurzschluss kam von seiner alten Mehrfachsteckdose.",
+      "duText": "Der Kurzschluss kam von deiner alten Mehrfachsteckdose.",
       "beleg": {
         "ereignis": [
           "ev_tim_steckdose",
@@ -300,6 +307,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Ein leuchtendes Gesicht kam aus dem Durchgang an ihr vorbei in den Kaminsaal.",
+      "duText": "Ein leuchtendes Gesicht kam aus dem Durchgang an dir vorbei in den Kaminsaal.",
       "beleg": {
         "alle": [
           {
@@ -324,6 +332,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Kurz nach dem Scheppern roch sie frisch erloschenes Kerzenwachs. Der Geruch kam mit dem Luftzug aus Richtung Theke.",
+      "duText": "Kurz nach dem Scheppern hast du frisch erloschenes Kerzenwachs gerochen. Der Geruch kam mit dem Luftzug aus Richtung Theke.",
       "beleg": {
         "alle": [
           {
@@ -372,6 +381,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Aus Richtung Theke hörte er erst „Hab ich dich!“, dann „Stehen bleiben!“, dann das Scheppern.",
+      "duText": "Aus Richtung Theke hast du erst „Hab ich dich!“ gehört, dann „Stehen bleiben!“, dann das Scheppern.",
       "beleg": {
         "reihenfolge": [
           {
@@ -400,6 +410,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Von kurz vor zwölf bis nach zwölf stand er am Außentor. Es war abgeschlossen; niemand ist hinaus.",
+      "duText": "Von kurz vor zwölf bis nach zwölf hast du am Außentor gestanden. Es war abgeschlossen; niemand ist hinaus.",
       "beleg": {
         "aufenthalt": {
           "person": "serkan",
@@ -440,6 +451,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Im Dunkeln drängte sich jemand an ihm vorbei durch die Bogentür in den Turm.",
+      "duText": "Im Dunkeln drängte sich jemand an dir vorbei durch die Bogentür in den Turm.",
       "beleg": {
         "alle": [
           {
@@ -458,6 +470,7 @@
       "art": "pfadneutral",
       "kanal": "verborgen",
       "text": "Er weiß: Olli hat am Abend die Bogentür beschädigt. Das Möbelwachs zum Verdecken kam von ihm.",
+      "duText": "Du weißt: Olli hat am Abend die Bogentür beschädigt. Das Möbelwachs zum Verdecken kam von dir.",
       "beleg": {
         "zeitleiste": [
           "z_tuerschaden",
@@ -487,6 +500,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Sie hat Herrn Schneiders Quittungszettel: „Miete: 0 Euro.“",
+      "duText": "Du hast Herrn Schneiders Quittungszettel: „Miete: 0 Euro.“",
       "beleg": {
         "gegenstand": [
           "quittung_aylin"
@@ -506,6 +520,7 @@
       "art": "pfadneutral",
       "kanal": "pflichtgespraech",
       "text": "Um 23:57 hat sie notiert, wer für die Torte fehlt und wo die Leute angeblich gerade sind.",
+      "duText": "Um 23:57 hast du notiert, wer für die Torte fehlt und wo die Leute angeblich gerade sind.",
       "beleg": {
         "gegenstand": [
           "notizbuch_tugba"
@@ -594,6 +609,7 @@
       "art": "pfadabhaengig",
       "kanal": "verborgen",
       "text": "Beim Scheppern kauerte Olli neben ihr hinter dem rechten Buffettisch. Er war schon seit dem Knall da und hatte geflüstert: „Azra? Ich bin's, Olli.“",
+      "duText": "Beim Scheppern kauerte Olli neben dir hinter dem rechten Buffettisch. Er war schon seit dem Knall da und hatte geflüstert: „Azra? Ich bin's, Olli.“",
       "beleg": {
         "reihenfolge": [
           {
@@ -631,6 +647,7 @@
       "art": "pfadabhaengig",
       "kanal": "verborgen",
       "text": "Beim Scheppern war Olli nicht neben ihr. Er kam erst danach und flüsterte: „Azra? Ich bin's, Olli.“",
+      "duText": "Beim Scheppern war Olli nicht neben dir. Er kam erst danach und flüsterte: „Azra? Ich bin's, Olli.“",
       "beleg": {
         "reihenfolge": [
           {
@@ -670,6 +687,7 @@
       "art": "pfadabhaengig",
       "kanal": "verborgen",
       "text": "Beim Scheppern kauerte Fatma neben ihr hinter dem linken Buffettisch. Sie war schon seit dem Knall da und hatte geflüstert: „Emine? Ich bin's, Fatma.“",
+      "duText": "Beim Scheppern kauerte Fatma neben dir hinter dem linken Buffettisch. Sie war schon seit dem Knall da und hatte geflüstert: „Emine? Ich bin's, Fatma.“",
       "beleg": {
         "reihenfolge": [
           {
@@ -707,6 +725,7 @@
       "art": "pfadabhaengig",
       "kanal": "verborgen",
       "text": "Beim Scheppern war Fatma nicht neben ihr. Sie kam erst danach und flüsterte: „Emine? Ich bin's, Fatma.“",
+      "duText": "Beim Scheppern war Fatma nicht neben dir. Sie kam erst danach und flüsterte: „Emine? Ich bin's, Fatma.“",
       "beleg": {
         "reihenfolge": [
           {
@@ -746,6 +765,7 @@
       "art": "pfadabhaengig",
       "kanal": "verborgen",
       "text": "Beim Scheppern kauerte Ahmet neben ihm am Ostende der Theke. Er war schon seit dem Knall da und hatte geflüstert: „Damir? Ich bin's, Ahmet.“",
+      "duText": "Beim Scheppern kauerte Ahmet neben dir am Ostende der Theke. Er war schon seit dem Knall da und hatte geflüstert: „Damir? Ich bin's, Ahmet.“",
       "beleg": {
         "alle": [
           {
@@ -779,6 +799,7 @@
       "art": "pfadabhaengig",
       "kanal": "verborgen",
       "text": "Beim Scheppern war Ahmet nicht neben ihm. Er war kurz davor aufgestanden und kam erst danach zurück: „Damir, ich bin's wieder.“",
+      "duText": "Beim Scheppern war Ahmet nicht neben dir. Er war kurz davor aufgestanden und kam erst danach zurück: „Damir, ich bin's wieder.“",
       "beleg": {
         "alle": [
           {
@@ -831,6 +852,7 @@
       "art": "pfadabhaengig",
       "kanal": "verborgen",
       "text": "Das leuchtende Gesicht rannte an ihm vorbei, bevor es an der Theke schepperte.",
+      "duText": "Das leuchtende Gesicht rannte an dir vorbei, bevor es an der Theke schepperte.",
       "beleg": {
         "reihenfolge": [
           {
@@ -863,6 +885,7 @@
       "art": "pfadabhaengig",
       "kanal": "verborgen",
       "text": "Das leuchtende Gesicht rannte an ihm vorbei, nachdem es an der Theke gescheppert hatte.",
+      "duText": "Das leuchtende Gesicht rannte an dir vorbei, nachdem es an der Theke gescheppert hatte.",
       "beleg": {
         "reihenfolge": [
           {

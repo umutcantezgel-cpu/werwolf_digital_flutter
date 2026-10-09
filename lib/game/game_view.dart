@@ -21,9 +21,13 @@ import 'mordakte_game.dart';
 /// wo der Daumen aufsetzt), Aktionsknopf = unten rechts (88 px, 24 px Rand).
 /// Langes Drücken auf die Karte außerhalb des Joysticks setzt einen Ping.
 class GameView extends StatefulWidget {
-  const GameView({super.key, required this.session});
+  const GameView({super.key, required this.session, this.steuerung = true});
 
   final GameSession session;
+
+  /// Joystick, Aktionsknopf und Eingabe; `false` für reine Ansichten
+  /// (Rückblende im Partymodus).
+  final bool steuerung;
 
   @override
   State<GameView> createState() => _GameViewState();
@@ -155,9 +159,9 @@ class _GameViewState extends State<GameView> {
               key: ObjectKey(_game),
               game: _game,
               focusNode: _focus,
-              autofocus: true,
+              autofocus: widget.steuerung,
             ),
-            Listener(
+            if (widget.steuerung) Listener(
               behavior: HitTestBehavior.opaque,
               onPointerDown: (e) => _onDown(e, size),
               onPointerMove: _onMove,
@@ -169,13 +173,14 @@ class _GameViewState extends State<GameView> {
                 size: size,
               ),
             ),
-            Positioned(
-              right: _buttonMargin + pad.right,
-              bottom: _buttonMargin + pad.bottom,
-              width: _buttonSize,
-              height: _buttonSize,
-              child: ActionButton(game: _game, size: _buttonSize),
-            ),
+            if (widget.steuerung)
+              Positioned(
+                right: _buttonMargin + pad.right,
+                bottom: _buttonMargin + pad.bottom,
+                width: _buttonSize,
+                height: _buttonSize,
+                child: ActionButton(game: _game, size: _buttonSize),
+              ),
           ],
         );
       },

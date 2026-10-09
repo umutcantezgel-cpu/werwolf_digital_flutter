@@ -815,3 +815,57 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - `?party=schlosskeller&pfad=…&n=…&skript=best,a,richtig&takt=…&zeitraffer=…` spielt einen Abend allein durch und meldet Fotostellen als `PARTY foto=…`.
   - Erster Probelauf (Ahmet, 7 Rollen, bestes Spiel): Meister-Ende, 9 Punkte, 57 Fotos, 0 Konsolenfehler, 0 fremde Netzaufrufe.
 - **Test-Abhängigkeit:** `flutter_test` (SDK) ist als Entwicklungsabhängigkeit für die Widget-Tests der Bildschirme aufgenommen. Die Paketverwaltung hat dafür `pubspec.lock` ergänzt (Master §3: Netz nur über die Paketverwaltung).
+
+## E-031 · F4-Bildschirmwelle, Requisiten, kleine Effekte, Druckmodell
+- **Bildschirme (F4-BAUMEISTER-01 bis -06, -08, -09):**
+  - Vier Haiku-Baumeister parallel, je eigene Dateien und eigene UI-Datei.
+  - Abnahme 9–10/10. Abzug je einen Punkt bei Grenzen für 01, 05, 06: `git log` nur lesend benutzt, was nicht erlaubt war; ohne Folgen.
+  - Prüfstand: 116 Widget-Tests grün, Analyse ohne Befund, kein sichtbarer Satz im Code (Grep), 144 neue UI-Bausteine, `party_texte` OK.
+- **Entscheidungen zu den offenen Fragen:**
+  - Ansprache wie TON §3: Die Gruppe heißt „ihr“, das Dossier spricht die Person mit „du“ an.
+  - „Mit {name}“ wird zu „Gespräch mit: {name}“, damit es ohne eingetragenen Namen grammatisch bleibt.
+  - Die Gruppenwahl-Erklärung ist sachlich richtiggestellt: Jede Runde bekommt einen Hinweis, wie viel er taugt, bleibt verborgen.
+  - Die Sabotage-Beschriftung im Täterdossier lautet jetzt verständlicher: „Deine heimliche Wahl statt B“.
+  - „Miete: 0 Euro.“ in einem Wahltext bleibt als Kanon-Ausnahme, denn das ist keine Stimmenzahl.
+  - Das Erzählerfeld übergeht unbekannte Kennungen still. Die Vollständigkeit sichert `party_texte`/`textLuecken`, nicht das Spiel am Tisch.
+  - Bestätigt:
+    - Titel in 40 pt
+    - Zusatzbausteine „Die Rückblende“ und „Figur: {name}“
+    - Raumzeile der Fundkarte entfällt bei gleichem Namen
+- **Requisiten (F4-ORCH-06):**
+  - Der Partymodus zeichnet eigene Möbel (`lib/game/scene/party_props.dart`, Katalog-Typen `party_*`), auf denselben Kacheln und mit derselben Begehbarkeit wie das Kanon-Raster:
+    - Tafeln und Buffets ohne Flaschen (Teekanne, Tassen, Wasserkaraffe, Brotkorb, Warmhaltebehälter)
+    - Theke mit Teekocher und Kaffeemaschine
+    - kalter Kamin (Kanon: seit 23:30 aus)
+    - Wendeltreppe, Ritterrüstung, Jackenständer, Ascheneimer
+    - der umgestoßene Kerzenständer vor der Vorratstür (Kanon: `gegenstaende.json`)
+  - Elektrische Teelichter stehen genau an den warmen Lichtpunkten der Karte.
+  - Die Mordakte-Vorlage bleibt unverändert (nur neue Katalog-Einträge).
+- **Kleine Effekte (F4-ORCH-05, Master 7.13):**
+  - Seifenblasen aus der Pfeife, wenn das Geburtstagskind kurz stillsteht.
+  - An der Rüstung rieselt Staub und das Visier blitzt.
+  - Aus dem kalten Kamin pufft eine Rußwolke.
+  - Höchstens alle 10 s je Stück, nur über `SzenenErweiterung.kleineEffekte`.
+  - Täter für Testläufe: über den Entwickler-Einstieg `pfad=`. Die Spielleitung bekommt im Druck je Pfad einen Fall-Code (F5).
+- **Sichtprüfung vorbereitet:**
+  - `bis=<phase>`, `at=x,y`, `zoom`, `fotopause` im Entwickler-Einstieg.
+  - `tool/e2e/raeume.mjs` fotografiert alle Räume (8 Fotos, 0 Fehler, dem Nutzer gezeigt).
+- **Druckmodell (F5-ORCH-01, vorgezogen im eigenen Arbeitsbaum):**
+  - `DruckSatz` enthält Spielleitungsheft, Detektivbogen mit Ermittlungsbogen, Rollenhefte, vier gleich gebaute Fassungen, Indizkarten mit Kreuzen, Stimmkarten (A = 1, B = 0, Sabotage = −1), neun Hinweis-Umschläge mit Auszähltabelle für genau diese Personenzahl und das Auflösungsheft mit Endentabelle.
+  - Codes: zwei Buchstaben und eine Ziffer, eindeutig, ohne Bezug zu Art oder Pfad.
+  - `druck_modell_test`: 100 Zufallsspiele ergeben dieselbe Optionsreihenfolge, dieselben Funde, dieselbe Restmenge je Runde, dieselbe Hinweisqualität, dieselben Punkte und dasselbe Ende wie `Spiel`.
+  - Korrektur: Es sind 19 Optionen, nicht 22 (E-030 berichtigt).
+
+## E-032 · Probelauf mit echten Bildschirmen: Du-Form im Dossier, Rückblende nach Uhr
+- **Probelauf:** Olli, 12 Rollen, bestes Spiel, Gruppe gemischt, richtige Anklage. Ergebnis: Meister-Ende, 9 Punkte, 57 Fotos, 0 Konsolenfehler, 0 fremde Netzaufrufe. Die Übersicht ging an den Nutzer.
+- **Befund Dossier:**
+  - 23 von 31 Beobachtungen, die Dossiers zitieren, sprachen die eigene Rolle in der dritten Person an („roch sie“, „neben ihm“). Die F3-Prüfer hatten das nicht gemeldet.
+  - Lösung im Kanon: Feld `duText` (Schema ergänzt). Das Dossier zeigt die Du-Fassung; Fundkarten, Bibel und Erzähler behalten `text`.
+  - Absicherung:
+    - `dossier_test`: Beobachtungen der eigenen Rolle stehen in der Du-Form, mit Rot-Probe.
+    - Der Textprüfer prüft `duText` mit.
+    - `spoiler_test` zählt pfadabhängige Du-Fassungen als Pfadwissen.
+- **Befund Rückblende:**
+  - Unter Last (Software-Rendering, parallele Prüfläufe) fielen Ticks aus. Nach zehn Sekunden stand die Uhr erst bei 23:55:44.
+  - Der Zeitraffer folgt jetzt der echten Zeit (Stoppuhr).
+  - Die Rückblende zeigt keinen Joystick und keinen Aktionsknopf mehr (`GameView(steuerung: false)`, Vorgabe bleibt `true`, Bestandsschutz).

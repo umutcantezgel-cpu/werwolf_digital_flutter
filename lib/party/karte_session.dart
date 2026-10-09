@@ -57,6 +57,10 @@ class PartyKartenSession implements GameSession, SzenenErweiterung {
   Rueckblende? _rb;
   RueckblendeBild? _bild;
   double _rbSekunden = 0;
+
+  /// Echte Zeit seit dem Start der Rückblende: Unter Last fallen Ticks aus,
+  /// der Zeitraffer folgt trotzdem der Uhr.
+  final Stopwatch _uhr = Stopwatch();
   final _world = ValueNotifier<WorldSnapshot?>(null);
   final _case = ValueNotifier<CaseView?>(null);
   final _events = StreamController<GameEvent>.broadcast();
@@ -80,6 +84,9 @@ class PartyKartenSession implements GameSession, SzenenErweiterung {
   /// Rückblende von vorn.
   void neuStarten() {
     _rbSekunden = 0;
+    _uhr
+      ..reset()
+      ..start();
     fertig.value = false;
   }
 
@@ -89,7 +96,8 @@ class PartyKartenSession implements GameSession, SzenenErweiterung {
     List<NpcView> npcs;
     if (rb != null) {
       final dauer = rb.schritte.last.minus(rb.schritte.first).toDouble();
-      _rbSekunden = math.min(dauer, _rbSekunden + 0.1 * zeitraffer);
+      if (!_uhr.isRunning) _uhr.start();
+      _rbSekunden = math.min(dauer, _uhr.elapsedMilliseconds / 1000 * zeitraffer);
       if (_rbSekunden >= dauer) fertig.value = true;
       final t = rb.schritte.first.plus(_rbSekunden.floor());
       if (zeit.value != t) zeit.value = t;
