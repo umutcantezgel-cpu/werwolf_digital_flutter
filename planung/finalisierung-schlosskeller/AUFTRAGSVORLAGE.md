@@ -20,6 +20,8 @@ Jeder Auftrag an einen Unteragenten folgt diesem Aufbau. Aufträge liegen als Da
 
 **Eine Rückgabe, eine Nachricht (seit F0, Regelkreis Lernen L-01):** Die gesamte Rückgabe steht vollständig in der letzten Nachricht des Agenten. Zwischenstände in früheren Nachrichten zählen nicht, denn der Workflow übernimmt nur die letzte. Anlass: F0-KONT-01 hatte seinen Bericht auf zwei Nachrichten verteilt.
 
+**Längengrenze (seit F0, L-02):** Jeder Prüf- und Berichtsauftrag nennt eine Obergrenze (Standard 1.800 Wörter). Breite Aufträge werden geteilt; `effort: high` für Prüfungen, `max` nur für eng geschnittene Aufträge.
+
 Reicht der Platz nicht: `=== UNTERBROCHEN BEI <Stelle> · WEITER MIT „weiter“ ===`.
 Platzhalter wie „usw.“, „analog“ oder „folgt später“ führen zur Ablehnung.
 

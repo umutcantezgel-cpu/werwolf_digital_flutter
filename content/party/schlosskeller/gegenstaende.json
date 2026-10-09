@@ -103,6 +103,7 @@
       "name": "Umschlag mit dem Mietgeld",
       "beschreibung": "Ein brauner Umschlag mit Ahmets Handschrift: „Miete Schlosskeller“. Gegen 0:12 leert Ahmet ihn und wirft ihn in den Ascheneimer am Kamin.",
       "lage": {
+        "einrichtung": "ascheneimer",
         "ort": "am_kamin",
         "stelle": "leer im Ascheneimer neben der Kamin-Nische"
       },
@@ -703,7 +704,7 @@
     {
       "id": "stirnlampe_tim",
       "name": "Tims Stirnlampe",
-      "beschreibung": "Kleine Stirnlampe, die Tim um den Hals trägt. Im Dunkeln fand er sie erst um 23:59:40 in der Hemdtasche.",
+      "beschreibung": "Kleine Stirnlampe an einem Band um den Hals. Beim Tasten nach dem Hauptschalter rutschte sie ihm vom Hals; um 23:59:40 fand er sie auf dem Boden.",
       "lage": {
         "traeger": "tim",
         "stelle": "um den Hals"

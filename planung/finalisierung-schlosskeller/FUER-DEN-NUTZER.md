@@ -16,10 +16,18 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
   - Die Datei wird dadurch etwa 37 MB größer, wenn das Deployment den Ordner ausliefert. Das ist die Bedingung für „zur Laufzeit keine fremden Server“.
 - **Spoilerschutz:** Wer im Browser die Entwicklerwerkzeuge öffnet, kann die Kanon-Dateien und damit die Lösung lesen. Das zu verhindern ist in einer lokalen Web-App nicht möglich und kein Ziel (E-013).
 
+- **Druck und Spoiler:** Wer das Druck-PDF absichtlich am Bildschirm durchliest, kann die versiegelten Täterfassungen lesen. Außen stehen nur neutrale Codes; vor dem Drucken sollte niemand aus der Runde das PDF durchblättern.
+
 ## Optionen zur Entscheidung
 - **Kernnamen:**
   - Laut Einstellungen bleiben Ahmet, Fatma, Olli und Can. Damit es keine Klischees gibt, sind Herkunft, Motive und Kopftuch so verteilt, dass keine Gruppe allein die Verfehlungen trägt (E-007).
   - Die Vorprüfung hatte zusätzlich vorgeschlagen, die Kernnamen über alle fünf Herkunftsgruppen neu zu verteilen. Wollt ihr das, ist es eine kleine Kanon-Änderung.
+
+- **Kopftuch bei Fatma (E-014):**
+  - Behzads Material gibt Fatma ein Kopftuch; sie ist zugleich eine der vier möglichen Täterinnen und hat die Münzschatulle mitgenommen.
+  - Ich habe es behalten und Gegengewichte gesetzt: Ihr Motiv ist Ehrgeiz für ihre Abschlussarbeit, sie will die Schatulle zurückbringen. Aylin (Kopftuch) ist die kompetente Kassenprüferin, Emine (Kopftuch) Grundschullehrerin.
+  - Wenn ihr es anders wollt, ist es eine Zeile im Kanon (`figuren.json`, Look von Fatma).
+- **Herkunft:** Das Feld `herkunft` dient nur der Ausgewogenheitsprüfung. Es erscheint im Spiel nie als Etikett.
 
 ## Nur durch Menschen prüfbar
 - Ein echter Testabend: Ton, Humor, Rundendauer (Vorgabe 30 Minuten), Verständlichkeit der Regeln.

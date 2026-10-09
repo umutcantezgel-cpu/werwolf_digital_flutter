@@ -230,7 +230,12 @@ class WahrnehmungsRechner {
   List<_Geraeusch> _geraeusche(Uhrzeit t) {
     final out = <_Geraeusch>[];
     for (final e in matrix.ereignisse) {
-      if (e.t != t || e.lautstaerke == null) continue;
+      if (e.t != t) continue;
+      if (e.art == 'tuer' && e.tuer != null && (graph.tueren[e.tuer]?.quietscht ?? false)) {
+        final o = graph.orte[e.ort];
+        if (o != null) out.add(_Geraeusch('${e.id}:quietschen', 'laut', o.x, o.y, o.raum, e.person, false, 'Eine Tür quietscht.'));
+      }
+      if (e.lautstaerke == null) continue;
       final o = graph.orte[e.ort];
       if (o == null) continue;
       out.add(_Geraeusch(e.id, e.lautstaerke!, o.x, o.y, o.raum, e.person, false, e.text));

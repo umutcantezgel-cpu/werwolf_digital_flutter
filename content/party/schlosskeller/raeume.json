@@ -479,6 +479,14 @@
       "darstellung": "fireplace"
     },
     {
+      "id": "ascheneimer",
+      "name": "Ascheneimer neben der Kamin-Nische",
+      "typ": "ascheneimer",
+      "x": 1,
+      "y": 14,
+      "blockiert": false
+    },
+    {
       "id": "west_tafel_3_11",
       "name": "lange Tafel",
       "typ": "table",
@@ -1153,6 +1161,16 @@
         ]
       ],
       "hinweis": "im Windfang hinter geschlossener Innentür, erreicht den Saal nicht"
+    },
+    {
+      "id": "licht_notlaterne",
+      "art": "lampe",
+      "name": "Notlaterne am Haken im Vorratsraum",
+      "ort": "vorrat_innen",
+      "farbe": "#FFF1C9",
+      "radius": 3.0,
+      "an": [],
+      "hinweis": "Wird in der Tatnacht nie eingeschaltet; Herr Schneider erreicht sie nicht."
     }
   ],
   "luftzug": [

@@ -139,7 +139,8 @@
         "kopf": "none",
         "statur": "slim",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Arbeitet in einer Agentur, die Stadtfeste und Märkte plant."
     },
     {
       "id": "fatma",
@@ -192,7 +193,7 @@
         }
       ],
       "innocentProfile": {
-        "actualBehavior": "Beim Knall zieht sie sich mit der Tasche zum linken Buffettisch zurück. Ab 23:58:10 kauert sie dahinter neben Emine."
+        "actualBehavior": "Beim Knall zieht sie sich mit der Tasche zum linken Buffettisch zurück und kauert dort gleich danach neben Emine."
       },
       "killerProfile": {
         "crimeExecution": "Beim Knall bleibt sie erschrocken vor der Theke stehen. Dann sieht sie das Kerzenlicht an der Anrichte und geht durch die Klappe hin, um die Schatulle zurückzugeben. Herr Schneider packt den Gurt ihrer Tasche. In Panik greift sie den Kerzenständer und schlägt einmal zu. Sie nimmt den Bund mit, steckt ihn in die Brottasche auf dem linken Buffettisch und kauert sich zu Emine.",
@@ -206,7 +207,8 @@
         "statur": "slim",
         "schnitt": "dress",
         "kopftuchFarbe": "#3b3436"
-      }
+      },
+      "alltag": "Studiert Kommunikationsdesign im letzten Semester."
     },
     {
       "id": "olli",
@@ -255,7 +257,7 @@
         }
       ],
       "innocentProfile": {
-        "actualBehavior": "Beim Knall tastet er sich vom Eiskübel zum rechten Buffettisch und kauert dort ab 23:58:10 neben Azra, bis das Licht angeht. Danach setzt er sich in den Ost-Saal an die Tafel."
+        "actualBehavior": "Beim Knall tastet er sich vom Eiskübel zum rechten Buffettisch und kauert dort gleich danach neben Azra, bis das Licht angeht. Danach setzt er sich in den Ost-Saal an die Tafel."
       },
       "killerProfile": {
         "crimeExecution": "Er bleibt erst am Eiskübel stehen. Dann geht er vor der Theke entlang und durch die Klappe zum Kerzenlicht, weil er mit Herrn Schneider reden will. Herr Schneider packt ihn am Ärmel. In Panik greift Olli den Kerzenständer am Fuß und schlägt einmal zu. Er nimmt den Bund mit, wirft ihn in den Eiskübel und kauert um 23:59:05 außer Atem neben Azra.",
@@ -268,7 +270,8 @@
         "kopf": "none",
         "statur": "broad",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Ist Lagerlogistiker und hilft bei jedem Umzug im Freundeskreis."
     },
     {
       "id": "can",
@@ -335,7 +338,8 @@
         "statur": "slim",
         "schnitt": "suit"
       },
-      "beweisFarbe": "Gelbe Kapuzenfasern an Herrn Schneiders Hand (gelbe_fasern) müssen eindeutig Can zugeordnet werden können."
+      "beweisFarbe": "Gelbe Kapuzenfasern an Herrn Schneiders Hand (gelbe_fasern) müssen eindeutig Can zugeordnet werden können.",
+      "alltag": "Macht eine Ausbildung zum Mediengestalter und dreht lustige Kurzvideos."
     },
     {
       "id": "leyla",
@@ -383,7 +387,8 @@
         "kopf": "bun",
         "statur": "small",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Ist Apothekerin und organisiert bei jeder Feier trotzdem das Essen."
     },
     {
       "id": "tim",
@@ -412,7 +417,7 @@
         "idleAnimation": "Klopft prüfend gegen Kabelkanäle und schüttelt den Kopf"
       },
       "motiveAndConflict": "Um 23:57:50 steckt er für den Tortenkaffee die Kaffeemaschine in seine alte Mehrfachsteckdose. Herr Schneider hatte ihn gerade davor gewarnt. Um 23:58:00 knallt es, die Hauptsicherung fliegt raus.",
-      "blackoutAlibi": "Tastete sich beim Knall sofort zum Sicherungskasten im Kaminsaal. Im Dunkeln fand er den richtigen Schalter nicht. Um 23:59:40 fand er seine Stirnlampe, um 0:00:00 war das Licht wieder an.",
+      "blackoutAlibi": "Tastete sich beim Knall sofort zum Sicherungskasten im Kaminsaal. Dabei rutschte ihm die Stirnlampe vom Hals. Im Dunkeln fand er den richtigen Schalter nicht. Um 23:59:40 fand er die Stirnlampe auf dem Boden, um 0:00:00 war das Licht wieder an.",
       "roleSecret": "Der Kurzschluss kam von seiner alten Mehrfachsteckdose. Am Sicherungskasten huschte im Dunkeln ein leuchtendes Gesicht an ihm vorbei.",
       "persoenlichesZiel": "Niemand soll erfahren, dass seine Mehrfachsteckdose den Ausfall verursacht hat.",
       "nebendelikt": {
@@ -427,7 +432,8 @@
         "kopf": "none",
         "statur": "normal",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Ist Mechatroniker und repariert gern alles selbst, manchmal zu gern."
     },
     {
       "id": "emine",
@@ -472,7 +478,8 @@
         "statur": "normal",
         "schnitt": "dress",
         "kopftuchFarbe": "#d8c6a5"
-      }
+      },
+      "alltag": "Ist Grundschullehrerin."
     },
     {
       "id": "johanna",
@@ -520,7 +527,8 @@
         "kopf": "none",
         "statur": "slim",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Studiert Medienwissenschaft und fotografiert Hochzeiten als Nebenjob."
     },
     {
       "id": "murat",
@@ -568,7 +576,8 @@
         "kopf": "none",
         "statur": "broad",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Führt mit seiner Schwester einen kleinen Catering-Betrieb."
     },
     {
       "id": "zeynep",
@@ -615,7 +624,8 @@
         "kopf": "cap",
         "statur": "small",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Studiert Sport und trainiert eine Mädchen-Fußballmannschaft."
     },
     {
       "id": "baran",
@@ -656,7 +666,8 @@
         "kopf": "none",
         "statur": "tall",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Studiert Tontechnik und legt bei Freunden auf."
     },
     {
       "id": "meryem",
@@ -701,7 +712,8 @@
         "kopf": "none",
         "statur": "normal",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Ist Försterin und schwört, dass sie Feuer eigentlich kann."
     },
     {
       "id": "serkan",
@@ -713,7 +725,7 @@
       "tier": 4,
       "besetzungsplatz": 13,
       "minPlayers": 13,
-      "roleTitle": "Der Fahrer",
+      "roleTitle": "Der Fahrdienst-Organisator",
       "isPotentialKiller": false,
       "colorCode": "#3A506B",
       "farbname": "Stahlblau",
@@ -742,7 +754,8 @@
         "kopf": "cap",
         "statur": "broad",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Ist Rettungssanitäter und fährt heute alle sicher nach Hause."
     },
     {
       "id": "aylin",
@@ -784,7 +797,8 @@
         "statur": "slim",
         "schnitt": "suit",
         "kopftuchFarbe": "#c9c9c4"
-      }
+      },
+      "alltag": "Ist Steuerfachangestellte und hebt jeden Beleg auf."
     },
     {
       "id": "kaan",
@@ -811,7 +825,7 @@
         "y": 8.5
       },
       "visualSpecs": {
-        "silhouette": "Muskulös, handwerklich geübt, bodenständig",
+        "silhouette": "Muskulös, bodenständig, packt gern mit an",
         "outfit": "Aschgrauer Kapuzenpulli, schwarze Arbeitshose mit verstärkten Knien",
         "distinguishingFeature": "Zimmermannsbleistift hinter dem Ohr, Maßband am Hosenbund, ein Finger mit Pflaster",
         "idleAnimation": "Streicht mit dem Daumen über die Schramme an der Bogentür"
@@ -835,7 +849,8 @@
         "kopf": "none",
         "statur": "broad",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Studiert Architektur; Maßband und Bleistift hat er immer dabei."
     },
     {
       "id": "dilara",
@@ -864,7 +879,7 @@
       "visualSpecs": {
         "silhouette": "Groß, modisch, elegante Bewegungen",
         "outfit": "Pflaumenfarbenes Samtkleid, langer schwarzer Strickcardigan",
-        "distinguishingFeature": "Kleine Lupe an einer Silberkette um den Hals, auffällige Ringe",
+        "distinguishingFeature": "Kleine Lupe an einer Silberkette um den Hals, auffällige Ringe aus Holz und Stein",
         "idleAnimation": "Betrachtet ihre Ringe durch die Lupe und schaut zur Theke"
       },
       "motiveAndConflict": "Sie kennt sich mit alten Münzen aus und hat Fatma von der Schatulle in der Turmvitrine erzählt. Herr Schneider fand es seltsam, wie lange sie vor der Vitrine stand.",
@@ -880,7 +895,8 @@
         "kopf": "none",
         "statur": "tall",
         "schnitt": "dress"
-      }
+      },
+      "alltag": "Studiert Kunstgeschichte und stöbert jedes Wochenende auf Flohmärkten."
     },
     {
       "id": "enes",
@@ -925,7 +941,8 @@
         "kopf": "none",
         "statur": "slim",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Ist Erzieher und kocht für alle Tee, ob sie wollen oder nicht."
     },
     {
       "id": "selin",
@@ -966,7 +983,8 @@
         "kopf": "none",
         "statur": "small",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Studiert Biologie und fürchtet sich vor nichts außer alten Rüstungen."
     },
     {
       "id": "hakan",
@@ -1011,7 +1029,8 @@
         "kopf": "none",
         "statur": "normal",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Ist Rechtsreferendar und schlichtet seit der Schulzeit jeden Streit."
     },
     {
       "id": "tugba",
@@ -1052,7 +1071,8 @@
         "kopf": "none",
         "statur": "normal",
         "schnitt": "suit"
-      }
+      },
+      "alltag": "Ist Projektleiterin und plant sogar Geburtstage mit Ablaufplan."
     }
   ],
   "lookHinweis": "Haut- und Haarfarben sind über alle Herkunftsgruppen gestreut und folgen keiner Herkunft (TON-LEITFADEN §7). kopf: Renderer-Kopfbedeckung (none, bun, cap, kopftuch, detektivhut); statur und schnitt wie im Renderer (slim/normal/broad/tall/small, suit/dress)."

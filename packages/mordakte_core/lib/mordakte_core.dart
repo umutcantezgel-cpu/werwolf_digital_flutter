@@ -26,4 +26,5 @@ export 'src/party/kanon/kanon.dart';
 export 'src/party/kanon/schema.dart';
 export 'src/party/kanon/verweise.dart';
 export 'src/party/plausibilitaet.dart';
+export 'src/party/beweise.dart';
 export 'src/party/szenario_export.dart';

@@ -220,6 +220,12 @@
         },
         "bund": {
           "$ref": "#/$defs/text"
+        },
+        "tueren": {
+          "$ref": "#/$defs/text"
+        },
+        "hindernisse": {
+          "$ref": "#/$defs/text"
         }
       },
       "additionalProperties": false

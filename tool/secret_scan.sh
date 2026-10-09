@@ -3,6 +3,7 @@
 #  1. Nichts aus quellen/ (Rohchat) ist je committet worden.
 #  2. Keine Chat-Kopfzeilen des Rohchats im Verlauf.
 #  3. Keine Schlüssel- oder Token-Muster, keine .env-Dateien.
+#  4. Keine längeren wörtlichen Passagen (≥ 120 Zeichen) aus dem Rohchat im Arbeitsstand.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 fehler=0
@@ -36,6 +37,12 @@ fi
 if git ls-files | grep -qE '(^|/)\.env(\..*)?$'; then
   melde ".env-Datei im Index"
 fi
+
+# 4. Keine längeren wörtlichen Passagen aus dem Rohchat in Dateien, die ins Repo gehen
+if ! python3 tool/lib/chat_passagen.py >/tmp/chat_passagen.$$ 2>&1; then
+  melde "wörtliche Chat-Passagen: $(head -3 /tmp/chat_passagen.$$ | tr '\n' ' ')"
+fi
+rm -f /tmp/chat_passagen.$$
 
 if [ "$fehler" -ne 0 ]; then
   echo "Secret-Scan: FEHLER"

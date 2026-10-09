@@ -304,6 +304,36 @@
       }
     },
     {
+      "id": "b_hana_umschlag",
+      "wer": "meryem",
+      "pfade": "alle",
+      "art": "pfadneutral",
+      "kanal": "pflichtgespraech",
+      "text": "Kurz nach zwölf warf Ahmet etwas Raschelndes in den Ascheneimer neben dem Kamin.",
+      "beleg": {
+        "alle": [
+          {
+            "sinn": "sehen",
+            "quelle": "ahmet",
+            "detail": [
+              "erkannt"
+            ],
+            "von": "00:11:30",
+            "bis": "00:12:10"
+          },
+          {
+            "sinn": "hoeren",
+            "quelle": "geraeusch:ahmet",
+            "von": "00:12:00",
+            "bis": "00:12:00"
+          }
+        ]
+      },
+      "belastet": [
+        "ahmet"
+      ]
+    },
+    {
       "id": "b_baran_rufe",
       "wer": "baran",
       "pfade": "alle",

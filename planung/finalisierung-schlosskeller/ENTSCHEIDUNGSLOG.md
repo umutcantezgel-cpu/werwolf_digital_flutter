@@ -154,3 +154,84 @@ Je Befund: übernommen (Ü), teilweise (T), verworfen (V), mit Begründung. Die 
 | G2 offen: PDF-Schriften | Ü | Die PDF-Erzeugung liegt in `mordakte_core` (reines Dart) und bekommt die Schrift-Bytes als Parameter. CLI und App laden sie aus `assets/fonts`. |
 | G2 offen: Spoiler über Entwicklerwerkzeuge | V | Gäste mit Browser-Entwicklerwerkzeugen auszuschließen ist kein Ziel eines Partyspiels und technisch nicht durchsetzbar. Eintrag unter FÜR DEN NUTZER. |
 | G2 Plan-Summe | Ü | PLAN neu gezählt (siehe Kopf). |
+
+## E-014 · Plan-Schleife Runde 2: Entscheidungen zu F0-GEGEN-03a (33 Altbefunde) und F0-GEGEN-03b (13 Befunde Tatnacht, 10 Beweise, 7 offene Fragen)
+- **Ablauf:** Der erste Lauf von F0-GEGEN-03 brach technisch ab (Antwort über der Ausgabegrenze, siehe E-017). Neustart aufgeteilt in 03a (Altbefunde) und 03b (Angriff auf die Tatnacht in Dateien). Beide Rückgaben vollständig (Kopf und Endmarke geprüft).
+- **03a, Urteil:** 13 gelöst, 19 teilweise, 1 offen. Entscheidungen zu den Rest-Lücken:
+
+| Befund | Entscheidung | Folge |
+|---|---|---|
+| G1-1, G2-3 „allein“ undefiniert | Ü | W-1 scharf: Bonus-Hinweise haben **keine** Ausschlusswirkung. Sie bestätigen pfadneutrale Fakten oder decken Nebendelikte auf. Ausschlüsse kommen nur aus Detektiv-Entscheidungen. ABNAHME F-06 ergänzt: Für jede Zahl k richtiger Entscheidungen ist die Restmenge mit beliebigen Hinweisen gleich der Restmenge ohne Hinweise. |
+| G1-2 Raten mit 0 Punkten → E2 | V | Die Endenmatrix B-12 ist Vorgabe des Master-Prompts. Der Simulator weist Rate-Enden aus; der E2-Text spricht das Glück an (F3). |
+| G1-7 Pflichtgespräche | Ü | Der spoiler_test (F-11) prüft auch Pflichtgespräch-Texte und die öffentlichen Dossierteile: Dort dürfen nur Beobachtungen mit `kanal: pflichtgespraech` stehen, und die sind pfadneutral (Prüfer erzwingt das bereits). |
+| G1-9 Simulator-Budget | Ü | Budget in ABNAHME F-06: CLI unter 5 Minuten, Test unter 60 Sekunden. |
+| G1-10, G2-13 Dominanz | T | F2-TEST-04 prüft zusätzlich: Keine Option ist für eine Rolle in allen drei Runden kostenlos. |
+| G1-11 Sabotage | Ü | F2-ORCH-02 erhält das Kanon-Feld `sabotage` je Kernrolle. |
+| G1-12 Lacher, unbesetzte Rollen | Ü | „Verlaufen“ ist vergeben (Olli, 20:15, setting.json). Intro-Bausteine nennen unbesetzte Rollen nur neutral (F3, Erzähler wählt nach Besetzung). |
+| G1-13 Geburtstagskind | Ü (erledigt) | Tatmatrix: Augenbinde 23:55:10–0:00:35, Ost-Saal; Plausibilitätsprüfer prüft es. |
+| G1-15 Täterfassung im Druck | T | Jede Kernrolle bekommt beide Fassungen in versiegelten Umschlägen mit Zufallscode, die Schlüsselkarte nennt nur den Code. Wer das PDF absichtlich durchliest, kann spoilern; das steht unter FÜR DEN NUTZER. |
+| G1-16 Neuprüfung nach Kanon-Änderung | Ü | Regel im PLAN: Jede Kanon-Änderung nach F3 löst Textlint und KONT-Prüfung der betroffenen Texte aus. |
+| G2-5 Bestandsänderungen | Ü | Liste der tatsächlichen Bestandsänderungen in E-016. |
+| G2-6 Ausfallursache bei 4–5 Rollen | Ü (erledigt) | W1: Tim existiert in jeder Besetzung (bei weniger als 6 Rollen als NPC). |
+| G2-9 Worktree ohne SDK | Ü (erledigt) | Aufträge laden die Werkzeugkette über den absoluten Pfad `/home/user/werwolf_digital_flutter/.werkzeug/env.sh`. |
+| G2-10 F-17 und PR-Ersatzweg | Ü | ABNAHME F-17: erfüllt mit main = origin/main und Tag, oder mit dem Ersatzweg aus Master §3 (PR mit Abschlussbericht), wenn eine Schutzregel greift; der Abschlussbericht weist das aus. |
+| G2-16 Wörtliche Passagen | Ü | Secret-Scan Stufe 4: keine Rohchat-Zeile ab 120 Zeichen wörtlich im Arbeitsstand (`tool/lib/chat_passagen.py`). Ein Fund in einem F0-Bericht wurde gekürzt; im Verlauf steht nur dieser einzelne Feldwert, kein Chatauszug. |
+| Übrige „teilweise“ | T | Rest-Lücken sind Aufträge späterer Phasen und dort mit Abnahme belegt (F2–F5). |
+
+- **03b, Tatnacht:**
+
+| Befund | Entscheidung | Begründung, Folge |
+|---|---|---|
+| 1 Jeder Trenner entscheidet den Fall | V (mit Klarstellung) | Logisch schließt ein Trenner genau eine Kernperson aus (Unschuld) oder lässt sie offen (Tatpfad). Die Spätankunft im Tatpfad schließt niemanden aus; die Restmenge entsteht nur aus Ausschlüssen. Gegenkontakt-Paare würden die Trenner zerstören. F2: Die Spätankunft zählt im Entscheidungsmodell nicht als Ausschluss anderer. |
+| 2 Weitere Zeugen am Laufweg (Zeynep, Hana, Wojtek) | V | Der Kaminsaal liegt zwei Türen vom Scheppern entfernt; dort hört niemand das Scheppern (Hörregel). Ohne Bezugsereignis gibt es kein VOR/NACH. Der Wissensvergleich des Prüfers bestätigt es. Regeltext in wahrnehmung.json klargestellt. |
+| 3 Schneider in der Gedächtnislücke | Ü (erledigt) | Der Prüfer kappt Schneiders Wahrnehmungen ab 23:58:14. |
+| 4 Damir im Ahmet-Pfad | V | Das ist der Trenner: Im Ahmet-Pfad fehlt die Berührung genau während des Scheppern. |
+| 5 Pfadverräterische Worte beim Griff | Ü | Ereignistexte neutral, ohne Rede. Der einzige Ruf bleibt „Stehen bleiben!“ in allen Pfaden. |
+| 6 Wojtek-Zeile | Ü (erledigt) | Der Prüfer vergleicht das Leuchten ohne Raumbezug; kein Unterschied mehr. |
+| 7 Quietschende Tür | Ü | Regel: offene Türen quietschen beim Durchgehen nicht; Zustandswechsel einer quietschenden Tür ist laut (im Rechner umgesetzt). |
+| 8 Umschlag-Weg | Ü | Ahmet geht um 0:11 zum Ascheneimer (neue Einrichtung), Hana sieht es (b_hana_umschlag). Planfenster bis 0:15. |
+| 9 Notlaterne | Ü | Als Lichtquelle mit leerem Zeitfenster geführt (brennt nie). |
+| 10 Zeitversatz in Profilen | Ü | Texte an Pläne angeglichen; Tims Stirnlampe rutscht beim Tasten vom Hals. |
+| 11 Notizbuch, Foto, Brottasche | Ü (erledigt) | Stehen als Gegenstände im Kanon, pfadgleich. |
+| 12 Klischee-Kopplung | T | Kopftuch bei Fatma bleibt (Quellmaterial, E-007). Gegengewichte: Fatmas Motiv ist Ehrgeiz und die Rückgabe am Montag; Aylin (Kopftuch) ist die kompetente Kassenprüferin; Emine (Kopftuch) die Lehrerin. Neues Feld `alltag` für alle 20 entkoppelt Herkunft und Beruf (z. B. Wojtek studiert Architektur, Pawel ist Rechtsreferendar, Marek führt einen Catering-Betrieb, Serkan ist Rettungssanitäter). Serkans Titel wie in Behzads JSON: „Der Fahrdienst-Organisator“. Sensibilitätsleser F1-SENS-01 prüft die Gesamtverteilung; die Kopftuch-Frage steht unter FÜR DEN NUTZER. |
+| 13 Pfeife | V | Vorgabe der Einstellungen: Seifenblasenpfeife. |
+| Beweisphysik | T | Azras Ringe aus Holz und Stein (kein Metallabrieb möglich). Übrige Beweise robust; die Beweisprüfung leitet die Entstehung jeder Spur aus der Tatmatrix ab (`beweise_test`). |
+| Offene Fragen 1, 2, 4, 7 | Ü | Leuchten sieht man im Dunkeln auch von weitem (nur als Leuchten); Möbel dämpfen nicht; Joannas Foto trägt die Uhrzeit 23:51; Herkunft wird im Spiel nie als Etikett gezeigt, sie dient nur der Ausgewogenheitsprüfung. |
+
+- **Plan-Schleife:** Nach zwei Runden sind keine schweren Befunde offen; die dritte Runde entfällt. Die nächste Gegenprüfung ist F1-GEGEN-01 auf dem fertigen Kanon.
+
+## E-015 · Tatnacht-Modell und Wahrnehmungsregeln (F1)
+- **Ziel:** Jede Beobachtung ist aus der Tatmatrix ableitbar (7.4), und kein Zeuge löst den Fall allein.
+- **Wege:**
+  1. Handgeschriebene 15-Sekunden-Tabellen je Pfad.
+  2. Pläne je Person (Aufenthalte, Wege über das Raster, Gesagtes, getragenes Licht). Ein Rechner tastet sekundengenau ab und leitet Sehen, Hören, Fühlen und Riechen her. Die 15-Sekunden-Matrix wird daraus erzeugt.
+- **Bewertung:** Weg 1 ist bei 22 Personen × 41 Schritten × 4 Pfaden kaum widerspruchsfrei pflegbar. Weg 2 macht die Regeln prüfbar und die Matrix zum Ableitungsprodukt.
+- **Entscheidung:** Weg 2 (`tatmatrix.dart`, `wahrnehmung.dart`, `plausibilitaet.dart`). Verfeinerte Regeln in wahrnehmung.json:
+  - drei Lautstärken (sehr laut, laut, leise) und Tumult 23:58–0:00 in Buffetsaal, Durchgang und Ost-Saal;
+  - schwaches Licht erkennt bis 3 m, volles Licht im ganzen Raum;
+  - wer kauert, sieht nichts;
+  - der Bund wird in der Faust getragen und klimpert nur beim Abziehen;
+  - Zeitabstände im Dunkeln zählen nicht, nur die Reihenfolge.
+- **Umbauten nach dem Wissensvergleich:**
+  - Lejla trägt um 23:57:40 die Tortenteller in den Ost-Saal.
+  - Olli kauert unschuldig bei Azra statt gegen einen Stuhl zu laufen.
+  - Can versteckt den Bund im Täterpfad im Helm der Ritterrüstung.
+  - Tugba steht ab 23:55 beim Geburtstagskind.
+  - Ahmet startet um 23:58:30.
+  - Ergebnis: Jeder der vier Trenner hat genau einen Zeugen (Azra/Olli, Emine/Fatma, Damir/Ahmet, Marek/Can), und niemand sonst weiß pfadabhängig etwas. Das prüft der Test.
+
+## E-016 · Spike und Bestandsänderungen (F1-ORCH-11)
+- **Ergebnis:** Der Raumgraph lässt sich ohne Umbau im vorhandenen 2.5D-Renderer zeigen. Weg: `partySzenarioJson` baut aus dem Kanon ein Renderer-Szenario mit einer Vorlage für die Pflichtfelder, Einstieg `preview_main.dart?party=schlosskeller`. Playwright-Probelauf: 0 Konsolenfehler, 0 fremde Netzaufrufe. Fotos an den Nutzer geschickt.
+- **Bestandsänderungen bisher** (alle zusätzlich, Standardverhalten unverändert; volle Prüfung grün):
+  1. `LookDef.headColor` (optional) und Kopfbedeckung `kopftuch` in `LookDef.hats`.
+  2. Figurenzeichner: Fall `kopftuch` (kein Haar darunter), Farbe aus `headColor`.
+  3. `preview_main.dart`: Parameter `party`.
+  4. `pubspec.yaml`: Assets `content/party/schlosskeller/` und `tatmatrix/`.
+  5. Barrel: Exporte des Partymodus.
+  6. `build.sh`: `--no-web-resources-cdn` (E-013).
+- **Befund für F4:** Der Tisch-Zeichner des Bestands setzt zufällig grüne Flaschen und Messingleuchter auf Tische. Für den Partymodus wird eine eigene Tafel-Darstellung nötig (Teekanne, Tassen, Wasserkaraffe, elektrische Teelichter). Auftrag F4-ORCH-06.
+- **Kleinere Befunde für F4:** Teekocher und Kaffeemaschine erscheinen als Herd; die Wendeltreppe als Regal; der Detektiv trägt noch den Mordakte-Hut.
+
+## E-017 · Lernen L-02: Ausgabegrenze bei höchster Denkstufe (F0)
+- **Befund:** F0-GEGEN-03 lief 36 Minuten und brach mit „Antwort über 128.000 Ausgabe-Token“ ab. Ursache: ein breiter Prüfauftrag (33 Altbefunde plus Angriff auf Regeln und Kanon) mit `effort: max`.
+- **Maßnahme:** Breite Prüfaufträge werden geteilt. Jeder Auftrag nennt eine Längengrenze (höchstens 1.800 Wörter Bericht). Prüfaufträge laufen mit `effort: high`; `max` bleibt für eng geschnittene Autoren- und Gegenprüfaufträge. AUFTRAGSVORLAGE ergänzt.

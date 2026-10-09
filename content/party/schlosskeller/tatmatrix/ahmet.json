@@ -79,6 +79,31 @@
       {
         "t": "00:00:05",
         "haltung": "steht"
+      },
+      {
+        "t": "00:11:00",
+        "nach": "am_kamin",
+        "bis": "00:11:40",
+        "tempo": "gehen",
+        "ueber": [
+          "theke_klappe",
+          "durchgang_mitte"
+        ]
+      },
+      {
+        "t": "00:12:00",
+        "geraeusch": "Papier raschelt im Ascheneimer",
+        "lautstaerke": "leise"
+      },
+      {
+        "t": "00:12:20",
+        "nach": "vor_theke",
+        "bis": "00:13:00",
+        "tempo": "gehen",
+        "ueber": [
+          "durchgang_mitte",
+          "theke_klappe"
+        ]
       }
     ]
   },
@@ -107,7 +132,7 @@
       "art": "handlung",
       "person": "schneider",
       "ziel": "ahmet",
-      "text": "Herr Schneider packt Ahmet am Arm: „Du schon wieder!“"
+      "text": "Herr Schneider packt Ahmet am Arm."
     },
     {
       "id": "ev_ahmet_schlag",
@@ -153,6 +178,20 @@
           "t": "23:59:01",
           "einrichtung": "jackenstaender",
           "stelle": "in der Innentasche von Ahmets schwarzer Jacke am Jackenständer"
+        }
+      ]
+    },
+    {
+      "id": "umschlag_mietgeld",
+      "spur": [
+        {
+          "t": "23:50:00",
+          "traeger": "ahmet"
+        },
+        {
+          "t": "00:12:00",
+          "einrichtung": "ascheneimer",
+          "stelle": "leer im Ascheneimer neben der Kamin-Nische"
         }
       ]
     }

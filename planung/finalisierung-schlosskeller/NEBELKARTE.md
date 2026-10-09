@@ -22,6 +22,7 @@ Format: Risiko → Frühwarnzeichen → Gegenmaßnahme. Wirkung (W) und Unsicher
 | 16 | Erschöpfender Simulator zu langsam oder unsound | CLI über 5 Minuten, Test über 60 Sekunden, oder ein Test bleibt grün, obwohl eine Sequenz F-06 verletzt | Zustand = (Pfad, aufgedeckte Fakten, Gruppenqualitäten) mit Memo; Restmenge als Funktion der Faktenmenge; nur die Endenmatrix hängt allein an Punkten und Anklage (E-013) | 2 | 2 |
 | 17 | Haiku-Texte driften (erfundene Fakten, lange Sätze) | Textprüfer- und Kontinuitätsbefunde | geschlossene Kanon-Auszüge, Textprüfer vor Abnahme, höchstens 2 Nachbesserungen | 2 | 2 |
 | 19 | Gruppe löst den Fall ohne Detektiv (Tischgespräche, wahre Hinweise) | Gegenprüfer oder Spieltest: Restmenge 1 ohne richtige Entscheidung | W-1, Pflichtgespräche pfadneutral, Rollenwissen nur zusammen mit Entscheidungsbeweisen entlastend | 3 | 2 |
+| 20 | Haiku-Auftrag läuft über die Ausgabegrenze | Abbruch nach langer Laufzeit (L-02) | Aufträge teilen, Längengrenze, `effort: high` für Prüfungen (E-017) | 2 | 1 |
 | 18 | Container-Neustart verliert Arbeitsstand | Neustart-Hinweis der Umgebung | häufige Commits, PRÜFPUNKT nach jedem Block, Werkzeugkette per Skript wiederherstellbar | 2 | 2 |
 
 ## Vorab-Scheitern (Angenommen, das Projekt ist gescheitert)

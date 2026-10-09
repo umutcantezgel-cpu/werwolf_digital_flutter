@@ -21,11 +21,11 @@
       "nachleuchten"
     ],
     "erkennenSchwachBis": 3.0,
-    "regel": "Sehen braucht Licht am Ziel und eine freie Sichtlinie. Bei vollem Licht erkennt man Personen im ganzen Raum. Bei schwachem Licht erkennt man Gesicht und Farben bis 3 m, weiter weg nur Umrisse. Restlicht zeigt nur Umrisse; eine leuchtende Maske zeigt nur ein leuchtendes Gesicht. Wer kauert, liegt oder die Augen verbunden hat, sieht nichts."
+    "regel": "Sehen braucht Licht am Ziel und eine freie Sichtlinie. Bei vollem Licht erkennt man Personen im ganzen Raum. Bei schwachem Licht erkennt man Gesicht und Farben bis 3 m, weiter weg nur Umrisse. Restlicht zeigt nur Umrisse. Etwas, das selbst leuchtet (die Maske), sieht man im Dunkeln auch von weitem, aber nur als leuchtendes Gesicht. Wer kauert, liegt oder die Augen verbunden hat, sieht nichts."
   },
   "hoeren": {
     "klassen": {
-      "sehr_laut": "im selben Raum und in jedem Nachbarraum hinter offener oder angelehnter Tür; auch durch Kopfhörer mit Musik",
+      "sehr_laut": "im selben Raum und in jedem direkt angrenzenden Raum hinter offener oder angelehnter Tür; auch durch Kopfhörer mit Musik; zwei Räume weiter nicht",
       "laut": "im selben Raum; im Nachbarraum nur bis 3 m von der offenen Tür",
       "leise": "im selben Raum bis 3 m"
     },
@@ -47,7 +47,9 @@
       "rennen": "laut"
     },
     "liegend": "Wer bewusstlos liegt, hört nichts.",
-    "bund": "Wer den Schlüsselbund trägt, hält ihn fest in der Faust. Er klimpert nur, als er vom Gürtel gezogen wird."
+    "bund": "Wer den Schlüsselbund trägt, hält ihn fest in der Faust. Er klimpert nur, als er vom Gürtel gezogen wird.",
+    "tueren": "Eine offene Tür quietscht nicht, wenn man hindurchgeht. Wird eine quietschende Tür geöffnet oder geschlossen, ist das laut.",
+    "hindernisse": "Möbel wie Theke und Tische dämpfen nicht; es zählen nur Räume, Türen und Abstand."
   },
   "fuehlen": {
     "bis": 1.0,
@@ -88,7 +90,7 @@
     ],
     "planFenster": [
       "23:50:00",
-      "00:10:00"
+      "00:15:00"
     ]
   },
   "zeitgefuehl": "Im Dunkeln schätzt niemand Zeitabstände verlässlich. Als Wissen zählt nur die Reihenfolge von Ereignissen, die eine Person selbst wahrgenommen hat."

@@ -429,7 +429,8 @@
           "nebendelikt",
           "loyalitaet",
           "luegen",
-          "look"
+          "look",
+          "alltag"
         ],
         "properties": {
           "id": {
@@ -715,6 +716,9 @@
             "additionalProperties": false
           },
           "beweisFarbe": {
+            "$ref": "#/$defs/text"
+          },
+          "alltag": {
             "$ref": "#/$defs/text"
           }
         },

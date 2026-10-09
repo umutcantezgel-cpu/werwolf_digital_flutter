@@ -27,6 +27,9 @@
 - G-1: Sabotage der Täterrolle zählt netto −1, sichtbar ist nur die Qualität.
 - Karte vor dem Finale in allen Pfaden gleich.
 - Pflichtgespräche geben nur pfadneutrales Wissen preis.
+- W-1 scharf (E-014): Bonus-Hinweise schließen niemanden aus; Ausschlüsse nur aus Detektiv-Entscheidungen.
+- Neuprüfung (E-014): Jede Kanon-Änderung nach F3 löst Textlint und KONT-Prüfung der betroffenen Texte aus.
+- Prüfaufträge mit Längengrenze und `effort: high`; breite Aufträge teilen (E-017).
 
 ## F0 – Bestandsaufnahme und Gesamtplan
 | Kennung | Rolle | Gegenstand | Eigene Dateien | Abhängig | Status |
@@ -39,27 +42,27 @@
 | F0-ORCH-02 | ORCH | Planungsordner, BESTAND, BRUCHLISTE Teil 3 | `planung/finalisierung-schlosskeller/*` | Kundschaft | abgenommen |
 | F0-GEGEN-01 | GEGEN | Plan angreifen: Lösbarkeit, Spoiler, Fair Play | – (Bericht) | F0-ORCH-02 | abgenommen (17 Befunde, E-013) |
 | F0-GEGEN-02 | GEGEN | Plan angreifen: Machbarkeit, Dateihoheit, Reihenfolge, Werkzeug | – (Bericht) | F0-ORCH-02 | abgenommen (16 Befunde, E-013) |
-| F0-GEGEN-03 | GEGEN | Runde 2: Sind die Befunde aus Runde 1 im Plan gelöst? Neue Lücken? | – (Bericht) | E-013 | offen |
-| F0-ORCH-04 | ORCH | Werkzeug und Konfiguration: `tool/pruefen.sh` (pub get zuerst, analyze, Tests, Web-Build ohne CDN), `tool/secret_scan.sh`, `build.sh` mit `--no-web-resources-cdn` | `tool/pruefen.sh`, `tool/secret_scan.sh`, `build.sh` | F0-ORCH-02 | offen |
-| F0-ORCH-03 | ORCH | Plan-Schleife (≤ 3 Runden), festschreiben, Tor-Commit, Probe-Push | Planungsordner | GEGEN, F0-ORCH-04 | läuft |
+| F0-GEGEN-03 | GEGEN | Runde 2: Sind die Befunde aus Runde 1 im Plan gelöst? Neue Lücken? | – (Bericht) | E-013 | abgenommen (03a/03b nach Neustart, E-014, E-017) |
+| F0-ORCH-04 | ORCH | Werkzeug und Konfiguration: `tool/pruefen.sh` (pub get zuerst, analyze, Tests, Web-Build ohne CDN), `tool/secret_scan.sh`, `build.sh` mit `--no-web-resources-cdn` | `tool/pruefen.sh`, `tool/secret_scan.sh`, `build.sh` | F0-ORCH-02 | abgenommen (Secret-Scan Stufe 4 seit E-014) |
+| F0-ORCH-03 | ORCH | Plan-Schleife (≤ 3 Runden), festschreiben, Tor-Commit, Probe-Push | Planungsordner | GEGEN, F0-ORCH-04 | abgenommen (2 Runden, Tor-Commit, Push 918cb38 und folgende) |
 
 ## F1 – Kanon und Tatmatrix (Tor F-01 bis F-05)
 | Kennung | Rolle | Gegenstand | Eigene Dateien | Abhängig | Status |
 |---|---|---|---|---|---|
-| F1-ORCH-01 | ORCH | Raumkanon und Raumgraph (Maße, Türen, Licht, Luftzug, Geräuschwege) | `raeume.json`, `party/raumgraph.dart` | F0 | läuft (Entwurf geprüft: Raster, 42 begehbare Orte) |
-| F1-ORCH-02 | ORCH | Kanon-Schema, Loader, Validator, Verweisprüfung | `content/party/schema/*`, `party/kanon/*` | F1-ORCH-01 | offen |
+| F1-ORCH-01 | ORCH | Raumkanon und Raumgraph (Maße, Türen, Licht, Luftzug, Geräuschwege) | `raeume.json`, `party/raumgraph.dart` | F0 | abgenommen (Raumgraph, 43 Orte, Licht, Luftzug; E-015) |
+| F1-ORCH-02 | ORCH | Kanon-Schema, Loader, Validator, Verweisprüfung | `content/party/schema/*`, `party/kanon/*` | F1-ORCH-01 | läuft (Schemas, Lader, Verweise fertig; quellabgleich offen) |
 | F1-ORCH-03 | ORCH | Brüche B-01..B-17, V-01..V-32, A-xx entscheiden | BRUCHLISTE, ENTSCHEIDUNGSLOG | F1-ORCH-01 | offen |
-| F1-ORCH-04 | ORCH | Figuren-Übernahme (JSON-Feldnamen behalten), Herkunft und Namensbalance (E-007), Farbpalette (B-10) | `figuren.json`, `besetzung.json` | F1-ORCH-03 | offen |
-| F1-ORCH-05 | ORCH | Gegenstände und Indizien je Pfad, Setting, gemeinsame Zeitleiste | `gegenstaende.json`, `setting.json`, `zeitleiste.json` | F1-ORCH-03 | offen |
-| F1-ORCH-06 | ORCH | Tatmatrix Ahmet, Fatma, Olli, Can (23:55–0:05, 15 s) | `tatmatrix/*.json` | F1-ORCH-05 | offen |
-| F1-ORCH-07 | ORCH | Wahrnehmungsregeln, Beobachtungen, Plausibilitätsprüfer | `wahrnehmung.json`, `beobachtungen.json`, `party/tatmatrix.dart`, `party/wahrnehmung.dart`, `party/plausibilitaet.dart` | F1-ORCH-06 | offen |
+| F1-ORCH-04 | ORCH | Figuren-Übernahme (JSON-Feldnamen behalten), Herkunft und Namensbalance (E-007), Farbpalette (B-10) | `figuren.json`, `besetzung.json` | F1-ORCH-03 | läuft (figuren.json mit Namensbalance, Palette, Look, Alltag; besetzung.json offen) |
+| F1-ORCH-05 | ORCH | Gegenstände und Indizien je Pfad, Setting, gemeinsame Zeitleiste | `gegenstaende.json`, `setting.json`, `zeitleiste.json` | F1-ORCH-03 | abgenommen (gegenstaende, setting, zeitleiste) |
+| F1-ORCH-06 | ORCH | Tatmatrix Ahmet, Fatma, Olli, Can (23:55–0:05, 15 s) | `tatmatrix/*.json` | F1-ORCH-05 | abgenommen (Pläne je Pfad, 0 Verstöße) |
+| F1-ORCH-07 | ORCH | Wahrnehmungsregeln, Beobachtungen, Plausibilitätsprüfer | `wahrnehmung.json`, `beobachtungen.json`, `party/tatmatrix.dart`, `party/wahrnehmung.dart`, `party/plausibilitaet.dart` | F1-ORCH-06 | abgenommen (Regeln, 30 Beobachtungen, Prüfer; E-015) |
 | F1-ORCH-08 | ORCH | Quellabgleich-Liste (jedes Quellelement → Kanon oder verworfen) | `quellabgleich.json` | F1-ORCH-04..07 | offen |
 | F1-ORCH-10 | ORCH | Besetzungsreihenfolge 4–20 (Geschlechterwechsel je Platz, Stufen als Ordnung) | `besetzung.json` | F1-ORCH-04 | offen |
-| F1-ORCH-11 | ORCH | Spike: Karte aus dem Raumgraph über eine Party-Sitzung im vorhandenen Renderer, eine Figur, Licht, Playwright-Probelauf mit Netzprüfung, PDF-Probeseite | `lib/party/spike/*` (wird in F4 ersetzt oder übernommen) | F1-ORCH-01 | offen |
-| F1-TEST-03 | TEST | Farbabstand ΔE2000 je Startraum (≥ 10) und Beweisfarbe (≥ 20) | `test/party/farbabstand_test.dart` | F1-ORCH-04 | offen |
-| F1-BAUMEISTER-01 | Baumeister | Story-Bibel-Generator (CLI + Aktualitätstest) | `bin/party_bibel.dart`, `party/bibel.dart`, `test/party/story_bibel_test.dart` | F1-ORCH-02 | offen |
-| F1-TEST-01 | TEST | Tests Schema, Verweise, Räume (F-01, F-03) | `test/party/kanon_schema_test.dart`, `raum_test.dart` | F1-ORCH-02 | offen |
-| F1-TEST-02 | TEST | Tests Plausibilität und Beweise (F-04, F-05), Figurenabgleich (F-02) | `test/party/plausibilitaet_test.dart`, `beweise_test.dart`, `figuren_abgleich_test.dart` | F1-ORCH-07 | offen |
+| F1-ORCH-11 | ORCH | Spike: Karte aus dem Raumgraph über eine Party-Sitzung im vorhandenen Renderer, eine Figur, Licht, Playwright-Probelauf mit Netzprüfung, PDF-Probeseite | `lib/party/spike/*` (wird in F4 ersetzt oder übernommen) | F1-ORCH-01 | abgenommen (Karte im Renderer, Playwright 0/0; PDF-Probe offen; E-016) |
+| F1-TEST-03 | TEST | Farbabstand ΔE2000 je Startraum (≥ 10) und Beweisfarbe (≥ 20) | `test/party/farbabstand_test.dart` | F1-ORCH-04 | läuft |
+| F1-BAUMEISTER-01 | Baumeister | Story-Bibel-Generator (CLI + Aktualitätstest) | `bin/party_bibel.dart`, `party/bibel.dart`, `test/party/story_bibel_test.dart` | F1-ORCH-02 | läuft |
+| F1-TEST-01 | TEST | Tests Schema, Verweise, Räume (F-01, F-03) | `test/party/kanon_schema_test.dart`, `raum_test.dart` | F1-ORCH-02 | übernommen (ORCH: kanon_schema_test) |
+| F1-TEST-02 | TEST | Tests Plausibilität und Beweise (F-04, F-05), Figurenabgleich (F-02) | `test/party/plausibilitaet_test.dart`, `beweise_test.dart`, `figuren_abgleich_test.dart` | F1-ORCH-07 | übernommen (ORCH: plausibilitaet_test, beweise_test; figuren_abgleich_test offen) |
 | F1-KONT-01..04 | KONT | je ein Pfad: Tatmatrix, Beobachtungen, Indizien gegen Zeitleiste und Raumgraph | – (Bericht) | F1-ORCH-07 | offen |
 | F1-GEGEN-01 | GEGEN | Körperlichkeit und Exklusivität der Schlüsselbeweise (F-05) | – (Bericht) | F1-ORCH-07 | offen |
 | F1-SENS-01 | SENS | Cast, Herkunftsmatrix, Kopftuch, Motive, Etiketten, Namensklang | – (Bericht) | F1-ORCH-04 | offen |
@@ -69,7 +72,7 @@
 | Kennung | Rolle | Gegenstand | Eigene Dateien | Abhängig | Status |
 |---|---|---|---|---|---|
 | F2-ORCH-01 | ORCH | Entscheidungsmodell: 9 Handlungen, Optionen, Wertung je Pfad, Begründungsketten | `entscheidungen.json`, `party/entscheidungen.dart` | F1 | offen |
-| F2-ORCH-02 | ORCH | Gruppenwahl, Dilemmata (Struktur), Schwellen, Bonus-Wirkungen (36) | `gruppenwahl.json`, `bonus.json`, `party/gruppenwahl.dart` | F2-ORCH-01 | offen |
+| F2-ORCH-02 | ORCH | Gruppenwahl, Dilemmata (Struktur), Schwellen, Bonus-Wirkungen (36), Kanon-Feld `sabotage` je Kernrolle (E-014) | `gruppenwahl.json`, `bonus.json`, `party/gruppenwahl.dart` | F2-ORCH-01 | offen |
 | F2-ORCH-03 | ORCH | Restverdächtige, Endmatrix, Fall-Code, Ablauf-Zustandsautomat, Erzähler-Bausteinwahl | `party/restverdaechtige.dart`, `enden.dart`, `fall_code.dart`, `ablauf.dart`, `erzaehler.dart`, `enden.json`, `erzaehler.json` | F2-ORCH-02 | offen |
 | F2-ORCH-04 | ORCH | Simulator-Kern (erschöpfend, faktorisiert) und CLI | `party/simulator.dart`, `bin/party_simulate.dart` | F2-ORCH-03 | offen |
 | F2-TEST-01 | TEST | Schwellen 4–20 (Grenzwerte), Gruppenwahl-Struktur | `test/party/gruppenwahl_test.dart` | F2-ORCH-02 | offen |
@@ -122,6 +125,7 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 | F4-BAUMEISTER-07 | Baumeister | E2E-Gerüst (playwright@1.56.1, `PLAYWRIGHT_BROWSERS_PATH`, Netz- und Konsolenprüfung, Fotos, verkürzte Rundendauer per Dev-Parameter) | `tool/e2e/*` | F4-ORCH-02 | offen |
 | F4-BAUMEISTER-08 | Baumeister | Titel-, Intro- (mit Lacher-Rückblicken) und Resümee-Bildschirm | `lib/party/bildschirme/titel.dart`, `intro.dart`, `resuemee.dart` | F4-ORCH-02 | offen |
 | F4-BAUMEISTER-09 | Baumeister | NPC-Karte (Befragung unbesetzter Gäste) | `lib/party/bildschirme/npc_karte.dart` | F4-ORCH-02 | offen |
+| F4-ORCH-06 | ORCH | Party-Tafel und Möbel im Renderer: Tische ohne Flaschen und Messingleuchter (Teekanne, Tassen, Karaffe, elektrische Teelichter), Teekocher, Kaffeemaschine, Wendeltreppe, Detektiv-Look (E-016) | `lib/game/scene/prop_painter.dart` (optional, nur Partymodus) | F1-ORCH-11 | offen |
 | F4-ORCH-05 | ORCH | Spielleitung: Täter für Testläufe festlegen; Pfeife mit Seifenblasen; Gags an Rüstung und Kamin | `lib/party/spiel/*` | F4-ORCH-01 | offen |
 | F4-ORCH-03 | ORCH | Rückblende (Zeitraffer der Tatmatrix), Ruhe-Animationen, Integration; Rückblende-Schnittstelle schon mit F4-ORCH-01 festgelegt | `lib/party/spiel/rueckblende.dart` | F4-BAUMEISTER-* | offen |
 | F4-TEST-02 | TEST | Karte vor dem Finale pfadgleich (Objektliste, Marker, Licht) und Widget-Tests je Bildschirm | `test/party/karte_pfadgleich_test.dart`, `test/party_widgets/*` | F4-ORCH-01 | offen |
@@ -156,4 +160,4 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 | F7-ORCH-01 | ORCH | Abschlussbericht mit Beleg je F-Kriterium | `planung/.../ABSCHLUSSBERICHT.md` | F7-DOKU-01 | offen |
 | F7-ORCH-02 | ORCH | origin holen, zusammenführen, alles testen, Secret-Scan, lokales main per `--ff-only` auf origin/main, Merge, Push, Tag; bei Schutzregel PR (Master §3) | – | F7-ORCH-01 | offen |
 
-**Summe:** 168 Aufträge, davon 33 ORCH (gezählt mit Bereichen wie F3-AUTOR-01..05 = 5). Puffer: 20 % für Nachbesserungen, das sind etwa 34 Läufe.
+**Summe:** 169 Aufträge, davon 34 ORCH (gezählt mit Bereichen wie F3-AUTOR-01..05 = 5). Puffer: 20 % für Nachbesserungen, das sind etwa 34 Läufe.

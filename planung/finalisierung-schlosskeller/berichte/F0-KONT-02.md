@@ -62,7 +62,7 @@ Fassung A = L (Markdown-Figurenliste, Zeilen 383–469). Fassung B = J (JSON, Ze
 | 18 | Selin | Alibi | L: kein Feld | J 919: „Kauerte verängstigt auf der Wandbank im West-Saal.“ | Fehlt in L |
 | 18 | Selin | Farbcode | L 450: „Farbcode: Pastellrosa“ | J 909: „#D8A7B1“ | nicht vergleichbar |
 | 19 | Hakan | Erkennungsmerkmal | L 459: „Trinkt ruhig Tee, gelassene und aufrechte Haltung“ | J 936: „Dunkelbraune Ledertasche neben sich auf der Bank, ruhiger Blick“ (J 937: „Nimmt einen langsamen Schluck aus seiner Tasse“) | Abweichung (Tee nicht genannt in J) |
-| 19 | Hakan | Motiv | L 457: „Versuchte um 23:00 Uhr, den Streit zwischen Schneider und Olli zu beruhigen“ | J 939: „Versuchte um 23:00 Uhr, den Streit zwischen Schneider und Olli diplomatisch zu schlichten; wurde von Schneider barsch abgewiesen.“ | konsistent (Uhrzeit); Ergänzung |
+| 19 | Hakan | Motiv | L 457: „Versuchte um 23:00 Uhr, den Streit zwischen Schneider und Olli zu beruhigen“ | J 939: wie L, zusätzlich „diplomatisch“ und „barsch abgewiesen“ (gekürzt, Passagenregel E-014) | konsistent (Uhrzeit); Ergänzung |
 | 19 | Hakan | Geheimnis (Institution) | L 461: „mit der Schlossverwaltung“ | J 941: „mit der Schlossstiftung“ | Widerspruch (Institution) |
 | 19 | Hakan | Geheimnis (Zusatz) | L 461: „Weiß von Schneiders privaten finanziellen Konflikten“ | J 941: „Kennt Schneiders private Handynummer und weiß von dessen finanziellen Problemen“ | Ergänzung |
 | 19 | Hakan | Alibi | L: kein Feld | J 940: „Blieb ruhig am Tisch im Ost-Saal sitzen und forderte alle auf, keine Panik zu schieben.“ | Fehlt in L |
