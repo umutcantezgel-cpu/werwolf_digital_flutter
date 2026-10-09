@@ -1,118 +1,28 @@
-// Szenenmessung (P0-AUTOR-04, HZ-12): Bildkosten je Arbeitsschritt in vier festen Spielszenen.
-// Aufruf aus packages/burgstadt_spiel: dart run bin/szenen_mess.dart [breite höhe] [--welt BxH] [--bilder N] [--json <pfad>] [--probe <pfad>]
+// Szenenmessung (P0-AUTOR-04, HZ-12; REP-03 Szenenmessung v2): Bildkosten je Arbeitsschritt in fünf
+// festen Spielszenen, je Szene R = 3 Läufe; je Schritt der Median der Läufe, Spanne der Bildzeit in %.
+// Zeit: Prozessorzeit des Threads (Linux, bin/mess/cpu_uhr.dart), sonst Wanduhr.
+// Aufruf aus packages/burgstadt_spiel:
+//   dart run bin/szenen_mess.dart [breite höhe] [--welt BxH] [--bilder N] [--handylicht an|aus] [--json <pfad>] [--probe <pfad>]
 // Schritte aus Spiel.zeichneBereich (lib/src/spiel.dart) einzeln gemessen, Kamera und Sitzung wie Erkundung.zeichneWelt.
-// Kamerawahl aus bin/belegfotos.dart übernommen. lib/ bleibt unverändert.
+// Szenenwahl in bin/mess/szenen.dart. lib/ bleibt unverändert.
 
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math' as math;
 import 'dart:typed_data';
 
-import 'package:burgstadt_core/burgstadt_core.dart';
-import 'package:burgstadt_core/burgstadt_core_io.dart';
 import 'package:burgstadt_spiel/burgstadt_spiel.dart';
 import 'package:burgstadt_spiel/burgstadt_spiel_io.dart';
 import 'package:burgstadt_spiel/src/spuren_geometrie.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
+import 'mess/cpu_uhr.dart';
+import 'mess/szenen.dart';
+
 const _aufwaermen = 60;
+const _laeufe = 3; // R: jede Szene R-mal komplett gemessen
 const _schritt = 1 / 30; // Simulationsschritt je Bild wie im Spiel
 const _kopfHoehe = 1.62; // Kamerahöhe wie Erkundung.zeichneWelt
-const _mindestSicht = 2.5;
-const _mitteMindestStadt = 6.0;
-const _bildStrahlen = [-0.8, -0.53, -0.27, 0.0, 0.27, 0.53, 0.8];
-
-typedef _Richt = ({double yaw, double min, double mittel, double wert});
-typedef _Blick = ({String marke, double x, double z, double yaw, double min, double mittel});
-typedef _Szene = ({String name, Bereich bereich, double x, double z, double yaw, String marke});
-
-// ------------------------------------------------------------ Kamerawahl (aus bin/belegfotos.dart)
-
-/// Freie Sichtweite ab (x, z) in Richtung [yaw] bis zur ersten nicht begehbaren Kachel.
-double _sichtweite(Bereich b, double x, double z, double yaw, {double max = 14}) {
-  final dx = math.cos(yaw), dz = math.sin(yaw);
-  for (var t = 0.1; t <= max; t += 0.1) {
-    if (!b.begehbar(((x + dx * t) / kKachel).floor(), ((z + dz * t) / kKachel).floor())) return t - 0.1;
-  }
-  return max;
-}
-
-/// Beste Blickrichtung (16 Richtungen): kleinste Bildsicht >= mindest, Mittelstrahl >= mitteMindest.
-_Richt? _besterBlick(Bereich b, double x, double z, double bevorzugt, double mindest, double mitteMindest) {
-  _Richt? beste;
-  for (var k = 0; k < 16; k++) {
-    final yaw = k / 8 * math.pi;
-    final s = [for (final d in _bildStrahlen) _sichtweite(b, x, z, yaw + d)];
-    final mn = s.reduce(math.min), mt = s.reduce((a, c) => a + c) / s.length;
-    if (mn < mindest || _sichtweite(b, x, z, yaw) < mitteMindest) continue;
-    final wert = mt + 0.01 * math.cos(yaw - bevorzugt);
-    if (beste == null || wert > beste.wert) beste = (yaw: yaw, min: mn, mittel: mt, wert: wert);
-  }
-  return beste;
-}
-
-/// Raster 0,25 m bis 2 m um (x0, z0): Standort x, Standort z, Abstand zur Mitte.
-Iterable<(double, double, double)> _raster(double x0, double z0) sync* {
-  for (var ox = -2.0; ox <= 2.0 + 1e-9; ox += 0.25) {
-    for (var oz = -2.0; oz <= 2.0 + 1e-9; oz += 0.25) {
-      final d = math.sqrt(ox * ox + oz * oz);
-      if (d <= 2.0 + 1e-9) yield (x0 + ox, z0 + oz, d);
-    }
-  }
-}
-
-/// Blick vor einer Haustür (stadtBlick aus belegfotos.dart).
-_Blick? _stadtBlick(Bereich b, String marke) {
-  final (tx, tz) = b.marken[marke]!;
-  final (px, pz) = b.markePos(marke);
-  for (final (dx, dz) in const [(0, -1), (0, 1), (-1, 0), (1, 0)]) {
-    if (b.dingAn(tx - dx, tz - dz)?.legende.art != KachelArt.tuer) continue;
-    final bevorzugt = math.atan2(dz.toDouble(), dx.toDouble());
-    _Blick? beste;
-    for (final (x, z, d) in _raster(px, pz)) {
-      final ox = x - px, oz = z - pz;
-      if (d < 1.0 - 1e-9 || d > 2.0 + 1e-9 || ox * dx + oz * dz < 0 || !b.frei(x, z)) continue;
-      final r = _besterBlick(b, x, z, bevorzugt, _mindestSicht, _mitteMindestStadt);
-      if (r != null && (beste == null || r.mittel > beste.mittel)) beste = (marke: marke, x: x, z: z, yaw: r.yaw, min: r.min, mittel: r.mittel);
-    }
-    return beste;
-  }
-  return null;
-}
-
-/// Blick vom Ankunftspunkt nahe der Marke (innenBlick aus belegfotos.dart; hier auch für den Burghof).
-_Blick? _ankunftBlick(Bereich b, String marke) {
-  final (mx, mz) = b.markePos(marke);
-  _Blick? beste;
-  var bestAbstand = double.infinity;
-  for (final (x, z, abstand) in _raster(mx, mz)) {
-    if (abstand > bestAbstand + 1e-9 || !b.frei(x, z)) continue;
-    final mitte = math.atan2(b.tiefe * kKachel / 2 - z, b.breite * kKachel / 2 - x);
-    final r = _besterBlick(b, x, z, mitte, _mindestSicht, 0);
-    if (r != null && (beste == null || abstand < bestAbstand - 1e-9 || r.mittel > beste.mittel)) {
-      beste = (marke: marke, x: x, z: z, yaw: r.yaw, min: r.min, mittel: r.mittel);
-      bestAbstand = abstand;
-    }
-  }
-  return beste;
-}
-
-/// Nächste begehbare Stelle um (x0, z0).
-(double, double)? _naechsterFreier(Bereich b, double x0, double z0) {
-  (double, double)? beste;
-  var bestAbstand = double.infinity;
-  for (final (x, z, a) in _raster(x0, z0)) {
-    if (a < bestAbstand - 1e-9 && b.frei(x, z)) {
-      bestAbstand = a;
-      beste = (x, z);
-    }
-  }
-  return beste;
-}
-
-double _abstand(double ax, double az, double bx, double bz) => math.sqrt((ax - bx) * (ax - bx) + (az - bz) * (az - bz));
-
-// ------------------------------------------------------------ Messung
 
 /// Ein Bild: Zeiten in Mikrosekunden und Zählwerte aus renderer.stats.
 class _Bild {
@@ -123,34 +33,57 @@ class _Bild {
   int get bild => himmel + meshes + sprites + fledermaeuse + rgba;
 }
 
+/// Zeitmessung in Mikrosekunden: Prozessorzeit des Threads, sonst Wanduhr.
+class _Uhr {
+  _Uhr(this._cpu);
+  final double Function()? _cpu;
+  final Stopwatch _sw = Stopwatch();
+  String get name => _cpu == null ? 'Wanduhr' : 'Thread-CPU';
+
+  /// Dauer von [tu] in Mikrosekunden.
+  int messe(void Function() tu) {
+    final cpu = _cpu;
+    if (cpu == null) {
+      _sw..reset()..start();
+      tu();
+      return (_sw..stop()).elapsedMicroseconds;
+    }
+    final t0 = cpu();
+    tu();
+    return ((cpu() - t0) * 1000).round();
+  }
+}
+
 /// Misst die Schritte von Spiel.zeichneBereich je Bild; die Simulation läuft ungemessen weiter.
 class _Messer {
-  _Messer(this.spiel, this.s, this.sz, this.r, this.buf, this.rgba, this.spurenMesh)
+  _Messer(this.spiel, this.s, this.sz, this.r, this.buf, this.rgba, this.spurenMesh, this.uhr, bool licht)
       : g = spiel.geometrie(sz.bereich.id),
         fled = sz.bereich.id == 'stadt' ? Fledermaeuse(sz.bereich) : null {
-    // Nebel und Fackellicht wie Spiel.zeichneBereich und Erkundung.zeichneWelt
+    // Nebel und Fackellicht wie Spiel.zeichneBereich und Erkundung.zeichneWelt; Handylicht per --handylicht
     r.fogStart = sz.bereich.innen ? 3 : 8;
     r.fogEnd = sz.bereich.innen ? 20 : 46;
     r.groundFog = sz.bereich.innen ? 0 : 0.25;
-    r.flashStrength = 0.9;
+    r.flashStrength = licht ? 0.9 : 0.0;
   }
 
   final Spiel spiel;
   final Fallsitzung s;
-  final _Szene sz;
+  final Szene sz;
   final Renderer r;
   final PixelBuffer buf;
   final Uint8List rgba;
   final Mesh? spurenMesh;
+  final _Uhr uhr;
   final BereichGeometrie g;
   final Fledermaeuse? fled;
-  final _sw = Stopwatch();
 
-  /// Dauer von [tu] in Mikrosekunden.
-  int _zeit(void Function() tu) {
-    _sw..reset()..start();
-    tu();
-    return (_sw..stop()).elapsedMicroseconds;
+  /// Ein Sprite an (x, z) mit Blick [yaw]: Richtung zur Kamera, Licht am Standort wie Spiel.zeichneBereich.
+  void _figur(String id, String anim, double t, double yaw, double x, double z) {
+    final c = r.camera;
+    final bild = s.figuren.bild(id, anim, t, FigurenLager.richtung(yaw, x, z, c.x, c.z));
+    if (bild == null) return;
+    final (w, k) = g.licht(x, 1.0, z);
+    r.drawSprite(bild, x, 0, z, warm: w, cold: k);
   }
 
   _Bild bild(double yaw, {bool blick = false}) {
@@ -159,42 +92,44 @@ class _Messer {
     s.tick(_schritt);
     s.position(sz.bereich.id, sz.x, sz.z, yaw, 'stehen', _schritt);
     fled?.tick(_schritt);
-    final c = r.camera..x = sz.x..z = sz.z..y = _kopfHoehe..yaw = yaw..pitch = 0;
+    r.camera..x = sz.x..z = sz.z..y = _kopfHoehe..yaw = yaw..pitch = 0;
     // 1. Löschen bzw. Himmel
-    z.himmel = _zeit(() {
+    z.himmel = uhr.messe(() {
       r.begin();
       if (sz.bereich.innen) { buf.clear(Pal.black); } else { r.drawSky(); }
     });
     // 2. Meshes des Bereichs
-    z.meshes = _zeit(() { for (final m in g.meshes) { r.drawMesh(m); } });
-    // 3. Figuren als Sprites
-    z.sprites = _zeit(() {
+    z.meshes = uhr.messe(() { for (final m in g.meshes) { r.drawMesh(m); } });
+    // 3. Figuren als Sprites: Figurenszene feste Plätze, sonst die Figuren der Simulation
+    z.sprites = uhr.messe(() {
+      final feste = sz.figuren;
+      if (feste != null) {
+        for (final p in feste) { _figur(p.figur, 'stehen', 0, p.yaw, p.x, p.z); }
+        return;
+      }
       for (final f in s.sim.figuren.values) {
         if (f.id == s.ich || f.bereich != sz.bereich.id) continue;
-        final sprite = s.figuren.bild(f.id, f.animation, f.animZeit, FigurenLager.richtung(f.yaw, f.x, f.z, c.x, c.z));
-        if (sprite == null) continue;
-        final (w, k) = g.licht(f.x, 1.0, f.z);
-        r.drawSprite(sprite, f.x, 0, f.z, warm: w, cold: k);
+        _figur(f.id, f.animation, f.animZeit, f.yaw, f.x, f.z);
       }
     });
     // 4. Fledermäuse (nur Oberstadt)
     final fl = fled;
-    z.fledermaeuse = fl == null ? 0 : _zeit(() => fl.zeichne(r));
+    z.fledermaeuse = fl == null ? 0 : uhr.messe(() => fl.zeichne(r));
     final st = r.stats;
     z.meshesG = st.meshesDrawn; z.meshesE = st.meshesSubmitted;
     z.dreieckeG = st.trianglesDrawn; z.dreieckeE = st.trianglesSubmitted;
     z.spritesG = st.spritesDrawn; z.pixel = st.pixelsWritten;
     if (!blick) {
       // 6. Umwandlung nach RGBA in den vorhandenen Puffer
-      z.rgba = _zeit(() => buf.toRgba(rgba));
+      z.rgba = uhr.messe(() => buf.toRgba(rgba));
     } else {
       // 5. Detektivblick: Welt entsättigen, dann Spuren darüber (wie Spiel.zeichneBereich)
-      z.filter = _zeit(() { final col = buf.color; for (var i = 0; i < col.length; i++) { col[i] = blickFilter[col[i]]; } });
+      z.filter = uhr.messe(() { final col = buf.color; for (var i = 0; i < col.length; i++) { col[i] = blickFilter[col[i]]; } });
       final m = spurenMesh;
       if (m != null) {
         final alt = r.ambientCold;
         r.ambientCold = 0.6;
-        z.spurenMesh = _zeit(() => r.drawMesh(m));
+        z.spurenMesh = uhr.messe(() => r.drawMesh(m));
         r.ambientCold = alt;
       }
     }
@@ -212,6 +147,13 @@ Never _abbrechen(String meldung) {
 double _mittel(Iterable<num> xs) {
   final l = xs.toList();
   return l.fold<double>(0, (a, b) => a + b) / l.length;
+}
+
+/// Median; bei gerader Anzahl das Mittel der beiden mittleren Werte.
+double _median(List<double> xs) {
+  final s = [...xs]..sort();
+  final m = s.length ~/ 2;
+  return s.length.isOdd ? s[m] : (s[m - 1] + s[m]) / 2;
 }
 
 String _f(double x, [int n = 2]) => x.toStringAsFixed(n);
@@ -237,20 +179,74 @@ Map<String, double> _kenn(List<_Bild> liste, int n) {
   };
 }
 
-/// Kleinste Quadrate ohne Achsenabschnitt: Zeit (µs) = a·Dreiecke + b'·Pixel. Liefert a (µs/Dreieck), b (ns/Pixel).
-(double, double) _regression(List<_Bild> liste) {
-  var s11 = 0.0, s12 = 0.0, s22 = 0.0, r1 = 0.0, r2 = 0.0;
-  for (final z in liste) {
-    final x1 = z.dreieckeG.toDouble(), x2 = z.pixel.toDouble(), y = z.meshes.toDouble();
-    s11 += x1 * x1; s12 += x1 * x2; s22 += x2 * x2;
-    r1 += x1 * y; r2 += x2 * y;
+/// Je Kennzahl der Median über die Läufe einer Szene.
+Map<String, double> _medianKarte(List<Map<String, double>> laeufe) =>
+    {for (final k in laeufe.first.keys) k: _median([for (final l in laeufe) l[k]!])};
+
+/// Löst A·x = b (3×3) mit Gauß und Teilpivotierung; bricht bei singulärer Matrix ab.
+List<double> _gauss(List<List<double>> a, List<double> b) {
+  const n = 3;
+  final m = [for (var i = 0; i < n; i++) [...a[i], b[i]]];
+  for (var c = 0; c < n; c++) {
+    var p = c;
+    for (var r = c + 1; r < n; r++) {
+      if (m[r][c].abs() > m[p][c].abs()) p = r;
+    }
+    if (m[p][c].abs() < 1e-12) _abbrechen('Regression singulär (Spalte $c)');
+    final tausch = m[c];
+    m[c] = m[p];
+    m[p] = tausch;
+    for (var r = c + 1; r < n; r++) {
+      final f = m[r][c] / m[c][c];
+      for (var k = c; k <= n; k++) {
+        m[r][k] -= f * m[c][k];
+      }
+    }
   }
-  final det = s11 * s22 - s12 * s12;
-  return ((r1 * s22 - r2 * s12) / det, (s11 * r2 - s12 * r1) / det * 1000);
+  final x = List.filled(n, 0.0);
+  for (var r = n - 1; r >= 0; r--) {
+    var s = m[r][n];
+    for (var k = r + 1; k < n; k++) {
+      s -= m[r][k] * x[k];
+    }
+    x[r] = s / m[r][r];
+  }
+  return x;
+}
+
+/// Kleinste Quadrate ohne Achsenabschnitt: Meshes-Zeit (µs) = a·Dreiecke + b'·Pixel + c·Meshes
+/// (je Bild). Normalgleichungen 3×3 mit Spaltenskalierung. Liefert a (µs/Dreieck), b (ns/Pixel),
+/// c (µs/Mesh) und R² = 1 − Σ(Rest²)/Σ(y − ȳ)², zentriert, weil der unzentrierte Wert ohne
+/// Achsenabschnitt stets nahe 1 läge.
+(double, double, double, double) _regression(List<_Bild> liste) {
+  final x = [for (final z in liste) [z.dreieckeG.toDouble(), z.pixel.toDouble(), z.meshesG.toDouble()]];
+  final y = [for (final z in liste) z.meshes.toDouble()];
+  final skal = [for (var j = 0; j < 3; j++) math.sqrt(x.fold(0.0, (s, r) => s + r[j] * r[j]))];
+  final ata = [for (var j = 0; j < 3; j++) List.filled(3, 0.0)];
+  final atb = List.filled(3, 0.0);
+  for (var i = 0; i < x.length; i++) {
+    final u = [for (var j = 0; j < 3; j++) x[i][j] / skal[j]];
+    for (var j = 0; j < 3; j++) {
+      atb[j] += u[j] * y[i];
+      for (var k = 0; k < 3; k++) {
+        ata[j][k] += u[j] * u[k];
+      }
+    }
+  }
+  final g = _gauss(ata, atb);
+  final beta = [for (var j = 0; j < 3; j++) g[j] / skal[j]];
+  final mittel = _mittel(y);
+  var rest = 0.0, streu = 0.0;
+  for (var i = 0; i < x.length; i++) {
+    final rechnung = beta[0] * x[i][0] + beta[1] * x[i][1] + beta[2] * x[i][2];
+    rest += (y[i] - rechnung) * (y[i] - rechnung);
+    streu += (y[i] - mittel) * (y[i] - mittel);
+  }
+  return (beta[0], beta[1] * 1000, beta[2], 1 - rest / streu);
 }
 
 void main(List<String> args) {
-  var breite = 1280, hoehe = 720, bilder = 120;
+  var breite = 1280, hoehe = 720, bilder = 120, licht = true;
   int? weltB, weltH;
   String? jsonPfad, probePfad;
   final zahlen = <int>[];
@@ -262,6 +258,10 @@ void main(List<String> args) {
       weltH = int.parse(t[1]);
     } else if (a == '--bilder') {
       bilder = int.parse(args[++i]);
+    } else if (a == '--handylicht') {
+      final wert = args[++i];
+      if (wert != 'an' && wert != 'aus') _abbrechen('--handylicht erwartet an oder aus');
+      licht = wert == 'an';
     } else if (a == '--json') {
       jsonPfad = args[++i];
     } else if (a == '--probe') {
@@ -271,8 +271,10 @@ void main(List<String> args) {
     }
   }
   if (zahlen.length == 2) { breite = zahlen[0]; hoehe = zahlen[1]; }
-  else if (zahlen.isNotEmpty) { _abbrechen('Aufruf: dart run bin/szenen_mess.dart [breite höhe] [--welt BxH] [--bilder N] [--json <pfad>] [--probe <pfad>]'); }
+  else if (zahlen.isNotEmpty) { _abbrechen('Aufruf: dart run bin/szenen_mess.dart [breite höhe] [--welt BxH] [--bilder N] [--handylicht an|aus] [--json <pfad>] [--probe <pfad>]'); }
 
+  final cpuUhr = threadCpuUhr();
+  final uhr = _Uhr(cpuUhr);
   // Welt und Fall wie in bin/leistung.dart: Phase 2, Oberstadt offen, Figuren und Bewohner da
   final spiel = Spiel()..groesse(breite, hoehe);
   ladeAusRepo(spiel);
@@ -281,7 +283,7 @@ void main(List<String> args) {
   s.fall.phase = 2;
   s.fall.uhr = 100;
   spiel.wechsle(Erkundung(sitzung: s));
-  s.figuren.alleBacken(); // Sprites vorab brennen, damit die Sprite-Zeit kein Brennen enthält
+  s.figuren.alleBacken(); // Sprites vorab brennen (auch die der Figurenszene), damit die Sprite-Zeit kein Brennen enthält
 
   // Zeichenziel: Welt des Spiels, oder eigener Puffer bei --welt (Sichtfeld wie Spiel._sichtfeld)
   final PixelBuffer buf;
@@ -299,97 +301,100 @@ void main(List<String> args) {
     r.camera.fovY = fovY;
   }
 
-  // Die vier festen Szenen
-  final stadt = spiel.stadt.bereiche['stadt']!;
-  final (bx, bz) = stadt.markePos('b');
-  final (mx, mz) = _naechsterFreier(stadt, bx, bz) ?? _abbrechen('Marke b in stadt: kein freier Standort');
-  // 1. Marktplatz: Marke b, Startblick in die längste freie Gasse (bis 60 m)
-  var langYaw = 0.0, langSicht = -1.0;
-  for (var k = 0; k < 16; k++) {
-    final yaw = k / 8 * math.pi, t = _sichtweite(stadt, mx, mz, yaw, max: 60);
-    if (t > langSicht) { langSicht = t; langYaw = yaw; }
+  // Die fünf festen Szenen; Figurenszene mit den ersten acht Rollenkarten der Sitzung
+  final halbX = math.atan(math.tan(r.camera.fovY / 2) * buf.width / buf.height);
+  final figurIds = [for (final id in s.fall.rollen) if (s.figuren.karten.containsKey(id)) id].take(figurenZahl).toList();
+  if (figurIds.length < figurenZahl) _abbrechen('Figurenszene: ${figurIds.length} Rollenkarten statt $figurenZahl');
+  late final List<Szene> szenen;
+  try {
+    szenen = waehleSzenen(spiel, figurIds, halbX);
+  } on StateError catch (e) {
+    _abbrechen(e.message);
   }
-  final szenen = <_Szene>[(name: 'Marktplatz', bereich: stadt, x: mx, z: mz, yaw: langYaw, marke: 'b')];
-  // 2. Zweite Stelle: Haustür-Marke mit dem weitesten Blick, mindestens 5 m vom Marktplatz
-  _Blick? zweite;
-  for (final m in stadt.marken.keys.toList()..sort()) {
-    final k = m.startsWith('vor-') ? _stadtBlick(stadt, m) : null;
-    if (k == null || _abstand(k.x, k.z, mx, mz) < 5) continue;
-    if (zweite == null || k.mittel > zweite.mittel) zweite = k;
-  }
-  final z2 = zweite ?? _abbrechen('Keine Oberstadt-Marke mit freiem Blick');
-  szenen.add((name: 'Oberstadt zweite Stelle', bereich: stadt, x: z2.x, z: z2.z, yaw: z2.yaw, marke: z2.marke));
-  // 3. Größter Fall-Ort aus fallorte.json (Rasterfläche Breite × Tiefe)
-  final fallDatei = jsonDecode(File('${findeRepoWurzel()!}/packages/burgstadt_core/data/innenraeume/fallorte.json').readAsStringSync()) as Map;
-  Bereich? gross;
-  for (final e in fallDatei['bereiche'] as List) {
-    final b = spiel.stadt.bereiche[(e as Map)['id'] as String];
-    if (b != null && (gross == null || b.breite * b.tiefe > gross.breite * gross.tiefe)) gross = b;
-  }
-  final innen = gross ?? _abbrechen('Kein Fall-Ort in fallorte.json');
-  // Ankunftsmarke: Tür aus der Oberstadt in den Raum (wie belegfotos.dart)
-  var marke = stadt.dinge.where((d) => d.legende.art == KachelArt.tuer && d.legende.ziel == innen.id && d.legende.zielMarke != null)
-      .map((d) => d.legende.zielMarke!).firstOrNull ?? 't';
-  if (!innen.marken.containsKey(marke)) marke = (innen.marken.keys.toList()..sort()).first;
-  final ki = _ankunftBlick(innen, marke) ?? _abbrechen('Kein Blick im Raum ${innen.id}');
-  szenen.add((name: 'Innenraum ${innen.name}', bereich: innen, x: ki.x, z: ki.z, yaw: ki.yaw, marke: marke));
-  // 4. Burghof: Ankunftsmarke b am Burgtor
-  final hof = spiel.stadt.bereiche['hof'] ?? _abbrechen('Bereich hof fehlt');
-  final hm = hof.marken.containsKey('b') ? 'b' : (hof.marken.keys.toList()..sort()).first;
-  final kh = _ankunftBlick(hof, hm) ?? _abbrechen('Kein Blick im Burghof');
-  szenen.add((name: 'Burghof', bereich: hof, x: kh.x, z: kh.z, yaw: kh.yaw, marke: hm));
+  // Figurenszene: alle Figuren gebrannt (alleBacken oben), vor der Messung geprüft
+  final fest = szenen.firstWhere((sz) => sz.figuren != null);
+  final ohneBild = [for (final p in fest.figuren!) if (s.figuren.bild(p.figur, 'stehen', 0, FigurenLager.richtung(p.yaw, p.x, p.z, fest.x, fest.z)) == null) p.figur];
+  if (ohneBild.isNotEmpty) _abbrechen('Figuren ohne Brand: ${ohneBild.join(', ')}');
 
   final welt = '${buf.width}x${buf.height}', n = buf.width * buf.height;
   final rgba = Uint8List(n * 4);
+  final spurMeshes = [for (final sz in szenen) baueSpurenMesh(spiel.spurenFuer(s), sz.bereich.id, s.fall.phase, 'detektiv', TexturId.values.length)];
   stdout.writeln('Sitzung: 20 Rollen · Bewohner ${s.sim.bewohner.length} · Phase ${s.fall.phase} · Welt $welt'
-      '${weltB == null ? ' (Qualität ${spiel.optionen.qualitaet.name})' : ' (erzwungen)'} · $bilder Bilder je Szene · Aufwärmen $_aufwaermen');
+      '${weltB == null ? ' (Qualität ${spiel.optionen.qualitaet.name})' : ' (erzwungen)'} · $bilder Bilder je Szene · Aufwärmen $_aufwaermen · '
+      '$_laeufe Läufe je Szene · Handylicht ${licht ? 'an' : 'aus'} · Uhr ${uhr.name}');
+  if (cpuUhr == null) stdout.writeln('Hinweis: keine Prozessorzeit-Uhr (kein Linux oder libc nicht ladbar), Wanduhr statt Thread-CPU.');
+  stdout.writeln('Figuren ${fest.figuren!.length} · Abstand m ${[for (final p in fest.figuren!) _f(abstand(p.x, p.z, fest.x, fest.z), 1)].join(' · ')}');
+
+  // Messung: je Lauf alle Szenen (Läufe außen, damit Lastschwankungen auf alle Szenen verteilt wirken)
   final alle = <_Bild>[];
-  final szenenJson = <Map<String, Object?>>[];
-  for (final (idx, sz) in szenen.indexed) {
-    final spurMesh = baueSpurenMesh(spiel.spurenFuer(s), sz.bereich.id, s.fall.phase, 'detektiv', TexturId.values.length);
-    final m = _Messer(spiel, s, sz, r, buf, rgba, spurMesh);
-    double winkel(int i) => sz.yaw + 2 * math.pi * (i % bilder) / bilder;
-    for (var i = 0; i < _aufwaermen; i++) {
-      m.bild(winkel(i));
-    }
-    // Auch der Blickpfad läuft vorab, sonst misst die Blickzeile das JIT mit
-    m.bild(sz.yaw, blick: true);
-    m.bild(sz.yaw, blick: true);
-    final liste = <_Bild>[];
-    for (var i = 0; i < bilder; i++) {
-      liste.add(m.bild(winkel(i)));
-      if (idx == 0 && i == 0 && probePfad != null) {
-        File(probePfad).parent.createSync(recursive: true);
-        File(probePfad).writeAsBytesSync(encodePngRgba(buf.width, buf.height, rgba, zlib: zlib.encode));
-        stdout.writeln('PROBE $probePfad');
+  final laeufe = [for (final _ in szenen) <Map<String, double>>[]];
+  for (var lauf = 0; lauf < _laeufe; lauf++) {
+    for (final (idx, sz) in szenen.indexed) {
+      final m = _Messer(spiel, s, sz, r, buf, rgba, spurMeshes[idx], uhr, licht);
+      // Festes Bild (Figurenszene) oder Umlauf um 360°
+      double winkel(int i) => sz.figuren != null ? sz.yaw : sz.yaw + 2 * math.pi * (i % bilder) / bilder;
+      for (var i = 0; i < _aufwaermen; i++) {
+        m.bild(winkel(i));
       }
+      // Auch der Blickpfad läuft vorab, sonst misst die Blickzeile das JIT mit
+      m.bild(sz.yaw, blick: true);
+      m.bild(sz.yaw, blick: true);
+      final liste = <_Bild>[];
+      for (var i = 0; i < bilder; i++) {
+        liste.add(m.bild(winkel(i)));
+        if (lauf == 0 && idx == 0 && i == 0 && probePfad != null) {
+          File(probePfad).parent.createSync(recursive: true);
+          File(probePfad).writeAsBytesSync(encodePngRgba(buf.width, buf.height, rgba, zlib: zlib.encode));
+          stdout.writeln('PROBE $probePfad');
+        }
+      }
+      final blick = m.bild(sz.yaw, blick: true);
+      alle.addAll(liste);
+      laeufe[idx].add({
+        ..._kenn(liste, n),
+        'blickfilterMs': (blick.filter + blick.spurenMesh) / 1000,
+        'spurenMeshMs': blick.spurenMesh / 1000,
+      });
     }
-    final blick = m.bild(sz.yaw, blick: true);
-    alle.addAll(liste);
-    final k = _kenn(liste, n);
-    final filterMs = blick.filter / 1000, spurMs = blick.spurenMesh / 1000;
-    stdout.writeln('SZENE ${sz.name} · Welt $welt · Bild ${_f(k['bildMs']!)} · Himmel ${_f(k['himmelMs']!)} · '
-        'Meshes ${_f(k['meshesMs']!)} · Sprites ${_f(k['spritesMs']!)} · Fledermäuse ${_f(k['fledermaeuseMs']!)} · '
-        'RGBA ${_f(k['rgbaMs']!)} · Blickfilter ${_f(filterMs + spurMs)} · '
-        'Meshes ${_f(k['meshesGezeichnet']!, 1)}/${_f(k['meshesEingereicht']!, 1)} · '
-        'Dreiecke ${_f(k['dreieckeGezeichnet']!, 0)}/${_f(k['dreieckeEingereicht']!, 0)} · '
-        'Überdeckung ${_f(k['ueberdeckung']!)} · ns/Pixel ${_f(k['nsProPixel']!, 1)}');
-    szenenJson.add({'name': sz.name, 'marke': sz.marke, 'x': sz.x, 'z': sz.z, 'yaw0': sz.yaw, ...k, 'blickfilterMs': filterMs, 'spurenMeshMs': spurMs});
   }
 
-  final kG = _kenn(alle, n);
-  final (a, bNs) = _regression(alle);
-  stdout.writeln('SZENENMESSUNG Mittel Bild ${_f(kG['bildMs']!)} · ns/Pixel ${_f(kG['nsProPixel']!, 1)} · '
-      'Überdeckung ${_f(kG['ueberdeckung']!)} · a ${_f(a)} · b ${_f(bNs)}');
+  // Auswertung je Szene: Median je Schritt über die Läufe, Spanne der Bildzeit in % der Bildzeit
+  final mittel = <Map<String, double>>[];
+  final szenenJson = <Map<String, Object?>>[];
+  for (final (idx, sz) in szenen.indexed) {
+    final med = _medianKarte(laeufe[idx]);
+    med['bildMs'] = med['himmelMs']! + med['meshesMs']! + med['spritesMs']! + med['fledermaeuseMs']! + med['rgbaMs']!;
+    med['nsProPixel'] = med['bildMs']! * 1e6 / n; // ms → ns
+    final bildLauf = [for (final l in laeufe[idx]) l['bildMs']!];
+    final spanne = (bildLauf.reduce(math.max) - bildLauf.reduce(math.min)) / med['bildMs']! * 100;
+    mittel.add(med);
+    stdout.writeln('SZENE ${sz.name} · Welt $welt · Bild ${_f(med['bildMs']!)} · Himmel ${_f(med['himmelMs']!)} · '
+        'Meshes ${_f(med['meshesMs']!)} · Sprites ${_f(med['spritesMs']!)} · Fledermäuse ${_f(med['fledermaeuseMs']!)} · '
+        'RGBA ${_f(med['rgbaMs']!)} · Blickfilter ${_f(med['blickfilterMs']!)} · '
+        'Meshes ${_f(med['meshesGezeichnet']!, 1)}/${_f(med['meshesEingereicht']!, 1)} · '
+        'Dreiecke ${_f(med['dreieckeGezeichnet']!, 0)}/${_f(med['dreieckeEingereicht']!, 0)} · '
+        'Überdeckung ${_f(med['ueberdeckung']!)} · ns/Pixel ${_f(med['nsProPixel']!, 1)} · Spanne ${_f(spanne, 1)} %');
+    szenenJson.add({'name': sz.name, 'marke': sz.marke, 'x': sz.x, 'z': sz.z, 'yaw0': sz.yaw, 'figuren': sz.figuren?.length,
+      ...med, 'spanneProzent': spanne, 'bildMsLaeufe': bildLauf});
+  }
+
+  double mittelVon(String k) => _mittel([for (final m in mittel) m[k]!]);
+  final mittelBild = mittelVon('bildMs'), nsPx = mittelBild * 1e6 / n, ueber = mittelVon('ueberdeckung');
+  final (a, bNs, c, r2) = _regression(alle);
+  stdout.writeln('SZENENMESSUNG v2 Mittel Bild ${_f(mittelBild)} · ns/Pixel ${_f(nsPx, 1)} · '
+      'Überdeckung ${_f(ueber)} · a ${_f(a, 3)} · b ${_f(bNs)} · c ${_f(c, 3)} · R² ${_f(r2, 3)} · Uhr ${uhr.name}');
   if (jsonPfad != null) {
     File(jsonPfad).parent.createSync(recursive: true);
     File(jsonPfad).writeAsStringSync(JsonEncoder.withIndent('  ').convert({
       'welt': {'b': buf.width, 'h': buf.height, 'erzwungen': weltB != null},
       'bilder': bilder,
+      'laeufe': _laeufe,
       'aufwaermen': _aufwaermen,
+      'handylicht': licht,
+      'uhr': uhr.name,
       'anzahlBilder': alle.length,
       'szenen': szenenJson,
-      'gesamt': {...kG, 'a_us_pro_dreieck': a, 'b_ns_pro_pixel': bNs},
+      'gesamt': {'bildMs': mittelBild, 'nsProPixel': nsPx, 'ueberdeckung': ueber, 'a_us_pro_dreieck': a, 'b_ns_pro_pixel': bNs, 'c_us_pro_mesh': c, 'r2': r2},
     }));
   }
 }

@@ -1,0 +1,13 @@
+AUSGANG (P0-PROBE-01/02, eingefroren) – Stand vor jeder sichtbaren HD-Änderung
+Commit des Ausgangs: c54fe9c (Nachtlauf) / 6ca419c (erste HD-Werkzeuge, Bild unverändert)
+Nachtlauf-Abnahme: 13 von 14 (offen nur Z-12) – hd/laeufe/P0-PROBE-01.md (E-048)
+Bereiche aus baueWelt(): 62 gesamt, 59 innen, 3 außen (hof, stadt, wehrgang)
+Layout-Prüfsumme: LAYOUT 35a1b855fb2fd753 · Bereiche 62 · Kacheln 103856 · Dinge 1885 · Zufallsaufrufe 9849
+Figurenstand: e5bb30ea3c
+Schnelllauf alle_tests.sh: ≈ 280 s, grün (nach pub get in tool/ton)
+Bildsatz (tool/hd_migbeleg.sh): 198 Bilder; Auswahl in hd/bilder/vorher/ (Belegfotos, Bildschirme, Oberstadt, Fall-Orte und Burg, Figuren) – 115 Bilder
+FLIMMERN v2 (REP-01, gemessen mit Bild des Ausgangs): 320×180 Überschuss 0,128 · FERNE 0,100; 640×360 Überschuss 0,049 · FERNE 0,242
+BANDING v2 (REP-02, Prüfwände, Lichttabelle des Ausgangs): Stufen (min) 5 · größter Sprung 2 (16er-Stufen); 640×360 ebenso
+SZENENMESSUNG v2 (REP-03, Thread-CPU, Median aus 3, 5 Szenen): 320×180 Bild 4,41 ms · 76,6 ns/Pixel · Überdeckung 1,46;
+  640×360 Bild 12,12 ms · 52,6 ns/Pixel · Überdeckung 1,46 (Spannen ≤ 5,4 %)
+Browser (P0-PROBE-03, Headless-Chromium im Container, rAF): desktop 20,0 Start / 11,9 Spiel; handy-quer 8,8 / 7,9; handy-hoch 4,7 / 6,7 Bilder/s
