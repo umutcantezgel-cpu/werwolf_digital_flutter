@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 
 import 'sitzung.dart';
@@ -96,9 +97,12 @@ class PartySkript {
   Future<void> _warte([double faktor = 1]) => Future<void>.delayed(Duration(milliseconds: (dev.takt * faktor).round()));
 
   /// Fotostelle melden und dem Fotografen Zeit lassen (mindestens 1,2 s).
-  Future<void> _foto(String name) {
+  /// Gemeldet wird erst nach dem nächsten Frame: Dann zeigen Foto und
+  /// Bildschirmtext den neuen Bildschirm, auch wenn der Rechner ausgelastet ist.
+  Future<void> _foto(String name) async {
+    await SchedulerBinding.instance.endOfFrame;
     debugPrint('PARTY foto=$name');
-    return Future<void>.delayed(Duration(milliseconds: dev.fotos && dev.takt < dev.fotopause ? dev.fotopause : dev.takt));
+    await Future<void>.delayed(Duration(milliseconds: dev.fotos && dev.takt < dev.fotopause ? dev.fotopause : dev.takt));
   }
 
   Future<void> starten() async {
