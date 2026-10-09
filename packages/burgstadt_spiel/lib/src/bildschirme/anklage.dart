@@ -9,6 +9,7 @@ import 'hauptmenue.dart';
 class AnklageBildschirm extends Bildschirm {
   final Fallsitzung s;
   AnklageBildschirm(this.s);
+  bool _standGeloescht = false;
 
   @override
   bool get zeigtTutorial => true;
@@ -32,6 +33,11 @@ class AnklageBildschirm extends Bildschirm {
     ui.panel(p, grund: UiFarbe.grundDunkel);
     var y = p.y + 4;
     if (f.abschnitt == Abschnitt.ende) {
+      if (!_standGeloescht && !s.imNetz) {
+        _standGeloescht = true;
+        spiel.spielstand?.loesche();
+        spiel.letzterStand = null;
+      }
       final titel = f.daten.kanon.datensaetze[f.ende]?.feld('Ende') ?? f.ende!;
       ui.text('Morgengrauen · Ende: $titel', p.x + 6, y, farbe: UiFarbe.akzent);
       y += ui.zeilenHoehe + 4;

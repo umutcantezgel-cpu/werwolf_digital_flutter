@@ -63,7 +63,11 @@ class _BurgstadtAnsichtState extends State<BurgstadtAnsicht> with SingleTickerPr
     spiel.starteTon();
     spiel.spielstand = PrefsSpielstand();
     spiel.wlan = AppWlan();
+    spiel.optionenGeaendert = () => PrefsOptionen.speichere(spiel.optionen);
     ladeSpielDaten(spiel).then((_) async {
+      await PrefsOptionen.lade(spiel.optionen);
+      spiel.qualitaetSetzen(spiel.optionen.qualitaet);
+      spiel.sichtfeldAktualisieren();
       spiel.letzterStand = await spiel.spielstand!.lade();
       if (!mounted) return;
       if (widget.start == 'fall') {

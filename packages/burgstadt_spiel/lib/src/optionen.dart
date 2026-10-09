@@ -5,6 +5,8 @@ class Optionen {
   Qualitaet qualitaet = Qualitaet.mittel;
   bool kopfwippen = true;
   bool flackernAus = false;
+  /// Neigen zum Umsehen: vorgesehen, aber ohne Sensor-Anbindung (bräuchte eine neue
+  /// Abhängigkeit) – nicht in den Optionen angeboten.
   bool neigen = false;
   double sichtfeldGrad = 62;
   double blickEmpfindlichkeit = 1.0;

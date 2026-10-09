@@ -125,6 +125,9 @@ class Spiel {
 
   BereichGeometrie geometrie(String id) => _geometrie.putIfAbsent(id, () => BereichGeometrie(stadt.bereiche[id]!));
 
+  /// Wird nach jeder Änderung in den Optionen gerufen (App: dauerhaft speichern).
+  void Function()? optionenGeaendert;
+
   /// Netz-Anbindung für das WLAN-Spiel (App-Hülle setzt sie; ohne sie kein WLAN-Spiel).
   WlanAnbindung? wlan;
 

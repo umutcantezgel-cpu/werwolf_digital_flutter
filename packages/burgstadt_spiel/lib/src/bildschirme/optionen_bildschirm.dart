@@ -5,7 +5,8 @@ import 'package:pixel_engine/pixel_engine.dart';
 import '../skalierung.dart';
 import '../spiel.dart';
 
-/// Optionen: Bildqualität, Sichtfeld, Kopfwippen, Flackern, Neigen, Lautstärke.
+/// Optionen: Bildqualität, Sichtfeld, Kopfwippen, Flackern, Blick-Empfindlichkeit, Lautstärke,
+/// Tutorial. Änderungen meldet [Spiel.optionenGeaendert] (die App speichert sie).
 class OptionenBildschirm extends Bildschirm {
   @override
   void tick(Spiel spiel, double dt, Eingabe e) {
@@ -29,7 +30,7 @@ class OptionenBildschirm extends Bildschirm {
       'Sichtfeld: ${o.sichtfeldGrad.round()}°',
       'Kopfwippen: ${o.kopfwippen ? 'an' : 'aus'}',
       'Flackern: ${o.flackernAus ? 'aus' : 'an'}',
-      'Neigen zum Umsehen: ${o.neigen ? 'an' : 'aus'}',
+      'Blick-Empfindlichkeit: ${o.blickEmpfindlichkeit.toStringAsFixed(2)}',
       'Lautstärke: ${o.lautstaerke}',
       'Tutorial: ${o.tutorial ? 'an' : 'aus'}',
       'Zurück',
@@ -46,7 +47,7 @@ class OptionenBildschirm extends Bildschirm {
       case 3:
         o.flackernAus = !o.flackernAus;
       case 4:
-        o.neigen = !o.neigen;
+        o.blickEmpfindlichkeit = o.blickEmpfindlichkeit >= 2 ? 0.5 : o.blickEmpfindlichkeit + 0.25;
       case 5:
         o.lautstaerke = (o.lautstaerke + 2) % 12;
       case 6:
@@ -54,5 +55,6 @@ class OptionenBildschirm extends Bildschirm {
       case 7:
         spiel.schliesse();
     }
+    if (wahl >= 0 && wahl < 7) spiel.optionenGeaendert?.call();
   }
 }
