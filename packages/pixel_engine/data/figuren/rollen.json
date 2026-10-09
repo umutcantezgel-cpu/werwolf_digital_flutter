@@ -112,7 +112,7 @@
       "groesse": 1.82,
       "statur": "normal",
       "haut": 6,
-      "haar": { "rampe": 4, "stufe": 3, "frisur": "schulterlang", "bart": "keiner" },
+      "haar": { "rampe": 4, "stufe": 3, "frisur": "bob", "bart": "keiner" },
       "oberteil": { "typ": "sakko", "rampe": 6, "stufe": 2 },
       "darunter": { "typ": "bluse", "rampe": 7, "stufe": 7 },
       "unterteil": { "typ": "jeans", "rampe": 4, "stufe": 3 },

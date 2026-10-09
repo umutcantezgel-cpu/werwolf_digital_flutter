@@ -212,7 +212,7 @@ void main() {
       () {
         expect(enthaelt(wirksam, 'Brockengespenst'), isFalse);
         expect(enthaelt(wirksam, 'Nebelriese'), isTrue);
-        expect(wirksam.ersetzungen.length, 18); // 16 Harz-Bezüge + „bewusstlos“ → „benommen“ (A-702d) + Osterode (E42)
+        expect(wirksam.ersetzungen.length, 22); // 16 Harz-Bezüge + „bewusstlos“ (A-702d) + Osterode (E42) + 3 × Punsch alkoholfrei + R02-Anrede (E43)
         // Genus: der Nebelriese (männlich) – keine sächlichen Reste aus „das Brockengespenst“.
         for (final falsch in ['das Nebelriese', 'Das Nebelriese', 'dem Nebelriese ', 'seinem Nebelriese ']) {
           expect(enthaelt(wirksam, falsch), isFalse, reason: falsch);

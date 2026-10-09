@@ -26,7 +26,8 @@
 - **Abwägungen der Inhaltsprüfung:** Einige Punkte bleiben bewusst so, mit Begründung in E23, E27, E29 und E38. Dazu gehören die Spuren des Falls, die auf die Täterin zeigen (das ist das Rätsel), „Einspruch!“ bei R18 (Kanon) und die erfundene Figur des Detektivs.
 - **Frisuren älterer Bewohnerinnen (E40):** Mehrere ältere Bewohnerinnen tragen laut `bewohner.json` einen Dutt. Die Inhaltsprüfung (Runde 11) nannte das ein mögliches Altersbild. Eine Änderung ist leicht (Feld `frisur`), braucht aber neue Sichtprüfungen der Figuren. Sie ist deshalb nicht in dieser Nacht gemacht.
 - **Kanon v1.0 (E41, E42):** `main` brachte den fertigen Kanon v1.0. Er ist eingearbeitet; die Kanon-Dateien selbst sind unverändert. Für die Kanon-Autoren:
-  - **FM-1** (Funktionsmatrix, [L], im Spiel nicht sichtbar) ordnet die Tatfunktionen nach Herkunftsgruppen. Gemeint ist eine Vorsichtsprüfung gegen Klischees. Zwei Inhaltsprüfer fanden die Ordnung nach Herkunft trotzdem ungut. Vorschlag: nach Rollen-IDs ordnen.
+  - **FM-1** (Funktionsmatrix, [L], im Spiel nicht sichtbar) ordnete die Tatfunktionen nach Herkunftsgruppen, und ihre Begründung widerspricht dem Kanon selbst (R02 legt den Hebel um). Im wirksamen Kanon steht sie jetzt nach Rollen-IDs ohne Herkunft (Overlay, E43). Vorschlag für die Kanon-Datei: dieselbe Fassung übernehmen.
+  - **Wetter:** K-002 sagt „klarer Himmel“, Nebel nur im Tal. Die Stadttexte sind angeglichen (E43). Wer Nebel in der Oberstadt will, müsste K-002 ändern.
   - **LISTE-ZEITEN** nennt „00:01 der Burgwart wird … gefunden und kommt zu sich“; BS-01 und PF-3 nennen 00:00:25 bzw. 00:00:50. Vorschlag: „kurz nach Mitternacht“.
   - **Phase 1 beginnt** im Spiel jetzt wie in Z-0030 um 00:30. Vorher war es 00:25, der Zeitpunkt des Auftrags des Burgwarts.
   - **Das Gespensterlaken** ist jetzt wie im Kanon (Z-2140) Burgwäsche „Schartenfels 7“. Die Pension der Stadt hat einen eigenen blauen Stempel.

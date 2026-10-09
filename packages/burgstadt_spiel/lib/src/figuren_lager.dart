@@ -15,6 +15,7 @@ Figurenkarte karteAusSteckbrief(Map<String, dynamic> s) {
   final teile = <String>[];
   teile.add(switch (haar['frisur']) {
     'kurz-locken' => 'frisur-locken',
+    'bob' => 'frisur-bob',
     'schulterlang' || 'schulterlang-spange' => 'frisur-schulterlang',
     'lang-offen' => 'frisur-lang',
     'zopf' => 'frisur-zopf',

@@ -277,7 +277,7 @@
           "bis": "02:00",
           "wo": "fenster",
           "zustand": "wach",
-          "tut": "Sie sitzt am Fenster mit dem Fernglas und sucht den Nebel nach einer Bewegung ab."
+          "tut": "Sie sitzt am Fenster mit dem Fernglas und sucht das Nebelmeer unten im Tal nach einer Bewegung ab."
         },
         {
           "von": "02:00",
@@ -364,9 +364,9 @@
       ],
       "saetze": [
         "Du willst den Strom wissen? Der hängt weit unten am Turm, dort laufen alle Leitungen zusammen.",
-        "Die Ersatzsicherungen aus dem Torhaus passen nicht, das habe ich selbst probiert. Der Strom kommt am Morgen.",
+        "Die Ersatzsicherungen aus dem Torhaus passen nicht, sagt der Burgwart. Der Strom kommt erst am Morgen.",
         "Mein Plan hängt im Schaltraum. Schau ihn dir an, wenn du willst, aber fass ihn nicht mit fettigen Händen an.",
-        "Geh nicht allein die Mauer entlang, nicht bei Eisnebel. Der Weg ist glatt, und die Pforten sind zu."
+        "Geh nicht allein die Mauer entlang, nicht bei diesem Raureif. Der Weg ist glatt, und die Pforten sind zu."
       ],
       "gerede": "Man sagt, der Nebelriese laufe nachts die Mauer entlang, aber wer nachschaut, findet nur Eis und Rost auf den Steinen."
     },
@@ -402,31 +402,31 @@
       "nacht": [
         {
           "von": "00:30",
-          "bis": "01:30",
+          "bis": "01:20",
           "wo": "fenster",
           "zustand": "wach",
           "tut": "Sie steht am Fenster ihrer Wohnung und zählt, wie viele Lichter in der Gasse erloschen sind."
         },
         {
-          "von": "01:30",
+          "von": "01:20",
           "bis": "02:50",
-          "wo": "wohnhaus",
-          "zustand": "schläft",
-          "tut": "Sie legt sich mit dem Mantel über dem Bett hin, die Thermoskanne neben dem Kopfkissen."
+          "wo": "arbeitshaus",
+          "zustand": "arbeitet",
+          "tut": "Sie öffnet die Teestube für alle, die nicht schlafen können, und stellt Kerzen auf jeden Tisch."
         },
         {
           "von": "02:50",
           "bis": "03:20",
           "wo": "gasse:Marktviertel",
           "zustand": "unterwegs",
-          "tut": "Sie steht mit der Thermoskanne auf dem Marktplatz und zählt die drei Schläge des Uhrturms laut mit."
+          "tut": "Sie steht mit der Thermoskanne vor der Teestube und zählt die drei Schläge des Uhrturms laut mit."
         },
         {
           "von": "03:20",
           "bis": "05:30",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
-          "tut": "Sie öffnet die Teestube für alle, die nicht schlafen können, und stellt Kräutertee auf."
+          "tut": "Sie stellt Kräutertee auf und schickt niemanden nach Hause, bevor es hell wird."
         }
       ],
       "saetze": [
@@ -479,7 +479,7 @@
           "bis": "05:30",
           "wo": "fenster",
           "zustand": "wach",
-          "tut": "Er wacht auf, geht zum Fenster, und der Nebel ist so dicht, dass er nur die Lampe des Nachbarn sieht."
+          "tut": "Er wacht auf, geht zum Fenster, und es ist so dunkel, dass er nur die Lampe des Nachbarn sieht."
         }
       ],
       "saetze": [
@@ -525,7 +525,7 @@
           "bis": "01:10",
           "wo": "fenster",
           "zustand": "wach",
-          "tut": "Sie sitzt am Fenster, die Tasche gepackt, und hört im Nebel ein Bellen vom Untertor her."
+          "tut": "Sie sitzt am Fenster, die Tasche gepackt, und hört in der klaren Kälte ein Bellen vom Untertor her."
         },
         {
           "von": "01:10",
@@ -735,7 +735,7 @@
       "name": "Rosa Teutsch",
       "alter": 88,
       "geschlecht": "w",
-      "beruf": "Rentnerin, früher Weberin",
+      "beruf": "Rentnerin, früher Handarbeitslehrerin",
       "wohnhaus": "H-102",
       "arbeitshaus": null,
       "wesen": "Klein, zäh und ein wenig eigensinnig, sie erinnert sich an jede Hochzeit der Gasse und an fast jeden Streit.",
@@ -783,7 +783,7 @@
         }
       ],
       "saetze": [
-        "Du fragst, ob ich etwas gesehen habe? Ich bin achtundachtzig. Ich sehe nur Nebel und Erinnerungen.",
+        "Du fragst, ob ich etwas gesehen habe? Ich bin achtundachtzig. Ich sehe nur Mondlicht und Erinnerungen.",
         "Früher klapperten in der Gasse die Webstühle. Heute klappert nichts außer den Fensterläden bei Wind.",
         "Der Nebelriese, sagt meine Mutter, bleibt stehen, wenn du stehen bleibst. Ich habe es nie probiert.",
         "Setz dich hin, du wirkst müde. Mein Enkel rennt immer, als hätte er Eile, und weiß selbst nicht wohin."
@@ -1079,7 +1079,7 @@
           "bis": "05:30",
           "wo": "wohnhaus",
           "zustand": "wach",
-          "tut": "Er wacht früh auf und schaut in den Hof, wo der Nebel steht wie eine Wand."
+          "tut": "Er wacht früh auf und schaut in den Hof, wo der Raureif auf dem Pflaster glitzert."
         }
       ],
       "saetze": [
@@ -1612,7 +1612,7 @@
           "bis": "02:00",
           "wo": "wohnhaus",
           "zustand": "wach",
-          "tut": "Sie sitzt am Tisch und zeichnet die Dächer, die im Nebel verschwimmen."
+          "tut": "Sie sitzt am Tisch und zeichnet die Dächer, die im Mondlicht silbern glänzen."
         },
         {
           "von": "02:00",
@@ -1631,7 +1631,7 @@
       ],
       "saetze": [
         "Du willst gezeichnet werden? Nein? Gut, dann sitz still, ich brauche die Schatten an deiner Schulter.",
-        "Eine Gasse im Nebel sieht aus wie ein schlechter Traum. Ich liebe sie dafür, und du wirst sie nicht vergessen.",
+        "Eine Gasse ohne Laternen sieht aus wie ein schlechter Traum. Ich liebe sie dafür, und du wirst sie nicht vergessen.",
         "Mein Vater hat gesagt, man muss die Dinge so zeichnen, wie sie sind, nicht wie man sie gern hätte.",
         "Das Bild hier zeigt den Uhrturm ohne Licht, mit Schatten um die Zeiger. Mehr kann ich nicht erklären."
       ],
@@ -1870,7 +1870,7 @@
         }
       ],
       "saetze": [
-        "Pflanzen spüren Nebel, sie merken es schneller als Menschen. Die Weide dort drüben hat heute Nacht gezittert.",
+        "Pflanzen spüren Frost, sie merken es schneller als Menschen. Die Weide dort drüben hat heute Nacht gezittert.",
         "Du willst Kräuter? Nimm Melisse, die beruhigt. Die Nerven der Stadt sind heute nicht die besten.",
         "Die Weide am Haus ist so alt wie der Brunnen. Sie hat viel gehört und wenig gesagt, genau wie ich.",
         "Wenn der Nebelriese durch den Garten käme, zertrampelte er die Beete. Bisher ist nur mein Geduldsfaden zertreten."
@@ -1993,7 +1993,7 @@
         "Du stellst also die Fragen hier. Setz dich, und ich erzähle dir, was ich hier gesehen habe.",
         "Der Webstuhl im Obergeschoss steht seit dem Hochwasser still. Er vermisst den Schuss, genau wie ich den Mann.",
         "Im Winter liegt die Oberstadt still unter Schnee. Heute Nacht war es so still, dass ich die Turmuhr gehört habe.",
-        "Wenn du Trost willst, nimm den Tee. Wenn du Wahrheit willst, nimm den Nebel. Beides gibt's hier umsonst."
+        "Wenn du Trost willst, nimm den Tee. Wenn du Wahrheit willst, nimm die kalte Nachtluft. Beides gibt's hier umsonst."
       ],
       "gerede": "Man erzählt, Elfriede Ahrens webe dem Nebelriesen einen Mantel, aber ihr Webstuhl steht seit dem Hochwasser still."
     },
@@ -2247,7 +2247,7 @@
         "Du willst Musik hören? Das Gebläse braucht Strom, also tritt man den Blasebalg selbst, bis die Füße wehtun.",
         "Die Kirchenburg hat dicke Mauern und einen Wehrgang, deshalb klingt die Orgel dort wie in einer Höhle.",
         "Wer nachts Orgel hört, bleibt stehen, sagt man. Vielleicht ist es die Stille, die den Nebelriesen anlockt.",
-        "Hör zu, wie der Nebel das Glockenspiel verschluckt. Das ist die Melodie der heutigen Nacht."
+        "Hör zu, wie die Kälte das Glockenspiel klirren lässt. Das ist die Melodie der heutigen Nacht."
       ],
       "gerede": "Man erzählt, der Organist habe den Nebelriesen mit der Orgel aufgeweckt, aber der Riese mag nur tiefe Töne, und die gibt es hier nicht."
     },
@@ -2371,9 +2371,9 @@
         }
       ],
       "saetze": [
-        "Du willst mit dem Wagen fahren? Nicht bei diesem Nebel, der frisst dir die Räder vom Karren. Setz dich, warte.",
+        "Du willst mit dem Wagen ins Tal? Nicht bei dem Eisnebel da unten, der frisst dir die Räder. Setz dich, warte.",
         "Ich fahre Holz, Kohle und Kisten bis nach Silberhau, wenn die Straße frei ist. Die ist es jetzt nicht.",
-        "Die Pferde sind unruhig heute Nacht. Sie riechen etwas, das wir nicht riechen. Das kann Nebel sein.",
+        "Die Pferde sind unruhig heute Nacht. Sie riechen etwas, das wir nicht riechen. Das kann der Frost sein.",
         "Schreib dir meine Nummer auf, aber nicht den Preis. Der ändert sich mit dem Wetter und dem Humor."
       ],
       "gerede": "Man sagt, der Fuhrmann habe den Nebelriesen auf dem Wagen mitgenommen, aber der Wagen war danach schwerer, nicht voller."
@@ -2420,7 +2420,7 @@
           "bis": "03:30",
           "wo": "fenster",
           "zustand": "wach",
-          "tut": "Er steht am Fenster und sieht den Friedhof im Nebel, die Kreuze wie kleine Wächter."
+          "tut": "Er steht am Fenster und sieht den Friedhof im Mondlicht, die Kreuze wie kleine Wächter."
         },
         {
           "von": "03:30",
@@ -2439,7 +2439,7 @@
       ],
       "saetze": [
         "Du fragst nach der Nacht auf dem Friedhof? Ruhig war sie. Die Toten machen keinen Lärm, nur die Lebenden.",
-        "Die Holztreppe zur Kirche ist glatt bei Eisnebel. Halt dich am Geländer fest, bevor du stürzt.",
+        "Die Holztreppe zur Kirche ist glatt bei Raureif. Halt dich am Geländer fest, bevor du stürzt.",
         "Ich pflege die Gräber seit dreißig Jahren. Auf einem wächst der schönste Efeu der ganzen Stadt.",
         "Wenn der Nebelriese auf dem Friedhof stünde, würde er den Kies nicht knirschen hören. Das ist seine Stärke."
       ],
@@ -2480,7 +2480,7 @@
           "bis": "01:30",
           "wo": "fenster",
           "zustand": "wach",
-          "tut": "Sie sitzt im Dachzimmer und riecht im Nebel den Rauch vom Ofen der Teestube."
+          "tut": "Sie sitzt im Dachzimmer und riecht in der kalten Luft den Rauch vom Ofen der Teestube."
         },
         {
           "von": "01:30",
@@ -2507,7 +2507,7 @@
       "saetze": [
         "Du willst Tee? Ich koche dir einen, aber nur, wenn du nicht über den Knall redest. Das macht die Tassen bitter.",
         "Der Tee im Regal ist grün, der im Glas schwarz. Die Mischung kennt nur die Chefin, und die verrät nichts.",
-        "Wenn der Nebel kommt, bleiben alle länger sitzen. Heute war es das erste Mal, dass keiner gegangen ist.",
+        "Wenn das Licht ausgeht, bleiben alle länger sitzen. Heute war es das erste Mal, dass keiner gegangen ist.",
         "Die Laterne über der Theke ist meine Lieblingslampe. Heute Nacht blieb sie aus, der Docht war zu kurz."
       ],
       "gerede": "Im Viertel heißt es, die Bedienung kenne den Nebelriesen vom Teetrinken, aber der Riese bestellt nur Schweigen."
@@ -2693,7 +2693,7 @@
       ],
       "saetze": [
         "Ein Seil für die Wäscheleine? Nein? Dann halt dich gut fest. Ein guter Griff ist alles in dieser Nacht.",
-        "Ein gutes Seil verträgt Nebel besser als Menschen. Er wird nicht schlaff, egal wie kalt es wird.",
+        "Ein gutes Seil verträgt Frost besser als Menschen. Es wird nicht schlaff, egal wie kalt es wird.",
         "Mein Speicher hat Seilstränge bis zur Decke. Die meisten werden Wäscheleinen und Brunnenseile.",
         "Wer im Nebel steht, folgt dem Seil. Das hat mir mein Großvater gesagt, und der Riese hat keinen Faden in der Hand."
       ],

@@ -427,3 +427,28 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - **OA-27 (R14-7):** „die Serpentinen rauf … Bis zum Morgengrauen“ ist Ortsanpassung seit Phase 0 (d577d12). Die Burgstadt liegt am Berg, und das Spiel läuft bis zum Morgengrauen, nicht bis zum Nachtisch.
   - **R15 „Von Papa nehmen sie nichts an“ (R13 G-2):** Das ist Kanon-Wortlaut (Zwillinge, Vater Mathelehrer), Teenager-Humor ohne Herkunftsbezug. Keine Änderung.
 - Neue Inhaltsrunde A-702o (zwei Prüfer) auf diesem Stand. Die Karten sind unverändert (db8e0a6155), Z-03 bleibt gültig.
+
+## E43 · 09.10. 13:12 · Inhaltsrunden 15/16 (A-702o): Himmel klar, Teestube offen, FM-1 ohne Herkunft
+- **Urteile:** Prüfer 15: Leitplanken ja, Kanontreu ja, Plagiatsfrei ja (mittel 1, gering 6). Prüfer 16: Kanontreu **nein** (mittel 3, gering 5). Ein „nein“ wird nicht übergangen, auch wenn der andere Bericht für Z-12 genügen würde.
+- **Umgesetzt:**
+  - **Himmel (R16 M1):** K-002 sagt seit jeher „klarer Himmel“, Raureif auf dem Hof. Neu in v1.0: Eisnebel nur im Tal um Silberhau und auf dem unteren Burgweg (Inversionswetterlage). Unsere Stadttexte hatten Nebel in der Oberstadt, ein Widerspruch seit Phase 3.
+    - Jetzt liegen 18 Stellen in `bewohner.json`, die Kirchenburg in `haeuser.json`, zwei Erzählerzeilen und H-S24/HW-S24 im Kanon-Wetter: Raureif, Mondlicht, Frost, Dunkelheit. Nebel steht nur noch unten im Tal („das Nebelmeer im Tal“, „der Eisnebel da unten“).
+    - Bleiben dürfen die Legende vom Nebelriesen, allgemeine Sprüche („Wer im Nebel steht, folgt dem Seil“, „Bei Nebel soll er nach Tannenholz riechen“) und OA-27 (Eisnebel auf den Serpentinen, also der untere Burgweg).
+    - Der Renderer blendet die Ferne nach Dunkelblau (Nachthimmel), nicht in weißen Nebel; das Bild passt.
+  - **Teestube (R16 M2):** H-S13 (Phase 2) zeigt die Teestube offen, die Inhaberin B07 schlief aber bis 02:50. Ihr Nachtplan ist jetzt: Fenster bis 01:20, Teestube ab 01:20, um drei Uhr kurz vor die Tür zum Uhrturm, danach wieder Teestube.
+  - **FM-1 (R16 M3, R15 M1 im Zusammenhang):** Prüfer 16 zeigt, dass die Begründung in FM-1 dem Kanon selbst widerspricht. „Keine Minderheitsgruppe mit Schuld oder Betrug“ stimmt nicht: R02 legt den Hebel um und lügt über den Streich. Damit fällt die Abwägung aus E42. Im wirksamen Kanon steht FM-1 jetzt nach Rollen-IDs, ohne Herkunft und mit der Begründung „Verdacht, Schuld und Entlastung folgen nur aus Gegenständen, Zeiten und Aussagen“. Die Kanon-Datei ist unverändert.
+  - **Familienfelder (R16 G1, G5):**
+    - R05: Die Großmutter wohnt zwei Straßen weiter, wie bei R13.
+    - R18: Die Großmutter ruft an und lässt sich die Woche erzählen; Urteil und Richterin-Witz sind gestrichen.
+    - R12: kein Kaffee-Ritual mehr; stattdessen die Familiendiskussion über die beste Abkürzung durch die Stadt.
+  - **Wärter B06 (R16 G2):** Die Torhaus-Sicherungen kennt er vom Burgwart. Das Torhaus ist bis Phase 2 zu.
+  - **Punsch (R15 G1):** Neue Ersetzungen ERSETZE-19..21 machen „Punsch“ in OA-23, BW-ZUSTAND und K8 ausdrücklich alkoholfrei.
+  - **R02-Anrede (R16 G3):** ERSETZE-22 „fällt dir das Handy“ → „fällt ihr das Handy“; R02-WISSEN ist sonst in der dritten Person geschrieben.
+  - **B13/B33 (R15 G2):** Beide hießen „Rentnerin, früher Weberin“. B13 ist jetzt „früher Handarbeitslehrerin“ (Strickzeug); B33 bleibt Weberin (Webstuhl im Haus).
+- **Abgewogen, bleibt:**
+  - **„HODŽIĆ VT · 3“ (R15 M1):** Das ist eine Eigentumsmarke mit dem Nachnamen, wie sie Veranstaltungstechniker auf ihre Geräte kleben. Der Name ist kein Herkunftsindiz; die Fährte läuft über das Gerät, nicht über die Herkunft. Prüfer 15 urteilt trotzdem „Leitplanken ja“. Eine Änderung der Lösungskette (DW1-1, GL-19) gehört zur Kanon-Verantwortung.
+  - **G3-23 (R16 G4):** „Zurückgeben hab ich sie ihn nicht sehen“ ist korrektes umgangssprachliches Deutsch („Ich hab sie ihn nicht zurückgeben sehen“); keine Änderung.
+  - **Harz-Reste in Kanon-Fließtext ohne @ (R15 G3):** GM-08, M-06, M-12 und die Palette in K9 sind keine Datensätze und erscheinen nicht im Spiel (Parser und Scanner lesen nur @-Zeilen bzw. Spieltexte).
+  - **Ziffern in vorlesbaren Texten (R15 G4):** Die Stilblatt-Regel gilt für das Vorlesen beim Krimidinner. Das Spiel zeigt Texte an und liest nicht vor.
+  - **R04-Uhr (R15 G6):** Kleinteile unter einem Figurenpixel werden nicht gezeichnet (E37 H1).
+- **R05-Frisur (R15 G5), umgesetzt:** Die Karte zeigte schon den Bob aus LF-R05 (`frisur-bob`); nur das Feld in `rollen.json` sagte „schulterlang“. Es heißt jetzt „bob“; Ersatzpfad und Datentest kennen den Wert. Das Bild bleibt gleich (Kartenstand unverändert).

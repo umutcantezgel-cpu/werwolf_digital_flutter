@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 
 /// Eingefrorenes Format (A-601a, Abschnitt 6): erlaubte Werte.
 const _frisuren = {
-  'kurz', 'kurz-locken', 'schulterlang', 'schulterlang-spange', 'lang-offen', 'zopf', 'dutt',
+  'kurz', 'kurz-locken', 'bob', 'schulterlang', 'schulterlang-spange', 'lang-offen', 'zopf', 'dutt',
   'pferdeschwanz', 'glatze', 'stoppel', 'seitenscheitel',
 };
 const _baerte = {'keiner', 'stoppel', 'kurz', 'voll', 'schnurrbart'};
