@@ -366,12 +366,14 @@ List<TextQuelle> textQuellen(Kanon kanon, Textsammlung t) {
       final lu = l as Map;
       add('figuren.json#${lu['id']}.behauptung', lu['behauptung']);
       add('figuren.json#${lu['id']}.wahrheit', lu['wahrheit']);
+      add('figuren.json#${lu['id']}.duWahrheit', lu['duWahrheit']);
     }
     add('figuren.json#${f['id']}.alltag', f['alltag']);
     add('figuren.json#${f['id']}.persoenlichesZiel', f['persoenlichesZiel']);
   }
   for (final n in (kanon.gegenstaendeJson['nebendelikte'] as List? ?? const [])) {
     add('gegenstaende.json#${(n as Map)['id']}', n['text']);
+    add('gegenstaende.json#${n['id']}.duText', n['duText']);
   }
   final setting = kanon.json['setting.json']!;
   for (final e in setting.entries) {

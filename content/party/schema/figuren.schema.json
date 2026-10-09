@@ -632,6 +632,9 @@
                 },
                 "wahrheit": {
                   "$ref": "#/$defs/text"
+                },
+                "duWahrheit": {
+                  "$ref": "#/$defs/text"
                 }
               },
               "additionalProperties": false

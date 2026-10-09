@@ -30,22 +30,37 @@ void rollenhefte(pw.Document doc, DruckKontext k) {
   }
 }
 
+/// Jede Fassung hat genau vier Seiten mit denselben Überschriften (E-036):
+/// Außenseite, Inhalt, Rundenwahl mit den B-Streifen, Notizen. Eine Schriftgröße
+/// für alle vier bringt die längste Fassung auf ihre Seite; so verrät weder
+/// Seitenzahl noch Aufbau, welche Fassung die Täterfassung ist.
 void fassungen(pw.Document doc, DruckKontext k) {
-  int seitenVon(Fassung f) {
-    final probe = k.stil.neuesDokument('Fassung');
-    _fassung(probe, k, f);
-    return probe.document.pdfPageList.pages.length;
-  }
-
-  // Alle vier Fassungen gleich lang und gleich gebaut: Jede endet mit mindestens
-  // einer Notizseite, die kürzeren bekommen weitere (E-035).
-  final laengen = [for (final f in k.satz.fassungen) seitenVon(f)];
-  final ziel = laengen.reduce(max) + 1;
-  for (var i = 0; i < k.satz.fassungen.length; i++) {
-    _fassung(doc, k, k.satz.fassungen[i]);
-    for (var n = laengen[i]; n < ziel; n++) {
-      doc.addPage(_notizen(k));
-    }
+  final fs = k.satz.fassungen;
+  final hoehe = DruckStil.format.height - DruckStil.rand.top - DruckStil.rand.bottom - _fussRaum;
+  double gemeinsam(pw.Widget Function(Fassung f, double g) bauen, double platz, String wo) => [
+        for (final f in fs) k.stil.passendeGroesse((g) => bauen(f, g), DruckStil.breite, platz, wo: '$wo ${f.code}'),
+      ].reduce(min);
+  final gInhalt = gemeinsam((f, g) => _fassungInhalt(k, f, g), hoehe, 'fassung');
+  final gWahl = gemeinsam((f, g) => _fassungWahl(k, f, g), hoehe - _streifenReiheHoehe, 'rundenwahl');
+  for (final f in fs) {
+    doc.addPage(pw.Page(pageFormat: DruckStil.format, margin: DruckStil.rand, build: (c) => _fassungAussen(k, f)));
+    doc.addPage(pw.Page(
+      pageFormat: DruckStil.format,
+      margin: DruckStil.rand,
+      build: (c) => pw.Column(children: [_fassungInhalt(k, f, gInhalt), pw.Spacer(), k.stil.fuss(c, k.fallTitel)]),
+    ));
+    doc.addPage(pw.Page(
+      pageFormat: DruckStil.format,
+      margin: DruckStil.rand,
+      build: (c) => pw.Column(children: [
+        _fassungWahl(k, f, gWahl),
+        pw.Spacer(),
+        _streifenReihe(k, f),
+        pw.SizedBox(height: 8),
+        k.stil.fuss(c, k.fallTitel),
+      ]),
+    ));
+    doc.addPage(_notizen(k));
   }
 }
 
@@ -202,21 +217,19 @@ pw.Widget _wahlBlock(DruckKontext k, int r, WahlText w, {bool kopf = false}) => 
           pw.Text(k.ui('ui.druck.rollen.runde', {'nr': '$r'}), style: k.stil.ueberschrift(11)),
           pw.SizedBox(height: 3),
           _wahlZeile(k, 'A', w.a),
-          if (w.sabotage != null)
-            _wahlZeile(k, k.ui('ui.druck.fassung.sabotage'), w.sabotage!)
-          else
-            _wahlZeile(k, 'B', w.b),
+          // Im Rollenheft nie die Sabotage: Die steht nur in der Fassung der Täterrolle (E-036).
+          _wahlZeile(k, 'B', w.b),
         ],
       ),
     );
 
-pw.Widget _wahlZeile(DruckKontext k, String kennzeichen, String text) => pw.Padding(
+pw.Widget _wahlZeile(DruckKontext k, String kennzeichen, String text, {double groesse = 11}) => pw.Padding(
       padding: const pw.EdgeInsets.only(bottom: 4),
       child: pw.Column(
         crossAxisAlignment: pw.CrossAxisAlignment.start,
         children: [
           pw.Text(kennzeichen, style: k.stil.klein()),
-          pw.Text(text, style: k.stil.text()),
+          pw.Text(text, style: k.stil.text(groesse)),
         ],
       ),
     );
@@ -250,42 +263,93 @@ Fassung? _fassungVon(DruckKontext k, String rolle) {
 
 // ---------------------------------------------------------------- Fassungen
 
-/// Außen nur der Code, kein Name: Verteilt wird über den Code im Rollenheft (E-035).
-void _fassung(pw.Document doc, DruckKontext k, Fassung f) {
-  doc.addPage(pw.Page(
-    pageFormat: DruckStil.format,
-    margin: DruckStil.rand,
-    build: (c) => k.stil.aussenseite(f.code, k.ui('ui.druck.fassung.aussen')),
-  ));
-  doc.addPage(pw.MultiPage(
-    pageFormat: DruckStil.format,
-    margin: DruckStil.rand,
-    footer: (c) => k.stil.fuss(c, k.fallTitel),
-    build: (c) => _innen(k, f),
-  ));
-}
+/// Platz für die Fußzeile einer Seite und Höhe der Streifenreihe (pt).
+const _fussRaum = 22.0;
+const _streifenReiheHoehe = PdfPageFormat.mm * 24;
 
-List<pw.Widget> _innen(DruckKontext k, Fassung f) {
-  final d = f.dossier;
-  return [
-    k.stil.kopf(k.ui('ui.druck.fassung.marke'), k.figurName(f.rolle)),
-    ..._zusammen(k, () => k.stil.abschnitt(k.ui('ui.druck.rollen.ziel'), [d.ziel])),
-    if (d.taeter) ..._zusammen(k, () => _tafel(k, d)),
-    ..._weissUndVerberge(k, d),
-    ..._rundenwahl(k, d),
-  ];
-}
-
-/// Nur in der Täterfassung: die Tarnung für die anderen und das wahre Geschehen.
-/// Gesetzt wie jeder andere Abschnitt, ohne Rahmen und ohne auffällige Überschrift:
-/// Wer beim Drucken auf die Seite blickt, erkennt die Täterfassung nicht (E-035).
-pw.Widget _tafel(DruckKontext k, Dossier d) => pw.Column(
-      crossAxisAlignment: pw.CrossAxisAlignment.start,
+/// Außenseite: Code und neutraler Hinweis im oberen Viertel. Beim Knick in der
+/// Mitte nach hinten bleibt der Code vorn (Vorbereitung im Spielleitungsheft).
+pw.Widget _fassungAussen(DruckKontext k, Fassung f) => pw.Column(
+      crossAxisAlignment: pw.CrossAxisAlignment.stretch,
       children: [
-        pw.Text(k.ui('ui.druck.fassung.tafel'), style: k.stil.ueberschrift(12.5)),
-        pw.SizedBox(height: 6),
-        k.stil.abschnitt(k.ui('ui.druck.fassung.tarnung'), [d.tarnung!]),
-        k.stil.abschnitt(k.ui('ui.druck.fassung.tatwissen'), [for (final z in d.tatwissen) z.text]),
+        pw.Spacer(),
+        pw.Center(child: k.stil.aussenseite(f.code, k.ui('ui.druck.fassung.aussen'))),
+        pw.Spacer(flex: 3),
+      ],
+    );
+
+/// Inhalt einer Fassung: Ziel, Wissen, Verborgenes. Die Täterrolle bekommt keine
+/// eigene Überschrift; ihre Tat und Tarnung stehen unter „Was ich verberge“ (E-036).
+pw.Widget _fassungInhalt(DruckKontext k, Fassung f, double g) {
+  final d = f.dossier;
+  return pw.Column(
+    crossAxisAlignment: pw.CrossAxisAlignment.start,
+    children: [
+      k.stil.kopf(k.ui('ui.druck.fassung.marke'), k.figurName(f.rolle)),
+      k.stil.abschnitt(k.ui('ui.druck.rollen.ziel'), [d.ziel], groesse: g),
+      k.stil.abschnitt(k.ui('ui.druck.rollen.weiss'), [for (final z in d.weiss) z.text], groesse: g),
+      k.stil.abschnitt(
+        k.ui('ui.druck.rollen.verberge'),
+        [
+          if (d.taeter) k.ui('ui.druck.fassung.taeter'),
+          for (final z in d.tatwissen) z.text,
+          if (d.tarnung != null) d.tarnung!,
+          for (final z in d.verbirgt)
+            if (z.behauptung != null) ...[
+              k.ui('ui.druck.rollen.behauptet', {'behauptung': z.behauptung!}),
+              k.ui('ui.druck.rollen.wahrheit', {'wahrheit': z.text}),
+            ] else
+              z.text,
+          if (d.taeter) k.ui('ui.druck.fassung.sabotage'),
+        ],
+        groesse: g,
+      ),
+    ],
+  );
+}
+
+/// Rundenwahl einer Fassung: dieselbe Anleitung für alle vier, je Runde A und B.
+/// Bei der Täterrolle ist B die heimliche Wahl (Sabotage-Text), ohne eigene Marke.
+pw.Widget _fassungWahl(DruckKontext k, Fassung f, double g) {
+  final d = f.dossier;
+  return pw.Column(
+    crossAxisAlignment: pw.CrossAxisAlignment.start,
+    children: [
+      k.stil.kopf(k.ui('ui.druck.fassung.marke'), k.ui('ui.druck.rollen.wahl')),
+      pw.Text(k.ui('ui.druck.fassung.streifen'), style: k.stil.text(g)),
+      pw.SizedBox(height: 10),
+      for (var r = 1; r <= 3; r++)
+        if (d.wahlen[r] case final w?) ...[
+          pw.Text(k.ui('ui.druck.rollen.runde', {'nr': '$r'}), style: k.stil.ueberschrift(11)),
+          pw.SizedBox(height: 3),
+          _wahlZeile(k, 'A', w.a, groesse: g),
+          _wahlZeile(k, 'B', w.sabotage ?? w.b, groesse: g),
+          pw.SizedBox(height: 6),
+        ],
+    ],
+  );
+}
+
+/// Drei B-Streifen zum Abreißen, je Runde einer: nur Runde und Wertcode.
+pw.Widget _streifenReihe(DruckKontext k, Fassung f) => pw.Row(
+      children: [
+        for (var r = 1; r <= 3; r++)
+          pw.Container(
+            width: DruckStil.breite / 3,
+            height: _streifenReiheHoehe,
+            padding: const pw.EdgeInsets.all(6),
+            decoration: k.stil.schnitt(),
+            child: pw.Column(
+              mainAxisAlignment: pw.MainAxisAlignment.center,
+              children: [
+                pw.Text(k.ui('ui.druck.rollen.runde', {'nr': '$r'}), style: k.stil.klein()),
+                pw.SizedBox(height: 2),
+                pw.Text(k.ui('ui.druck.stimme.wert', {'code': f.streifen[r]!}), style: k.stil.ueberschrift(14)),
+                pw.SizedBox(height: 2),
+                pw.Text(k.ui('ui.druck.stimme.falz'), style: k.stil.klein(), textAlign: pw.TextAlign.center),
+              ],
+            ),
+          ),
       ],
     );
 

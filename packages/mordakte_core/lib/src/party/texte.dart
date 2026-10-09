@@ -222,9 +222,11 @@ class Texte {
         return Kanon.giltIn(b['pfade'], pfad) ? DossierZeile(art, (b['duText'] ?? b['text']) as String) : null;
       case 'luege':
         final l = _luegen[id]!;
-        return DossierZeile(art, l['wahrheit'] as String, behauptung: l['behauptung'] as String);
+        // Auch die Wahrheit einer Lüge spricht die Rolle mit „du“ an (E-036).
+        return DossierZeile(art, (l['duWahrheit'] ?? l['wahrheit']) as String, behauptung: l['behauptung'] as String);
       case 'nebendelikt':
-        return DossierZeile(art, _nebendelikte[id]!['text'] as String);
+        final n = _nebendelikte[id]!;
+        return DossierZeile(art, (n['duText'] ?? n['text']) as String);
       case 'zeitleiste':
         final z = _zeit[id]!;
         return Kanon.giltIn(z['pfade'], pfad) ? DossierZeile(art, z['text'] as String) : null;

@@ -23,7 +23,7 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 
 - **Helligkeit der Karte (Master 7.13):** Die Ermittlung zeigt das verlangte Grundlicht von 23 % in kühlem Blaugrau, dazu warme Kerzenpunkte und den Lichtkegel des Geburtstagskinds. Auf hellen Bildschirmen wirkt das stimmungsvoll; auf einem dunklen Beamer kann es zu düster sein. Der Wert ist eine Zahl in `lib/party/karte_session.dart` (`dunkel: 0.77`).
 - **Erzählerstimme:** Sie nutzt nur Stimmen, die der Browser als lokal meldet, und liest genau den Bausteintext vor. Fehlt eine deutsche lokale Stimme, steht der Text da und ein Hinweis erscheint. Chrome kann sehr lange Sätze manchmal abbrechen; dann hilft „Noch einmal vorlesen“.
-- **Sabotage auf Papier (E-035):** Im Druckspiel reißt jede Person den Streifen ihrer Stimmkarte ab; darauf steht nur ein Code. Die Spielleitung zählt die Streifen über die Codetabelle im Heft. Sie merkt dabei, ob sabotiert wurde, aber nicht von wem, denn Name und Code stehen nie zusammen in der Schüssel. Am Bildschirm sieht das niemand.
+- **Sabotage auf Papier (E-036):** Im Druckspiel trägt keine offene Stimmkarte die Sabotage. Die vier Kernrollen geben bei B einen Streifen aus ihrem versiegelten Umschlag ab; nur beim Täter zählt er −1. Die Spielleitung merkt beim Zählen, dass sabotiert wurde, aber nicht von wem. Am Bildschirm sieht das niemand.
 
 ## Optionen zur Entscheidung
 - **Kernnamen:**

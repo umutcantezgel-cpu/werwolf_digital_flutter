@@ -169,15 +169,22 @@ List<pw.Widget> _runde(DruckKontext k, Spielleitungsheft heft, int r) => [
   ..._block(k, k.ui('ui.druck.spielleitung.schritt.umschlag'), [
     _absatz(k, k.ui('ui.druck.spielleitung.umschlag')),
   ]),
+  // Jedes Fach des Resümees bleibt mit seiner Überschrift auf einer Seite.
   ..._block(k, k.ui('ui.druck.spielleitung.schritt.resuemee'), [
-    _unterlabel(k, k.ui('ui.druck.spielleitung.resuemee.gruppe')),
-    _vorlesen(k, k.text(heft.resuemeeGruppe[r]!)),
-    _unterlabel(k, k.ui('ui.druck.spielleitung.resuemee.rest')),
-    _absatz(k, k.ui('ui.druck.spielleitung.rest.anleitung')),
-    _absatz(k, k.ui('ui.druck.spielleitung.rest.suche')),
-    _unterlabel(k, k.ui('ui.druck.spielleitung.resuemee.lage')),
-    _absatz(k, k.ui('ui.druck.spielleitung.lage.anleitung')),
-    _lage(k, heft.resuemeeLage[r]!),
+    _fach([
+      _unterlabel(k, k.ui('ui.druck.spielleitung.resuemee.gruppe')),
+      _vorlesen(k, k.text(heft.resuemeeGruppe[r]!)),
+    ]),
+    _fach([
+      _unterlabel(k, k.ui('ui.druck.spielleitung.resuemee.rest')),
+      _absatz(k, k.ui('ui.druck.spielleitung.rest.anleitung')),
+      _absatz(k, k.ui('ui.druck.spielleitung.rest.suche')),
+    ]),
+    _fach([
+      _unterlabel(k, k.ui('ui.druck.spielleitung.resuemee.lage')),
+      _absatz(k, k.ui('ui.druck.spielleitung.lage.anleitung')),
+      _lage(k, heft.resuemeeLage[r]!),
+    ]),
   ]),
 ];
 
@@ -374,6 +381,22 @@ List<pw.Widget> _ermittlungsbogen(DruckKontext k) {
   return [
     _titel(k, k.ui('ui.druck.bogen.ermittlung')),
     _absatz(k, k.text('ermittlungsbogen.einleitung')),
+    // Restverdächtige: Namen zum Durchstreichen (wortgleich aus dem Kanon).
+    _absatz(k, k.text('ermittlungsbogen.restverdaechtige')),
+    pw.Padding(
+      padding: const pw.EdgeInsets.only(bottom: 12),
+      child: pw.Row(
+        children: [
+          for (final p in eb.personen)
+            pw.Container(
+              margin: const pw.EdgeInsets.only(right: 22),
+              padding: const pw.EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              decoration: pw.BoxDecoration(border: pw.Border.all(color: DruckStil.linie, width: 0.8)),
+              child: pw.Text(k.figurName(p), style: k.stil.ueberschrift(14)),
+            ),
+        ],
+      ),
+    ),
     pw.Table(
       border: _gitter(),
       columnWidths: {
@@ -491,6 +514,10 @@ pw.Widget _fuss(DruckKontext k, String links, pw.Context c) => pw.Row(
 );
 
 /// Abschnitt mit kleiner Marke als Überschrift (wie `stil.kopf`, aber 9 pt).
+/// Ein Fach, das nicht über eine Seitengrenze bricht.
+pw.Widget _fach(List<pw.Widget> inhalt) =>
+    pw.Inseparable(child: pw.Column(crossAxisAlignment: pw.CrossAxisAlignment.start, children: inhalt));
+
 /// Die Marke bleibt mit dem ersten Inhalt zusammen: keine Überschrift allein am Seitenende.
 List<pw.Widget> _block(DruckKontext k, String label, List<pw.Widget> inhalt) =>
     [

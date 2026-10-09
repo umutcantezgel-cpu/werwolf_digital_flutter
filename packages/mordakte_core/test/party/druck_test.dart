@@ -141,7 +141,7 @@ void main() {
     }
   });
 
-  test('Fassungen: nur die Täterfassung trägt die Tarnung, keine verrät sich durch „Nur für dich“ oder „Du warst es“ (alle Sätze)', () async {
+  test('Fassungen: nur die Täterfassung trägt die Tarnung, keine verrät sich durch „Nur für dich“ (alle Sätze)', () async {
     for (final s in saetze) {
       final k = druckKontext(pfad: s.pfad, n: s.n);
       final satz = '${s.pfad}/${s.n}';
@@ -155,7 +155,6 @@ void main() {
         final tarnung = f.dossier.tarnung;
         expect(tarnung != null && block.contains(flach(tarnung).substring(0, 40)), f.rolle == taeter, reason: '$satz ${f.rolle}');
         expect(block, isNot(contains('Nur für dich')), reason: '$satz ${f.rolle}');
-        expect(block, isNot(contains('Du warst es')), reason: '$satz ${f.rolle}');
       }
     }
   });

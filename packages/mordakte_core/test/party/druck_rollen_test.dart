@@ -87,20 +87,27 @@ void main() {
     }
   });
 
-  test('Täterfassung von fatma enthält die Tarnung, die anderen nicht; keine Fassung verrät sich durch Überschrift (E-035)', () async {
+  test('Täterfassung von fatma enthält die Tarnung, die anderen nicht; alle vier haben dieselben Seiten und Überschriften (E-036)', () async {
     final k = druckKontext(pfad: 'fatma', n: 12);
     final b = await _teil(fassungen, k);
-    final l = b.seiten ~/ 4;
+    expect(b.seiten, 16, reason: 'vier Fassungen zu je vier Seiten');
     final tarnung = _anfang(k.satz.fassungen.firstWhere((f) => f.rolle == 'fatma').dossier.tarnung!, 50);
+    final ueberschriften = [
+      for (final u in ['ui.druck.rollen.ziel', 'ui.druck.rollen.weiss', 'ui.druck.rollen.verberge', 'ui.druck.rollen.wahl', 'ui.druck.fassung.notizen']) flach(k.ui(u)),
+    ];
     for (var i = 0; i < 4; i++) {
       final f = k.satz.fassungen[i];
-      final text = _seiten(b, i * l, (i + 1) * l);
+      final text = _seiten(b, i * 4, (i + 1) * 4);
       final taeterin = f.rolle == 'fatma';
       expect(text.contains(tarnung), taeterin, reason: f.rolle);
       expect(text, isNot(contains('Nur für dich')), reason: f.rolle);
-      expect(text, isNot(contains('Du warst es')), reason: f.rolle);
-      // Jede Fassung endet mit einer Notizseite: Kein Satz fällt durch fehlende Notizen auf.
-      expect(flach(b.seitenText[(i + 1) * l - 1]), contains(k.ui('ui.druck.fassung.notizen')), reason: f.rolle);
+      // Gleicher Aufbau: Inhalt auf Seite 2, Rundenwahl mit drei Streifen auf Seite 3, Notizen auf Seite 4.
+      expect([for (final u in ueberschriften) _zaehle(text, u)], [1, 1, 1, 1, 1], reason: f.rolle);
+      expect(_seiten(b, i * 4 + 2, i * 4 + 3), contains(flach(k.ui('ui.druck.rollen.wahl'))), reason: f.rolle);
+      for (var r = 1; r <= 3; r++) {
+        expect(_seiten(b, i * 4 + 2, i * 4 + 3), contains(flach(k.ui('ui.druck.stimme.wert', {'code': f.streifen[r]!}))), reason: '${f.rolle} Runde $r');
+      }
+      expect(_seiten(b, i * 4 + 3, i * 4 + 4), contains(flach(k.ui('ui.druck.fassung.notizen'))), reason: f.rolle);
     }
   });
 
@@ -155,14 +162,20 @@ void main() {
     }
   });
 
-  test('Sabotage steht nur in der Täterfassung, dort in jeder Runde', () async {
+  test('Sabotage steht nur in der Täterfassung: Hinweis einmal, heimliche Wahl B in jeder Runde (E-036)', () async {
     final k = druckKontext(pfad: 'fatma', n: 12);
     final b = await _teil(fassungen, k);
-    final l = b.seiten ~/ 4;
     for (var i = 0; i < 4; i++) {
       final f = k.satz.fassungen[i];
-      final text = _seiten(b, i * l, (i + 1) * l);
-      expect(_zaehle(text, flach(k.ui('ui.druck.fassung.sabotage'))), f.rolle == 'fatma' ? 3 : 0, reason: f.rolle);
+      final text = _seiten(b, i * 4, (i + 1) * 4);
+      final taeterin = f.rolle == 'fatma';
+      expect(_zaehle(text, flach(k.ui('ui.druck.fassung.sabotage'))), taeterin ? 1 : 0, reason: f.rolle);
+      for (var r = 1; r <= 3; r++) {
+        final w = f.dossier.wahlen[r]!;
+        expect(w.sabotage != null, taeterin, reason: '${f.rolle} Runde $r');
+        expect(text, contains(_anfang(w.sabotage ?? w.b, 40)), reason: '${f.rolle} Runde $r');
+      }
+      expect(f.streifenWert, taeterin ? -1 : 0, reason: f.rolle);
     }
   });
 
@@ -186,7 +199,11 @@ void main() {
       expect(text, isNot(contains(verboten)), reason: verboten);
     }
     expect(_zaehle(text, 'Code '), 72);
-    expect([for (final s in k.satz.stimmkarten.where((s) => s.wert == -1)) (s.rolle, s.runde)], [('ahmet', 1), ('ahmet', 2), ('ahmet', 3)]);
+    // Keine offene Karte trägt die Sabotage, auch nicht die der Täterrolle (E-036).
+    expect(k.satz.stimmkarten.where((s) => s.wert == -1), isEmpty);
+    for (final s in k.satz.stimmkarten.where((s) => s.rolle == 'ahmet' && !s.a)) {
+      expect(s.text, k.texte.sammlung.wahlen['gw_ahmet_${s.runde}']!.b);
+    }
   });
 
   test('n = 20 ohne Überlauf, alle Teile A4', () async {

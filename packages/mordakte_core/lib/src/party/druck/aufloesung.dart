@@ -37,22 +37,23 @@ void aufloesungsheft(pw.Document doc, DruckKontext k) {
 /// Deckblatt: Siegel, Falltitel und Fall-Code.
 List<pw.Widget> _deckblatt(DruckKontext k) {
   final s = k.stil;
+  // Alles im oberen Teil: Beim Knick in der Mitte nach hinten bleibt das Deckblatt vorn lesbar.
   return [
-    pw.SizedBox(height: 120),
+    pw.SizedBox(height: 40),
     pw.Text(k.ui('ui.druck.aufloesung.marke').toUpperCase(), style: s.marke(10)),
     pw.SizedBox(height: 8),
     pw.Text(k.fallTitel, style: s.titel(30)),
-    pw.SizedBox(height: 44),
+    pw.SizedBox(height: 24),
     pw.Container(
       padding: const pw.EdgeInsets.symmetric(horizontal: 20, vertical: 18),
       decoration: pw.BoxDecoration(border: pw.Border.all(color: DruckStil.tinte, width: 1.6)),
       child: pw.Text(k.ui('ui.druck.aufloesung.siegel'), style: s.titel(18)),
     ),
-    pw.SizedBox(height: 44),
+    pw.SizedBox(height: 24),
     pw.Text(k.ui('ui.druck.aufloesung.fall_code'), style: s.marke(10)),
     pw.SizedBox(height: 6),
     pw.Text(k.satz.code.code, style: s.code(30)),
-    pw.SizedBox(height: 40),
+    pw.SizedBox(height: 20),
     pw.Text(k.ui('ui.druck.aufloesung.deckhinweis'), style: s.text(12)),
   ];
 }
@@ -217,17 +218,24 @@ List<pw.Widget> _codeliste(DruckKontext k) {
     ..._kopf(k, k.ui('ui.druck.aufloesung.marke'), k.ui('ui.druck.aufloesung.codes')),
     pw.Text(k.ui('ui.druck.aufloesung.codes_hinweis'), style: s.text(11)),
     pw.SizedBox(height: 10),
-    pw.Table(
-      border: pw.TableBorder.all(color: DruckStil.linie, width: 0.5),
-      columnWidths: {
-        0: pw.FixedColumnWidth(70),
-        1: pw.FlexColumnWidth(),
-      },
-      children: [
-        _kopfzeile(s, [k.ui('ui.druck.aufloesung.spalte.code'), k.ui('ui.druck.aufloesung.spalte.bedeutung')]),
-        for (final c in codes) pw.TableRow(children: [_zelle(s, c, fett: true), _zelle(s, _bedeutung(k, c))]),
-      ],
-    ),
+    // Blöcke zu je 16 Codes mit eigener Kopfzeile: Bricht die Liste um, steht die Kopfzeile wieder oben.
+    for (var i = 0; i < codes.length; i += 16)
+      pw.Inseparable(
+        child: pw.Padding(
+          padding: const pw.EdgeInsets.only(bottom: 8),
+          child: pw.Table(
+            border: pw.TableBorder.all(color: DruckStil.linie, width: 0.5),
+            columnWidths: {
+              0: pw.FixedColumnWidth(70),
+              1: pw.FlexColumnWidth(),
+            },
+            children: [
+              _kopfzeile(s, [k.ui('ui.druck.aufloesung.spalte.code'), k.ui('ui.druck.aufloesung.spalte.bedeutung')]),
+              for (final c in codes.skip(i).take(16)) pw.TableRow(children: [_zelle(s, c, fett: true), _zelle(s, _bedeutung(k, c))]),
+            ],
+          ),
+        ),
+      ),
   ];
 }
 

@@ -125,7 +125,7 @@ List<String> _verbirgtFehler(Kanon kanon, Textsammlung t) {
       }
       for (final n in kanon.gegenstaendeJson['nebendelikte'] as List) {
         final m = n as Map;
-        if (m['person'] == r && !v.any((z) => z.art == 'nebendelikt' && z.text == m['text'])) {
+        if (m['person'] == r && !v.any((z) => z.art == 'nebendelikt' && z.text == (m['duText'] ?? m['text']))) {
           f.add('$wo: Nebendelikt ${m['id']} fehlt');
         }
       }
@@ -430,6 +430,24 @@ void main() {
       }
     }
     expect(fehler.toSet(), isEmpty);
+  });
+
+  test('Lügen und Heimlichtuereien stehen im eigenen Dossier in der Du-Form (E-036)', () {
+    final texte = Texte(kanon, _textsammlung);
+    final dritte = RegExp(r'^(Er|Sie) |\b(seine?[mnrs]?|ihm|ihn)\b');
+    final fehler = <String>[];
+    for (final f in kanon.figuren) {
+      final r = f['id'] as String;
+      for (final p in kanon.pfade) {
+        final d = texte.dossier(r, p, 20);
+        for (final z in [...d.weiss, ...d.verbirgt]) {
+          if (z.art != 'luege' && z.art != 'nebendelikt') continue;
+          if (dritte.hasMatch(z.text)) fehler.add('$r/$p: ${z.art} in der dritten Person: ${z.text}');
+          if (z.art == 'nebendelikt' && !z.text.startsWith('Du ')) fehler.add('$r/$p: Heimlichtuerei ohne Satz in Du-Form: ${z.text}');
+        }
+      }
+    }
+    expect(fehler.toSet(), isEmpty, reason: fehler.toSet().join('\n'));
   });
 }
 

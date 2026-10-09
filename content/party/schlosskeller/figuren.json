@@ -118,12 +118,14 @@
         {
           "id": "luege_ahmet_servietten",
           "behauptung": "Ich hab hinter der Theke nur Servietten gesucht.",
-          "wahrheit": "Er wollte Herrn Schneider mit dem Umschlag um Aufschub bitten."
+          "wahrheit": "Er wollte Herrn Schneider mit dem Umschlag um Aufschub bitten.",
+          "duWahrheit": "Du wolltest Herrn Schneider mit dem Umschlag um Aufschub bitten."
         },
         {
           "id": "luege_ahmet_miete",
           "behauptung": "Die 150 € waren für die Miete.",
-          "wahrheit": "Der Keller hat nichts gekostet; das Geld deckt seine zu große Essensbestellung."
+          "wahrheit": "Der Keller hat nichts gekostet; das Geld deckt seine zu große Essensbestellung.",
+          "duWahrheit": "Der Keller hat nichts gekostet. Das Geld deckt deine zu große Essensbestellung."
         }
       ],
       "innocentProfile": {
@@ -185,12 +187,14 @@
         {
           "id": "luege_fatma_buffet",
           "behauptung": "Ich stand die ganze Zeit beim Gebäck am linken Buffet.",
-          "wahrheit": "Um 23:57 war sie mit der Tasche an der Theken-Klappe."
+          "wahrheit": "Um 23:57 war sie mit der Tasche an der Theken-Klappe.",
+          "duWahrheit": "Um 23:57 warst du mit der Tasche an der Theken-Klappe."
         },
         {
           "id": "luege_fatma_tasche",
           "behauptung": "In meiner Tasche sind nur Bücher.",
-          "wahrheit": "In der Tasche liegt die Münzschatulle aus der Vitrine."
+          "wahrheit": "In der Tasche liegt die Münzschatulle aus der Vitrine.",
+          "duWahrheit": "In der Tasche liegt die Münzschatulle aus der Vitrine."
         }
       ],
       "innocentProfile": {
@@ -254,7 +258,8 @@
         {
           "id": "luege_olli_tafel",
           "behauptung": "Ich saß die ganze Zeit am Tisch im Ost-Saal.",
-          "wahrheit": "Um 23:57 war er am Eiskübel vor der Theke, danach kauerte er am rechten Buffettisch."
+          "wahrheit": "Um 23:57 war er am Eiskübel vor der Theke, danach kauerte er am rechten Buffettisch.",
+          "duWahrheit": "Um 23:57 warst du am Eiskübel vor der Theke. Danach hast du am rechten Buffettisch gekauert."
         }
       ],
       "innocentProfile": {
@@ -316,12 +321,14 @@
         {
           "id": "luege_can_toilette",
           "behauptung": "Ich war die ganze Zeit auf der Toilette im Turm.",
-          "wahrheit": "Er war im Vorratsraum und ist erst nach dem Zusammenstoß in den Turm gerannt."
+          "wahrheit": "Er war im Vorratsraum und ist erst nach dem Zusammenstoß in den Turm gerannt.",
+          "duWahrheit": "Du warst im Vorratsraum und bist erst nach dem Zusammenstoß in den Turm gerannt."
         },
         {
           "id": "luege_can_maske",
           "behauptung": "Welche Maske? Ich hab keine Maske.",
-          "wahrheit": "Die Leuchtmaske steckt in der Bauchtasche seines Pullis."
+          "wahrheit": "Die Leuchtmaske steckt in der Bauchtasche seines Pullis.",
+          "duWahrheit": "Die Leuchtmaske steckt in der Bauchtasche deines Pullis."
         }
       ],
       "innocentProfile": {

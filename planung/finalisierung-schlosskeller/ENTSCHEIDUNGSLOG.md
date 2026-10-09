@@ -974,3 +974,53 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Texte 0 Befunde (1567).
   - Simulator, Plausibilität und Story-Bibel OK.
   - Sichtprobe der neuen Seiten dem Nutzer gezeigt.
+
+## E-036 · Sabotage-Streifen in der Fassung, vier gleiche Fassungsseiten (Nachprüfung F5-DRUCK-03/04)
+- **Anlass:** Beide Nachprüfer fanden den Täter weiter in offenen Teilen.
+  - (a) Die offene Stimmkarte nennt die Rolle und trägt einen Code. Die Codetabelle im Spielleitungsheft gibt genau diesem Code −1. Wer beides hat, kennt den Täter.
+  - (b) Die Täterfassung fällt durch eigene Überschriften („Was nur du weißt“, „Das erzählst du den anderen“) und eine andere Seitenaufteilung auf (zwei Inhaltsseiten, eine Notizseite).
+  - E-035 hatte das zu optimistisch beschrieben.
+- **Denkprotokoll:**
+  - (a) ist kein Lese-, sondern ein Zuordnungsproblem: Rolle und −1 dürfen in keinem offenen Teil verknüpfbar sein.
+  - Die Sabotage gehört deshalb dorthin, wo die Täterrolle ohnehin allein liest: in die versiegelte Fassung.
+  - Damit niemand am Tisch etwas bemerkt, tun alle vier Kernrollen dasselbe: Bei B geben sie den Streifen aus ihrer Fassung ab. Bei den Unschuldigen zählt er 0, beim Täter −1.
+  - (b) lässt sich über gleichen Aufbau lösen: dieselben Überschriften, dieselben vier Seiten, eine gemeinsame Schriftgröße.
+  - Die Textmenge der Inhaltsseite bleibt verschieden. Das sieht nur, wer die vier Innenseiten nebeneinanderlegt und liest.
+- **Entscheidungen:**
+  - **Offene Stimmkarten:** Für alle Rollen gilt A = +1, B = 0. Der Text von B ist ohne Sabotage und bei allen gleich. Kein offenes Blatt trägt eine −1.
+  - **Fassung:** Jede Fassung hat vier Seiten.
+    - (1) Außenseite: Code und Hinweis im oberen Viertel. Beim Knick in der Mitte bleibt der Code vorn.
+    - (2) Inhalt: Mein Ziel, Was ich weiß, Was ich verberge. Bei der Täterrolle stehen dort ohne eigene Überschrift „Du warst es …“, die Tat, die Tarnung und der Hinweis auf die heimliche Wahl.
+    - (3) Meine Rundenwahl: dieselbe Anleitung für alle, A und B je Runde, unten drei B-Streifen zum Abreißen.
+    - (4) Notizen.
+    - Eine Schriftgröße für alle vier. Passt die längste nicht auf die Seite, ist das ein Fehler (`passendeGroesse`).
+  - **Codetabelle je Runde:** Karten-Codes plus die vier Fassungs-Streifen. Genau ein Streifen zählt −1.
+  - **Codes ohne doppeltes Buchstabenpaar**, damit MN4 und MN7 nie im selben Satz stehen.
+  - **Faltanleitung:**
+    - Blätter mit der Schrift nach oben stapeln, das Blatt mit dem Code obenauf.
+    - In der Mitte nach hinten knicken und zukleben. Die Schrift liegt dann innen, der Code vorn.
+    - Gilt für Fassungen und Auflösungsheft; dessen Deckblatt ist nach oben gerückt.
+  - **Weitere Satzkorrekturen:**
+    - Die Resümee-Fächer bleiben je auf einer Seite (`pw.Inseparable`).
+    - Die Codeliste steht in Blöcken zu 16 mit eigener Kopfzeile. Der Hinweis nennt Indizkarten, Hinweis-Umschläge und Fassungen.
+    - Der Ermittlungsbogen druckt `ermittlungsbogen.restverdaechtige` und die vier Namen zum Durchstreichen.
+    - „Jede Rolle wählt …, jede Rolle gibt genau einen Streifen ab“.
+    - „Sortiere nur nach Nummern, Codes und Rollennamen“.
+  - **Du-Form im Dossier:**
+    - Nebendelikte bekommen `duText` („Du hast die Münzschatulle … mitgenommen.“), Lügen bekommen `duWahrheit` („Du wolltest …“). Schema und Textquellen sind ergänzt.
+    - Neuer Test: Lügen und Heimlichtuereien stehen im eigenen Dossier in der Du-Form.
+    - Das wirkt in App und Druck gleich (F-10).
+  - **Restrisiko, dokumentiert (Befund DRUCK-04 #3):**
+    - Indizkarten und Hinweis-Umschläge tragen die Innenseite auf demselben Blatt. Nach dem Falten liegt sie hinten.
+    - Wer beim Ausschneiden liest, sieht Funde. Ohne Duplexdruck gibt es keine sichere technische Lösung; Duplex hat E-035 verworfen.
+    - Die Anleitung sagt „einseitig drucken, nichts lesen, nur nach Codes sortieren“.
+  - **Präzisierung zu E-035:**
+    - „Ohne Namen“ meint: Der Gast, den niemand spielt, wird nicht genannt. Andere Figuren im zitierten Satz schon.
+    - Der Toiletten-Lacher mit Olli gilt in allen Pfaden gleich und ist kein Spoiler.
+    - Zwei Gespräche einer Rolle mit dem Geburtstagskind in einer Runde sind Ersatzpartner-Regel, kein Fehler.
+    - Gestrichelte Randlinien an der Blattkante sind Zierde. Alle Texte haben Innenrand.
+- **Belege:**
+  - 372 Kern-Tests und 129 Widget-Tests grün.
+  - Texte 0 Befunde (1581).
+  - Story-Bibel aktuell.
+  - Sichtprobe der 16 Fassungsseiten dem Nutzer gezeigt.

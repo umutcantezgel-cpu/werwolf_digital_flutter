@@ -61,9 +61,10 @@ class BogenEntscheidung {
   const BogenEntscheidung(this.id, this.runde, this.nr, this.frage, this.optionen);
 }
 
-/// Stimmkarte einer Rolle in einer Runde. Der Abreißstreifen trägt nur den
-/// neutralen [wertCode]; den [wert] (A = 1, B = 0, Sabotage der Täterrolle = −1,
-/// Regel G-1) kennt nur die Codetabelle der Runde im Spielleitungsheft (E-035).
+/// Offene Stimmkarte einer Rolle in einer Runde. Der Abreißstreifen trägt nur den
+/// neutralen [wertCode]; den [wert] (A = 1, B = 0) kennt die Codetabelle der Runde
+/// im Spielleitungsheft (E-035). Keine offene Karte trägt die Sabotage: Die liegt
+/// als Streifen in der versiegelten Fassung der Täterrolle (E-036).
 class Stimmkarte {
   final String rolle;
   final int runde;
@@ -109,12 +110,20 @@ class Auszaehlung {
   }
 }
 
-/// Versiegelte Fassung einer Kernrolle: außen nur [code].
+/// Versiegelte Fassung einer Kernrolle: außen nur [code]. Innen je Runde ein
+/// Streifen für die Wahl B (G-1, E-036): bei der Täterrolle zählt er −1
+/// (Sabotage), bei den anderen 0 wie ihre Karte B. So tun alle vier dasselbe.
 class Fassung {
   final String code;
   final String rolle;
   final Dossier dossier;
-  const Fassung(this.code, this.rolle, this.dossier);
+
+  /// Runde → Wertcode des B-Streifens.
+  final Map<int, String> streifen;
+
+  /// Wert der B-Streifen: −1 bei der Täterrolle, sonst 0.
+  final int streifenWert;
+  const Fassung(this.code, this.rolle, this.dossier, this.streifen, this.streifenWert);
 }
 
 /// Spielleitungsheft (ohne Lösung): Bausteine je Abschnitt in Lesereihenfolge.
@@ -277,9 +286,9 @@ class DruckSatz {
     for (var r = 1; r <= 3; r++) {
       for (final rolle in besetzt) {
         final w = texte.sammlung.wahlen['gw_${rolle}_$r']!;
-        final taeter = rolle == pfad;
         stimmDaten.add((rolle, r, true, w.a, 1));
-        stimmDaten.add((rolle, r, false, taeter && w.sabotage != null ? w.sabotage! : w.b, taeter ? -1 : 0));
+        // Die offene Karte B ist bei allen gleich (Text ohne Sabotage, Wert 0).
+        stimmDaten.add((rolle, r, false, w.b, 0));
       }
     }
 
@@ -319,19 +328,26 @@ class DruckSatz {
       umschlaege.sort((a, b) => a.code.compareTo(b.code));
     }
 
-    // Fassungen der Kernrollen
-    final fassungen = <Fassung>[];
+    // Fassungen der Kernrollen (Codes jetzt, B-Streifen nach den Stimmkarten)
+    final fassungsCodes = <String, String>{};
     for (final p in kanon.kernverdaechtige) {
       final c = codes.neu();
       bedeutung[c] = 'fassung:$p${p == pfad ? ':taeter' : ''}';
-      fassungen.add(Fassung(c, p, texte.dossier(p, pfad, rollen)));
+      fassungsCodes[p] = c;
     }
 
     // Wertcodes der Stimmkarten und die Codetabelle je Runde
     final stimmen = [for (final (rolle, r, a, text, wert) in stimmDaten) Stimmkarte(rolle, r, a, text, wert, codes.neu())];
+    final fassungen = [
+      for (final p in kanon.kernverdaechtige)
+        Fassung(fassungsCodes[p]!, p, texte.dossier(p, pfad, rollen), {for (var r = 1; r <= 3; r++) r: codes.neu()}, p == pfad ? -1 : 0),
+    ];
     final zaehlung = [
       for (final a in auszaehlung)
-        Auszaehlung(a.runde, a.stufen, {for (final s in stimmen.where((s) => s.runde == a.runde)) s.wertCode: s.wert}),
+        Auszaehlung(a.runde, a.stufen, {
+          for (final s in stimmen.where((s) => s.runde == a.runde)) s.wertCode: s.wert,
+          for (final f in fassungen) f.streifen[a.runde]!: f.streifenWert,
+        }),
     ];
 
     // Spielleitungsheft
@@ -421,6 +437,8 @@ class DruckSatz {
 }
 
 /// Neutrale Codes eines Satzes: zwei Buchstaben und eine Ziffer, eindeutig.
+/// Kein Buchstabenpaar kommt zweimal vor, damit sich Codes wie MN4 und MN7
+/// beim Vorlesen nicht verwechseln lassen (E-036).
 class _Codes {
   _Codes(FallCode code) : _rng = Rng(code.seed ^ Rng.hashString('druck'));
   final Rng _rng;
@@ -431,7 +449,7 @@ class _Codes {
   String neu() {
     while (true) {
       final c = '${_buchstaben[_rng.nextInt(_buchstaben.length)]}${_buchstaben[_rng.nextInt(_buchstaben.length)]}${_ziffern[_rng.nextInt(_ziffern.length)]}';
-      if (_vergeben.add(c)) return c;
+      if (_vergeben.add(c.substring(0, 2))) return c;
     }
   }
 }

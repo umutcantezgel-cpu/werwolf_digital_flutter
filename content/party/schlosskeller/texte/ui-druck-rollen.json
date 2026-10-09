@@ -84,20 +84,8 @@
       "text": "Versiegelt. Erst öffnen, wenn die Spielleitung diesen Code nennt."
     },
     {
-      "id": "ui.druck.fassung.tafel",
-      "text": "Was nur du weißt"
-    },
-    {
-      "id": "ui.druck.fassung.tarnung",
-      "text": "Das erzählst du den anderen"
-    },
-    {
-      "id": "ui.druck.fassung.tatwissen",
-      "text": "So war es wirklich"
-    },
-    {
       "id": "ui.druck.fassung.sabotage",
-      "text": "B, deine heimliche Wahl: Für die anderen klingt sie harmlos. Sie schwächt den Hinweis dieser Runde."
+      "text": "Deine Wahl B ist heimlich. Für die anderen klingt sie harmlos, aber ihr Streifen schwächt den Hinweis der Runde."
     },
     {
       "id": "ui.druck.fassung.notizen",
@@ -114,6 +102,14 @@
     {
       "id": "ui.druck.stimme.falz",
       "text": "Abreißen, falten und in die Schüssel legen."
+    },
+    {
+      "id": "ui.druck.fassung.taeter",
+      "text": "Du warst es. Vor dem Morgen darf das niemand erfahren."
+    },
+    {
+      "id": "ui.druck.fassung.streifen",
+      "text": "Wählst du in einer Runde B, gibst du den Streifen dieser Runde von dieser Seite ab. Den Streifen deiner Karte B behältst du. Wählst du A, gibst du wie alle den Streifen deiner Karte A ab."
     }
   ]
 }

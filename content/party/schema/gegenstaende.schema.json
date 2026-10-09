@@ -338,6 +338,9 @@
           },
           "text": {
             "$ref": "#/$defs/text"
+          },
+          "duText": {
+            "$ref": "#/$defs/text"
           }
         },
         "additionalProperties": false

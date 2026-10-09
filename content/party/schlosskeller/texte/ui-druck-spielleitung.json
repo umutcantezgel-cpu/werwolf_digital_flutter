@@ -33,7 +33,7 @@
     },
     {
       "id": "ui.druck.spielleitung.vorbereitung.einleitung",
-      "text": "Drucke alle Dateien einseitig aus und lies dabei nichts. Sortiert wird nur nach Nummern und Codes."
+      "text": "Drucke alle Dateien einseitig aus und lies dabei nichts. Sortiere nur nach Nummern, Codes und Rollennamen."
     },
     {
       "id": "ui.druck.spielleitung.datei.00",
@@ -113,7 +113,7 @@
     },
     {
       "id": "ui.druck.spielleitung.gruppenwahl",
-      "text": "Jede Person wählt eine ihrer zwei Karten dieser Runde. Sie reißt den Streifen mit dem Code ab, faltet ihn und legt ihn in eine Schüssel. Die Karte selbst behält sie."
+      "text": "Jede Rolle wählt eine ihrer zwei Karten dieser Runde. Sie reißt den Streifen mit dem Code ab, faltet ihn und legt ihn in eine Schüssel. Jede Rolle gibt genau einen Streifen ab."
     },
     {
       "id": "ui.druck.spielleitung.auszaehlung.summe",
@@ -329,7 +329,7 @@
     },
     {
       "id": "ui.druck.spielleitung.teile.fassung",
-      "text": "Fassungen: Leg die Seiten jeder Fassung aufeinander, das Blatt mit dem Code obenauf. Falte sie zweimal und klebe sie zu."
+      "text": "Fassungen: Jede Fassung hat vier Blätter. Leg sie mit der Schrift nach oben aufeinander, das Blatt mit dem Code obenauf. Knick den Stapel in der Mitte nach hinten, sodass der Code vorn bleibt, und klebe ihn zu."
     },
     {
       "id": "ui.druck.spielleitung.teile.stimme",
@@ -337,7 +337,7 @@
     },
     {
       "id": "ui.druck.spielleitung.teile.aufloesung",
-      "text": "Auflösungsheft: Falte es zusammen und klebe es zu, ohne hineinzusehen."
+      "text": "Auflösungsheft: Leg alle Blätter mit der Schrift nach oben aufeinander, das Deckblatt obenauf. Knick den Stapel in der Mitte nach hinten und klebe ihn zu, ohne hineinzusehen."
     },
     {
       "id": "ui.druck.spielleitung.fassungen.titel",

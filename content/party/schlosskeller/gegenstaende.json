@@ -814,42 +814,50 @@
     {
       "id": "nd_mietgeld",
       "person": "ahmet",
-      "text": "150 € Miete von allen kassiert, obwohl der Keller nichts gekostet hat."
+      "text": "150 € Miete von allen kassiert, obwohl der Keller nichts gekostet hat.",
+      "duText": "Du hast von allen 150 € Miete kassiert, obwohl der Keller nichts gekostet hat."
     },
     {
       "id": "nd_schatulle",
       "person": "fatma",
-      "text": "Münzschatulle aus der Turmvitrine mitgenommen."
+      "text": "Münzschatulle aus der Turmvitrine mitgenommen.",
+      "duText": "Du hast die Münzschatulle aus der Turmvitrine mitgenommen."
     },
     {
       "id": "nd_tuerschaden",
       "person": "olli",
-      "text": "Bogentür beschädigt und die Schramme mit Möbelwachs verdeckt."
+      "text": "Bogentür beschädigt und die Schramme mit Möbelwachs verdeckt.",
+      "duText": "Du hast die Bogentür beschädigt und die Schramme mit Möbelwachs verdeckt."
     },
     {
       "id": "nd_streich",
       "person": "can",
-      "text": "Mit der Leuchtmaske im Vorratsraum versteckt."
+      "text": "Mit der Leuchtmaske im Vorratsraum versteckt.",
+      "duText": "Du hast dich mit der Leuchtmaske im Vorratsraum versteckt."
     },
     {
       "id": "nd_kurzschluss",
       "person": "tim",
-      "text": "Trotz Warnung die alte Mehrfachsteckdose benutzt."
+      "text": "Trotz Warnung die alte Mehrfachsteckdose benutzt.",
+      "duText": "Du hast trotz Warnung die alte Mehrfachsteckdose benutzt."
     },
     {
       "id": "nd_parken",
       "person": "murat",
-      "text": "Auf Herrn Schneiders reserviertem Platz geparkt."
+      "text": "Auf Herrn Schneiders reserviertem Platz geparkt.",
+      "duText": "Du hast auf Herrn Schneiders reserviertem Platz geparkt."
     },
     {
       "id": "nd_schmiere",
       "person": "zeynep",
-      "text": "Für Cans Streich Schmiere gestanden."
+      "text": "Für Cans Streich Schmiere gestanden.",
+      "duText": "Du hast für Cans Streich Schmiere gestanden."
     },
     {
       "id": "nd_moebelwachs",
       "person": "kaan",
-      "text": "Olli das Möbelwachs zum Verdecken der Schramme gegeben."
+      "text": "Olli das Möbelwachs zum Verdecken der Schramme gegeben.",
+      "duText": "Du hast Olli das Möbelwachs gegeben, damit er die Schramme verdecken kann."
     }
   ]
 }
