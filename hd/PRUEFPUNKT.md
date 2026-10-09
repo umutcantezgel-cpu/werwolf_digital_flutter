@@ -1,3 +1,5 @@
+**PAUSIERT (2026-10-09):** Der Nutzer hat FEINKORN (Schlosskeller in der App, Branch kern-feinkorn, Planung planung/feinkorn) vorgezogen; Burgstadt HD ruht. Unfertiges liegt als Patch in hd/wip/ (siehe LIESMICH.md). Wiedereinstieg: Prüfpunkt lesen, hd/wip/P1-OPUS-07.patch anwenden und abnehmen, dann P1-OPUS-12 (Variantenwahl: pflaster_a, putzOcker_a mit Nacharbeit, dachBiberschwanz_a mit weniger Altziegeln, fensterDunkel_a mit stärkeren Spiegelungen; fenster v1 in _haus, Dreiecke je Fenster 62 → LOD), P4-AUTOR-01 bett fertigstellen.
+
 # Burgstadt HD – PRÜFPUNKT (Wiedereinstieg)
 
 - **Arbeitsbranch:** `claude/pensive-gates-ajtp7x`

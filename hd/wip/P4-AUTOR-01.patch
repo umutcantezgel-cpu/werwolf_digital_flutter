@@ -1,0 +1,270 @@
+diff --git a/packages/burgstadt_spiel/lib/src/bau/formen/bett.dart b/packages/burgstadt_spiel/lib/src/bau/formen/bett.dart
+index 4d71ae2..2ed1961 100644
+--- a/packages/burgstadt_spiel/lib/src/bau/formen/bett.dart
++++ b/packages/burgstadt_spiel/lib/src/bau/formen/bett.dart
+@@ -1,8 +1,21 @@
++import 'dart:math' as math;
++
+ import 'package:pixel_engine/pixel_engine.dart';
+ 
+ import '../form.dart';
+ 
+-/// Bett (Platzhalter bis P4-AUTOR): zeichnet wie der Bestand einen Quader über die Grundfläche.
++/// Bett, Schrankbett und Wiege (Burgstadt HD, P4-AUTOR-01, Form `bett`).
++///
++/// Bett (Höhe ≤ 1,5 m, Grundfläche über 1,0 m): Gestell aus `o.textur` mit vier Eckpfosten, Kopfteil an der Seite
++/// `rueckseite` bis zur vollen Höhe, Fußteil auf der Gegenseite auf 60 % der Höhe, Strohsack in `holzDielen`,
++/// Wolldecke in `teppichRot` mit freiem oberen Drittel. Variante `o.hash(0) % 3`: Kopfteil gerade, mit zwei
++/// Zierknäufen oder mit Mittelbrett. Schrankbett (Höhe über 1,5 m): Kasten mit Rückwand an `rueckseite`, zwei
++/// Seitenwänden, Dach mit Kranzleiste und offener Front, das Bett darin auf 0,30 m. Wiege (Grundfläche höchstens
++/// 1,0 m in beiden Richtungen): niedriger Kasten auf zwei gebogenen Kufen statt Pfosten.
++///
++/// Reine Darstellung: alle Eckpunkte liegen in Grundfläche und Höhe des Dings. Flächen, die von außen nicht sichtbar
++/// sind (Unterseiten, Flächen an der Wand oder an anderen Teilen), fehlen. Dreiecke: Bett und Wiege höchstens 90,
++/// Schrankbett höchstens 110.
+ class BettForm implements Moebelform {
+   const BettForm();
+ 
+@@ -11,6 +24,241 @@ class BettForm implements Moebelform {
+ 
+   @override
+   void baue(MeshBuilder m, FormOrt o) {
+-    m.box(o.x0, 0, o.z0, o.x1, o.hoehe, o.z1, o.textur, warm: o.warm, cold: o.kalt);
++    final r = _Rahmen(o);
++    if (o.hoehe > 1.5) {
++      _schrankbett(m, r);
++    } else if (o.breite <= 1.0 && o.tiefe <= 1.0) {
++      _wiege(m, r);
++    } else {
++      _bett(m, r);
++    }
++  }
++}
++
++/// Eckpfosten 0,08 × 0,08 m.
++const double _pfosten = 0.08;
++
++/// Seitenzarge 0,12 m hoch, 0,08 m quer (bündig mit dem Pfosten).
++const double _zargeHoehe = 0.12;
++const double _zargeBreite = 0.08;
++
++/// Unterkante der Zargen im Bett.
++const double _zargeBett = 0.20;
++
++/// Unterkante der Zargen im Schrankbett: das Bett steht auf 0,30 m.
++const double _zargeSchrank = 0.30;
++
++/// Strohsack 0,12 m dick auf den Zargen, Wolldecke 0,02 m dick darauf.
++const double _strohsack = 0.12;
++const double _decke = 0.02;
++
++/// Kopf- und Fußbrett 0,04 m dick. Die Wolldecke überlappt Fußende und Seiten um dasselbe Maß.
++const double _brett = 0.04;
++
++/// Kranzleiste des Schrankbetts 0,06 m.
++const double _kranz = 0.06;
++
++/// Wiege: Kasten ab 0,12 m über dem Boden, Kufen mit Bogen 0,10 m an den Enden, 0,06 m dick, 4 Segmente.
++const double _wiegeBoden = 0.12;
++const double _kufeRand = 0.02;
++const double _kufeBogen = 0.10;
++const double _kufeDicke = 0.06;
++const int _kufeSegmente = 4;
++
++/// Lokaler Rahmen eines Dings. [u] läuft quer über die Breite, [v] vom Kopfteil (v = 0, an der Seite `rueckseite`)
++/// zum Fußteil, [y] nach oben. [breite] ist die Ausdehnung in u, [laenge] die in v.
++class _Rahmen {
++  _Rahmen(this.o)
++      : _k = _koordinaten(o),
++        breite = o.rueckseite.isOdd ? o.tiefe : o.breite,
++        laenge = o.rueckseite.isOdd ? o.breite : o.tiefe;
++
++  final FormOrt o;
++
++  /// Ursprung (x, z) bei u = 0, v = 0; Richtung von u (x, z); Richtung von v (x, z).
++  final List<double> _k;
++  final double breite, laenge;
++
++  static List<double> _koordinaten(FormOrt o) => switch (o.rueckseite) {
++        2 => [o.x0, o.z1, 1.0, 0.0, 0.0, -1.0],
++        1 => [o.x1, o.z0, 0.0, 1.0, -1.0, 0.0],
++        3 => [o.x0, o.z0, 0.0, 1.0, 1.0, 0.0],
++        _ => [o.x0, o.z0, 1.0, 0.0, 0.0, 1.0],
++      };
++
++  /// Welt-Punkt (x, y, z) zum lokalen Punkt (u, v) in der Höhe [y].
++  (double, double, double) punkt(double u, double v, double y) =>
++      (_k[0] + u * _k[2] + v * _k[4], y, _k[1] + u * _k[3] + v * _k[5]);
++
++  /// Welt-Richtung (x, 0, z) der lokalen Richtung (du, dv).
++  (double, double, double) richtung(double du, double dv) => (du * _k[2] + dv * _k[4], 0, du * _k[3] + dv * _k[5]);
++}
++
++/// Lokale Richtung einer Seite: `l` links (−u), `r` rechts (+u), `K` Kopf (−v, zur Wand), `F` Fuß (+v).
++(double, double) _seitenRichtung(String seite) => switch (seite) {
++      'l' => (-1.0, 0.0),
++      'r' => (1.0, 0.0),
++      'K' => (0.0, -1.0),
++      _ => (0.0, 1.0),
++    };
++
++double _zahl(double v) => v < 0 ? 0 : (v > 1 ? 1 : v);
++
++/// Quader über dem lokalen Rechteck [u0]–[u1] × [v0]–[v1] und den Höhen [y0]–[y1]. Gebaut werden nur die genannten
++/// Seiten: [aussen] mit voller Helligkeit, [innen] dunkler, [oben] die Oberseite, [plus] heller (Kanten durch Licht).
++/// [faktor] dämpft das Licht des ganzen Teils.
++void _kasten(MeshBuilder m, _Rahmen r, double u0, double u1, double v0, double v1, double y0, double y1, int tex,
++    {String aussen = '', String innen = '', bool oben = false, double faktor = 1, double plus = 0}) {
++  final ecken = [for (final (u, v) in [(u0, v0), (u1, v0), (u0, v1), (u1, v1)]) r.punkt(u, v, 0)];
++  final xs = [for (final e in ecken) e.$1];
++  final zs = [for (final e in ecken) e.$3];
++  final x0 = xs.reduce(math.min), x1 = xs.reduce(math.max);
++  final z0 = zs.reduce(math.min), z1 = zs.reduce(math.max);
++  final w = _zahl(r.o.warm * faktor), k = _zahl(r.o.kalt * faktor + plus);
++  final wi = _zahl(r.o.warm * faktor * 0.8), ki = _zahl(r.o.kalt * faktor * 0.8);
++  for (final s in aussen.split('')) {
++    _wandSeite(m, r, s, x0, z0, x1, z1, y0, y1, tex, w, k);
++  }
++  for (final s in innen.split('')) {
++    _wandSeite(m, r, s, x0, z0, x1, z1, y0, y1, tex, wi, ki);
++  }
++  if (oben) m.floor(x0, z0, x1, z1, y1, tex, warm: w, cold: _zahl(k + 0.05), step: 4);
++}
++
++/// Eine senkrechte Seite des Quaders, dem Welt-Ausgang der lokalen Seite [seite] zugeordnet. Die Richtungen
++/// folgen denen von [MeshBuilder.box] (Osten, Westen, Süden, Norden), damit die Fläche nach außen zeigt.
++void _wandSeite(MeshBuilder m, _Rahmen r, String seite, double x0, double z0, double x1, double z1, double y0,
++    double y1, int tex, double w, double k) {
++  final (du, dv) = _seitenRichtung(seite);
++  final welt = r.richtung(du, dv);
++  if (welt.$1 > 0.5) {
++    m.wall(x1, z1, x1, z0, y0, y1, tex, warm: w, cold: k);
++  } else if (welt.$1 < -0.5) {
++    m.wall(x0, z0, x0, z1, y0, y1, tex, warm: w, cold: k);
++  } else if (welt.$3 > 0.5) {
++    m.wall(x0, z1, x1, z1, y0, y1, tex, warm: w, cold: k);
++  } else {
++    m.wall(x1, z0, x0, z0, y0, y1, tex, warm: w, cold: k);
++  }
++}
++
++/// Viereck aus vier Punkten (x, y, z, Texel-u, Texel-v) in der Reihenfolge a-b-c-d. Die Normale (b − a) × (c − a)
++/// zeigt nach [aussen]; zeigt sie nach innen, läuft die Reihenfolge um.
++void _viereck(MeshBuilder m, List<(double, double, double, double, double)> p, int tex,
++    (double, double, double) aussen, double warm, double kalt) {
++  final a = p[0], b = p[1], c = p[2];
++  final ux = b.$1 - a.$1, uy = b.$2 - a.$2, uz = b.$3 - a.$3;
++  final vx = c.$1 - a.$1, vy = c.$2 - a.$2, vz = c.$3 - a.$3;
++  final nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx;
++  final folge = nx * aussen.$1 + ny * aussen.$2 + nz * aussen.$3 >= 0 ? [0, 1, 2, 3] : [0, 3, 2, 1];
++  final idx = [for (final i in folge) m.vertex(p[i].$1, p[i].$2, p[i].$3, p[i].$4, p[i].$5, warm: warm, cold: kalt)];
++  m.quad(idx[0], idx[1], idx[2], idx[3], tex);
++}
++
++/// Bett: Gestell, Kopf- und Fußteil, Variante.
++void _bett(MeshBuilder m, _Rahmen r) {
++  final o = r.o, w = r.breite, l = r.laenge, h = o.hoehe, t = o.textur;
++  final fuss = 0.6 * h;
++  _gestell(m, r,
++      uA: 0, uB: w, vA: 0, vB: l, zarge: _zargeBett, pfKopf: h, pfFuss: fuss, mattV0: _brett, mattV1: l - _brett, tex: t);
++  // Kopfteil an der Seite rueckseite: zwischen den Kopfpfosten, bis zur vollen Höhe. Die obersten 0,04 m sind die
++  // Abschlussleiste, etwas heller.
++  _kasten(m, r, _pfosten, w - _pfosten, 0, _brett, 0, h - _brett, t, aussen: 'F');
++  _kasten(m, r, _pfosten, w - _pfosten, 0, _brett, h - _brett, h, t, aussen: 'F', oben: true, plus: 0.04);
++  // Fußteil auf der Gegenseite, 60 % der Höhe.
++  _kasten(m, r, _pfosten, w - _pfosten, l - _brett, l, 0, fuss, t, aussen: 'F', oben: true);
++  final variante = o.hash(0) % 3;
++  if (variante == 1) {
++    // Zwei Zierknäufe (0,06 m Würfel) vor dem Kopfteil, unter der Abschlussleiste.
++    for (final u in [_pfosten + 0.02, w - _pfosten - 0.08]) {
++      _kasten(m, r, u, u + 0.06, _brett, _brett + 0.06, h - 0.16, h - 0.10, t, aussen: 'lrF', oben: true);
++    }
++  } else if (variante == 2) {
++    // Mittelbrett: schmale Leiste in der Mitte des Kopfteils, vom Strohsack bis unter die Abschlussleiste.
++    _kasten(m, r, w / 2 - 0.03, w / 2 + 0.03, _brett, _brett + 0.04, _zargeBett + _zargeHoehe + _strohsack, h - _brett,
++        t, aussen: 'lrF', oben: true);
++  }
++}
++
++/// Bettgestell zwischen den Pfosten: vier Eckpfosten (die Kopfseite zur Wand fehlt), zwei Seitenzargen, Strohsack
++/// und Wolldecke. [uA]–[uB] ist die Breite, [vA]–[vB] die Länge, [zarge] die Unterkante der Zargen, [pfKopf] und
++/// [pfFuss] die Pfostenhöhen, [mattV0]–[mattV1] die Strecke des Strohsacks.
++void _gestell(MeshBuilder m, _Rahmen r,
++    {required double uA,
++    required double uB,
++    required double vA,
++    required double vB,
++    required double zarge,
++    required double pfKopf,
++    required double pfFuss,
++    required double mattV0,
++    required double mattV1,
++    required int tex}) {
++  final zu = zarge + _zargeHoehe; // Oberkante Zargen
++  final mo = zu + _strohsack; // Oberkante Strohsack
++  _kasten(m, r, uA, uA + _pfosten, vA, vA + _pfosten, 0, pfKopf, tex, aussen: 'l', innen: 'rF', oben: true);
++  _kasten(m, r, uB - _pfosten, uB, vA, vA + _pfosten, 0, pfKopf, tex, aussen: 'r', innen: 'lF', oben: true);
++  _kasten(m, r, uA, uA + _pfosten, vB - _pfosten, vB, 0, pfFuss, tex, aussen: 'lF', innen: 'r', oben: true);
++  _kasten(m, r, uB - _pfosten, uB, vB - _pfosten, vB, 0, pfFuss, tex, aussen: 'rF', innen: 'l', oben: true);
++  _kasten(m, r, uA, uA + _zargeBreite, vA + _pfosten, vB - _pfosten, zarge, zu, tex,
++      aussen: 'l', innen: 'r', oben: true);
++  _kasten(m, r, uB - _zargeBreite, uB, vA + _pfosten, vB - _pfosten, zarge, zu, tex,
++      aussen: 'r', innen: 'l', oben: true);
++  // Strohsack in holzDielen mit gedämpftem Licht.
++  _kasten(m, r, uA + _brett, uB - _brett, mattV0, mattV1, zu, mo, TexturId.holzDielen.index,
++      aussen: 'lrF', oben: true, faktor: 0.7);
++  // Wolldecke: überlappt Fußende und Seiten um 0,04 m, das obere Drittel zum Kopfteil bleibt frei.
++  final drittel = mattV0 + (mattV1 - mattV0) / 3;
++  _kasten(m, r, uA, uB, drittel, vB, mo, mo + _decke, TexturId.teppichRot.index, aussen: 'lrF', oben: true);
++}
++
++/// Schrankbett: Kasten mit Rückwand an der Seite rueckseite (zugleich Kopfteil), zwei Seitenwänden, Dach mit
++/// Kranzleiste und offener Front; das Bett darin auf 0,30 m.
++void _schrankbett(MeshBuilder m, _Rahmen r) {
++  final w = r.breite, l = r.laenge, h = r.o.hoehe, t = r.o.textur;
++  _kasten(m, r, 0, w, 0, _brett, 0, h, t, aussen: 'F');
++  _kasten(m, r, 0, _brett, _brett, l, 0, h, t, aussen: 'l', innen: 'r');
++  _kasten(m, r, w - _brett, w, _brett, l, 0, h, t, aussen: 'r', innen: 'l');
++  _kasten(m, r, 0, w, 0, l, h - _kranz, h, t, aussen: 'F', oben: true);
++  _gestell(m, r,
++      uA: _brett,
++      uB: w - _brett,
++      vA: _brett,
++      vB: l,
++      zarge: _zargeSchrank,
++      pfKopf: _zargeSchrank + _zargeHoehe,
++      pfFuss: _zargeSchrank + _zargeHoehe,
++      mattV0: _brett,
++      mattV1: l - _brett,
++      tex: t);
++}
++
++/// Wiege: niedriger Kasten über zwei gebogenen Kufen; das Kopfteil an der Seite rueckseite ragt bis zur vollen Höhe.
++void _wiege(MeshBuilder m, _Rahmen r) {
++  final w = r.breite, l = r.laenge, h = r.o.hoehe, t = r.o.textur;
++  _kasten(m, r, 0, w, 0, l, _wiegeBoden, h - _wiegeBoden, t, aussen: 'lrF', oben: true);
++  _kasten(m, r, 0, w, 0, _brett, _wiegeBoden, h, t, aussen: 'F', oben: true);
++  // Zwei Kufen an den Längsseiten, je 4 Segmente, außen; dunkler als der Kasten (Unterseiten).
++  for (final nach in [-1.0, 1.0]) {
++    final u = nach < 0 ? _kufeRand : w - _kufeRand;
++    final aussen = r.richtung(nach, 0);
++    for (var i = 0; i < _kufeSegmente; i++) {
++      final s0 = i / _kufeSegmente, s1 = (i + 1) / _kufeSegmente;
++      final b0 = _kufeBogen * (2 * s0 - 1) * (2 * s0 - 1);
++      final b1 = _kufeBogen * (2 * s1 - 1) * (2 * s1 - 1);
++      (double, double, double, double, double) punkt(double s, double y) {
++        final (x, yy, z) = r.punkt(u, s * l, y);
++        return (x, yy, z, s * l * kDichteWelt, y * kDichteWelt);
++      }
++
++      _viereck(
++        m,
++        [punkt(s0, b0), punkt(s1, b1), punkt(s1, b1 + _kufeDicke), punkt(s0, b0 + _kufeDicke)],
++        t,
++        aussen,
++        _zahl(r.o.warm * 0.8),
++        _zahl(r.o.kalt * 0.8),
++      );
++    }
+   }
+ }

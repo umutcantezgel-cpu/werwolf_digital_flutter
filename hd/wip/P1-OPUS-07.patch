@@ -1,0 +1,404 @@
+diff --git a/packages/pixel_engine/lib/src/raster/renderer.dart b/packages/pixel_engine/lib/src/raster/renderer.dart
+index cebdd5d..f339d99 100644
+--- a/packages/pixel_engine/lib/src/raster/renderer.dart
++++ b/packages/pixel_engine/lib/src/raster/renderer.dart
+@@ -64,13 +64,16 @@ class SpriteImage {
+ class FrameStats {
+   int meshesSubmitted = 0;
+   int meshesDrawn = 0;
++
++  /// Meshes, die die Verdeckungsprüfung übersprungen hat (nur [Renderer.drawMeshes]).
++  int meshesOccluded = 0;
+   int trianglesSubmitted = 0;
+   int trianglesDrawn = 0;
+   int spritesDrawn = 0;
+   int pixelsWritten = 0;
+ 
+   void reset() {
+-    meshesSubmitted = meshesDrawn = trianglesSubmitted = trianglesDrawn = spritesDrawn = pixelsWritten = 0;
++    meshesSubmitted = meshesDrawn = meshesOccluded = trianglesSubmitted = trianglesDrawn = spritesDrawn = pixelsWritten = 0;
+   }
+ 
+   @override
+@@ -109,12 +112,20 @@ class Renderer {
+   int _coneW = 0, _coneH = 0;
+   double _coneFor = -1;
+   Float32List _v = Float32List(3 * 1024); // Kameraraum je Vertex
+-  final _clip = List<double>.filled(4 * 7 * 2, 0);
+-  final _poly = List<double>.filled(4 * 7, 0);
++  final _clip = Float64List(4 * 7 * 2);
++  final _poly = Float64List(4 * 7);
+   final _tmp = List<double>.filled(3, 0);
+ 
+   Renderer(this.fb, this.lights, this.textures);
+ 
++  // Grobes Tiefenraster für die Verdeckungsprüfung (P1-OPUS-07): je Block aus 8 × 8 Pixeln die fernste
++  // Tiefe (kleinstes 1/z, 0 = noch leer); [_blockDreckig] markiert Blöcke, in die seit der letzten
++  // Berechnung gezeichnet wurde. Neu berechnet wird nur bei Bedarf.
++  static const _blockShift = 3;
++  int _blockW = 0, _blockH = 0;
++  Float32List _blockMin = Float32List(0);
++  Uint8List _blockDreckig = Uint8List(0);
++
+   int get width => fb.width;
+   int get height => fb.height;
+ 
+@@ -123,6 +134,15 @@ class Renderer {
+     camera.update(fb.width, fb.height);
+     fb.clearDepth();
+     stats.reset();
++    _blockW = (fb.width + 7) >> _blockShift;
++    _blockH = (fb.height + 7) >> _blockShift;
++    if (_blockMin.length != _blockW * _blockH) {
++      _blockMin = Float32List(_blockW * _blockH);
++      _blockDreckig = Uint8List(_blockW * _blockH);
++    } else {
++      _blockMin.fillRange(0, _blockMin.length, 0);
++      _blockDreckig.fillRange(0, _blockDreckig.length, 0);
++    }
+     for (var i = 0; i < 16; i++) {
+       _dith[i] = 0.5 + ((bayer4[i] + 0.5) / 16 - 0.5) * ditherStrength;
+     }
+@@ -265,14 +285,101 @@ class Renderer {
+     }
+   }
+ 
+-  void _loadVertex(Mesh m, int vi, List<double> out, int o) {
+-    out[o] = _v[vi * 3];
+-    out[o + 1] = _v[vi * 3 + 1];
+-    out[o + 2] = _v[vi * 3 + 2];
+-    out[o + 3] = m.uv[vi * 2];
+-    out[o + 4] = m.uv[vi * 2 + 1];
+-    out[o + 5] = m.light[vi * 2];
+-    out[o + 6] = m.light[vi * 2 + 1];
++  final List<Mesh> _sortierListe = [];
++  Float64List _sortierTiefe = Float64List(0);
++
++  /// Zeichnet [meshes] von vorn nach hinten (P1-OPUS-07): sichtbare Meshes nach der Tiefe ihres nächsten
++  /// Kugelpunkts entlang der Blickrichtung sortiert, damit der Tiefentest verdeckte Pixel früh verwirft und
++  /// weniger Pixel beleuchtet werden. Das Bild ist dasselbe wie in Listenreihenfolge, außer bei exakt gleicher
++  /// Tiefe (dann gewinnt das zuerst gezeichnete Mesh).
++  void drawMeshes(List<Mesh> meshes) {
++    final cam = camera;
++    final liste = _sortierListe..clear();
++    for (final m in meshes) {
++      if (!cam.sphereVisible(m.bx, m.by, m.bz, m.br)) {
++        stats.meshesSubmitted++;
++        continue;
++      }
++      liste.add(m);
++    }
++    if (_sortierTiefe.length < liste.length) _sortierTiefe = Float64List(liste.length * 2);
++    final tiefe = _sortierTiefe;
++    final fx = cam.fx, fz = cam.fz, ex = cam.x, ez = cam.z;
++    for (var i = 0; i < liste.length; i++) {
++      final m = liste[i];
++      tiefe[i] = (m.bx - ex) * fx + (m.bz - ez) * fz;
++    }
++    final ordnung = List<int>.generate(liste.length, (i) => i)..sort((a, b) => tiefe[a].compareTo(tiefe[b]));
++    for (final i in ordnung) {
++      final m = liste[i];
++      if (_verdeckt(m)) {
++        stats.meshesSubmitted++;
++        stats.meshesOccluded++;
++        continue;
++      }
++      drawMesh(m);
++    }
++  }
++
++  /// Ist [m] sicher ganz verdeckt? Bildrechteck der Hüllkugel (konservativ) gegen das grobe Tiefenraster:
++  /// verdeckt, wenn in jedem überdeckten Block schon alles näher liegt als der nächste Kugelpunkt.
++  bool _verdeckt(Mesh m) {
++    final cam = camera;
++    final dx = m.bx - cam.x, dy = m.by - cam.y, dz = m.bz - cam.z;
++    final vx = dx * cam.rx + dz * cam.rz;
++    final vz0 = dx * cam.fx + dz * cam.fz;
++    final vy = dy * cam.cp - vz0 * cam.sp;
++    final vz = vz0 * cam.cp + dy * cam.sp;
++    final r = m.br;
++    final zn = vz - r;
++    if (zn <= cam.near) return false;
++    final zf = vz + r;
++    final f = cam.focal;
++    // Kleinste Tiefe vergrößert, größte verkleinert die Ausdehnung – je Vorzeichen die ungünstigere.
++    final xl = cam.cx + (vx - r) * f / (vx - r < 0 ? zn : zf);
++    final xr = cam.cx + (vx + r) * f / (vx + r > 0 ? zn : zf);
++    final yo = cam.cy - (vy + r) * f / (vy + r > 0 ? zn : zf);
++    final yu = cam.cy - (vy - r) * f / (vy - r < 0 ? zn : zf);
++    final w = fb.width, h = fb.height;
++    final px0 = math.max(0, xl.floor()), px1 = math.min(w - 1, xr.ceil());
++    final py0 = math.max(0, yo.floor()), py1 = math.min(h - 1, yu.ceil());
++    if (px0 > px1 || py0 > py1) return true;
++    final izMax = 1 / zn;
++    final bx0 = px0 >> _blockShift, bx1 = px1 >> _blockShift;
++    final by0 = py0 >> _blockShift, by1 = py1 >> _blockShift;
++    final bw = _blockW, bmin = _blockMin, dreckig = _blockDreckig, dep = fb.depth;
++    for (var by = by0; by <= by1; by++) {
++      for (var bx = bx0; bx <= bx1; bx++) {
++        final b = by * bw + bx;
++        if (dreckig[b] != 0) {
++          // Block neu berechnen: fernste Tiefe seiner Pixel
++          final x0 = bx << _blockShift, y0 = by << _blockShift;
++          final x1 = math.min(w, x0 + 8), y1 = math.min(h, y0 + 8);
++          var mn = double.infinity;
++          for (var y = y0; y < y1; y++) {
++            for (var i = y * w + x0, e = y * w + x1; i < e; i++) {
++              final d = dep[i];
++              if (d < mn) mn = d;
++            }
++          }
++          bmin[b] = mn;
++          dreckig[b] = 0;
++        }
++        if (bmin[b] < izMax) return false;
++      }
++    }
++    return true;
++  }
++
++  void _loadVertex(Mesh m, int vi, Float64List out, int o) {
++    final v = _v, uv = m.uv, li = m.light;
++    out[o] = v[vi * 3];
++    out[o + 1] = v[vi * 3 + 1];
++    out[o + 2] = v[vi * 3 + 2];
++    out[o + 3] = uv[vi * 2];
++    out[o + 4] = uv[vi * 2 + 1];
++    out[o + 5] = li[vi * 2];
++    out[o + 6] = li[vi * 2 + 1];
+   }
+ 
+   void _drawTriangle(Mesh m, int a, int b, int c, int t) {
+@@ -335,7 +442,12 @@ class Renderer {
+     if (n == 4) _rasterTri(poly, 0, 14, 21, tex);
+   }
+ 
+-  void _rasterTri(List<double> p, int i0, int i1, int i2, IndexedTexture tex) {
++  /// Länge einer Spanne in Pixeln (P1-OPUS-07): Tiefe, u und v werden je Spanne an den Enden exakt
++  /// (perspektivisch) berechnet und dazwischen linear geführt; der Tiefentest bleibt exakt je Pixel.
++  static const spanne = 32;
++  static final Float64List _kehrwert = Float64List.fromList([0, for (var i = 1; i <= spanne; i++) 1 / i]);
++
++  void _rasterTri(Float64List p, int i0, int i1, int i2, IndexedTexture tex) {
+     // Nach y sortieren
+     var a = i0, b = i1, c = i2;
+     if (p[b + 1] < p[a + 1]) {
+@@ -358,19 +470,34 @@ class Renderer {
+     if (det.abs() < 1e-9) return;
+     final idet = 1 / det;
+     // Gradienten der Attribute (Ebene): iz, uiz, viz, warm, cold
+-    double gx(int q) => ((p[b + q] - p[a + q]) * (y2 - y0) - (p[c + q] - p[a + q]) * (y1 - y0)) * idet;
+-    double gy(int q) => ((p[c + q] - p[a + q]) * (x1 - x0) - (p[b + q] - p[a + q]) * (x2 - x0)) * idet;
+-    final dIzx = gx(2), dIzy = gy(2);
+-    final dUx = gx(3), dUy = gy(3);
+-    final dVx = gx(4), dVy = gy(4);
+-    final dWx = gx(5), dWy = gy(5);
+-    final dCx = gx(6), dCy = gy(6);
++    final ey1 = (y2 - y0) * idet, ey2 = (y1 - y0) * idet, ex1 = (x1 - x0) * idet, ex2 = (x2 - x0) * idet;
++    final dIzx = (p[b + 2] - p[a + 2]) * ey1 - (p[c + 2] - p[a + 2]) * ey2;
++    final dIzy = (p[c + 2] - p[a + 2]) * ex1 - (p[b + 2] - p[a + 2]) * ex2;
++    final dUx = (p[b + 3] - p[a + 3]) * ey1 - (p[c + 3] - p[a + 3]) * ey2;
++    final dUy = (p[c + 3] - p[a + 3]) * ex1 - (p[b + 3] - p[a + 3]) * ex2;
++    final dVx = (p[b + 4] - p[a + 4]) * ey1 - (p[c + 4] - p[a + 4]) * ey2;
++    final dVy = (p[c + 4] - p[a + 4]) * ex1 - (p[b + 4] - p[a + 4]) * ex2;
++    final dWx = (p[b + 5] - p[a + 5]) * ey1 - (p[c + 5] - p[a + 5]) * ey2;
++    final dWy = (p[c + 5] - p[a + 5]) * ex1 - (p[b + 5] - p[a + 5]) * ex2;
++    final dCx = (p[b + 6] - p[a + 6]) * ey1 - (p[c + 6] - p[a + 6]) * ey2;
++    final dCy = (p[c + 6] - p[a + 6]) * ex1 - (p[b + 6] - p[a + 6]) * ex2;
+     final iz0 = p[a + 2], u0 = p[a + 3], v0 = p[a + 4], w0 = p[a + 5], c0 = p[a + 6];
+ 
+     final w = fb.width, h = fb.height;
+     final yStart = math.max(0, (y0 - 0.5).ceil());
+     final yEnd = math.min(h - 1, (y2 - 0.5).ceil() - 1);
+     if (yStart > yEnd) return;
++    {
++      // Blöcke des Dreiecks-Rechtecks als geändert markieren (Verdeckungsprüfung)
++      final xmin = math.min(x0, math.min(x1, x2)), xmax = math.max(x0, math.max(x1, x2));
++      final bx0 = math.max(0, xmin.floor()) >> _blockShift, bx1 = math.min(w - 1, xmax.ceil()) >> _blockShift;
++      final bw = _blockW, dreckig = _blockDreckig;
++      for (var by = yStart >> _blockShift; by <= yEnd >> _blockShift; by++) {
++        for (var bx = bx0; bx <= bx1; bx++) {
++          dreckig[by * bw + bx] = 1;
++        }
++      }
++    }
+ 
+     final col = fb.color, dep = fb.depth;
+     final cone = _cone;
+@@ -381,14 +508,24 @@ class Renderer {
+     final amb = ambientCold;
+     final transparent = tex.hasTransparency;
+     final camY = camera.y, focal = camera.focal, ccy = camera.cy;
+-    final gFog = groundFog;
++    final gFog = groundFog, gFogK = groundFog / 1.2;
+     final dith = _dith;
+     final lut = LightTable.levelLut;
++    final kehr = _kehrwert;
+     // Mip-Schwellen nach Tiefe: Texel pro Bildpixel = Dichte * z / focal; Stufe 0 bis 4 (Cap 4 seit
+     // Dichte 64: dieselbe Stufe des Bestands liegt eine Mip-Stufe tiefer, Migrationsbeleg 2)
+     final m1 = focal / kDichteWelt * 2, m2 = m1 * 2, m3 = m2 * 2, m4 = m3 * 2;
+     final levels = tex.levels;
+-    final nLv = levels.length;
++    final maxLv = levels.length - 1;
++    // Texturkoordinaten als Festkomma 16.16 auf Stufe 0; Stufe lv liest ((u & Maske) >> lv), denn
++    // jede Mip-Stufe ist genau halb so breit (Zweierpotenzen).
++    final tw0 = tex.widths[0], th0 = tex.heights[0];
++    final mu0 = tw0 - 1, mv0 = th0 - 1;
++    final lw0 = tw0.bitLength - 1;
++    final itw0 = 1 / tw0, ith0 = 1 / th0;
++    var aktLv = 0;
++    var daten = levels[0];
++    var zeilenShift = lw0;
+     var written = 0;
+ 
+     final invL02 = 1 / (y2 - y0);
+@@ -427,52 +564,112 @@ class Renderer {
+       final rowB = (y & 3) << 2;
+       // Höhe über Kamera je Zeile (für Bodennebel), ohne Neigung genähert
+       final rowSlope = (ccy - yc) / focal;
+-      for (var x = xStart; x <= xEnd; x++, idx++) {
+-        if (iz > dep[idx]) {
+-          final z = 1 / iz;
+-          var lv = z < m1 ? 0 : (z < m2 ? 1 : (z < m3 ? 2 : (z < m4 ? 3 : 4)));
+-          if (lv >= nLv) lv = nLv - 1;
+-          final tw = tex.widths[lv], th = tex.heights[lv];
+-          final tu = ((uz * z).floor() >> lv) & (tw - 1);
+-          final tv = ((vz * z).floor() >> lv) & (th - 1);
+-          final texel = levels[lv][tv * tw + tu];
+-          if (!(transparent && texel == kTransparent)) {
+-            final d = dith[rowB | (x & 3)];
+-            var cold = cl + amb;
+-            if (flash > 0) {
+-              final cf = cone[idx];
+-              if (cf > 0) cold += flash * cf * flashRange2 / (flashRange2 + z * z * 6);
++      // Werte am Spannenanfang (exakt): Tiefe, u, v und die drei Lichtstufen (ohne Dither, geklammert)
++      var zA = 1 / iz;
++      var uA = uz * zA, vA = vz * zA;
++      var wA = _stufe(lut, wl), cA = _stufe(lut, cl + amb + (flash > 0 ? flash * cone[idx] * flashRange2 / (flashRange2 + zA * zA * 6) : 0));
++      var fA = _nebelStufe(zA, fogS, fogInv, gFog, gFogK, camY, rowSlope);
++      var x = xStart;
++      while (x <= xEnd) {
++        final rest = xEnd - x + 1;
++        // Volle Spanne: Endwert am nächsten Spannenanfang (x + 16); letzte Spanne: am letzten Pixel.
++        final voll = rest > spanne;
++        final n = voll ? spanne : rest;
++        final schritte = voll ? spanne : rest - 1;
++        final izE = iz + schritte * dIzx, uzE = uz + schritte * dUx, vzE = vz + schritte * dVx;
++        final zE = 1 / izE;
++        final uE = uzE * zE, vE = vzE * zE;
++        final wlE = wl + schritte * dWx, clE = cl + schritte * dCx;
++        // Handylicht am Endpixel der Spanne (bei voller Spanne am ersten Pixel der nächsten; beide in der Zeile)
++        final idxE = idx + (voll ? spanne : rest - 1);
++        final wE = _stufe(lut, wlE);
++        final cE = _stufe(lut, clE + amb + (flash > 0 ? flash * cone[idxE] * flashRange2 / (flashRange2 + zE * zE * 6) : 0));
++        final fE = _nebelStufe(zE, fogS, fogInv, gFog, gFogK, camY, rowSlope);
++        final k = kehr[schritte];
++        final dw = (wE - wA) * k, dc = (cE - cA) * k, df = (fE - fA) * k;
++        // Mip-Stufe: gleich an beiden Enden → für die ganze Spanne (der häufige Fall)
++        var lvA = zA < m1 ? 0 : (zA < m2 ? 1 : (zA < m3 ? 2 : (zA < m4 ? 3 : 4)));
++        var lvE = zE < m1 ? 0 : (zE < m2 ? 1 : (zE < m3 ? 2 : (zE < m4 ? 3 : 4)));
++        if (lvA > maxLv) lvA = maxLv;
++        if (lvE > maxLv) lvE = maxLv;
++        final dz = lvA == lvE ? 0.0 : (zE - zA) * k;
++        // u, v auf eine Kachel der Stufe 0 verschoben (Bruchteil bleibt), dann Festkomma
++        final uOff = (uA * itw0).floor() * tw0, vOff = (vA * ith0).floor() * th0;
++        final uf0 = ((uA - uOff) * 65536).floor(), vf0 = ((vA - vOff) * 65536).floor();
++        final duf = ((uE - uA) * k * 65536).floor(), dvf = ((vE - vA) * k * 65536).floor();
++        // Verdeckte Pixel kosten nur den Tiefentest; die übrigen Werte entstehen erst bei bestandenem Test
++        // aus dem Abstand j zum Spannenanfang.
++        final idx0 = idx, ende = idx + n;
++        var izj = iz;
++        for (; idx < ende; idx++, izj += dIzx) {
++          if (izj > dep[idx]) {
++            final j = idx - idx0;
++            var lv = lvA;
++            if (lvA != lvE) {
++              final z = zA + j * dz;
++              lv = z < m1 ? 0 : (z < m2 ? 1 : (z < m3 ? 2 : (z < m4 ? 3 : 4)));
++              if (lv > maxLv) lv = maxLv;
++            }
++            if (lv != aktLv) {
++              aktLv = lv;
++              daten = levels[lv];
++              zeilenShift = lw0 - lv;
+             }
+-            var fog = (z - fogS) * fogInv;
+-            if (gFog > 0) {
+-              final hy = camY + rowSlope * z;
+-              if (hy < 1.2) fog += gFog * (1.2 - hy) / 1.2 * (z > 3 ? 1 : z / 3);
++            final tu = ((uf0 + j * duf) >> 16 & mu0) >> lv;
++            final tv = ((vf0 + j * dvf) >> 16 & mv0) >> lv;
++            final texel = daten[(tv << zeilenShift) | tu];
++            if (!(transparent && texel == kTransparent)) {
++              final d = dith[rowB | ((x + j) & 3)];
++              // Stufen sind an den Enden auf [0, max] geklammert; + d < 1 bleibt im Bereich.
++              final wq = (wA + j * dw + d).toInt();
++              final cq = (cA + j * dc + d).toInt();
++              final fq = (fA + j * df + d).toInt();
++              col[idx] = table[((fq * LightTable.warmLevels + wq) * LightTable.coldLevels + cq) * LightTable.colors + texel];
++              dep[idx] = izj;
++              written++;
+             }
+-            var wi = (wl * 1024).toInt();
+-            wi = wi < 0 ? 0 : (wi > 1024 ? 1024 : wi);
+-            var ci = (cold * 1024).toInt();
+-            ci = ci < 0 ? 0 : (ci > 1024 ? 1024 : ci);
+-            var wq = (lut[wi] + d).toInt();
+-            var cq = (lut[ci] + d).toInt();
+-            var fq = (fog * LightTable.maxFog + d).floor();
+-            wq = wq < 0 ? 0 : (wq > LightTable.maxLight ? LightTable.maxLight : wq);
+-            cq = cq < 0 ? 0 : (cq > LightTable.maxLight ? LightTable.maxLight : cq);
+-            fq = fq < 0 ? 0 : (fq > LightTable.maxFog ? LightTable.maxFog : fq);
+-            col[idx] = table[((fq * LightTable.warmLevels + wq) * LightTable.coldLevels + cq) * LightTable.colors + texel];
+-            dep[idx] = iz;
+-            written++;
+           }
+         }
+-        iz += dIzx;
+-        uz += dUx;
+-        vz += dVx;
+-        wl += dWx;
+-        cl += dCx;
++        x += n;
++        iz += n * dIzx;
++        wl += n * dWx;
++        cl += n * dCx;
++        if (voll) {
++          iz = izE;
++          uz = uzE;
++          vz = vzE;
++          zA = zE;
++          uA = uE;
++          vA = vE;
++          wA = wE;
++          cA = cE;
++          fA = fE;
++        }
+       }
+     }
+     stats.pixelsWritten += written;
+   }
+ 
++  /// Lichtstufe 0..max (Kommazahl, ohne Dither) zu Licht [licht] über die Kurve der Lichttabelle.
++  static double _stufe(Float32List lut, double licht) {
++    var i = (licht * 1024).toInt();
++    i = i < 0 ? 0 : (i > 1024 ? 1024 : i);
++    final s = lut[i];
++    // Dither (0..1) kommt im Pixel dazu; die Klammer hier hält stufe + d unter max + 1.
++    return s > LightTable.maxLight ? LightTable.maxLight.toDouble() : s;
++  }
++
++  /// Nebelstufe 0..maxFog (Kommazahl, ohne Dither) in Tiefe [z]: linearer Nebel plus Bodennebel der Zeile.
++  static double _nebelStufe(double z, double fogS, double fogInv, double gFog, double gFogK, double camY, double rowSlope) {
++    var fog = (z - fogS) * fogInv;
++    if (gFog > 0) {
++      final hy = camY + rowSlope * z;
++      if (hy < 1.2) fog += gFogK * (1.2 - hy) * (z > 3 ? 1 : z / 3);
++    }
++    final s = fog * LightTable.maxFog;
++    return s < 0 ? 0 : (s > LightTable.maxFog ? LightTable.maxFog.toDouble() : s);
++  }
++
+   // ------------------------------------------------------------------ Sprites
+ 
+   /// Billboard-Sprite am Fußpunkt (x, y, z), immer zur Kamera gedreht.
