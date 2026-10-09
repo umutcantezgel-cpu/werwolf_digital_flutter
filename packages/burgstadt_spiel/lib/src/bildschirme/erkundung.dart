@@ -378,6 +378,14 @@ class Erkundung extends Bildschirm {
     }
   }
 
+  /// Höchstens [max] Zeilen; die letzte endet dann sichtbar mit „…“.
+  static List<String> _gekuerzt(PixelUi ui, List<String> zeilen, int max) {
+    if (zeilen.length <= max) return zeilen;
+    return [...zeilen.take(max - 1), '${zeilen[max - 1]} …'];
+  }
+
+  static bool _ueberlappt(Rechteck a, Rechteck b) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
+
   void _meldung(String m) {
     meldung = m;
     _meldungZeit = 3;
@@ -429,23 +437,39 @@ class Erkundung extends Bildschirm {
       final cam = spiel.renderer.camera;
       final kf = spiel.skala!.kWelt / spiel.skala!.kUi;
       final tmp = List<double>.filled(3, 0);
-      for (final f in sz.sim.figuren.values) {
-        if (f.bereich != ort || f.blasenZeit <= 0 || f.sprechblase == null) continue;
+      final blasen = <Rechteck>[];
+      // nächste Figuren zuerst: ihre Blase bekommt den Platz direkt über dem Kopf
+      final sprecher = [
+        for (final f in sz.sim.figuren.values)
+          if (f.bereich == ort && f.blasenZeit > 0 && f.sprechblase != null) f,
+      ]..sort((a, b) => ((a.x - x) * (a.x - x) + (a.z - z) * (a.z - z)).compareTo((b.x - x) * (b.x - x) + (b.z - z) * (b.z - z)));
+      for (final f in sprecher) {
         cam.toView(f.x, 2.05, f.z, tmp, 0);
         if (tmp[2] < 0.4 || tmp[2] > 9) continue;
         final sx = (cam.cx + tmp[0] * cam.focal / tmp[2]) * kf, sy = (cam.cy - tmp[1] * cam.focal / tmp[2]) * kf;
-        final zeilen = ui.font.wrap(f.sprechblase!, 130);
-        final bh = zeilen.take(3).length * ui.zeilenHoehe + 4;
-        final bw = zeilen.take(3).map(ui.font.measure).fold(0, math.max) + 8;
-        final r = Rechteck((sx - bw / 2).round(), (sy - bh).round(), bw, bh);
+        // bis 5 Zeilen, im Bild gehalten und ohne andere Blasen zu verdecken (A-703a)
+        final zeilen = _gekuerzt(ui, ui.font.wrap(f.sprechblase!, math.min(170, w - 20)), 5);
+        final bh = zeilen.length * ui.zeilenHoehe + 4;
+        final bw = zeilen.map(ui.font.measure).fold(0, math.max) + 8;
+        var r = Rechteck((sx - bw / 2).round().clamp(2, math.max(2, w - bw - 2)), (sy - bh).round(), bw, bh);
+        for (var versuch = 0; versuch < 6; versuch++) {
+          final stoss = blasen.where((b) => _ueberlappt(b, r)).firstOrNull;
+          if (stoss == null) break;
+          r = Rechteck(r.x, stoss.y - bh - 2, bw, bh);
+        }
+        if (r.y < 14) continue; // kein Platz mehr: Blase auslassen statt verdecken
+        blasen.add(r);
         ui.panel(r, grund: UiFarbe.grundDunkel, fangen: false);
-        for (var i = 0; i < zeilen.length && i < 3; i++) {
+        for (var i = 0; i < zeilen.length; i++) {
           ui.text(zeilen[i], r.x + 4, r.y + 2 + i * ui.zeilenHoehe, schatten: null);
         }
       }
     }
     final ortName = _bereich.name;
-    ui.text(ortName, w - ui.font.measure(ortName) - 4, 3, farbe: UiFarbe.textGedimmt);
+    final ow = ui.font.measure(ortName);
+    // auf dunkler Plakette: auf Mauern und Licht war die Schrift schwer lesbar (A-703a)
+    ui.flaeche(Rechteck(w - ow - 7, 1, ow + 6, ui.font.height + 3), UiFarbe.grundDunkel);
+    ui.text(ortName, w - ow - 4, 3, farbe: UiFarbe.text, schatten: null);
     // Blickziel benennen
     final d = ziel;
     final fz = zielFigur;
@@ -463,8 +487,8 @@ class Erkundung extends Bildschirm {
       };
       ui.textMittig(was, cx, cy + 10, farbe: UiFarbe.akzent);
     }
-    // Knöpfe rechts
-    const bw = 48, bh = 17;
+    // Knöpfe rechts (im Hochformat größer: auf dem Handy waren sie zu klein, A-703a)
+    final bw = h > w ? 56 : 48, bh = h > w ? 24 : 17;
     var by = h - (bh + 4) * 5 - 4;
     if (ui.knopf(
         Rechteck(w - bw - 4, by, bw, bh),
@@ -510,12 +534,13 @@ class Erkundung extends Bildschirm {
         _ => 'Notiz',
       };
       final kw = math.min(w - bw - 20, 300);
-      final zeilen = ui.font.wrap(ev.text, kw - 10);
-      final kh = (math.min(zeilen.length, 4) + 1) * ui.zeilenHoehe + 4;
+      // bis 6 Zeilen; längere Texte enden sichtbar mit „…“ (ganz in der Akte, A-703a)
+      final zeilen = _gekuerzt(ui, ui.font.wrap(ev.text, kw - 10), 6);
+      final kh = (zeilen.length + 1) * ui.zeilenHoehe + 4;
       final r = Rechteck(4, ky, kw, kh);
       ui.panel(r, grund: UiFarbe.grundDunkel, fangen: false);
       ui.text(titel, r.x + 5, r.y + 2, farbe: ev.art == 'akte' ? UiFarbe.spuk : UiFarbe.akzent, schatten: null);
-      for (var i = 0; i < zeilen.length && i < 4; i++) {
+      for (var i = 0; i < zeilen.length; i++) {
         ui.text(zeilen[i], r.x + 5, r.y + 2 + (i + 1) * ui.zeilenHoehe, schatten: null);
       }
       ky += kh + 3;

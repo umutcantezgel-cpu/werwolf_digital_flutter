@@ -139,7 +139,7 @@
    "faehigkeit": "Befund nach Sanitäter-Art",
    "wirkung": {
     "art": "gespraech",
-    "details": "Diyar fragt den Burgwart nach seinem Zustand. Die Antwort kommt aus BW-ZUSTAND: eine Beule am Hinterkopf, keine offene Wunde, eine Weile benommen, nach Mitternacht wieder wach und orientiert; an die Sekunden vor dem Schlag erinnert er sich nicht. Keine Minutenangabe.",
+    "details": "Diyar fragt den Burgwart nach seinem Zustand. Die Antwort kommt aus BW-ZUSTAND: eine Beule am Hinterkopf, keine offene Wunde, kurz benommen, kurz nach Mitternacht wieder wach und orientiert; an die Sekunden vor dem Schlag erinnert er sich nicht. Keine Minutenangabe.",
     "betrifft": [
      "BW-ZUSTAND"
     ]
@@ -153,7 +153,7 @@
     "@R06-STAMM Beruf",
     "@BW-ZUSTAND Zustand"
    ],
-   "spoilerfrei_weil": "Nur der öffentliche Zustand des Burgwarts. Keine Minutenangabe zur Bewusstlosigkeit, keine Angabe zu Personen am Kamin und keine Angabe zur Erste-Hilfe-Zeit.",
+   "spoilerfrei_weil": "Nur der öffentliche Zustand des Burgwarts. Keine Minutenangabe zur Benommenheit, keine Angabe zu Personen am Kamin und keine Angabe zur Erste-Hilfe-Zeit.",
    "ausloeser": {
     "gespraech": "BW"
    }

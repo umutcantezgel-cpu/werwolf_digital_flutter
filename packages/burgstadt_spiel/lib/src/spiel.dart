@@ -102,6 +102,9 @@ class Spiel {
   /// Letzte Eingabe kam vom Touchscreen (für die Tutorial-Bedienzeile).
   bool touchZuletzt = false;
 
+  /// Zuletzt kam Eingabe von Tastatur oder Gamepad (für die Tutorial-Texte im Hochformat).
+  bool tastaturZuletzt = false;
+
   /// Stadtbewohner und Häuser (für das Stadtleben in der Simulation).
   List<Map<String, dynamic>> bewohnerDaten = const [], haeuserDaten = const [];
 
@@ -235,8 +238,10 @@ class Spiel {
     bildschirm.zeichneUi(this, pixelUi);
     if (e.zeiger.any((z) => !z.maus)) {
       touchZuletzt = true;
+      tastaturZuletzt = false;
     } else if (e.neu.isNotEmpty || e.zeiger.isNotEmpty) {
       touchZuletzt = false;
+      tastaturZuletzt = e.neu.isNotEmpty;
     }
     tutorial.tick(dt);
     if (bildschirm.zeigtTutorial) _zeichneTutorial();
@@ -258,14 +263,17 @@ class Spiel {
     if (t == null) return;
     final ui = pixelUi;
     final w = ui.fb.width;
-    final bw = math.min(w - 16, 300);
-    final eingabe = touchZuletzt
+    final hoch = ui.fb.height > w;
+    // Hochformat: links neben der Knopfspalte (48 + Rand), sonst würde die Karte die
+    // HUD-Knöpfe verdecken (A-703a)
+    final bw = hoch ? math.min(w - 66, 300) : math.min(w - 16, 300);
+    final eingabe = touchZuletzt || (hoch && !tastaturZuletzt)
         ? (t.eingabe['touch'] ?? '')
         : [if (t.eingabe['tastatur'] != null) 'Tastatur: ${t.eingabe['tastatur']}', if (t.eingabe['gamepad'] != null) 'Gamepad: ${t.eingabe['gamepad']}']
             .join(' · ');
     final zText = ui.font.wrap(t.text, bw - 12).length, zEin = eingabe.isEmpty ? 0 : ui.font.wrap(eingabe, bw - 12).length;
     final bh = (1 + zText + zEin) * ui.zeilenHoehe + 10;
-    final r = Rechteck((w - bw) ~/ 2, math.max(16, ui.fb.height - bh - 44), bw, bh);
+    final r = Rechteck(hoch ? 6 : (w - bw) ~/ 2, math.max(16, ui.fb.height - bh - 44), bw, bh);
     ui.panel(r, grund: UiFarbe.grundDunkel);
     ui.text('Tutorial · ${t.titel}', r.x + 6, r.y + 3, farbe: UiFarbe.akzent);
     ui.absatz(t.text, Rechteck(r.x + 6, r.y + 3 + ui.zeilenHoehe, bw - 12, zText * ui.zeilenHoehe));

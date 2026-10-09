@@ -488,7 +488,7 @@
         "Wer den Nebelriesen sieht, dem sage ich: Bleib stehen, dann bleibt er auch stehen. So war es immer.",
         "Setz dich hin und nimm den Hut ab, so haben wir es im Berg immer gehalten."
       ],
-      "gerede": "Im Viertel erzählt man, der Nebelriese sei den alten Stollen entlanggelaufen, aber keiner war dabei, und die Stollen sind längst zu."
+      "gerede": "Im Viertel erzählt man, der Nebelriese sei durch die alten Schächte gelaufen, aber keiner war dabei, und die Schächte sind längst zu."
     },
     {
       "id": "B09",
@@ -972,7 +972,7 @@
       "saetze": [
         "Ich weiß nicht, was du willst, aber ich weiß, wer hier wann geheiratet hat. Das ist mehr wert als ein Zeugnis.",
         "Der Nebelriese! Mein Mann hat ihn einmal am Fuß der Mauer gesehen, und seither geht er nachts nicht mehr allein.",
-        "Die Schritte unten waren schnell, wie von jemandem, der nicht bleiben will. Mehr kann ich dir nicht sagen.",
+        "Unten in der Gasse klappert nur der Wind mit den Fensterläden. Mehr kann ich dir nicht sagen.",
         "Setz dich hin und trink einen Tee, Junge. Die Tassen im Schrank sind noch vom Hochzeitstag meiner Schwester."
       ],
       "gerede": "Man erzählt, die alte Irmgard habe den Nebelriesen gerufen, aber sie ruft jeden, der nicht pünktlich zum Kaffee kommt."
@@ -1926,12 +1926,12 @@
           "bis": "05:30",
           "wo": "arbeitshaus",
           "zustand": "wach",
-          "tut": "Er klebt einen Absatz fest und lauscht, ob der Wind die Gasse entlangschiebt."
+          "tut": "Er poliert ein Paar Sonntagsschuhe und lauscht, ob der Wind die Gasse entlangschiebt."
         }
       ],
       "saetze": [
-        "Du willst einen Schuh reparieren? Dann gib her, aber sag mir, wo du gewesen bist. Schuhe erzählen das auch.",
-        "Die Sohle, die ich heute Nacht klebe, hat schon mehr Gassen gesehen als ich.",
+        "Du willst einen Schuh reparieren? Dann gib her, aber erst morgen früh, heute ist es zu dunkel.",
+        "Das Leder, das ich heute Nacht poliere, glänzt schöner als jede Laterne.",
         "Mit Leder baut man keine Mauern, aber man hält die Füße trocken. Das reicht für einen Schuster.",
         "Den Nebelriesen würde meine Frau sagen: Der findet bei dir keine Größe. Und das stimmt."
       ],
@@ -2692,7 +2692,7 @@
         }
       ],
       "saetze": [
-        "Du willst einen Strick? Nein? Dann sag mir wenigstens, wo du dich festhältst. Ein guter Griff ist alles in dieser Nacht.",
+        "Ein Seil für die Wäscheleine? Nein? Dann halt dich gut fest. Ein guter Griff ist alles in dieser Nacht.",
         "Ein gutes Seil verträgt Nebel besser als Menschen. Er wird nicht schlaff, egal wie kalt es wird.",
         "Mein Speicher hat Seilstränge bis zur Decke. Du kannst daran ziehen, aber nicht an mir.",
         "Wer im Nebel steht, folgt dem Seil. Das hat mir mein Großvater gesagt, und der Riese hat keinen Faden in der Hand."

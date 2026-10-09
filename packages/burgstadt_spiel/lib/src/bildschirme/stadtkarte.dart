@@ -163,11 +163,14 @@ class StadtkarteBildschirm extends Bildschirm {
     final belegt = <Rechteck>[];
     for (final (name, kx, kz) in _viertelNamen) {
       final tw = ui.font.measure(name);
-      final cx = l.pxX(kx), cy = l.pxY(kz) - ui.font.height ~/ 2;
+      // innerhalb des Puffers halten (Sichtprüfung A-703a: „Mauerviertel“ ragte hinaus)
+      final cx = (l.pxX(kx)).clamp(tw ~/ 2 + 4, ui.fb.width - tw ~/ 2 - 4), cy = l.pxY(kz) - ui.font.height ~/ 2;
       for (final zeilen in const [0, 1, -1, 2, -2]) {
-        final r = Rechteck(cx - tw ~/ 2 - 1, cy + zeilen * ui.zeilenHoehe, tw + 2, ui.font.height + 1);
+        final r = Rechteck(cx - tw ~/ 2 - 3, cy + zeilen * ui.zeilenHoehe - 1, tw + 6, ui.font.height + 3);
         if (belegt.any((b) => _ueberlappt(b, r))) continue;
-        ui.text(name, cx - tw ~/ 2, r.y);
+        // dunkle Plakette: helle Schrift auf hellen Gassen war kaum lesbar (A-703a)
+        ui.flaeche(r, UiFarbe.grundDunkel);
+        ui.text(name, cx - tw ~/ 2, r.y + 1, schatten: null);
         belegt.add(r);
         break;
       }

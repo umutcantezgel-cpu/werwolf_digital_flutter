@@ -109,8 +109,16 @@ class FallakteBildschirm extends Bildschirm {
       if (gewaehlt) ui.flaeche(r, 51);
       final faden = f.faeden.any((x) => x.$1 == l[i] || x.$2 == l[i]) ? '~ ' : '';
       var t = '$faden${hw.inhalt}';
-      while (ui.font.measure(t) > lr.w - 6 && t.length > 4) {
-        t = '${t.substring(0, t.length - 2)}…';
+      if (ui.font.measure(t) > lr.w - 6) {
+        // am Wortende kürzen statt mitten im Wort (A-703a)
+        final woerter = t.split(' ');
+        var k = '';
+        for (final wort in woerter) {
+          final n = k.isEmpty ? wort : '$k $wort';
+          if (ui.font.measure('$n …') > lr.w - 6) break;
+          k = n;
+        }
+        t = k.isEmpty ? t.substring(0, math.min(t.length, 8)) : '$k …';
       }
       ui.text(t, lr.x + 3, y + 1, farbe: gewaehlt ? UiFarbe.akzent : UiFarbe.text, schatten: null);
     }

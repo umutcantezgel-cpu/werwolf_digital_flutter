@@ -139,8 +139,9 @@ class LagerundeBildschirm extends Bildschirm {
     ui.text('Deine Entscheidung (${d.id})', p.x + 8, y, farbe: UiFarbe.akzent);
     y += ui.zeilenHoehe + 2;
     y += ui.absatz(d.frage, Rechteck(p.x + 8, y, p.w - 16, 60)) + 6;
+    final zeilenJeKnopf = h > w ? 3 : 2; // Hochformat: größere Knöpfe (A-703a)
     for (final o in ['A', 'B', 'C']) {
-      final r = Rechteck(p.x + 8, y, p.w - 16, ui.zeilenHoehe * 2 + 6);
+      final r = Rechteck(p.x + 8, y, p.w - 16, ui.zeilenHoehe * zeilenJeKnopf + 6);
       if (ui.knopf(r, '$o: ${_kurz(ui, d.optionen[o]!, r.w - 16)}')) {
         ergebnis = s.waehleDetektiv(d.id, o);
         if (s.imNetz) f.detektivWahl[d.id] = o; // sofort weiter; der Spiegel bestätigt es
@@ -172,8 +173,9 @@ class LagerundeBildschirm extends Bildschirm {
     ui.text('Deine Entscheidung (${e.id})', p.x + 8, y + 4, farbe: UiFarbe.akzent);
     y += ui.zeilenHoehe + 6;
     y += ui.absatz(e.lage, Rechteck(p.x + 8, y, p.w - 16, 60)) + 6;
+    final zeilenJeKnopf = p.h > p.w ? 3 : 2;
     for (var i = 0; i < e.optionen.length; i++) {
-      final r = Rechteck(p.x + 8, y, p.w - 16, ui.zeilenHoehe * 2 + 6);
+      final r = Rechteck(p.x + 8, y, p.w - 16, ui.zeilenHoehe * zeilenJeKnopf + 6);
       if (ui.knopf(r, '${String.fromCharCode(65 + i)}: ${_kurz(ui, e.optionen[i].text, r.w - 16)}')) {
         s.waehleRolle(e.id, i);
         f.rollenWahl[e.id] = i; // bis der Spiegel es bestätigt

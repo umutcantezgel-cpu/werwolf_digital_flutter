@@ -251,3 +251,20 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - **Sichtprüfer 11 und 12:** unabhängig, mit dem festen Maßstab aus Z-03. Beide fanden 0 Paare und 0 Verstöße am Kartenstand c44e0c1898. Als knappe Grenzfälle nennen sie BW/B12 (beide), B29/B41, R09/B12, R06/R08, B13/B43, B13/B33 und R02/R14. Sie zählen nicht als Paar. Die Figuren bleiben unverändert, weil jede Änderung beide Prüfungen ungültig machen würde. Die Grenzfälle stehen im Abschlussbericht.
 - **Abnahmelauf (tool/abnahme.dart, Stand 3999fc9):** Alle elf Ebenen sind grün; 11 von 14 Kriterien sind erfüllt. Offen bei diesem Lauf: Z-03 (Berichte noch nicht übernommen), Z-12 (Inhaltsrunde 5 läuft) und Z-14 (Morgen- und Abschlussbericht).
 - Die Zeitstempel in `belege/abnahme.txt` und `belege/alle_tests_voll.txt` sind in UTC (Uhr des Containers).
+
+## E33 · 09.10. 05:22 · Inhaltsrunde 5 (A-702f) und Spieltester (A-703a) umgesetzt
+- **A-702f:** Leitplanken eingehalten und plagiatsfrei. Offen war nur ein Kanon-Wort (R06: „eine Weile“ statt „kurz“ benommen), jetzt korrigiert. Aus den Hinweisen übernommen:
+  - Schuhmacher B32 ohne Sohle, Absatz und „wo du gewesen bist“.
+  - Seiler B44 ohne „Strick“-Anspielung.
+  - „Stollen“ als Bergbauwort durch „Schacht“ ersetzt (Doppeldeutigkeit zum Sohlenprofil).
+  - B16 ohne unbelegte „schnelle Schritte“, H-059 ohne Zinnen-Zählmotiv, H-139 mit passendem Bewohner, Entwicklerfeld ohne „Bewusstlosigkeit“.
+  - Laternen als getragenes Licht bleiben; es sind Kerzenlaternen der Bewohner, im Rahmen von STADT-02.
+- **A-703a (Spieltester, 6 hoch / 6 mittel / 5 gering):**
+  - Hinweiskarten bis 6 Zeilen mit sichtbarem „…“ statt Schnitt mitten im Satz.
+  - Sprechblasen bis 5 Zeilen, im Bild gehalten, ohne sich zu überdecken (die nächste Figur zuerst, eine Blase ohne Platz entfällt).
+  - Tutorial im Hochformat links neben der Knopfspalte, auf Handys zuerst mit Touch-Text.
+  - Kartennamen und Ortsanzeige auf dunkler Plakette.
+  - Fallakte kürzt am Wortende.
+  - HUD-Knöpfe im Hochformat 56×24 statt 48×17, Antwortknöpfe dreizeilig.
+  - Anklage mit Bestätigung „Das ist endgültig“.
+- **Offen (FÜR DEN NUTZER):** Die empfohlenen 7 mm Knopfhöhe erreichen die HUD-Knöpfe auf einem 6-Zoll-Handy noch nicht, sie liegen bei etwa 4,3 mm. Dafür bräuchte es ein eigenes Handy-Layout.

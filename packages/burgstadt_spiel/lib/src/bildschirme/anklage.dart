@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:burgstadt_core/burgstadt_core.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
@@ -10,6 +12,9 @@ class AnklageBildschirm extends Bildschirm {
   final Fallsitzung s;
   AnklageBildschirm(this.s);
   bool _standGeloescht = false;
+
+  /// Gewählte Person; die Anklage ist endgültig und wird deshalb noch einmal bestätigt (A-703a).
+  String? _gewaehlt;
 
   @override
   bool get zeigtTutorial => true;
@@ -66,12 +71,22 @@ class AnklageBildschirm extends Bildschirm {
     }
     ui.text('Wen klagst du an?', p.x + 8, y, farbe: UiFarbe.akzent);
     y += ui.zeilenHoehe + 4;
-    for (final r in f.verdaechtigenkreis) {
-      if (ui.knopf(Rechteck(p.x + 8, y, 220, 18), f.daten.rollen[r]?.name ?? r)) {
-        s.klageAn(r);
+    final hoch = h > w;
+    final kh = hoch ? 26 : 18;
+    final g = _gewaehlt;
+    if (g != null) {
+      y += ui.absatz('Anklage gegen ${f.daten.rollen[g]?.name ?? g} erheben? Das ist endgültig.', Rechteck(p.x + 8, y, p.w - 16, 30)) + 6;
+      if (ui.knopf(Rechteck(p.x + 8, y, 160, kh), 'Ja, anklagen')) {
+        s.klageAn(g);
+        _gewaehlt = null;
         spiel.ton.spiele('schreck', lautstaerke: 0.6);
       }
-      y += 22;
+      if (ui.knopf(Rechteck(p.x + 176, y, 120, kh), 'Abbrechen')) _gewaehlt = null;
+      return;
+    }
+    for (final r in f.verdaechtigenkreis) {
+      if (ui.knopf(Rechteck(p.x + 8, y, math.min(260, p.w - 16), kh), f.daten.rollen[r]?.name ?? r)) _gewaehlt = r;
+      y += kh + 4;
     }
   }
 }
