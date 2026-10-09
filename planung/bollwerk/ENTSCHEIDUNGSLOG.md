@@ -36,7 +36,7 @@ Jede folgenreiche Entscheidung nach dem Denkprotokoll (Ziel · Wege · Bewertung
 - **Ergebnis:** Satz 6 erfüllt alle Bänder bei 10.000 Partien je Form × Besetzung; Details in SPIELKERN.md.
 - **Lockerungen:** keine. Zwei Werte liegen knapp am Bandrand (Wurfanteil Party n=4 0,587 ≤ 0,60; Solo 0,31 ≥ 0,30) → Annahme mit Folge.
 
-## E-M5-00 · Unbeabsichtigter Push auf `bollwerk` (23:03 UTC)
+## E-M5-00 · Unbeabsichtigter Push auf `bollwerk` (≈ 22:57 UTC)
 - **Befund:** `cat … <<EOF` ohne Anführungszeichen führte Backtick-Inhalte aus, darunter `git push origin HEAD:refs/heads/bollwerk`. `origin/bollwerk` = f84715d (= bollwerk-plan zu diesem Zeitpunkt).
 - **Wege:** (a) Branch löschen – Grenze (kein Löschen; Proxy lehnt Löschungen ab); (b) überschreiben – Force-Push verboten; (c) stehen lassen, melden, Leitstand setzt per Fast-Forward.
 - **Wahl:** (c). Eintrag in FUER-DEN-NUTZER §1, STATUS, Übergabe. Abnahme M-12 („Push-Protokoll nennt nur bollwerk-plan“) ist damit nicht vollständig erfüllt und wird so gemeldet.
