@@ -1,4 +1,4 @@
-STAND · Bauphase F3 von F7 · Abnahme 6 von 17 (F-01..F-05, F-07; F-06/F-08 vorläufig) · Brüche offen 0 · Aufträge 74 von 175 · Agenten aktiv 4 · nächster Schritt: Welle 2b (Finale Can, Bild, Bildprompts) und Nachbesserung F3-AUTOR-70..74 abnehmen, dann F3-KONT/SENS und F3-TEST-01, dann F3-Tor
+STAND · Bauphase F4 von F7 · Abnahme 9 von 17 (F-01..F-08, F-15; F-10/F-11 vorläufig) · Brüche offen 0 · Aufträge 115 von 175 · Agenten aktiv 0 · nächster Schritt: F4-ORCH-01 (Karte aus dem Kanon, Sitzung, Karten-Session) nach F4-ENTWURF-PARTYSITZUNG.md
 
 # STATUS
 
@@ -11,6 +11,7 @@ STAND · Bauphase F3 von F7 · Abnahme 6 von 17 (F-01..F-05, F-07; F-06/F-08 vor
 | 09.10.2026, Abend | F1-Tor bestanden: 83 Brüche entschieden, Quellabgleich 542 Einträge, 6 Prüfberichte abgenommen (je 10/10), 49 Party-Tests grün, PDF-Probeseite | 5 / 17 | 0 | E-018 bis E-023 |
 | 09.10.2026, später Abend | F2-Tor bestanden: Entscheidungsmodell (E-024), 36 Hinweise, Gruppenwahl-Gerüst, Simulator 0,3 s, 142 Party-Tests; Gegenprüfung eingearbeitet (E-025: Qualität verborgen, Überführung braucht Fundort, Optionen gemischt) | 6 / 17 | 0 | E-024, E-025 |
 | 09.10.2026, Nacht | F3: Welle 1 (Dossiers, Täter, Detektiv, Intro) und Welle 2a (180 Gespräche, Runden, Auflösung) abgenommen; Gesprächsplan mit Höchstlast; Fundtexte und Kern-Wahltexte gewählt; main (Burgstadt-Strang) zurückgemergt | 6 / 17 | 0 | E-026 bis E-028 |
+| 09.10.2026, später Abend nach Neustart | F3-Tor bestanden: 10 KONT- und 5 SENS-Berichte abgenommen, Nachbesserung II der Gespräche (133 von 180) und der 16 Finaltexte (Ausgangsregel), F3-TEST-01 (Dossier, Erzähler, Spoiler über Pfadmengen); 228 Party-Tests, 250 Kern-Tests, `tool/pruefen.sh alles` grün | 9 / 17 | 0 | E-029 |
 
 ## Nutzerwünsche (gelten dauerhaft)
 - **Bilder immer im Chat zeigen:** Jedes erzeugte Bild (Bildschirmfotos aus E2E- und Probeläufen, gerenderte Karten, PDF-Seiten als Bild) wird sofort mit SendUserFile im Chat gezeigt (Nachricht vom 09.10.2026, 11:10).
@@ -21,7 +22,7 @@ STAND · Bauphase F3 von F7 · Abnahme 6 von 17 (F-01..F-05, F-07; F-06/F-08 vor
 | F0 | Planungsordner vollständig, Plan-Schleife durch, Commit, Push | bestanden (2 Runden, E-013/E-014; Push auf origin) |
 | F1 | F-01..F-05 | bestanden (E-021..E-023; ABNAHME F-01..F-05) |
 | F2 | F-07; F-06, F-08 mit Platzhaltern | bestanden (E-024, E-025; F-06/F-08 vorläufig) |
-| F3 | F-06, F-08, F-10, F-11, F-15 | offen |
+| F3 | F-06, F-08, F-10, F-11, F-15 | bestanden (E-029; F-10 Druckteil in F5, F-11 E2E in F4) |
 | F4 | F-12, F-13 | offen |
 | F5 | F-09, F-14 | offen |
 | F6 | F-16; alle erneut | offen |
@@ -30,9 +31,10 @@ STAND · Bauphase F3 von F7 · Abnahme 6 von 17 (F-01..F-05, F-07; F-06/F-08 vor
 ## Fehlerstatistik je Rolle (Regelkreis Lernen)
 | Rolle | Abnahmen | Ø Punkte | Nachbesserungen | Häufigster Mangel |
 |---|---|---|---|---|
-| KONT (Haiku) | 6 (F0 2, F1 4) | 10 | 0 | liest Kanon während laufender Änderungen (Befunde schon erledigt) |
+| KONT (Haiku) | 16 (F0 2, F1 4, F3 10) | 9,6 | 0 | liest Kanon während laufender Änderungen; einzelne Fehlleser (KONT-06 D) |
 | TEST (Haiku, F2) | 4 | 10 | 0 | – (Rot-Proben vorbildlich) |
 | FALL (Haiku) | 1 | 10 | 0 | – |
 | GEGEN (Haiku) | 6 | 9,8 | 1 (03a/03b geteilt, E-017) | zu breite Aufträge sprengen die Ausgabelänge |
-| SENS (Haiku) | 1 | 10 | 0 | – |
-| BAUMEISTER/TEST (Haiku) | 2 | 9,5 | 0 | Worktree vom falschen Commit (L-03) |
+| SENS (Haiku) | 6 (F1 1, F3 5) | 9,4 | 0 | übersieht, dass Unschuldsfassungen nur im fremden Pfad gelten (SENS-01 Nr. 1–3) |
+| BAUMEISTER/TEST (Haiku) | 4 | 9,3 | 0 | Worktree vom falschen Commit (L-03); Spoilerprüfung zu grob (Fünf-Wort-Folgen ohne Pfadmenge) |
+| AUTOR (Haiku, F3) | 40 | 9,3 | 2 Wellen (P-2 bis P-4, Ausgangsregel) | Fehler, die erst über viele Dateien sichtbar werden (Last, Partnername, Bund-Fund) |

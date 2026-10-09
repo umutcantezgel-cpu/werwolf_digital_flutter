@@ -25,6 +25,16 @@ Format: Risiko → Frühwarnzeichen → Gegenmaßnahme. Wirkung (W) und Unsicher
 | 20 | Haiku-Auftrag läuft über die Ausgabegrenze | Abbruch nach langer Laufzeit (L-02) | Aufträge teilen, Längengrenze, `effort: high` für Prüfungen (E-017) | 2 | 1 |
 | 18 | Container-Neustart verliert Arbeitsstand | Neustart-Hinweis der Umgebung | häufige Commits, PRÜFPUNKT nach jedem Block, Werkzeugkette per Skript wiederherstellbar | 2 | 2 |
 
+| 21 | Struktur über viele Dateien bleibt in Einzelabnahmen unsichtbar (Gesprächslast, Partneranrede, Kopftuch-Strang) | Befund erst beim Blick über alle Dateien | ORCH prüft nach jeder Welle quer (Last, Namen, Verteilung); Regeln P-2 bis P-4 und Tests (E-028, E-029) | 3 | 2 |
+| 22 | Ein Text behauptet einen Verlauf, den das Spiel nicht kennt (Bund gefunden, Fundbild) | Kontinuitätsbefund zu Finale oder Bild | Ausgangsregel E-029, pfadgleiche Beweisbilder; F4: Karte und Bild vor dem Finale pfadgleich (`karte_pfadgleich_test`) | 3 | 2 |
+
+**Neubewertung am F3-Tor (E-029):**
+- Nr. 6 (Spoiler) sinkt auf Unsicherheit 1. `spoiler_test` prüft Pfadwissen am Tisch über Pfadmengen, Beweisbilder sind pfadgleich, Begründungen erscheinen erst in der Auflösung.
+- Nr. 8 (Ton, Klischee) bleibt bei Unsicherheit 2: Zwei Muster liegen als Nutzerfrage offen (Nebendelikte, Fatmas Kopftuch).
+- Nr. 15 (paralleler Strang) ist eingetreten. main wurde zweimal von dort aus gemergt; die Merges zurück liefen konfliktfrei.
+- Nr. 18 (Neustart) ist eingetreten. Der Prüfstapel ließ sich aus dem Zwischenspeicher fortsetzen, nichts ging verloren.
+- Für F4 am höchsten: Nr. 7 (Figuren im Dunkeln), Nr. 13 (Netz im Web-Build) und Nr. 22 (Karte vor dem Finale pfadgleich).
+
 ## Vorab-Scheitern (Angenommen, das Projekt ist gescheitert)
 1. **Die vier Pfade widersprechen sich im Detail.** Frühwarnzeichen: Kontinuitätsbefunde nach F3. Gegenmaßnahme: Tatmatrix und Plausibilitätsprüfer zuerst, Texte nur aus Kanon-Auszügen.
 2. **Die Gruppenwahl ist am Tisch langweilig oder durchschaubar.** Frühwarnzeichen: Gegenprüfer erkennt die Täterwahl. Gegenmaßnahme: Dilemma je Rolle aus Geheimnis oder Loyalität, Sabotage-Option für den Täter, Simulatorstatistik.

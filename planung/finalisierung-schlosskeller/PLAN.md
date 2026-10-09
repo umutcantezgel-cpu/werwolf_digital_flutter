@@ -108,10 +108,12 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 | F3-AUTOR-57..58 | Autor | Varianten-Regel: Rundenwahl der 4 Kernrollen mit Sabotage, 2 Fassungen | `texte/wahlen-kern.json` (Fassung im Bericht, ORCH wählt) | F2 | abgenommen (Fassung 1, von ORCH geschärft, E-028) |
 | F3-AUTOR-65 | Autor | Bildbeschreibungen der Personen, Räume und Beweise | `bild.json` | F1 | abgenommen (9/10, E-028) |
 | F3-BAUMEISTER-02 | Baumeister | Bildprompt-Generator aus Kanon-Feldern + Test | `party/bildprompts.dart`, `bin/party_prompts.dart`, `bildprompts.json`, `test/party/bildprompt_test.dart` | F1 | abgenommen (8/10, ORCH-Korrektur Farbe, E-028) |
-| F3-KONT-01..10 | KONT | Stapelprüfung gegen Kanon und Tatmatrix (01 Dossiers, 02 Täter und Detektiv, 03 Intro/Runden/Auflösung, 04–05 Finale, 06–08 Gespräche je Runde, 09 Wahlen, 10 Bonus/Entscheidungen/Fundtexte) | – (Bericht) | Autoren | Aufträge bereit |
-| F3-SENS-01..05 | SENS | Stapelprüfung Ton, Inhalt, Klischee, Namensbalance (01 Dossiers, 02 Erzähler, 03 Gespräche, 04 Wahlen/Bonus/Entscheidungen/Fundtexte, 05 Bild und Verteilung) | – (Bericht) | Autoren | Aufträge bereit |
-| F3-TEST-01 | TEST | Dossier-, Erzähler-, Spoiler-Tests (F-10, F-11; Spoiler über alle Bausteine vor dem Finale × 4 Pfade, S-1) | `test/party/dossier_test.dart`, `erzaehler_test.dart`, `spoiler_test.dart` | F3-AUTOR-* | Auftrag bereit |
-| F3-ORCH-01 | ORCH | Variantenwahl, Integration, Tor, Commit, Push | Textsammlung | alle F3 | offen |
+| F3-KONT-01..10 | KONT | Stapelprüfung gegen Kanon und Tatmatrix (01 Dossiers, 02 Täter und Detektiv, 03 Intro/Runden/Auflösung, 04–05 Finale, 06–08 Gespräche je Runde, 09 Wahlen, 10 Bonus/Entscheidungen/Fundtexte) | – (Bericht) | Autoren | abgenommen (9–10/10, E-029; Befunde eingearbeitet über AUTOR-75..83 und ORCH) |
+| F3-SENS-01..05 | SENS | Stapelprüfung Ton, Inhalt, Klischee, Namensbalance (01 Dossiers, 02 Erzähler, 03 Gespräche, 04 Wahlen/Bonus/Entscheidungen/Fundtexte, 05 Bild und Verteilung) | – (Bericht) | Autoren | abgenommen (9–10/10, E-029; kein schwerer Befund offen, zwei Muster als Nutzerfrage) |
+| F3-TEST-01 | TEST | Dossier-, Erzähler-, Spoiler-Tests (F-10, F-11; Spoiler über alle Bausteine vor dem Finale × 4 Pfade, S-1) | `test/party/dossier_test.dart`, `erzaehler_test.dart`, `spoiler_test.dart` | F3-AUTOR-* | abgenommen (9/10, ORCH schärft Prüfung 16 über Pfadmengen, E-029) |
+| F3-AUTOR-75..79 | Autor | Nachbesserung II der Pflichtgespräche je Block: Runde 2 prüft Behauptungen, Runde 3 ohne Klarheitsformeln, kein Thema doppelt (KONT-06..08, SENS-03) | `texte/gespraeche-r1..3-bN.json` (nur thema, ziel, text) | F3-KONT-06..08 | abgenommen (je 10/10, E-029) |
+| F3-AUTOR-80..83 | Autor | Finaltexte und Rückblenden je Pfad nach der Ausgangsregel (Tor bis zum Morgen bei falscher Anklage, Pflichtsatz, „du“ fürs Geburtstagskind) | `texte/erzaehler-finale-<pfad>.json` | F3-KONT-04..05, SENS-02 | abgenommen (9–10/10, ORCH-Korrekturen, E-029) |
+| F3-ORCH-01 | ORCH | Variantenwahl, Integration, Tor, Commit, Push | Textsammlung | alle F3 | erledigt (F3-Tor: `tool/pruefen.sh alles` grün, ABNAHME F-06, F-08, F-15 erfüllt, F-10/F-11 vorläufig) |
 
 ## F4 – Spiel und Bild (Tor F-12, F-13)
 | Kennung | Rolle | Gegenstand | Eigene Dateien | Abhängig | Status |

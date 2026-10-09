@@ -757,3 +757,15 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Meister-Texte begründen mit dem Wortlaut von Schlüsselbeweis und Zusatzindiz.
   - Die Rückblenden folgen der Tatmatrix: Weg, Satz Schneiders, Schlag, Spuren, Bund-Versteck, Licht um Mitternacht. Gedanken der Figuren kommen darin nicht vor.
   - ORCH hat zwei Stellen korrigiert: Ahmets Griff ist „der Griff des Kerzenständers“; in Cans Rückblende springt Can aus dem Vorratsraum, als Herr Schneider die Tür aufzieht (`ev_vorratstuer_auf`).
+- **F3-Tor bestanden:**
+  - `tool/pruefen.sh alles` grün:
+    - Analyse ohne Befund
+    - 250 Kern-Tests, davon 228 im Partymodus
+    - Plausibilität, Story-Bibel, Simulator und Bildprompts aktuell
+    - Server-Smoke 63 OK
+    - Web-Build ohne CDN
+    - Secret-Scan sauber
+  - ABNAHME:
+    - erfüllt: F-06, F-08, F-15
+    - vorläufig: F-10 (Druckteil in F5), F-11 (E2E in F4)
+  - Neubewertung der NEBELKARTE mit den neuen Risiken 21 und 22. Für F4 am höchsten: Nr. 7, 13 und 22.
