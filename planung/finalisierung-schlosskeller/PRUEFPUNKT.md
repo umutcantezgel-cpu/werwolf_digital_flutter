@@ -1,6 +1,6 @@
 # PRÜFPUNKT · Wiederaufnahme
 
-STAND · Bauphase F4 von F7 · Abnahme 9 von 17 (F-01..F-08, F-15; F-10/F-11 vorläufig) · Brüche offen 0 · Aufträge 115 von 175 · Agenten aktiv 0 · nächster Schritt: F4-ORCH-01 (Karte aus dem Kanon, Sitzung, Karten-Session) nach F4-ENTWURF-PARTYSITZUNG.md
+STAND · Bauphase F4 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 130 von 175 · Agenten aktiv 1 · nächster Schritt: E2E-Gerüst (F4-BAUMEISTER-07) abnehmen, dann 84 E2E-Läufe, Spiel- und Sichtprüfung, Hub-Kachel nach origin, F4-Tor
 
 ## Nach einem Neustart oder in einer neuen Sitzung
 1. `cd /home/user/werwolf_digital_flutter && git checkout finalisierung-schlosskeller` (lokal; falls fehlend: `git fetch origin finalisierung-schlosskeller` bzw. Sicherungsbranch `claude/universal-prompt-orchestrator-trt8uu`).
@@ -11,9 +11,11 @@ STAND · Bauphase F4 von F7 · Abnahme 9 von 17 (F-01..F-08, F-15; F-10/F-11 vor
 
 ## Stand der Arbeit
 - Branch `finalisierung-schlosskeller` (Upstream origin/finalisierung-schlosskeller). Die Tore F0 bis F3 sind bestanden.
-- F4 beginnt nach `F4-ENTWURF-PARTYSITZUNG.md`:
-  - Zuerst baut ORCH `karte.dart` (Kern) samt Test, `lib/party/sitzung.dart`, `lib/party/karte_session.dart`, die optionalen Renderer-Schnittstellen, die Route `/party` und den Entwickler-Einstieg.
-  - Danach folgen die Haiku-Baumeister für die Bildschirme.
+- F4 läuft (E-030 bis E-032):
+  - Fertig: Karte, Sitzung, Karten-Session, `SzenenErweiterung` im Renderer, alle Bildschirme, Requisiten, Rückblende, Tests (126 Widget-Tests, `karte_test`, `figuren_konsistenz_test`).
+  - Offen: E2E-Gerüst `tool/e2e/e2e.mjs` (F4-BAUMEISTER-07, Workflow f4-e2e), 84 Läufe, Spiel- und Sichtprüfer, Hub-Kachel nach `git fetch origin main`, Tor F-12/F-13.
+- Entwickler-Einstieg: `build/web` mit `?party=schlosskeller&pfad=…&n=…&skript=best,a,richtig&takt=…&zeitraffer=…&fotos=0|1&fotopause=…` oder `&bis=<phase>&at=x,y&zoom=…`. Probelauf: `cd tool/e2e && node probe.mjs "<parameter>" <ordner>`, Raumfotos: `node raeume.mjs <ordner>`.
+- F5 vorgezogen: Druckmodell `packages/mordakte_core/lib/src/party/druck/modell.dart` mit `druck_modell_test`; Entwurf `F5-ENTWURF-DRUCK.md`.
 - Orte im Repo:
   - Kanon: `content/party/schlosskeller/`
   - Textsammlung: `texte/`, Schlüssel in `texte/SCHLUESSEL.md`
