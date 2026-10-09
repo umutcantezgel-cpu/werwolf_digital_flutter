@@ -21,6 +21,7 @@ abstract final class UiFarbe {
   static const grundDunkel = 99; // Ramp.at(blue, 1)
   static const rand = Pal.stone; // Bruchstein
   static const randHell = 29; // Ramp.at(stone, 6)
+  static const randDunkel = Ramp.stone * Ramp.shades + 4; // = Ramp.at16(Ramp.stone, 4) (const-fähig)
   static const text = Pal.parchment; // Pergament
   static const textGedimmt = 27; // Ramp.at(stone, 5)
   static const akzent = Pal.candle; // Kerzenbernstein
@@ -115,13 +116,46 @@ class PixelUi {
 
   void flaeche(Rechteck r, int farbe) => fb.fillRect(r.x, r.y, r.w, r.h, farbe);
 
-  /// Panel mit 1-px-Rand, heller Oberkante und Schatten (Licht von links oben).
+  /// Panel v2: 1-px-Außenrand (ohne Eckpixel), Innen-Fase, Glanzlinie und Schlagschatten
+  /// unten/rechts außerhalb (Licht von links oben).
   void panel(Rechteck r, {int grund = UiFarbe.grund, int rand = UiFarbe.rand, bool fangen = true}) {
     if (fangen) _flaechen.add(r);
-    fb.fillRect(r.x + 1, r.y + 1, r.w, r.h, UiFarbe.schatten);
-    fb.fillRect(r.x, r.y, r.w, r.h, rand);
+    _schlagschatten(r);
+    _rahmenFlaeche(r, rand: rand, grund: grund);
+  }
+
+  /// Schlagschatten 1 px unten und rechts, nur außerhalb des Rahmens von [r].
+  void _schlagschatten(Rechteck r) {
+    fb.fillRect(r.x + 1, r.unten, r.w, 1, UiFarbe.schatten);
+    fb.fillRect(r.rechts, r.y + 1, 1, r.h, UiFarbe.schatten);
+  }
+
+  /// Rahmen v2: Außenrand 1 px ohne die vier Eckpixel, Grundfläche, Innen-Fase (oberste
+  /// Innenzeile und linke Innenspalte [oben]/[links], unterste Innenzeile und rechte
+  /// Innenspalte [unten]/[rechts]; ohne [fase] keine) und 1-px-Glanzlinie unter der Fase,
+  /// nur auf der Grundfläche der Oberfläche.
+  void _rahmenFlaeche(
+    Rechteck r, {
+    required int rand,
+    required int grund,
+    bool fase = true,
+    int oben = UiFarbe.randHell,
+    int links = UiFarbe.randHell,
+    int unten = UiFarbe.randDunkel,
+    int rechts = UiFarbe.randDunkel,
+  }) {
+    fb.fillRect(r.x + 1, r.y, r.w - 2, 1, rand);
+    fb.fillRect(r.x + 1, r.unten - 1, r.w - 2, 1, rand);
+    fb.fillRect(r.x, r.y + 1, 1, r.h - 2, rand);
+    fb.fillRect(r.rechts - 1, r.y + 1, 1, r.h - 2, rand);
     fb.fillRect(r.x + 1, r.y + 1, r.w - 2, r.h - 2, grund);
-    fb.fillRect(r.x + 1, r.y + 1, r.w - 2, 1, UiFarbe.randHell);
+    if (fase) {
+      fb.fillRect(r.x + 1, r.y + 1, r.w - 2, 1, oben);
+      fb.fillRect(r.x + 1, r.y + 1, 1, r.h - 2, links);
+      fb.fillRect(r.x + 1, r.unten - 2, r.w - 2, 1, unten);
+      fb.fillRect(r.rechts - 2, r.y + 1, 1, r.h - 2, rechts);
+    }
+    if (grund == UiFarbe.grund) fb.fillRect(r.x + 2, r.y + 2, r.w - 4, 1, Ramp.at16(Ramp.blue, 6));
   }
 
   int text(String s, int x, int y, {int farbe = UiFarbe.text, int? schatten = UiFarbe.schatten, int skala = 1}) =>
@@ -163,13 +197,21 @@ class PixelUi {
     if (ausgeloest) ausgeloestImBild++;
     final grund = !aktiv
         ? UiFarbe.grundDunkel
-        : (gedrueckt ? UiFarbe.akzentDunkel : (hervorgehoben ? Ramp.at(Ramp.blue, 3) : UiFarbe.grund));
-    final rand = hatFokus ? UiFarbe.akzent : (hervorgehoben ? UiFarbe.akzent : UiFarbe.rand);
+        : (gedrueckt ? UiFarbe.akzentDunkel : (hervorgehoben ? Ramp.at16(Ramp.blue, 7) : UiFarbe.grund));
+    final rand = hatFokus || hervorgehoben ? UiFarbe.akzent : (aktiv ? UiFarbe.rand : Ramp.at16(Ramp.stone, 7));
     final dy = gedrueckt ? 1 : 0;
-    if (!gedrueckt) fb.fillRect(r.x + 1, r.y + 1, r.w, r.h, UiFarbe.schatten);
-    fb.fillRect(r.x + dy, r.y + dy, r.w, r.h, rand);
-    fb.fillRect(r.x + 1 + dy, r.y + 1 + dy, r.w - 2, r.h - 2, grund);
-    if (!gedrueckt) fb.fillRect(r.x + 1, r.y + 1, r.w - 2, 1, hatFokus ? UiFarbe.akzent : UiFarbe.randHell);
+    if (!gedrueckt) _schlagschatten(r);
+    // Gedrückt: Fase umgekehrt (oben/links dunkel, unten/rechts hell), Inhalt 1 px nach unten rechts.
+    _rahmenFlaeche(
+      Rechteck(r.x + dy, r.y + dy, r.w, r.h),
+      rand: rand,
+      grund: grund,
+      fase: aktiv,
+      oben: gedrueckt ? UiFarbe.randDunkel : (hatFokus ? UiFarbe.akzent : UiFarbe.randHell),
+      links: gedrueckt ? UiFarbe.randDunkel : UiFarbe.randHell,
+      unten: gedrueckt ? UiFarbe.randHell : UiFarbe.randDunkel,
+      rechts: gedrueckt ? UiFarbe.randHell : UiFarbe.randDunkel,
+    );
     final tw = font.measure(beschriftung);
     final farbe = aktiv ? (hatFokus || gedrueckt ? UiFarbe.akzent : UiFarbe.text) : UiFarbe.textGedimmt;
     text(beschriftung, r.x + (r.w - tw) ~/ 2 + dy, r.y + (r.h - font.height) ~/ 2 + dy + 1, farbe: farbe);
