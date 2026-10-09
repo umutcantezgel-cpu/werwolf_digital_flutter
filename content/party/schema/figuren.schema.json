@@ -713,6 +713,9 @@
               }
             },
             "additionalProperties": false
+          },
+          "beweisFarbe": {
+            "$ref": "#/$defs/text"
           }
         },
         "additionalProperties": false
