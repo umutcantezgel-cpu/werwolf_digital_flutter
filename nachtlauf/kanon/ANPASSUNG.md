@@ -42,6 +42,11 @@ Regeln für das Overlay:
 @ERSETZE-31 [O] | Von: und wirkt dabei rachsüchtig | Nach: und wirkt dabei nachtragend
 @ERSETZE-32 [O] | Von: bordeauxroter Blazer | Nach: dunkelroter Blazer
 @ERSETZE-33 [O] | Von: bordeaux red blazer | Nach: dark red blazer
+@ERSETZE-34 [O] | Von: with wavy dark hair, | Nach: with wavy light brown hair,
+@ERSETZE-35 [O] | Von: with short dark hair and glasses | Nach: with short dark blond hair and glasses
+@ERSETZE-36 [O] | Von: with short light brown hair and a full beard | Nach: with short dark brown hair and a full beard
+@ERSETZE-37 [O] | Von: with sandy hair and a short beard | Nach: with black hair and a short beard
+@ERSETZE-38 [O] | Von: with short black hair and a goatee | Nach: with short light brown hair and a goatee
 
 ## Ort und Rahmen
 @K-001 [O] | Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist die kleine, renovierte Stadtburg am höchsten Punkt der erfundenen, ummauerten Oberstadt Schartenfels: Gassen mit Kopfsteinpflaster, Häuser mit Dachgauben, die wie Augen schauen, eine Stadtmauer mit Wehrgang und Zunfttürmen, ein Uhrturm am Marktplatz und eine Kirchenburg auf dem Hügel. Unten im Tal liegt das erfundene Bergstädtchen Silberhau (SIL-ber-hau). Burg und Heimatmuseum gehören einer Stiftung; Burgwart ist Eckehard Lüddecke.
@@ -109,6 +114,12 @@ Das Spiel zeigt das Feld Familie nicht an; es gehört aber zum wirksamen Kanon. 
 @R18-STAMM [O] | Familie: Die Eltern leben in Celle; der Vater ist Lokführer im Güterverkehr, die Mutter leitet eine Kita. Der ältere Bruder Burak ist Zahntechniker. Die Großmutter ruft jeden Sonntag an und lässt sich Elifs Woche erzählen, mit allen Einzelheiten. | Löschen: Wurzeln
 @R19-STAMM [O] | Familie: Die Eltern leben in Göttingen; der Vater ist Krankenpfleger auf einer Kinderstation, die Mutter Schulbegleiterin. Er hat drei ältere Schwestern, die ihn bis heute „Kleiner“ nennen. Bei jedem Familientreffen ist Azad seit seinem zwölften Lebensjahr der, der die Fotos macht; im Flur der Eltern hängen zwanzig Jahre davon. | Löschen: Wurzeln
 @R20-STAMM [O] | Familie: Die Eltern leben in Wernigerode; der Vater ist Vermessungstechniker, die Mutter Grundschullehrerin. Jeden Sommer fährt die Familie zu den Großeltern an einen See, wo der Großvater Zofia beigebracht hat, Tierspuren im Sand zu lesen. Ihre jüngere Schwester Ola studiert Musik und ruft jeden Abend an. | Löschen: Wurzeln
+
+## Detektiv-Ergebnis DW3-3 ohne Namen (Nutzerentscheidung, E54)
+
+Nach der richtigen Entscheidung in Phase 3 nennt das Ergebnis nur die Spur, nicht die Person. Die Zuordnung zur Täterin bleibt der Anklage überlassen; der Hinweis H-15 des Kanons (Sohlenkarten) bleibt unverändert, weil er den Schluss S-5 trägt.
+
+@DW3-3 [L] | Ergebnis C: Adnan trägt Kreuzprofil, Rojda glatte Sohlen. Zwei Karten zeigen dasselbe Stiefelmodell; an einer fehlt am linken Absatz ein Stollen, genau wie im Wachs. Von dieser Sohle stammt der Abdruck.
 
 ## Funktionsmatrix ohne Herkunft (Leitplanke Herkunft, E43)
 

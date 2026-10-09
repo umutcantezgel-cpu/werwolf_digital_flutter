@@ -12,7 +12,7 @@
       "wesen": "Streng im Ton und weich im Herzen, sie begrüßt jeden Menschen mit Namen und kann Unordnung im Flur nicht ausstehen.",
       "aussehen": {
         "haar": "grau",
-        "frisur": "dutt",
+        "frisur": "kurz",
         "kopf": "keine",
         "kleidung": [
           {
@@ -197,13 +197,13 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "rot",
-            "stufe": 4
+            "rampe": "bernstein",
+            "stufe": 5
           },
           {
             "teil": "Hose",
-            "rampe": "neutral",
-            "stufe": 3
+            "rampe": "holz",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -253,13 +253,13 @@
       "wesen": "Eine Frau mit Kreide im Ärmel und einem scharfen Blick für Ausreden, sie weiß alles besser und meint es trotzdem gut.",
       "aussehen": {
         "haar": "weiß",
-        "frisur": "dutt",
+        "frisur": "locken",
         "kopf": "keine",
         "kleidung": [
           {
             "teil": "Pullover",
-            "rampe": "bernstein",
-            "stufe": 4
+            "rampe": "blau",
+            "stufe": 6
           },
           {
             "teil": "Rock",
@@ -298,7 +298,7 @@
         "Du bist also ein Ermittler? Dann setz dich hin und lass dich nicht ablenken, die Stadt hat genug Unruhe.",
         "Den Nebelriesen habe ich einmal in einen Aufsatz geschrieben, und niemand hat ihn richtig gelesen.",
         "Die Glocke der Schule schweigt seit dem Brand, und ich vermisse ihre Pausen mehr, als ich sagen will.",
-        "Wenn du etwas wissen willst, frag laut und deutlich. Ich höre nur noch, was man mir ins Gesicht sagt."
+        "Wenn du etwas wissen willst, frag geradeheraus. Um den heißen Brei rede ich nicht herum."
       ],
       "gerede": "Man erzählt, der Nebelriese habe in der alten Schule Hausaufgaben gemacht, aber das hat der kleine Paul von nebenan erfunden."
     },
@@ -312,14 +312,14 @@
       "arbeitshaus": "H-084",
       "wesen": "Wortkarg und pflichtbewusst, er hält sich an Vorschriften und flucht nur leise, wenn der Plan nicht zu den Leitungen passt.",
       "aussehen": {
-        "haar": "braun",
-        "frisur": "kurz",
+        "haar": "keins",
+        "frisur": "glatze",
         "kopf": "mütze",
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "bernstein",
-            "stufe": 4
+            "rampe": "blau",
+            "stufe": 6
           },
           {
             "teil": "Hose",
@@ -445,7 +445,7 @@
       "beruf": "Rentner, früher Hauer",
       "wohnhaus": "H-139",
       "arbeitshaus": null,
-      "wesen": "Brummig und treu, er redet nur über den Berg und die alten Zeiten, zieht aber vor jedem Fremden den Hut.",
+      "wesen": "Ruhig und treu, er redet nur über den Berg und die alten Zeiten, zieht aber vor jedem Fremden den Hut.",
       "aussehen": {
         "haar": "weiß",
         "frisur": "glatze",
@@ -501,7 +501,7 @@
       "wesen": "Ruhig und unerschrocken, sie spricht mit Tieren wie mit Menschen und mit Menschen oft wie mit Tieren, je nach Bedarf.",
       "aussehen": {
         "haar": "braun",
-        "frisur": "zopf",
+        "frisur": "dutt",
         "kopf": "keine",
         "kleidung": [
           {
@@ -573,13 +573,13 @@
         "kleidung": [
           {
             "teil": "Schürze",
-            "rampe": "stein",
-            "stufe": 5
+            "rampe": "neutral",
+            "stufe": 6
           },
           {
             "teil": "Hemd",
-            "rampe": "bernstein",
-            "stufe": 5
+            "rampe": "blau",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -627,12 +627,12 @@
           {
             "teil": "Weste",
             "rampe": "holz",
-            "stufe": 2
+            "stufe": 5
           },
           {
             "teil": "Rock",
             "rampe": "rot",
-            "stufe": 2
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -665,13 +665,13 @@
     },
     {
       "id": "B12",
-      "name": "Martin Auer",
+      "name": "Martina Auer",
       "alter": 37,
-      "geschlecht": "m",
-      "beruf": "Glaser",
+      "geschlecht": "w",
+      "beruf": "Glaserin",
       "wohnhaus": "H-036",
       "arbeitshaus": "H-036",
-      "wesen": "Er lacht viel und stellt Fragen, die andere lieber nicht stellen, und er flickt jedes Fenster, bevor es zerbricht.",
+      "wesen": "Sie lacht viel und stellt Fragen, die andere lieber nicht stellen, und sie flickt jedes Fenster, bevor es zerbricht.",
       "aussehen": {
         "haar": "braun",
         "frisur": "kurz",
@@ -680,12 +680,12 @@
           {
             "teil": "Hemd",
             "rampe": "bernstein",
-            "stufe": 3
+            "stufe": 5
           },
           {
             "teil": "Hose",
-            "rampe": "stein",
-            "stufe": 2
+            "rampe": "neutral",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -698,28 +698,28 @@
           "bis": "01:30",
           "wo": "wohnhaus",
           "zustand": "wach",
-          "tut": "Er liegt im Bett, horcht auf den Wind an den Scheiben und überlegt, welche Fenster halten."
+          "tut": "Sie liegt im Bett, horcht auf den Wind an den Scheiben und überlegt, welche Fenster halten."
         },
         {
           "von": "01:30",
           "bis": "04:00",
           "wo": "gasse:Handwerkergasse",
           "zustand": "unterwegs",
-          "tut": "Er geht mit der Laterne die Gasse ab und sieht nach, ob die Schaufenster heil sind."
+          "tut": "Sie geht mit der Laterne die Gasse ab und sieht nach, ob die Schaufenster heil sind."
         },
         {
           "von": "04:00",
           "bis": "05:00",
           "wo": "arbeitshaus",
           "zustand": "wach",
-          "tut": "Er steht in der Werkstatt und schneidet Glas für ein Fenster, das beim Knall gesprungen ist."
+          "tut": "Sie steht in der Werkstatt und schneidet Glas für ein Fenster, das beim Knall gesprungen ist."
         },
         {
           "von": "05:00",
           "bis": "05:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Er legt sich für eine Stunde hin, das Glasmaß noch in der Schürze."
+          "tut": "Sie legt sich für eine Stunde hin, das Glasmaß noch in der Schürze."
         }
       ],
       "saetze": [
@@ -747,12 +747,12 @@
           {
             "teil": "Kleid",
             "rampe": "rot",
-            "stufe": 5
+            "stufe": 4
           },
           {
             "teil": "Umhang",
-            "rampe": "stein",
-            "stufe": 5
+            "rampe": "holz",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -783,7 +783,7 @@
         }
       ],
       "saetze": [
-        "Du fragst, ob ich etwas gesehen habe? Ich bin achtundachtzig. Ich sehe nur Mondlicht und Erinnerungen.",
+        "Du fragst, ob ich etwas gesehen habe? Nur den Mond, und der war hell genug für mein Strickzeug.",
         "Früher klapperten in der Gasse die Webstühle. Heute klappert nichts außer den Fensterläden bei Wind.",
         "Der Nebelriese, sagt meine Mutter, bleibt stehen, wenn du stehen bleibst. Ich habe es nie probiert.",
         "Setz dich hin, du wirkst müde. Mein Enkel rennt immer, als hätte er Eile, und weiß selbst nicht wohin."
@@ -798,10 +798,10 @@
       "beruf": "Drechsler im Ruhestand",
       "wohnhaus": "H-041",
       "arbeitshaus": "H-041",
-      "wesen": "Brummelig und gutmütig, er dreht für jedes Kind der Gasse einen Kreisel und vergisst keinen Geburtstag.",
+      "wesen": "Gutmütig und geduldig, er dreht für jedes Kind der Gasse einen Kreisel und vergisst keinen Geburtstag.",
       "aussehen": {
         "haar": "grau",
-        "frisur": "glatze",
+        "frisur": "kurz",
         "kopf": "mütze",
         "kleidung": [
           {
@@ -852,27 +852,27 @@
     },
     {
       "id": "B15",
-      "name": "Vera Kessler",
+      "name": "Timo Kessler",
       "alter": 29,
-      "geschlecht": "w",
-      "beruf": "Pflegekraft",
+      "geschlecht": "m",
+      "beruf": "Pfleger",
       "wohnhaus": "H-025",
       "arbeitshaus": "H-019",
-      "wesen": "Zupackend und geduldig, sie kennt die Namen aller Alten im Haus und hat für jeden einen Spruch auf Lager.",
+      "wesen": "Zupackend und geduldig, er kennt die Namen aller Leute im Haus und hat für jeden einen Spruch auf Lager.",
       "aussehen": {
         "haar": "braun",
-        "frisur": "zopf",
+        "frisur": "kurz",
         "kopf": "keine",
         "kleidung": [
           {
             "teil": "Kittel",
-            "rampe": "stein",
-            "stufe": 6
+            "rampe": "blau",
+            "stufe": 5
           },
           {
             "teil": "Hose",
-            "rampe": "blau",
-            "stufe": 4
+            "rampe": "neutral",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -885,34 +885,34 @@
           "bis": "02:00",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
-          "tut": "Sie geht zwischen den Zimmern hin und her, leuchtet in jede Tür und hört auf jeden Atem."
+          "tut": "Er geht zwischen den Zimmern hin und her, leuchtet in jede Tür und hört auf jeden Atem."
         },
         {
           "von": "02:00",
           "bis": "04:30",
           "wo": "arbeitshaus",
           "zustand": "wach",
-          "tut": "Sie sitzt im Flur, trinkt Wasser und notiert die Schlafzeiten der Alten."
+          "tut": "Er sitzt im Flur, trinkt Wasser und notiert die Schlafzeiten der Bewohner."
         },
         {
           "von": "04:30",
           "bis": "05:00",
           "wo": "gasse:Marktviertel",
           "zustand": "unterwegs",
-          "tut": "Sie geht mit der Laterne nach Hause über den Markt, und der Uhrturm klingt stiller als sonst."
+          "tut": "Er geht mit der Laterne nach Hause über den Markt, und der Uhrturm klingt stiller als sonst."
         },
         {
           "von": "05:00",
           "bis": "05:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Sie fällt aufs Bett, die Schuhe noch an den Füßen."
+          "tut": "Er fällt aufs Bett, die Schuhe noch an den Füßen."
         }
       ],
       "saetze": [
-        "Du sprichst hier mit einer Pflegekraft. Heute Nacht war es ruhiger als sonst, Frau Lang schläft fest.",
-        "Meine Schützlinge schlafen gut, wenn man sie lässt. Heute haben sie es zum Glück gelassen.",
-        "Frau Lang im zweiten Stock hört schlecht, sprich bei ihr langsam. Ihr Gedächtnis ist besser als meins.",
+        "Du sprichst hier mit dem Pfleger vom Lindenbaum. Heute Nacht war es ruhiger als sonst, Frau Lang schläft fest.",
+        "Die Leute im Haus schlafen gut, wenn man sie lässt. Heute haben sie es zum Glück gelassen.",
+        "Frau Lang im zweiten Stock kennt jede Geschichte dieser Stadt. Ihr Gedächtnis ist besser als meins.",
         "Der Strom ist aus, aber die Nachtliste habe ich noch auf Papier. Das ist mein Trost."
       ],
       "gerede": "Im Viertel heißt es, der Nebelriese klopfe nachts an die Heimtür vom Lindenbaum, aber dort öffnet niemand, weil alle schlafen."
@@ -939,7 +939,7 @@
           {
             "teil": "Rock",
             "rampe": "holz",
-            "stufe": 3
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1053,8 +1053,8 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "holz",
-            "stufe": 4
+            "rampe": "rot",
+            "stufe": 5
           },
           {
             "teil": "Hemd",
@@ -1106,12 +1106,12 @@
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "bernstein",
-            "stufe": 5
+            "rampe": "holz",
+            "stufe": 2
           },
           {
             "teil": "Schal",
-            "rampe": "stein",
+            "rampe": "neutral",
             "stufe": 4
           }
         ],
@@ -1240,12 +1240,12 @@
         "kleidung": [
           {
             "teil": "Bluse",
-            "rampe": "blau",
-            "stufe": 6
+            "rampe": "neutral",
+            "stufe": 4
           },
           {
             "teil": "Rock",
-            "rampe": "holz",
+            "rampe": "stein",
             "stufe": 2
           }
         ],
@@ -1301,12 +1301,12 @@
           {
             "teil": "Mantel",
             "rampe": "bernstein",
-            "stufe": 5
+            "stufe": 3
           },
           {
             "teil": "Hose",
-            "rampe": "holz",
-            "stufe": 2
+            "rampe": "blau",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1361,12 +1361,12 @@
           {
             "teil": "Jacke",
             "rampe": "neutral",
-            "stufe": 6
+            "stufe": 5
           },
           {
             "teil": "Rock",
-            "rampe": "holz",
-            "stufe": 2
+            "rampe": "blau",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -1480,13 +1480,13 @@
         "kleidung": [
           {
             "teil": "Bluse",
-            "rampe": "bernstein",
-            "stufe": 3
+            "rampe": "rot",
+            "stufe": 5
           },
           {
             "teil": "Rock",
-            "rampe": "holz",
-            "stufe": 4
+            "rampe": "neutral",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -1588,18 +1588,18 @@
       "wesen": "Ironisch und genau, sie zeichnet jede Gasse der Oberstadt und vergisst dabei die Zeit, bis der Kaffee kalt ist.",
       "aussehen": {
         "haar": "schwarz",
-        "frisur": "lang",
+        "frisur": "dutt",
         "kopf": "keine",
         "kleidung": [
           {
             "teil": "Pullover",
-            "rampe": "blau",
-            "stufe": 4
+            "rampe": "bernstein",
+            "stufe": 3
           },
           {
             "teil": "Hose",
-            "rampe": "holz",
-            "stufe": 4
+            "rampe": "blau",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -1645,7 +1645,7 @@
       "beruf": "Rentner, früher Gießer",
       "wohnhaus": "H-047",
       "arbeitshaus": null,
-      "wesen": "Grummelig und stolz auf seine alten Hände, er kennt den Klang jeder Glocke, die je in dieser Stadt gegossen wurde.",
+      "wesen": "Stolz auf seine geschickten Hände, er kennt den Klang jeder Glocke, die je in dieser Stadt gegossen wurde.",
       "aussehen": {
         "haar": "grau",
         "frisur": "glatze",
@@ -1663,7 +1663,7 @@
           }
         ],
         "zubehoer": [
-          "Hörrohr"
+          "Zeitung"
         ]
       },
       "nacht": [
@@ -1686,7 +1686,7 @@
           "bis": "05:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Er schläft bis zum Morgen, das Hörrohr auf dem Nachttisch."
+          "tut": "Er schläft bis zum Morgen, die Zeitung auf dem Nachttisch."
         }
       ],
       "saetze": [
@@ -1714,12 +1714,12 @@
           {
             "teil": "Schürze",
             "rampe": "neutral",
-            "stufe": 5
+            "stufe": 4
           },
           {
             "teil": "Jacke",
             "rampe": "bernstein",
-            "stufe": 5
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -1833,7 +1833,7 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "bernstein",
+            "rampe": "blau",
             "stufe": 4
           },
           {
@@ -1879,13 +1879,13 @@
     },
     {
       "id": "B32",
-      "name": "Matthias Gerlach",
+      "name": "Mathilde Gerlach",
       "alter": 42,
-      "geschlecht": "m",
-      "beruf": "Schuhmacher",
+      "geschlecht": "w",
+      "beruf": "Schuhmacherin",
       "wohnhaus": "H-032",
       "arbeitshaus": "H-032",
-      "wesen": "Stolz auf jede Naht und ruhig im Umgang, er repariert Schuhe, die andere längst wegwerfen wollten.",
+      "wesen": "Stolz auf jede Naht und ruhig im Umgang, sie repariert Schuhe, die andere längst wegwerfen wollten.",
       "aussehen": {
         "haar": "schwarz",
         "frisur": "kurz",
@@ -1893,13 +1893,13 @@
         "kleidung": [
           {
             "teil": "Schürze",
-            "rampe": "blau",
-            "stufe": 6
+            "rampe": "bernstein",
+            "stufe": 4
           },
           {
             "teil": "Hemd",
-            "rampe": "bernstein",
-            "stufe": 4
+            "rampe": "rot",
+            "stufe": 5
           }
         ],
         "zubehoer": [
@@ -1912,30 +1912,30 @@
           "bis": "03:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Er schläft im Hinterzimmer, neben sich die Schuhe, die morgen fertig sein sollen."
+          "tut": "Sie schläft im Hinterzimmer, neben sich die Schuhe, die morgen fertig sein sollen."
         },
         {
           "von": "03:00",
           "bis": "04:30",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
-          "tut": "Er sitzt an der Werkbank, weil ihn der Wind nicht schlafen lässt."
+          "tut": "Sie sitzt an der Werkbank, weil sie der Wind nicht schlafen lässt."
         },
         {
           "von": "04:30",
           "bis": "05:30",
           "wo": "arbeitshaus",
           "zustand": "wach",
-          "tut": "Er poliert ein Paar Sonntagsschuhe und lauscht, ob der Wind die Gasse entlangschiebt."
+          "tut": "Sie poliert ein Paar Sonntagsschuhe und lauscht, ob der Wind die Gasse entlangschiebt."
         }
       ],
       "saetze": [
         "Du willst einen Schuh reparieren? Dann gib her, aber erst morgen früh, heute ist es zu dunkel.",
         "Das Leder, das ich heute Nacht poliere, glänzt schöner als jede Laterne.",
-        "Mit Leder baut man keine Mauern, aber man hält die Füße trocken. Das reicht für einen Schuster.",
-        "Den Nebelriesen würde meine Frau sagen: Der findet bei dir keine Größe. Und das stimmt."
+        "Mit Leder baut man keine Mauern, aber man hält die Füße trocken. Das reicht für eine Schusterin.",
+        "Mein Mann sagt: Für den Nebelriesen fände selbst ich keine Größe. Und das stimmt."
       ],
-      "gerede": "Im Viertel flüstert man, der Schuhmacher habe dem Nebelriesen Schuhe gemacht, aber der Riese geht durch den Nebel, als bräuchte er keine."
+      "gerede": "Im Viertel flüstert man, die Schuhmacherin habe dem Nebelriesen Schuhe gemacht, aber der Riese geht durch den Nebel, als bräuchte er keine."
     },
     {
       "id": "B33",
@@ -1948,18 +1948,18 @@
       "wesen": "Freundlich und bedächtig, sie hat ein Gedächtnis wie ein gut sortiertes Archiv.",
       "aussehen": {
         "haar": "weiß",
-        "frisur": "dutt",
-        "kopf": "haube",
+        "frisur": "kurz",
+        "kopf": "keine",
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "stein",
-            "stufe": 3
+            "rampe": "bernstein",
+            "stufe": 5
           },
           {
             "teil": "Schal",
-            "rampe": "blau",
-            "stufe": 4
+            "rampe": "stein",
+            "stufe": 3
           }
         ],
         "zubehoer": [
@@ -2059,26 +2059,26 @@
     },
     {
       "id": "B35",
-      "name": "Anneliese Gruber",
+      "name": "Anton Gruber",
       "alter": 58,
-      "geschlecht": "w",
+      "geschlecht": "m",
       "beruf": "Reinigungskraft im Rathaus",
       "wohnhaus": "H-125",
       "arbeitshaus": null,
-      "wesen": "Fleißig und fröhlich, sie kennt im Rathaus jeden Namen und jede knarrende Treppenstufe.",
+      "wesen": "Fleißig und fröhlich, er kennt im Rathaus jeden Namen und jede knarrende Treppenstufe.",
       "aussehen": {
         "haar": "braun",
-        "frisur": "dutt",
+        "frisur": "kurz",
         "kopf": "keine",
         "kleidung": [
           {
             "teil": "Kittel",
-            "rampe": "neutral",
-            "stufe": 6
+            "rampe": "blau",
+            "stufe": 5
           },
           {
             "teil": "Hose",
-            "rampe": "blau",
+            "rampe": "holz",
             "stufe": 4
           }
         ],
@@ -2092,21 +2092,21 @@
           "bis": "03:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Sie schläft in ihrem Bett, die Schürze am Haken, weil sie früh am Morgen im Rathaus sein muss."
+          "tut": "Er schläft in seinem Bett, den Kittel am Haken, weil er früh am Morgen im Rathaus sein muss."
         },
         {
           "von": "03:00",
           "bis": "04:30",
           "wo": "fenster",
           "zustand": "wach",
-          "tut": "Sie wacht auf, weil der Hund des Nachbarn bellt, und schaut hinaus, bis das Bellen aufhört."
+          "tut": "Er wacht auf, weil der Hund des Nachbarn bellt, und schaut hinaus, bis das Bellen aufhört."
         },
         {
           "von": "04:30",
           "bis": "05:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Sie schläft wieder ein, bis der Morgen kommt."
+          "tut": "Er schläft wieder ein, bis der Morgen kommt."
         }
       ],
       "saetze": [
@@ -2115,7 +2115,7 @@
         "Der Eimer steht noch im Flur, weil nach dem Knall alle nur noch Kerzen gesucht haben. Das verstehst du?",
         "Ich kann nicht viel sagen, ich war um die Zeit schon zu Hause. Frag im Rathaus, die waren länger da."
       ],
-      "gerede": "Im Rathaus flüstert man, Anneliese habe den Nebelriesen auf der Treppe getroffen und ihm einen guten Abend gewünscht."
+      "gerede": "Im Rathaus flüstert man, Anton habe den Nebelriesen auf der Treppe getroffen und ihm einen guten Abend gewünscht."
     },
     {
       "id": "B36",
@@ -2133,13 +2133,13 @@
         "kleidung": [
           {
             "teil": "Jacke",
-            "rampe": "bernstein",
+            "rampe": "rot",
             "stufe": 4
           },
           {
             "teil": "Hose",
-            "rampe": "rot",
-            "stufe": 2
+            "rampe": "blau",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2200,12 +2200,12 @@
         "kleidung": [
           {
             "teil": "Mantel",
-            "rampe": "blau",
-            "stufe": 4
+            "rampe": "bernstein",
+            "stufe": 3
           },
           {
             "teil": "Hemd",
-            "rampe": "bernstein",
+            "rampe": "rot",
             "stufe": 3
           }
         ],
@@ -2263,16 +2263,16 @@
       "aussehen": {
         "haar": "weiß",
         "frisur": "dutt",
-        "kopf": "haube",
+        "kopf": "keine",
         "kleidung": [
           {
             "teil": "Kleid",
-            "rampe": "blau",
-            "stufe": 5
+            "rampe": "bernstein",
+            "stufe": 3
           },
           {
             "teil": "Schürze",
-            "rampe": "bernstein",
+            "rampe": "holz",
             "stufe": 4
           }
         ],
@@ -2313,13 +2313,13 @@
     },
     {
       "id": "B39",
-      "name": "Leopold Engel",
+      "name": "Leonie Engel",
       "alter": 46,
-      "geschlecht": "m",
-      "beruf": "Fuhrunternehmer",
+      "geschlecht": "w",
+      "beruf": "Fuhrunternehmerin",
       "wohnhaus": "H-056",
       "arbeitshaus": "H-056",
-      "wesen": "Laut und großzügig, er schleppt jede Kiste umsonst, wenn der Nachbar Hilfe braucht, und flucht danach über die Kosten.",
+      "wesen": "Laut und großzügig, sie schleppt jede Kiste umsonst, wenn der Nachbar Hilfe braucht, und flucht danach über die Kosten.",
       "aussehen": {
         "haar": "braun",
         "frisur": "kraus",
@@ -2327,13 +2327,13 @@
         "kleidung": [
           {
             "teil": "Weste",
-            "rampe": "rot",
+            "rampe": "stein",
             "stufe": 4
           },
           {
             "teil": "Hose",
-            "rampe": "blau",
-            "stufe": 3
+            "rampe": "rot",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -2346,28 +2346,28 @@
           "bis": "01:00",
           "wo": "fenster",
           "zustand": "wach",
-          "tut": "Er steht am Fenster und zählt die Karren im Hof, die er morgen beladen muss."
+          "tut": "Sie steht am Fenster und zählt die Karren im Hof, die sie morgen beladen muss."
         },
         {
           "von": "01:00",
           "bis": "04:00",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Er schläft in seinem Zimmer neben dem Hof, weil ihm der Schlaf zufällt, bevor er zu Ende zählen kann."
+          "tut": "Sie schläft in ihrem Zimmer neben dem Hof, weil ihr der Schlaf zufällt, bevor sie zu Ende zählen kann."
         },
         {
           "von": "04:00",
           "bis": "05:00",
           "wo": "arbeitshaus",
           "zustand": "wach",
-          "tut": "Er spannt das Pferd ein, bereit für die erste Lieferung, sobald die Straße frei ist."
+          "tut": "Sie spannt das Pferd ein, bereit für die erste Lieferung, sobald die Straße frei ist."
         },
         {
           "von": "05:00",
           "bis": "05:30",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
-          "tut": "Er belädt den Wagen mit Kisten und wartet, bis es hell genug zum Fahren ist."
+          "tut": "Sie belädt den Wagen mit Kisten und wartet, bis es hell genug zum Fahren ist."
         }
       ],
       "saetze": [
@@ -2376,7 +2376,7 @@
         "Die Pferde sind unruhig heute Nacht. Sie riechen etwas, das wir nicht riechen. Das kann der Frost sein.",
         "Schreib dir meine Nummer auf, aber nicht den Preis. Der ändert sich mit dem Wetter und dem Humor."
       ],
-      "gerede": "Man sagt, der Fuhrmann habe den Nebelriesen auf dem Wagen mitgenommen, aber der Wagen war danach schwerer, nicht voller."
+      "gerede": "Man sagt, die Fuhrunternehmerin habe den Nebelriesen auf dem Wagen mitgenommen, aber der Wagen war danach schwerer, nicht voller."
     },
     {
       "id": "B40",
@@ -2388,19 +2388,19 @@
       "arbeitshaus": "H-106",
       "wesen": "Ruhig wie die Gräber, die er pflegt, und ein wenig schwermütig, aber er lacht über jeden Witz, der auf dem Friedhof gemacht wird.",
       "aussehen": {
-        "haar": "keins",
-        "frisur": "glatze",
+        "haar": "grau",
+        "frisur": "kurz",
         "kopf": "hut",
         "kleidung": [
           {
             "teil": "Mantel",
             "rampe": "bernstein",
-            "stufe": 3
+            "stufe": 4
           },
           {
             "teil": "Hose",
-            "rampe": "blau",
-            "stufe": 4
+            "rampe": "holz",
+            "stufe": 2
           }
         ],
         "zubehoer": [
@@ -2447,27 +2447,27 @@
     },
     {
       "id": "B41",
-      "name": "Nora Stahl",
+      "name": "Nils Stahl",
       "alter": 24,
-      "geschlecht": "w",
+      "geschlecht": "m",
       "beruf": "Bedienung in der Teestube",
       "wohnhaus": "H-122",
       "arbeitshaus": "H-029",
-      "wesen": "Quirlig und schlagfertig, sie erinnert sich an jede Bestellung und erkennt drei Teesorten am Geruch.",
+      "wesen": "Quirlig und schlagfertig, er erinnert sich an jede Bestellung und erkennt drei Teesorten am Geruch.",
       "aussehen": {
         "haar": "braun",
-        "frisur": "zopf",
+        "frisur": "kurz",
         "kopf": "keine",
         "kleidung": [
           {
-            "teil": "Bluse",
-            "rampe": "blau",
-            "stufe": 6
+            "teil": "Hemd",
+            "rampe": "stein",
+            "stufe": 4
           },
           {
             "teil": "Schürze",
-            "rampe": "bernstein",
-            "stufe": 3
+            "rampe": "rot",
+            "stufe": 5
           }
         ],
         "zubehoer": [
@@ -2480,28 +2480,28 @@
           "bis": "01:30",
           "wo": "fenster",
           "zustand": "wach",
-          "tut": "Sie sitzt im Dachzimmer und riecht in der kalten Luft den Rauch vom Ofen der Teestube."
+          "tut": "Er sitzt im Dachzimmer und riecht in der kalten Luft den Rauch vom Ofen der Teestube."
         },
         {
           "von": "01:30",
           "bis": "04:30",
           "wo": "wohnhaus",
           "zustand": "schläft",
-          "tut": "Sie schläft, das Teesieb neben dem Bett wie eine Erinnerung."
+          "tut": "Er schläft, das Teesieb neben dem Bett wie eine Erinnerung."
         },
         {
           "von": "04:30",
           "bis": "05:00",
           "wo": "gasse:Marktviertel",
           "zustand": "unterwegs",
-          "tut": "Sie geht zur Teestube hinunter, um den Ofen anzuheizen, die Laterne voraus."
+          "tut": "Er geht zur Teestube hinunter, um den Ofen anzuheizen, die Laterne voraus."
         },
         {
           "von": "05:00",
           "bis": "05:30",
           "wo": "arbeitshaus",
           "zustand": "arbeitet",
-          "tut": "Sie stellt die Tassen auf den Tresen, obwohl noch niemand kommt."
+          "tut": "Er stellt die Tassen auf den Tresen, obwohl noch niemand kommt."
         }
       ],
       "saetze": [
@@ -2529,12 +2529,12 @@
           {
             "teil": "Jacke",
             "rampe": "blau",
-            "stufe": 6
+            "stufe": 5
           },
           {
             "teil": "Hemd",
-            "rampe": "stein",
-            "stufe": 3
+            "rampe": "rot",
+            "stufe": 4
           }
         ],
         "zubehoer": [
@@ -2583,13 +2583,13 @@
       "wesen": "Hellwach und belesen, sie liest jeden Abend zwei Bücher, auch wenn die Lampe nur noch flackert.",
       "aussehen": {
         "haar": "weiß",
-        "frisur": "dutt",
+        "frisur": "kurz",
         "kopf": "keine",
         "kleidung": [
           {
             "teil": "Kleid",
             "rampe": "rot",
-            "stufe": 2
+            "stufe": 4
           },
           {
             "teil": "Umhang",

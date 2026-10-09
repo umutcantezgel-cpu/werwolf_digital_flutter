@@ -130,6 +130,38 @@ void main() {
     }
   });
 
+  test('Haar in rollen.json gleich dem gezeichneten Haar in karten.json (E54)', () {
+    final karten = {
+      for (final k in (jsonDecode(File('data/figuren/karten.json').readAsStringSync()) as Map)['karten'] as List)
+        (k as Map)['id']: k,
+    };
+    for (final f in figuren.where((f) => (f['id'] as String).startsWith('R'))) {
+      final h = f['haar'] as Map<String, dynamic>;
+      final k = ((karten[f['id']] as Map)['materialien'] as Map)['haar'] as List;
+      expect([h['rampe'], h['stufe']], k, reason: f['id'] as String);
+    }
+  });
+
+  test('In jeder Herkunftsgruppe des Kanons gibt es helles und dunkles Haar (E54)', () {
+    // Gruppen aus dem Kanon des Krimidinners (das Spiel selbst kennt sie nicht mehr, E48)
+    final gruppen = <String, List<String>>{};
+    for (final datei in Directory('../../krimidinner/spuk-im-gewoelbe/10_kanon').listSync()) {
+      final name = datei.uri.pathSegments.last;
+      if (datei is! File || !name.startsWith('K2')) continue;
+      for (final z in datei.readAsLinesSync()) {
+        final m = RegExp(r'^@(R\d\d)-STAMM \[O\].*\| Wurzeln: ([^|]+?) \|').firstMatch(z);
+        if (m != null) gruppen.putIfAbsent(m[2]!.trim(), () => []).add(m[1]!);
+      }
+    }
+    expect(gruppen.values.expand((x) => x).length, 20);
+    bool dunkel(Map<String, dynamic> h) => (h['rampe'] == 0 || h['rampe'] == 2) && (h['stufe'] as int) <= 2;
+    final haar = {for (final f in figuren) f['id']: f['haar'] as Map<String, dynamic>};
+    gruppen.forEach((gruppe, ids) {
+      final d = ids.where((id) => dunkel(haar[id]!)).length;
+      expect(d, inExclusiveRange(0, ids.length), reason: '$gruppe: $ids');
+    });
+  });
+
   test('Grün (Rampe 5) tragen nur R03 Merle und R04 Jonas', () {
     for (final f in figuren) {
       final id = f['id'];

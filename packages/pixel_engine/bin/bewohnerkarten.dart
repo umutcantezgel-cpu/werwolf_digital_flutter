@@ -11,14 +11,19 @@ import 'package:pixel_engine/pixel_engine.dart';
 /// Je Bewohner werden [_varianten] freie Varianten gebrannt; gewählt wird die, deren größte
 /// Ähnlichkeit zu allen anderen Figuren am kleinsten ist (Maß der Sichtprüfer, siehe
 /// [vergleiche]). Drei Durchgänge, damit auch frühe Figuren gegen spätere geprüft werden.
-/// Deterministisch. `dart run bin/bewohnerkarten.dart`
+/// Deterministisch. `dart run bin/bewohnerkarten.dart [--neu B01,B02,…]`
+///
+/// `--neu`: Für die genannten Bewohner ist die Karte aus der Datei kein Kandidat, etwa nach einer
+/// Änderung von Name, Geschlecht oder Frisur in `bewohner.json`; sonst könnte die alte Karte gewinnen.
 const _varianten = 32, _farbVarianten = 64, _rollenVarianten = 24;
 
 const _bewohnerPfad = '../burgstadt_core/data/stadt/bewohner.json', _rollenPfad = 'data/figuren/rollen.json';
 
 Map<String, dynamic> _lies(String pfad) => jsonDecode(File(pfad).readAsStringSync()) as Map<String, dynamic>;
 
-void main() {
+void main(List<String> args) {
+  final i = args.indexOf('--neu');
+  final neu = i >= 0 && i + 1 < args.length ? args[i + 1].split(',').toSet() : const <String>{};
   const kartenPfad = 'data/figuren/karten.json';
   final daten = _lies(kartenPfad);
   final alt = [for (final k in daten['karten'] as List) k as Map<String, dynamic>];
@@ -62,7 +67,7 @@ void main() {
       // Die Karte aus der Datei ist Kandidat 0 (mit kleiner Vorliebe): Was geprüft ist, bleibt,
       // solange es kein Paar bildet.
       final liste = <(Figurenkarte, Figurenbild)?>[
-        if (kopfbedeckungLesbar(ausDatei[i])) mit(ausDatei[i]),
+        if (kopfbedeckungLesbar(ausDatei[i]) && !neu.contains(id)) mit(ausDatei[i]),
         for (var v = 0; v < _varianten; v++) mit(bewohnerKarte(b, v)),
       ];
       for (var v = 0; v < _farbVarianten; v++) {

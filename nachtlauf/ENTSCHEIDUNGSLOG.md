@@ -623,3 +623,31 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Unsere Build-Cache-Zeile in `tool/pruefen.sh` (E52) bleibt erhalten.
   - Seine neuen Commits berühren nur `planung/` und `content/party/`.
 - Beide Stränge arbeiten weiter. Ihre späteren Commits sind erst nach einem weiteren Merge in `main`.
+
+## E54 · 09.10. 19:15 · Z-12: Stadtbewohner ausgeglichen, Haarfarben gemischt, DW3-3 nur Spur (Nutzerentscheidung)
+- **Stadtbewohner** (`bewohner.json`, `haeuser.json`). Wohn- und Arbeitshäuser bleiben gleich, deshalb ist die Layout-Prüfsumme des HD-Strangs unverändert.
+  - **Geschlechtertausch:** B15 Timo Kessler (Pfleger), B35 Anton Gruber (Reinigungskraft) und B41 Nils Stahl (Bedienung) sind jetzt Männer, B12 Martina Auer (Glaserin), B32 Mathilde Gerlach (Schuhmacherin) und B39 Leonie Engel (Fuhrunternehmerin) jetzt Frauen. Das Verhältnis bleibt 21 Frauen zu 23 Männern.
+  - Pronomen, Gerüchte und die Haustexte H-036, H-056, H-122 und H-125 sind angepasst. B35s Nachtplan nennt jetzt den Kittel statt einer Schürze, die er nicht trägt.
+  - **Frisuren:** Dutt tragen jetzt auch B09 (44) und B27 (31), nicht mehr B01, B05, B33, B35 und B43. Die Haube bleibt bei B03 (Bäckerin) und B13. Eine Glatze hat jetzt auch B06 (46); B14 und B40 haben kurzes graues Haar.
+  - **Texte:**
+    - Wesen ohne „brummig/brummelig/grummelig“ (B08, B14, B28).
+    - Keine Hör- und Altersmotive mehr: B05, B13, B15 (Frau Lang), B28 (Zeitung statt Hörrohr).
+    - Keine Gruppenwörter „die Alten“ und „Schützlinge“ mehr (B15).
+    - H-139 nennt Otto Stern beim Namen.
+  - **Tests** (`stadtdaten_test`), jeweils mit roter Gegenprobe:
+    - Pflege, Reinigung und Bedienung sind nicht nur mit Frauen besetzt.
+    - Dutt, Haube und Glatze kommen auch bei Jüngeren vor.
+    - Keine Alters- oder Gruppenwörter in Bewohnertexten.
+- **Haarfarben der Rollen:**
+  - In jeder Herkunftsgruppe des Kanons gibt es jetzt helles und dunkles Haar. R07 (hellbraun), R12 (dunkelblond) und R19 (hellbraun) sind heller, R14 (dunkelbraun, auch der Bart) und R17 (schwarz) dunkler. R08 bleibt, weil ihre Gruppe mit R12 schon gemischt ist; ein Versuch mit R08 erzeugte unvermeidbare Figurenpaare.
+  - Die Look-Anker sind per Overlay angepasst (ERSETZE-34…38); die Kanon-Dateien bleiben unverändert.
+  - In `rollen.json` steht das Haar jetzt so, wie es gezeichnet wird (R02, R13 und R16 von [0,1] auf [0,2]).
+  - **Tests** (`rollen_daten_test`), jeweils mit roter Gegenprobe: Das Haar in `rollen.json` gleicht dem in `karten.json`, und jede Herkunftsgruppe hat helles und dunkles Haar.
+- **DW3-3:**
+  - Nach der richtigen Entscheidung „alle vier Sohlenkarten“ nennt das Ergebnis nur die Spur: „Von dieser Sohle stammt der Abdruck.“ `kanon_test` prüft, dass dort kein Name steht.
+  - **Vermerk:** Der Kanon-Hinweis H-15 (Sohlenkarten, Phase 3) nennt Merles Absatz weiterhin. Er trägt die notwendige Schlussfolgerung S-5 und bleibt nach der Overlay-Regel unverändert.
+- **Figurenkarten:**
+  - Neu erzeugt mit `bin/bewohnerkarten.dart`. Neue Option `--neu`: Für geänderte Bewohner nimmt der Generator die alte Karte nicht als Kandidaten.
+  - Danach zwei Folgeläufe und eine gezielte Farbsuche für B43 (Kleid rot 4). Ergebnis: `karten_test` 0 Paare, `tool/mass5a.py` 0 Paare.
+  - `mass5a.py` liest jetzt Palette v1 und v2 (E53).
+  - Neuer Kartenstand 6e6584163c; neue Sichtprüfung A-605w/x und Inhaltsrunde A-702u. Der Figurenstand des HD-Strangs ändert sich (E53).

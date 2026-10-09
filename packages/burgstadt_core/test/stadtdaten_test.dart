@@ -336,6 +336,40 @@ void main() {
     expect(befunde, isEmpty);
   });
 
+  test('Pflege, Reinigung und Bedienung nicht nur mit Frauen besetzt (E54)', () {
+    for (final beruf in ['Pfleg', 'Reinigung', 'Bedienung']) {
+      final g = {for (final b in bewohner) if ((b['beruf'] as String).contains(beruf)) b['geschlecht']};
+      expect(g, contains('m'), reason: beruf);
+    }
+    // Ausgleich: das Verhältnis bleibt wie vorher (21 Frauen, 23 Männer)
+    expect(bewohner.where((b) => b['geschlecht'] == 'w').length, 21);
+  });
+
+  test('Dutt, Haube und Glatze nicht nur bei Älteren (E54)', () {
+    int juengste(bool Function(Map<String, dynamic> a) passt) => bewohner
+        .where((b) => passt(b['aussehen'] as Map<String, dynamic>))
+        .map((b) => b['alter'] as int)
+        .reduce((x, y) => x < y ? x : y);
+    expect(juengste((a) => a['frisur'] == 'dutt'), lessThan(50));
+    expect(juengste((a) => a['kopf'] == 'haube'), lessThan(55));
+    expect(juengste((a) => a['frisur'] == 'glatze'), lessThan(50));
+  });
+
+  test('Keine Alters- oder Gruppenwörter in Bewohnertexten (E54)', () {
+    const woerter = ['brummig', 'brummelig', 'grummelig', 'hört schlecht', 'Hörrohr', 'Schützlinge'];
+    // „die Alten“, „aller Alten“ als Gruppenwort (groß geschrieben); „die alten Zeiten“ ist kein Befund
+    final gruppenwort = RegExp(r'\bAlten\b');
+    final befunde = <String>[];
+    texte.forEach((ort, text) {
+      if (!ort.startsWith('B')) return;
+      for (final w in woerter) {
+        if (text.toLowerCase().contains(w.toLowerCase())) befunde.add('$ort: $w');
+      }
+      if (gruppenwort.hasMatch(text)) befunde.add('$ort: die Alten');
+    });
+    expect(befunde, isEmpty);
+  });
+
   test('Niemand wird als „der/die alte …“ bezeichnet, sondern mit Namen (E40, E50)', () {
     final namen = {for (final b in bewohner) ...(b['name'] as String).split(' ')};
     final befunde = <String>[];
