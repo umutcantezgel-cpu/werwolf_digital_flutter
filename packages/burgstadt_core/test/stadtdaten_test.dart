@@ -336,6 +336,17 @@ void main() {
     expect(befunde, isEmpty);
   });
 
+  test('Niemand wird als „der/die alte …“ bezeichnet, sondern mit Namen (E40, E50)', () {
+    final namen = {for (final b in bewohner) ...(b['name'] as String).split(' ')};
+    final befunde = <String>[];
+    texte.forEach((ort, text) {
+      for (final n in namen) {
+        if (RegExp('\\b(der|die|den|dem|des) alten? ${RegExp.escape(n)}\\b', caseSensitive: false).hasMatch(text)) befunde.add('$ort: alte $n');
+      }
+    });
+    expect(befunde, isEmpty);
+  });
+
   test('Gesperrte Namen und Gegenstände kommen in keinem Text vor', () {
     final befunde = <String>[];
     texte.forEach((ort, text) {

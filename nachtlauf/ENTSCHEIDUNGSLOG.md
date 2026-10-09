@@ -561,3 +561,27 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - **Zurücknehmen:** Die `Löschen: Wurzeln`-Angaben und die vier Ortsänderungen im Overlay entfernen.
 - Neue Inhaltsrunde A-702t mit drei Prüfern (25 gesamter Spieltext, 26 wirksamer Kanon, 27 Herkunft und Klischee).
 
+
+## E50 · 09.10. 17:10 · Inhaltsrunde A-702t (Prüfer 25–27) mit Gegenproben
+- **Urteile:**
+  - Alle drei Prüfer urteilen „Leitplanken nein“, Prüfer 26 zusätzlich „Kanontreu nein“ (Pension).
+  - Zu allen 10 Befunden „hoch“ und „mittel“ lief eine unabhängige Gegenprobe (`auftraege/A-702/gegenproben_a702t.md`). Ergebnis: **10 von 10 nicht haltbar**. Die Zitate stimmen und sind Spieltext, aber die Punkte sind ohne neuen Grund schon abgewogen (E27, E44, E46, E47), oder es liegt kein Verstoß vor.
+  - Das Urteil der Berichte bleibt, wie es ist. Z-12 bleibt offen, weil kein Bericht ja · ja · ja meldet.
+- **Umgesetzt (klar richtig, klein):**
+  - **Pension (R26-2):** ORT-03 und HW-S06 sagen jetzt, die Clique habe dort Zimmer „für die Zeit nach der Feier“ gebucht. Damit steht nichts mehr gegen K-010 (die Nacht verbringt die Clique in der Burg).
+  - **„der/die alte …“ (R27-4):** Die Gerüchte nennen Rosa Teutsch, Gottfried Lenz und Egon Thalheim mit Namen. Neuer Test in `stadtdaten_test`: Kein Bewohner wird als „der/die alte <Name>“ bezeichnet; die Gegenprobe wird rot.
+  - **R05 (R27-2):** „wirkt dabei nachtragend“ statt „rachsüchtig“ (ERSETZE-31).
+  - **R15 (R25-6):** „dunkelroter Blazer“ und „dark red blazer“ statt „bordeaux…“ (ERSETZE-32/33). Das ist derselbe Maßstab wie beim Schlosskeller (E49): kein Weinname als Farbe. Die gezeichnete Farbe bleibt.
+  - **R04, R10 (R25-3):** Die Familienfelder beginnen jetzt einheitlich mit „Die Eltern leben in …“ (Salzgitter-Bad, Husum).
+  - `kanon_test` prüft die Begriffe mit (33 Ersetzungen).
+- **Bleibt so, mit Grund:**
+  - **DW3-3 Ergebnis C „Der Abdruck stammt von Merle“ (R25-1, R26-1, hoch):**
+    - E27 M5 gilt auch für die Ergebnisse der Detektiv-Entscheidungen. Sie sind die Schlüsse des Kanons aus seinen eigenen Hinweisen (H-06 und H-15, Schluss S-5) und das Ergebnis der richtigen Ermittlungsentscheidung, also das Rätsel selbst.
+    - Ein Text, den das Spiel von sich aus vorgibt, ist es nicht. Ändern hieße, den Fall zu ändern; Hinweis an die Kanon-Autoren in FÜR DEN NUTZER.
+  - **„Punschkessel“ (R25-2):** wie E46, Gerätebezeichnung. Das Getränk ist öffentlich alkoholfrei (OA-04, GL-14), und jede Trinkstelle sagt es; der Test aus E47 sichert das.
+  - **Feld „Herkunft“ beim Burgwart (R25-4, R27-10):** Es nennt den Ort der Spielwelt (Schartenfels), keine Herkunftsgruppe. N-02 betrifft die Wurzeln der Rollen.
+  - **Färbungen R13 und R15 (R26-3, R27-2):** Der Geldbezug folgt aus Beruf und Lage (Kredit an Jonas, Versicherungsberuf); die wertenden Adjektive sind seit E47 neutral.
+  - **„Besserwisserin“ (R18), Zeit 23:58:30 in DW3-1, Einstufung HW-S09, „Einspruch!“, Uhrzeit des Auffindens:** E27, E44 und E47, Kanon-Wortlaut.
+- **Nutzerentscheidung nötig (Z-12 hängt daran), in FÜR DEN NUTZER:**
+  - **Haarfarben (R27-1, hoch, neuer Grund):** In der Look-Bibel des Kanons (LF-R01…R20) haben alle zwölf Rollen mit türkisch, bosnisch oder kurdisch klingendem Namen dunkles Haar, die mit deutschem Namen helles. Die Gegenprobe wertet das als realistisches Aussehen ohne Verstoß. Ein Mischen würde Kanon-Aussehen und Figuren ändern und neue Sichtprüfungen (Z-03) brauchen.
+  - **Alters- und Geschlechtermuster der Stadtbewohner (R27-4, R27-5):** Dutt nur bei älteren Frauen, „brummig“ bei alten Männern, Pflege, Reinigung und Bedienung nur mit Frauen besetzt. Das ist unser eigener Bestand, schon in E40 und E44 an den Nutzer gegeben. Eine Änderung betrifft Figuren und braucht neue Sichtprüfungen.

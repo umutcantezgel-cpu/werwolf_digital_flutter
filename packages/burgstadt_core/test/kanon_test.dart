@@ -212,7 +212,7 @@ void main() {
       () {
         expect(enthaelt(wirksam, 'Brockengespenst'), isFalse);
         expect(enthaelt(wirksam, 'Nebelriese'), isTrue);
-        expect(wirksam.ersetzungen.length, 30); // 16 Harz-Bezüge + „bewusstlos“ (A-702d) + Osterode (E42) + 3 × Punsch alkoholfrei + R02-Anrede (E43) + Lampenmarke, Aussprache, „Quelle des Schreis“ (E46) + Firmenname, 2 × Färbung, 2 × Punsch (E47)
+        expect(wirksam.ersetzungen.length, 33); // 16 Harz-Bezüge + „bewusstlos“ (A-702d) + Osterode (E42) + 3 × Punsch alkoholfrei + R02-Anrede (E43) + Lampenmarke, Aussprache, „Quelle des Schreis“ (E46) + Firmenname, 2 × Färbung, 2 × Punsch (E47) + „nachtragend“, 2 × Blazer ohne Weinnamen (E50)
         // Genus: der Nebelriese (männlich) – keine sächlichen Reste aus „das Brockengespenst“.
         for (final falsch in ['das Nebelriese', 'Das Nebelriese', 'dem Nebelriese ', 'seinem Nebelriese ']) {
           expect(enthaelt(wirksam, falsch), isFalse, reason: falsch);
@@ -244,7 +244,7 @@ void main() {
     );
 
     test('Lampenmarke ohne Nachnamen, „Quelle des Schreis“, kein „bewusstlos“ (E46, ERSETZE-17)', () {
-      for (final weg in ['HODŽIĆ VT', 'HOD-schitsch fau-te', 'Herkunft des Schreis', 'bewusstlos', 'Hodžić Veranstaltungstechnik', 'kalt und berechnend', 'in Beträgen']) {
+      for (final weg in ['HODŽIĆ VT', 'HOD-schitsch fau-te', 'Herkunft des Schreis', 'bewusstlos', 'Hodžić Veranstaltungstechnik', 'kalt und berechnend', 'in Beträgen', 'rachsüchtig', 'bordeaux', 'Übernachtung der Clique']) {
         expect(enthaelt(wirksam, weg), isFalse, reason: weg);
       }
       for (final id in ['H-28', 'BSO-03', 'E1-01', 'GL-19', 'DW1-1', 'BS-03']) {
