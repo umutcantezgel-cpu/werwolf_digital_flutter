@@ -212,7 +212,7 @@ void main() {
       () {
         expect(enthaelt(wirksam, 'Brockengespenst'), isFalse);
         expect(enthaelt(wirksam, 'Nebelriese'), isTrue);
-        expect(wirksam.ersetzungen.length, 30); // 16 Harz-Bezüge + „bewusstlos“ (A-702d) + Osterode (E42) + 3 × Punsch alkoholfrei + R02-Anrede (E43) + Lampenmarke, Aussprache, „Quelle des Schreis“ (E46) + Firmenname, 2 × Färbung, 2 × Punsch (E47)
+        expect(wirksam.ersetzungen.length, 38); // 16 Harz-Bezüge + „bewusstlos“ (A-702d) + Osterode (E42) + 3 × Punsch alkoholfrei + R02-Anrede (E43) + Lampenmarke, Aussprache, „Quelle des Schreis“ (E46) + Firmenname, 2 × Färbung, 2 × Punsch (E47) + „nachtragend“, 2 × Blazer ohne Weinnamen (E50) + 5 × Haarfarbe im Look-Anker (E54)
         // Genus: der Nebelriese (männlich) – keine sächlichen Reste aus „das Brockengespenst“.
         for (final falsch in ['das Nebelriese', 'Das Nebelriese', 'dem Nebelriese ', 'seinem Nebelriese ']) {
           expect(enthaelt(wirksam, falsch), isFalse, reason: falsch);
@@ -244,7 +244,7 @@ void main() {
     );
 
     test('Lampenmarke ohne Nachnamen, „Quelle des Schreis“, kein „bewusstlos“ (E46, ERSETZE-17)', () {
-      for (final weg in ['HODŽIĆ VT', 'HOD-schitsch fau-te', 'Herkunft des Schreis', 'bewusstlos', 'Hodžić Veranstaltungstechnik', 'kalt und berechnend', 'in Beträgen']) {
+      for (final weg in ['HODŽIĆ VT', 'HOD-schitsch fau-te', 'Herkunft des Schreis', 'bewusstlos', 'Hodžić Veranstaltungstechnik', 'kalt und berechnend', 'in Beträgen', 'rachsüchtig', 'bordeaux', 'Übernachtung der Clique']) {
         expect(enthaelt(wirksam, weg), isFalse, reason: weg);
       }
       for (final id in ['H-28', 'BSO-03', 'E1-01', 'GL-19', 'DW1-1', 'BS-03']) {
@@ -270,6 +270,23 @@ void main() {
           expect(herkunft.hasMatch(e.value), isFalse, reason: '${d.id} · ${e.key}: ${e.value}');
         }
       }
+    });
+
+    test('Haarfarben gemischt (E54) und DW3-3 nennt nur die Spur (E54)', () {
+      const anker = {
+        'LF-R07': 'wavy light brown hair',
+        'LF-R12': 'short dark blond hair',
+        'LF-R14': 'short dark brown hair',
+        'LF-R17': 'black hair and a short beard',
+        'LF-R19': 'short light brown hair',
+      };
+      anker.forEach((id, text) {
+        expect(wirksam.datensaetze[id]!.feld('Anker (EN)'), contains(text), reason: id);
+      });
+      final c = wirksam.datensaetze['DW3-3']!.feld('Ergebnis C')!;
+      expect(c, isNot(contains('Merle')));
+      expect(c, contains('fehlt am linken Absatz ein Stollen'));
+      // Der Hinweis H-15 des Kanons bleibt (trägt S-5); siehe den Test zu H-01…H-29.
     });
 
     test('Punsch ist in jedem angezeigten Text alkoholfrei (O, G und Detektiv-Ergebnisse DW, E47)', () {

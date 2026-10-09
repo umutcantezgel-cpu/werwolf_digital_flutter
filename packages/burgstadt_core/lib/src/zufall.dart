@@ -1,9 +1,11 @@
 /// Deterministischer 32-Bit-Zufall (xorshift32) – gleiche Folge auf VM und im Web.
 class Zufall {
+  static int aufrufe = 0;
   int _x;
   Zufall(int seed) : _x = (seed & 0xffffffff) == 0 ? 0x9E3779B9 : seed & 0xffffffff;
 
   int naechste() {
+    aufrufe++;
     var x = _x;
     x ^= (x << 13) & 0xffffffff;
     x ^= x >> 17;

@@ -26,7 +26,7 @@ class OptionenBildschirm extends Bildschirm {
     ui.panel(p);
     ui.textMittig('Optionen', w ~/ 2, p.y + 6, farbe: UiFarbe.akzent);
     final eintraege = [
-      'Bild: ${switch (o.qualitaet) { Qualitaet.sparsam => 'sparsam', Qualitaet.mittel => 'mittel', Qualitaet.hoch => 'hoch' }}',
+      'Bild: ${switch (o.qualitaet) { Qualitaet.sparsam => 'sparsam', Qualitaet.mittel => 'mittel', Qualitaet.scharf => 'scharf', Qualitaet.auto => 'auto' }}',
       'Sichtfeld: ${o.sichtfeldGrad.round()}°',
       'Kopfwippen: ${o.kopfwippen ? 'an' : 'aus'}',
       'Flackern: ${o.flackernAus ? 'aus' : 'an'}',

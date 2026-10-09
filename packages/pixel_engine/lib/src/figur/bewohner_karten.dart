@@ -382,7 +382,7 @@ class Figurenbild {
       for (var y = y0 + (h * von).round(); y < y0 + (h * bis).round(); y++) {
         for (var x = 0; x < s.width; x++) {
           final p = s.pixels[y * s.width + x];
-          if (p == kTransparent || p ~/ 8 == kRampeNamen['haut']) continue;
+          if (p == kTransparent || rampeVon(p) == kRampeNamen['haut']) continue;
           if (frei(x - 1, y) || frei(x + 1, y) || frei(x, y - 1) || frei(x, y + 1)) continue; // Umriss
           final f = farbFamilie(p);
           zaehl[f] = (zaehl[f] ?? 0) + 1;
@@ -481,14 +481,14 @@ class Figurenbild {
       y1 = math.max(y1, y);
     }
     final ab = y0 + (y1 - y0 + 1) * kZonen[2];
-    final h = List<double>.filled(24, 0);
+    final h = List<double>.filled(Ramp.count * 3, 0);
     var n = 0;
     for (var y = ab.ceil(); y <= y1; y++) {
       for (var x = 0; x < s.width; x++) {
         final p = s.pixels[y * s.width + x];
-        if (p == kTransparent || (p & 7) <= 1) continue; // Kontur und tiefste Schatten zählen nicht
-        final rampe = p >> 3 == 1 ? 0 : p >> 3; // Stein zählt als Grau wie Neutral
-        h[rampe * 3 + ((p & 7) >= 6 ? 2 : ((p & 7) >= 4 ? 1 : 0))]++;
+        if (p == kTransparent || stufe8Von(p) <= 1) continue; // Kontur und tiefste Schatten zählen nicht
+        final rampe = rampeVon(p) == 1 ? 0 : rampeVon(p); // Stein zählt als Grau wie Neutral
+        h[rampe * 3 + (stufe8Von(p) >= 6 ? 2 : (stufe8Von(p) >= 4 ? 1 : 0))]++;
         n++;
       }
     }
@@ -579,7 +579,7 @@ bool kopfbedeckungLesbar(Figurenkarte k) {
 /// Farbfamilie eines Palettenindex, wie Sichtprüfer Farben benennen: 'dunkel' (Stufe 0–1 jeder
 /// Rampe), 'grau' (neutral und stein), sonst die Rampe.
 String farbFamilie(int index) {
-  final rampe = index ~/ 8, stufe = index % 8;
+  final rampe = rampeVon(index), stufe = stufe8Von(index);
   if (stufe <= 1) return 'dunkel';
   if (rampe <= 1) return 'grau';
   return 'r$rampe';

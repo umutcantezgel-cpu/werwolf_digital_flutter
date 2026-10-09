@@ -39,6 +39,14 @@ Regeln für das Overlay:
 @ERSETZE-28 [O] | Von: und wirkt, als denke sie nur in Beträgen | Nach: und wirkt dabei seltsam ungerührt
 @ERSETZE-29 [O] | Von: ein Becher noch warmer Punsch | Nach: ein Becher noch warmer, alkoholfreier Punsch
 @ERSETZE-30 [O] | Von: Der Punsch ist noch warm | Nach: Der alkoholfreie Punsch ist noch warm
+@ERSETZE-31 [O] | Von: und wirkt dabei rachsüchtig | Nach: und wirkt dabei nachtragend
+@ERSETZE-32 [O] | Von: bordeauxroter Blazer | Nach: dunkelroter Blazer
+@ERSETZE-33 [O] | Von: bordeaux red blazer | Nach: dark red blazer
+@ERSETZE-34 [O] | Von: with wavy dark hair, | Nach: with wavy light brown hair,
+@ERSETZE-35 [O] | Von: with short dark hair and glasses | Nach: with short dark blond hair and glasses
+@ERSETZE-36 [O] | Von: with short light brown hair and a full beard | Nach: with short dark brown hair and a full beard
+@ERSETZE-37 [O] | Von: with sandy hair and a short beard | Nach: with black hair and a short beard
+@ERSETZE-38 [O] | Von: with short black hair and a goatee | Nach: with short light brown hair and a goatee
 
 ## Ort und Rahmen
 @K-001 [O] | Tatsache: Burg Schartenfels (SCHAR-ten-fels) ist die kleine, renovierte Stadtburg am höchsten Punkt der erfundenen, ummauerten Oberstadt Schartenfels: Gassen mit Kopfsteinpflaster, Häuser mit Dachgauben, die wie Augen schauen, eine Stadtmauer mit Wehrgang und Zunfttürmen, ein Uhrturm am Marktplatz und eine Kirchenburg auf dem Hügel. Unten im Tal liegt das erfundene Bergstädtchen Silberhau (SIL-ber-hau). Burg und Heimatmuseum gehören einer Stiftung; Burgwart ist Eckehard Lüddecke.
@@ -64,7 +72,7 @@ Regeln für das Overlay:
 ## Stadt-Orte der Motivstränge (neu; nur Farbe / entlastend / bestätigend)
 @ORT-01 [O] | Ort: Marktplatz mit Uhrturm | Viertel: Marktviertel | Rolle im Fall: Treffpunkt, Uhrturm schlägt die Phasen
 @ORT-02 [O] | Ort: Stadtmuseum am Marktplatz | Viertel: Marktviertel | Strang: b | Rolle im Fall: Farbe (Katalogkarte des Talers, Leihgabe an die Burg)
-@ORT-03 [O] | Ort: Pension „Zum Uhrturm“ | Viertel: Marktviertel | Strang: a, c | Rolle im Fall: Farbe (Übernachtung der Clique; die Pension stempelt ihre Wäsche blau mit ihrem Namen)
+@ORT-03 [O] | Ort: Pension „Zum Uhrturm“ | Viertel: Marktviertel | Strang: a, c | Rolle im Fall: Farbe (die Clique hat hier Zimmer für die Zeit nach der Feier gebucht; die Pension stempelt ihre Wäsche blau mit ihrem Namen)
 @ORT-04 [O] | Ort: Schreinerei an der Mauergasse | Viertel: Handwerkergasse | Strang: d | Rolle im Fall: entlastend für Adnan (Kostenvoranschlag „sechshundert, höchstens“, bestätigt R14)
 @ORT-05 [O] | Ort: Kostümfundus der Volksbühne | Viertel: Kirchhügel | Strang: c | Rolle im Fall: Farbe (im Fundus fehlt kein Laken)
 @ORT-06 [O] | Ort: Stromhaus am Obertor | Viertel: Mauerviertel | Strang: c | Rolle im Fall: bestätigend (Schaltplan: der Hauptverteiler im Burgturm speist die ganze Oberstadt)
@@ -79,8 +87,8 @@ Regeln für das Overlay:
 
 ## Familienfelder der Rollen (Leitplanke Herkunft, E38)
 
-Das Spiel zeigt das Feld Familie nicht an; es gehört aber zum wirksamen Kanon. Die Inhaltsprüfungen (A-702j bis A-702o) fanden darin Muster entlang der Herkunft. Deshalb ersetzt dieser Abschnitt das Feld Familie bei 14 Rollen und löscht bei allen 20 Rollen das Feld Wurzeln (E48). Name, Eltern, Geschwister, Kinder und alle anderen Felder bleiben; die Dateien in `krimidinner/` sind unverändert. Geändert ist im Einzelnen:
-- Herkunft ist nicht Teil der Spieldaten (Nutzerentscheidung N-02, E48): Das Feld „Wurzeln“ ist bei allen 20 Rollen gelöscht, und die Familienfelder nennen keine Herkunftsorte mehr (R01, R05, R16: „Die Eltern leben in …“; R20: „an einen See“). Das Spiel zeigt beide Felder ohnehin nicht an. Der Kanon des Krimidinners behält die Angaben; wer sie im Spiel zurückhaben will, entfernt diese Löschungen.
+Das Spiel zeigt das Feld Familie nicht an; es gehört aber zum wirksamen Kanon. Die Inhaltsprüfungen (A-702j bis A-702o) fanden darin Muster entlang der Herkunft. Deshalb ersetzt dieser Abschnitt das Feld Familie bei 16 Rollen und löscht bei allen 20 Rollen das Feld Wurzeln (E48). Name, Eltern, Geschwister, Kinder und alle anderen Felder bleiben; die Dateien in `krimidinner/` sind unverändert. Geändert ist im Einzelnen:
+- Herkunft ist nicht Teil der Spieldaten (Nutzerentscheidung N-02, E48): Das Feld „Wurzeln“ ist bei allen 20 Rollen gelöscht, und die Familienfelder nennen keine Herkunftsorte mehr (R01, R05, R16 und, einheitlich, R04, R10: „Die Eltern leben in …“; R20: „an einen See“). Das Spiel zeigt beide Felder ohnehin nicht an. Der Kanon des Krimidinners behält die Angaben; wer sie im Spiel zurückhaben will, entfernt diese Löschungen.
 - Feste, Speisen, Getränke und Instrumente als Familienmerkmal (R01, R05–R09, R12–R16, R19) sind durch persönliche Details ersetzt (E38).
 - R01: statt Pita und Telefonaten das Sonntagsessen, nach dem Adnan repariert. R14: statt des Wigilia-Gedecks ein Stuhl mehr am Tisch.
 - Großmutter im Haushalt, die die Familie lenkt: bei R05 und R13 wohnt sie jetzt zwei Straßen weiter, bei R18 ruft sie sonntags an; Schlichten „wie ein Gericht“ und die Richterin-Frage entfallen (E39, E43).
@@ -89,13 +97,13 @@ Das Spiel zeigt das Feld Familie nicht an; es gehört aber zum wirksamen Kanon. 
 @R01-STAMM [O] | Familie: Die Eltern leben in Salzgitter; der Vater ist Schweißer im Ruhestand, die Mutter Krankenpflegerin. Seine jüngere Schwester Amila studiert Medizin; sonntags essen alle lange bei den Eltern, und Adnan repariert danach, was in der Woche kaputtgegangen ist. | Löschen: Wurzeln
 @R02-STAMM [O] | Löschen: Wurzeln
 @R03-STAMM [O] | Löschen: Wurzeln
-@R04-STAMM [O] | Löschen: Wurzeln
+@R04-STAMM [O] | Familie: Die Eltern leben in Salzgitter-Bad. Der Vater ist Schichtleiter im Stahlwerk, sein Satz lautet: „Brinkmanns zahlen ihre Rechnungen.“ Die Mutter ist Schulsekretärin, der jüngere Bruder Lukas Elektriker. | Löschen: Wurzeln
 @R05-STAMM [O] | Familie: Die Eltern leben in Gifhorn; die Mutter ist Zahnarzthelferin, der Vater Lagerist in einem Logistikzentrum. Die Großmutter Halina wohnt zwei Straßen weiter; sonntags lösen die drei Frauen am Küchentisch das große Kreuzworträtsel, während der jüngere Bruder Kuba, Azubi zum Mechatroniker, falsche Lösungen vorsagt. Paulina macht seit Jahren die Steuererklärung für die ganze Verwandtschaft. | Löschen: Wurzeln
 @R06-STAMM [O] | Familie: Die Eltern leben in Celle; der Vater ist Lokführer im Güterverkehr, die Mutter Erzieherin in einer Kita. Diyar ist mit Sevda verheiratet, die als Zahnärztin arbeitet; ihr Sohn Rêzan ist vier und will „Krankenwagenfahrer wie Papa“ werden. Wenn sich die Familie im Frühjahr bei den Eltern im Garten trifft, bringt Diyar jedes Mal seinen Erste-Hilfe-Koffer mit, „nur für alle Fälle“. | Löschen: Wurzeln
 @R07-STAMM [O] | Familie: Die Eltern leben in Wolfsburg; der Vater war Industriemechaniker und ist jetzt in Rente, die Mutter unterrichtet an einer Grundschule. Die ältere Schwester Zeynep ist Architektin und hat zwei Kinder, für die Emre Hörspiele mit selbst gemachten Geräuschen aufnimmt. Vom Großvater, der jeden Vogel am Ruf erkannte, hat er das Gehör. | Löschen: Wurzeln
 @R08-STAMM [O] | Familie: Die Eltern leben in Göttingen; der Vater ist Vermessungstechniker beim Landkreis, die Mutter pharmazeutisch-technische Assistentin in einer Apotheke. Der jüngere Bruder Haris spielt Handball und ruft sie vor jedem wichtigen Spiel an, damit sie ihm Mut macht. Lejla führt seit ihrem zwölften Lebensjahr den Familienkalender und vergisst keinen einzigen Geburtstag. | Löschen: Wurzeln
 @R09-STAMM [O] | Familie: Die Eltern leben in Hildesheim; der Vater ist Fliesenleger, die Mutter kocht an Feiertagen für die ganze Familie, und bei ihr hat Tomasz kochen gelernt. Die ältere Schwester Ewa ist Krankenschwester in Hamburg und fragt jeden Sonntag am Telefon, ob er „endlich jemanden“ hat. | Löschen: Wurzeln
-@R10-STAMM [O] | Löschen: Wurzeln
+@R10-STAMM [O] | Familie: Die Eltern leben in Husum; der Vater ist Elektriker bei den Stadtwerken, die Mutter Physiotherapeutin. Die Großmutter Inge, 89, schreibt ihr noch Briefe mit Füller und will „vor dem Hundertsten noch eine Hochzeit erleben“. Jedes Jahr im Februar fährt die Familie zum Biikebrennen an den Deich. | Löschen: Wurzeln
 @R11-STAMM [O] | Löschen: Wurzeln
 @R12-STAMM [O] | Familie: Die Eltern leben in Braunschweig; der Vater war Polier auf dem Bau und hat ihm beigebracht, eine Mauer erst anzufassen und dann zu loben. Die Mutter ist Buchhalterin bei einer Wohnungsgenossenschaft. Dino ist mit Ana verheiratet, die als Zahntechnikerin arbeitet; ihre Tochter Mira ist zwei. Sonntags gibt es bei den Eltern eine lange Diskussion darüber, wer die beste Abkürzung durch die Stadt kennt. | Löschen: Wurzeln
 @R13-STAMM [O] | Familie: Die Eltern leben in Braunschweig; der Vater ist Mechatroniker in einem Autowerk, die Mutter Erzieherin in einer Kita. Der jüngere Bruder Emir studiert Lehramt. Die Großmutter Nermin wohnt zwei Straßen weiter und führt seit fünfzig Jahren einen Gartenkalender; von ihr hat Selin gelernt, alles aufzuschreiben. Selin selbst wohnt allein mit einem alten Kater namens Paşa. | Löschen: Wurzeln
@@ -106,6 +114,12 @@ Das Spiel zeigt das Feld Familie nicht an; es gehört aber zum wirksamen Kanon. 
 @R18-STAMM [O] | Familie: Die Eltern leben in Celle; der Vater ist Lokführer im Güterverkehr, die Mutter leitet eine Kita. Der ältere Bruder Burak ist Zahntechniker. Die Großmutter ruft jeden Sonntag an und lässt sich Elifs Woche erzählen, mit allen Einzelheiten. | Löschen: Wurzeln
 @R19-STAMM [O] | Familie: Die Eltern leben in Göttingen; der Vater ist Krankenpfleger auf einer Kinderstation, die Mutter Schulbegleiterin. Er hat drei ältere Schwestern, die ihn bis heute „Kleiner“ nennen. Bei jedem Familientreffen ist Azad seit seinem zwölften Lebensjahr der, der die Fotos macht; im Flur der Eltern hängen zwanzig Jahre davon. | Löschen: Wurzeln
 @R20-STAMM [O] | Familie: Die Eltern leben in Wernigerode; der Vater ist Vermessungstechniker, die Mutter Grundschullehrerin. Jeden Sommer fährt die Familie zu den Großeltern an einen See, wo der Großvater Zofia beigebracht hat, Tierspuren im Sand zu lesen. Ihre jüngere Schwester Ola studiert Musik und ruft jeden Abend an. | Löschen: Wurzeln
+
+## Detektiv-Ergebnis DW3-3 ohne Namen (Nutzerentscheidung, E54)
+
+Nach der richtigen Entscheidung in Phase 3 nennt das Ergebnis nur die Spur, nicht die Person. Die Zuordnung zur Täterin bleibt der Anklage überlassen; der Hinweis H-15 des Kanons (Sohlenkarten) bleibt unverändert, weil er den Schluss S-5 trägt.
+
+@DW3-3 [L] | Ergebnis C: Adnan trägt Kreuzprofil, Rojda glatte Sohlen. Zwei Karten zeigen dasselbe Stiefelmodell; an einer fehlt am linken Absatz ein Stollen, genau wie im Wachs. Von dieser Sohle stammt der Abdruck.
 
 ## Funktionsmatrix ohne Herkunft (Leitplanke Herkunft, E43)
 
@@ -133,7 +147,7 @@ Je Fall-Ort zwei Hinweise (`H-S`, Sichtklasse O) mit Wahrheitsdatensatz (`HW-S`,
 @H-S05 [O] | Inhalt: Im Wäschebuch der Pension steht: Zimmer sieben, Bettwäsche frisch bezogen, alles gezählt. Die Pension stempelt ihre Bettwäsche blau mit „Zum Uhrturm“. | Form: Karte | Quelle: Station ORT-03 | Phase: 2 | Min: 4
 @HW-S05 [L] | Wahrheit: Farbe. Die Pension stempelt ihre Wäsche blau mit ihrem Namen (ORT-03). Das rote Zeichen „Schartenfels 7“ gehört zur Burgwäsche (Z-2140, BS-02); die Pension hat damit nichts zu tun. | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 @H-S06 [O] | Inhalt: Von der Pension aus siehst du den Uhrturm so nah, dass du die Zeiger zählen kannst. Am Eingang hängt ein Schild: Gäste willkommen, Betten gewärmt. | Form: Erzähler | Quelle: Station ORT-03 | Phase: 3 | Min: 4
-@HW-S06 [L] | Wahrheit: Farbe. Die Pension „Zum Uhrturm“ ist die Übernachtung der Clique (ORT-03); der Uhrturm steht nah am Haus, und die Schildinschrift stimmt. | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
+@HW-S06 [L] | Wahrheit: Farbe. In der Pension „Zum Uhrturm“ hat die Clique Zimmer für die Zeit nach der Feier gebucht (ORT-03); der Uhrturm steht nah am Haus, und die Schildinschrift stimmt. | Stützt: – | Einstufung: Farbe | Blockierbar durch: nein | Unabhängig von: –
 
 ### ORT-04 · Schreinerei an der Mauergasse
 @H-S07 [O] | Inhalt: Im Schaufenster der Schreinerei liegt ein Kostenvoranschlag für eine alte Eichentür. Als Summe steht da: sechshundert Euro, höchstens. | Form: Karte | Quelle: Station ORT-04 | Phase: 2 | Min: 4

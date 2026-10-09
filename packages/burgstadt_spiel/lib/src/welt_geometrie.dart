@@ -3,6 +3,9 @@ import 'dart:math' as math;
 import 'package:burgstadt_core/burgstadt_core.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
+import 'bau/form.dart';
+import 'bau/formen/register.dart';
+
 /// Lichtquelle in Weltkoordinaten (Meter).
 class Lichtpunkt {
   final double x, y, z, warm, kalt, weite;
@@ -87,9 +90,9 @@ class BereichGeometrie {
     final halb = entlangX ? (z1 - z0) / 2 : (x1 - x0) / 2;
     final first = h + halb * 1.5;
     final hang = (halb * halb + (first - h) * (first - h));
-    final hv = math.sqrt(hang) * kTexelsPerMeter;
+    final hv = math.sqrt(hang) * kDichteWelt;
     if (entlangX) {
-      final zm = (z0 + z1) / 2, len = (x1 - x0) * kTexelsPerMeter;
+      final zm = (z0 + z1) / 2, len = (x1 - x0) * kDichteWelt;
       var a = m.vertex(x0 - 0.2, h, z1 + 0.2, 0, hv, cold: k);
       var b2 = m.vertex(x1 + 0.2, h, z1 + 0.2, len, hv, cold: k);
       var c = m.vertex(x1 + 0.2, first, zm, len, 0, cold: k + 0.08);
@@ -101,9 +104,9 @@ class BereichGeometrie {
       e = m.vertex(x1 + 0.2, first, zm, 0, 0, cold: k);
       m.quad(a, b2, c, e, dach);
       for (final (gx, s1, s2) in [(x1, z1, z0), (x0, z0, z1)]) {
-        final p = m.vertex(gx, h, s1, 0, (first - h) * kTexelsPerMeter, warm: w, cold: k);
-        final q = m.vertex(gx, h, s2, (z1 - z0) * kTexelsPerMeter, (first - h) * kTexelsPerMeter, warm: w, cold: k);
-        final tt = m.vertex(gx, first, zm, (z1 - z0) * kTexelsPerMeter / 2, 0, warm: w, cold: k);
+        final p = m.vertex(gx, h, s1, 0, (first - h) * kDichteWelt, warm: w, cold: k);
+        final q = m.vertex(gx, h, s2, (z1 - z0) * kDichteWelt, (first - h) * kDichteWelt, warm: w, cold: k);
+        final tt = m.vertex(gx, first, zm, (z1 - z0) * kDichteWelt / 2, 0, warm: w, cold: k);
         m.triangle(p, q, tt, putz);
       }
       // Dachgauben-„Augen“: zwei dunkle Schlitze auf der Südseite
@@ -113,7 +116,7 @@ class BereichGeometrie {
         m.wall(ex - 0.45, ez, ex + 0.45, ez, ey, ey + 0.35, fenster, warm: 0, cold: k * 0.5);
       }
     } else {
-      final xm = (x0 + x1) / 2, len = (z1 - z0) * kTexelsPerMeter;
+      final xm = (x0 + x1) / 2, len = (z1 - z0) * kDichteWelt;
       var a = m.vertex(x1 + 0.2, h, z1 + 0.2, 0, hv, cold: k);
       var b2 = m.vertex(x1 + 0.2, h, z0 - 0.2, len, hv, cold: k);
       var c = m.vertex(xm, first, z0 - 0.2, len, 0, cold: k + 0.08);
@@ -125,9 +128,9 @@ class BereichGeometrie {
       e = m.vertex(xm, first, z0 - 0.2, 0, 0, cold: k);
       m.quad(a, b2, c, e, dach);
       for (final (gz, s1, s2) in [(z1, x0, x1), (z0, x1, x0)]) {
-        final p = m.vertex(s1, h, gz, 0, (first - h) * kTexelsPerMeter, warm: w, cold: k);
-        final q = m.vertex(s2, h, gz, (x1 - x0) * kTexelsPerMeter, (first - h) * kTexelsPerMeter, warm: w, cold: k);
-        final tt = m.vertex(xm, first, gz, (x1 - x0) * kTexelsPerMeter / 2, 0, warm: w, cold: k);
+        final p = m.vertex(s1, h, gz, 0, (first - h) * kDichteWelt, warm: w, cold: k);
+        final q = m.vertex(s2, h, gz, (x1 - x0) * kDichteWelt, (first - h) * kDichteWelt, warm: w, cold: k);
+        final tt = m.vertex(xm, first, gz, (x1 - x0) * kDichteWelt / 2, 0, warm: w, cold: k);
         m.triangle(p, q, tt, putz);
       }
     }
@@ -210,12 +213,12 @@ class BereichGeometrie {
           final mx = (x0 + x1) / 2, mz = (z0 + z1) / 2;
           final (wu, ku) = licht(mx, 0.3, mz);
           final (wo, ko) = licht(mx, h, mz);
-          final u0 = (x * 7 + z * 3) % 4 * 16.0;
+          final u0 = (x * 7 + z * 3) % 4 * 0.5 * kDichteWelt; // Versatz in 0,5-m-Schritten
           if (tuer != null) {
             final th = math.min(tuer.legende.hoehe, h);
             final tt = tex(tuer.legende.textur, TexturId.eichenTuer);
             // Türblatt: Textur pro Kachel fortlaufend
-            final tu = (dz != 0 ? (x - tuer.x0) : (z - tuer.z0)) * s * kTexelsPerMeter;
+            final tu = (dz != 0 ? (x - tuer.x0) : (z - tuer.z0)) * s * kDichteWelt;
             waende.wall(x0, z0, x1, z1, 0, th, tt, warm: wu, cold: ku, warmTop: wo, coldTop: ko, u0: tu);
             if (h > th) waende.wall(x0, z0, x1, z1, th, h, wandTex, warm: wo, cold: ko, u0: u0);
           } else {
@@ -247,12 +250,13 @@ class BereichGeometrie {
       final t = tex(l.textur, TexturId.holzDielen);
       final x0 = d.x0 * s + 0.04, z0 = d.z0 * s + 0.04, x1 = (d.x1 + 1) * s - 0.04, z1 = (d.z1 + 1) * s - 0.04;
       final (w, k) = licht(d.mitteX, l.hoehe / 2, d.mitteZ);
+      final form = kFormen[l.form];
+      if (form != null) {
+        form.baue(m, FormOrt(ding: d, bereichId: b.id, x0: x0, z0: z0, x1: x1, z1: z1, hoehe: l.hoehe, textur: t, warm: w, kalt: k));
+        meshes.add(m.build());
+        continue;
+      }
       switch (l.form) {
-        case 'tisch':
-          m.box(x0, l.hoehe - 0.06, z0, x1, l.hoehe, z1, t, warm: w, cold: k);
-          for (final (lx, lz) in [(x0 + 0.1, z0 + 0.1), (x1 - 0.18, z0 + 0.1), (x0 + 0.1, z1 - 0.18), (x1 - 0.18, z1 - 0.18)]) {
-            m.box(lx, 0, lz, lx + 0.08, l.hoehe - 0.06, lz + 0.08, t, warm: w * 0.8, cold: k);
-          }
         case 'zinnen':
           m.box(x0 - 0.04, 0, z0 - 0.04, x1 + 0.04, 0.9, z1 + 0.04, t, warm: w, cold: k);
           for (var xx = d.x0; xx <= d.x1; xx += 4) {
@@ -266,9 +270,9 @@ class BereichGeometrie {
           final cx = (x0 + x1) / 2, cz = (z0 + z1) / 2, top = l.hoehe + (x1 - x0) * 1.2;
           final dach = TexturId.dachBiberschwanz.index;
           for (final (ax, az, bx, bz) in [(x0, z1, x1, z1), (x1, z1, x1, z0), (x1, z0, x0, z0), (x0, z0, x0, z1)]) {
-            final a = m.vertex(ax, l.hoehe, az, 0, (top - l.hoehe) * kTexelsPerMeter, cold: k + 0.05);
-            final b2 = m.vertex(bx, l.hoehe, bz, (x1 - x0) * kTexelsPerMeter, (top - l.hoehe) * kTexelsPerMeter, cold: k + 0.05);
-            final c = m.vertex(cx, top, cz, (x1 - x0) * kTexelsPerMeter / 2, 0, cold: k + 0.1);
+            final a = m.vertex(ax, l.hoehe, az, 0, (top - l.hoehe) * kDichteWelt, cold: k + 0.05);
+            final b2 = m.vertex(bx, l.hoehe, bz, (x1 - x0) * kDichteWelt, (top - l.hoehe) * kDichteWelt, cold: k + 0.05);
+            final c = m.vertex(cx, top, cz, (x1 - x0) * kDichteWelt / 2, 0, cold: k + 0.1);
             m.triangle(a, b2, c, dach);
           }
         case 'kamin':

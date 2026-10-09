@@ -7,6 +7,8 @@ import 'package:burgstadt_spiel/burgstadt_spiel.dart';
 import 'package:burgstadt_spiel/burgstadt_spiel_io.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
+import 'mess/qualitaet_arg.dart';
+
 /// Ab diesem Anteil reinen Schwarzes gilt ein Bild als Aufnahme aus der Schwarzblende.
 /// Der Raumwechsel blendet in etwa 10 Bildern aus Schwarz auf; die Aufnahmen warten 12 Bilder.
 const schwarzGrenze = 0.2;
@@ -135,13 +137,14 @@ String slug(String s) => s
     .replaceAll(RegExp('[^a-z0-9]+'), '_');
 
 /// Belegfotos aller Viertel, Innenräume und Bildschirme (Auftrag A-606a), je mit Paletten- und Blocktest.
-/// `dart run bin/belegfotos.dart <ordner> [breite höhe]`
-void main(List<String> args) {
+/// `dart run bin/belegfotos.dart <ordner> [breite höhe] [--qualitaet name]`
+void main(List<String> alleArgs) {
+  final (q, args) = qualitaetAusArgs(alleArgs);
   final ordner = args.isEmpty ? '.' : args[0];
   final w = args.length > 2 ? int.parse(args[1]) : 1280;
   final h = args.length > 2 ? int.parse(args[2]) : 720;
   Directory(ordner).createSync(recursive: true);
-  final spiel = Spiel()..groesse(w, h);
+  final spiel = Spiel(optionen: Optionen()..qualitaet = q)..groesse(w, h);
   ladeAusRepo(spiel);
   final stadt = spiel.stadt.bereiche['stadt']!;
   final e = Eingabe();

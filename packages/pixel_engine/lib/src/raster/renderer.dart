@@ -10,7 +10,7 @@ import 'mesh.dart';
 import 'texture.dart';
 
 /// Ein Sprite-Bild (indiziert, [kTransparent] = durchsichtig) mit Fußpunkt.
-/// Texel-Dichte wie die Welt: [kTexelsPerMeter].
+/// Texel-Dichte [dichte] (Texel pro Meter; Figuren [kDichteFigur]).
 class SpriteImage {
   final int width;
   final int height;
@@ -23,7 +23,10 @@ class SpriteImage {
   late final List<int> _mw = [for (var i = 0; i < _mips.length; i++) math.max(1, width >> i)];
   late final List<int> _mh = [for (var i = 0; i < _mips.length; i++) math.max(1, height >> i)];
 
-  SpriteImage(this.width, this.height, this.pixels, {required this.footX, required this.footY});
+  /// Texel pro Meter dieses Sprites.
+  final double dichte;
+
+  SpriteImage(this.width, this.height, this.pixels, {required this.footX, required this.footY, this.dichte = kDichteFigur});
 
   List<Uint8List> _buildMips() {
     final out = <Uint8List>[pixels];
@@ -42,7 +45,7 @@ class SpriteImage {
           for (final v in [a, b, c, d]) {
             if (v != kTransparent) {
               count++;
-              if (best == kTransparent || (v & 7) < (best & 7)) best = v;
+              if (best == kTransparent || (v & 15) < (best & 15)) best = v;
             }
           }
           n[y * nw + x] = count >= 2 ? best : kTransparent;
@@ -381,8 +384,9 @@ class Renderer {
     final gFog = groundFog;
     final dith = _dith;
     final lut = LightTable.levelLut;
-    // Mip-Schwellen nach Tiefe: Texel pro Bildpixel = Dichte * z / focal
-    final m1 = focal / kTexelsPerMeter * 2, m2 = m1 * 2, m3 = m2 * 2;
+    // Mip-Schwellen nach Tiefe: Texel pro Bildpixel = Dichte * z / focal; Stufe 0 bis 4 (Cap 4 seit
+    // Dichte 64: dieselbe Stufe des Bestands liegt eine Mip-Stufe tiefer, Migrationsbeleg 2)
+    final m1 = focal / kDichteWelt * 2, m2 = m1 * 2, m3 = m2 * 2, m4 = m3 * 2;
     final levels = tex.levels;
     final nLv = levels.length;
     var written = 0;
@@ -426,7 +430,7 @@ class Renderer {
       for (var x = xStart; x <= xEnd; x++, idx++) {
         if (iz > dep[idx]) {
           final z = 1 / iz;
-          var lv = z < m1 ? 0 : (z < m2 ? 1 : (z < m3 ? 2 : 3));
+          var lv = z < m1 ? 0 : (z < m2 ? 1 : (z < m3 ? 2 : (z < m4 ? 3 : 4)));
           if (lv >= nLv) lv = nLv - 1;
           final tw = tex.widths[lv], th = tex.heights[lv];
           final tu = ((uz * z).floor() >> lv) & (tw - 1);
@@ -454,7 +458,7 @@ class Renderer {
             wq = wq < 0 ? 0 : (wq > 7 ? 7 : wq);
             cq = cq < 0 ? 0 : (cq > 7 ? 7 : cq);
             fq = fq < 0 ? 0 : (fq > 3 ? 3 : fq);
-            col[idx] = table[(((fq * 8 + wq) * 8 + cq) << 6) + texel];
+            col[idx] = table[((fq * 8 + wq) * 8 + cq) * LightTable.colors + texel];
             dep[idx] = iz;
             written++;
           }
@@ -480,7 +484,7 @@ class Renderer {
     final iz = 1 / vz;
     final sx = cam.cx + _tmp[0] * cam.focal * iz;
     final sy = cam.cy - _tmp[1] * cam.focal * iz;
-    final scale = cam.focal * iz / kTexelsPerMeter; // Bildpixel pro Texel
+    final scale = cam.focal * iz / s.dichte; // Bildpixel pro Texel
     final left = sx - s.footX * scale, top = sy - s.footY * scale;
     final right = left + s.width * scale, bottom = top + s.height * scale;
     final w = fb.width, h = fb.height;
@@ -524,7 +528,7 @@ class Renderer {
         wq = wq < 0 ? 0 : (wq > 7 ? 7 : wq);
         cq = cq < 0 ? 0 : (cq > 7 ? 7 : cq);
         fq = fq < 0 ? 0 : (fq > 3 ? 3 : fq);
-        col[idx] = table[(((fq * 8 + wq) * 8 + cq) << 6) + c];
+        col[idx] = table[((fq * 8 + wq) * 8 + cq) * LightTable.colors + c];
         dep[idx] = iz;
       }
     }

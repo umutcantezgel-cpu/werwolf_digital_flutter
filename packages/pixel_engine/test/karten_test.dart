@@ -132,10 +132,10 @@ void main() {
   });
 
   test('Farbfamilie wie bei den Sichtprüfern: dunkel, grau (neutral + stein), sonst Rampe', () {
-    expect(farbFamilie(0 * 8 + 1), 'dunkel');
-    expect(farbFamilie(6 * 8 + 0), 'dunkel');
-    expect(farbFamilie(0 * 8 + 5), farbFamilie(1 * 8 + 4));
-    expect(farbFamilie(6 * 8 + 3), isNot(farbFamilie(2 * 8 + 3)));
+    expect(farbFamilie(Ramp.at(0, 1)), 'dunkel');
+    expect(farbFamilie(Ramp.at(6, 0)), 'dunkel');
+    expect(farbFamilie(Ramp.at(0, 5)), farbFamilie(Ramp.at(1, 4)));
+    expect(farbFamilie(Ramp.at(6, 3)), isNot(farbFamilie(Ramp.at(2, 3))));
   });
 
   test('Keine Materialien auf [0,1] (Augenfarbe liegt auf Rampe 0 Stufe 1)', () {

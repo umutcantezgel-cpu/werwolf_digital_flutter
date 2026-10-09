@@ -29,6 +29,10 @@ if [ -f packages/burgstadt_core/bin/kanon.dart ]; then
   step "Ebene 1/10 · Kanon-Abgleich + Leitplanken"
   (cd packages/burgstadt_core && dart run bin/kanon.dart --pruefe 2>&1 | filter | tail -5)
 fi
+if [ -f tool/layout_pruefsumme.dart ] && [ -f hd/belege/layout_ausgang.txt ]; then
+  step "Burgstadt HD · Layout-Prüfsumme (Karten, Türen, Stationen, Bewohner, Zufallsaufrufe gleich dem Ausgang)"
+  dart run tool/layout_pruefsumme.dart --pruefe 2>&1 | filter | tail -2
+fi
 if [ -f packages/burgstadt_core/bin/erkundung.dart ]; then
   step "Ebene 6 · Welt: Erkundungsbots laufen zu jeder Tür (Kollision wie der Spieler)"
   (cd packages/burgstadt_core && dart run bin/erkundung.dart 2>&1 | filter | grep -E "Türen|Nicht erreicht|Steckenbleiber")
@@ -83,7 +87,14 @@ if [ "${1:-}" != "schnell" ]; then
   step "Ebene 11 · Server-Smoke"
   (cd server && dart pub get >/dev/null 2>&1 && timeout 300 dart run tool/smoke.dart 2>&1 | filter | tail -1)
   step "Ebene 9 · Geräte: Web-Build + Playwright (desktop, handy-quer, handy-hoch)"
+  # Build-Cache leeren (E52): Wechselt die Aufrufform (mit/ohne „-o build/web“, z. B. nach
+  # tool/pruefen.sh), hält das Flutter-Werkzeug die Asset-Ausgaben sonst für aktuell und schreibt
+  # AssetManifest/FontManifest nicht neu in das geleerte build/web.
+  rm -rf .dart_tool/flutter_build
   flutter build web --release --no-web-resources-cdn 2>&1 | filter | tail -1
+  for m in AssetManifest.bin.json FontManifest.json; do
+    [ -f "build/web/assets/$m" ] || { echo "Web-Build unvollständig: build/web/assets/$m fehlt"; exit 1; }
+  done
   GER="$(mktemp -d)"
   timeout 600 node tool/browser/geraete.js build/web "$GER"
   for f in "$GER"/*.png; do

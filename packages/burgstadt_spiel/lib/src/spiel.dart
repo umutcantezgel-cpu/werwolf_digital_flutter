@@ -76,7 +76,7 @@ class Spiel {
     _spurMeshes.clear();
   }
   final Map<String, BereichGeometrie> _geometrie = {};
-  late final List<IndexedTexture> texturen = [...baueAlleTexturen(), ...baueSpurTexturen()];
+  late final List<IndexedTexture> texturen = [...baueAlleWeltTexturen(), ...baueSpurTexturen()];
 
   /// Spuren der Sichtschichten (Detektivblick) und ihre Meshes je Bereich/Phase.
   late List<Spur> spuren = burgSpuren(stadt.bereiche);

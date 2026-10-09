@@ -2,7 +2,7 @@ import 'dart:math' as math;
 import 'dart:typed_data';
 
 import '../palette.dart';
-import '../raster/mesh.dart' show kTexelsPerMeter;
+import '../raster/mesh.dart' show kDichteFigur;
 import '../raster/renderer.dart' show SpriteImage;
 import 'figur.dart';
 import 'mathe.dart';
@@ -165,9 +165,9 @@ class FigurBaker {
       rich[i * 3 + 2] = rz;
     }
     for (var py = 0; py < hoehe; py++) {
-      final vy = (fussY - (py + 0.5)) / kTexelsPerMeter;
+      final vy = (fussY - (py + 0.5)) / kDichteFigur;
       for (var px = 0; px < breite; px++) {
-        final vx = (px + 0.5 - fussX) / kTexelsPerMeter;
+        final vx = (px + 0.5 - fussX) / kDichteFigur;
         final (ox, oy, oz) = wi.punkt(vx, vy, 5);
         var bestT = double.infinity;
         _Prim? best;
@@ -244,8 +244,8 @@ class FigurBaker {
     for (final seite in const [-1.0, 1.0]) {
       final (fx, fy, fz) = kopf.punkt(seite * 0.037 * s * kf, 0.118 * s * kf, 0.098 * s * kf);
       final (vx, vy, vz) = w.punkt(fx, fy, fz);
-      final px = (vx * kTexelsPerMeter + fussX).floor();
-      final py = (fussY - vy * kTexelsPerMeter).floor();
+      final px = (vx * kDichteFigur + fussX).floor();
+      final py = (fussY - vy * kDichteFigur).floor();
       if (px < 0 || py < 0 || px >= breite || py >= hoehe) continue;
       final i = py * breite + px;
       if (kopfFlag[i] == 0) continue;

@@ -244,6 +244,10 @@ void main() {
       schreibe('lib/burgstadt/orte.dart', 'x');
       schreibe('lib/burgstadt/notiz.txt', 'x');
       schreibe('content/szenario.json', 'x');
+      schreibe('content/scenarios/blue_palm.json', 'x');
+      // Partymodus (Strang Schlosskeller) prüft sein eigener Textprüfer (E51)
+      schreibe('content/party/schlosskeller/figuren.json', 'x');
+      schreibe('content/party/textregeln.json', 'x');
       final rel = spieltextBestand(
         tmp.path,
       ).map((p) => p.substring(tmp.path.length + 1)).toList();
@@ -256,6 +260,7 @@ void main() {
           'packages/burgstadt_core/data/welt.json',
           'lib/burgstadt/orte.dart',
           'content/szenario.json',
+          'content/scenarios/blue_palm.json',
         ]),
       );
     });

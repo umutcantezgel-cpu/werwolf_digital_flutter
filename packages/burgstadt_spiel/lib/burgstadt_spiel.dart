@@ -20,4 +20,8 @@ export 'src/bildschirme/wlan.dart';
 export 'src/fallsitzung.dart';
 export 'src/figuren_lager.dart';
 export 'src/welt_geometrie.dart';
+export 'src/bau/form.dart';
+export 'src/bau/formen/register.dart';
+export 'src/bau/bauteil.dart';
+export 'src/bau/teile/register.dart';
 export 'src/texte.dart';

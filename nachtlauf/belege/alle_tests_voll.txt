@@ -1,8 +1,8 @@
-HEAD 9a7e852e2456 · 2026-10-09T13:52 · Exit 0
+HEAD 2777e28a3b1e · 2026-10-09T17:27 · Exit 0
 
 == Ebene 11 · Bestand: mordakte_core
 No issues found!
-00:01 +22: All tests passed!
+00:08 +214 ~1: All tests passed!
   OK – 11 Hinweise, 3 Verdächtige, 12 Fall-Varianten
   OK – 20 Hinweise, 5 Verdächtige, 24 Fall-Varianten
   OK – 20 Hinweise, 5 Verdächtige, 24 Fall-Varianten
@@ -10,15 +10,15 @@ No issues found!
 
 == Paket pixel_engine: analyze + test
 No issues found!
-00:07 +275: All tests passed!
+00:07 +282: All tests passed!
 
 == Paket burgstadt_core: analyze + test
 No issues found!
-00:05 +256: All tests passed!
+00:05 +266: All tests passed!
 
 == Paket burgstadt_spiel: analyze + test
 No issues found!
-00:13 +47: All tests passed!
+00:14 +50: All tests passed!
 
 == Paket room_host: analyze + test
 No issues found!
@@ -34,15 +34,19 @@ Summe: 0 Treffer · 0 Fehler · 0 Warnungen
 == e: 0 Befunde
 == SUMME: 0 Befunde · 1276 Datensätze
 
+== Burgstadt HD · Layout-Prüfsumme (Karten, Türen, Stationen, Bewohner, Zufallsaufrufe gleich dem Ausgang)
+Running build hooks...Running build hooks...LAYOUT 35a1b855fb2fd753 · Bereiche 62 · Kacheln 103856 · Dinge 1885 · Zufallsaufrufe 9849
+LAYOUT GLEICH
+
 == Ebene 6 · Welt: Erkundungsbots laufen zu jeder Tür (Kollision wie der Spieler)
 Türen 134/134 erreicht
 Nicht erreicht: 0
 Steckenbleiber: 0
 
 == Ebene 8 · Mehrspieler: Host + 4/8/20 WebSocket-Clients (Teilen < 1 s, gleicher Stand, Bots füllen)
-Teilnehmer 4 · Rollen 4 (Bots 1) · Ende EM-2 · geteilt an Einzelne 16, an die Akte 15 · Latenz max 34 ms, Mittel 20 ms · Abweichungen 0 · 21.902 s
-Teilnehmer 8 · Rollen 8 (Bots 1) · Ende EM-2 · geteilt an Einzelne 44, an die Akte 36 · Latenz max 40 ms, Mittel 22 ms · Abweichungen 0 · 21.721 s
-Teilnehmer 20 · Rollen 20 (Bots 1) · Ende EM-2 · geteilt an Einzelne 99, an die Akte 103 · Latenz max 45 ms, Mittel 22 ms · Abweichungen 0 · 21.838 s
+Teilnehmer 4 · Rollen 4 (Bots 1) · Ende EM-2 · geteilt an Einzelne 17, an die Akte 15 · Latenz max 49 ms, Mittel 21 ms · Abweichungen 0 · 21.649 s
+Teilnehmer 8 · Rollen 8 (Bots 1) · Ende EM-2 · geteilt an Einzelne 40, an die Akte 40 · Latenz max 33 ms, Mittel 16 ms · Abweichungen 0 · 21.654 s
+Teilnehmer 20 · Rollen 20 (Bots 1) · Ende EM-2 · geteilt an Einzelne 99, an die Akte 103 · Latenz max 45 ms, Mittel 24 ms · Abweichungen 0 · 21.855 s
 MP-SIM OK
 
 == Ebene 3/4 · Durchspiel 4…20 mit Bots, Teilen-Nutzen
@@ -70,41 +74,41 @@ BELEGFOTOS OK (26 Bilder)
 BELEGFOTOS OK (26 Bilder)
 
 == Ebene 5 · Pixel: Oberstadt-Ansichten (Generator, Palette + Blocktest, Bildzeit)
-burgtor_hauptgasse: 4.12 ms · Meshes 109/374 · Dreiecke 6324/10906 · Sprites 3 · Pixel 100646 · Palette OK · Block 100.0 %
-marktplatz: 4.67 ms · Meshes 118/374 · Dreiecke 6136/12226 · Sprites 1 · Pixel 66293 · Palette OK · Block 100.0 %
-kirchhuegel: 5.03 ms · Meshes 95/374 · Dreiecke 4673/9524 · Sprites 2 · Pixel 104925 · Palette OK · Block 100.0 %
-gasse_ost: 3.39 ms · Meshes 60/374 · Dreiecke 3479/6760 · Sprites 0 · Pixel 90135 · Palette OK · Block 100.0 %
-untere_stadt: 3.23 ms · Meshes 35/374 · Dreiecke 1870/3630 · Sprites 0 · Pixel 114781 · Palette OK · Block 100.0 %
+burgtor_hauptgasse: 5.25 ms · Meshes 109/374 · Dreiecke 6324/10906 · Sprites 3 · Pixel 100646 · Palette OK · Block 100.0 %
+marktplatz: 3.84 ms · Meshes 118/374 · Dreiecke 6136/12226 · Sprites 1 · Pixel 66293 · Palette OK · Block 100.0 %
+kirchhuegel: 4.53 ms · Meshes 95/374 · Dreiecke 4673/9524 · Sprites 2 · Pixel 104925 · Palette OK · Block 100.0 %
+gasse_ost: 4.15 ms · Meshes 60/374 · Dreiecke 3479/6760 · Sprites 0 · Pixel 90135 · Palette OK · Block 100.0 %
+untere_stadt: 2.95 ms · Meshes 35/374 · Dreiecke 1870/3630 · Sprites 0 · Pixel 114781 · Palette OK · Block 100.0 %
 
 == Kanon-Werkzeug (Original): kanon.py pruefe
 == SUMME: 0 Befunde · 1211 Datensätze
 
 == Flutter analyze (App)
-No issues found! (ran in 2.8s)
+No issues found! (ran in 2.1s)
 
 == Ebene 11 · Server-Smoke
 63 OK, 0 FAIL
 
 == Ebene 9 · Geräte: Web-Build + Playwright (desktop, handy-quer, handy-hoch)
 ✓ Built build/web
-desktop · 1280x720 @1 · Drosselung 1× · Bildrate Start 28.8 / Spiel 29.2 · Konsole 0 · fremde Abrufe 0 · Gamepad wirkt
-  BSMESS Welt 320x180 ×4 · UI 640x360 ×2 · Spiel 23.00 ms · RGBA+Übergabe 1.09 ms · Weg asynchron · verworfen 8
-handy-quer · 800x360 @3 · Drosselung 1× · Bildrate Start 13.9 / Spiel 15.0 · Konsole 0 · fremde Abrufe 0
-  BSMESS Welt 400x180 ×6 · UI 800x360 ×3 · Spiel 30.20 ms · RGBA+Übergabe 1.54 ms · Weg asynchron · verworfen 6
-handy-hoch · 360x800 @3 · Drosselung 1× · Bildrate Start 15.0 / Spiel 13.5 · Konsole 0 · fremde Abrufe 0
-  BSMESS Welt 180x400 ×6 · UI 360x800 ×3 · Spiel 30.82 ms · RGBA+Übergabe 1.42 ms · Weg asynchron · verworfen 5
-/tmp/tmp.IDcsgyMgJf/desktop_spiel.png · 1280x720 · Palette: OK · Block ×2: 230400/230400 Blöcke einfarbig (100.00 %)
-/tmp/tmp.IDcsgyMgJf/desktop_start.png · 1280x720 · Palette: OK · Block ×2: 230400/230400 Blöcke einfarbig (100.00 %)
-/tmp/tmp.IDcsgyMgJf/handy-hoch_spiel.png · 1080x2400 · Palette: OK · Block ×3: 288000/288000 Blöcke einfarbig (100.00 %)
-/tmp/tmp.IDcsgyMgJf/handy-hoch_start.png · 1080x2400 · Palette: OK · Block ×3: 288000/288000 Blöcke einfarbig (100.00 %)
-/tmp/tmp.IDcsgyMgJf/handy-quer_spiel.png · 2400x1080 · Palette: OK · Block ×3: 288000/288000 Blöcke einfarbig (100.00 %)
-/tmp/tmp.IDcsgyMgJf/handy-quer_start.png · 2400x1080 · Palette: OK · Block ×3: 288000/288000 Blöcke einfarbig (100.00 %)
+desktop · 1280x720 @1 · Drosselung 1× · Bildrate Start 29.7 / Spiel 30.7 · Konsole 0 · fremde Abrufe 0 · Gamepad wirkt
+  BSMESS Welt 320x180 ×4 · UI 640x360 ×2 · Spiel 19.30 ms · RGBA+Übergabe 0.97 ms · Weg asynchron · verworfen 6
+handy-quer · 800x360 @3 · Drosselung 1× · Bildrate Start 15.6 / Spiel 16.8 · Konsole 0 · fremde Abrufe 0
+  BSMESS Welt 400x180 ×6 · UI 800x360 ×3 · Spiel 24.42 ms · RGBA+Übergabe 1.60 ms · Weg asynchron · verworfen 7
+handy-hoch · 360x800 @3 · Drosselung 1× · Bildrate Start 17.0 / Spiel 15.0 · Konsole 0 · fremde Abrufe 0
+  BSMESS Welt 180x400 ×6 · UI 360x800 ×3 · Spiel 23.61 ms · RGBA+Übergabe 1.26 ms · Weg asynchron · verworfen 6
+/tmp/tmp.EOKsCHgABr/desktop_spiel.png · 1280x720 · Palette: OK · Block ×2: 230400/230400 Blöcke einfarbig (100.00 %)
+/tmp/tmp.EOKsCHgABr/desktop_start.png · 1280x720 · Palette: OK · Block ×2: 230400/230400 Blöcke einfarbig (100.00 %)
+/tmp/tmp.EOKsCHgABr/handy-hoch_spiel.png · 1080x2400 · Palette: OK · Block ×3: 288000/288000 Blöcke einfarbig (100.00 %)
+/tmp/tmp.EOKsCHgABr/handy-hoch_start.png · 1080x2400 · Palette: OK · Block ×3: 288000/288000 Blöcke einfarbig (100.00 %)
+/tmp/tmp.EOKsCHgABr/handy-quer_spiel.png · 2400x1080 · Palette: OK · Block ×3: 288000/288000 Blöcke einfarbig (100.00 %)
+/tmp/tmp.EOKsCHgABr/handy-quer_start.png · 2400x1080 · Palette: OK · Block ×3: 288000/288000 Blöcke einfarbig (100.00 %)
 
 == Ebene 7 · Leistung (Z-09): AOT, 20 Spielminuten, Faktor 4
-Generated: /tmp/tmp.v9MU7OKf4F/leistung
-Spiellogik je Bild (20 Rollen, 44 Bewohner, 1800 Bilder): Mittel 0.034 ms, 99 % 0.204 ms · × 4 = 0.13 ms · Grenze 4 ms · OK
-Speicher: 20 Spielminuten Erkundung (62 Bereiche, gezeichnet): nach Minute 1 75 MB, höchstens 78 MB · Wachstum 4.0 % · Grenze 10 % · OK
-Nachladespitzen: Figuren backen je Bild höchstens 4.8 ms Prozessorzeit, Bereichswechsel höchstens 0.0 ms · × 4 = 19.2 ms · Grenze 50 ms · OK
+Generated: /tmp/tmp.o7XDE8yinv/leistung
+Spiellogik je Bild (20 Rollen, 44 Bewohner, 1800 Bilder): Mittel 0.033 ms, 99 % 0.234 ms · × 4 = 0.13 ms · Grenze 4 ms · OK
+Speicher: 20 Spielminuten Erkundung (62 Bereiche, gezeichnet): nach Minute 1 75 MB, höchstens 79 MB · Wachstum 5.8 % · Grenze 10 % · OK
+Nachladespitzen: Figuren backen je Bild höchstens 4.7 ms Prozessorzeit, Bereichswechsel höchstens 0.0 ms · × 4 = 18.9 ms · Grenze 50 ms · OK
 Budget je Ansicht: höchstens 117 Meshes (≤ 300), 9658 Dreiecke (≤ 14 000) · OK
 LEISTUNG OK
 

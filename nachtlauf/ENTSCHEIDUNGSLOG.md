@@ -561,3 +561,93 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - **Zurücknehmen:** Die `Löschen: Wurzeln`-Angaben und die vier Ortsänderungen im Overlay entfernen.
 - Neue Inhaltsrunde A-702t mit drei Prüfern (25 gesamter Spieltext, 26 wirksamer Kanon, 27 Herkunft und Klischee).
 
+
+## E50 · 09.10. 17:10 · Inhaltsrunde A-702t (Prüfer 25–27) mit Gegenproben
+- **Urteile:**
+  - Alle drei Prüfer urteilen „Leitplanken nein“, Prüfer 26 zusätzlich „Kanontreu nein“ (Pension).
+  - Zu allen 10 Befunden „hoch“ und „mittel“ lief eine unabhängige Gegenprobe (`auftraege/A-702/gegenproben_a702t.md`). Ergebnis: **10 von 10 nicht haltbar**. Die Zitate stimmen und sind Spieltext, aber die Punkte sind ohne neuen Grund schon abgewogen (E27, E44, E46, E47), oder es liegt kein Verstoß vor.
+  - Das Urteil der Berichte bleibt, wie es ist. Z-12 bleibt offen, weil kein Bericht ja · ja · ja meldet.
+- **Umgesetzt (klar richtig, klein):**
+  - **Pension (R26-2):** ORT-03 und HW-S06 sagen jetzt, die Clique habe dort Zimmer „für die Zeit nach der Feier“ gebucht. Damit steht nichts mehr gegen K-010 (die Nacht verbringt die Clique in der Burg).
+  - **„der/die alte …“ (R27-4):** Die Gerüchte nennen Rosa Teutsch, Gottfried Lenz und Egon Thalheim mit Namen. Neuer Test in `stadtdaten_test`: Kein Bewohner wird als „der/die alte <Name>“ bezeichnet; die Gegenprobe wird rot.
+  - **R05 (R27-2):** „wirkt dabei nachtragend“ statt „rachsüchtig“ (ERSETZE-31).
+  - **R15 (R25-6):** „dunkelroter Blazer“ und „dark red blazer“ statt „bordeaux…“ (ERSETZE-32/33). Das ist derselbe Maßstab wie beim Schlosskeller (E49): kein Weinname als Farbe. Die gezeichnete Farbe bleibt.
+  - **R04, R10 (R25-3):** Die Familienfelder beginnen jetzt einheitlich mit „Die Eltern leben in …“ (Salzgitter-Bad, Husum).
+  - `kanon_test` prüft die Begriffe mit (33 Ersetzungen).
+- **Bleibt so, mit Grund:**
+  - **DW3-3 Ergebnis C „Der Abdruck stammt von Merle“ (R25-1, R26-1, hoch):**
+    - E27 M5 gilt auch für die Ergebnisse der Detektiv-Entscheidungen. Sie sind die Schlüsse des Kanons aus seinen eigenen Hinweisen (H-06 und H-15, Schluss S-5) und das Ergebnis der richtigen Ermittlungsentscheidung, also das Rätsel selbst.
+    - Ein Text, den das Spiel von sich aus vorgibt, ist es nicht. Ändern hieße, den Fall zu ändern; Hinweis an die Kanon-Autoren in FÜR DEN NUTZER.
+  - **„Punschkessel“ (R25-2):** wie E46, Gerätebezeichnung. Das Getränk ist öffentlich alkoholfrei (OA-04, GL-14), und jede Trinkstelle sagt es; der Test aus E47 sichert das.
+  - **Feld „Herkunft“ beim Burgwart (R25-4, R27-10):** Es nennt den Ort der Spielwelt (Schartenfels), keine Herkunftsgruppe. N-02 betrifft die Wurzeln der Rollen.
+  - **Färbungen R13 und R15 (R26-3, R27-2):** Der Geldbezug folgt aus Beruf und Lage (Kredit an Jonas, Versicherungsberuf); die wertenden Adjektive sind seit E47 neutral.
+  - **„Besserwisserin“ (R18), Zeit 23:58:30 in DW3-1, Einstufung HW-S09, „Einspruch!“, Uhrzeit des Auffindens:** E27, E44 und E47, Kanon-Wortlaut.
+- **Nutzerentscheidung nötig (Z-12 hängt daran), in FÜR DEN NUTZER:**
+  - **Haarfarben (R27-1, hoch, neuer Grund):** In der Look-Bibel des Kanons (LF-R01…R20) haben alle zwölf Rollen mit türkisch, bosnisch oder kurdisch klingendem Namen dunkles Haar, die mit deutschem Namen helles. Die Gegenprobe wertet das als realistisches Aussehen ohne Verstoß. Ein Mischen würde Kanon-Aussehen und Figuren ändern und neue Sichtprüfungen (Z-03) brauchen.
+  - **Alters- und Geschlechtermuster der Stadtbewohner (R27-4, R27-5):** Dutt nur bei älteren Frauen, „brummig“ bei alten Männern, Pflege, Reinigung und Bedienung nur mit Frauen besetzt. Das ist unser eigener Bestand, schon in E40 und E44 an den Nutzer gegeben. Eine Änderung betrifft Figuren und braucht neue Sichtprüfungen.
+
+## E51 · 09.10. 17:15 · Schlosskeller nachgezogen (3aff435); Leitplanken-Scanner ohne `content/party`
+- **Zweiter Merge:** Der Strang hat nach f5190ac weitergearbeitet. Ich habe den Stand 3aff435 ohne Konflikt nachgemergt; „Beerenrot“ aus E49 bleibt erhalten.
+- **Zuständigkeit für die Partytexte:**
+  - Unser Leitplanken-Scanner (Ebene 10, „Burgstadt + Klassische Fälle“) nahm bisher alles unter `content/`. Bis zum Merge lagen dort nur die Szenarien der Klassischen Fälle.
+  - Mit 3aff435 kam `content/party/textregeln.json` dazu, die Regeldatei des eigenen Textprüfers des Strangs. Sie besteht aus Verbots- und Ausnahmelisten, ist also kein Spieltext, und unser Scanner meldete 34 „Fehler“.
+  - Der Strang hat dort „weinrot“ ausdrücklich als zulässige Ausnahme eingetragen. Er hat also sein eigenes, abgestimmtes Regelwerk für seine Texte.
+  - Deshalb nimmt unser Scanner `content/party/**` jetzt aus. Die Partytexte prüft der Textprüfer des Strangs (`tool/pruefen.sh`), die Klassischen Fälle und die Burgstadt weiter unser Scanner. `leitplanken_test` belegt beides: Szenarien sind drin, Partydateien nicht.
+- **Berichtigung zu E49:** Dort stand, der Ton-Leitfaden des Strangs verbiete „Wein“. Das stimmt (TON-LEITFADEN, Abschnitt Alkohol: „Verboten sind Wein, …“). Sein Textprüfer lässt „weinrot“ aber als Ausnahme zu. „Beerenrot“ widerspricht keiner der beiden Regeln; ob der Strang zu „Weinrot“ zurückkehrt, entscheidet er selbst (FÜR DEN NUTZER).
+
+## E52 · 09.10. 17:37 · Ursache der roten Web-Läufe: Build-Cache nach Wechsel der Aufrufform
+- **Befund:** Zweimal (16:41 und 17:27) war der volle Lauf rot, beide Male direkt nach `tool/pruefen.sh` des Schlosskeller-Strangs. Im Web-Build fehlten `AssetManifest.bin.json` und `FontManifest.json`. Folgen: 404-Meldungen, Roboto von gstatic, 48 Konsolenmeldungen, 3 fremde Abrufe und Abbruch nach Ebene 9.
+- **Versuch (belegt):** Mit Cache:
+  - A: `flutter build web … -o build/web` (nach einem Build ohne `-o`) → 0 Manifeste.
+  - B: ohne `-o` (nach A) → 0.
+  - C: noch einmal ohne `-o` → vollständig.
+  - D: mit `-o` (nach C) → 0.
+  - E: noch einmal mit `-o` → vollständig.
+
+  Mit geleertem `.dart_tool/flutter_build` waren beide Formen vollständig (F, G).
+- **Ursache:** Wechselt die Aufrufform, hält das Flutter-Werkzeug die Asset-Ausgaben für aktuell und schreibt sie nicht in das neu angelegte `build/web`. `tool/pruefen.sh` baut mit `-o build/web`, `tool/alle_tests.sh` und `build.sh` ohne. Erst seit dem Merge (E49) liegen beide Skripte im selben Repo.
+- **Behoben (kein Wiederholen, keine Lockerung):**
+  - `tool/alle_tests.sh` und `tool/pruefen.sh` leeren vor dem Web-Build `.dart_tool/flutter_build`. Das ist ein Cache und wird ohnehin neu erzeugt.
+  - `alle_tests.sh` prüft direkt nach dem Build, dass beide Manifeste da sind, und bricht sonst mit klarer Meldung ab. Die Wache ist getestet.
+  - `pruefen.sh` gehört dem Schlosskeller-Strang; die eine Zeile ist dort kommentiert.
+- **Folge:** c54fe9c ging um 16:37 nach dem schnellen Test auf `main`. Sein zweiter voller Lauf war grün (E50-Vorlauf); `main` war also spielbar. Ab jetzt geht `main` erst nach einem grünen vollen Lauf.
+
+## E53 · 09.10. 18:43 · HD-Strang und Schlosskeller nach main (Nutzerentscheidungen N-03, N-04)
+- **N-03:** Der aktive Strang „Burgstadt HD“ (`claude/pensive-gates-ajtp7x`) wird jetzt gemergt. Gemergt ist der Stand 96e9e5b (Merge 0304eb2), ohne Konflikt.
+  - Neu im Gesamttest ist der Schritt „Layout-Prüfsumme“ des HD-Strangs (`tool/layout_pruefsumme.dart --pruefe`). Er bricht ab, sobald sich Innenräume, Hauslage oder Wohn- und Arbeitshäuser der Bewohner ändern; nach dem Merge: LAYOUT GLEICH.
+  - `tool/abnahme.dart` Z-13 erlaubt seitdem auch Pushes auf den HD-Arbeitsbranch (N-HD-01, Zeile des HD-Strangs).
+  - Palette v2 behält die 8-Stufen-Daten über `Ramp.at`; die Figurendaten bleiben gültig.
+  - **Hinweis an den HD-Strang:** Die Z-12-Änderungen (E54) ändern Figurenkarten. Damit ändern sich Kartenstand und „Figurenstand“, und Sichtprüfungen des HD-Strangs zum alten Stand gelten nicht mehr. Der HD-Strang führt `pixel_engine/data/figuren`, `burgstadt_core/data` und `nachtlauf/kanon` selbst als Nachtlauf-Pfade.
+- **N-04:** Der Schlosskeller-Strang wird erneut nachgemergt, Stand 68cd35f, ohne Konflikt.
+  - Er hat „Beerenrot“ übernommen, Tugba heißt „Karminrot“, und die Ausnahme „weinrot“ ist aus seinem Textprüfer entfernt (seine E-028).
+  - Unsere Build-Cache-Zeile in `tool/pruefen.sh` (E52) bleibt erhalten.
+  - Seine neuen Commits berühren nur `planung/` und `content/party/`.
+- Beide Stränge arbeiten weiter. Ihre späteren Commits sind erst nach einem weiteren Merge in `main`.
+
+## E54 · 09.10. 19:15 · Z-12: Stadtbewohner ausgeglichen, Haarfarben gemischt, DW3-3 nur Spur (Nutzerentscheidung)
+- **Stadtbewohner** (`bewohner.json`, `haeuser.json`). Wohn- und Arbeitshäuser bleiben gleich, deshalb ist die Layout-Prüfsumme des HD-Strangs unverändert.
+  - **Geschlechtertausch:** B15 Timo Kessler (Pfleger), B35 Anton Gruber (Reinigungskraft) und B41 Nils Stahl (Bedienung) sind jetzt Männer, B12 Martina Auer (Glaserin), B32 Mathilde Gerlach (Schuhmacherin) und B39 Leonie Engel (Fuhrunternehmerin) jetzt Frauen. Das Verhältnis bleibt 21 Frauen zu 23 Männern.
+  - Pronomen, Gerüchte und die Haustexte H-036, H-056, H-122 und H-125 sind angepasst. B35s Nachtplan nennt jetzt den Kittel statt einer Schürze, die er nicht trägt.
+  - **Frisuren:** Dutt tragen jetzt auch B09 (44) und B27 (31), nicht mehr B01, B05, B33, B35 und B43. Die Haube bleibt bei B03 (Bäckerin) und B13. Eine Glatze hat jetzt auch B06 (46); B14 und B40 haben kurzes graues Haar.
+  - **Texte:**
+    - Wesen ohne „brummig/brummelig/grummelig“ (B08, B14, B28).
+    - Keine Hör- und Altersmotive mehr: B05, B13, B15 (Frau Lang), B28 (Zeitung statt Hörrohr).
+    - Keine Gruppenwörter „die Alten“ und „Schützlinge“ mehr (B15).
+    - H-139 nennt Otto Stern beim Namen.
+  - **Tests** (`stadtdaten_test`), jeweils mit roter Gegenprobe:
+    - Pflege, Reinigung und Bedienung sind nicht nur mit Frauen besetzt.
+    - Dutt, Haube und Glatze kommen auch bei Jüngeren vor.
+    - Keine Alters- oder Gruppenwörter in Bewohnertexten.
+- **Haarfarben der Rollen:**
+  - In jeder Herkunftsgruppe des Kanons gibt es jetzt helles und dunkles Haar. R07 (hellbraun), R12 (dunkelblond) und R19 (hellbraun) sind heller, R14 (dunkelbraun, auch der Bart) und R17 (schwarz) dunkler. R08 bleibt, weil ihre Gruppe mit R12 schon gemischt ist; ein Versuch mit R08 erzeugte unvermeidbare Figurenpaare.
+  - Die Look-Anker sind per Overlay angepasst (ERSETZE-34…38); die Kanon-Dateien bleiben unverändert.
+  - In `rollen.json` steht das Haar jetzt so, wie es gezeichnet wird (R02, R13 und R16 von [0,1] auf [0,2]).
+  - **Tests** (`rollen_daten_test`), jeweils mit roter Gegenprobe: Das Haar in `rollen.json` gleicht dem in `karten.json`, und jede Herkunftsgruppe hat helles und dunkles Haar.
+- **DW3-3:**
+  - Nach der richtigen Entscheidung „alle vier Sohlenkarten“ nennt das Ergebnis nur die Spur: „Von dieser Sohle stammt der Abdruck.“ `kanon_test` prüft, dass dort kein Name steht.
+  - **Vermerk:** Der Kanon-Hinweis H-15 (Sohlenkarten, Phase 3) nennt Merles Absatz weiterhin. Er trägt die notwendige Schlussfolgerung S-5 und bleibt nach der Overlay-Regel unverändert.
+- **Figurenkarten:**
+  - Neu erzeugt mit `bin/bewohnerkarten.dart`. Neue Option `--neu`: Für geänderte Bewohner nimmt der Generator die alte Karte nicht als Kandidaten.
+  - Danach zwei Folgeläufe und eine gezielte Farbsuche für B43 (Kleid rot 4). Ergebnis: `karten_test` 0 Paare, `tool/mass5a.py` 0 Paare.
+  - `mass5a.py` liest jetzt Palette v1 und v2 (E53).
+  - Neuer Kartenstand 6e6584163c; neue Sichtprüfung A-605w/x und Inhaltsrunde A-702u. Der Figurenstand des HD-Strangs ändert sich (E53).

@@ -48,6 +48,20 @@ class IndexedTexture {
     return a;
   }
 
+  /// Texelverdoppelte Fassung (jede Seite ×2, nearest): Bestand mit 32 Texel/m für die Welt mit
+  /// 64 Texel/m. Mip-Stufe k + 1 ist exakt Mip-Stufe k von [t]; die Stufenzahl bleibt gleich.
+  factory IndexedTexture.verdoppelt(IndexedTexture t) {
+    final w = t.width, h = t.height, src = t.levels[0];
+    final px = Uint8List(w * h * 4);
+    for (var y = 0; y < 2 * h; y++) {
+      final zeile = (y >> 1) * w, ziel = y * 2 * w;
+      for (var x = 0; x < 2 * w; x++) {
+        px[ziel + x] = src[zeile + (x >> 1)];
+      }
+    }
+    return IndexedTexture(2 * w, 2 * h, px, maxLevels: t.levels.length);
+  }
+
   /// Einfarbige Textur.
   factory IndexedTexture.solid(int color, {int size = 8}) =>
       IndexedTexture(size, size, Uint8List(size * size)..fillRange(0, size * size, color));

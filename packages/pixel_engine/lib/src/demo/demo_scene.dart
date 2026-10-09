@@ -87,8 +87,8 @@ class DemoScene {
     final zm = (z0 + z1) / 2;
     final top = y + rise;
     // Dachflächen (Firstlinie West–Ost)
-    final half = math.sqrt((zm - z0) * (zm - z0) + rise * rise) * kTexelsPerMeter;
-    final len = (x1 - x0) * kTexelsPerMeter;
+    final half = math.sqrt((zm - z0) * (zm - z0) + rise * rise) * kDichteWelt;
+    final len = (x1 - x0) * kDichteWelt;
     // Südseite
     var a = b.vertex(x0, y, z1, 0, half, cold: 0.15);
     var c = b.vertex(x1, y, z1, len, half, cold: 0.15);
@@ -102,13 +102,13 @@ class DemoScene {
     e = b.vertex(x1, top, zm, 0, 0, cold: 0.15);
     b.quad(a, c, d, e, roof);
     // Giebeldreiecke
-    final gw = (z1 - z0) * kTexelsPerMeter;
-    var p = b.vertex(x1, y, z1, 0, rise * kTexelsPerMeter, cold: 0.1);
-    var q = b.vertex(x1, y, z0, gw, rise * kTexelsPerMeter, cold: 0.1);
+    final gw = (z1 - z0) * kDichteWelt;
+    var p = b.vertex(x1, y, z1, 0, rise * kDichteWelt, cold: 0.1);
+    var q = b.vertex(x1, y, z0, gw, rise * kDichteWelt, cold: 0.1);
     var t = b.vertex(x1, top, zm, gw / 2, 0, cold: 0.12);
     b.triangle(p, q, t, gable);
-    p = b.vertex(x0, y, z0, 0, rise * kTexelsPerMeter, cold: 0.1);
-    q = b.vertex(x0, y, z1, gw, rise * kTexelsPerMeter, cold: 0.1);
+    p = b.vertex(x0, y, z0, 0, rise * kDichteWelt, cold: 0.1);
+    q = b.vertex(x0, y, z1, gw, rise * kDichteWelt, cold: 0.1);
     t = b.vertex(x0, top, zm, gw / 2, 0, cold: 0.12);
     b.triangle(p, q, t, gable);
   }

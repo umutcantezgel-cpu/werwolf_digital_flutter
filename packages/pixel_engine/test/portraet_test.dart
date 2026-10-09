@@ -40,7 +40,7 @@ void main() {
     for (final k in karten) k.id: [for (final a in Ausdruck.values) portraet(k, a, bibliothek: bibliothek)],
   };
 
-  test('66 Karten × 4 Ausdrücke: 64×64, Pixel < 64 oder 255, je Bild mindestens 1500 sichtbare Pixel', () {
+  test('66 Karten × 4 Ausdrücke: 64×64, nur Palettenindizes oder 255, je Bild mindestens 1500 sichtbare Pixel', () {
     expect(karten, hasLength(66));
     final befunde = <String>[];
     for (final k in karten) {
@@ -50,7 +50,7 @@ void main() {
         for (final c in s.pixels) {
           if (c != 255) {
             sichtbar++;
-            if (c >= 64) {
+            if (c >= paletteRgb.length) {
               befunde.add('${k.id}: Index $c');
               break;
             }
@@ -62,11 +62,11 @@ void main() {
     expect(befunde, isEmpty, reason: befunde.take(10).join('\n'));
   });
 
-  test('Augen: Index 1 kommt in jedem Bild vor, nur innerhalb der oberen 70 % und nur als Augen', () {
+  test('Augen: Augenfarbe Ramp.at(neutral, 1) kommt in jedem Bild vor, nur innerhalb der oberen 70 % und nur als Augen', () {
     final befunde = <String>[];
     for (final k in karten) {
       for (final s in bilder[k.id]!) {
-        final augen = _wo(s, (c) => c == 1).toList();
+        final augen = _wo(s, (c) => c == Ramp.at(Ramp.neutral, 1)).toList();
         if (augen.isEmpty) befunde.add('${k.id}: keine Augen');
         for (final (y, _) in augen) {
           if (y >= 0.7 * 64) befunde.add('${k.id}: Index 1 in Zeile $y');
@@ -79,12 +79,12 @@ void main() {
     expect(befunde, isEmpty, reason: befunde.take(10).join('\n'));
   });
 
-  test('Rampe 5 (Indizes 40–47) nur bei Karten mit einem Material auf Rampe 5', () {
+  test('Rampe 5 (Grün) nur bei Karten mit einem Material auf Rampe 5', () {
     final befunde = <String>[];
     for (final k in karten) {
       final hatGruen = k.materialien.values.any((m) => m.rampe == 5);
       for (final s in bilder[k.id]!) {
-        final gruen = _wo(s, (c) => c >= 40 && c <= 47).isNotEmpty;
+        final gruen = _wo(s, (c) => c != kTransparent && rampeVon(c) == Ramp.green).isNotEmpty;
         if (gruen && !hatGruen) befunde.add('${k.id}: Grün ohne Rampe-5-Material');
       }
     }

@@ -5,7 +5,7 @@
 /// und Materialien wie die Ganzkörperfiguren (FigurBaker), aber mit einer Nahansicht: Der Kopf
 /// füllt 60 % der Höhe, die Schultern werden unten beschnitten, leichte Dreiviertelansicht nach
 /// rechts. Gegenstände (Zubehör, Kanon K9 §8) werden nie gezeichnet. Nur das Gesicht wechselt
-/// mit dem Ausdruck; Index 1 (Pupille) ist den Augen vorbehalten.
+/// mit dem Ausdruck; die Augenfarbe Ramp.at(neutral, 1) (Pupille) ist den Augen vorbehalten.
 library;
 
 import 'dart:math' as math;
@@ -59,7 +59,7 @@ bool _frontLeiste(Grundkoerper g) =>
     g.knochen == 'rumpf' && g.material == 'darunter' && g.groesse[0] < 0.05 && g.groesse[2] < 0.03 && g.groesse[1] > 0.1;
 
 /// Gesichtsmuster in Pixeln relativ zum Anker: Pupillen je Auge, Brauen über dem Auge, Mund in der Mitte.
-/// Pupillen (Index 1) und Brauen/Mund (Index 0) sind die dunkelsten Töne: lesbar in Licht und Schatten.
+/// Pupillen (Ramp.at(neutral, 1)) und Brauen/Mund (Ramp.at(neutral, 0)) sind die dunkelsten Töne: lesbar in Licht und Schatten.
 class _Gesicht {
   final List<(int, int)> pupillen;
   final List<(int, int)> braueL;
@@ -310,14 +310,14 @@ class _Prim {
       } else {
         idx = Ramp.at(mm.rampe, (c + schwelle).floor());
       }
-      pix[i] = idx == 1 ? 2 : idx; // Index 1 ist den Augen vorbehalten
+      pix[i] = idx == _auge ? Ramp.at(Ramp.neutral, 2) : idx; // die Augenfarbe ist den Augen vorbehalten
     }
   }
   return (pix, brille);
 }
 
 /// Material eines Grundkörpers mit Umleitungen und Ersatzregeln wie FigurBaker. Die Brille hat im
-/// Porträt Stufe 3 statt der Standardstufe 1 (Index 1 bleibt den Augen).
+/// Porträt Stufe 3 statt der Standardstufe 1 (die Augenfarbe bleibt den Augen).
 Material _material(String name, Figurenkarte k, Map<String, String> umleitung) {
   var n = name;
   for (var i = 0; i < 8; i++) {
@@ -335,7 +335,7 @@ Material _material(String name, Figurenkarte k, Map<String, String> umleitung) {
       const Material(Ramp.neutral, 4);
 }
 
-/// Gesicht: Pupillen (Index 1), Brauen und Mund (Index 0). Die Linien bleiben auch im Schatten der
+/// Gesicht: Pupillen (Ramp.at(neutral, 1)), Brauen und Mund (Ramp.at(neutral, 0)). Die Linien bleiben auch im Schatten der
 /// rechten Gesichtshälfte lesbar; abgedunkelte Hauttöne würden dort verschwinden.
 void _gesicht(Uint8List pix, Uint8List brille, _Ansicht a, _Gesicht g) {
   for (final u in const [-0.38, 0.38]) {
@@ -350,17 +350,20 @@ void _gesicht(Uint8List pix, Uint8List brille, _Ansicht a, _Gesicht g) {
       }
     }
     for (final (dx, dy) in g.pupillen) {
-      _tupfen(pix, ax + dx, ay + dy, (_) => 1);
+      _tupfen(pix, ax + dx, ay + dy, (_) => _auge);
     }
     for (final (dx, dy) in u < 0 ? g.braueL : g.braueR) {
-      _tupfen(pix, ax + dx, ay + dy, (_) => 0);
+      _tupfen(pix, ax + dx, ay + dy, (_) => _linie);
     }
   }
   final (mx, my) = a.kopfPunkt(0, -0.45);
   for (final (dx, dy) in g.mund) {
-    _tupfen(pix, mx + dx, my + dy, (_) => 0);
+    _tupfen(pix, mx + dx, my + dy, (_) => _linie);
   }
 }
+
+/// Augenfarbe (Pupillen) und Linienfarbe (Brauen, Mund) – die beiden dunkelsten Neutral-Stufen.
+final int _auge = Ramp.at(Ramp.neutral, 1), _linie = Ramp.at(Ramp.neutral, 0);
 
 void _tupfen(Uint8List pix, int x, int y, int Function(int alt) neu) {
   if (x < 0 || y < 0 || x >= kPortraetBreite || y >= kPortraetHoehe) return;

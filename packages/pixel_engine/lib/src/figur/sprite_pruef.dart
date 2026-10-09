@@ -23,7 +23,7 @@ List<String> pruefeFigur(FigurSatz satz) {
             final c = s.pixels[y * s.width + x];
             if (c == kTransparent) continue;
             deckend++;
-            if (c >= 64) out.add('$ort: Index $c außerhalb der Palette');
+            if (c >= paletteRgb.length) out.add('$ort: Index $c außerhalb der Palette');
             unterste = y;
             // Kontur: Randpixel müssen dunkle Stufe (≤ 4) haben
             final rand = x == 0 || y == 0 || x == s.width - 1 || y == s.height - 1 ||
@@ -31,7 +31,7 @@ List<String> pruefeFigur(FigurSatz satz) {
                 s.pixels[y * s.width + x + 1] == kTransparent ||
                 s.pixels[(y - 1) * s.width + x] == kTransparent ||
                 s.pixels[(y + 1) * s.width + x] == kTransparent;
-            if (rand && (c & 7) > 4) out.add('$ort: helle Kontur bei $x/$y');
+            if (rand && stufe8Von(c) > 4) out.add('$ort: helle Kontur bei $x/$y');
           }
         }
         if (deckend < 200) out.add('$ort: zu wenig sichtbar ($deckend px)');

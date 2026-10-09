@@ -7,9 +7,9 @@ import 'package:test/test.dart';
 
 void main() {
   group('Skalierung', () {
-    test('Welt-Faktor gerade, UI = Hälfte, Bild deckt den Schirm', () {
+    test('sparsam/mittel/auto: Welt-Faktor gerade, UI = Hälfte, Bild deckt den Schirm', () {
       for (final (w, h) in const [(1280, 720), (2401, 1081), (1081, 2401), (1920, 1080), (800, 600), (360, 640), (2732, 2048)]) {
-        for (final q in Qualitaet.values) {
+        for (final q in [Qualitaet.sparsam, Qualitaet.mittel, Qualitaet.auto]) {
           final s = Skalierung.fuer(w, h, q);
           expect(s.kWelt.isEven, isTrue, reason: '$w×$h $q');
           expect(s.kUi * 2, s.kWelt);
@@ -22,6 +22,64 @@ void main() {
       expect(Skalierung.fuer(1280, 720, Qualitaet.mittel).weltH, 180);
       expect(Skalierung.fuer(2401, 1081, Qualitaet.mittel).weltH, 181);
     });
+
+    // Burgstadt HD (K-011, E-006, E-042): „scharf“ = UI-Raster von „mittel“, Welt im UI-Raster
+    // (doppelte lineare Auflösung), nur bei kUi ≥ 2 und höchstens 380 000 Weltpixeln.
+    test('scharf: 18 Größen exakt, Obergrenze, UI wie mittel, Welt 2× mittel', () {
+      const erwartet = <(int, int), (int, int)?>{
+        (1280, 720): (640, 360), (1920, 1080): (640, 360), (2400, 1080): (800, 360), (1080, 2400): (360, 800),
+        (2401, 1081): (801, 361), (828, 1792): (414, 896), (1170, 2532): (390, 844), (1440, 3200): (360, 800),
+        (1280, 500): (640, 250), (1280, 481): (640, 241), (1536, 864): (768, 432), (1536, 865): (512, 289),
+        (2194, 1234): (732, 412), (2196, 1235): (549, 309), (1179, 2556): (393, 852), (1284, 2778): (321, 695),
+        (1280, 480): null, (1280, 400): null,
+      };
+      for (final e in erwartet.entries) {
+        final (w, h) = e.key;
+        final s = Skalierung.fuer(w, h, Qualitaet.scharf), m = Skalierung.fuer(w, h, Qualitaet.mittel);
+        expect((s.uiW, s.uiH, s.kUi), (m.uiW, m.uiH, m.kUi), reason: '$w×$h: UI wie mittel');
+        if (e.value == null) {
+          expect(s.stufe, Qualitaet.mittel, reason: '$w×$h: Obergrenze');
+          expect((s.weltW, s.weltH, s.kWelt), (m.weltW, m.weltH, m.kWelt), reason: '$w×$h: wie mittel');
+        } else {
+          expect(s.stufe, Qualitaet.scharf, reason: '$w×$h');
+          expect((s.weltW, s.weltH), e.value, reason: '$w×$h');
+          expect(s.kWelt, s.kUi, reason: '$w×$h');
+          expect(s.kUi, greaterThanOrEqualTo(2));
+          expect(s.weltW * s.weltH, lessThanOrEqualTo(kScharfMaxWeltpixel));
+          expect(s.kWelt * 2, m.kWelt, reason: '$w×$h: doppelte lineare Auflösung');
+        }
+      }
+    });
+
+    test('Optionen: gespeichertes „hoch“ wird auto, unbekannt bleibt', () {
+      final o = Optionen()..ausJson({'qualitaet': 'hoch'});
+      expect(o.qualitaet, Qualitaet.auto);
+      o.ausJson({'qualitaet': 'scharf'});
+      expect(o.qualitaet, Qualitaet.scharf);
+      o.ausJson({'qualitaet': 'gibtsnicht'});
+      expect(o.qualitaet, Qualitaet.scharf);
+    });
+  });
+
+  test('scharf: Bildschirme bestehen Paletten- und Blocktest (UI-Raster), Touch-Blick wirkt', () {
+    for (final (w, h) in const [(1280, 720), (2401, 1081), (1080, 2400)]) {
+      final spiel = Spiel(optionen: Optionen()..qualitaet = Qualitaet.scharf)..groesse(w, h);
+      expect(spiel.skala!.stufe, Qualitaet.scharf);
+      final e = Eingabe();
+      void pruefe(String name) {
+        spiel.tick(1 / 30, e);
+        final rgba = komponiere(spiel.welt, spiel.ui, spiel.skala!);
+        expect(countOffPalette(rgba), 0, reason: '$name $w×$h');
+        final k = spiel.skala!.kUi;
+        expect(blockTest(rgba, w, h, k, areaW: w ~/ k * k, areaH: h ~/ k * k).ratio, 1.0, reason: '$name $w×$h');
+      }
+
+      pruefe('Hauptmenü');
+      spiel.oeffne(OptionenBildschirm());
+      pruefe('Optionen');
+      spiel.wechsle(Erkundung());
+      pruefe('Erkundung');
+    }
   });
 
   test('Alle Bildschirme bestehen Paletten- und Blocktest (mehrere Geräte)', () {

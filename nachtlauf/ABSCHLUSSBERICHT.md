@@ -25,11 +25,11 @@ Aus „Mordakte“ ist ein Ich-Perspektive-Krimi mit 2,5D-Pixelfiguren geworden.
 
 Die Tabelle mit Messwerten und Belegen steht in `ABNAHME.md`, das Protokoll des vollständigen Testlaufs aller elf Ebenen in `belege/alle_tests_voll.txt`.
 
-**Ergebnis:** `tool/abnahme.dart` bestätigt am Stand 9a7e852 **13 von 14** Kriterien (`belege/abnahme.txt`); alle elf Testebenen sind grün. Am Morgen (Stand a28178c) waren es 14 von 14. Danach kam auf Wunsch des Nutzers Kanon v1.0 aus `main` dazu (E41), und die Inhaltsprüfung musste neu laufen. **Offen ist Z-12:** Die letzte Inhaltsrunde (23/24) urteilt „Leitplanken nein“ wegen der Verteilung der Fallfunktionen auf Rollen mit Herkunftsangabe. Diese Verteilung ist die Anlage des Falls im Kanon und eine Nutzerentscheidung (`FUER-DEN-NUTZER.md`, E47).
+**Ergebnis:** `tool/abnahme.dart` bestätigt am Stand 580b4c2 **13 von 14** Kriterien (`belege/abnahme.txt`); alle elf Testebenen sind grün. Am Morgen (Stand a28178c) waren es 14 von 14. Danach kamen auf Wunsch des Nutzers Kanon v1.0 aus `main` (E41) und der Merge des Schlosskeller-Strangs (E49, E51) dazu, und die Inhaltsprüfung musste neu laufen. **Offen ist Z-12:** Die letzte Inhaltsrunde (25–27) urteilt „Leitplanken nein“. Unabhängige Gegenproben halten keinen der zehn schweren Befunde für haltbar, drei Gestaltungsfragen liegen beim Nutzer (`FUER-DEN-NUTZER.md`, E50).
 
 Messwerte aus diesem Lauf:
-- Spiellogik 0,13 ms je Bild (Grenze 4), Nachladespitze 19,2 ms (Grenze 50), Speicherwachstum 4,0 % (Grenze 10).
-- Teilen kommt nach höchstens 45 ms an (Grenze 1000); Teilen spart 83 % der Schritte (Grenze 30).
+- Spiellogik 0,15 ms je Bild (Grenze 4), Nachladespitze 21,7 ms (Grenze 50), Speicherwachstum 4,6 % (Grenze 10).
+- Teilen kommt nach höchstens 41 ms an (Grenze 1000); Teilen spart 83 % der Schritte (Grenze 30).
 - Erkundungsbots erreichen 134 von 134 Türen; 0 Konsolenfehler in 3 Geräteprofilen.
 
 ## 3. Bilder
@@ -89,6 +89,8 @@ Messwerte aus diesem Lauf:
   - Letzte Runde vor dem Kanon v1.0 (A-702m, Stand a7f1985): Leitplanken ja, Kanontreu ja, Plagiatsfrei ja. Ihre 5 geringen Befunde stehen nach der Abbruchregel (E40) in `FUER-DEN-NUTZER.md`.
   - Nach dem Kanon v1.0 liefen die Runden 13 bis 24 (A-702n bis s, E42–E47). Umgesetzt wurden unter anderem: Laken als Burgwäsche, Phase 1 ab 00:30, Nebel nur im Tal und FM-1 im Spiel ohne Herkunft. Dazu kommen die Lampenmarke „VT · 3“ und die R01-Firma ohne Nachnamen, neutrale Färbungen bei R13 und R15 sowie „alkoholfrei“ bei jedem Punsch (mit Test).
   - **Offen:** Runde 23/24 urteilt „Leitplanken nein“, weil Täterin und Mietbetrüger deutsche Wurzeln haben, die falsche Fährte (R01) und die Hauptzeugin mit dem Streich (R02) nicht. Das ist die Anlage des Falls im Kanon (FM-1, GROBPLAN F-07). Die Möglichkeiten stehen in `FUER-DEN-NUTZER.md`.
+  - Auf Nutzerentscheidung (N-02, E48) enthält das Spiel keine Herkunftsangaben mehr: kein Feld „Wurzeln“ und keine Herkunftsorte in den Familienfeldern; der Kanon des Krimidinners behält sie.
+  - Runde 25–27 (A-702t) urteilt erneut „Leitplanken nein“. Zu jedem Befund „hoch“ oder „mittel“ lief eine unabhängige Gegenprobe: 10 von 10 nicht haltbar. Umgesetzt sind kleine Verbesserungen (E50). Offen sind drei Gestaltungsfragen: Haarfarben der Rollen im Kanon-Look, Alters- und Geschlechtermuster der Stadtbewohner und das Ergebnis DW3-3.
 - **Leitplanken-Scanner:** 0 Treffer in allen Spieltexten.
 - **Fairness:** Der Löser bestätigt für N = 4…20, dass jeder notwendige Schluss abgesichert ist. Das Durchspiel mit Bots endet bei jeder Rollenzahl als Meisterdetektiv. Teilen spart 72 % der Schritte.
 
@@ -103,6 +105,7 @@ Messwerte aus diesem Lauf:
   - Seitdem misst `bin/leistung.dart` die Prozessorzeit des Spielthreads (`CLOCK_THREAD_CPUTIME_ID`); die Wanduhrzeit steht weiter als Information im Protokoll. Beleg in `belege/leistung_z09.txt`.
 - **Viele Sichtprüf-Runden (E38–E40):** Nach den neuen Signaturteilen (Kameragurt, Kopfhörer) brauchte Z-03 vier weitere Prüferpaare (13 bis 20). Gefunden wurden: B13 mit einer Haube, die wie rotes Haar aussah; R06/R08; BW/B12; DET/B24. Meine Korrekturen von Hand haben das Problem dabei teils nur zum nächsten Nachbarn verschoben. Beendet hat das erst der Maßstab im Figurenvergleich selbst (E40).
 - **Figurenkarten von Hand (E38):** Nach Sichtprüfer 13 habe ich vier Bewohnerkarten von Hand nachgeschärft. Die ersten Werte erzeugten drei neue enge Paare. Gefunden hat sie `karten_test` vor dem Commit; eingecheckt wurde erst die Fassung ohne Paare.
+- **Zu früh auf main (E52):** Den Merge-Stand c54fe9c habe ich nach dem schnellen Test auf `main` gepusht. Der erste volle Lauf danach war rot: Im Web-Build fehlten die Asset-Manifeste. Ein zweiter voller Lauf am selben Commit war grün, und als derselbe Fehler um 17:27 wiederkam, zeigte ein Versuch die Ursache: Nach einem Wechsel der Build-Aufrufform (mit/ohne `-o`) schreibt Flutter die Manifeste nicht neu. Beide Prüfskripte leeren jetzt den Build-Cache, und `main` geht erst nach einem grünen vollen Lauf.
 
 ## 6. Nicht gebaut oder nur genähert
 
