@@ -30,3 +30,9 @@
     - Die Endrunde (11/12) läuft mit festem Maßstab aus Z-03.
   - **Bedienung und Anleitung:** Optionen werden gespeichert, Neigen ist ersetzt, die Anleitung (ANLEITUNG.md) und FÜR DEN NUTZER sind aktualisiert.
   - **Abnahme:** Der erste vollständige Abnahmelauf () läuft.
+- 05:34 Phase 7:
+  - **Abnahmelauf:** vollständig mit `tool/abnahme.dart`, nach einem behobenen Fehler im Werkzeug. Alle elf Testebenen grün, 12 von 14 Kriterien erfüllt. Offen sind Z-12 (Inhaltsrunde 6 läuft) und Z-14 (Morgenbericht folgt um 07:00).
+  - **Figuren-Endrunde:** zwei unabhängige Prüfer mit festem Maßstab, 0 Paare.
+  - **Spieltester (A-703a):** 6 schwere Bedienfehler (abgeschnittene Karten und Blasen, Tutorial über den Knöpfen, unlesbare Kartennamen, kleine Knöpfe) sind behoben; Handy-Fotos neu.
+  - **Inhaltsrunde 5:** Leitplanken ja, plagiatsfrei; letzte Kanon-Abweichung („eine Weile“) behoben.
+  - **WebAssembly:** probehalber gebaut, etwa doppelt so schnell, aber mit Konsolenwarnung, deshalb nicht übernommen.
