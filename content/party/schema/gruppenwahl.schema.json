@@ -70,7 +70,6 @@
           "rolle",
           "runde",
           "quelle",
-          "platzhalter",
           "a",
           "b"
         ],
@@ -91,28 +90,14 @@
               "loyalitaet"
             ]
           },
-          "platzhalter": {
-            "type": "boolean"
-          },
           "a": {
             "type": "object",
             "required": [
-              "text",
               "kosten",
               "nutzen"
             ],
             "additionalProperties": false,
             "properties": {
-              "text": {
-                "anyOf": [
-                  {
-                    "$ref": "#/$defs/text"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
               "kosten": {
                 "type": "object",
                 "required": [
@@ -162,22 +147,11 @@
           "b": {
             "type": "object",
             "required": [
-              "text",
               "kosten",
               "nutzen"
             ],
             "additionalProperties": false,
             "properties": {
-              "text": {
-                "anyOf": [
-                  {
-                    "$ref": "#/$defs/text"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
               "kosten": {
                 "type": "object",
                 "required": [
@@ -227,23 +201,12 @@
           "bTaeter": {
             "type": "object",
             "required": [
-              "text",
               "art",
               "kosten",
               "nutzen"
             ],
             "additionalProperties": false,
             "properties": {
-              "text": {
-                "anyOf": [
-                  {
-                    "$ref": "#/$defs/text"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
               "art": {
                 "const": "sabotage"
               },

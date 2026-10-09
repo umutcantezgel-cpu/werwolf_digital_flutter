@@ -1,6 +1,6 @@
 {
   "settingId": "spuk_im_schlosskeller",
-  "hinweis": "Gruppenwahl je Rolle und Runde (Master 7.8, E-013 G1-10, E-024). Option A ist kooperativ (+1) und kostet die Rolle ein Geheimnis, einen Freund oder ihr Ziel. Option B ist eigennützig (0) und schützt Ziel oder Freund. In der Täterfassung einer Kernrolle heißt B Sabotage (bTaeter): sie zählt 0 und hebt eine kooperative Stimme auf (G-1). Texte schreibt F3; bis dahin platzhalter: true.",
+  "hinweis": "Gruppenwahl je Rolle und Runde (Master 7.8, E-013 G1-10, E-024). Option A ist kooperativ (+1) und kostet die Rolle ein Geheimnis, einen Freund oder ihr Ziel. Option B ist eigennützig (0) und schützt Ziel oder Freund. In der Täterfassung einer Kernrolle heißt B Sabotage (bTaeter): sie zählt 0 und hebt eine kooperative Stimme auf (G-1). Die Texte der Optionen stehen in texte/wahlen-*.json unter derselben Kennung (E-026).",
   "wertung": {
     "kooperativ": 1,
     "eigennuetzig": 0,
@@ -12,9 +12,7 @@
       "rolle": "ahmet",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_mietgeld"
@@ -24,7 +22,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -34,7 +31,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -49,9 +45,7 @@
       "rolle": "ahmet",
       "runde": 2,
       "quelle": "loyalitaet",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "freund",
           "bezug": "leyla"
@@ -61,7 +55,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -71,7 +64,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -86,9 +78,7 @@
       "rolle": "ahmet",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_mietgeld"
@@ -98,7 +88,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -108,7 +97,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -123,9 +111,7 @@
       "rolle": "fatma",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_schatulle"
@@ -135,7 +121,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -145,7 +130,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -160,9 +144,7 @@
       "rolle": "fatma",
       "runde": 2,
       "quelle": "loyalitaet",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "freund",
           "bezug": "emine"
@@ -172,7 +154,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -182,7 +163,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -197,9 +177,7 @@
       "rolle": "fatma",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_schatulle"
@@ -209,7 +187,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -219,7 +196,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -234,9 +210,7 @@
       "rolle": "olli",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_tuerschaden"
@@ -246,7 +220,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -256,7 +229,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -271,9 +243,7 @@
       "rolle": "olli",
       "runde": 2,
       "quelle": "loyalitaet",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "freund",
           "bezug": "kaan"
@@ -283,7 +253,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -293,7 +262,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -308,9 +276,7 @@
       "rolle": "olli",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_tuerschaden"
@@ -320,7 +286,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -330,7 +295,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -345,9 +309,7 @@
       "rolle": "can",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_streich"
@@ -357,7 +319,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -367,7 +328,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -382,9 +342,7 @@
       "rolle": "can",
       "runde": 2,
       "quelle": "loyalitaet",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "freund",
           "bezug": "zeynep"
@@ -394,7 +352,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -404,7 +361,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -419,9 +375,7 @@
       "rolle": "can",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_streich"
@@ -431,7 +385,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -441,7 +394,6 @@
         }
       },
       "bTaeter": {
-        "text": null,
         "art": "sabotage",
         "kosten": {
           "art": "gruppe"
@@ -456,9 +408,7 @@
       "rolle": "leyla",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -468,7 +418,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -483,9 +432,7 @@
       "rolle": "leyla",
       "runde": 2,
       "quelle": "loyalitaet",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "freund",
           "bezug": "ahmet"
@@ -495,7 +442,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -510,9 +456,7 @@
       "rolle": "leyla",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -522,7 +466,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -537,9 +480,7 @@
       "rolle": "emine",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -549,7 +490,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -564,9 +504,7 @@
       "rolle": "emine",
       "runde": 2,
       "quelle": "loyalitaet",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "freund",
           "bezug": "fatma"
@@ -576,7 +514,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -591,9 +528,7 @@
       "rolle": "emine",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -603,7 +538,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -618,9 +552,7 @@
       "rolle": "tim",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_kurzschluss"
@@ -630,7 +562,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -645,9 +576,7 @@
       "rolle": "tim",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_kurzschluss"
@@ -657,7 +586,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -672,9 +600,7 @@
       "rolle": "tim",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_kurzschluss"
@@ -684,7 +610,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -699,9 +624,7 @@
       "rolle": "johanna",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -711,7 +634,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -726,9 +648,7 @@
       "rolle": "johanna",
       "runde": 2,
       "quelle": "loyalitaet",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "freund",
           "bezug": "ahmet"
@@ -738,7 +658,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -753,9 +672,7 @@
       "rolle": "johanna",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -765,7 +682,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -780,9 +696,7 @@
       "rolle": "murat",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_parken"
@@ -792,7 +706,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -807,9 +720,7 @@
       "rolle": "murat",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_parken"
@@ -819,7 +730,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -834,9 +744,7 @@
       "rolle": "murat",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_parken"
@@ -846,7 +754,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -861,9 +768,7 @@
       "rolle": "zeynep",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_schmiere"
@@ -873,7 +778,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -888,9 +792,7 @@
       "rolle": "zeynep",
       "runde": 2,
       "quelle": "loyalitaet",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "freund",
           "bezug": "can"
@@ -900,7 +802,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -915,9 +816,7 @@
       "rolle": "zeynep",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_schmiere"
@@ -927,7 +826,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -942,9 +840,7 @@
       "rolle": "baran",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -954,7 +850,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -969,9 +864,7 @@
       "rolle": "baran",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -981,7 +874,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -996,9 +888,7 @@
       "rolle": "baran",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1008,7 +898,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1023,9 +912,7 @@
       "rolle": "meryem",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1035,7 +922,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1050,9 +936,7 @@
       "rolle": "meryem",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1062,7 +946,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1077,9 +960,7 @@
       "rolle": "meryem",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1089,7 +970,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1104,9 +984,7 @@
       "rolle": "serkan",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1116,7 +994,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1131,9 +1008,7 @@
       "rolle": "serkan",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1143,7 +1018,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1158,9 +1032,7 @@
       "rolle": "serkan",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1170,7 +1042,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1185,9 +1056,7 @@
       "rolle": "aylin",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1197,7 +1066,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1212,9 +1080,7 @@
       "rolle": "aylin",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1224,7 +1090,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1239,9 +1104,7 @@
       "rolle": "aylin",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1251,7 +1114,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1266,9 +1128,7 @@
       "rolle": "kaan",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_moebelwachs"
@@ -1278,7 +1138,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1293,9 +1152,7 @@
       "rolle": "kaan",
       "runde": 2,
       "quelle": "loyalitaet",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "freund",
           "bezug": "olli"
@@ -1305,7 +1162,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1320,9 +1176,7 @@
       "rolle": "kaan",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "nd_moebelwachs"
@@ -1332,7 +1186,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1347,9 +1200,7 @@
       "rolle": "dilara",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1359,7 +1210,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1374,9 +1224,7 @@
       "rolle": "dilara",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1386,7 +1234,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1401,9 +1248,7 @@
       "rolle": "dilara",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1413,7 +1258,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1428,9 +1272,7 @@
       "rolle": "enes",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1440,7 +1282,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1455,9 +1296,7 @@
       "rolle": "enes",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1467,7 +1306,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1482,9 +1320,7 @@
       "rolle": "enes",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1494,7 +1330,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1509,9 +1344,7 @@
       "rolle": "selin",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1521,7 +1354,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1536,9 +1368,7 @@
       "rolle": "selin",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1548,7 +1378,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1563,9 +1392,7 @@
       "rolle": "selin",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1575,7 +1402,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1590,9 +1416,7 @@
       "rolle": "hakan",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1602,7 +1426,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1617,9 +1440,7 @@
       "rolle": "hakan",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1629,7 +1450,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1644,9 +1464,7 @@
       "rolle": "hakan",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1656,7 +1474,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1671,9 +1488,7 @@
       "rolle": "tugba",
       "runde": 1,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1683,7 +1498,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1698,9 +1512,7 @@
       "rolle": "tugba",
       "runde": 2,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1710,7 +1522,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },
@@ -1725,9 +1536,7 @@
       "rolle": "tugba",
       "runde": 3,
       "quelle": "geheimnis",
-      "platzhalter": true,
       "a": {
-        "text": null,
         "kosten": {
           "art": "geheimnis",
           "bezug": "persoenlichesZiel"
@@ -1737,7 +1546,6 @@
         }
       },
       "b": {
-        "text": null,
         "kosten": {
           "art": "gruppe"
         },

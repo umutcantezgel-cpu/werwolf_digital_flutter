@@ -89,22 +89,22 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 
 | Kennung | Rolle | Gegenstand | Eigene Dateien | Abhängig | Status |
 |---|---|---|---|---|---|
-| F3-ORCH-00 | ORCH | Schlüsselschema der Textsammlung (alle Schlüssel mit Zweck, Länge, Sichtbarkeit vor/nach Finale) und leere Textdateien je Autor | `texte/*.json` (Gerüst), `texte/SCHLUESSEL.md` | F2 | offen |
+| F3-ORCH-00 | ORCH | Schlüsselschema der Textsammlung (alle Schlüssel mit Zweck, Länge, Sichtbarkeit vor/nach Finale) und leere Textdateien je Autor | `texte/*.json` (Gerüst), `texte/SCHLUESSEL.md` | F2 | abgenommen (Textsammlung, Schemas, texte.dart, texte_test 7 Tests; E-026) |
 | F3-BAUMEISTER-01 | Baumeister | Textprüfer (Satzlängen, Fachwort-, Alkohol-, Drogen-, Rauchliste, Ziffern im Vorlesetext) und Textlint (Uhrzeiten, Orte, Gegenstände gegen Kanon) | `party/textpruefer.dart`, `test/party/textpruefer_test.dart`, `test/party/textlint_test.dart` | F3-ORCH-00 | offen |
 | F3-AUTOR-01..05 | Autor | Dossiers „wer ich bin / was ich weiß / was ich verberge / mein Ziel“ je Viererblock (Rollen 1–4, 5–8, 9–12, 13–16, 17–20) | `texte/dossier-blockN.json` | F3-BAUMEISTER-01 | offen |
 | F3-AUTOR-06..09 | Autor | Täterfassungen Ahmet, Fatma, Olli, Can (Tarngeschichte, Tatwissen) | `texte/taeter-<name>.json` | F3-AUTOR-01 | offen |
 | F3-AUTOR-10 | Autor | Detektiv-Bogen m und w | `texte/detektiv.json` | F2 | offen |
 | F3-AUTOR-11..25 | Autor | Pflichtgespräche je Runde und Viererblock (5 Blöcke × 3 Runden) | `texte/gespraeche-rR-blockN.json` | F3-AUTOR-01..05 | offen |
 | F3-AUTOR-26..29 | Autor | Rundenwahl-Texte der Blöcke 2–5 (Kernblock nur über Dilemma-Dateien) | `texte/wahl-blockN.json` | F3-AUTOR-01..05 | offen |
-| F3-AUTOR-31..33 | Autor | Bonus-Hinweise je Runde (4 Pfade × 3 Qualitäten) | `texte/bonus-rR.json` | F2 | offen |
-| F3-AUTOR-34..35 | Autor | Indiztexte (Fundtexte, Ergebnistexte der Detektiv-Entscheidungen) | `texte/indizien.json`, `texte/entscheidungen.json` | F2 | offen |
+| F3-AUTOR-31..33 | Autor | Bonus-Hinweise je Runde (4 Pfade × 3 Qualitäten) | `texte/bonus-rR.json` | F2 | entfällt (Hinweise stehen im Kanon, E-024/E-026; Prüfung in KONT/SENS) |
+| F3-AUTOR-34..35 | Autor | Indiztexte (Fundtexte, Ergebnistexte der Detektiv-Entscheidungen) | `texte/indizien.json`, `texte/entscheidungen.json` | F2 | entfällt (Fund- und Entscheidungstexte stehen im Kanon, E-026; Prüfung in KONT/SENS) |
 | F3-AUTOR-36..38 | Autor | Intro, 3 Varianten (Varianten-Regel) | `texte/intro-vN.json` | F2 | offen |
 | F3-AUTOR-39..41 | Autor | Resümee-Fächer je Runde | `texte/resuemee-rR.json` | F2 | offen |
 | F3-AUTOR-42 | Autor | Anklage und Eingrenzung | `texte/anklage.json` | F2 | offen |
 | F3-AUTOR-43..46 | Autor | 4 Finaltexte je Pfad (16) und Rückblende je Pfad (4) | `texte/finale-<pfad>.json` | F2 | offen |
 | F3-AUTOR-47..48 | Autor | Auflösung je Rolle (20) | `texte/aufloesung-1.json`, `-2.json` | F3-AUTOR-01..05 | offen |
-| F3-AUTOR-49..56 | Autor | Varianten-Regel: 4 Schlüsselbeweise (je 2 Autoren) | `texte/beweis-<pfad>-vN.json` | F2 | offen |
-| F3-AUTOR-57..64 | Autor | Varianten-Regel: Gruppenwahl-Dilemmata der 4 Kernrollen (je 2 Autoren) | `texte/dilemma-<name>-vN.json` | F3-AUTOR-01, F3-AUTOR-06..09 | offen |
+| F3-AUTOR-49..50 | Autor | Varianten-Regel: Texte der 4 Schlüsselbeweise (Spur `zeigt`/`harmlos`), 2 Fassungen als Vorschlag | – (Bericht, ORCH übernimmt in den Kanon) | F2 | offen |
+| F3-AUTOR-57..58 | Autor | Varianten-Regel: Rundenwahl der 4 Kernrollen mit Sabotage, 2 Fassungen | `texte/wahlen-kern.json` (Fassung im Bericht, ORCH wählt) | F2 | offen |
 | F3-BAUMEISTER-02 | Baumeister | Bildprompt-Generator aus Kanon-Feldern + Test | `party/bildprompts.dart`, `bin/party_prompts.dart`, `bildprompts.json`, `test/party/bildprompt_test.dart` | F1 | offen |
 | F3-KONT-01..10 | KONT | Stapelprüfung gegen Kanon und Tatmatrix | – (Bericht) | Autoren | offen |
 | F3-SENS-01..05 | SENS | Stapelprüfung Ton, Inhalt, Klischee, Namensbalance | – (Bericht) | Autoren | offen |

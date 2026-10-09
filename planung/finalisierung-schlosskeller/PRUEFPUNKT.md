@@ -11,7 +11,7 @@ STAND · Bauphase F3 von F7 · Abnahme 6 von 17 (F-01..F-05, F-07; F-06/F-08 vor
 
 ## Stand der Arbeit
 - Branch `finalisierung-schlosskeller` (Upstream origin/finalisierung-schlosskeller). F0-, F1- und F2-Tor bestanden.
-- F3 als Nächstes (PLAN F3-*; Entwurf der Textsammlung in F3-ENTWURF-TEXTSAMMLUNG.md). Kanon in `content/party/schlosskeller/`, Schemas in `content/party/schema/`, Kern in `packages/mordakte_core/lib/src/party/`.
+- F3 läuft (PLAN F3-*; Textsammlung: content/party/schlosskeller/texte/SCHLUESSEL.md). Kanon in `content/party/schlosskeller/`, Schemas in `content/party/schema/`, Kern in `packages/mordakte_core/lib/src/party/`.
 - Prüfen: `cd packages/mordakte_core && dart run bin/party_pruefen.dart` (Plausibilität), `dart test test/party`, `dart run bin/party_simulate.dart`; Gesamt: `tool/pruefen.sh alles`.
 - Karten-Probelauf: `flutter build web --release --no-web-resources-cdn -t lib/game/dev/preview_main.dart -o build/web_party_preview`, dann `cd tool/e2e && node foto.mjs` (Fotos in `tool/e2e/fotos/`, dem Nutzer zeigen).
 - Laufende Aufträge: keine. Worktrees starten auf main (L-03): Code-Aufträge beginnen mit `git checkout --detach <commit>`.

@@ -520,3 +520,15 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
 - **Regelkreis Lernen:**
   - **L-04:** Prüfaufträge stellen das Rollenbriefing wortgleich aus ROLLENBRIEFINGS.md voran. In F2-FALL-01 und F2-GEGEN-01 war es gekürzt.
   - **L-05:** Aufträge, die nur neue Dateien anlegen, laufen ohne eigenen Arbeitsbaum direkt im Repo. Rückgaben werden vor dem Commit selbst nachgeprüft.
+
+## E-026 · F3: Textsammlung und Zuschnitt der Autorenaufträge (F3-ORCH-00)
+- **Textsammlung** unter `content/party/schlosskeller/texte/`:
+  - Index, je Auftrag eine Datei, Schemas je Bereich (`texte-*.schema.json`).
+  - Lader und Zusammensetzer: `party/texte.dart`. Prüfungen: `textVerweise` und `textLuecken`. Anleitung: `texte/SCHLUESSEL.md`.
+- **Verweise statt Abschrift.** Dossiers nennen Tatsachen als `beobachtung:`, `luege:`, `nebendelikt:`, `zeitleiste:` oder `spur:`. Das Trenner-Wissen setzt der Code je Pfad ein. So kann niemand pfadabhängiges Wissen falsch abschreiben.
+- **P-1 maschinell.** Pflichtgespräche geben nur eigene Pflichtgespräch-Beobachtungen und die Behauptung eigener Lügen preis. Nebendelikte bleiben am Tisch verborgen; sonst schließt die Runde mit einem Alibi aus Runde 1 zu früh aus.
+- **Eine Quelle für Wahltexte.** Sie stehen in `texte/wahlen-*.json`; `gruppenwahl.json` hält nur noch die Struktur.
+- **Aufträge:**
+  - Entfallen als Schreibaufträge: F3-AUTOR-31..35. Bonus-, Indiz- und Entscheidungstexte stehen schon im Kanon und werden in den KONT- und SENS-Stapeln mitgeprüft; Korrekturen macht ORCH.
+  - Varianten-Regel: F3-AUTOR-36..38 (Intro), F3-AUTOR-49..50 (Texte der vier Schlüsselbeweise als Vorschlag) und F3-AUTOR-57..58 (Wahltexte der Kernrollen, je zwei Fassungen).
+  - Die übrigen Zuschnitte bleiben (Dossiers in Viererblöcken, Gespräche je Runde und Block).
