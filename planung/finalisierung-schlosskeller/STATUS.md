@@ -1,4 +1,4 @@
-STAND · Bauphase F4 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 130 von 175 · Agenten aktiv 1 · nächster Schritt: E2E-Gerüst (F4-BAUMEISTER-07) abnehmen, dann 84 E2E-Läufe, Spiel- und Sichtprüfung, Hub-Kachel nach origin, F4-Tor
+STAND · Bauphase F4 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 132 von 175 · Agenten aktiv 2 · nächster Schritt: 84 E2E-Läufe auswerten (Hintergrund), Raumfotos, Spiel- und Sichtprüfung (F4-SPIEL/SICHT), F5-Prüfrückgaben abnehmen, F4-Tor
 
 # STATUS
 
