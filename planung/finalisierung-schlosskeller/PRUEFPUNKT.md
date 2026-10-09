@@ -1,6 +1,6 @@
 # PRÜFPUNKT · Wiederaufnahme
 
-STAND · Bauphase F4 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 132 von 175 · Agenten aktiv 2 · nächster Schritt: 84 E2E-Läufe auswerten (Hintergrund), Raumfotos, Spiel- und Sichtprüfung (F4-SPIEL/SICHT), F5-Prüfrückgaben abnehmen, F4-Tor
+STAND · Bauphase F5 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 138 von 177 · Agenten aktiv 0 · nächster Schritt: zweite E2E-Matrix auf eacf0b4 auswerten (läuft), dann Spiel- und Sichtprüfung F4-SPIEL/SICHT, F4- und F5-Tor
 
 ## Nach einem Neustart oder in einer neuen Sitzung
 1. `cd /home/user/werwolf_digital_flutter && git checkout finalisierung-schlosskeller` (lokal; falls fehlend: `git fetch origin finalisierung-schlosskeller` bzw. Sicherungsbranch `claude/universal-prompt-orchestrator-trt8uu`).
@@ -14,10 +14,12 @@ STAND · Bauphase F4 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 
 - F4 läuft (E-030 bis E-032):
   - Fertig: Karte, Sitzung, Karten-Session, `SzenenErweiterung` im Renderer, alle Bildschirme, Requisiten, Rückblende, Tests (126 Widget-Tests, `karte_test`, `figuren_konsistenz_test`).
   - Fertig auch: E2E-Gerüst `tool/e2e/e2e.mjs` (E-034), Hub-Kachel.
-  - Offen: 84 E2E-Läufe (`cd tool/e2e && node e2e.mjs --parallel 2`, gut 1 h, Bericht `tool/e2e/fotos/e2e/bericht.md`), Raumfotos (`node raeume.mjs fotos/raeume`), Spiel- und Sichtprüfer (F4-SPIEL-01/02, F4-SICHT-01/02 in `auftraege/`), Tor F-12/F-13.
+  - Erste Matrix 83/84 auf altem Stand. Fehlerursache: Fotostelle vor dem Zeichnen gemeldet, behoben in `eacf0b4`.
+  - Zweite Matrix auf `eacf0b4` läuft (`cd tool/e2e && node e2e.mjs --parallel 2`, Log im Scratchpad, Bericht `tool/e2e/fotos/e2e/bericht.md`). Raumfotos liegen in `tool/e2e/fotos/raeume`.
+  - Danach: Spiel- und Sichtprüfer (F4-SPIEL-01/02, F4-SICHT-01/02 in `auftraege/`, Workflow mit `wf_bauen.py` aus `f4_pruef.json`), Tor F-12/F-13.
   - Web-Fassung für Prüfläufe immer aus einem sauberen Worktree auf HEAD bauen (E-034), nie aus dem Arbeitsbaum, solange Testagenten Rot-Proben setzen.
 - Entwickler-Einstieg: `build/web` mit `?party=schlosskeller&pfad=…&n=…&skript=best,a,richtig&takt=…&zeitraffer=…&fotos=0|1&fotopause=…` oder `&bis=<phase>&at=x,y&zoom=…`. Probelauf: `cd tool/e2e && node probe.mjs "<parameter>" <ordner>`, Raumfotos: `node raeume.mjs <ordner>`.
-- F5: Druckmodell und alle Druckteile fertig (E-031, E-033), CLI `dart run bin/party_druck.dart --code … --n … --aus …`, Druckfassung in der App (`lib/party/druck_tafel.dart`, E-034). Offen: F5-TEST-01/02 und F5-DRUCK-01/02 (Workflow f5-pruef), Tor F-09/F-14.
+- F5: Druckmodell und alle Druckteile fertig (E-031, E-033), CLI `dart run bin/party_druck.dart --code … --n … --aus …`, Druckfassung in der App (`lib/party/druck_tafel.dart`, E-034). F5-TEST-01/02 und F5-DRUCK-01..04 abgenommen (E-035, E-036). Offen: Tor F-09/F-14.
 - Orte im Repo:
   - Kanon: `content/party/schlosskeller/`
   - Textsammlung: `texte/`, Schlüssel in `texte/SCHLUESSEL.md`

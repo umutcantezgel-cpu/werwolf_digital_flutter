@@ -1,4 +1,4 @@
-STAND · Bauphase F4 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 132 von 175 · Agenten aktiv 2 · nächster Schritt: 84 E2E-Läufe auswerten (Hintergrund), Raumfotos, Spiel- und Sichtprüfung (F4-SPIEL/SICHT), F5-Prüfrückgaben abnehmen, F4-Tor
+STAND · Bauphase F5 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 138 von 177 · Agenten aktiv 0 · nächster Schritt: zweite E2E-Matrix auf eacf0b4 auswerten (läuft), dann Spiel- und Sichtprüfung F4-SPIEL/SICHT, F4- und F5-Tor
 
 # STATUS
 
@@ -12,6 +12,7 @@ STAND · Bauphase F4 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 
 | 09.10.2026, später Abend | F2-Tor bestanden: Entscheidungsmodell (E-024), 36 Hinweise, Gruppenwahl-Gerüst, Simulator 0,3 s, 142 Party-Tests; Gegenprüfung eingearbeitet (E-025: Qualität verborgen, Überführung braucht Fundort, Optionen gemischt) | 6 / 17 | 0 | E-024, E-025 |
 | 09.10.2026, Nacht | F3: Welle 1 (Dossiers, Täter, Detektiv, Intro) und Welle 2a (180 Gespräche, Runden, Auflösung) abgenommen; Gesprächsplan mit Höchstlast; Fundtexte und Kern-Wahltexte gewählt; main (Burgstadt-Strang) zurückgemergt | 6 / 17 | 0 | E-026 bis E-028 |
 | 09.10.2026, später Abend nach Neustart | F3-Tor bestanden: 10 KONT- und 5 SENS-Berichte abgenommen, Nachbesserung II der Gespräche (133 von 180) und der 16 Finaltexte (Ausgangsregel), F3-TEST-01 (Dossier, Erzähler, Spoiler über Pfadmengen); 228 Party-Tests, 250 Kern-Tests, `tool/pruefen.sh alles` grün | 9 / 17 | 0 | E-029 |
+| 09.10.2026, später Abend II | F4/F5: E2E-Gerüst (E-034), Druckfassung in der App, Druck ohne Spoiler für den Drucker (E-035, E-036: Wertcodes, Sabotage-Streifen in der Fassung, vier gleiche Fassungsseiten), Gästewissen über den Erzähler (F-09), erste E2E-Matrix 83/84 (Semantik unter Last, behoben), 372 Kern- und 129 Widget-Tests | 9 / 17 | 0 | E-034 bis E-036 |
 | 09.10.2026, Nacht | F4: Karte, Sitzung, Renderer-Erweiterung (E-030); 8 Bildschirme, 2 Testaufträge abgenommen (E-031); Party-Requisiten, Seifenblasen, Gags; Dossier in der Du-Form, Rückblende nach Uhr (E-032); Druckmodell F5 vorgezogen; ganze Abende im Browser mit Fotos, 0 Fehler | 9 / 17 | 0 | E-030 bis E-032 |
 
 ## Nutzerwünsche (gelten dauerhaft)
