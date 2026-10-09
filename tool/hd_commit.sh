@@ -51,37 +51,44 @@ for p in "${PFADE[@]}"; do
   esac
 done
 
-# 4 · Schnelllauf (entfällt, wenn nur hd/ betroffen ist)
-NUR_DOKU=1
-for p in "${PFADE[@]}"; do
-  case "$p" in hd|hd/*) ;; *) NUR_DOKU=0 ;; esac
-done
-if [ "$NUR_DOKU" = 0 ]; then
-  LOG="$(mktemp)"
-  bash tool/alle_tests.sh schnell > "$LOG" 2>&1
-  if ! grep -aq "ALLE TESTS GRÜN" "$LOG"; then
-    echo "NICHT GRÜN – kein Commit. Letzte Zeilen:"
-    filter < "$LOG" | tail -20
-    exit 1
-  fi
-  echo "Schnelllauf grün."
-  # 5 · Layout-Prüfsumme gleich dem Ausgang (sobald das Werkzeug existiert, P0-AUTOR-01)
-  if [ -f tool/layout_pruefsumme.dart ]; then
-    LP="$(dart run tool/layout_pruefsumme.dart --pruefe 2>&1 | filter)"
-    echo "$LP" | tail -3
-    if ! echo "$LP" | grep -q "LAYOUT GLEICH"; then
-      echo "LAYOUT-PRÜFSUMME WEICHT AB – kein Commit"
-      exit 1
-    fi
-  fi
-fi
-
-# 6 · nur die genannten Pfade aufnehmen
+# 4 · nur die genannten Pfade aufnehmen
 git add -- "${PFADE[@]}" || exit 1
 if git diff --cached --quiet; then
   echo "Nichts zu committen."
   exit 0
 fi
+
+# 5 · Schnelllauf in einem sauberen Arbeitsbaum, der genau HEAD + die aufgenommenen Pfade enthält
+#     (parallele Pakete im Arbeitsbaum stören den Lauf nicht); entfällt, wenn nur hd/ betroffen ist
+NUR_DOKU=1
+for p in "${PFADE[@]}"; do
+  case "$p" in hd|hd/*) ;; *) NUR_DOKU=0 ;; esac
+done
+if [ "$NUR_DOKU" = 0 ]; then
+  SAUBER="$(mktemp -d)/baum"
+  LOG="$(mktemp)"
+  git worktree add --detach -q "$SAUBER" HEAD || exit 1
+  aufraeumen() { git worktree remove --force "$SAUBER" >/dev/null 2>&1 || true; }
+  if ! git diff --cached --binary | git -C "$SAUBER" apply --whitespace=nowarn; then
+    echo "Übertragen in den sauberen Baum fehlgeschlagen – kein Commit"
+    aufraeumen; git reset -q -- "${PFADE[@]}"; exit 1
+  fi
+  for d in .dart_tool packages/*/.dart_tool tool/ton/.dart_tool server/.dart_tool; do
+    if [ -d "$d" ]; then mkdir -p "$SAUBER/$(dirname "$d")" && cp -a "$d" "$SAUBER/$d"; fi
+  done
+  (cd "$SAUBER" && bash tool/alle_tests.sh schnell) > "$LOG" 2>&1
+  aufraeumen
+  if ! grep -aq "ALLE TESTS GRÜN" "$LOG"; then
+    echo "NICHT GRÜN – kein Commit. Letzte Zeilen:"
+    filter < "$LOG" | tail -20
+    git reset -q -- "${PFADE[@]}"
+    exit 1
+  fi
+  echo "Schnelllauf grün (sauberer Baum)."
+  grep -a "LAYOUT" "$LOG" | tail -2
+fi
+
+# 6 · Commit
 git commit -q -F - <<MSG || exit 1
 $NACHRICHT
 
