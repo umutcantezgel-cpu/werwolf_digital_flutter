@@ -10,6 +10,7 @@
 6. **Qualitätsmaßstab** (A-8 §1.2: spürbare Folge, Bild/Witz/Grusel, konkrete Stufentexte, keine neuen Spuren)
 7. **Grenzen**, mit diesem Absatz wortgleich:
    > Werkzeuge der Agenten: nur Read, Grep, Glob, Write, Edit und Bash. Nie: `mcp__claude-code-remote__*`, `mcp__github__*`; Agent, Workflow, SendMessage, TaskStop, Monitor, EnterWorktree, ExitWorktree, Skill; WebFetch, WebSearch, Artifact, `mcp__Claude_Docs__*`; nie ToolSearch. Du führst nie `git` aus und betrittst nie `$BW` oder einen anderen Checkout. Du schreibst nur die Dateien deines Auftrags. Keine Installation, kein Netzwerk. Heredocs nur mit `<<'EOF'`. Würfle nie selbst; Startwerte stehen im Auftrag.
+   Danach wortgleich: „Deine Rückgabe gibst du mit SubagentHandback ab.“
 8. **Nummerierte Schritte mit Mengen**
 9. **Muster** (als Illustration gekennzeichnet; vielfältig; nie kopieren)
 10. **Ausgabeschema** (JSONL nach `/home/user/bw-varianten/<welle>/<kennung>.jsonl`, Code als Datei im Pool-Platz)

@@ -161,7 +161,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 ### A4.9 Agenten
 - Haiku-Agenten haben nur Werkzeuge nach A4.2. Jeder Auftrag nennt absolute Pfade.
 - **Pool-Plätze sind Kopien ohne Git:** höchstens 6 Plätze `/home/user/bw/01…06`, jeder in FLUG.md eingetragen. Das Skript liest `$BW` und `$POOL` aus `env.sh` (`BW` aus dem Pfad von env.sh, `POOL` Standard `/home/user/bw`), damit der Meta-Trockenlauf beides umlenken kann.
-  - Anlegen und Zurücksetzen nur mit `bash $BW/tool/bollwerk/pool_reset.sh <NN> <sha>`. Das Skript bricht ab, wenn `<NN>` nicht `01`–`06` ist oder der Platz nicht in FLUG.md steht. Es führt aus: `rm -rf /home/user/bw/<NN> && mkdir -p /home/user/bw/<NN> && git -C /home/user/bollwerk archive <sha> | tar -x -C /home/user/bw/<NN>`, danach `pub get --offline` in allen 8 Paketen des Repos (Wurzel, 5 Pakete, `server`, `tool/ton`) und in `tool/bollwerk/look_anker`.
+  - Anlegen und Zurücksetzen nur mit `bash $BW/tool/bollwerk/pool_reset.sh <NN> <sha>`. Das Skript bricht ab, wenn `<NN>` nicht `01`–`06` ist oder der Platz nicht in FLUG.md steht. Es führt aus: `rm -rf /home/user/bw/<NN> && mkdir -p /home/user/bw/<NN> && git -C $BW archive <sha> | tar -x -C /home/user/bw/<NN>`, danach `pub get --offline` in allen 8 Paketen des Repos (Wurzel, 5 Pakete, `server`, `tool/ton`) und in `tool/bollwerk/look_anker`.
   - Daneben liegt je SHA eine schreibgeschützte Basis `/home/user/bw/basis-<sha7>` (gleich angelegt, dann `chmod -R a-w`).
   - Haiku ruft nie `git` auf. Den Patch erzeugt Opus: `diff -ruN -x .dart_tool -x build -x '.flutter-plugins*' /home/user/bw/basis-<sha7> /home/user/bw/<NN> > /home/user/bw-varianten/<welle>/<kennung>.patch`. Vor `git apply --check` in `$BW` prüft Opus, dass der Patch nur die Dateien des Auftrags berührt.
   - Teil 7 jeder Auftragsvorlage enthält wortgleich: „Du führst nie `git` aus und betrittst nie `$BW` oder einen anderen Checkout.“
@@ -179,7 +179,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 - „Unteragenten unterliegen denselben Grenzen; jeder Auftrag nennt sie.“
 - **Keine Backticks in Heredocs (L-01), für Opus und Agenten:** Heredocs nur mit `<<'EOF'` (Anführungszeichen); Texte mit Backticks schreibt man mit Write. Im Meta-Lauf hat ein Heredoc ohne Anführungszeichen einen Push ausgeführt (FUER-DEN-NUTZER §1 auf `bollwerk-plan`).
 - Mutanten und Rot-Proben laufen nur in Wegwerf-Worktrees und werden nie committet.
-- **Erwartete Refs (V-13):** Vorwärtsbewegungen von `bollwerk-leitstand` (nur `planung/bollwerk/leitstand/**`), neue Refs `archiv/*`, `bollwerk-mc`, `bollwerk-plan`, `bollwerk-probe`, `bollwerk-rueckweg`, neue `claude/*`-Branches anderer Sitzungen, Commits des Nachtlaufs Burgstadt (main, `nachtlauf/*`) und der Finalisierung. Sie kommen nur ins NACHTPROTOKOLL.
+- **Erwartete Refs (V-13):** Vorwärtsbewegungen von `bollwerk-leitstand` (nur `planung/bollwerk/leitstand/**`), neue Refs `archiv/*`, `bollwerk-mc`, `bollwerk-plan`, `bollwerk-probe`, `bollwerk-rueckweg`, neue `claude/*`-Branches anderer Sitzungen, Commits des Nachtlaufs Burgstadt (main, `nachtlauf/*`), der Finalisierung (`finalisierung-schlosskeller`), `kern-feinkorn` und `loop/*`. Sie kommen nur ins NACHTPROTOKOLL.
 - **Stolperdraht nach jeder Welle:** `git ls-remote origin` mit dem Bild der letzten Welle vergleichen. Rot ist er nur bei:
   - einem gelöschten Ref
   - einem Ref, dessen alter Stand kein Vorfahr des neuen ist
@@ -210,3 +210,10 @@ Jede Datei aus `git diff --name-status $B HEAD` außerhalb der Schreib-Erlaubnis
 - **FEINKORN-Importregel (BE-01):** `lib/game/**` und `lib/party/**` importieren aus `pixel_engine` nur `package:pixel_engine/feinkorn_leben.dart`. Diese Datei legt der Lauf beim Übernehmen von `1145cb9` an; sie exportiert nur Physik, Starrkörper, Material, Schattenkarte und das Gelenkgerüst (Leben, kein Aufbau). Sperrliste (Startwert, BW0 prüft sie an `1145cb9` und ergänzt sie in `planung/bollwerk/messbasis/sperrnamen.txt`): `baueFigur`, `Gelenkweg`, `Blockkoerper`, `backeWolke`, `IsoAnsicht`. Jeder Treffer im Importgraph von `lib/main.dart` ist rot (L0.5, Z-30, S5).
 - **textPfade (B5 T1–T5):** `packages/burgstadt_core/data`, `packages/burgstadt_spiel/data/texte`, `packages/pixel_engine/data/figuren`, `nachtlauf/kanon`, `krimidinner/spuk-im-gewoelbe/10_kanon`.
 - **ORCH-Dateien (B5 R4):** `pubspec.yaml`, `packages/mordakte_core/pubspec.yaml`, `packages/mordakte_core/lib/mordakte_core.dart`, `lib/l10n/app_de.arb`, `analysis_options.yaml`, `build.sh`, `lib/app/router.dart`, `lib/main.dart`, `lib/ui/screens/hub_screen.dart`, `.gitignore`.
+
+### Nachtrag M6 (Skeptiker-Runde)
+- `--update-goldens` nur im Commit `LOOK-ANKER neu · <Grund>` (Z-17); BW0 schreibt sha256 aller Dateien unter `tool/bollwerk/look_anker/` und `tool/bollwerk/mutanten/` nach `messbasis/` (eingefroren wie die Messbasis); L0 prüft sie.
+- `planung/bollwerk/belege/**` schreibt nur das Torwerkzeug. Zwischenziele in PLAN.md ändern sich nur nach oben oder per Neuplanung mit ENTSCHEIDUNGSLOG-Eintrag (höchstens zweimal, Abschnitt 8).
+- Nach einer Verdichtung liest du Master-Prompt und Anhänge mit `git show P:<pfad>` (P = Übergabe-SHA), nicht aus dem Arbeitsbaum.
+- Schreib-Erlaubnis vor B-02 zusätzlich: `packages/mordakte_core/test/web/kanon_eingebettet.g.dart` (Kanon-Generator, A-5 L3).
+- Steuerung: ein B-02- oder FREIGABE-Eintrag gilt nur mit „gilt für: Nacht“ oder „alle“. Annahmen-Schlüssel „A12“ und „A-12“ sind gleichwertig. Einträge außerhalb der Weißliste bekommen `QUITTUNG S-<n> · <UTC> · abgelehnt <grund>`; „WEITER BOLLWERK“ hebt einen STOPP auf.

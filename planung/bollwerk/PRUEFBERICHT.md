@@ -6,7 +6,7 @@ Alle Ergebnisdateien liegen im Scratchpad des Meta-Laufs (`erg/M6-*`); dieser Be
 | Runde | geprüfte Fassung | Summe | Nullen | Freigabe |
 |---|---|---|---|---|
 | 1 | ältere Kopie (Prompt 38.392 Byte, versehentlich ein veralteter Wegwerf-Baum) | 17/26 | 0 | nein |
-| 3 | `7b9e62b` + Schriftprüfungs-Umformulierung (= `c81d777`) | __RUBRIK3__ | __NULLEN3__ | __FREIGABE3__ |
+| 3 | `7b9e62b` + Schriftprüfungs-Umformulierung (= `c81d777`) | **21/26** (P4, P5, P7, P8, P9 je 1) | 0 | **nein** (Schwelle 23) |
 
 Die Mängel der Runde 1 sind alle eingearbeitet: Sitzungskennung, MAINBASIS, Regelkreise mit Folgen, Tokenrahmen in Einheiten, Zeitplan mit E, KERNKARTE beim Start, A-2-Definitionen, Doppelungen im Anhang. Die Einzelnachweise stehen im Commit `7b9e62b`.
 
@@ -76,4 +76,24 @@ ROT-1 brach beim ersten Versuch an einem Filter ab, weil die Wortwahl „Rotes T
 Folge für den Nachtlauf: Audit nach jeder Welle; ein schreibender Verstoß führt zu ABBRUCH, ein lesender kommt ins NACHTPROTOKOLL.
 
 ## 6. Nach der Rubrik geändert (nicht mehr bewertet)
-__NACHTRAG__
+Mehr als drei Prüfrunden sind nicht erlaubt (§9). Die Mängel der Rubrik-Runde 3, die bestätigten BLOCKER der Skeptiker, Linse 10 und die kleinen Lücken aus Kaltstart 3b sind danach eingearbeitet, aber **nicht neu bewertet**. `git diff --stat c81d777 HEAD` umfasst über alle Commits danach Prompt, Startpaket und Anhänge mit 7 Dateien, 39 Zeilen hinzu und 24 Zeilen weg.
+
+| Rubrik-Mangel | Änderung |
+|---|---|
+| P4 | Hereinholen von main in BW8 höchstens einmal je Generation, danach MAINBASIS; nach „kein Fortschritt“ startet der Leitstand erst nach WEITER BOLLWERK |
+| P5 | `messbasis/abend.json` als einzige spätere Messbasis-Datei; §0 auf f = 15, 6, 4, 40, 9 (U = 10,52); Vorrang zwischen Anhängen; ABBRUCH-Liste mit fehlendem Übergabe-SHA; FREIGABE-K aus STEUERUNG; Z-08 macht `ziel` nicht rot; SubagentHandback-Satz in A-6; Jaccard einheitlich 0,25; `$BW` in A4.9 |
+| P7 | Gremium-Protokollauszüge im Repo statt aus `~/.claude`; A-9 §9 „Nicht belegt“ (TaskStop, Modellzuordnung opus, `resetsAt`, `get_session`) |
+| P8 | `env.sh`-Präfix erst ab Schritt 3; `mkdir … /home/user/bw-logs` vor dem Download; 2.3 und §13 in gleicher Reihenfolge; `R` aus LAUF.md in jedem Befehl |
+| P9 | Audit-Standardwurzeln mit `/home/user/bw-varianten/` und `/home/user/bw/01–06/`, Write nach `$BW` rot; Sperrzähler-Satz erfüllbar; Queransicht ab BW7 voll gezählt |
+
+Weitere Änderungen nach der Rubrik:
+- Skeptiker und L10: STOPP gilt dauerhaft bis WEITER, und vor jedem main-Push läuft am MC das Tor `phase`.
+- A-26: X2 als Lesebreite, dazu U_streng.
+- A-2 „Nachtrag M6“ mit Goldens, Belegen, Zwischenzielen, Lesen aus P und Steuerungsregeln.
+- Glossar-Verweis für Fremdleser.
+- Prompt-Größe danach: 54.843 Byte.
+- Schriftprüfung, Modellprobe und `kriterien.sh` nach den Änderungen erneut: bestanden.
+
+**Offen benannte Schwäche:** Die Freigabe-Schwelle der Rubrik (≥ 23/26) ist an einer bewerteten Fassung nicht erreicht. Die gelieferte Fassung ist nicht unabhängig bewertet.
+
+**Empfehlung:** Vor START BOLLWERK bewertet ein frischer Opus-5.5-Agent die gelieferte Fassung einmal mit der Rubrik (≈ 20 min); der Leitstand kann das im Vorlauf tun.

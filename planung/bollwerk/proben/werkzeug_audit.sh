@@ -5,7 +5,8 @@
 #   2. Bash-Befehle mit git-Schreibbefehlen (commit, push, reset, checkout, merge, rebase, tag, branch -d/-D, worktree),
 #      Netzwerkzugriff (curl, wget), Installationen (pip, npm, pub global), flutter build, --update-goldens
 #      oder Löschbefehlen außerhalb der Schreibwurzel,
-#   3. Write/Edit außerhalb der Schreibwurzeln (Standard: Scratchpad und /home/user/bw-arbeit/).
+#   3. Write/Edit außerhalb der Schreibwurzeln (Standard: Scratchpad, /home/user/bw-varianten/, /home/user/bw/01–06/,
+#      /home/user/bw-arbeit/); jeder Write nach $BW ist damit rot. Im Nachtlauf: nur die agentIds der Welle aus FLUG.md prüfen.
 # Zitierte Teile ('…', "…") werden vor dem Bash-Abgleich entfernt (grep-Muster sind keine Befehle).
 # Aufruf: bash werkzeug_audit.sh [protokollordner] [schreibwurzel-regex]
 # Exit 0 nur bei ≥ 1 geprüftem Agenten und 0 Verstößen. Mit SOLL=<n> (Zahl der Agenten laut FLUG.md) zusätzlich rot,
@@ -13,7 +14,7 @@
 set -uo pipefail
 erlaubt='^(Read|Grep|Glob|Write|Edit|Bash|SubagentHandback)$'
 dirs=${1:-$(ls -d ~/.claude/projects/*/*/subagents 2>/dev/null)}
-wurzel=${2:-'^(/tmp/claude-[0-9]+/[^/]+/[^/]+/scratchpad/|/home/user/bw-arbeit/)'}
+wurzel=${2:-'^(/tmp/claude-[0-9]+/[^/]+/[^/]+/scratchpad/|/home/user/bw-arbeit/|/home/user/bw-varianten/|/home/user/bw/0[1-6]/)'}
 bash_rot='(^|[;&|( ]) *git +(commit|push|reset|checkout|switch|merge|rebase|tag|worktree|update-ref|branch +-[dDmM])|(^|[;&|( ]) *(curl|wget|ssh|scp) +(-|https?:)|rm +-[a-zA-Z]*r[a-zA-Z]* +/(home/user/werwolf|root)|(^|[;&|( ]) *(pip3?|npm|pnpm|yarn) +(install|i |add)|pub +global|flutter +build|--update-goldens'
 verstoss=0; agenten=0
 for d in $dirs; do for f in "$d"/agent-*.jsonl; do

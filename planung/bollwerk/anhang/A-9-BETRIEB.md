@@ -76,3 +76,9 @@ Vor jeder Runde schreibt Opus `git diff K HEAD -- . ':!planung/bollwerk' > /home
 
 ## 7. Glossar
 B-02 Startbedingung (Finalisierung fertig) · K der B-02-Commit · R Release-SHA · MC Merge-Commit des Leitstands · BW0…BW8 Phasen · V Vorlauf · LEASE/FENSTER/ZUSTAND Zeilen in LAUF.md · S-/F-<n> Einträge in STEUERUNG/BEFUNDE · Ring 0–9 Prüfmauer · L0–L10 Schichten des Torwerkzeugs · X1–X6 Umfangsachsen · U Zuwachsfaktor · F1–F5 Füllstoffprüfung · D1–D3 Designnachweis · S1–S5 Stilprüfung · WÜ-1…6 Würfelregeln · C1–C9 Mechanik (A-4) · K-01…K-26 Kern-Aussagen (A-4) · BE-01…14 Entscheidungen, A-01… Annahmen (A-1) · Pool-Platz `/home/user/bw/NN` (Kopie ohne Git) · Würfelpate (wer den Wurf tippt) · Tischruf (Gruppenentscheidung nach Pech) · Seifenblasen-Marke (+1 auf einen späteren Wurf).
+
+## 9. Nicht belegt (im Meta-Lauf nicht geprüft)
+- Ob `TaskStop` Hintergrund-Agenten beendet: wenn nicht, verwirfst du ihre Ausgaben und setzt FLUG auf `verloren`.
+- Ob `model: "opus"` auf `claude-opus-5-5` zeigt: in der ersten Opus-Welle die Modellzeile im Protokoll prüfen; weicht sie ab, keine Opus-Agenten mehr, Eintrag in FUER-DEN-NUTZER.
+- `rate_limit_info`/`resetsAt` (STARTPAKET §4): fehlt das Feld, gilt jetzt + 60 min als Wiederaufnahme.
+- Sitzungskennung über `get_session` (Abschnitt 0, L-8).
