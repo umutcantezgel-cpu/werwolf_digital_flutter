@@ -14,11 +14,11 @@ Teil 1 sind die Festlegungen des Meta-Laufs (gehen vor). Teil 2 ist der Pflichti
 | X6 sichtbare Aktionsarten mit Animation | 2 | **Mindestbasis 5** (Bestand 1: gehen) | Wert ÷ max(5, Basis) |
 | X5 Weißlisten-Zusatzfunde | – | **kein Index, Pflichtziel ≥ 14** pfadgleiche Zusatzfunde verdrahtet | – |
 
-U = exp(Σ g·ln f ÷ Σ g), Σ g = 9, f gedeckelt bei 100; jede Indexachse ≥ 3×; keine Achse > 40 % von ln U. Planziel F = 10 mit f = (15, 6, 4, 30, 9) → U = 10,19 (X1-Anteil 38,9 %).
+U = exp(Σ g·ln f ÷ Σ g), Σ g = 9, f gedeckelt bei 100; jede Indexachse ≥ 3×; keine Achse > 40 % von ln U. Planziel F = 10 mit f = (15, 6, 4, 40, 9) → U = 10,52 (Marge 5 %, X1-Anteil 38,4 %); X4 = 400 Gags (Mindestbasis 10). Zwischenziele rechnet BW0 als f_Ziel × eingefrorene Basis an K − Basis, plus 5 % Reserve; N0 zählt bei allen Achsen mit.
 
 ### 1.2 Füllstoff und Gremium (aus der Fabrikprobe)
 - Ringe 1–6 als Skript (Vorlage `planung/bollwerk/proben/fabrik_ringe.py`): Form, Regeln (`content/party/textregeln.json`, Sperrliste, Gewalt, Bildregeln, Satzlänge, Siezen, Pfeife nur mit Seifenblasen), Kanon (Kennungen, Ort↔Raum, Weißliste, keine Tatzeit-Uhrzeiten, **keine neuen Spuren/Kratzer/Abdrücke an Kanon-Orten**), Erreichbarkeit, Neuheit (Wort-3-Gramm-Jaccard < 0,5, Tupel eindeutig).
-- Ring 7: drei Haiku-Richter blind mit den Linsen Kanon, Ton, Spaß, Skala 0–10; angenommen bei ≥ 2 Stimmen ≥ 7; Spreizung > 2 → zwei weitere Richter (Gesamt), Median aus 5 zählt. Aktionsarten (X6) bekommen eine eigene Rubrik: Lesbarkeit der Pose in 2–4 Schlüsselbildern, Stiltreue, Wiederverwendbarkeit.
+- Ring 7: drei Haiku-Richter blind mit den Linsen Kanon, Ton, Spaß und der Pflichtfrage Wirkung (ja/nein mit Nennung des geänderten Folgefelds aus A-3; nein = Ablehnung), Skala 0–10; angenommen bei ≥ 2 Stimmen ≥ 7; Spreizung > 2 → zwei weitere Richter (Gesamt), Median aus 5 zählt. Aktionsarten (X6) bekommen eine eigene Rubrik: Lesbarkeit der Pose in 2–4 Schlüsselbildern, Stiltreue, Wiederverwendbarkeit.
 - F5-Eichung: In jeden Richter-Stapel kommen 20 Füllstücke (Vorlage im Meta-Lauf: 20/20 abgelehnt); lehnt das Gremium weniger als 18 ab, ist die Welle ungültig.
 - Briefing-Pflichten, die die Annahme von 18 % auf 58 % hoben: jede Variante mit spürbarer Folge (auch ohne Wurf), je Option eine andere Folge, ein Bild-, Witz- oder Gruselmoment, konkrete Stufentexte, Abschnitt „Zugschicht“ im Kern-Auszug.
 
@@ -52,8 +52,8 @@ Buffetsaal/Kaminsaal/Ostsaal am Stand fin@5c83242: Luminanz L* 6,4–10,2; Vigne
 **Formel**
 - f_i = Wert nach Füllstoffprüfung ÷ Basis am B-02-Commit, gedeckelt bei 100.
 - U = exp(Σ g_i · ln f_i / Σ g_i).
-- Die Gewichte legt der Meta-Lauf in M1 fest, mit Begründung (Startwert g = 3, 2, 1, 1, 1, 2: sichtbare Aktionen hoch, Weißlisten-Funde kanongebunden niedrig). Danach ändert sie niemand.
-- (Ersetzt durch Teil 1 §1.1: Planziel f = 15, 6, 4, 30, 9 → U = 10,19, X1-Anteil 38,9 %.)
+- Die Gewichte legt der Meta-Lauf in M1 fest, mit Begründung (festgelegt g = 3, 2, 1, 1, 2 für X1, X2, X3, X4, X6, X5 Pflichtziel: sichtbare Aktionen hoch, Weißlisten-Funde kanongebunden niedrig). Danach ändert sie niemand.
+- (Ersetzt durch Teil 1 §1.1: Planziel f = 15, 6, 4, 40, 9 → U = 10,52; X4 = 400 Gags, X6 = 45 Aktionsarten, X5 nur Pflichtziel ≥ 14.)
 - **Umfangsplan** (aus M4): welche Kombination f_1 … f_6 U ≥ 10 erfüllt und wie viele Aufträge und Stunden (Vorlauf und Hauptlauf) sie braucht. Vorlauf-Ware in `content/runden/` zählt, sobald sie nach B-02 F1–F5 besteht. Reicht eine Hauptlauf-Nacht nicht, setzt der Master-Prompt je Nacht ein Zwischenziel aus diesem Plan (Annahme A-11). Das BK-Kriterium bleibt U ≥ 10; nichts wird still gesenkt.
 
 **Schwellen**
@@ -88,9 +88,9 @@ Buffetsaal/Kaminsaal/Ostsaal am Stand fin@5c83242: Luminanz L* 6,4–10,2; Vigne
 - Neue Orte nur innerhalb der 7 Räume (C5).
 - Ob auch neue Fälle oder Täterpfade dazukommen, ist Annahme A-04 (Standard: nur Schichten).
 
-**Füllstoffprüfung** (`dart run tool/bollwerk/fuellstoff.dart`; ein Stück zählt nur bei F1–F5 grün)
+**Füllstoffprüfung** (`dart run tool/bollwerk/fuellstoff.dart`; ein Stück zählt nur bei F1–F6 grün). Füllstoff = Einheit ohne Wirkung (F3), ohne Erreichbarkeit (F2), Schablonen-Dublette (F4) oder mit Zeitzuwachs (F6).
 - F1 Schema und Inhaltsprüfer: 0 Treffer.
-- F2 Erreichbarkeit: in ≥ 1 L4-Protokoll (bestes Spiel, zufällig, erste Option); 100 %.
+- F2 Erreichbarkeit: in ≥ 1 % der Partien ihres Modus aus dem eingefrorenen Seed-Satz (bestes Spiel, zufällig, erste Option); 100 % der Einheiten.
 - F3 Wirkung:
   - Optionen unterscheiden sich paarweise in ≥ 1 Protokollfeld.
   - Ein Text ist an genau einer Stelle verdrahtet.
@@ -99,9 +99,8 @@ Buffetsaal/Kaminsaal/Ostsaal am Stand fin@5c83242: Luminanz L* 6,4–10,2; Vigne
   - Entscheidungen und Aktionen: Tupel eindeutig.
   - Posen und Bilder: Silhouetten-IoU < 0,9 nach `bewohner_karten.dart` `vergleiche`.
 - F5 Gremium:
-  - Stichprobe 5 % je Welle, mindestens 20, per Seed.
-  - 3 Linsen: Kanon, Ton, Spaß.
-  - Die Welle zählt, wenn ≥ 90 % der Stichprobe von ≥ 2 Stimmen ≥ 7/10 bekommen.
+  - Eine Einheit zählt nur, wenn Ring 7 sie annimmt (3 Linsen Kanon, Ton, Spaß; ≥ 2 Stimmen ≥ 7/10, bei Spreizung > 2 Median aus 5) und ihr Stapel die Füllstück-Eichung besteht: 20 Füllstücke je Stapel, 10 offensichtliche und 10 subtile (F1–F4 grün, ohne Wirkung oder mit Kanon-Nahbruch), per Seed aus ≥ 60 Vorlagen, von Haiku-Bauern der Welle erzeugt; bestanden bei ≥ 18/20 und ≥ 8/10 subtilen abgelehnt.
+- F6 Zeit: Schemafeld `zeit_s` (Gerätezeit, die die Einheit hinzufügt) ≤ 30 s; erhöht eine Einheit im L4-Paarvergleich (mit/ohne, gleicher Seed) die Gerätezeit je Runde, zählt sie nicht.
 - Die Ausschussquote steht stündlich im NACHTPROTOKOLL.
 
 **Spieldauer:** C7. Was die Dauer sprengt, zählt nicht für den Umfang.
@@ -129,7 +128,7 @@ Buffetsaal/Kaminsaal/Ostsaal am Stand fin@5c83242: Luminanz L* 6,4–10,2; Vigne
 - Würfelbühne und Entscheidungskarten
 
 **D2 Blinder Paarvergleich**
-- 42 Paare: 7 Räume × 2 Kanon-Lichtzustände × 3 Ansichten (hoch, quer, Tablet), gleiche Kamera, fester Zeitpunkt (ersetzt die frühere Zahl 28); dazu 7 Bewegungsstreifenpaare.
+- 42 Paare: 7 Räume × 2 Kanon-Lichtzustände × 3 Ansichten (hoch, quer, Tablet), gleiche Kamera, fester Zeitpunkt (ersetzt die frühere Zahl 28); dazu 7 Bewegungsstreifenpaare. Gegen Nebenkanäle (Befund Meta-Probe D2): jedes Paar bekommt eigene, zufällig benannte Kopien, beide Bilder gleich kodiert und auf gleiche Dateigröße gebracht, Metadaten entfernt; ein Urteil mit Sicherheit 1 von 5 zählt nicht als Treffer.
 - Jedes Paar zweimal (A/B, B/A, Reihenfolge per Seed). Die Dateinamen sind Hashes.
 - 5 Haiku-Stimmen plus eine Opus-Stichprobe von 7 Paaren.
 - Bestanden bei ≥ 85 % „nachher besser“ und Mehrheit in jedem Raum.
@@ -139,7 +138,7 @@ Buffetsaal/Kaminsaal/Ostsaal am Stand fin@5c83242: Luminanz L* 6,4–10,2; Vigne
 - 18 Eichbilder, 12 davon mit bekanntem Fehler. Typen: Pixel-3D-Block, Fremdfarbe, Lichtrichtung, Iso-Winkel, abgeschnittene Figur, Textüberlauf.
 - Die Lösung wird erst nach dem Lauf eingecheckt.
 - Das Gremium gilt, wenn die Mehrheit 2/3 ≥ 15/18 richtig liegt und ≤ 1 von 6 einwandfreien Bildern fälschlich meldet.
-- Sonst entscheiden die Strukturmaße allein, und Opus ist Pflichtstimme.
+- Sonst urteilen 3 Opus-Ersatzrichter; D1 ersetzt D2 nie.
 
 **Stilprüfung** (`python3 tool/bollwerk/stil.py`; Pillow und numpy sind vorhanden). Sie misst Stiltreue, nicht Gleichheit. Verglichen wird dieselbe Szene mit derselben Kamera im selben Lichtzustand am B-02-Commit. Der Renderer gibt Masken für Nebel, Licht und Effekte, neue oder ersetzte Requisiten, Figuren und Overlays mit aus; diese Flächen sind ausgeschlossen.
 - S1: Kanten der Stil-Konstanten-Schicht (Böden, Wände, Türen) ≥ 92 % innerhalb ±1 px.
@@ -147,7 +146,7 @@ Buffetsaal/Kaminsaal/Ostsaal am Stand fin@5c83242: Luminanz L* 6,4–10,2; Vigne
 - S3: neue Kanten ≥ 85 % innerhalb ±3° von 0°, 90° oder ±26,57°.
 - S4: Luminanz ±15 % und Vignette ±0,05, nur im Sichtkegel.
 - S5: Importregel BE-01, Teilchen ≤ 3 px.
-- Die Zahlen aus M2 (an den Proben geeicht) ersetzen diese Startwerte einmal vor M5 und stehen danach genau einmal im Master-Prompt.
+- (überholt: die geeichten Zahlen stehen in Master-Prompt Abschnitt 6 und Teil 1.)
 - Gremium ≥ 2/3 „selber Stil“, geeicht mit 6 zusätzlichen Stilbruch-Bildern.
 
 **Leistung und Akku**
@@ -155,3 +154,16 @@ Buffetsaal/Kaminsaal/Ostsaal am Stand fin@5c83242: Luminanz L* 6,4–10,2; Vigne
 - Qualitätsstufen einfach, mittel, hoch. Liegt die Bildzeit 5 s lang über 50 ms, geht es automatisch eine Stufe tiefer. „Einfach“ hat keine Teilchen.
 - Gemessen wird nach L8.
 
+
+### Nachtrag M6 (Prüfrunde 2, gilt vor Teil 2)
+- **F3 Wirkung:** je Option eine Folge aus A-3 „Spürbare Folgen“; bei Nachtminuten ≥ 2 min Unterschied.
+- **F4 Dublette:** Orts-, Gegenstands- und Figurennamen aus den Kanonlisten vor dem Vergleich durch Platzhalter ersetzen; dann Wort-3-Gramm-Jaccard < 0,25 je Paar; höchstens ein Text je Satzskelett.
+- **F2** einheitlich mit A-5 Ring 5: je Einheit in ≥ 1 % der Partien eines L4-Laufs (≥ 2.000 Partien, drei Strategien).
+- **Bildverfahren:** Z-01, D2 und Vorher-Galerie nutzen nur `tool/bollwerk/foto.mjs` (aus `proben/foto_probe.mjs`), Qualitätsstufe „hoch“ fest; Gleichheit zweier Fotoläufe derselben SHA mit `bildgleich.py`, ΔE-Mittel ≤ 1,0 je Bild, Beleg in `belege/L12.txt`. Bewegungsstreifen als 8 Einzelbilder, animiertes WebP nur, wenn `kontaktbogen.py` es in BW0 lernt. Die automatische Qualitätsabstufung gilt nur im Spiel; ob sie Teilchen streicht, ist Frage an FUER-DEN-NUTZER.
+- **Look-Anker:** Vorher-Galerie an K in der Sitzung `party` (7 Räume × 2 Lichtzustände × hoch/quer), bytegleich in `schnell`. Erneuert nur nach Z-17 (eigener Commit `LOOK-ANKER neu · <Grund>`, L12 grün, Bogen im Chat, ENTSCHEIDUNGSLOG); das Verbot des Neuschreibens in Abschnitt 7 gilt für Tore, nicht für diesen Weg. BW0 misst das Ankerbild `origin/kern-feinkorn:planung/feinkorn/bilder/k0/vorher_buffetsaal.png` mit `designmass.py` gegen die Vorher-Galerie (Ergebnis in `belege/L6.txt`).
+- **S2/S4/S6/Licht:** S2 misst ΔE2000 (die Meta-Probe `designmass.py` nutzte ΔE76; BW0 eicht Metrik und Schwelle an der K-Basis). S3 gilt nur für Böden, Wände, Türen. S6: Anteil der Pixel in Quadraten ≥ 4 × 4 px mit einer Füllfarbe und 0°/90°-Kanten in den Masken neuer Figuren und Requisiten ≤ K-Basis + 5 Prozentpunkte (an `eichsatz.py` geeicht: `pixel3d` darüber, die sechs einwandfreien darunter). Masken nur für Nebel, Effekte und die 10 Kanon-Lichtquellen, jede Maskenfläche als Zahl in `belege/S.txt`. `stil.py --eich` spielt die 12 Fehler- und 6 Überladen-Bilder; jeder Fehlertyp macht ≥ 1 Test rot, sonst ist `stil.py` rot.
+- **Abend-Basis (Z-12):** `messbasis/abend.json` entsteht am grünen BW2-Tor; Umfangseinheiten dürfen Abend und Gerätezeit nicht verlängern.
+- **Einheit und Achse (Befunde ROT-1b, L07):** Eine gültige Einheit ist jede angenommene Variante mit F1–F6 grün, gezählt als Zeile der Merge-Datei unter `content/runden/schlosskeller/` (nie als Bauer-Ausgabe). Jede Einheit zählt in genau einer Indexachse nach ihrem Feld `art`: Abstecher und Folgeentscheidung → X1, Gag → X4 (einmal, auch wenn mehrere Einheiten `folge: gag` auslösen), Aktion → X6, Ort → X3; Lacher nur X4, nie zusätzlich X5. X2 zählt Texte mit ≥ 8 Wörtern nach Platzhalter-Entfernung überall in der Schicht, mit demselben Filter wie die Basis; ein mehrfach gleicher Text zählt einmal (X2 misst Lesebreite, deshalb zählen Stufentexte mit; Basis und Wert sind symmetrisch).
+- **Wirkung je Achse (statt F3 allein):** X1 Optionen unterscheiden sich in ≥ 1 Feld des Spielstands (Punkte bleiben unberührt; Nachtminuten, Marken, Kettenstand, Freischaltungen), nicht im Textschlüssel. X3 zählt nur als Feld `ort` ≥ 1 Entscheidung oder ≥ 1 Abstechers, Dublette bei < 1 Kachel Abstand im selben Raum. X4 nur mit genau einer Auslösestelle und Spaß-Urteil ≥ 7. X6 nur, wenn sie `aktion.art` ≥ 1 Entscheidung ist.
+- **Annahme mit fünf Richtern:** Spreizung = höchstes − niedrigstes Urteil. Bei Spreizung > 2 kommen zwei Richter (Linsen Kanon, Ton) hinzu; dann gilt allein der Median der fünf ≥ 7. X6: Lesbarkeit, Stiltreue, Wiederverwendbarkeit je im Median ≥ 7. F5-Eichstücke werden vor dem Merge entfernt und nie gezählt.
+- **Basen:** Ein Skript zählt sie in BW0 an K und schreibt Zahl und Filter nach `UMFANG-BASIS.md`; von Hand wird nichts eingetragen. X6-Basis = Aktionsarten mit Animation ohne Ruhe-Animationen, Nenner max(5, Zahl). (Teil 2 MP-7 nennt X2 = 1.217 und ein überholtes Beispiel; es gilt Teil 1 und dieser Nachtrag.)

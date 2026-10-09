@@ -37,7 +37,7 @@ Gewichte: A-09 (3, 2, 1, 1, 1, 2) geprüft und bestätigt; mit X5 als Pflichtzie
 
 | Szenario | f (X1, X2, X3, X4, X6) | U | größter Anteil an ln U |
 |---|---|---|---|
-| Planziel F (M4) | 15, 6, 4, 30, 9 | **10,19** | X1 38,9 % (< 40 %) |
+| Planziel F (M4, nach M6) | 15, 6, 4, 40, 9 | **10,52** | X1 38,4 % (< 40 %) |
 | konservativ | 12, 5, 3,5, 25, 8 | 8,54 | X1 38,6 % |
 | je Achse nur 3× | 3, 3, 3, 3, 3 | 3,0 | – |
 | Streckziel | 40, 10, 5, 60, 12 | 18,7 | X1 42 % (> 40 %, gekappt) |

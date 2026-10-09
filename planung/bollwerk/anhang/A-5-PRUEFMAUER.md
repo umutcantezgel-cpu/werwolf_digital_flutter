@@ -14,10 +14,10 @@ Teil 1 legt Ringe, Schichten, Befehle, Fallzahlen und Budgets fest (geht vor). T
 | 5 Spiel | erreichbar in Simulationen (F2 ≥ 1 % der Partien), keine Sackgasse, Balance im Band, alle drei Formen | L4, L7 | Sackgassen · 0; F2 ≥ 1 % | Erreichbarkeit je Einheit |
 | 6 Neuheit | kein Beinahe-Duplikat | F4 (Jaccard < 0,5; Tupel eindeutig; Silhouetten-IoU < 0,9) | Dubletten · 0 | Dublettenquote |
 | 7 Qualität | 3 Linsen-Richter + bei Spreizung > 2 zwei weitere, Median; F5 mit 20 Füllstücken | F5, L10, D1–D3, S1–S5 | angenommen ≥ 2 × ≥ 7; F5 ≥ 18/20 abgelehnt | Annahmequote je Slot und Denkstufe |
-| 8 Stichprobe | je Welle per Seed ≥ 10 % und ≥ 20 Einheiten, Opus; bei Wellen > 200 Einheiten ein frischer Opus-5.5-Agent | L10 | 1 Kanon-/Inhalts-/Lösbarkeitsfehler oder > 5 % Fehler → Welle zurück | Fehlerquote |
+| 8 Stichprobe | je Welle per Seed ≥ 10 % und ≥ 20 Einheiten, Opus; bei Wellen > 200 Einheiten ein frischer Opus-5.5-Agent | L10 | 1 Kanon-/Inhalts-/Lösbarkeitsfehler, > 5 % Fehler oder > 2 % Füllstoff (keine Wirkung oder Dublette) → Welle zurück | Fehlerquote |
 | 9 Mutanten | für neuen Code | L9a, L9b | Tötungsrate 100 % (Würfel, Lösbarkeit, Wahrheit, Inhalt, Bestand), ≥ 90 % gesamt | überlebende Mutanten |
 
-Seed jedes Gremiums und jeder Stichprobe: erste 8 Hex von `sha256(<Welle>|<BW0-SHA>)` (vor BW0: `<TOR-SHA>`); die Stichprobenliste steht vor dem Ansehen in REGISTER.md; je Hash genau ein Gremium; jeder Lauf liegt in `planung/bollwerk/belege/gremium/`, auch verworfene.
+Seed jedes Gremiums und jeder Stichprobe: erste 8 Hex von `sha256(<Welle>|<Inhalts-Hash>)`, Inhalts-Hash = sha256 der Merge-Eingaben der Welle (nie HEAD; Herzschlag- und Zustands-Commits gehen nicht ein; gilt auch für Ring 8); ändert sich der Inhalt, entsteht eine neue Prüfung, die im Beleg auf die alte verweist; die Stichprobenliste steht vor dem Ansehen in REGISTER.md; je Hash genau ein Gremium; jeder Lauf liegt in `planung/bollwerk/belege/gremium/`, auch verworfene.
 
 ## Schichten mit Befehl, Fallzahl je Modus und Budget
 
@@ -34,8 +34,9 @@ Seed jedes Gremiums und jeder Stichprobe: erste 8 Hex von `sha256(<Welle>|<BW0-S
 | L8 Leistung | L8a PictureRecorder + Thread-CPU, L8b `messen.mjs` A/B | – | 300 Bilder je Raum; 5 × 20 s | dto. | ≤ 15 min |
 | L9 Mutanten | `bash tool/bollwerk/mutanten.sh` | – | 10 % Rot-Proben | ≥ 40 Mutanten | ≤ 40 min |
 | L10 Gremien | Gremium-Belege prüfen (Hashes, Modell, Eichlauf) | – | ja | ja | ≤ 1 min |
+| L12 Design | `dart run tool/bollwerk/design_mass.dart` (D1) · `python3 -I tool/bollwerk/stil.py --alle` (S1–S6) · `node tool/bollwerk/gremium.mjs d2\|d3` | – | D1, S1–S6 | alles | ≤ 60 min (Schwerlast-Slot) |
 
-Budgets: `schnell` ≤ 9 min, `phase` ≤ 55 min (Schwerlast-Slot), `nacht` ≤ 4 h CPU, `ziel` = `nacht` + L10 + Abnahmetabelle. Endzeile genau `BOLLWERK GRÜN · <modus> · <sha>` oder `BOLLWERK ROT · <schichten>`.
+Budgets: `schnell` ≤ 9 min, `phase` ≤ 55 min (Schwerlast-Slot), `nacht` ≤ 4 h CPU, `ziel` = `nacht` + L10 + L11 (die Befehle aller Z-Zeilen aus Master-Prompt §6 außer Z-31…Z-34; jeder schreibt `belege/<Z-Nr>.txt` mit HEAD-Kopf; die Abnahmetabelle ist Master-Prompt §6). `ziel` liest R aus LAUF.md, prüft vor und nach dem Lauf `git diff --quiet R HEAD -- . ':!planung/bollwerk'` (Herzschlag-Commits erlaubt) und schreibt die Endzeile mit R. Endzeile genau `BOLLWERK GRÜN · <modus> · <sha>` oder `BOLLWERK ROT · <schichten>`.
 
 ## Teil 2 · MP-14 aus Anhang A
 ### MP-14 · BOLLWERK (Prüfschichten)
@@ -46,7 +47,7 @@ Budgets: `schnell` ≤ 9 min, `phase` ≤ 55 min (Schwerlast-Slot), `nacht` ≤ 
 | schnell | ≤ 9 min | L0; betroffene Paket-Tests; L2 mit 500 Fällen je Eigenschaft; L3 auf Node; L4 mit 200 Partien je Pfad × Strategie; L5; L6 |
 | phase | ≤ 55 min, Schwerlast-Slot | zusätzlich `alle_tests.sh` voll und `pruefen.sh alles`; L4 mit 2.000; L7; L8; L9 |
 | nacht | ≤ 4 h CPU | L4 mit 10.000 und „immer Pech“; L2 mit 10.000; L9 voll |
-| ziel | – | nacht + L10 + Abnahmetabelle |
+| ziel | – | nacht + L10 + L11 (alle Z-Befehle außer Z-31…Z-34) + L12 |
 
 - **Belege** `planung/bollwerk/belege/L<n>.txt` beginnen mit `HEAD <sha40> · <Berlin-Zeit> · <modus> · Exit <c> · <s>`. Ein Beleg gilt nur bei `git diff --quiet <sha> HEAD -- . ':!planung/bollwerk'` und zusätzlich `git diff --quiet <sha> HEAD -- planung/bollwerk/messbasis planung/bollwerk/BESTAND-AUSNAHMEN.txt`.
 - **Fehlerschutz:** `set -euo pipefail`; 0 Treffer für `|| echo`/`|| true` um Prüfbefehle (Selbstprüfung); Timeout je Schicht = 2 × Budget.
@@ -56,10 +57,10 @@ Budgets: `schnell` ≤ 9 min, `phase` ≤ 55 min (Schwerlast-Slot), `nacht` ≤ 
 **L0 Fundament**
 - `pub get` in allen Paketen; `analyze`; Secret-Scan.
 - **L0.1** `tool/bollwerk/bestand.dart`, übernommen aus `kern-feinkorn@1145cb9`. Basis am B-02-Commit. Abweichungen nur laut `planung/bollwerk/BESTAND-AUSNAHMEN.txt` (eingefroren ab BW0, A4.4).
-- **L0.2** Schutzpfade: Nach `git fetch` gilt `B=$(git merge-base HEAD origin/main)`. Für jede Datei `p` aus `git diff --name-only $B HEAD -- <A4.8 Nie-Liste>` muss der Blob `HEAD:p` gleich `caf1d61:p`, `1145cb9:p` oder (FREIGABE-Weg) `S_F:p` sein, sonst rot; die Linie wird dann nach der Konfliktregel behandelt. Vor B-02 gilt dasselbe für die Hoheitsliste. Dazu die eingefrorenen Pfade aus A4.4. Die Nie-Liste wird nie gekürzt; `B` wird nie von Hand gesetzt.
-- **L0.3** Kanon 1.0 = alle Dateien aus `git ls-tree -r K -- content/party/`, bytegleich und ohne Ausnahme. K = `der B-02-Commit aus STEUERUNG.md (V-18)`; beim FREIGABE-Weg der im PRUEFPUNKT notierte S_F. `messbasis/kanon10.sha256` entsteht in BW0 aus K; eine neue Datei unter `content/party/schlosskeller/` ist rot. Der Leitstand prüft K vor dem main-Push.
+- **L0.2** Schutzpfade: Nach `git fetch` gilt `B=$(git merge-base HEAD origin/main)`. Für jede Datei `p` aus `git diff --name-only $B HEAD -- <A4.8 Nie-Liste>` muss der Blob `HEAD:p` gleich `caf1d61:p`, `1145cb9:p` oder (FREIGABE-Weg) `K:p` sein, sonst rot; die Linie wird dann nach der Konfliktregel behandelt. Vor B-02 gilt dasselbe für die Hoheitsliste. Dazu die eingefrorenen Pfade aus A4.4. Die Nie-Liste wird nie gekürzt; `B` wird nie von Hand gesetzt.
+- **L0.3** Kanon 1.0 = alle Dateien aus `git ls-tree -r K -- content/party/`, bytegleich und ohne Ausnahme. K = `der B-02-Commit aus STEUERUNG.md (V-18)`; beim FREIGABE-Weg ebenso K aus LAUF.md. `messbasis/kanon10.sha256` entsteht in BW0 aus K; eine neue Datei unter `content/party/schlosskeller/` ist rot. Der Leitstand prüft K vor dem main-Push.
 - **L0.4** Würfelquelle (WÜ-1/WÜ-6): 0 verbotene Aufrufe.
-- **L0.5** `lib/game/**` importiert aus `pixel_engine` nur `feinkorn.dart`.
+- **L0.5** `lib/game/**` importiert aus `pixel_engine` nur `feinkorn_leben.dart`; Sperrnamen aus `planung/bollwerk/messbasis/sperrnamen.txt` (A-2 Definitionen).
 - **L0.6** Release:
   - Der Importgraph ab `lib/main.dart` enthält 0 Dateien aus `lib/game/dev/**`, `tool/**` und `test/**`.
   - Im Phasentor: Release-Web-Build nach `rm -rf .dart_tool/flutter_build`; danach 0 Treffer für `Prüfstand|Modellschau|preview_main|look_anker` in `main.dart.js`.
@@ -111,7 +112,7 @@ Budgets: `schnell` ≤ 9 min, `phase` ≤ 55 min (Schwerlast-Slot), `nacht` ≤ 
 **L9 Rot-Proben und Mutanten**
 - **L9a:** `belege/rotproben.tsv` deckt 100 % der neuen Testdateien ab. Im Phasentor laufen 10 % davon erneut.
 - **L9b Mutanten:**
-  - Katalog `tool/bollwerk/mutanten/*.patch`, mindestens 40 Mutanten (Seed aus `FallCode.rng`, Pech-Garantie weg, Wurf ändert Fakt, Pech-Szene pfadabhängig, Stufe verschoben, Ruhemodus aus, Maler 1 px, Wortliste gekürzt, `|| true` im Tor, Release importiert `dev/`).
+  - Katalog `tool/bollwerk/mutanten/*.patch`, mindestens 40 Mutanten (Seed aus `FallCode.rng`, Pech-Garantie weg, Wurf ändert Fakt, Pech-Szene pfadabhängig, Stufe verschoben, Ruhemodus aus, Maler 1 px, Wortliste gekürzt, `|| true` im Tor, Release importiert `dev/`, Schwelle gesenkt je Messwerkzeug, Zählregel gelockert F2–F5 je einzeln).
   - Tötungsrate 100 % für Würfel, Lösbarkeit, Wahrheit, Inhalt und Bestandsschutz; ≥ 90 % gesamt.
   - Überlebende Mutanten werden Aufträge. Budget ≤ 40 min, nie parallel zu L8.
 
@@ -121,3 +122,5 @@ Budgets: `schnell` ≤ 9 min, `phase` ≤ 55 min (Schwerlast-Slot), `nacht` ≤ 
 
 
 **L11 Abnahme** (nur `ziel`): je Z-Zeile aus Abschnitt 6 des Master-Prompts Befehl, Schwelle und Belegdatei aus `tool/bollwerk/abnahme.tsv` (maschinell aus der Tabelle erzeugt); jede fehlende oder rote Zeile macht `ziel` rot. L10 zählt Gremium-Stimmen aus den Agentenprotokollen (`~/.claude/projects/*/*/subagents/agent-<id>.jsonl`, agentId aus FLUG.md) nach.
+
+**L12 Design** (`phase`: D1 und S1–S6; `nacht` und `ziel`: dazu D2 und D3): Belege schreibt nur das Torwerkzeug mit HEAD-Kopfzeile nach `belege/D1.txt`, `belege/S.txt`, `belege/D2.txt`, `belege/D3.txt`. Die Werkzeuge entstehen in BW0: `design_mass.dart` als Port von `proben/designmass.py`, `foto.mjs` aus `proben/foto_probe.mjs`, Eichsatz aus `proben/eichsatz.py`, Gleichheit aus `proben/bildgleich.py`; `stil.py` und `gremium.mjs` neu, je mit Rot-Probe. D- und S-Tests laufen nicht in Ring 7.

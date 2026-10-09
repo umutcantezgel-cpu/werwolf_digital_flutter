@@ -58,7 +58,7 @@ Weitere Aussagen des Nutzers:
 | A-06 | Joystick | im Partymodus aus, sonst unverändert |
 | A-07 | WLAN-Host | Gerät des Detektivs |
 | A-08 | Musik | keine |
-| A-09 | Gewichte g | 3, 2, 1, 1, 1, 2 (aus v2.3, in M1 geprüft) |
+| A-09 | Gewichte g | 3, 2, 1, 1, 2 für X1, X2, X3, X4, X6; X5 Pflichtziel (ANNAHMEN A-09) |
 | A-10 | Design und Umfang | gleichrangig |
 | A-11 | Zwischenziel je Nacht | ja, je Achse in Einheiten |
 | A-12 | HD-Linie `caf1d61` | nur mergen, wenn die Burgstadt-Bilder bytegleich bleiben; sonst zurückgestellt bis „A12: ja“ |

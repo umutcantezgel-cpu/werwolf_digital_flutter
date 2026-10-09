@@ -120,4 +120,4 @@ b_baran_rufe, b_hana_wachs, b_serkan_tor, b_pawel_schneider, b_schneider_erinner
 - Würfel: 2W6 + Modifikator 0..+2 (Werkzeug +1: Tee, Tims Stirnlampe; „gründlich“ +2; Seifenblasen-Marke +1; Helfer und Fachgebiete sind kein Modifikator). Nur Suchen würfeln, Befragen nie.. Erfolg ab 9, Teilerfolg 7–8, Pech bis 6.
 - Erfolg: Wissen + Zeitgewinn (Nachtminuten) + ggf. Zusatzfund aus der Weißliste; ein Abstecher-Erfolg kann einen Folge-Abstecher öffnen.
 - Pech: Missgeschick an Sachen, Licht oder Zeit, dann Glück im Unglück: eine **Seifenblasen-Marke** (+1 auf einen späteren Wurf, höchstens 3 je Partie) und ein harmloser, wahrer Satz.
-- Spürbare Folgen, die eine Variante haben darf: Nachtminuten ±, Seifenblasen-Marke, Folge-Abstecher, Zusatzfund (Weißliste), Helfer für den nächsten Wurf, ein Gag wird ausgelöst, eine Person kommt mit oder leuchtet.
+- Spürbare Folgen, die eine Variante haben darf: Nachtminuten ±, Seifenblasen-Marke, Folge-Abstecher, Zusatzfund (Weißliste), ein Gag wird ausgelöst, eine Person kommt mit oder leuchtet.

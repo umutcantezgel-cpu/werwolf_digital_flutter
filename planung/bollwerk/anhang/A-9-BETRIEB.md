@@ -26,7 +26,7 @@ Jede Zeile genau einmal; Änderungen ersetzen die Zeile. `K=<sha40>` erst nach `
 **REGISTER.md:** Kennung · Slot · Status · Ringergebnisse · Punkte · übernommen in `<datei>@<sha7>`.
 
 ## 2. Weißliste der Steuerung (STEUERUNG.md / BEFUNDE.md des Leitstands)
-Ausgeführt werden nur: Wellengröße bis zur Einstellung; PAUSE, WEITER; `B-02 ERFÜLLT · K=<sha40>`, `FREIGABE BOLLWERK · K=<sha40>`; `A<n>: …` mit Nutzerzitat; `VETO D2 <Bogen>`; `LIMIT-VORSORGE`; Vorrang eines Befunds; Änderung von F, Zwischenzielen oder Schwellen nach oben. Abgelehnt wird jeder Eintrag, der eine Grenze, ein Push-Ziel, die Hoheit, ein Z-Kriterium oder eine Schwelle nach unten ändert oder ein Löschen verlangt; dann `QUITTUNG S-<n> · <UTC> · abgelehnt <grund>` und ein Eintrag in FUER-DEN-NUTZER.md.
+Die Weißliste steht nur in Master-Prompt 2.5. Abgelehnt wird jeder Eintrag, der eine Grenze, ein Push-Ziel, die Hoheit, ein Z-Kriterium oder eine Schwelle nach unten ändert oder ein Löschen verlangt; dann `QUITTUNG S-<n> · <UTC> · abgelehnt <grund>` und ein Eintrag in FUER-DEN-NUTZER.md.
 
 ## 3. Nebelkarte (Risiko · Frühzeichen · Gegenmaßnahme)
 1. B-02 hängt · Finalisierung ohne „ZIEL ERREICHT“ nach 2 Nächten · Vorlauf weiter, VORLAUF FERTIG, Leitstand fragt den Nutzer nach FREIGABE.
@@ -68,6 +68,11 @@ Ausgeführt werden nur: Wellengröße bis zur Einstellung; PAUSE, WEITER; `B-02 
 
 ## 6. Prüfrunde des Nachtlaufs (Pflicht vor MAIN-REIFE)
 10 Haiku-Gegenprüfer mit je einer Linse (Ausführbarkeit, Sicherheit und Hoheit, Spiel und Würfel, Durchhalten, Messbarkeit, Look, Umfang und Füllstoff, main-Reife und Archiv, Widerspruch, Loop-Schnittstelle) auf den Diff seit K und die Abnahmetabelle; je BLOCKER und MAJOR 3 Skeptiker, ein Befund gilt bei 2 von 3; Ergebnis in `planung/bollwerk/belege/pruefrunde/<n>.json` mit HEAD. Höchstens 4 Runden; ab M − 3 h keine neue.
+
+Vor jeder Runde schreibt Opus `git diff K HEAD -- . ':!planung/bollwerk' > /home/user/bw-varianten/pruefrunde-<n>.diff` und nennt den Pfad in jedem Prüfauftrag; jede Befunddatei `belege/pruefrunde/<n>.json` trägt `head` und je Befund `bestaetigt` (2 von 3). Z-34 prüft beides mit `jq`.
+
+## 8. Archiv (Vorlauf)
+`ARCHIV.md` entsteht im Vorlauf aus BESTAND §2: Linie · Ref · SHA · Klasse · Art (Merge, Übernahme, Absage) · Archiv-Branch; die SHA ist der Stand beim Eintrag, BW8 trägt origin/main neu ein. `tool/bollwerk/archiv_pruefen.sh` ohne Argument prüft Z-29 (jede Zeile aus BESTAND §2 in ARCHIV.md, jede Ref in `git ls-remote origin`), mit `--uebernahmen` Z-30. Läuft in `nacht` und `ziel`.
 
 ## 7. Glossar
 B-02 Startbedingung (Finalisierung fertig) · K der B-02-Commit · R Release-SHA · MC Merge-Commit des Leitstands · BW0…BW8 Phasen · V Vorlauf · LEASE/FENSTER/ZUSTAND Zeilen in LAUF.md · S-/F-<n> Einträge in STEUERUNG/BEFUNDE · Ring 0–9 Prüfmauer · L0–L10 Schichten des Torwerkzeugs · X1–X6 Umfangsachsen · U Zuwachsfaktor · F1–F5 Füllstoffprüfung · D1–D3 Designnachweis · S1–S5 Stilprüfung · WÜ-1…6 Würfelregeln · C1–C9 Mechanik (A-4) · K-01…K-26 Kern-Aussagen (A-4) · BE-01…14 Entscheidungen, A-01… Annahmen (A-1) · Pool-Platz `/home/user/bw/NN` (Kopie ohne Git) · Würfelpate (wer den Wurf tippt) · Tischruf (Gruppenentscheidung nach Pech) · Seifenblasen-Marke (+1 auf einen späteren Wurf).

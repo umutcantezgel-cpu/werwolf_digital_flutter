@@ -9,7 +9,7 @@ Alle Zahlen stammen aus Messungen dieses Laufs (LAGEBILD, FABRIKPROBE, SPIELKERN
 | X1 Entscheidungen inkl. Folge/Abstecher | 9 | 135 (15×) | +126 | Haiku (Variantenbauer), Opus integriert | JSON in `content/runden/schlosskeller/` |
 | X2 Spieltexte | 1.581 (Spanne bis 1.900) | 6 × Basis (≈ 9.500–11.400) | ≈ +8.000–9.500 | Haiku | Texte ≥ 8 Wörter in der Schicht (≈ 4 je Variante) |
 | X3 Orte in den 7 Räumen | 43 | 172 (4×) | +129 | Haiku (Daten), Opus (Raumgraph-Prüfung) | Teilorte mit Koordinate, nur innerhalb der Räume |
-| X4 Gags | Mindestbasis 10 (Kanon 3) | 300 (30×) | +297 | Haiku | Gag-Datensatz mit Aktion und Folge |
+| X4 Gags | Mindestbasis 10 (Kanon 3) | 400 (40×) | +397 | Haiku | Gag-Datensatz mit Aktion und Folge |
 | X6 Aktionsarten mit Animation | Mindestbasis 5 (Bestand 1) | 45 (9×) | +44 | Opus (Stufe 3, Maler) + Haiku (Posen-Daten, Klang) | Code + Golden + Pose |
 | X5 Weißlisten-Zusatzfunde (Pflichtziel) | 0 | ≥ 14 | +14 | Opus | verdrahtet, pfadgleich |
 | Pflichtziele D1 | – | Ruhe-Animationen 22/22, Posen ≥ 24, Mimik ≥ 4 je Figur, Requisiten ≥ 30/34, Leben-Effekte ≥ 6, Übergänge ≥ 5, Spielformen 3/3 | – | Opus + Haiku | Code |
@@ -30,7 +30,7 @@ Bis B-02 gilt die halbe Wellengröße (STEUERUNG S-1): 6 gleichzeitig.
 
 ## 3. Zielfaktor F
 
-**F = 10** (Planziel U = 10,2 aus f = 15, 6, 4, 30, 9; MESSBASIS-PROGNOSE §4). Begründung: U ≥ 10 ist mit allen fünf Indexachsen nahe am realistischen Deckel erreichbar; X3 (Orte, Deckel ≈ 4×) und X6 (Aktionsarten mit Code, Deckel ≈ 9–12×) begrenzen nach oben. Ein Streckziel bis U ≈ 18 setzt X1 40× voraus und verletzt die 40-%-Regel; es ist deshalb nicht geplant. **Realistische Prognose: U 8,5–11** nach 5–7 Hauptlauf-Nächten.
+**F = 10** (Planziel U = 10,52 aus f = 15, 6, 4, 40, 9, Marge 5 % gegen Basisschwankung; vorher 30 Gags-Faktor mit 1,9 % Marge, Befund M6-L07). Begründung: U ≥ 10 ist mit allen fünf Indexachsen nahe am realistischen Deckel erreichbar; X3 (Orte, Deckel ≈ 4×) und X6 (Aktionsarten mit Code, Deckel ≈ 9–12×) begrenzen nach oben. Ein Streckziel bis U ≈ 18 setzt X1 40× voraus und verletzt die 40-%-Regel; es ist deshalb nicht geplant. **Realistische Prognose: U 8,5–11** nach 5–7 Hauptlauf-Nächten.
 
 ## 4. Zwischenziele je Nacht (gültige Einheiten, nach B-02; N0 = Vorlauf)
 
@@ -44,7 +44,9 @@ Bis B-02 gilt die halbe Wellengröße (STEUERUNG S-1): 6 gleichzeitig.
 | N5 | BW5/BW6 | +26 | +1.700 | +29 | +77 | +8 | Rest bis Planziel, Design D2 |
 | N6 | BW7 | – | – | – | – | – | Härtung, `nacht`-Tor, Leistung |
 | N7 | BW8 | – | – | – | – | – | MAIN-REIFE |
-| **Summe** | | **+126** | **+7.700 (+ Vorlauf)** | **+129** | **+297** | **+44** | |
+| **Summe** | | **+126** | **+7.700 (+ Vorlauf)** | **+129** | **+297 (Ziel +397: +100 in N4/N5)** | **+44** | |
+
+**Zählweise:** X2 zählt Texte (≈ 4 je Einheit); in Einheiten (X1 + X3 + X4 + X6 + X2 ÷ 4) liegen die Nächte bei N1 ≈ 118, N2 ≈ 557, N3 ≈ 570, N4 ≈ 711 (+ 50 Gags), N5 ≈ 565 (+ 50 Gags), also unter der Kapazitätsmitte 1.000. Der Tokenrahmen rechnet in Einheiten (Master-Prompt §10). BW0 rechnet die Zwischenziele an der eingefrorenen Basis an K neu (A-8 §1.1). Liegt die Messung nach Nacht 1 unter dem Bedarf, geht „U ≥ 10 mit N Nächten oder kleineres U“ als Frage nach FUER-DEN-NUTZER.
 
 Verfehlt eine Nacht ihr Ziel um mehr als 20 %, plant der Lauf neu (höchstens zweimal), danach Eintrag in FUER-DEN-NUTZER. Nach Nacht 7 ab B-02 mit U < 10: NACHT-ENDE mit Restbedarf im Morgenbericht.
 

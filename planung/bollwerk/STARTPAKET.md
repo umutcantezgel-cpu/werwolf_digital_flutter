@@ -5,7 +5,7 @@ Kopfzeile, dann der Verweis auf den Master-Prompt (der Text passt nicht sicher i
 
 > Generation <n> · LEASE nach 2.5 · Leitstand session_01Aix28JmFAfTMVcF4Z8bgqP · Master-Prompt aus <sha40 von bollwerk-plan>
 >
-> Dein Auftrag ist der Master-Prompt BOLLWERK. Lies ihn vollständig mit `git show <sha40>:planung/bollwerk/MASTER-PROMPT.md` (in Teilen) und seine Anhänge unter `planung/bollwerk/anhang/` im Checkout von `bollwerk`, und führe ihn aus. Deine Generation ist <n>.
+> Dein Auftrag ist der Master-Prompt BOLLWERK. Lies ihn vollständig aus dem Checkout von `bollwerk` (`planung/bollwerk/MASTER-PROMPT.md` in Teilen, Anhänge unter `planung/bollwerk/anhang/`), und führe ihn aus. Nach Schritt 2 von Abschnitt 13 (entflacht, auf P) prüfst du mit `git diff --quiet <sha40> HEAD -- planung/bollwerk/MASTER-PROMPT.md planung/bollwerk/anhang`, dass er dem Übergabe-Stand gleicht. Deine Generation ist <n>.
 >
 > START BOLLWERK
 

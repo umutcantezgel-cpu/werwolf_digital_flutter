@@ -35,7 +35,7 @@ Quelle: Anhang A4 des Meta-Laufs, mit der Vorrangtabelle V-1…V-24 angewandt. W
   - `create_session`, `create_trigger`, `send_message`, `interrupt_session`, `archive_session`, `fire_trigger`, `update_trigger` für fremde Routinen, `watch_url`, `add_repo`, `create_pull_request`
   - fremde Routinen oder Sitzungen ändern, feuern, unterbrechen, archivieren oder löschen. `delete_trigger` löscht auch Sitzungen, die eine Routine gestartet hat.
 - Änderungen am Repo laufen nur über `git` im Worktree, mit Secret-Scan.
-- Dieser Absatz steht wortgleich in Teil 8 jeder Auftragsvorlage.
+- Dieser Absatz steht wortgleich in Teil 7 jeder Auftragsvorlage.
 
 ### A4.3 Bestandsschutz
 - „Diese Einstellungen fasst du nicht an: Build, Signatur, Store-Einträge, Berechtigungen, App-Kennung und Versionsnummer.“ Die Version `0.1.0+1` bleibt.
@@ -46,7 +46,7 @@ Quelle: Anhang A4 des Meta-Laufs, mit der Vorrangtabelle V-1…V-24 angewandt. W
 - „Bestehende Funktionen, Daten und Speicherstände bleiben erhalten. Was du ersetzt, bleibt über einen Schalter erreichbar, bis die Abnahme bestanden ist.“
 - „Werkzeuge, Prüfstand und Modellschau erscheinen nie in der veröffentlichten App.“
 - Netzwerk nur für Git mit dem bestehenden `origin`, zum Installieren der Abhängigkeiten, die das Projekt schon hat, und für das Flutter-SDK 3.47.6 aus der Quelle von `build.sh` (sha256 geprüft, Master-Prompt Abschnitt 13). Keine neuen Remotes, kein Deployment, kein Hochladen zu fremden Diensten.
-- „Du arbeitest nur im Repo-Ordner und installierst nichts systemweit“: kein `npm -g`, kein `pip install`, kein `pub global`. `build.sh` wird nie lokal ausgeführt.
+- „Du arbeitest nur im Repo-Ordner und installierst nichts systemweit“ (außerhalb nur `/home/user/bw`, `/home/user/bw-varianten`, `/home/user/bw-logs`, `/home/user/bw-archiv`, `/home/user/bw-arbeit`): kein `npm -g`, kein `pip install`, kein `pub global`. `build.sh` wird nie lokal ausgeführt.
 - Schriften, Bilder und Klänge liegen im Projekt.
 
 ### A4.4 Umgehungsverbot und Kriterien
@@ -64,7 +64,7 @@ Quelle: Anhang A4 des Meta-Laufs, mit der Vorrangtabelle V-1…V-24 angewandt. W
 ### A4.5 Rohchat und Geheimnisse
 - „Vor jedem Push läuft ein Secret-Scan (`bash tool/secret_scan.sh`). Schlüssel, Zugangsdaten, .env-Dateien und der Rohchat kommen nie in den Verlauf.“
 - Der Rohchat liegt unter `quellen/schlosskeller-teamchat.txt`. `quellen/` bleibt in `.gitignore`.
-- Der Scan zeigt nicht an, dass er die Passagenprüfung überspringt. Vor jedem Push zusätzlich: `test -f quellen/schlosskeller-teamchat.txt || echo "Passagenprüfung übersprungen"`. Bei „übersprungen“: einmal je Sitzung Vermerk im ENTSCHEIDUNGSLOG und in FUER-DEN-NUTZER; gepusht wird, wenn der Scan mit „Secret-Scan: sauber“ endet. Übernommen wird dann nur, was dieser oder ein früherer Lauf selbst geschrieben hat; nichts mit Chat-Kopfzeilen, „teamchat“ oder „quellen/“.
+- Der Scan zeigt nicht an, dass er die Passagenprüfung überspringt. Vor jedem Push zusätzlich: `if [ ! -f quellen/schlosskeller-teamchat.txt ]; then echo "Passagenprüfung übersprungen"; fi`. Bei „übersprungen“: einmal je Sitzung Vermerk im ENTSCHEIDUNGSLOG und in FUER-DEN-NUTZER; gepusht wird, wenn der Scan mit „Secret-Scan: sauber“ endet. Übernommen wird dann nur, was dieser oder ein früherer Lauf selbst geschrieben hat; nichts mit Chat-Kopfzeilen, „teamchat“ oder „quellen/“.
 
 ### A4.6 Inhalt
 Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosskeller/TON-LEITFADEN.md` §1–§10 als Anhang. `VERBOTE-LEITPLANKEN.md` (Krimidinner-Fall) wird **nicht** angehängt. Von dort gilt nur: „Erfinde nichts Lösungsrelevantes; fehlt etwas, schreibe OFFENE FRAGE.“
@@ -164,7 +164,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
   - Anlegen und Zurücksetzen nur mit `bash $BW/tool/bollwerk/pool_reset.sh <NN> <sha>`. Das Skript bricht ab, wenn `<NN>` nicht `01`–`06` ist oder der Platz nicht in FLUG.md steht. Es führt aus: `rm -rf /home/user/bw/<NN> && mkdir -p /home/user/bw/<NN> && git -C /home/user/bollwerk archive <sha> | tar -x -C /home/user/bw/<NN>`, danach `pub get --offline` in allen 8 Paketen des Repos (Wurzel, 5 Pakete, `server`, `tool/ton`) und in `tool/bollwerk/look_anker`.
   - Daneben liegt je SHA eine schreibgeschützte Basis `/home/user/bw/basis-<sha7>` (gleich angelegt, dann `chmod -R a-w`).
   - Haiku ruft nie `git` auf. Den Patch erzeugt Opus: `diff -ruN -x .dart_tool -x build -x '.flutter-plugins*' /home/user/bw/basis-<sha7> /home/user/bw/<NN> > /home/user/bw-varianten/<welle>/<kennung>.patch`. Vor `git apply --check` in `$BW` prüft Opus, dass der Patch nur die Dateien des Auftrags berührt.
-  - Teil 8 jeder Auftragsvorlage enthält wortgleich: „Du führst nie `git` aus und betrittst nie `$BW` oder einen anderen Checkout.“
+  - Teil 7 jeder Auftragsvorlage enthält wortgleich: „Du führst nie `git` aus und betrittst nie `$BW` oder einen anderen Checkout.“
   - `git reset --hard`, `git clean` und `git checkout -- <pfad>` laufen nur mit `-C <eigener Wegwerf-Worktree>` (Mutanten, Rot-Proben), nie ohne `-C`.
 - Text-, Daten- und Urteilsaufträge bekommen keinen Worktree. Workflow-Option `isolation: 'worktree'` wird nicht benutzt.
 - **Ergebnis als Datei, Kurzurteil an Opus:**
@@ -203,3 +203,10 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 
 ### Zusatz Erlaubnisprüfung (L0.2)
 Jede Datei aus `git diff --name-status $B HEAD` außerhalb der Schreib-Erlaubnis ist rot: vor B-02 nur `planung/bollwerk/**` (ohne MASTER-PROMPT, anhang, STARTPAKET), `tool/bollwerk/**`, `content/runden/**`, `packages/mordakte_core/lib/src/runden/**`, `packages/mordakte_core/test/runden/**`, `lib/runden/**`, `assets/runden/**`, `test/runden/**`, `docs/bollwerk/**`; nach B-02 zusätzlich die übergegangenen Pfade aus A4.8 und Merges zugelassener Linien.
+
+### Definitionen
+- **Stolperdraht-Umfang:** verglichen werden nur `refs/heads/*` und `refs/tags/*`; erwartete neue Refs siehe V-13 oben. Eine andere neue Ref ist nicht rot; sie kommt ins NACHTPROTOKOLL und nach FUER-DEN-NUTZER.
+- **HD-Linie `caf1d61`:** Merge nur, wenn danach L1 grün ist („LAYOUT GLEICH“, `assets/burgstadt` und textPfade unverändert, `hd_migbeleg` bytegleich); sonst nur archivieren, bis „A12: ja“ in STEUERUNG.md steht.
+- **FEINKORN-Importregel (BE-01):** `lib/game/**` und `lib/party/**` importieren aus `pixel_engine` nur `package:pixel_engine/feinkorn_leben.dart`. Diese Datei legt der Lauf beim Übernehmen von `1145cb9` an; sie exportiert nur Physik, Starrkörper, Material, Schattenkarte und das Gelenkgerüst (Leben, kein Aufbau). Sperrliste (Startwert, BW0 prüft sie an `1145cb9` und ergänzt sie in `planung/bollwerk/messbasis/sperrnamen.txt`): `baueFigur`, `Gelenkweg`, `Blockkoerper`, `backeWolke`, `IsoAnsicht`. Jeder Treffer im Importgraph von `lib/main.dart` ist rot (L0.5, Z-30, S5).
+- **textPfade (B5 T1–T5):** `packages/burgstadt_core/data`, `packages/burgstadt_spiel/data/texte`, `packages/pixel_engine/data/figuren`, `nachtlauf/kanon`, `krimidinner/spuk-im-gewoelbe/10_kanon`.
+- **ORCH-Dateien (B5 R4):** `pubspec.yaml`, `packages/mordakte_core/pubspec.yaml`, `packages/mordakte_core/lib/mordakte_core.dart`, `lib/l10n/app_de.arb`, `analysis_options.yaml`, `build.sh`, `lib/app/router.dart`, `lib/main.dart`, `lib/ui/screens/hub_screen.dart`, `.gitignore`.

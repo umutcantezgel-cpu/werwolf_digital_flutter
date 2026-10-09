@@ -119,9 +119,9 @@ Grundlage: Anhang C (Startentwurf), vier Gegenentwürfe (3 Haiku auf max, 1 Opus
 - „Stark“ wirkt auf: Gelingen jedes Anlaufs, Nachtminuten, verfügbare Abstecher, Weißlisten-Zusatzwissen, Atmosphäre, Gags und eine **eigene Nebenwertung** (Seifenblasen-Marken, „Glücksbilanz“ in der Auflösung). Die Nebenwertung erscheint getrennt und geht nie in die Endenmatrix ein.
 - Annahme A-03 (ANNAHMEN.md): Die Alternative „Würfel darf Kanon-Punkte kosten“ bricht F-06 und §7.7 und ist deshalb nicht Standard.
 
-**Würfelart (Startwert, M3 stimmt ab)**
+**Würfelart (überholt: festgelegt in K-07)**
 - 2W6 + Gesamtmodifikator. Gesamtmodifikator je Wurf = Summe aus Werkzeug, Helfer, „gründlich“ (+2) und Marke, danach begrenzt auf 0 bis +2. −1 nur, wenn M3 eine pfadgleiche Quelle festlegt.
-- Startschwellen 9+ Erfolg, 6–8 Teilerfolg, ≤ 5 Pech. Damit liegt Pech bei +0 bei 10/36 ≈ 28 %.
+- (überholt: K-07) Startschwellen 9+ Erfolg, 6–8 Teilerfolg, ≤ 5 Pech. Damit liegt Pech bei +0 bei 10/36 ≈ 28 %.
 - **Bänder (bindend):**
   - Züge mit Wurf über das Gelingen je Partie: 30–60 % („manchmal“), in jeder Besetzung 4–20, je Runde ≥ 1 Wurf, nie jede Entscheidung
   - Pech im ersten Anlauf: 20–35 %
@@ -174,7 +174,7 @@ Grundlage: Anhang C (Startentwurf), vier Gegenentwürfe (3 Haiku auf max, 1 Opus
 
 ---
 
-### C4 · Weißliste der Zusatzinfos (vorläufig; M3 schreibt sie vollständig in den Anhang des Master-Prompts)
+### C4 · Weißliste der Zusatzinfos (überholt: geprüft wird nach Lichtungsaufgabe L-4 und A-3)
 
 **Bedingungen:** pfadgleich (`pfade: alle` bzw. `entstehtWenn: immer`), nicht verborgen, keine Faktquelle, **kein Kettenglied**, kein Nebendelikt einer Kernperson, keine falsche Fährte.
 
@@ -213,7 +213,7 @@ Grundlage: Anhang C (Startentwurf), vier Gegenentwürfe (3 Haiku auf max, 1 Opus
 ### C6 · Pech- und Gag-Inhalte (bindend)
 
 **Pech trifft nur Sachen, Licht und Zeit**
-- Beispiele: Die Bogentür quietscht, Sibel zuckt zusammen; das Handy-Licht flackert; die Rüstung klappert; Wind treibt die Seifenblasen weg.
+- Beispiele (Bogentür und Rüstung überholt, A-25): das Handy-Licht flackert; Wind treibt die Seifenblasen weg.
 - **Verboten:**
   - Verletzungen, ein Sturz mit Aufprall, eine liegende Pose des Detektivs
   - alles an Herrn Schneiders Körper (er sitzt wach mit Kühlpack)
@@ -281,7 +281,7 @@ Grundlage: Anhang C (Startentwurf), vier Gegenentwürfe (3 Haiku auf max, 1 Opus
 
 ---
 
-### C8 · Startkriterien für M3 (werden zu BK-Kriterien im Master-Prompt)
+### C8 · Startkriterien (überholt: gelten als Z-Kriterien in Master-Prompt Abschnitt 6)
 
 1. **Lösbarkeit (Beweis in drei Teilen):**
    - (a) **Monotonie, erschöpfend je Zug einzeln:** jede Ausgangsfolge (E, T, PE, PT, PPE, PPT …), jeweils mit zweitem Anlauf oder Umweg, bei sonst neutralen Würfen. Das Wissen am Rundenende ist gleich dem beim Neutralwurf.
