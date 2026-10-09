@@ -748,7 +748,7 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
   - Die übrigen Gründe wiederholen sich und sind abgewogen.
   - Eine weitere Runde würde nach diesem Muster wieder „nein“ ergeben. Deshalb liegt die Entscheidung über Z-12 jetzt beim Nutzer (FÜR DEN NUTZER).
 
-## E58 · 09.10. 22:31 · Sichtrunde A-605aa/ab (Prüfer 29/30): Bartart von R19 im Datensatz angeglichen
+## E58 · 09.10. 22:28 · Sichtrunde A-605aa/ab (Prüfer 29/30): Bartart von R19 im Datensatz angeglichen
 - **Ergebnis (Kartenstand 850245deb6):** Beide Prüfer finden 0 Paare und je 1 Verstoß, beide denselben: Bei R19 nennt `rollen.json` `bart: "kurz"`, das Merkmal heißt aber „Kinnbart (Goatee)“. Karte und Look-Anker (ERSETZE-38) zeigen einen Kinnbart.
 - **Behoben:**
   - Das Datenfeld heißt jetzt `bart: "kinnbart"`. Bild und Kartenstand bleiben gleich.
