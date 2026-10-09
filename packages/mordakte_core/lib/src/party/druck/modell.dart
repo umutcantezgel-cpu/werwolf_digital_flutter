@@ -164,7 +164,9 @@ class Aufloesungsheft {
   final Map<int, String> gruppe;
   final List<String> rollen;
 
-  /// Bedeutung jedes Codes.
+  /// Bedeutung jedes Codes als technische Kennung (`indizkarte:<e>:<o>`,
+  /// `umschlag:<runde>:<qualitaet>`, `fassung:<rolle>[:taeter]`); den Text
+  /// dazu setzt das Auflösungsheft aus Bausteinen.
   final Map<String, String> codes;
 
   const Aufloesungsheft({
@@ -235,7 +237,7 @@ class DruckSatz {
       for (final o in e.optionen) {
         final c = codes.neu();
         kartenCode[o.id] = c;
-        bedeutung[c] = 'Indizkarte ${e.id} · ${o.id}';
+        bedeutung[c] = 'indizkarte:${e.id}:${o.id}';
         final ziel = karte.ziele[o.id]!;
         final person = ziel.person;
         karten.add(Indizkarte(
@@ -279,7 +281,7 @@ class DruckSatz {
       for (final q in Qualitaet.values) {
         final c = codes.neu();
         je[q] = c;
-        bedeutung[c] = 'Hinweis-Umschlag Runde $r · ${q.name}';
+        bedeutung[c] = 'umschlag:$r:${q.name}';
         final h = spiel.gruppe.hinweis(pfad, r, q);
         final k = ['bonus.rahmen', 'hinweis.${h['id']}'];
         umschlaege.add(HinweisUmschlag(c, r, q, k, [for (final x in k) texte.baustein(x)]));
@@ -311,7 +313,7 @@ class DruckSatz {
     final fassungen = <Fassung>[];
     for (final p in kanon.kernverdaechtige) {
       final c = codes.neu();
-      bedeutung[c] = 'Fassung $p${p == pfad ? ' (Täterfassung)' : ''}';
+      bedeutung[c] = 'fassung:$p${p == pfad ? ':taeter' : ''}';
       fassungen.add(Fassung(c, p, texte.dossier(p, pfad, rollen)));
     }
 

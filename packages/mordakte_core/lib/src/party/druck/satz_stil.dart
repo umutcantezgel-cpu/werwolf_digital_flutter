@@ -34,7 +34,7 @@ class DruckStil {
   pw.TextStyle ueberschrift([double g = 14]) => pw.TextStyle(font: stark, fontSize: g, color: tinte);
   pw.TextStyle text([double g = 11]) => pw.TextStyle(font: normal, fontSize: g, color: tinte, lineSpacing: 2);
   pw.TextStyle klein([double g = 9]) => pw.TextStyle(font: normal, fontSize: g, color: leise);
-  pw.TextStyle marke([double g = 8.5]) => pw.TextStyle(font: stark, fontSize: g, color: leise, letterSpacing: 1.1);
+  pw.TextStyle marke([double g = 9]) => pw.TextStyle(font: stark, fontSize: g, color: leise, letterSpacing: 1.1);
 
   /// Großer neutraler Code (Außenseite von Karten und Umschlägen).
   pw.TextStyle code([double g = 40]) => pw.TextStyle(font: stark, fontSize: g, color: tinte, letterSpacing: 3);
@@ -64,7 +64,7 @@ class DruckStil {
   pw.Widget kopf(String marke, String titel) => pw.Column(
         crossAxisAlignment: pw.CrossAxisAlignment.start,
         children: [
-          pw.Text(marke.toUpperCase(), style: this.marke()),
+          pw.Text(marke.toUpperCase(), style: this.marke(9)),
           pw.SizedBox(height: 3),
           pw.Text(titel, style: this.titel()),
           pw.SizedBox(height: 6),
@@ -77,8 +77,8 @@ class DruckStil {
   pw.Widget fuss(pw.Context ctx, String links) => pw.Row(
         mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
         children: [
-          pw.Text(links, style: klein(8)),
-          pw.Text('${ctx.pageNumber} / ${ctx.pagesCount}', style: klein(8)),
+          pw.Text(links, style: klein(9)),
+          pw.Text('${ctx.pageNumber} / ${ctx.pagesCount}', style: klein(9)),
         ],
       );
 

@@ -1,15 +1,513 @@
+import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
+import 'modell.dart';
 import 'satz.dart';
 import 'satz_stil.dart';
 
-// Spielleitungsheft (ohne Lösung) und Detektivbogen mit Ermittlungsbogen (F5-BAUMEISTER-01).
-// Stub von ORCH mit fester Schnittstelle; der Baumeister baut ihn aus.
+// Spielleitungsheft ohne Lösung und Detektivbogen mit Ermittlungsbogen (F5-BAUMEISTER-01, Master 7.14).
+// Jeder Text ist ein Baustein (ui.druck.spielleitung.*, ui.druck.bogen.*), ein Erzähler- oder
+// Detektivtext über k.text oder ein Datum des Satzes. Keine Schrift unter 9 pt.
+
+/// Dateinummern des Satzes mit ihrem Baustein (Vorbereitung).
+const _dateien = [
+  ('00', 'ui.druck.spielleitung.datei.00'),
+  ('01', 'ui.druck.spielleitung.datei.01'),
+  ('10', 'ui.druck.spielleitung.datei.10'),
+  ('11', 'ui.druck.spielleitung.datei.11'),
+  ('12', 'ui.druck.spielleitung.datei.12'),
+  ('20', 'ui.druck.spielleitung.datei.20'),
+  ('21', 'ui.druck.spielleitung.datei.21'),
+  ('90', 'ui.druck.spielleitung.datei.90'),
+];
+
+/// Lagen im Zwischenresümee: Schlüssel der Erzählerbausteine und ihre Beschriftung.
+const _lagen = [
+  ('offen', 'ui.druck.spielleitung.lage.offen'),
+  ('spur', 'ui.druck.spielleitung.lage.spur'),
+  ('klar', 'ui.druck.spielleitung.lage.klar'),
+];
 
 void spielleitungsheft(pw.Document doc, DruckKontext k) {
-  doc.addPage(pw.Page(pageFormat: DruckStil.format, build: (c) => k.stil.kopf(k.fallTitel, 'spielleitungsheft')));
+  final heft = k.satz.spielleitung;
+  final links = '${k.fallTitel} · ${k.ui('ui.druck.spielleitung.marke')}';
+  doc.addPage(
+    pw.MultiPage(
+      pageFormat: DruckStil.format,
+      margin: DruckStil.rand,
+      footer: (c) => _fuss(k, links, c),
+      build: (_) => [
+        ..._deckblatt(k),
+        pw.NewPage(),
+        ..._vorbereitung(k),
+        ..._ablauf(k, heft),
+        pw.NewPage(),
+        ..._anhang(k, heft),
+      ],
+    ),
+  );
 }
 
 void detektivbogen(pw.Document doc, DruckKontext k) {
-  doc.addPage(pw.Page(pageFormat: DruckStil.format, build: (c) => k.stil.kopf(k.fallTitel, 'detektivbogen')));
+  final links = '${k.fallTitel} · ${k.ui('ui.druck.bogen.marke')}';
+  doc.addPage(
+    pw.MultiPage(
+      pageFormat: DruckStil.format,
+      margin: DruckStil.rand,
+      footer: (c) => _fuss(k, links, c),
+      build: (_) => [
+        ..._kopf(k, k.ui('ui.druck.bogen.marke'), k.fallTitel),
+        ..._block(k, k.ui('ui.druck.bogen.regeln'), [
+          _absatz(k, k.text('detektiv.regeln.entscheidungen')),
+          _absatz(k, k.text('detektiv.regeln.hinweise')),
+          _absatz(k, k.text('detektiv.regeln.punkte')),
+        ]),
+        for (var r = 1; r <= 3; r++) ...[
+          if (r > 1) pw.NewPage(),
+          _titel(k, k.ui('ui.druck.bogen.runde', {'nr': '$r'})),
+          for (final b in k.satz.detektivbogen.where((b) => b.runde == r))
+            ..._entscheidung(k, b),
+        ],
+        pw.NewPage(),
+        ..._ermittlungsbogen(k),
+        ..._anklageBogen(k),
+      ],
+    ),
+  );
 }
+
+// Spielleitungsheft
+
+List<pw.Widget> _deckblatt(DruckKontext k) => [
+  pw.SizedBox(height: 150),
+  pw.Text(k.fallTitel, style: k.stil.titel(30)),
+  pw.SizedBox(height: 10),
+  pw.Text(k.ui('ui.druck.spielleitung.titel'), style: k.stil.ueberschrift(16)),
+  pw.SizedBox(height: 14),
+  _linie(DruckStil.breite),
+  pw.SizedBox(height: 18),
+  pw.Text(
+    k.ui('ui.druck.spielleitung.fallcode', {'code': k.satz.code.code}),
+    style: k.stil.text(13),
+  ),
+  pw.SizedBox(height: 4),
+  pw.Text(
+    k.ui('ui.druck.spielleitung.personen', {'anzahl': '${k.satz.rollen}'}),
+    style: k.stil.text(13),
+  ),
+  pw.SizedBox(height: 22),
+  pw.Text(k.ui('ui.druck.spielleitung.willkommen'), style: k.stil.text(12)),
+  pw.SizedBox(height: 6),
+  pw.Text(k.ui('ui.druck.spielleitung.aufloesung'), style: k.stil.text(12)),
+];
+
+List<pw.Widget> _vorbereitung(DruckKontext k) => [
+  _titel(k, k.ui('ui.druck.spielleitung.vorbereitung')),
+  _absatz(k, k.ui('ui.druck.spielleitung.vorbereitung.einleitung')),
+  pw.Table(
+    border: pw.TableBorder(
+      horizontalInside: pw.BorderSide(color: DruckStil.linie, width: 0.5),
+    ),
+    columnWidths: {
+      0: const pw.FixedColumnWidth(40),
+      1: const pw.FlexColumnWidth(),
+    },
+    children: [
+      for (final (nr, baustein) in _dateien)
+        pw.TableRow(
+          children: [
+            _zelle(pw.Text(nr, style: k.stil.ueberschrift(11))),
+            _zelle(pw.Text(k.ui(baustein), style: k.stil.text(11))),
+          ],
+        ),
+    ],
+  ),
+  pw.SizedBox(height: 10),
+];
+
+/// Jede Runde und die Anklage beginnen auf einer neuen Seite, damit keine Überschrift am Seitenende hängt.
+List<pw.Widget> _ablauf(DruckKontext k, Spielleitungsheft heft) => [
+  _titel(k, k.ui('ui.druck.spielleitung.ablauf')),
+  _absatz(k, k.ui('ui.druck.spielleitung.ablauf.einleitung')),
+  ..._block(k, k.ui('ui.druck.spielleitung.intro'), [
+    for (final b in heft.intro) _vorlesen(k, k.text(b)),
+  ]),
+  for (var r = 1; r <= 3; r++) ...[pw.NewPage(), ..._runde(k, heft, r)],
+  pw.NewPage(),
+  ..._anklage(k, heft),
+];
+
+List<pw.Widget> _runde(DruckKontext k, Spielleitungsheft heft, int r) => [
+  _titel(k, k.ui('ui.druck.spielleitung.runde', {'nr': '$r'})),
+  ..._block(k, k.ui('ui.druck.spielleitung.schritt.start'), [
+    _vorlesen(k, k.text(heft.rundenStart[r]!)),
+  ]),
+  ..._block(k, k.ui('ui.druck.spielleitung.schritt.gespraeche'), [
+    _absatz(
+      k,
+      k.ui('ui.druck.spielleitung.gespraeche', {
+        'minuten': '${k.kanon.fall['rundendauerMinuten']}',
+      }),
+    ),
+  ]),
+  ..._block(k, k.ui('ui.druck.spielleitung.schritt.entscheidung'), [
+    _absatz(k, k.ui('ui.druck.spielleitung.entscheidung')),
+  ]),
+  ..._block(k, k.ui('ui.druck.spielleitung.schritt.gruppenwahl'), [
+    _absatz(k, k.ui('ui.druck.spielleitung.gruppenwahl')),
+    _absatz(k, k.ui('ui.druck.spielleitung.wertseite')),
+    _auszaehlung(k, heft.auszaehlung.firstWhere((a) => a.runde == r)),
+    _absatz(k, k.ui('ui.druck.spielleitung.auszaehlung.unter0')),
+  ]),
+  ..._block(k, k.ui('ui.druck.spielleitung.schritt.umschlag'), [
+    _absatz(k, k.ui('ui.druck.spielleitung.umschlag')),
+  ]),
+  ..._block(k, k.ui('ui.druck.spielleitung.schritt.resuemee'), [
+    _unterlabel(k, k.ui('ui.druck.spielleitung.resuemee.gruppe')),
+    _vorlesen(k, k.text(heft.resuemeeGruppe[r]!)),
+    _unterlabel(k, k.ui('ui.druck.spielleitung.resuemee.rest')),
+    _absatz(k, k.ui('ui.druck.spielleitung.rest.anleitung')),
+    _absatz(k, k.ui('ui.druck.spielleitung.rest.suche')),
+    _unterlabel(k, k.ui('ui.druck.spielleitung.resuemee.lage')),
+    _absatz(k, k.ui('ui.druck.spielleitung.lage.anleitung')),
+    _lage(k, heft.resuemeeLage[r]!),
+  ]),
+];
+
+List<pw.Widget> _anklage(DruckKontext k, Spielleitungsheft heft) => [
+  _titel(k, k.ui('ui.druck.spielleitung.schritt.anklage')),
+  _absatz(k, k.ui('ui.druck.spielleitung.anklage.klagt')),
+  _vorlesen(k, k.text(heft.anklage)),
+  _absatz(k, k.ui('ui.druck.spielleitung.anklage.aufloesung')),
+  _absatz(k, k.ui('ui.druck.spielleitung.anklage.punkte')),
+  _absatz(k, k.ui('ui.druck.spielleitung.anklage.ende')),
+];
+
+List<pw.Widget> _anhang(DruckKontext k, Spielleitungsheft heft) => [
+  _titel(k, k.ui('ui.druck.spielleitung.anhang')),
+  _absatz(k, k.ui('ui.druck.spielleitung.anhang.einleitung')),
+  pw.Table(
+    border: _gitter(),
+    columnWidths: {
+      0: const pw.FixedColumnWidth(170),
+      1: const pw.FlexColumnWidth(),
+    },
+    children: [
+      pw.TableRow(
+        decoration: _kopfFarbe(),
+        children: [
+          _zelle(
+            pw.Text(
+              k.ui('ui.druck.spielleitung.anhang.namen'),
+              style: k.stil.ueberschrift(10),
+            ),
+          ),
+          _zelle(
+            pw.Text(
+              k.ui('ui.druck.spielleitung.anhang.text'),
+              style: k.stil.ueberschrift(10),
+            ),
+          ),
+        ],
+      ),
+      for (final e in heft.resuemeeRest.entries)
+        pw.TableRow(
+          children: [
+            _zelle(
+              pw.Text(
+                [
+                  for (final id in e.key.split('_')) k.figurName(id),
+                ].join(' · '),
+                style: k.stil.text(10),
+              ),
+            ),
+            _zelle(pw.Text(k.text(e.value), style: k.stil.text(10))),
+          ],
+        ),
+    ],
+  ),
+];
+
+pw.Widget _auszaehlung(DruckKontext k, Auszaehlung a) => pw.Padding(
+  padding: const pw.EdgeInsets.only(bottom: 6),
+  child: pw.Table(
+    border: _gitter(),
+    columnWidths: {
+      0: const pw.FixedColumnWidth(200),
+      1: const pw.FixedColumnWidth(140),
+    },
+    children: [
+      pw.TableRow(
+        decoration: _kopfFarbe(),
+        children: [
+          _zelle(
+            pw.Text(
+              k.ui('ui.druck.spielleitung.auszaehlung.summe'),
+              style: k.stil.ueberschrift(10),
+            ),
+          ),
+          _zelle(
+            pw.Text(
+              k.ui('ui.druck.spielleitung.auszaehlung.umschlag'),
+              style: k.stil.ueberschrift(10),
+            ),
+          ),
+        ],
+      ),
+      for (final st in a.stufen)
+        pw.TableRow(
+          children: [
+            _zelle(
+              pw.Text(
+                k.ui('ui.druck.spielleitung.auszaehlung.ab', {
+                  'summe': '${st.abSumme}',
+                }),
+                style: k.stil.text(11),
+              ),
+            ),
+            _zelle(pw.Text(st.umschlag, style: k.stil.ueberschrift(11))),
+          ],
+        ),
+    ],
+  ),
+);
+
+pw.Widget _lage(DruckKontext k, Map<String, String> lage) => pw.Padding(
+  padding: const pw.EdgeInsets.only(bottom: 6),
+  child: pw.Table(
+    border: _gitter(),
+    columnWidths: {
+      0: const pw.FixedColumnWidth(100),
+      1: const pw.FlexColumnWidth(),
+    },
+    children: [
+      for (final (stufe, baustein) in _lagen)
+        pw.TableRow(
+          children: [
+            _zelle(pw.Text(k.ui(baustein), style: k.stil.ueberschrift(10))),
+            _zelle(pw.Text(k.text(lage[stufe]!), style: k.stil.text(10))),
+          ],
+        ),
+    ],
+  ),
+);
+
+// Detektivbogen
+
+List<pw.Widget> _entscheidung(DruckKontext k, BogenEntscheidung b) => [
+  _marke(k, k.ui('ui.druck.bogen.entscheidung', {'nr': '${b.nr}'})),
+  pw.SizedBox(height: 3),
+  pw.Padding(
+    padding: const pw.EdgeInsets.only(bottom: 6),
+    child: pw.Text(b.frage, style: k.stil.ueberschrift(12)),
+  ),
+  for (final o in b.optionen)
+    pw.Padding(
+      padding: const pw.EdgeInsets.only(bottom: 5),
+      child: pw.Row(
+        crossAxisAlignment: pw.CrossAxisAlignment.center,
+        children: [
+          _kaestchen(),
+          pw.SizedBox(width: 9),
+          pw.Expanded(child: pw.Text(o.text, style: k.stil.text(11))),
+          pw.SizedBox(width: 10),
+          pw.Text(
+            k.ui('ui.druck.bogen.karte', {'code': o.karte}),
+            style: k.stil.ueberschrift(10),
+          ),
+        ],
+      ),
+    ),
+  pw.SizedBox(height: 3),
+  pw.Row(
+    children: [
+      pw.Text(k.ui('ui.druck.bogen.gewaehlt'), style: k.stil.klein()),
+      pw.SizedBox(width: 6),
+      _linie(120),
+    ],
+  ),
+  pw.SizedBox(height: 14),
+];
+
+List<pw.Widget> _ermittlungsbogen(DruckKontext k) {
+  final eb = k.satz.ermittlungsbogen;
+  return [
+    _titel(k, k.ui('ui.druck.bogen.ermittlung')),
+    _absatz(k, k.text('ermittlungsbogen.einleitung')),
+    pw.Table(
+      border: _gitter(),
+      columnWidths: {
+        0: const pw.FixedColumnWidth(122),
+        1: const pw.FixedColumnWidth(66),
+        for (var i = 0; i < eb.personen.length; i++)
+          i + 2: const pw.FlexColumnWidth(),
+      },
+      children: [
+        pw.TableRow(
+          decoration: _kopfFarbe(),
+          children: [
+            _zelle(
+              pw.Text(
+                k.ui('ui.druck.bogen.tabelle.art'),
+                style: k.stil.ueberschrift(10),
+              ),
+            ),
+            _zelle(
+              pw.Text(
+                k.ui('ui.druck.bogen.tabelle.lage'),
+                style: k.stil.ueberschrift(10),
+              ),
+            ),
+            for (final p in eb.personen)
+              _zelle(pw.Text(k.figurName(p), style: k.stil.ueberschrift(10))),
+          ],
+        ),
+        for (final typ in eb.typen)
+          pw.TableRow(
+            children: [
+              _zelle(
+                pw.Text(
+                  k.ui('ui.druck.bogen.typ.$typ'),
+                  style: k.stil.text(10),
+                ),
+              ),
+              _zelle(
+                pw.Text(_lageZu(k, eb, typ), style: k.stil.ueberschrift(10)),
+              ),
+              for (final _ in eb.personen)
+                pw.Container(
+                  height: 24,
+                  alignment: pw.Alignment.center,
+                  child: _kaestchen(),
+                ),
+            ],
+          ),
+      ],
+    ),
+    pw.SizedBox(height: 8),
+    _absatz(k, k.ui('ui.druck.bogen.karten.hinweis')),
+    ..._block(k, k.ui('ui.druck.bogen.ausscheiden'), [
+      for (final r in eb.regeln) _absatz(k, eb.regelText[r.id]!),
+    ]),
+    ..._block(k, k.ui('ui.druck.bogen.tabelle.lage'), [
+      _absatz(k, k.ui('ui.druck.bogen.lage')),
+    ]),
+  ];
+}
+
+List<pw.Widget> _anklageBogen(DruckKontext k) => [
+  pw.SizedBox(height: 16),
+  _titel(k, k.ui('ui.druck.bogen.anklage')),
+  _absatz(k, k.text('detektiv.regeln.anklage')),
+  pw.SizedBox(height: 10),
+  pw.Row(
+    children: [
+      pw.Text(k.ui('ui.druck.bogen.angeklagt'), style: k.stil.klein(10)),
+      pw.SizedBox(width: 8),
+      _linie(300),
+    ],
+  ),
+  pw.SizedBox(height: 16),
+  pw.Row(
+    children: [
+      pw.Text(k.ui('ui.druck.bogen.punkte'), style: k.stil.klein(10)),
+      pw.SizedBox(width: 8),
+      _linie(60),
+      pw.SizedBox(width: 8),
+      pw.Text(
+        k.ui('ui.druck.bogen.von', {
+          'anzahl': '${k.satz.detektivbogen.length}',
+        }),
+        style: k.stil.klein(10),
+      ),
+    ],
+  ),
+];
+
+/// Lage einer Art im Ermittlungsbogen: wie der Erzähler sie wertet (Schlüsselbeweis klar, belastende Art Spur).
+String _lageZu(DruckKontext k, Ermittlungsbogen eb, String typ) {
+  if (typ == 'schluesselbeweis') return k.ui('ui.druck.bogen.lage.klar');
+  return eb.belastend.contains(typ) ? k.ui('ui.druck.bogen.lage.spur') : '';
+}
+
+// Gemeinsame Bausteine der beiden Teile
+
+List<pw.Widget> _kopf(DruckKontext k, String marke, String titel) => [
+  _marke(k, marke),
+  pw.SizedBox(height: 3),
+  pw.Text(titel, style: k.stil.titel()),
+  pw.SizedBox(height: 6),
+  _linie(DruckStil.breite),
+  pw.SizedBox(height: 12),
+];
+
+/// Fuß: Falltitel und Seitenzahl, nie ein Pfad (9 pt statt 8 pt aus stil.fuss).
+pw.Widget _fuss(DruckKontext k, String links, pw.Context c) => pw.Row(
+  mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+  children: [
+    pw.Text(links, style: k.stil.klein()),
+    pw.Text('${c.pageNumber} / ${c.pagesCount}', style: k.stil.klein()),
+  ],
+);
+
+/// Abschnitt mit kleiner Marke als Überschrift (wie `stil.kopf`, aber 9 pt).
+List<pw.Widget> _block(DruckKontext k, String label, List<pw.Widget> inhalt) =>
+    [
+      pw.SizedBox(height: 4),
+      _marke(k, label),
+      pw.SizedBox(height: 3),
+      ...inhalt,
+      pw.SizedBox(height: 8),
+    ];
+
+/// Vorlesetext: links die Marke „Vorlesen“, rechts der Baustein wortgleich.
+pw.Widget _vorlesen(DruckKontext k, String text) => pw.Padding(
+  padding: const pw.EdgeInsets.only(bottom: 6),
+  child: pw.Row(
+    crossAxisAlignment: pw.CrossAxisAlignment.start,
+    children: [
+      pw.SizedBox(
+        width: 72,
+        child: _marke(k, k.ui('ui.druck.spielleitung.vorlesen')),
+      ),
+      pw.Expanded(child: pw.Text(text, style: k.stil.text(11))),
+    ],
+  ),
+);
+
+pw.Widget _titel(DruckKontext k, String text) => pw.Padding(
+  padding: const pw.EdgeInsets.only(top: 6, bottom: 6),
+  child: pw.Text(text, style: k.stil.ueberschrift(14)),
+);
+
+pw.Widget _unterlabel(DruckKontext k, String text) => pw.Padding(
+  padding: const pw.EdgeInsets.only(top: 2, bottom: 3),
+  child: pw.Text(text, style: k.stil.ueberschrift(10.5)),
+);
+
+pw.Widget _absatz(DruckKontext k, String text) => pw.Padding(
+  padding: const pw.EdgeInsets.only(bottom: 5),
+  child: pw.Text(text, style: k.stil.text(11)),
+);
+
+pw.Widget _marke(DruckKontext k, String text) =>
+    pw.Text(text.toUpperCase(), style: k.stil.marke(9));
+
+pw.Widget _zelle(pw.Widget inhalt) =>
+    pw.Padding(padding: const pw.EdgeInsets.all(5), child: inhalt);
+
+pw.TableBorder _gitter() =>
+    pw.TableBorder.all(color: DruckStil.linie, width: 0.6);
+
+pw.BoxDecoration _kopfFarbe() => pw.BoxDecoration(color: PdfColors.grey200);
+
+pw.Widget _linie(double breite) =>
+    pw.Container(width: breite, height: 0.6, color: DruckStil.linie);
+
+pw.Widget _kaestchen() => pw.Container(
+  width: 10,
+  height: 10,
+  decoration: pw.BoxDecoration(
+    border: pw.Border.all(color: DruckStil.tinte, width: 0.8),
+  ),
+);

@@ -1,6 +1,319 @@
 {
   "settingId": "spuk_im_schlosskeller",
   "bereich": "ui",
-  "hinweis": "Spielleitungsheft und Detektivbogen im Druck (F5-BAUMEISTER-01).",
-  "eintraege": []
+  "hinweis": "Spielleitungsheft und Detektivbogen im Druck (F5-BAUMEISTER-01). Kennungen ui.druck.spielleitung.* und ui.druck.bogen.*.",
+  "eintraege": [
+    {
+      "id": "ui.druck.spielleitung.marke",
+      "text": "Spielleitungsheft"
+    },
+    {
+      "id": "ui.druck.spielleitung.titel",
+      "text": "Spielleitungsheft – ohne Lösung"
+    },
+    {
+      "id": "ui.druck.spielleitung.fallcode",
+      "text": "Fall-Code: {code}"
+    },
+    {
+      "id": "ui.druck.spielleitung.personen",
+      "text": "{anzahl} Personen am Tisch"
+    },
+    {
+      "id": "ui.druck.spielleitung.willkommen",
+      "text": "Dieses Heft führt dich durch den Abend. Es enthält keine Lösung."
+    },
+    {
+      "id": "ui.druck.spielleitung.aufloesung",
+      "text": "Das versiegelte Auflösungsheft öffnest du erst nach der Anklage."
+    },
+    {
+      "id": "ui.druck.spielleitung.vorbereitung",
+      "text": "Vorbereitung"
+    },
+    {
+      "id": "ui.druck.spielleitung.vorbereitung.einleitung",
+      "text": "Drucke alle Dateien aus. Die Nummer vorn sagt, wofür sie da ist."
+    },
+    {
+      "id": "ui.druck.spielleitung.datei.00",
+      "text": "Spielleitungsheft. Dieses Heft bleibt bei dir."
+    },
+    {
+      "id": "ui.druck.spielleitung.datei.01",
+      "text": "Detektivbogen mit Ermittlungsbogen. Gehört dem Geburtstagskind."
+    },
+    {
+      "id": "ui.druck.spielleitung.datei.10",
+      "text": "Rollenhefte. Je Person ein Heft mit der eigenen Rolle."
+    },
+    {
+      "id": "ui.druck.spielleitung.datei.11",
+      "text": "Fassungen. Für jede der vier Verdächtigen ein versiegelter Umschlag."
+    },
+    {
+      "id": "ui.druck.spielleitung.datei.12",
+      "text": "Stimmkarten. Je Runde zwei Karten pro Rolle, A und B."
+    },
+    {
+      "id": "ui.druck.spielleitung.datei.20",
+      "text": "Indizkarten. Verdeckt, nach Code geordnet, bei dir."
+    },
+    {
+      "id": "ui.druck.spielleitung.datei.21",
+      "text": "Hinweis-Umschläge. Geschlossen bei dir, je Runde drei Umschläge."
+    },
+    {
+      "id": "ui.druck.spielleitung.datei.90",
+      "text": "Auflösungsheft. Versiegelt. Erst nach der Anklage öffnen."
+    },
+    {
+      "id": "ui.druck.spielleitung.ablauf",
+      "text": "Ablauf"
+    },
+    {
+      "id": "ui.druck.spielleitung.ablauf.einleitung",
+      "text": "Lies die Texte mit der Marke Vorlesen genau so vor, wie sie dastehen. Alles andere ist Anleitung für dich."
+    },
+    {
+      "id": "ui.druck.spielleitung.vorlesen",
+      "text": "Vorlesen"
+    },
+    {
+      "id": "ui.druck.spielleitung.intro",
+      "text": "Zu Beginn"
+    },
+    {
+      "id": "ui.druck.spielleitung.runde",
+      "text": "Runde {nr} von 3"
+    },
+    {
+      "id": "ui.druck.spielleitung.schritt.start",
+      "text": "Rundenstart"
+    },
+    {
+      "id": "ui.druck.spielleitung.schritt.gespraeche",
+      "text": "Pflichtgespräche"
+    },
+    {
+      "id": "ui.druck.spielleitung.gespraeche",
+      "text": "Stell die Uhr auf {minuten} Minuten. Die Rollen führen ihre Gespräche zu zweit."
+    },
+    {
+      "id": "ui.druck.spielleitung.schritt.entscheidung",
+      "text": "Entscheidungen"
+    },
+    {
+      "id": "ui.druck.spielleitung.entscheidung",
+      "text": "Drei Entscheidungen. Das Geburtstagskind wählt auf dem Detektivbogen. Du gibst die Indizkarte mit dem gewählten Code aus."
+    },
+    {
+      "id": "ui.druck.spielleitung.schritt.gruppenwahl",
+      "text": "Gruppenwahl"
+    },
+    {
+      "id": "ui.druck.spielleitung.gruppenwahl",
+      "text": "Sammle die Stimmkarten verdeckt ein und mische sie. Zähle die Werte auf den Rückseiten zusammen. Die Summe sagst du nie laut."
+    },
+    {
+      "id": "ui.druck.spielleitung.auszaehlung.summe",
+      "text": "Summe"
+    },
+    {
+      "id": "ui.druck.spielleitung.auszaehlung.umschlag",
+      "text": "Umschlag"
+    },
+    {
+      "id": "ui.druck.spielleitung.auszaehlung.ab",
+      "text": "Ab Summe {summe}"
+    },
+    {
+      "id": "ui.druck.spielleitung.auszaehlung.unter0",
+      "text": "Summen unter 0 zählen als 0."
+    },
+    {
+      "id": "ui.druck.spielleitung.schritt.umschlag",
+      "text": "Umschlag"
+    },
+    {
+      "id": "ui.druck.spielleitung.umschlag",
+      "text": "Öffne den Umschlag mit dem Code aus der Tabelle und lies ihn vor."
+    },
+    {
+      "id": "ui.druck.spielleitung.schritt.resuemee",
+      "text": "Zwischenresümee"
+    },
+    {
+      "id": "ui.druck.spielleitung.resuemee.gruppe",
+      "text": "Gruppe"
+    },
+    {
+      "id": "ui.druck.spielleitung.resuemee.rest",
+      "text": "Restmenge"
+    },
+    {
+      "id": "ui.druck.spielleitung.rest.anleitung",
+      "text": "Ist genau eine Person überführt, bleibt nur sie übrig. Sonst bleiben alle, die nicht entlastet sind. Die Regeln stehen auf dem Bogen."
+    },
+    {
+      "id": "ui.druck.spielleitung.rest.suche",
+      "text": "Suche die Namen im Anhang und lies den Text dazu vor."
+    },
+    {
+      "id": "ui.druck.spielleitung.resuemee.lage",
+      "text": "Lage"
+    },
+    {
+      "id": "ui.druck.spielleitung.lage.anleitung",
+      "text": "Die Lage steht auf dem Bogen. Lies den Text vor, der dazu passt."
+    },
+    {
+      "id": "ui.druck.spielleitung.lage.offen",
+      "text": "Offen"
+    },
+    {
+      "id": "ui.druck.spielleitung.lage.spur",
+      "text": "Spur"
+    },
+    {
+      "id": "ui.druck.spielleitung.lage.klar",
+      "text": "Klar"
+    },
+    {
+      "id": "ui.druck.spielleitung.schritt.anklage",
+      "text": "Anklage"
+    },
+    {
+      "id": "ui.druck.spielleitung.anklage.klagt",
+      "text": "Nach Runde 3 liest du die Anklage vor. Das Geburtstagskind klagt eine der vier Verdächtigen an."
+    },
+    {
+      "id": "ui.druck.spielleitung.anklage.aufloesung",
+      "text": "Dann öffnest du das Auflösungsheft. Dort stehen die richtigen Karten und die Endentabelle."
+    },
+    {
+      "id": "ui.druck.spielleitung.anklage.punkte",
+      "text": "Vergleiche die Codes der gewählten Karten mit dem Auflösungsheft. Jede Übereinstimmung bringt einen Punkt."
+    },
+    {
+      "id": "ui.druck.spielleitung.anklage.ende",
+      "text": "Trage die Punkte auf dem Bogen ein. Dann liest du das Ende vor."
+    },
+    {
+      "id": "ui.druck.spielleitung.anhang",
+      "text": "Anhang: Restmengen"
+    },
+    {
+      "id": "ui.druck.spielleitung.anhang.einleitung",
+      "text": "Nach jeder Runde suchst du hier die Namen aus dem Bogen. Dann liest du den Text zur Zeile vor."
+    },
+    {
+      "id": "ui.druck.spielleitung.anhang.namen",
+      "text": "Noch verdächtig"
+    },
+    {
+      "id": "ui.druck.spielleitung.anhang.text",
+      "text": "Vorlesetext"
+    },
+    {
+      "id": "ui.druck.bogen.marke",
+      "text": "Detektivbogen"
+    },
+    {
+      "id": "ui.druck.bogen.regeln",
+      "text": "Regeln"
+    },
+    {
+      "id": "ui.druck.bogen.runde",
+      "text": "Runde {nr} von 3"
+    },
+    {
+      "id": "ui.druck.bogen.entscheidung",
+      "text": "Entscheidung {nr}"
+    },
+    {
+      "id": "ui.druck.bogen.karte",
+      "text": "Karte {code}"
+    },
+    {
+      "id": "ui.druck.bogen.gewaehlt",
+      "text": "Gewählt: Karte"
+    },
+    {
+      "id": "ui.druck.bogen.karten.hinweis",
+      "text": "Jede Indizkarte sagt dir, was du ankreuzt."
+    },
+    {
+      "id": "ui.druck.bogen.ermittlung",
+      "text": "Ermittlungsbogen"
+    },
+    {
+      "id": "ui.druck.bogen.tabelle.art",
+      "text": "Art"
+    },
+    {
+      "id": "ui.druck.bogen.tabelle.lage",
+      "text": "Lage"
+    },
+    {
+      "id": "ui.druck.bogen.typ.alibi",
+      "text": "Alibi"
+    },
+    {
+      "id": "ui.druck.bogen.typ.nebendelikt",
+      "text": "Heimlichtuerei"
+    },
+    {
+      "id": "ui.druck.bogen.typ.spaetankunft",
+      "text": "Späte Ankunft"
+    },
+    {
+      "id": "ui.druck.bogen.typ.zusatzindiz",
+      "text": "Weiteres Indiz"
+    },
+    {
+      "id": "ui.druck.bogen.typ.fundort",
+      "text": "Fundort"
+    },
+    {
+      "id": "ui.druck.bogen.typ.schluesselbeweis",
+      "text": "Schlüsselbeweis"
+    },
+    {
+      "id": "ui.druck.bogen.ausscheiden",
+      "text": "Wer ausscheidet"
+    },
+    {
+      "id": "ui.druck.bogen.lage.spur",
+      "text": "Spur"
+    },
+    {
+      "id": "ui.druck.bogen.lage.klar",
+      "text": "Klar"
+    },
+    {
+      "id": "ui.druck.bogen.lage",
+      "text": "Die Lage ist klar, sobald ein Schlüsselbeweis angekreuzt ist. Sie ist eine Spur, sobald eine der Arten mit Spur angekreuzt ist. Sonst ist sie offen."
+    },
+    {
+      "id": "ui.druck.bogen.anklage",
+      "text": "Anklage"
+    },
+    {
+      "id": "ui.druck.bogen.angeklagt",
+      "text": "Angeklagt"
+    },
+    {
+      "id": "ui.druck.bogen.punkte",
+      "text": "Punkte"
+    },
+    {
+      "id": "ui.druck.bogen.von",
+      "text": "von {anzahl}"
+    },
+    {
+      "id": "ui.druck.spielleitung.wertseite",
+      "text": "Leg die gefalteten Karten mit der Wertseite nach oben und zähl, ohne sie umzudrehen. So weiß niemand, wer welche Karte gegeben hat."
+    }
+  ]
 }

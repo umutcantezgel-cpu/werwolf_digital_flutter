@@ -141,8 +141,8 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 ## F5 – Druck und Besetzung (Tor F-09, F-14)
 | Kennung | Rolle | Gegenstand | Eigene Dateien | Abhängig | Status |
 |---|---|---|---|---|---|
-| F5-ORCH-01 | ORCH | NPC-Karten im Druck; Druck-Datenmodell mit neutralen Codes; Kernrollen-Fassungen versiegelt mit Schlüsselkarte; Ermittlungsbogen mit Ausschlussregeln; Stimmkarten-Auszählung | `party/druck/modell.dart` | F3 | Datenmodell steht (E-031, `druck_modell_test`: 100 Zufallsspiele gleich wie `Spiel`); Schlüsselkarte offen |
-| F5-BAUMEISTER-01..03 | Baumeister | PDF-Layouts: Spielleitungsheft, Detektivbogen, Rollenhefte · Indiz- und Stimmkarten · Umschläge und versiegeltes Auflösungsheft | `party/druck/<teil>.dart` | F5-ORCH-01 | offen |
+| F5-ORCH-01 | ORCH | NPC-Karten im Druck; Druck-Datenmodell mit neutralen Codes; Kernrollen-Fassungen versiegelt mit Schlüsselkarte; Ermittlungsbogen mit Ausschlussregeln; Stimmkarten-Auszählung | `party/druck/modell.dart` | F3 | erledigt (E-031, E-033: Modell, Gerüst, CLI; Fassungen tragen Rollenname und Code außen) |
+| F5-BAUMEISTER-01..03 | Baumeister | PDF-Layouts: Spielleitungsheft, Detektivbogen, Rollenhefte · Indiz- und Stimmkarten · Umschläge und versiegeltes Auflösungsheft | `party/druck/<teil>.dart` | F5-ORCH-01 | abgenommen (10, 9, 10 von 10; E-033) |
 | F5-BAUMEISTER-04 | Baumeister | CLI `party_druck` und App-Download | `bin/party_druck.dart`, `lib/party/druck_download.dart` | F5-BAUMEISTER-01..03 | offen |
 | F5-TEST-01 | TEST | Besetzungsprüfer 4–20 (F-09) | `test/party/besetzung_test.dart` | F5-ORCH-01 | offen |
 | F5-TEST-02 | TEST | Druck gegen Simulator (100 Spiele), Überlaufmessung, Wortgleichheit (F-14, F-10) | `test/party/druck_test.dart` | F5-BAUMEISTER-04 | offen |
@@ -154,7 +154,7 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 |---|---|---|---|---|---|
 | F6-GEGEN-01..03 | GEGEN | Logik/Abkürzungen · Spoiler (Bildschirm, Druck, Erzähler) · Ton und Klischee am fertigen Spiel | – (Bericht) | F5 | offen |
 | F6-SPIEL-01..02 | SPIEL | vollständige Durchläufe, Lesung wie ein Gast | – (Bericht) | F5 | offen |
-| F6-TEST-01 | TEST | „kein Story-Text außerhalb des Kanons“, Netz- und Konsolenprüfung im E2E | `test/party/story_text_ausserhalb_test.dart`, `tool/e2e/netz.spec.*` | F5 | offen |
+| F6-TEST-01 | TEST | „kein Story-Text außerhalb des Kanons“, Netz- und Konsolenprüfung im E2E | `test/party/story_text_ausserhalb_test.dart`, `tool/e2e/netz.spec.*` | F5 | Story-Text-Test vorgezogen (E-033); Netz und Konsole im E2E-Gerüst |
 | F6-ORCH-01 | ORCH | Fehlerbehebung, Regression Bestand, Tor, Commit, Push | – | alle F6 | offen |
 
 ## F7 – Übergabe (Tor F-17)

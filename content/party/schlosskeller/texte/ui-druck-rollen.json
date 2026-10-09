@@ -2,5 +2,122 @@
   "settingId": "spuk_im_schlosskeller",
   "bereich": "ui",
   "hinweis": "Rollenhefte, Fassungen und Stimmkarten im Druck (F5-BAUMEISTER-02).",
-  "eintraege": []
+  "eintraege": [
+    {
+      "id": "ui.druck.rollen.heft",
+      "text": "Rollenheft"
+    },
+    {
+      "id": "ui.druck.rollen.nurfuerdich",
+      "text": "Nur für dich. Erst lesen, wenn du dein Heft in der Hand hast."
+    },
+    {
+      "id": "ui.druck.rollen.wer",
+      "text": "Wer ich bin"
+    },
+    {
+      "id": "ui.druck.rollen.ziel",
+      "text": "Mein Ziel heute Nacht"
+    },
+    {
+      "id": "ui.druck.rollen.gespraeche",
+      "text": "Meine Pflichtgespräche"
+    },
+    {
+      "id": "ui.druck.rollen.runde",
+      "text": "Runde {nr}"
+    },
+    {
+      "id": "ui.druck.rollen.partner",
+      "text": "Partner"
+    },
+    {
+      "id": "ui.druck.rollen.thema",
+      "text": "Thema"
+    },
+    {
+      "id": "ui.druck.rollen.gespraechsziel",
+      "text": "Ziel im Gespräch"
+    },
+    {
+      "id": "ui.druck.rollen.anfang",
+      "text": "So fängst du an"
+    },
+    {
+      "id": "ui.druck.rollen.detektiv",
+      "text": "das Geburtstagskind"
+    },
+    {
+      "id": "ui.druck.rollen.besetzung",
+      "text": "Hinweis zur Besetzung"
+    },
+    {
+      "id": "ui.druck.rollen.umschlag",
+      "text": "Dein Umschlag trägt den Code {code}. Öffne ihn erst, wenn die Spielleitung diesen Code nennt."
+    },
+    {
+      "id": "ui.druck.rollen.weiss",
+      "text": "Was ich weiß"
+    },
+    {
+      "id": "ui.druck.rollen.verberge",
+      "text": "Was ich verberge"
+    },
+    {
+      "id": "ui.druck.rollen.behauptet",
+      "text": "Du behauptest: {behauptung}"
+    },
+    {
+      "id": "ui.druck.rollen.wahrheit",
+      "text": "In Wahrheit: {wahrheit}"
+    },
+    {
+      "id": "ui.druck.rollen.wahl",
+      "text": "Meine Rundenwahl"
+    },
+    {
+      "id": "ui.druck.fassung.marke",
+      "text": "Versiegelte Fassung"
+    },
+    {
+      "id": "ui.druck.fassung.aussen",
+      "text": "Umschlag für {name}. Nur {name} öffnet ihn."
+    },
+    {
+      "id": "ui.druck.fassung.tafel",
+      "text": "Nur für dich: Du warst es"
+    },
+    {
+      "id": "ui.druck.fassung.tarnung",
+      "text": "Das erzählst du den anderen"
+    },
+    {
+      "id": "ui.druck.fassung.tatwissen",
+      "text": "So war es wirklich"
+    },
+    {
+      "id": "ui.druck.fassung.sabotage",
+      "text": "Deine heimliche Wahl statt B"
+    },
+    {
+      "id": "ui.druck.fassung.notizen",
+      "text": "Notizen"
+    },
+    {
+      "id": "ui.druck.stimme.name",
+      "text": "Name"
+    },
+    {
+      "id": "ui.druck.stimme.runde",
+      "text": "Runde {nr}"
+    },
+    {
+      "id": "ui.druck.stimme.wert",
+      "text": "Wert: {wert}"
+    },
+    {
+      "id": "ui.druck.stimme.falz",
+      "text": "Hier falten. Der Wert bleibt bis zur Zählung verdeckt."
+    }
+  ]
 }

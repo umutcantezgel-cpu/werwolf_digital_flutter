@@ -869,3 +869,30 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Unter Last (Software-Rendering, parallele Prüfläufe) fielen Ticks aus. Nach zehn Sekunden stand die Uhr erst bei 23:55:44.
   - Der Zeitraffer folgt jetzt der echten Zeit (Stoppuhr).
   - Die Rückblende zeigt keinen Joystick und keinen Aktionsknopf mehr (`GameView(steuerung: false)`, Vorgabe bleibt `true`, Bestandsschutz).
+
+## E-033 · F5-Drucksatz (vorgezogen parallel zum F4-E2E)
+- **Denkprotokoll:**
+  - Das E2E-Gerüst belegte nur einen Haiku-Platz. Das Druckmodell war fertig und getestet (E-031).
+  - Die drei Druckteile liefen deshalb parallel. Das F4-Tor bleibt Voraussetzung für das F5-Tor.
+- **Gerüst (ORCH):**
+  - `satz_stil.dart`: A4, Inter und Special Elite, mindestens 9 pt, Höhenmessung, `passendeGroesse` wirft bei Überlauf.
+  - `satz.dart` mit `DruckKontext` und acht Dateien mit neutralen Namen.
+  - CLI `party_druck`.
+  - Testhilfe mit `pdfinfo` und `pdftotext`, damit A4, Seitenzahlen und Wortlaut echt geprüft werden.
+- **Baumeister F5-01 bis -03:**
+  - Abnahme 10, 9 und 10 von 10.
+  - 37 Drucktests, Rot-Proben belegt.
+  - Sichtprobe der Seiten als PNG, dem Nutzer gezeigt.
+- **Entscheidungen:**
+  - **Kernrollen-Hefte gleich (Spoiler):** Das Rollenheft der Täterrolle zeigte das Täterziel. Bei Kernrollen steht „Mein Ziel“ jetzt in der versiegelten Fassung. Die vier Kernhefte unterscheiden sich nur in Name, Gesprächen und Code. Test ergänzt.
+  - **Stimmkarten:**
+    - Name und Text stehen vorn, der Wert auf der gefalteten Seite.
+    - Die Spielleitung zählt die Wertseiten, ohne die Karten umzudrehen; der Hinweis steht im Heft.
+    - Die Sabotage bleibt anonym. Eine Spielleitung, die die Karten umdreht, sähe den Namen; das ist eine Frage der Fairness am Tisch (FÜR DEN NUTZER).
+  - **Faktarten aus einer Quelle:** Bogen und Indizkarten nutzen beide `ui.druck.bogen.typ.*`, vorher „Spät dran“ gegen „Späte Ankunft“.
+  - **Code-Bedeutungen im Modell sind technische Kennungen** (`indizkarte:e:o`, `umschlag:r:q`, `fassung:rolle[:taeter]`). Den Text setzt das Auflösungsheft aus Bausteinen (F-11).
+  - **Dokumenttitel aus Bausteinen** (`ui.druck.datei.*`). Kopf und Fuß auf 9 pt.
+  - **Probe entfernt:** Die F1-Probeseite (`druck/probe.dart`, `bin/party_druck_probe.dart`) ist durch den Satz ersetzt.
+- **F6-TEST-01 vorgezogen:**
+  - `story_text_ausserhalb_test`: In `lib/party` und `druck/` steht kein Spielertext im Code. Technische Zeilen sind ausgenommen (Fehler, Messdokumente, `wo:`). Rot-Probe belegt.
+  - Stand: 318 Kern-Tests grün.

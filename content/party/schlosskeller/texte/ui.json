@@ -118,6 +118,38 @@
     {
       "id": "ui.rueckblende.nochmal",
       "text": "Rückblende noch einmal"
+    },
+    {
+      "id": "ui.druck.datei.spielleitung",
+      "text": "Spielleitungsheft"
+    },
+    {
+      "id": "ui.druck.datei.detektivbogen",
+      "text": "Detektivbogen"
+    },
+    {
+      "id": "ui.druck.datei.rollenhefte",
+      "text": "Rollenhefte"
+    },
+    {
+      "id": "ui.druck.datei.fassungen",
+      "text": "Umschläge der Kernrollen"
+    },
+    {
+      "id": "ui.druck.datei.stimmkarten",
+      "text": "Stimmkarten"
+    },
+    {
+      "id": "ui.druck.datei.indizkarten",
+      "text": "Indizkarten"
+    },
+    {
+      "id": "ui.druck.datei.umschlaege",
+      "text": "Hinweis-Umschläge"
+    },
+    {
+      "id": "ui.druck.datei.aufloesung",
+      "text": "Auflösungsheft"
     }
   ]
 }

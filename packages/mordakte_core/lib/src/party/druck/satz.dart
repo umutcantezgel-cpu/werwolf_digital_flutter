@@ -55,13 +55,13 @@ Future<List<DruckDatei>> druckDateien(DruckKontext k) async {
   }
 
   return [
-    await datei('00-spielleitung.pdf', 'Spielleitung', spielleitungsheft),
-    await datei('01-detektivbogen.pdf', 'Detektivbogen', detektivbogen),
-    await datei('10-rollenhefte.pdf', 'Rollenhefte', rollenhefte),
-    await datei('11-fassungen.pdf', 'Fassungen', fassungen),
-    await datei('12-stimmkarten.pdf', 'Stimmkarten', stimmkarten),
-    await datei('20-indizkarten.pdf', 'Indizkarten', indizkarten),
-    await datei('21-umschlaege.pdf', 'Umschläge', umschlaege),
-    await datei('90-aufloesung-versiegelt.pdf', 'Auflösung', aufloesungsheft),
+    await datei('00-spielleitung.pdf', k.ui('ui.druck.datei.spielleitung'), spielleitungsheft),
+    await datei('01-detektivbogen.pdf', k.ui('ui.druck.datei.detektivbogen'), detektivbogen),
+    await datei('10-rollenhefte.pdf', k.ui('ui.druck.datei.rollenhefte'), rollenhefte),
+    await datei('11-fassungen.pdf', k.ui('ui.druck.datei.fassungen'), fassungen),
+    await datei('12-stimmkarten.pdf', k.ui('ui.druck.datei.stimmkarten'), stimmkarten),
+    await datei('20-indizkarten.pdf', k.ui('ui.druck.datei.indizkarten'), indizkarten),
+    await datei('21-umschlaege.pdf', k.ui('ui.druck.datei.umschlaege'), umschlaege),
+    await datei('90-aufloesung-versiegelt.pdf', k.ui('ui.druck.datei.aufloesung'), aufloesungsheft),
   ];
 }

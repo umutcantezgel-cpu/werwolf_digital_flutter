@@ -1,0 +1,210 @@
+// F5-BAUMEISTER-02: Rollenhefte, versiegelte Fassungen der Kernrollen und Stimmkarten als PDF
+// (Master 7.11, 7.14, G-1). Geprüft wird, was auf dem Papier steht: pdfinfo und pdftotext über die Testhilfe.
+import 'dart:io';
+import 'dart:math';
+import 'dart:typed_data';
+
+import 'package:mordakte_core/src/party/druck/rollen.dart';
+import 'package:mordakte_core/src/party/druck/satz.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:test/test.dart';
+
+import 'druck_hilfe.dart';
+
+const _heftMarke = 'Erst lesen, wenn du dein Heft in der Hand hast';
+
+/// Setzt einen Teil in ein eigenes Dokument und prüft das fertige PDF.
+Future<PdfBefund> _teil(void Function(pw.Document, DruckKontext) teil, DruckKontext k) async {
+  final doc = k.stil.neuesDokument('Test');
+  teil(doc, k);
+  return pdfPruefen(await doc.save());
+}
+
+/// Text der Seiten [von] bis [bis] (ohne [bis]), flach.
+String _seiten(PdfBefund b, int von, int bis) => flach(b.seitenText.sublist(von, bis).join(' '));
+
+/// Seitennummern (0-basiert) der Deckblätter, eines je besetzter Rolle.
+List<int> _deckblaetter(PdfBefund b) => [
+      for (var i = 0; i < b.seiten; i++)
+        if (flach(b.seitenText[i]).contains(_heftMarke)) i,
+    ];
+
+/// Die ersten [n] Zeichen eines Textes, flach.
+String _anfang(String s, int n) {
+  final f = flach(s);
+  return f.substring(0, min(n, f.length));
+}
+
+int _zaehle(String text, String muster) => muster.allMatches(text).length;
+
+/// Text je Seite in Zeichenfolge des PDFs (pdftotext -raw): Eine Karte bleibt im Stück, auch neben einer anderen.
+List<String> _seitenRoh(Uint8List bytes) {
+  final dir = Directory.systemTemp.createTempSync('druck_roh');
+  try {
+    final f = File('${dir.path}/satz.pdf')..writeAsBytesSync(bytes);
+    final text = Process.runSync('pdftotext', ['-raw', f.path, '-']).stdout as String;
+    return text.split('\f');
+  } finally {
+    dir.deleteSync(recursive: true);
+  }
+}
+
+void main() {
+  test('alle drei Teile sind A4 und nicht leer', () async {
+    final k = druckKontext(pfad: 'ahmet', n: 12);
+    for (final teil in [rollenhefte, fassungen, stimmkarten]) {
+      final b = await _teil(teil, k);
+      expect(b.a4, isTrue);
+      expect(b.seiten, greaterThan(0));
+    }
+  });
+
+  test('Fassungen: vier Kernrollen mit gleich vielen Seiten, jede beginnt mit ihrem Code', () async {
+    final k = druckKontext(pfad: 'fatma', n: 12);
+    final b = await _teil(fassungen, k);
+    expect(b.seiten % 4, 0);
+    final l = b.seiten ~/ 4;
+    expect(k.satz.fassungen, hasLength(4));
+    for (var i = 0; i < 4; i++) {
+      final f = k.satz.fassungen[i];
+      expect(b.seitenText[i * l].trim(), startsWith(f.code), reason: f.rolle);
+    }
+  });
+
+  test('Außenseite zeigt nur Code und neutralen Hinweis, nie Täter oder Nur für dich', () async {
+    final k = druckKontext(pfad: 'fatma', n: 12);
+    final b = await _teil(fassungen, k);
+    final l = b.seiten ~/ 4;
+    for (var i = 0; i < 4; i++) {
+      final f = k.satz.fassungen[i];
+      final name = k.figurName(f.rolle);
+      final aussen = _seiten(b, i * l, i * l + 1);
+      expect(aussen, '${f.code} Umschlag für $name. Nur $name öffnet ihn.', reason: f.rolle);
+      expect(aussen, isNot(contains('Nur für dich')), reason: f.rolle);
+      expect(aussen, isNot(contains('Du warst es')), reason: f.rolle);
+    }
+  });
+
+  test('Täterfassung von fatma enthält „Nur für dich“ und die Tarnung, die anderen nicht', () async {
+    final k = druckKontext(pfad: 'fatma', n: 12);
+    final b = await _teil(fassungen, k);
+    final l = b.seiten ~/ 4;
+    final tarnung = _anfang(k.satz.fassungen.firstWhere((f) => f.rolle == 'fatma').dossier.tarnung!, 50);
+    for (var i = 0; i < 4; i++) {
+      final f = k.satz.fassungen[i];
+      final text = _seiten(b, i * l, (i + 1) * l);
+      final taeterin = f.rolle == 'fatma';
+      expect(text.contains('Nur für dich'), taeterin, reason: f.rolle);
+      expect(text.contains(tarnung), taeterin, reason: f.rolle);
+    }
+  });
+
+  test('Rollenheft-PDF enthält weder Tarnung noch Täterfassung von fatma', () async {
+    final k = druckKontext(pfad: 'fatma', n: 12);
+    final b = await _teil(rollenhefte, k);
+    final text = flach(b.text);
+    final dossier = k.satz.fassungen.firstWhere((f) => f.rolle == 'fatma').dossier;
+    expect(text, isNot(contains('Nur für dich: Du warst es')));
+    expect(text, isNot(contains('Das erzählst du den anderen')));
+    expect(text, isNot(contains(_anfang(dossier.tarnung!, 50))));
+    expect(text, isNot(contains(_anfang(dossier.tatwissen.first.text, 40))));
+  });
+
+  test('jede besetzte Rolle hat ein Deckblatt mit ihrem Namen', () async {
+    final k = druckKontext(pfad: 'ahmet', n: 12);
+    final b = await _teil(rollenhefte, k);
+    final deck = _deckblaetter(b);
+    expect(deck, hasLength(k.satz.besetzt.length));
+    for (var j = 0; j < deck.length; j++) {
+      expect(flach(b.seitenText[deck[j]]), contains(k.figurName(k.satz.besetzt[j])), reason: k.satz.besetzt[j]);
+    }
+  });
+
+  test('bei n = 4 erscheinen nur Ahmet, Fatma, Olli und Can', () async {
+    final k = druckKontext(pfad: 'olli', n: 4);
+    expect({for (final r in k.satz.besetzt) k.figurName(r)}, {'Ahmet', 'Fatma', 'Olli', 'Can'});
+    final b = await _teil(rollenhefte, k);
+    final deck = _deckblaetter(b);
+    expect(deck, hasLength(4));
+    for (var j = 0; j < deck.length; j++) {
+      expect(flach(b.seitenText[deck[j]]), contains(k.figurName(k.satz.besetzt[j])));
+    }
+  });
+
+  test('im Heft einer Kernrolle steht nur der Hinweis auf den Umschlag, sonst Was ich weiß', () async {
+    final k = druckKontext(pfad: 'ahmet', n: 12);
+    final b = await _teil(rollenhefte, k);
+    final deck = _deckblaetter(b);
+    for (var j = 0; j < deck.length; j++) {
+      final ende = j + 1 < deck.length ? deck[j + 1] : b.seiten;
+      final rolle = k.satz.besetzt[j];
+      final heft = _seiten(b, deck[j], ende);
+      final fassung = k.satz.fassungen.where((f) => f.rolle == rolle).toList();
+      if (fassung.isEmpty) {
+        expect(heft, contains('Was ich weiß'), reason: rolle);
+      } else {
+        expect(heft, contains('Dein Umschlag trägt den Code ${fassung.single.code}'), reason: rolle);
+        expect(heft, isNot(contains('Was ich weiß')), reason: rolle);
+        expect(heft, isNot(contains('Meine Rundenwahl')), reason: rolle);
+      }
+    }
+  });
+
+  test('Sabotage steht nur in der Täterfassung, dort in jeder Runde', () async {
+    final k = druckKontext(pfad: 'fatma', n: 12);
+    final b = await _teil(fassungen, k);
+    final l = b.seiten ~/ 4;
+    for (var i = 0; i < 4; i++) {
+      final f = k.satz.fassungen[i];
+      final text = _seiten(b, i * l, (i + 1) * l);
+      expect(_zaehle(text, 'Deine heimliche Wahl statt B'), f.rolle == 'fatma' ? 3 : 0, reason: f.rolle);
+    }
+  });
+
+  test('Stimmkarten: 8 je Blatt, jeder Kartentext steht im PDF, je Runde genau eine −1', () async {
+    final k = druckKontext(pfad: 'ahmet', n: 12);
+    final doc = k.stil.neuesDokument('Test');
+    stimmkarten(doc, k);
+    final bytes = await doc.save();
+    final b = pdfPruefen(bytes);
+    expect(b.seiten, 9, reason: '72 Karten zu acht je Blatt');
+    final seiten = _seitenRoh(bytes);
+    final text = flach(seiten.join(' '));
+    for (final s in k.satz.stimmkarten) {
+      expect(text, contains(_anfang(s.text, 40)), reason: '${s.rolle} Runde ${s.runde} ${s.a ? 'A' : 'B'}');
+    }
+    // Eine Runde sind 24 Karten, also drei Blätter: auf jedem Abschnitt genau eine −1.
+    for (var r = 0; r < 3; r++) {
+      expect(_zaehle(seiten.sublist(r * 3, r * 3 + 3).join(' '), 'Wert: −1'), 1, reason: 'Runde ${r + 1}');
+    }
+    expect(_zaehle(text, 'Wert: −1'), 3);
+    expect(_zaehle(text, 'Wert: +1'), 36);
+    expect(_zaehle(text, 'Wert: 0'), 33);
+    expect([for (final s in k.satz.stimmkarten.where((s) => s.wert == -1)) (s.rolle, s.runde)], [('ahmet', 1), ('ahmet', 2), ('ahmet', 3)]);
+  });
+
+  test('n = 20 ohne Überlauf, alle Teile A4', () async {
+    final k = druckKontext(pfad: 'fatma', n: 20);
+    for (final teil in [rollenhefte, fassungen, stimmkarten]) {
+      final b = await _teil(teil, k);
+      expect(b.a4, isTrue);
+    }
+    final karten = await _teil(stimmkarten, k);
+    expect(karten.seiten, 15, reason: '120 Karten zu acht je Blatt');
+    expect(_zaehle(karten.text, 'Wert: −1'), 3);
+    expect(_zaehle(karten.text, 'Wert: +1'), 60);
+  });
+
+  test('Täterziel steht nur in der versiegelten Fassung, nie im Rollenheft (E-033)', () async {
+    final k = druckKontext(pfad: 'fatma', n: 7);
+    final taeterZiel = k.texte.dossier('fatma', 'fatma', 7).ziel;
+    final unschuldZiel = k.texte.dossier('fatma', 'ahmet', 7).ziel;
+    expect(taeterZiel, isNot(unschuldZiel), reason: 'Kanon: Täterziel unterscheidet sich');
+    final dateien = {for (final d in await druckDateien(k)) d.name: d};
+    final heft = flach(pdfPruefen(dateien['10-rollenhefte.pdf']!.bytes).text);
+    final fassungen = flach(pdfPruefen(dateien['11-fassungen.pdf']!.bytes).text);
+    final probe = flach(taeterZiel).substring(0, 40);
+    expect(heft.contains(probe), isFalse);
+    expect(fassungen.contains(probe), isTrue);
+  });
+}
