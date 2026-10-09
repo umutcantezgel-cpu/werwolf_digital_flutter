@@ -13,11 +13,13 @@ Herkunft: v4 verbindet den Meta-Prompt v3 des Nutzers (Gerüst) mit dem Wissen a
 - **Repo:** umutcantezgel-cpu/werwolf_digital_flutter · **App:** „Mordakte“ · **Fall:** „Spuk im Schlosskeller“
 - **Modelle:**
   - **Opus 5.5** (claude-opus-5-5): Das bist du; als Agent mit model "opus".
-  - **Haiku 5.5** (claude-haiku-5-5): im Agent-Werkzeug mit model "haiku", im Workflow mit agent(…, {model: 'claude-haiku-5-5', effort: …}).
+  - **Haiku 5.5** (claude-haiku-5-5): im Agent-Werkzeug mit model "haiku".
+  - **Keine Workflows:** In Kindsitzungen des Leitstands startest du keine Workflows, denn das Workflow-Werkzeug braucht die Anfrage des Nutzers in eigenen Worten in derselben Sitzung (Kinder-Probe, Teil 2). Alle Agentenarbeit läuft über das Agent-Werkzeug, mehrere Hintergrund-Agenten gleichzeitig.
+  - Gilt das in einer Sitzung nicht (der Nutzer hat dort selbst Workflows verlangt), dürfen Workflows dazukommen.
   - Andere Modelle gibt es nicht. Jeder Agentenaufruf nennt sein Modell selbst. Du setzt keine Umgebungsvariablen und legst keine Einstellungsdatei an.
 - **Denkstufen:**
   - Opus 5.5 auf max.
-  - Haiku 5.5 auf max für Qualitätsarbeit (Variantenbauer, Richter, Angreifer, Probeläufer) und auf medium für reine Zähl- und Formarbeit. Haiku 5.5 kennt low bis max (BELEGE C8).
+  - Haiku 5.5 auf max für Qualitätsarbeit (Variantenbauer, Richter, Angreifer, Probeläufer) und auf medium für reine Zähl- und Formarbeit. Diese Vorgabe ist eine ausdrückliche Anweisung dieses Auftrags für den Parameter `effort` des Agent-Werkzeugs. Haiku 5.5 kennt low bis max (BELEGE C8).
 - **Dauer:** 2 bis 4 Stunden, harte Grenze 5 Stunden. Die Richtzeiten je Phase in §7 ergeben zusammen 4 Stunden.
 - **Probenumfang:** etwa 100 bis 200 Haiku-Agenten; mehr nur, wenn ein Messwert sonst nicht belastbar ist.
 - **Anhänge:** Sie liegen im Commit `<V4-SHA>` (steht in der Startnachricht) unter `planung/bollwerk/`:
@@ -80,7 +82,7 @@ Der Wortlaut des Nutzers steht in Anhang A1, seine Entscheidungen in A2 (BE-01 b
   - **Variante:** ein von einem Agenten erzeugter Kandidat, geprüft und bewertet. Das kann ein Text, Datensatz, Code, Test, eine Pose, Requisite, ein Bild oder eine Bildbeschreibung sein.
   - **Slot:** eine klar umrissene Lücke im Spiel, für die Varianten entstehen.
   - **Prüfmauer:** die feste Folge von Prüfringen, die jede Variante passieren muss, bevor sie ins Spiel darf.
-  - **Variantenfabrik:** Slots, Briefings, Workflows, Prüfmauer und Auswahl als wiederholbarer Kreislauf.
+  - **Variantenfabrik:** Slots, Briefings, Agentenwellen, Prüfmauer und Auswahl als wiederholbarer Kreislauf.
 - **Spielwürfel:** der Würfel im Spiel. Meint „Würfel“ in einem anderen Planungsordner einen Baustein der Darstellung (FEINKORN), hältst du beide Bedeutungen in jedem Text getrennt.
 - **Probe:** ein Versuch im Scratchpad oder in einem Wegwerf-Worktree.
 - **Lichtungsaufgabe:** eine offene Frage, die der Nachtlauf in seiner ersten Phase klärt.
@@ -136,8 +138,8 @@ Die Fakten stehen mit SHA in Anhang B (Stand 09.10.2026, Nachtrag v4 am Kopf). I
   - Nach 2 Sperren in Folge lässt du diese Schrittart weg.
   - Nach 15 Sperren insgesamt gehst du direkt zur Übergabe.
   - Warum: Der Sicherheitsfilter fällt nach drei Sperren in Folge oder zwanzig insgesamt auf Rückfragen zurück. Dann steht der Lauf, bis ein Mensch im Web antwortet (BELEGE C11).
-- **Laufende Arbeit.** Solange Workflows oder Hintergrundbefehle laufen, beendest du deinen Zug nicht. Du arbeitest an Unabhängigem weiter oder wartest mit dem Wartebefehl aus M0 Frage 6 (höchstens zehn Minuten).
-  - Läuft ein Workflow länger als das Dreifache seiner geplanten Dauer, brichst du ihn ab und wertest das Teilergebnis aus. Geplante Dauer = ⌈Agenten ÷ gemessene Parallelität⌉ × Agentendauer, mindestens 30 Minuten.
+- **Laufende Arbeit.** Solange Hintergrund-Agenten oder Hintergrundbefehle laufen, beendest du deinen Zug nicht. Du arbeitest an Unabhängigem weiter oder wartest mit dem Wartebefehl aus M0 Frage 6 (höchstens zehn Minuten).
+  - Läuft eine Welle länger als das Dreifache ihrer geplanten Dauer, wertest du das Teilergebnis aus und reihst Fehlendes einmal neu ein. Geplante Dauer = ⌈Agenten ÷ gemessene Parallelität⌉ × Agentendauer, mindestens 30 Minuten.
   - Warum: Eine Cloud-Maschine ohne Aktivität pausiert, und laufende Agenten gehen beim Neuaufbau verloren (BELEGE C5).
 - **Zug-Zeile.** Endet ein Zug vor der Übergabe, ist seine letzte Zeile `=== BOLLWERK-META-ZUG · M<n> · <sha40 von origin/bollwerk-plan> ===`. Auf „WEITER BOLLWERK“ setzt du nach `meta/STATUS.md` fort.
 - **Steuerung.** Zu Beginn jeder Phase liest du `git fetch origin bollwerk-leitstand && git show origin/bollwerk-leitstand:planung/bollwerk/leitstand/STEUERUNG.md`.
@@ -192,9 +194,9 @@ Die Fakten stehen mit SHA in Anhang B (Stand 09.10.2026, Nachtrag v4 am Kopf). I
 
   Dieser Absatz steht wortgleich in jedem Auftrag.
 - **Modellprobe:**
-  - Vor dem ersten Workflow lädst du /workflow-authoring und prüfst daran Modell- und Denkstufenangabe, Schema und Grenzen.
-  - Die Probe läuft erst nach dem ersten Push (M0), und zwar zweimal: als einzelner Haiku-Agent und als Workflow mit einem Agenten.
-  - Beleg ist das Feld `model` im Agentenprotokoll: `grep -o '"model":"[^"]*"' ~/.claude/projects/*/*/subagents/{,workflows/*/}agent-*.jsonl | sort | uniq -c`. Die Selbstauskunft des Agenten zählt nicht.
+  - Die Probe läuft erst nach dem ersten Push (M0): zwei Haiku-Agenten im Hintergrund, gleichzeitig.
+  - Beleg ist das Feld `model` im Agentenprotokoll: `grep -o '"model":"[^"]*"' ~/.claude/projects/*/*/subagents/agent-*.jsonl | sort | uniq -c`. Die Selbstauskunft des Agenten zählt nicht.
+  - Dazu misst du, wie viele Hintergrund-Agenten gleichzeitig laufen, ohne dass Fehler oder Wartezeiten steigen; gemessen wird mit 4, 8 und 12.
   - Weicht eines ab, korrigierst du die Aufrufe, bevor weitere Agenten starten.
 
 ## 6. DENKPROTOKOLL
@@ -252,7 +254,7 @@ In dieser Reihenfolge:
 4. Läuft die Spiellogik ohne Oberfläche, etwa für Simulationen mit Tausenden Partien?
 5. Lassen sich mehrere App-Instanzen über die lokale Schleife verbinden, als Probe für WLAN (`room_host`)?
 6. Welcher Befehl wartet bis zu zehn Minuten, ohne den Zug zu beenden? Etwa `timeout 590 bash -c 'until <bedingung>; do sleep 30; done'` im Hintergrund mit Benachrichtigung, oder Monitor. Der belegte Befehl steht später wörtlich im Master-Prompt.
-7. Wie viele Workflow-Agenten laufen hier gleichzeitig, und verlangte der erste Workflow-Start eine Zustimmung? Die Antwort steht in der Modellprobe und in `origin/bollwerk-leitstand:planung/bollwerk/leitstand/LEITSTAND.md` (Kinder-Probe).
+7. Wie viele Hintergrund-Agenten laufen hier gleichzeitig (Modellprobe), und wie viele Agentenrückgaben verträgt dein Kontext je Stunde? Workflows sind in dieser Sitzung nicht freigegeben (Kinder-Probe in `origin/bollwerk-leitstand:planung/bollwerk/leitstand/LEITSTAND.md`).
 8. Welche Werkzeuge hat diese Sitzung (aus der Werkzeugliste, ohne Aufruf), und setzt eine Kindsitzung nach einem Nutzungslimit selbst fort? Ist das nicht belegbar, gilt „nicht klärbar“, und der Master-Prompt plant für beide Fälle.
 
 **Abbruchregel:** Scheitert die Werkzeugkette nach zwei Versuchen oder 30 Minuten, markierst du die Fragen 1 bis 5 als nicht klärbar. Du simulierst dann im Scratchpad mit einem eigenen Modell der Spielregeln weiter und machst Bild- und Technikproben zur Lichtungsaufgabe.
@@ -356,7 +358,7 @@ In dieser Reihenfolge:
   - dann Durchstich: eine vollständige Runde in allen drei Modi mit wenig Inhalt
   - dann die Breite
   - Jede Welle passt in **ein** Limitfenster.
-  - Standard sind höchstens 20 Agenten je Workflow (Wert aus M3), mehrere parallel bis zur Kapazität; 1.000 ist nur die Plattformgrenze.
+  - Wellengröße = gemessene Zahl gleichzeitiger Hintergrund-Agenten (M0, M3); Rückgaben je Stunde nach dem gemessenen Kontextbudget.
 - **Betriebsort:** Cloud-Kindsitzungen des Leitstands. Zeigt das LAGEBILD, dass eine Nacht nicht trägt, schreibst du den Master-Prompt für kürzere Generationen und machst das zur Annahme.
 - **Ausgang:** PLAN.
 
@@ -560,7 +562,7 @@ Die Nummern 2.2, 2.5 und 6 sind feste Verweise, denn Leitstand und Startpaket ne
 
 ### 8.6 Variantenfabrik
 - **Slots und Auswahl:** Slots kommen aus dem Plan. Je Slot entstehen mehrere Varianten mit unterschiedlicher Vorgabe; die Auswahl folgt einer dokumentierten Regel.
-- **Rückgabe:** Jeder Agent schreibt seine Variante in einen eigenen Pfad. Über das Schema gibt er nur Kennung, Pfad, Status und Selbstprüfung zurück. Warum: Was ein Workflow zurückgibt, landet im Kontext von Opus.
+- **Rückgabe:** Jeder Agent schreibt seine Variante in einen eigenen Pfad und gibt nur eine Zeile zurück: `KURZ · <Kennung> · <gruen|teil|rot> · Varianten <n> · Selbstprüfung <m>/<n> · Datei <pfad>`. Warum: Jede Rückgabe landet im Kontext von Opus, und der muss eine ganze Generation reichen.
 - **Code-Aufträge:** in Pool-Kopien ohne Git (A4.9); den Patch erzeugt Opus.
 - **Was Agenten nicht dürfen:** weder Git noch Installationen noch Netzwerk. Sie rufen nur die Werkzeuge und Prüfskripte auf, die ihr Paket nennt. Warum: Der Sicherheitsfilter zählt Sperren.
 - **Nachbesserung:** Abgelehnte Varianten bekommen höchstens zwei Runden mit Befund; danach übernimmt Opus oder schneidet den Slot neu.
@@ -581,18 +583,17 @@ Die Nummern 2.2, 2.5 und 6 sind feste Verweise, denn Leitstand und Startpaket ne
   11. Selbstprüfung
   12. als letzte Zeile `=== ENDE [Kennung] · BEREIT ZUR RÜCKGABE ===`
 
-  Bei Schema-Ausgabe ersetzt ein Pflichtfeld status mit dem Wert BEREIT die Endmarke. Pakete der Stufe 3 gehen an Opus.
-- **Zufall:** nur über Startwerte, die das Skript als Eingabe bekommt.
+  Pakete der Stufe 3 gehen an Opus.
+- **Zufall:** Startwerte bekommt jeder Agent in seinem Paket; selbst würfelt er nie.
 
 ### 8.7 Betrieb über mehrere Nächte
-- **Wellen:** Standard sind höchstens 20 Agenten je Workflow; mehrere laufen parallel bis zur gemessenen Kapazität. Jede Welle passt in ein Limitfenster.
-  - Verlangt ein Workflow-Start eine Zustimmung (M0 Frage 7), nutzt der Lauf direkte Hintergrund-Agenten.
+- **Wellen:** Eine Welle sind gleichzeitig gestartete Hintergrund-Agenten (Agent-Werkzeug), höchstens so viele wie in M0 gemessen. Jede Welle passt in ein Limitfenster. Jeder Agent bekommt 10 bis 25 Varianten je Auftrag, damit wenige Rückgaben viele Varianten tragen.
 - **Nutzungslimit:** Ein Limit ist nie ein Grund für eine neue Generation.
   - Der Lauf wartet selbst und setzt fort, oder er steht, bis der Leitstand nach dem Zurücksetzen „WEITER BOLLWERK“ schickt.
   - Bei `LIMIT-VORSORGE` aus STEUERUNG (Wochenlimit) schließt er die Welle ab, zieht den Morgenbericht vor und setzt NACHT-ENDE.
 - **Laufende Arbeit:** Solange Hintergrundarbeit läuft, beendet der Lauf seinen Zug nicht. Er wartet mit dem belegten Wartebefehl (höchstens zehn Minuten).
   - Eine Welle, die länger als das Dreifache ihrer geplanten Dauer läuft, bricht er ab und wertet das Teilergebnis aus.
-- **Wiederaufnahme:** nach 2.3 Schritt 3, mit `resumeFromRunId` für denselben Workflow.
+- **Wiederaufnahme:** nach 2.3 Schritt 3. Hintergrund-Agenten überleben keinen Neuaufbau der Maschine; deshalb prüft der Lauf jede Ausgabedatei aus FLUG.md und reiht Fehlendes einmal neu ein.
 - **Sicherung:** Mindestens stündlich Commit und Push von `bollwerk`; jeder Code-Commit baut und testet grün. LEASE und PRUEFPUNKT werden alle 30 Minuten gepusht.
 - **main-Stand:** Nach B-02 holt der Lauf an jedem Phasentor origin/main in `bollwerk`, nach der Konfliktregel aus Anhang A, MP-16. Die Konfliktzahl kommt in den Bericht.
 - **Generationsende:** nach FENSTER oder bei erreichtem Nachtziel.
@@ -729,13 +730,13 @@ Stand 9. Oktober 2026, geprüft gegen die offizielle Claude-Code-Dokumentation (
 - **Einstellungen:** Eine Cloud-Sitzung mit genau einem Repo liest dessen `.claude/settings.json`, aber keine Benutzer- oder lokalen Einstellungen. Den Auto-Modus wählt man im Modus-Menü oder beim Erzeugen der Sitzung. (C2)
 - **Git-Proxy:** Er lehnt Tag-Pushes und Branch-Löschungen ab; Branch-Pushes lässt er zu. GraphQL ist gesperrt, `gh pr` scheitert daher. (C3)
 
-**Befehle und Workflows**
+**Befehle und Agenten**
 - **Befehlsdauer:** Im Vordergrund standardmäßig 2 Minuten, höchstens 10, danach bis zu 30 weitere Minuten im Hintergrund. Ein direkt im Hintergrund gestarteter Befehl hat bis zu 2 Stunden. Befehle, die mit `sleep` beginnen, werden nicht verschoben. (C4)
-- **Pausen:** Ohne Aktivität pausiert die Maschine nach wenigen Minuten. Bei einem Neuaufbau sind laufende Agenten, Befehle und /loop-Weckrufe verloren. Ergebnisse fertiger Workflow-Agenten bleiben; Dateien außerhalb von Git nicht. (C5)
-- **Workflows:** höchstens 1.000 Agenten je Lauf und 4.096 Einträge je Aufruf. Auf dieser Maschine laufen 2 Agenten gleichzeitig; `CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS` setzt 1 bis 256. Kein Zeitstempel, kein Zufall; das Hänger-Fenster beträgt 10 Minuten (`stallMs`). (C6)
+- **Pausen:** Ohne Aktivität pausiert die Maschine nach wenigen Minuten. Bei einem Neuaufbau sind laufende Agenten, Befehle und /loop-Weckrufe verloren. Laufende Hintergrund-Agenten gehen verloren; Dateien außerhalb von Git auch. (C5)
+- **Workflows:** nur, wenn der Nutzer sie in derselben Sitzung selbst verlangt; in Kindsitzungen also nicht (Kinder-Probe). Grenzen, wo sie gelten: 1.000 Agenten je Lauf, 2 gleichzeitig auf dieser Maschine. (C6, C10)
+- **Hintergrund-Agenten:** Das Agent-Werkzeug startet Agenten im Hintergrund, ohne Rückfrage; in der Leitstand-Sitzung liefen 10 gleichzeitig. Jede Rückgabe kommt als Benachrichtigung in den Kontext.
 - **Modellwahl:** Angabe im Aufruf → Agentendefinition → `CLAUDE_CODE_SUBAGENT_MODEL` → Sitzungsmodell. Erkundungs- und Planungsagenten laufen auf dem Hauptmodell. (C7)
 - **Denkstufen:** Opus 5.5 und Haiku 5.5 kennen low bis max. `CLAUDE_CODE_EFFORT_LEVEL` überschreibt jede Angabe. (C8)
-- **Workflow-Start:** Im Auto-Modus fragt der erste Start einmal nach; mit eingeschalteter Workflow-Automatik entfällt die Frage. In der Kindsitzung prüft das die Kinder-Probe des Leitstands. (C10)
 
 **Auto-Modus und Freigaben**
 - **Auto-Modus:** Pushes auf jeden Branch sind erlaubt. Gesperrt sind Force-Push, `git reset --hard` auf fremden Stand, neue Remotes und ein PR-Merge ohne Mensch. Nach drei Sperren in Folge oder zwanzig insgesamt fragt er wieder. Grenzen aus dem Gespräch liest der Filter bei jeder Prüfung neu. (C11)
@@ -745,7 +746,7 @@ Stand 9. Oktober 2026, geprüft gegen die offizielle Claude-Code-Dokumentation (
 - **/goal:** Der Nachtlauf braucht es nicht. (C12)
 - **Nutzungslimit:** Für interaktive Sitzungen mit Abo gilt Warten und Fortsetzen, höchstens zweimal in Folge. Für Cloud-Kindsitzungen ist das nicht dokumentiert. Ein Wochenlimit startet kein Warten. (C13)
 - **Modellsperre:** `availableModels` gibt es. Ob die Repo-Datei sie in der Cloud durchsetzt, ist nicht belegt. (C14)
-- **In der Kindsitzung vorhanden** (Kinder-Probe): Workflow, Agent, SendUserFile und `send_later`. Ein Haiku-Agent lief ohne Rückfrage, und es entstand kein automatischer Pull Request.
+- **In der Kindsitzung vorhanden** (Kinder-Probe): Agent, SendUserFile und `send_later`; Workflow ist sichtbar, aber ohne Nutzeranfrage nicht freigegeben. Ein Haiku-Agent lief ohne Rückfrage, es entstand kein automatischer Pull Request, und die Startnachricht gilt der Kindsitzung als automatischer Auftrag, den sie auf ihrem eigenen Branch ausführt.
 
 ## 12. GEDÄCHTNIS, STATUS, ÜBERGABE
 - **Planungsordner** `planung/bollwerk/` auf `bollwerk-plan`:

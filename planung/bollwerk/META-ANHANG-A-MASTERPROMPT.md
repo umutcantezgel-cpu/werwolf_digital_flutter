@@ -36,6 +36,7 @@
 > | V-21 | FEINKORN | nur über einen neuen, additiven Barrel `feinkorn_leben.dart` (Physik, Starrkörper, Material, Klang). Test: die transitive Importhülle von `lib/main.dart` hat 0 Treffer für `iso_wolke|iso_backen|testraum|rezept|figur_aufbau|skelett|lueckenpruefung`; Rot-Probe mit Import von `testraum.dart`. |
 > | V-22 | Meta-Phasen | Phasennamen aus v2.3 in diesem Anhang und in B/C: „M1 Bestand“ = v4 M0/M1, „M2 Look“ = v4 M1/M3, „M3 Mechanik“ = v4 M2, „M4 Pilot“ = v4 M3, „M6/M7“ = v4 §9. |
 > | V-23 | Würfel-Abnahme | MP-15 und BK: WÜ-1…WÜ-6, C8 Nr. 1–13 und C9. L4: C8 Nr. 1–9 und 13. MP-6 und dieser Kopf: C1–C9. |
+> | V-24 | Keine Workflows | In Kindsitzungen sind Workflows nicht freigegeben (Kinder-Probe). Wo dieser Anhang Workflows, `agent()`, `parallel()`, `pipeline()`, `resumeFromRunId`, runId oder scriptPath nennt, gilt: direkte Hintergrund-Agenten über das Agent-Werkzeug (model "haiku" bzw. "opus", `effort` nach Rolle), Wellengröße nach Messung, FLUG.md führt agentId und Ausgabedatei; ein verlorener Agent wird einmal neu eingereiht. |
 ---
 
 ## A1 · Wortlaut des Nutzers (2026-10-09; unverändert übernehmen)
