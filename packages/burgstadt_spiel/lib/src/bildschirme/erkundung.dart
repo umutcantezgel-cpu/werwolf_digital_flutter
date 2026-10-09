@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:burgstadt_core/burgstadt_core.dart';
 import 'package:pixel_engine/pixel_engine.dart';
 
+import '../blasen_layout.dart';
 import '../fallsitzung.dart';
 import '../spiel.dart';
 import '../kompass.dart';
@@ -384,8 +385,6 @@ class Erkundung extends Bildschirm {
     return [...zeilen.take(max - 1), '${zeilen[max - 1]} …'];
   }
 
-  static bool _ueberlappt(Rechteck a, Rechteck b) => a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h;
-
   void _meldung(String m) {
     meldung = m;
     _meldungZeit = 3;
@@ -426,49 +425,52 @@ class Erkundung extends Bildschirm {
     ui.fb.fillRect(cx, cy - 3, 1, 2, farbe);
     ui.fb.fillRect(cx, cy + 2, 1, 2, farbe);
     final sz = sitzung;
-    ui.text(sz == null ? 'Freie Erkundung' : '${sz.uhrText} · Phase ${sz.fall.phase}', 4, 3);
+    final ortName = _bereich.name;
+    final zeitText = sz == null ? 'Freie Erkundung' : '${sz.uhrText} · Phase ${sz.fall.phase}';
+    // HUD-Flächen zuerst: Sprechblasen weichen ihnen aus (die Knöpfe werden erst unten gezeichnet)
+    final knoepfe = knopfSpalte(w, h);
+    final sperren = hudSperren(ui.font, w, h, draussen: !_bereich.innen, ort: ortName, zeit: zeitText);
+    ui.text(zeitText, 4, 3);
     // Kompass draußen: quer oben in der Mitte, hochkant unten in der Mitte
-    if (!_bereich.innen) {
-      const kb = 120;
-      zeichneKompass(ui, yaw, Rechteck((w - kb) ~/ 2, h > w ? h - 22 : 2, kb, 14));
-    }
-    // Sprechblasen über Figuren
+    if (!_bereich.innen) zeichneKompass(ui, yaw, kompassRechteck(w, h));
+    // Sprechblasen über Figuren: Platz und Zipfel nach blasen_layout.dart
     if (sz != null) {
       final cam = spiel.renderer.camera;
       final kf = spiel.skala!.kWelt / spiel.skala!.kUi;
       final tmp = List<double>.filled(3, 0);
-      final blasen = <Rechteck>[];
       // nächste Figuren zuerst: ihre Blase bekommt den Platz direkt über dem Kopf
       final sprecher = [
         for (final f in sz.sim.figuren.values)
           if (f.bereich == ort && f.blasenZeit > 0 && f.sprechblase != null) f,
       ]..sort((a, b) => ((a.x - x) * (a.x - x) + (a.z - z) * (a.z - z)).compareTo((b.x - x) * (b.x - x) + (b.z - z) * (b.z - z)));
+      final wuensche = <BlasenWunsch>[];
+      final zeilenListe = <List<String>>[];
       for (final f in sprecher) {
         cam.toView(f.x, 2.05, f.z, tmp, 0);
         if (tmp[2] < 0.4 || tmp[2] > 9) continue;
         final sx = (cam.cx + tmp[0] * cam.focal / tmp[2]) * kf, sy = (cam.cy - tmp[1] * cam.focal / tmp[2]) * kf;
-        // bis 5 Zeilen, im Bild gehalten und ohne andere Blasen zu verdecken (A-703a)
+        // bis 5 Zeilen (A-703a)
         final zeilen = _gekuerzt(ui, ui.font.wrap(f.sprechblase!, math.min(170, w - 20)), 5);
-        final bh = zeilen.length * ui.zeilenHoehe + 4;
-        final bw = zeilen.map(ui.font.measure).fold(0, math.max) + 8;
-        var r = Rechteck((sx - bw / 2).round().clamp(2, math.max(2, w - bw - 2)), (sy - bh).round(), bw, bh);
-        for (var versuch = 0; versuch < 6; versuch++) {
-          final stoss = blasen.where((b) => _ueberlappt(b, r)).firstOrNull;
-          if (stoss == null) break;
-          r = Rechteck(r.x, stoss.y - bh - 2, bw, bh);
-        }
-        if (r.y < 14) continue; // kein Platz mehr: Blase auslassen statt verdecken
-        blasen.add(r);
+        final blaseH = zeilen.length * ui.zeilenHoehe + 4;
+        final blaseB = zeilen.map(ui.font.measure).fold(0, math.max) + 8;
+        wuensche.add(BlasenWunsch(sx, sy, blaseB, blaseH));
+        zeilenListe.add(zeilen);
+      }
+      final plaetze = ordneBlasen(wuensche, w, h, sperren);
+      for (var i = 0; i < plaetze.length; i++) {
+        final r = plaetze[i];
+        if (r == null) continue; // kein Platz: Blase entfällt, wie bisher
         ui.panel(r, grund: UiFarbe.grundDunkel, fangen: false);
-        for (var i = 0; i < zeilen.length; i++) {
-          ui.text(zeilen[i], r.x + 4, r.y + 2 + i * ui.zeilenHoehe, schatten: null);
+        final kopfX = math.min(math.max(wuensche[i].sx.round(), r.x + 2), r.rechts - 3);
+        _zeichneZipfel(ui, r, zipfelVon(wuensche[i], r), kopfX);
+        for (var k = 0; k < zeilenListe[i].length; k++) {
+          ui.text(zeilenListe[i][k], r.x + 4, r.y + 2 + k * ui.zeilenHoehe, schatten: null);
         }
       }
     }
-    final ortName = _bereich.name;
-    final ow = ui.font.measure(ortName);
     // auf dunkler Plakette: auf Mauern und Licht war die Schrift schwer lesbar (A-703a)
-    ui.flaeche(Rechteck(w - ow - 7, 1, ow + 6, ui.font.height + 3), UiFarbe.grundDunkel);
+    final ow = ui.font.measure(ortName);
+    ui.flaeche(ortsPlakette(w, ow, ui.font.height), UiFarbe.grundDunkel);
     ui.text(ortName, w - ow - 4, 3, farbe: UiFarbe.text, schatten: null);
     // Blickziel benennen
     final d = ziel;
@@ -488,24 +490,20 @@ class Erkundung extends Bildschirm {
       ui.textMittig(was, cx, cy + 10, farbe: UiFarbe.akzent);
     }
     // Knöpfe rechts (im Hochformat größer: auf dem Handy waren sie zu klein, A-703a)
-    final bw = h > w ? 56 : 48, bh = h > w ? 24 : 17;
-    var by = h - (bh + 4) * 5 - 4;
+    final bw = knoepfe[0].w;
     if (ui.knopf(
-        Rechteck(w - bw - 4, by, bw, bh),
+        knoepfe[0],
         fz != null ? 'Reden' : (d == null ? 'Aktion' : (d.legende.art == KachelArt.tuer ? 'Öffnen' : 'Ansehen')),
         hervorgehoben: d != null || fz != null)) {
       _handle(spiel);
     }
-    by += bh + 4;
-    if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), 'Licht', hervorgehoben: licht)) {
+    if (ui.knopf(knoepfe[1], 'Licht', hervorgehoben: licht)) {
       licht = !licht;
       spiel.ton.spiele('handylicht_klick');
     }
-    by += bh + 4;
-    if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), 'Blick', hervorgehoben: blick)) _blickUmschalten(spiel);
-    by += bh + 4;
+    if (ui.knopf(knoepfe[2], 'Blick', hervorgehoben: blick)) _blickUmschalten(spiel);
     final neu = sz?.neueAkte ?? 0;
-    if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), neu > 0 ? 'Akte $neu' : 'Akte', hervorgehoben: neu > 0)) {
+    if (ui.knopf(knoepfe[3], neu > 0 ? 'Akte $neu' : 'Akte', hervorgehoben: neu > 0)) {
       if (sz != null) {
         _tutorial(spiel, 'akte');
         spiel.oeffne(FallakteBildschirm(sz));
@@ -513,8 +511,7 @@ class Erkundung extends Bildschirm {
         _meldung('Ohne Fall gibt es keine Akte.');
       }
     }
-    by += bh + 4;
-    if (ui.knopf(Rechteck(w - bw - 4, by, bw, bh), 'Menü')) spiel.oeffne(_Pause(this));
+    if (ui.knopf(knoepfe[4], 'Menü')) spiel.oeffne(_Pause(this));
     final j = steuerung.joystick;
     if (j != null) {
       ui.kreis(j.$1, j.$2, Steuerung.joyRadius.round(), UiFarbe.rand);
@@ -593,5 +590,21 @@ class _Pause extends Bildschirm {
         spiel.wechsle(Hauptmenue());
     }
     if (_meldung.isNotEmpty) ui.textMittig(_meldung, w ~/ 2, p.unten - ui.zeilenHoehe - 4, farbe: UiFarbe.spuk);
+  }
+}
+
+/// Zipfel zum Kopf: Dreieck aus 5, 3 und 1 Pixeln (dem Körper zugewandt), Grundfarbe der Blase,
+/// 1 px Rand; Licht von oben links, also linke Kante hell und rechte Kante dunkel.
+void _zeichneZipfel(PixelUi ui, Rechteck r, Zipfel z, int zx) {
+  if (z == Zipfel.keiner) return;
+  for (var k = 0; k < kZipfelHoehe; k++) {
+    final y = z == Zipfel.unten ? r.unten + k : r.y - 1 - k;
+    final halb = kZipfelHoehe - 1 - k;
+    for (var dx = -halb; dx <= halb; dx++) {
+      final farbe = halb == 0
+          ? UiFarbe.rand
+          : (dx == -halb ? UiFarbe.randHell : (dx == halb ? UiFarbe.randDunkel : UiFarbe.grundDunkel));
+      ui.fb.fillRect(zx + dx, y, 1, 1, farbe);
+    }
   }
 }
