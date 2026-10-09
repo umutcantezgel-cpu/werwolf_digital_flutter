@@ -19,6 +19,7 @@ const alle = { buffetsaal: '14.5,13.5', vorratsraum: '14.5,4.5', durchgang: '8.5
 const stellen = (stellenArg ?? 'buffetsaal,kaminsaal,ostsaal').split(',');
 const ansichten = [['hoch', 393, 852], ['quer', 852, 393], ['tablet', 1180, 820]];
 const START = new Date('2026-10-10T00:30:00Z');
+const STREIFEN = Number(process.env.STREIFEN ?? 0); // >0: Bewegungsstreifen mit so vielen Bildern im Abstand 0,25 s (nur erste Ansicht)
 
 const server = await starteServer(path.join(path.resolve(wt), 'build/web'));
 const port = server.address().port;
@@ -39,6 +40,12 @@ for (const name of stellen) for (const [ansicht, w, h] of ansichten) {
   await page.waitForTimeout(300);
   const datei = path.join(aus, `${name}_${ansicht}.png`);
   await page.screenshot({ path: datei });
+  if (STREIFEN > 0 && ansicht === 'quer') {
+    for (let k = 1; k <= STREIFEN; k++) {
+      await page.clock.runFor(250); await page.waitForTimeout(60);
+      await page.screenshot({ path: path.join(aus, `${name}_streifen_${String(k).padStart(2, '0')}.png`) });
+    }
+  }
   const sha = crypto.createHash('sha256').update(fs.readFileSync(datei)).digest('hex');
   zeilen.push(`${sha}  ${path.basename(datei)}  bereit=${bereit}`);
   await page.close();

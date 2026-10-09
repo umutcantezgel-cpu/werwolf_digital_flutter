@@ -15,10 +15,10 @@ import hashlib, itertools, json, math, random, statistics, sys
 P = dict(
     t_erfolg=9, t_teil=7,          # 2W6+mod: >= t_erfolg Erfolg, >= t_teil Teilerfolg, sonst Pech
     mod_max=2,                     # Gesamtmodifikator 0..+2 (bindend)
-    p_helfer=0.40,                 # Anteil Würfe mit passendem Helfer (+1), skaliert mit Besetzung
+    p_helfer=0.30,                 # Anteil Würfe mit Werkzeug-Bonus (+1); kein Helfer-Fachgebiet (Entwurf D, C3)
     p_gruendlich=0.20,             # Anteil Züge „gründlich“ (+2, +3 min) beim neutralen Spieler
     marken_max=3,                  # Seifenblasen-Marken je Partie (+1, höchstens 1 je Wurf)
-    c_pflicht=6, c_zweit=3, c_dritt=3, c_umweg=3, c_gruendlich=2, erfolg_gewinn=6, abstecher_pech_zeit=3,
+    c_pflicht=6, c_zweit=3, c_dritt=3, c_umweg=3, c_gruendlich=2, erfolg_gewinn=7, abstecher_pech_zeit=3,
     c_abstecher=7,
     rundenzeit=45,
     abstecher_je_runde=8,          # Angebot an Abstechern je Runde (Pool wächst mit dem Umfang)
@@ -39,7 +39,12 @@ def lade(kanon):
     for d in ent:
         ziele = [list(o["ziel"].values())[0] for o in d["optionen"]]
         glieder = {k for b in d["begruendung"].values() for k in b.get("kette", []) if k.split(":")[0] in ("beobachtung", "luege")}
-        e[d["id"]] = dict(art=d["art"], opts=[o["id"] for o in d["optionen"]], ziele=ziele, richtig=d["richtig"], gespraech=glieder)
+        fakten = {o["id"]: set(o.get("fakten") or []) for o in d["optionen"]}
+        # Suche (mit Wurf), sobald eine Option einen Gegenstand, Raum oder Ort zum Ziel hat; Befragen würfelt nie (Entwurf D, C3)
+        suche = any(k in ("gegenstand", "raum", "ort") for o in d["optionen"] for k in o["ziel"])
+        ketten = {pf: [k[5:] for k in b.get("kette", []) if k.startswith("fakt:")] for pf, b in d["begruendung"].items()}
+        e[d["id"]] = dict(art=d["art"], opts=[o["id"] for o in d["optionen"]], ziele=ziele, richtig=d["richtig"], gespraech=glieder, suche=suche,
+                          fakten=fakten, ketten=ketten)
     return e, minp
 
 
@@ -77,13 +82,13 @@ def spiele(E, minp, pfad, n, form, wahl, strom, strategie, p=P, rs=None):
         worst = lambda: len(offen) * (p["c_pflicht"] + p["c_gruendlich"] + 2 * p["c_umweg"])
         if form == "solo":
             for g in sorted({k for eid in RUNDEN[runde] for k in E[eid]["gespraech"]}):
-                log["zuege"] += 1; log["geraet_s"] += 25; log["szenen"].append(f"g:{g}")
+                log["geraet_s"] += 25; log["szenen"].append(f"g:{g}")  # Gesprächsphase, kein Zug (wie Tischgespräche)
         angebot = [f"a{runde}_{i}" for i in range(p["abstecher_je_runde"])]
         rs.shuffle(angebot)
         def wurf(gruendlich, ziel_besetzt, marke_ok):
             nonlocal marken
             mod = 0
-            if rs.random() < p["p_helfer"] * min(1.0, n / 12): mod += 1
+            if rs.random() < p["p_helfer"]: mod += 1   # Werkzeug (Tee, Tims Stirnlampe), unabhängig von Besetzung und Option
             if gruendlich: mod += 2
             if marke_ok and marken < p["marken_max"] and rs.random() < 0.3: marken += 1; mod += 1
             mod = min(mod, p["mod_max"])
@@ -105,6 +110,7 @@ def spiele(E, minp, pfad, n, form, wahl, strom, strategie, p=P, rs=None):
                 else:
                     log["szenen"].append(f"{a}:-")
             eid = offen.pop(0)
+            log.setdefault("stand", {})[eid] = frozenset(log.setdefault("fakten", set()))
             # Kettensperre: alle Vorgänger aufgedeckt
             if any(v not in log["aufgedeckt"] for v in KETTE.get(eid, [])): log["kette_verletzt"] += 1
             d = E[eid]; opt = wahl[eid]; ziel = d["ziele"][d["opts"].index(opt)]
@@ -112,9 +118,10 @@ def spiele(E, minp, pfad, n, form, wahl, strom, strategie, p=P, rs=None):
             kosten = p["c_pflicht"] + (p["c_gruendlich"] if gruendlich else 0)
             # Gier zahlt „gründlich“ aus der Reserve nur, wenn sie reicht
             rest -= kosten; log["zuege"] += 1; log["geraet_s"] += 30
-            ohne_wurf = d["art"] == "person" and besetzt(ziel)
+            ohne_wurf = not d["suche"]
+            if ohne_wurf and besetzt(ziel): log["befragung_besetzt"] = log.get("befragung_besetzt", 0) + 1
             if ohne_wurf:
-                log["aufgedeckt"].add(eid); log["szenen"].append(f"{opt}:B"); continue
+                log["aufgedeckt"].add(eid); log["fakten"] |= d["fakten"][opt]; log["szenen"].append(f"{opt}:B"); continue
             pech_folge = 0; anlauf = 1
             while True:
                 log["wuerfe"] += 1; log["geraet_s"] += 6
@@ -131,11 +138,11 @@ def spiele(E, minp, pfad, n, form, wahl, strom, strategie, p=P, rs=None):
                     zusatz = p["c_zweit"] if anlauf == 2 else p["c_dritt"]
                     if strategie == "gier": zusatz = p["c_umweg"]    # Gier nimmt den Umweg (teurer)
                     if rest - zusatz < 0:                  # Rundenschranke: offener Anlauf = Teilerfolg
-                        log["aufgedeckt"].add(eid); break
+                        log["aufgedeckt"].add(eid); log["fakten"] |= d["fakten"][opt]; break
                     rest -= zusatz; log["geraet_s"] += 20
                     continue
                 if st == "E": log["erfolge_zusatz"] += 1; rest += p["erfolg_gewinn"]
-                log["aufgedeckt"].add(eid); break
+                log["aufgedeckt"].add(eid); log["fakten"] |= d["fakten"][opt]; break
         if rest < 0: log["budget_ueber"] += 1
     # Wertung: nur aus der Wahl (WÜ-4)
     punkte = sum(1 for eid in E if wahl[eid] == E[eid]["richtig"][pfad])
@@ -166,20 +173,26 @@ def main():
                        budget_ungleichung=f"3*{worst1}={3*worst1} <= {P['rundenzeit']}", ok=3 * worst1 <= P["rundenzeit"])
 
     # C8 Nr. 1b + 2: erschöpfend 768 Folgen × 4 Pfade × Besetzung 4..20 × Ströme pech/erfolg; Gier-Bot zusätzlich
-    sack = kette = budget = wert_abw = 0; laeufe = 0
+    sack = kette = budget = wert_abw = stand_abw = best_luecke = 0; laeufe = 0
     for pfad in PFADE:
         for wahl in folgen:
-            neutralpunkte = None
+            neutralpunkte = None; neutralstand = None
+            best = all(wahl[e] == E[e]["richtig"][pfad] for e in wahl)
             for n in range(4, 21):
                 for art in ("pech", "erfolg", "neutral"):
                     for strat in ("neutral", "gier"):
                         lg = spiele(E, minp, pfad, n, "party", wahl, Strom(art), strat, rs=random.Random(seed(pfad, n, art, strat)))
                         laeufe += 1
                         sack += lg["sackgasse"]; kette += lg["kette_verletzt"]; budget += lg["budget_ueber"]
-                        if neutralpunkte is None: neutralpunkte = lg["punkte"]
+                        if neutralpunkte is None: neutralpunkte = lg["punkte"]; neutralstand = lg["stand"]
                         wert_abw += int(lg["punkte"] != neutralpunkte)
+                        stand_abw += int(lg["stand"] != neutralstand)
+                        if best:
+                            for eid, st in lg["stand"].items():
+                                best_luecke += sum(1 for f in E[eid]["ketten"].get(pfad, E[eid]["ketten"].get("alle", [])) if f not in st)
     erg["c8_1b_c8_2"] = dict(laeufe=laeufe, sackgassen=sack, kettenverletzungen=kette, budget_ueber=budget,
-                           wertung_abweichend=wert_abw)
+                           wertung_abweichend=wert_abw, faktenstand_abweichend_vom_neutralwurf=stand_abw,
+                           bestes_spiel_fehlende_kettenglieder=best_luecke)
 
     # C8 Nr. 1c, 3, 13, Dauer, C9: Zufallsströme je Form und Besetzung
     def zufall(form, n, k):
@@ -197,6 +210,7 @@ def main():
             L = zufall(form, n, nseeds)
             anteil = [l["wuerfe"] / l["zuege"] for l in L]
             anteil_erste = sum(l["erste_wuerfe"] for l in L) / sum(l["zuege"] for l in L)
+            anteil_streng = sum(l["erste_wuerfe"] for l in L) / sum(l["zuege"] - l.get("befragung_besetzt", 0) for l in L)
             pech1 = sum(l["erste_pech"] for l in L) / max(1, sum(l["erste_wuerfe"] for l in L))
             glueck = sorted(L, key=lambda l: statistics.mean(l["wurfsummen"]) if l["wurfsummen"] else 7)
             q = len(L) // 4
@@ -211,6 +225,7 @@ def main():
             baender[f"{form}_n{n}"] = dict(
                 partien=len(L),
                 anteil_wurf_erste_anlaeufe=round(anteil_erste, 3),
+                anteil_wurf_streng=round(anteil_streng, 3),
                 anteil_wurf_median=round(statistics.median(anteil), 3),
                 pech_erster_anlauf=round(pech1, 3),
                 max_pech_folge=max(l["max_pech_folge"] for l in L),
