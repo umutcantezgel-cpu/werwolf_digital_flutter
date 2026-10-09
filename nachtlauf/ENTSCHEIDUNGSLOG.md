@@ -287,3 +287,13 @@ Format: ID · Datum/Uhrzeit (Europe/Berlin) · Entscheidung · Wege · Bewertung
 - **Befund:** B09 „Der Hund hatte nur Angst vor dem Dunkel.“ wiederholte wörtlich das öffentliche Merkmal einer Rolle („Angst im Dunkeln“). Der neue Grund des Prüfers widerlegt die Abwägung aus E29/B2. Jetzt: „Der Hund wollte heute nur nicht allein sein.“
 - **Hinweis übernommen:** „Krautfass“ heißt jetzt „Gemüsefass“ („Kraut“ ist auch Szeneslang).
 - **Wehrgang:** Erwähnungen in der Stadt (B37, H-069, H-106) bleiben, denn die Stadtmauer mit Wehrgang steht in LISTE-ORTE und ist begehbar.
+
+## E36 · 09.10. 06:26 · Z-09: Nachladespitze in Prozessorzeit des Spielthreads
+- **Befund:** Ein Abnahmelauf (9097217) war rot. Unter 926 Back-Aufrufen dauerte einer 27 ms auf der Wanduhr, im selben Moment die Bildzeit 70 ms. Gleichzeitig arbeitete ein Prüfagent.
+  - Das GC-Protokoll (`DART_VM_OPTIONS=--verbose_gc`) zeigt über 5 Spielminuten höchstens 6,6 ms Scavenge und 2,1 ms Mark-Sweep. Die Speicherbereinigung erklärt die Spitze also nicht; der Prozess wurde verdrängt.
+- **Entscheidung:**
+  - `bin/leistung.dart` misst die Back-Aufrufe zusätzlich in der Prozessorzeit des Spielthreads: `clock_gettime(CLOCK_THREAD_CPUTIME_ID)` über dart:ffi aus libc, ohne neue Abhängigkeit.
+  - Maßgeblich für die Grenze von 50 ms (× 4) ist diese Prozessorzeit, also die Arbeit des Spiels. Die Wanduhr-Spitze steht als eigene Zeile im Beleg.
+  - Ein erster Versuch mit `/proc/thread-self/schedstat` war zu grob (nur zum Scheduler-Tick aktualisiert) und wurde verworfen.
+- **Zusätzlich:** Der Figuren-Baker verwendet seine Arbeitspuffer wieder (rund 100 KB weniger Müll je Bild, Bilder bitgleich). Das Back-Budget beträgt 3 ms je Bild.
+- **Für den Nutzer:** Auf einem Handy mit Hintergrundlast kann es dennoch einzelne Ruckler geben; das bleibt ein Gerätetest.

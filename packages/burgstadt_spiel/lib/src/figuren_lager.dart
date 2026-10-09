@@ -124,9 +124,17 @@ class FigurenLager {
   /// Verteilung der Aufrufdauern von [backe] in ganzen Millisekunden (letzter Eimer: ≥ 63 ms).
   final List<int> backVerteilung = List.filled(64, 0);
 
+  /// Optional (Messwerkzeug): Prozessorzeit des Spielthreads in ms. Damit lässt sich eine
+  /// Spitze, die nur von Verdrängung durch andere Prozesse kommt, von echter Arbeit trennen.
+  static double Function()? prozessorZeitMs;
+
+  /// Längster Aufruf von [backe] gemessen in Prozessorzeit des Spielthreads (ms).
+  double maxBackCpuMs = 0;
+
   /// Brennt höchstens [budgetMs] Millisekunden lang weiter (je Schritt eine Richtung).
   void backe(double budgetMs) {
     if (_warteschlange.isEmpty) return;
+    final cpu0 = prozessorZeitMs?.call();
     final uhr = Stopwatch()..start();
     while (_warteschlange.isNotEmpty && uhr.elapsedMicroseconds < budgetMs * 1000) {
       final w = _warteschlange.first;
@@ -149,6 +157,10 @@ class FigurenLager {
     }
     final ms = uhr.elapsedMicroseconds / 1000;
     if (ms > maxBackMs) maxBackMs = ms;
+    if (cpu0 != null) {
+      final cpu = prozessorZeitMs!() - cpu0;
+      if (cpu > maxBackCpuMs) maxBackCpuMs = cpu;
+    }
     backVerteilung[ms.floor().clamp(0, 63)]++;
   }
 
