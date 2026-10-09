@@ -56,3 +56,15 @@
   - **Abnahme:** `tool/abnahme.dart` bestätigt 14 von 14 (Stand a28178c; Gesamtlauf aller elf Ebenen grün am Code-Stand 6f0d724).
   - **Z-03:** Sichtprüfer 19 und 20 unabhängig voneinander mit 0 Paaren und 0 Verstößen am Kartenstand fc94af9295. Möglich wurde das, nachdem der Maßstab 5a in den Figurenvergleich und den Generator eingebaut war (E40).
   - **Z-12:** Inhaltsrunde 12 urteilt Leitplanken ja · Kanontreu ja · Plagiatsfrei ja. Ihre 5 geringen Befunde stehen in FÜR DEN NUTZER (Abbruchregel E40).
+- 11:24 Nach der Abnahme: Auf Wunsch des Nutzers soll alles auf `main` (N-01, E41).
+  - `main` brachte Kanon v1.0 (PR #42); er ist per Merge eingearbeitet (b1dfbaf). Das Overlay ist an den neuen Wortlaut angepasst (fe4a085).
+  - Z-12 prüft seitdem auch den Kanon-Ordner. Z-13 erlaubt Pushes auf `main` und den Sitzungs-Branch.
+  - Abgleich der 58 Agent-Worktrees: nichts liegt nur lokal (f5c4648).
+- 12:29–14:17 Inhaltsrunden 13 bis 20 zum Kanon v1.0 (E42–E45):
+  - Das Laken ist Burgwäsche, Phase 1 beginnt um 00:30. Nebel gibt es nur im Tal, die Teestube ist offen.
+  - FM-1 steht im Spiel ohne Herkunft. R04 trägt einen sichtbaren Strickpullover (neues Teil).
+- 15:17 Sichtprüfer 23 und 24 melden am Kartenstand b60891cc2b 0 Paare: Z-03 erfüllt. Die Lampenmarke heißt im Spiel „VT · 3“ (E46).
+- 15:44 Inhaltsrunde 23/24 (A-702s): beide „Leitplanken nein“.
+  - Grund ist die Verteilung der Fallfunktionen auf Rollen mit Herkunftsangabe.
+  - Umgesetzt sind neutrale Färbungen (R13, R15), die R01-Firma ohne Nachnamen und Punsch überall „alkoholfrei“ (E47).
+  - Die Verteilung selbst ist eine Nutzerentscheidung (FÜR DEN NUTZER); Z-12 bleibt bis dahin offen.
