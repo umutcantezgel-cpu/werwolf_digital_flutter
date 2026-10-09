@@ -6,7 +6,7 @@
 > - **A5:** Lehren aus früheren Läufen.
 > - **A6:** beschreibt Abschnitt für Abschnitt (MP-0 bis MP-20), was der Master-Prompt mindestens enthält.
 >
-> Im Master-Prompt heißt MP-n einfach §n. Kürzel und §-Nummern des Finalisierungs-Laufs werden mit „F:“ zitiert (z. B. F:F-06, F:§7.7, F:§7.13). Kanonregeln behalten ihre Namen ohne Präfix (W-1, S-1, D-1, G-1, K-1, P-1). Die Umfangsachsen heißen X1–X6. `P/` steht für `planung/finalisierung-schlosskeller/` auf `origin/finalisierung-schlosskeller`; B1–B10 sind Abschnitte von Anhang B, C1–C8 von Anhang C.
+> Im Master-Prompt gilt die Abschnittszuordnung aus META-PROMPT v4 §8.2 und `v4/LUECKEN-v3-v23.md` §5 (u. a. MP-7 → Abschnitt 6 UMFANG, MP-14 → 7, MP-12 → 8, MP-16 → 12 „BEREIT FÜR MAIN“); „MP-n“ ist nur die Kennung in diesem Anhang. Kürzel und §-Nummern des Finalisierungs-Laufs werden mit „F:“ zitiert (z. B. F:F-06, F:§7.7, F:§7.13). Kanonregeln behalten ihre Namen ohne Präfix (W-1, S-1, D-1, G-1, K-1, P-1). Die Umfangsachsen heißen X1–X6. `P/` steht für `planung/finalisierung-schlosskeller/` auf `origin/finalisierung-schlosskeller`; B1–B10 sind Abschnitte von Anhang B, C1–C8 von Anhang C.
 
 
 > **Vorrang v4 (gilt vor jeder Stelle dieses Anhangs).** Dieser Anhang stammt aus v2.3. Für den Dauerlauf mit Leitstand gelten diese Änderungen; sie gehen so in den Master-Prompt ein (META-PROMPT v4 §8.2):
@@ -24,6 +24,18 @@
 > | V-9 | Ende | Zugende-Zeile `=== BOLLWERK-ZUG-ENDE · <ZUSTAND> · Weckruf <UTC> ===`; Generationsfenster ≤ 12 h; Morgenbericht als Datei bis 06:30. |
 > | V-10 | Einstellungen | Keine Sperrdatei, keine Umgebungsvariablen, keine Änderung an `.claude/**`. Jeder Agentenaufruf nennt sein Modell. |
 > | V-11 | Autostart | Den Autostart aus v2.3 gibt es nicht mehr; Generationen startet der Leitstand. |
+> | V-12 | Altregeln entfallen | MP-18 „90-min-Übernahme“, MP-11 „Routine + 30-min-Kette“, der Name `BOLLWERK-SL-…`, MP-19 Schritte „Herzschlag stellen“ und „worktree add“, MP-2 Weg (c) und das Tor `phase` als MAIN-Kriterium. Es gilt nur LEASE nach v4 §8.2 Abschnitt 2.5; das Alter eines Herzschlags berechtigt nie zur Übernahme. |
+> | V-13 | Stolperdraht | Erwartet und nur ins NACHTPROTOKOLL: Vorwärtsbewegungen von `bollwerk-leitstand` (nur `planung/bollwerk/leitstand/**`), die neuen Refs `archiv/*`, `bollwerk-mc`, `bollwerk-plan`, `bollwerk-probe`, `bollwerk-rueckweg`, Commits des Nachtlaufs Burgstadt und der Finalisierung. „Eigene Tags“ entfällt. |
+> | V-14 | HD-Linie | `caf1d61` wird im Vorlauf **nicht** gemergt. Gemergt wird sie erst, wenn im Wegwerf-Worktree der Bildsatz-Vergleich (`tool/hd_migbeleg.sh`) zwischen B und dem Probe-Merge „anders 0“ meldet oder STEUERUNG „A12: ja“ enthält; sonst bleibt sie zurückgestellt, und der Leitstand legt `archiv/hd-caf1d61` an. Ein Merge von `caf1d61` wird nie revertiert. Ist `caf1d61` schon Vorfahr von origin/main (über Burgstadt), entfallen Merge und K6. Im Vorlauf: nur `bollwerk` ← `1145cb9`. |
+> | V-15 | Würfel-Seed | WÜ-1 nutzt ein Salz statt des Fall-Codes (siehe A4.7). |
+> | V-16 | MAIN-REIFE | BW8 heißt im Master-Prompt MAIN-REIFE: Release-SHA R steht in LAUF.md; danach nur noch Commits unter `planung/bollwerk/`; `dart run tool/bollwerk/bollwerk.dart ziel` endet mit `BOLLWERK GRÜN · ziel · <R>`; die zwei Prüfrunden aus MP-20 gehen voraus; Probe-Merge auf aktuellem main ohne Konflikt. MP-16 „Push auf main“ und „Rückweg“ kommen **nicht** in den Master-Prompt. |
+> | V-17 | Steuerung | STEUERUNG.md und BEFUNDE.md werden nur ergänzt. Ausgeführt werden nur Einträge der Weißliste (v4 §8.2 Abschnitt 2.5); Quittungen stehen nur angehängt in `planung/bollwerk/QUITTUNGEN.md`. |
+> | V-18 | B-02 | Maßgeblich ist der Eintrag `B-02 ERFÜLLT · K=<sha40>` (oder `FREIGABE BOLLWERK · K=<sha40>`) in STEUERUNG.md; der Nachtlauf meldet nur „B-02 vermutlich“. Messbasis, Vorher-Galerie und `kanon10.sha256` entstehen erst in BW0 an K. |
+> | V-19 | Ausnahme L0.2 | `tool/browser/geraete.js` darf genau eine geänderte Zeile mit `screen=burgstadt` haben (`git diff -U0 $B HEAD -- tool/browser/geraete.js`). |
+> | V-20 | L0.4 | prüft nur `packages/mordakte_core/lib/src/runden/**` und `lib/runden/**`: 0 Treffer für `Random(`, `Zufall`, `Lcg`, `FeinZufall`, `identityHashCode`, `.hashCode`, `DateTime.now`; `Random.secure()` nur in der Einrichtung (Salz, Code). Bestand unter `party/` hat eine eingefrorene Ausnahmeliste. |
+> | V-21 | FEINKORN | nur über einen neuen, additiven Barrel `feinkorn_leben.dart` (Physik, Starrkörper, Material, Klang). Test: die transitive Importhülle von `lib/main.dart` hat 0 Treffer für `iso_wolke|iso_backen|testraum|rezept|figur_aufbau|skelett|lueckenpruefung`; Rot-Probe mit Import von `testraum.dart`. |
+> | V-22 | Meta-Phasen | Phasennamen aus v2.3 in diesem Anhang und in B/C: „M1 Bestand“ = v4 M0/M1, „M2 Look“ = v4 M1/M3, „M3 Mechanik“ = v4 M2, „M4 Pilot“ = v4 M3, „M6/M7“ = v4 §9. |
+> | V-23 | Würfel-Abnahme | MP-15 und BK: WÜ-1…WÜ-6, C8 Nr. 1–13 und C9. L4: C8 Nr. 1–9 und 13. MP-6 und dieser Kopf: C1–C9. |
 ---
 
 ## A1 · Wortlaut des Nutzers (2026-10-09; unverändert übernehmen)
@@ -69,6 +81,24 @@ Weitere Aussagen des Nutzers:
 | BE-14 | **Kanon-1.0 unantastbar.** Wachstum nur als Schicht in `content/runden/schlosskeller/` (MP-7). Keine neuen Bereiche außerhalb der 7 Räume (C5). |
 
 ---
+
+
+### A2a · Annahmen (Standardwahl, kippbar mit „A<n>: …“)
+| Nr. | Entscheidung | Standard |
+|---|---|---|
+| A-01 | Design-Richtung | beste Richtung aus der Design-Probe (mit Bild) |
+| A-02 | Lichtzustand der Runden | Kanon |
+| A-03 | Würfel und Kanon-Punkte | Würfel kostet nie Kanon-Punkte |
+| A-04 | neue Fälle | nur Schichten, keine neuen Fälle oder Täterpfade |
+| A-05 | Spieldauern | Abend Median ≤ 150 min, Runde Median ≤ 6 min |
+| A-06 | Joystick | im Partymodus aus, sonst unverändert |
+| A-07 | WLAN-Host | Gerät des Detektivs |
+| A-08 | Musik | keine |
+| A-09 | Gewichte g | 3, 2, 1, 1, 1, 2 (aus v2.3, in M1 geprüft) |
+| A-10 | Design und Umfang | gleichrangig |
+| A-11 | Zwischenziel je Nacht | ja, je Achse in Einheiten |
+| A-12 | HD-Linie `caf1d61` | nur mergen, wenn die Burgstadt-Bilder bytegleich bleiben; sonst zurückgestellt bis „A12: ja“ |
+| A-13 | Sperrdatei mit Verboten (`.claude/settings.json`, nur `permissions.deny`) auf `bollwerk` | keine (die Modellangabe je Aufruf gilt); mit „A13: ja“ legt der Leitstand sie an |
 
 ## A3 · Begriffe und Deutung (verbindlich)
 
@@ -119,7 +149,7 @@ Weitere Aussagen des Nutzers:
 - **Staging** nur mit `git add -- <pfade>`. Nie `-A`, `.`, `-u`, `-f`, `commit -a`.
 - **Commits:** „Jeder Commit baut und testet grün.“ Commits laufen über `tool/bollwerk/commit.sh` (Muster `tool/hd_commit.sh`): Branch-Prüfung, Pfadliste, Schutzpfade, Schnelltor im sauberen Worktree, Secret-Scan, Push mit ausdrücklichem Ziel. `tool/commit_gruen.sh` (`git add -A`, fest auf `nachtlauf/burgstadt`) wird nie benutzt.
 - **Fremde Linien** werden nur in `bollwerk` hereingeholt, nie umgekehrt. Einzige Ausnahme ist der Merge-Commit MC für main (MP-16).
-- **Arbeitsorte:** nur `/home/user/bollwerk` und die Worktrees, die dieser Lauf angelegt hat. Nur lesbar sind jeder andere Checkout und jeder andere Worktree.
+- **Arbeitsorte:** nur `$BW` (der Sitzungs-Checkout auf `bollwerk`) und die Worktrees, die dieser Lauf angelegt hat. Nur lesbar sind jeder andere Checkout und jeder andere Worktree.
 - **Lokaler `main`** wird nie benutzt. Maßgeblich ist immer `origin/main` nach `git fetch`.
 
 ### A4.2 Werkzeuge
@@ -131,7 +161,6 @@ Weitere Aussagen des Nutzers:
   - Agent und Workflow für eigene Aufträge
   - **Herzschlag:**
     - **Nachtlauf (V-5):** keine Routine. Weckruf nur mit `send_later`, Name `BOLLWERK-G<n>-<session_id>`. (Die frühere Routinen-Regel gilt nur noch für den Leitstand.)
-    - `send_later` mit Name `BOLLWERK-SL-<eigene session_id>`
     - Die ID kommt sofort aus dem Ergebnis in den PRUEFPUNKT.
     - `update_trigger` und `delete_trigger` nur für IDs aus dem PRUEFPUNKT, und nur, wenn `get_trigger` genau diesen Namen zeigt.
     - Nie anhand von `list_triggers` ändern oder löschen. Im Zweifel stehen lassen und in FUER-DEN-NUTZER eintragen.
@@ -210,7 +239,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 
 ### A4.7 Würfel (WÜ-1 … WÜ-6)
 - **WÜ-1 Quelle:** Würfe kommen nur aus `Rng` (`packages/mordakte_core/lib/src/util/rng.dart`):
-  - Seed `Rng(Rng.hashString('wuerfel:<code>:<entscheidungsId|abstecherId>:<anlauf>'))`
+  - Seed `Rng(Rng.hashString('wuerfel:<salz>:<entscheidungsId|abstecherId>:<anlauf>'))`. Das `salz` hängt nicht vom Fall-Code ab: Im WLAN schickt jedes Gerät in der Lobby eine Zufallszahl (`Random.secure()`), der Host mischt sie per FNV und zeigt allen das Ergebnis vor der ersten Entscheidung; in Party und Solo entsteht es beim Einrichten. `salz` steht im Spielstand. Der Mitschnitt enthält vor dem Finale 0-mal den Fall-Code oder einen daraus berechneten Wert.
   - nie eine laufende Wurfnummer, nie `FallCode.rng()`
   - nie `dart:math`, `Zufall`, `Lcg` oder `FeinZufall` in der Spiellogik
   - nur der Host würfelt; ein Tischwurf ist nur Darstellung
@@ -269,10 +298,10 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 ### A4.9 Agenten
 - Haiku-Agenten haben nur Werkzeuge nach A4.2. Jeder Auftrag nennt absolute Pfade.
 - **Pool-Plätze sind Kopien ohne Git:** höchstens 6 Plätze `/home/user/bw/01…06`, jeder in FLUG.md eingetragen. Das Skript liest `$BW` und `$POOL` aus `env.sh` (Standard `/home/user/bollwerk` und `/home/user/bw`), damit der Meta-Trockenlauf beides umlenken kann.
-  - Anlegen und Zurücksetzen nur mit `bash /home/user/bollwerk/tool/bollwerk/pool_reset.sh <NN> <sha>`. Das Skript bricht ab, wenn `<NN>` nicht `01`–`06` ist oder der Platz nicht in FLUG.md steht. Es führt aus: `rm -rf /home/user/bw/<NN> && mkdir -p /home/user/bw/<NN> && git -C /home/user/bollwerk archive <sha> | tar -x -C /home/user/bw/<NN>`, danach `pub get --offline` in allen 8 Paketen des Repos (Wurzel, 5 Pakete, `server`, `tool/ton`) und in `tool/bollwerk/look_anker`.
+  - Anlegen und Zurücksetzen nur mit `bash $BW/tool/bollwerk/pool_reset.sh <NN> <sha>`. Das Skript bricht ab, wenn `<NN>` nicht `01`–`06` ist oder der Platz nicht in FLUG.md steht. Es führt aus: `rm -rf /home/user/bw/<NN> && mkdir -p /home/user/bw/<NN> && git -C /home/user/bollwerk archive <sha> | tar -x -C /home/user/bw/<NN>`, danach `pub get --offline` in allen 8 Paketen des Repos (Wurzel, 5 Pakete, `server`, `tool/ton`) und in `tool/bollwerk/look_anker`.
   - Daneben liegt je SHA eine schreibgeschützte Basis `/home/user/bw/basis-<sha7>` (gleich angelegt, dann `chmod -R a-w`).
   - Haiku ruft nie `git` auf. Den Patch erzeugt Opus: `diff -ruN -x .dart_tool -x build -x '.flutter-plugins*' /home/user/bw/basis-<sha7> /home/user/bw/<NN> > /home/user/bw-varianten/<welle>/<kennung>.patch`. Vor `git apply --check` in `/home/user/bollwerk` prüft Opus, dass der Patch nur die Dateien des Auftrags berührt.
-  - Teil 8 jeder Auftragsvorlage enthält wortgleich: „Du führst nie `git` aus und betrittst nie `/home/user/bollwerk` oder einen anderen Checkout.“
+  - Teil 8 jeder Auftragsvorlage enthält wortgleich: „Du führst nie `git` aus und betrittst nie `$BW` oder einen anderen Checkout.“
   - `git reset --hard`, `git clean` und `git checkout -- <pfad>` laufen nur mit `-C <eigener Wegwerf-Worktree>` (Mutanten, Rot-Proben), nie ohne `-C`.
 - Text-, Daten- und Urteilsaufträge bekommen keinen Worktree. Workflow-Option `isolation: 'worktree'` wird nicht benutzt.
 - **Ergebnis als Datei, Kurzurteil an Opus:**
@@ -287,15 +316,13 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 - „Unteragenten unterliegen denselben Grenzen; jeder Auftrag nennt sie.“
 - Keine Backticks in Heredocs (L-01).
 - Mutanten und Rot-Proben laufen nur in Wegwerf-Worktrees und werden nie committet.
-- **Stolperdraht nach jeder Welle:** `git ls-remote origin` und `git status --porcelain` aller fremden Checkouts mit dem Bild der letzten Welle vergleichen. Rot ist er nur bei:
+- **Stolperdraht nach jeder Welle:** `git ls-remote origin` mit dem Bild der letzten Welle vergleichen. Rot ist er nur bei:
   - einem gelöschten Ref
-  - einem neuen Ref außer `refs/heads/bollwerk` und eigenen Tags
   - einem Ref, dessen alter Stand kein Vorfahr des neuen ist
-  - `refs/heads/bollwerk` ≠ letzter eigener Push
-  - einem fremden Ref, dessen neue Commits `planung/bollwerk`, `tool/bollwerk`, `content/runden`, `lib/runden` oder `packages/mordakte_core/lib/src/runden` ändern
-  - `refs/heads/main` mit einem Commit, der nicht vom Nachtlauf, der Finalisierung oder diesem Lauf stammt und BOLLWERK-Pfade berührt
-  - einer Änderung in einem fremden Checkout
-  Bei Rot: HALT BOLLWERK für neue Wellen, Ursache ins Log, FUER-DEN-NUTZER. Vorwärtsbewegungen fremder Branches ohne solche Pfade kommen nur ins NACHTPROTOKOLL.
+  - `refs/heads/bollwerk` ≠ letzter eigener Push (außer eine höhere LEASE steht darin: dann gilt v4 2.5)
+  - einem neuen Ref außer den in V-13 genannten
+  - einem fremden Ref, dessen neue Commits `tool/bollwerk`, `content/runden`, `lib/runden`, `packages/mordakte_core/lib/src/runden` oder `planung/bollwerk` ändern, ausgenommen `planung/bollwerk/{leitstand,v4,archiv}/**` und `planung/bollwerk/META-*`
+  Bei Rot: keine neue Welle, Ursache ins NACHTPROTOKOLL, FUER-DEN-NUTZER. Alles andere ist erwartet (V-13) und kommt nur ins NACHTPROTOKOLL.
 - Entfernt werden nur Worktrees, die dieser Lauf angelegt hat (Liste in FLUG.md). Vorher wird der Diff als Patch gesichert. Nie `git worktree prune` oder `git clean -x` außerhalb eigener Bäume.
 
 ### A4.10 Rechenlast
@@ -307,7 +334,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
   - unter 8 GB: keine neuen Worktrees; `build/` und `.dart_tool/flutter_build` im Pool leeren
   - unter 4 GB: nur noch Übernahme und BW8
 - **Messen:** Leistung nur in Thread-CPU-Zeit, nie unter Parallellast. Agenten schreiben nie in einen Baum, in dem gemessen oder getestet wird.
-- **PATH:** Jeder Bash-Befehl beginnt mit `source /home/user/bollwerk/tool/bollwerk/env.sh &&`. Die Datei setzt `PATH=/opt/flutter/bin:/opt/node22/bin:$PATH` und `BW` (Standard `/home/user/bollwerk`); Pfade in MP-0 und MP-19 laufen über `$BW`, damit der Trockenlauf (Meta M7) sie umlenken kann.
+- **PATH:** Jeder Bash-Befehl beginnt mit `source $BW/tool/bollwerk/env.sh &&` ($BW = Sitzungs-Checkout auf `bollwerk`). Die Datei setzt `PATH=/opt/flutter/bin:/opt/node22/bin:$PATH` und `BW` (Standard `/home/user/bollwerk`); Pfade in MP-0 und MP-19 laufen über `$BW`, damit der Trockenlauf (Meta M7) sie umlenken kann.
 
 ---
 
@@ -349,7 +376,7 @@ Rahmen:
   - Ultracode an
   - `/config` → „Dynamic workflow size“ auf `unrestricted` oder `large`
   - Berechtigungsmodus **„Auto“** im Menü neben dem Eingabefeld. Sonst hält die erste Nachfrage den Lauf bis zum Morgen an. Gibt es Auto nicht, liegt eine Vorschlagsliste in `planung/bollwerk/VORSCHLAG-FREIGABEN.md`; der Nutzer entscheidet selbst darüber.
-- **Startnachricht zum Kopieren:** „START BOLLWERK. Führe `git fetch origin` aus, lege den Worktree `/home/user/bollwerk` auf `origin/bollwerk` an, lies `planung/bollwerk/MASTER-PROMPT.md` vollständig und arbeite ihn ab §19 ab.“
+- **Startnachricht:** schreibt der Leitstand (v4 §8.8); der Master-Prompt selbst enthält keine.
 - **Weitere Befehle des Nutzers während der Nacht:**
   - „HALT BOLLWERK“: keine neuen Aufträge, laufende fertig, grün committen, `bollwerk` pushen, kein main, Morgenbericht sofort
   - „WEITER BOLLWERK“
@@ -416,7 +443,6 @@ Andere Signale reichen nicht: ein Merge ohne Tag, ein Tag nur auf dem Arbeitsbra
 - **B-02 nie erfüllt:** Der Lauf endet mit „VORLAUF FERTIG“; alles ist grün auf `bollwerk` gepusht, nichts auf main. Der Morgenbericht bietet drei Wege:
   - (a) Standard: warten und erneut „START BOLLWERK“ senden.
   - (b) „FREIGABE BOLLWERK“: FREIGABE-Weg (oben).
-  - (c) BOLLWERK geht ohne F4–F7 auf main, die Party bleibt hinter einem Schalter.
 
 ### MP-3 · AUTONOMIE UND DENKPROTOKOLL
 - BE-10.
@@ -670,9 +696,9 @@ Lernvermerke: die aus der Auftragsvorlage des Finalisierungs-Laufs (`P/AUFTRAGSV
 - **FLUG.md** wird **vor** jedem Start geschrieben. Je Zeile: Kennung, Typ, agentId bzw. runId + scriptPath, Start (echte Uhrzeit), erwartetes Ende, Ausgabedatei, Worktree.
 - Nach einer Verdichtung: Laufende Workflows mit `resumeFromRunId` fortsetzen. Bei leerem Ergebnis zuerst `journal.jsonl` lesen. Verlorene Aufträge (Ende um > 100 % überschritten, keine Ausgabe): Worktree sichern und entfernen, Auftrag einmal neu einreihen.
 
-**Herzschlag (doppelt, auch wenn gerade nichts läuft)**
-- Eine stündliche Routine in diese Sitzung (Minute 7) plus eine `send_later`-Kette im 30-min-Takt, angelegt und benannt nach A4.2; jeder Herzschlag stellt **zuerst** den nächsten. Höchstens je eine offene; ihre IDs stehen im PRUEFPUNKT. Aufgeräumt wird nur über diese IDs, nie über `list_triggers`.
-- Jeder Herzschlag prüft zuerst die Lauf-Sperre (MP-18).
+**Weckruf und Herzschlag des Nachtlaufs** (die stündliche Routine gehört dem Leitstand)
+- Höchstens ein offener `send_later` mit Name `BOLLWERK-G<n>-<session_id>`; er ist der angekündigte Weckruf der Zugende-Zeile. Aufgeräumt wird nur über die eigene ID.
+- Jeder Zugbeginn und jeder Weckruf prüft zuerst die LEASE (v4 2.5).
 - **Herzschlag-Zug:**
   1. KERNKARTE, PRUEFPUNKT und FLUG lesen.
   2. `uptime`, `free -g` und `df` prüfen.
@@ -695,7 +721,7 @@ Lernvermerke: die aus der Auftragsvorlage des Finalisierungs-Laufs (`P/AUFTRAGSV
 | **BW5** | Umfang-Wellen bis U ≥ 10 und die übrigen Aufwertungsrichtungen |
 | **BW6** | Umfang und Design bis zum Streckziel |
 | **BW7** | Härtung, `bollwerk.dart nacht`, Leistung; volles Tor |
-| **BW8** | Zusammenführung auf main (MP-16) |
+| **BW8** | MAIN-REIFE (V-16): Release-SHA R, Tor `ziel` grün, `ZUSTAND: BEREIT FÜR MAIN`; den main-Push macht der Leitstand |
 
 **Zeitplan** (einzige Stelle; M = Morgenbericht-Zeit, T_B02 = erste Herzschlag-Zeit, zu der B-02 wahr ist, steht im PRUEFPUNKT)
 - Bis M − 2 h: Aufträge aller Typen.
@@ -859,10 +885,10 @@ Je Linie gilt genau eine Art: echter Merge **oder** Kopie mit Vermerk plus Archi
 2. `git -C /home/user/bollwerk worktree add --detach /home/user/bw-int $V`, dann `git -C /home/user/bw-int merge --no-ff <bollwerk-sha> -m "Merge bollwerk@<sha7> (BOLLWERK)"`. Das ergibt MC. Prüfe `test "$(git -C /home/user/bw-int rev-parse HEAD^1)" = "$V"`.
 3. An MC: B-02 erfüllt, BW4 bestanden, `bollwerk.dart phase` meldet „BOLLWERK GRÜN · phase · <MC>“. Unfertige Teile sind hinter Schaltern mit altem Standard.
 4. An MC: `rm -rf .dart_tool/flutter_build`, `pub get` in allen Paketen, `alle_tests.sh` voll („ALLE TESTS GRÜN“, mit Server-Smoke und Release-Web-Build), `pruefen.sh alles` (Exit 0), Burgstadt-Schutz, Bestand (nur Ausnahmen), voller Secret-Scan.
-5. `git fetch origin`. Ist `origin/main` ≠ V: MC verwerfen (`git -C /home/user/bollwerk worktree remove /home/user/bw-int`), nichts taggen, zurück zu Schritt 1. Ein abgelehnter Push läuft genauso. Nach höchstens 3 Anläufen gilt BEREIT ZUR INTEGRATION.
-6. Fehlt `vor-bollwerk` auf origin: `git -C /home/user/bw-int push --atomic origin HEAD:refs/heads/main "$V":refs/tags/vor-bollwerk` (V = `MC^1`). Lehnt origin `--atomic` ab: zuerst main, sofort danach `"$V":refs/tags/vor-bollwerk`. Gibt es `vor-bollwerk` schon, obwohl `origin/main` noch keinen BOLLWERK-Merge enthält (verwaister Tag): kein Push, BEREIT ZUR INTEGRATION, Eintrag in FUER-DEN-NUTZER. Gibt es ihn schon mit BOLLWERK-Merge auf main (spätere Nacht): nur `HEAD:refs/heads/main`.
-7. Nachprüfung: `git ls-remote origin refs/heads/main` = MC; `git merge-base --is-ancestor` gilt für V, `1145cb9`, `caf1d61` (falls gemergt, K6) und K (L0.3) gegen MC. Schlägt sie fehl: kein weiterer Push, kein Tag, kein Revert; der Befund steht ganz oben im Morgenbericht.
-8. Tag `bollwerk-1.0` nur bei ZIEL ERREICHT (`bollwerk.dart ziel` grün an MC): zuerst `git ls-remote --exit-code --tags origin refs/tags/bollwerk-1.0`; gibt es ihn, wird nichts getaggt. Sonst `git tag -a bollwerk-1.0 <MC> -m "BOLLWERK 1.0 · <MC>"` und `git push origin refs/tags/bollwerk-1.0`.
+5. **Leitstand:** `git fetch origin`. Hat sich main bewegt (V′), baut er MC′ = Merge von R auf V′ in einem frischen Worktree. Gilt `git diff MC MC′` = `git diff V V′`, laufen `bollwerk.dart schnell` und der Burgstadt-Schutz an MC′; sonst das volle Tor. Höchstens 3 Anläufe, dann BEREIT ZUR INTEGRATION und Bitte um ein Merge-Fenster.
+6. **Leitstand:** `git push origin MC′:refs/heads/main` (Fast-Forward, ohne `--atomic`, ohne Tag). Erst nach Erfolg und Nachprüfung, und nur falls er fehlt: `git push origin MC′^1:refs/heads/archiv/vor-bollwerk`. Ein vorhandener Archiv-Branch bleibt.
+7. **Leitstand, Nachprüfung:** `git ls-remote origin refs/heads/main` = MC′; `git merge-base --is-ancestor` gilt für V, R, K, `1145cb9` und `caf1d61` (falls gemergt) gegen MC′. Schlägt sie fehl: kein weiterer Push, kein Revert; Meldung ganz oben.
+8. Tags entfallen (V-2). `bollwerk-1.0` steht als fertiger Befehl unter FUER-DEN-NUTZER.
 
 Sonst endet der Lauf mit BEREIT ZUR INTEGRATION: nur `bollwerk` wird gepusht, auch kurz vor M.
 
@@ -894,9 +920,7 @@ Mindestens 20 Risiken mit Frühzeichen und Gegenmaßnahme, darunter:
 - **PRUEFPUNKT.md**: spätestens alle 30 min und bei jedem Tor. Inhalt: laufende Phase, nächster Schritt, Startbild der fremden Checkouts, Herzschlag-IDs, Liste der eigenen Worktrees.
 - **FLUG.md** (MP-11), STATUS, NACHTPROTOKOLL (stündlich, echte Uhrzeit).
 
-**Lauf-Sperre (ersetzt durch V-6, LEASE in LAUF.md):** Früher trug der PRUEFPUNKT auf `origin/bollwerk` die Zeile `Orchestrator <session_id> · Herzschlag <UTC>`; jetzt gilt LEASE.
-- Eine Sitzung arbeitet nur, wenn dort ihre eigene Kennung steht oder der letzte Herzschlag älter als 90 min ist. Dann schreibt sie ihre Kennung, pusht und beginnt erst danach.
-- Findet ein Herzschlag eine fremde, frischere Kennung, startet die Sitzung nichts mehr, löscht nur ihre eigenen Herzschlag-IDs und endet.
+**Lauf-Sperre:** LEASE in `planung/bollwerk/LAUF.md` nach v4 §8.2 Abschnitt 2.5 (V-6, V-12).
 
 **Nach jeder Verdichtung**
 1. KERNKARTE lesen, dann PRUEFPUNKT, dann FLUG.
@@ -923,16 +947,16 @@ Mindestens 20 Risiken mit Frühzeichen und Gegenmaßnahme, darunter:
 
 ### MP-19 · START
 Die ersten 10 Handlungen, jede als Befehl:
-1. Wurzel `BW=/home/user/bollwerk`. Besteht `$BW` schon auf Branch `bollwerk` (sauber, gleich `origin/bollwerk`), nur `git -C $BW pull --ff-only origin bollwerk`; sonst `git fetch origin && git worktree add --no-track -b bollwerk $BW origin/bollwerk`. Dann `tool/bollwerk/env.sh` anlegen (vorher `export PATH=/opt/flutter/bin:/opt/node22/bin:$PATH`); ab dann gilt A4.10.
+1. Wurzel `BW=$(git rev-parse --show-toplevel)` (der Sitzungs-Checkout auf `bollwerk`, v4 2.3). Dann `tool/bollwerk/env.sh` anlegen (vorher `export PATH=/opt/flutter/bin:/opt/node22/bin:$PATH`); ab dann gilt A4.10.
 2. `planung/bollwerk/PRUEFPUNKT.md` lesen und die Lauf-Sperre prüfen (MP-18): Steht dort `PHASE: NICHT BEGONNEN`, ist es ein Neustart; sonst Wiedereinstieg nach MP-18. Startbild aufnehmen.
-3. Herzschlag stellen.
+3. LEASE übernehmen (v4 2.5).
 4. B-02 prüfen.
 5. Vorrat laden.
 6. Pool anlegen.
 7. Erste T-Welle starten.
 8. Torwerkzeug-Bau starten (im Vorlauf) oder BW0 beginnen (nach B-02).
 9. STAND ausgeben.
-10. Zug beenden (Benachrichtigungen wecken).
+10. Zug beenden mit der Zugende-Zeile (v4 2.5).
 
 ### MP-20 · ENDE
 - **„ZIEL ERREICHT“** nur über `bollwerk.dart ziel`: alle BK-Kriterien und die letzten 2 Prüfrunden ohne bestätigten BLOCKER oder MAJOR.

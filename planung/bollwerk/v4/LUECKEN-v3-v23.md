@@ -1,5 +1,7 @@
 # Lückenanalyse v3 ↔ v2.3 ↔ Plan → Grundlage für v4
 
+> **Nachtrag v4.1:** W7/W8 (Sperrdatei, Variablen) entfallen: v4.1 legt keine Einstellungsdatei an (C14 unbelegt, Umgebung geteilt); eine reine Verbotsdatei ist Annahme A-13 (Standard: keine). Diese Abweichung vom Plan steht in den Annahmen. Wellengröße: Standard ≤ 20 je Workflow (W12).
+
 Kürzel: **v3** = META-PROMPT-BOLLWERK-v3.md · **MP** = META-PROMPT.md (v2.3) · **A/B/C** = META-ANHANG-A/B/C · **PL** = freigegebener Plan · L = Zeile
 
 ## 1. Changelog

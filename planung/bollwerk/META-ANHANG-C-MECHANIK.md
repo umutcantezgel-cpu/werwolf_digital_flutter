@@ -1,5 +1,7 @@
 # META-ANHANG C · Startentwurf Spielmechanik (Eingang für M3, kein Endstand)
 
+> **v4.1:** „M3“ meint in diesem Anhang die Phase **M2 Spielkern** des Meta-Prompts v4.1. Es gelten zusätzlich: WÜ-1 mit Salz statt Fall-Code (Anhang A4.7, V-15); Lösbarkeit beim **Öffnen** jeder Entscheidung über alle Kettenarten (META-PROMPT §7 M2); der dritte Anlauf je Wissensziel ist immer mindestens Teilerfolg, ohne Deckel; das Pech-Band gilt nach Modifikatoren, ein immer getragenes Werkzeug zählt +0; C8 Nr. 13 gilt für jede Besetzung 4–20; Abnahme über WÜ-1…6, C8 Nr. 1–13 und C9.
+
 > Der Entwurf stammt aus dem Mechanik-Leser und wurde durch die Gegenprüfung (Linse Spielentwurf) und die Nutzerwahl „Würfel stark“ korrigiert.
 > M3 prüft ihn im Turnier gegen mindestens 3 weitere Entwürfe. Alles mit **„bindend“** gilt für jeden Entwurf. Abweichungen sind nur mit Denkprotokoll erlaubt.
 > Fakten zum Kanon stehen in Anhang B2.
@@ -96,7 +98,7 @@
   - Seifenblasen-Marken: je Wurf höchstens 1 (+1), je Partie höchstens 3
 - Kernrollen helfen **nur beim Befragen**. Helfer-Boni hängen nie daran, ob der Helfer Täter ist. Der Täter kann keinen Wurf sabotieren; Sabotage gibt es nur in der Gruppenwahl (G-1).
 - Befragungen **besetzter** Rollen (ein Mensch am Tisch) würfeln nur über Tempo und Zusatz, nicht über das Gelingen.
-- Pech-Ausgleich: nach zwei Pech in Folge ist der nächste Wurf mindestens Teilerfolg. Je Wissensziel höchstens zwei Dämpfer (Marke oder Pech-Ausgleich).
+- Pech-Ausgleich: nach zwei Pech in Folge (je Wissensziel) ist der nächste Wurf mindestens Teilerfolg; der dritte Anlauf je Wissensziel ist immer mindestens Teilerfolg, ohne Deckel. Je Wissensziel höchstens zwei Seifenblasen-Marken.
 
 **Seed (WÜ-1, eine Formel)**
 - `Rng(Rng.hashString('wuerfel:<code>:<entscheidungsId|abstecherId>:<anlauf>'))`
@@ -265,7 +267,7 @@
     - kein Baustein, in dem Herr Schneider stirbt oder neu verletzt wird
     - Bildregeln aus C6
 12. **Bots:** 1.000 Bot-Partien je Pfad laufen ohne Eingriff bis zum Ende. Die Gruppenwahl-Bots erreichen für jede Rollenzahl von 4 bis 20 jede Qualität.
-13. **Spürbarkeit (bindend, „stark“ heißt spürbar):** 10.000 Seeds je Form und Besetzung 4, 12 und 20:
+13. **Spürbarkeit (bindend, „stark“ heißt spürbar):** 10.000 Seeds je Form und Besetzung, gemessen bei 4, 12 und 20 und als Band gültig für jede Besetzung 4–20:
     - Würfe über das Gelingen in 30–60 % der Züge, **in jeder Besetzung** (Befragungen besetzter Rollen zählen nicht mit)
     - je Partie im Median ≥ 2 sichtbare Pech-Szenen und ≥ 2 Erfolge mit Zusatzfund
     - das untere Glücksquartil schafft im Mittel ≥ 25 % weniger Abstecher und ≥ 25 % weniger Zusatzfunde als das obere
