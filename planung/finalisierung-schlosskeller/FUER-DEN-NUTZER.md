@@ -59,3 +59,8 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 - Ob die Seifenblasen, der Staub an der Rüstung und die Rußwolke am Kamin witzig sind oder stören.
 - **Die drei Lacher im Intro (E-039):** Olli verläuft sich, Sibel erschrickt vor der Rüstung, Hana verqualmt den Kamin. Fragt vorher, ob die Spielerinnen und Spieler dieser Rollen damit einverstanden sind. Die Lacher sind Vorgabe (TON §8); ändern lässt sich das in `texte/erzaehler-intro.json`.
 - **Ähnliche Figurenfarben über Räume hinweg (E-037):** Meryem/Serkan, Olli/Serkan, Ahmet/Baran, Murat/Hakan, Olli/Meryem und Serkan/Kaan liegen unter ΔE 10. Im selben Startraum gilt überall mindestens 10. Die Figuren unterscheiden sich durch Silhouette, Kopf und Haar. Wer am Testabend Verwechslungen merkt, kann einzelne Farbcodes in `figuren.json` anpassen; der Farbtest zeigt dann sofort, ob die Abstände halten.
+
+## Abschluss (F7)
+- **Letzte E2E-Matrix:** Vollständig (84/84, 0 Konsolenfehler, 0 fremde Anfragen) lief sie auf `081e258`. Danach hat E-041 nur noch die Täteransicht in der App und die Fotostellen geändert. Die Matrix auf diesem Stand habe ich auf deinen Wunsch abgebrochen, um schnell auf main zu kommen. Belegt ist die Änderung durch die Widget-Tests. Wer sicher gehen will: `tool/pruefen.sh e2e` (gut 1,5 Stunden).
+- **main:** Die neuen Commits von origin/main (BOLLWERK, Fusion, Leitstand) sind per Merge übernommen, ohne Konflikt. Danach lief die Prüfung grün: Analyse, 416 Kern-Tests, 166 Flutter-Tests, Server-Smoke.
+
