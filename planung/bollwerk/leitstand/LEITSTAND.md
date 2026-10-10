@@ -45,7 +45,14 @@ Wahr nur, wenn alles zutrifft:
 4. PR #43 ist gemergt oder geschlossen (lesend prüfen).
 Sonst nur „FREIGABE BOLLWERK“ des Nutzers (nachdem er die Finalisierung angehalten hat).
 
-Letzte Prüfung: 2026-10-10 08:38 UTC · Finalisierung wieder aktiv: 0690165 (08:15 UTC, F5-Test), STATUS weiter F5 von F7, Abnahme 9/17, kein ZIEL ERREICHT, fin nicht Vorfahr von main, PR #43 offen · **offen**
+Letzte Prüfung: 2026-10-10 10:39 UTC · Finalisierung aktiv (c5c1af3, 09:38 UTC: E2E 84/84 auf 17173e2, F-12), STATUS F5 von F7, Abnahme 9/17, kein ZIEL ERREICHT, PR #43 offen · **offen**
+
+## Aufteilung (Nutzerfreigabe 10.10.2026, Plan „AUFTEILUNG – Burgstadt raus, der Rest wird eine App“)
+Nutzerwortlaut: „das eine raus den rest fusionieren“ · „dieses 3D-Game … in einen separaten Repo“ · neues Repo „burgstadt-schartenfels, mit Verlauf“, öffentlich · Vorgehen „Kopieren, prüfen, dann hier entfernen“ · Zeitpunkt „Nach dem Merge von PR #43“.
+- Phase 1 (läuft): neues öffentliches Repo `umutcantezgel-cpu/burgstadt-schartenfels` aus gefiltertem Verlauf (Klon `/home/user/burgstadt-schartenfels`, Branches `main` und `hd-linie`, Basis A@47611d8, HD@f275929), eigene App-Kennung `de.codayweb.burgstadt`.
+- **Phase 2 – Auslöser im Herzschlag prüfen:** PR #43 gemergt UND Finalisierung „ZIEL ERREICHT“ UND 60 min ohne Commit auf ihren Pfaden → Lösch-Commit hier (Branch `aufteilung/burgstadt`, Tore, `archiv/vor-aufteilung`, FF-Push auf main). Vorher Burgstadt-Nachzügler seit 47611d8 ins neue Repo.
+- Phase 3: `NACHTRAG-AUFTEILUNG.md` + STEUERUNG-Zeile für BOLLWERK; **B-02 erst nach dem Lösch-Commit auf main**.
+- Phase 4 (Krimidinner als Partyabend in die App): nur nach eigenem Plan und Nutzerwort.
 
 ## Gezeigte Bilder
 - 22:39 UTC · `bilder/meta/m1-bildverfahren-fin-5c83242.jpg` (bollwerk-plan e2b27da)
@@ -131,3 +138,5 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-10 05:40 UTC · Herzschlag 10: G2 `ZUSTAND: ABBRUCH Werkzeugverstoß steuernd` (05:27Z, idle/blocked). Ursache: Haiku-Agent ABST-west_saal-1 rief `mcp__claude-code-remote__send_message` mit `{}` auf, Auto-Modus lehnte ab; vorher 1 lesender Verstoß (`read_documentation`, verworfen). G2 hat vorher gesichert: Kern 1.1 (be5a990), F-6-Rest (52632ba), F-3…F-8 quittiert (QUITTIERT S=3 F=8), 135 Rohvarianten unter `vorrat/roh/`, Weckruf gelöscht. Zustandstabelle: Abbruch mit Grenzfrage → **Pause, keine G3** bis der Nutzer G2-2 entscheidet (A-13 „Sperrdatei“ ist Nutzerentscheidung; Leitstand prüft vorher die Technik). B-02 offen (fin ea8d765, still seit 23:09 UTC).
 - 2026-10-10 06:38 / 07:38 UTC · Herzschläge 11–12: keine Änderung; Pause wegen G2-2 hält. 05:52 UTC Entscheidungsfrage G2-2 (Optionen „A13: Agententyp“ empfohlen, „A13: ja“, „Regel: verwerfen“, „Neustart ohne Änderung“; Nebenfrage G2-1/A-12) im Chat und per Push an den Nutzer.
 - 2026-10-10 08:38 UTC · Herzschlag 13: Finalisierung nach 9 h Stille wieder aktiv (0690165, 08:15 UTC); B-02 offen. G2-2 weiter unbeantwortet, keine G3. Nebenbei: Statusprüfung für den Nutzer (Workflow, nur lesend, Proben in Wegwerf-Worktrees /home/user/probe-main und /home/user/probe-fin).
+- 2026-10-10 09:38 UTC · Herzschlag 14: keine Änderung. Nutzerfrage „was steht, ist es spielbar?“ beantwortet (Workflow, Proben in Wegwerf-Worktrees, Bilder gezeigt).
+- 2026-10-10 10:39 UTC · Herzschlag 15: Finalisierung c5c1af3 (E2E 84/84); B-02 offen; G2-2 weiter offen. Nutzer hat die **Aufteilung** freigegeben (Abschnitt oben); Phase 1 läuft (Filter, Eigenständigkeits-Commit d814992 lokal, Tore laufen).
