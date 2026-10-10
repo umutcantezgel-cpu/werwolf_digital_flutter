@@ -1,0 +1,674 @@
+{
+ "Q001": {
+  "kennung": "F2-GA-04",
+  "punkte": {
+   "KANON": 7,
+   "TON": 8,
+   "SPASS": 7,
+   "GESAMT1": 6,
+   "GESAMT2": 7
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q002": {
+  "kennung": "F2-AB-06",
+  "punkte": {
+   "KANON": 6,
+   "TON": 6,
+   "SPASS": 6,
+   "GESAMT1": 5,
+   "GESAMT2": 5
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q003": {
+  "kennung": "FUELL-09",
+  "punkte": {
+   "KANON": 1,
+   "TON": 2,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q004": {
+  "kennung": "F2-GA-12",
+  "punkte": {
+   "KANON": 5,
+   "TON": 6,
+   "SPASS": 5,
+   "GESAMT1": 5,
+   "GESAMT2": 6
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q005": {
+  "kennung": "F2-AB-08",
+  "punkte": {
+   "KANON": 7,
+   "TON": 8,
+   "SPASS": 7,
+   "GESAMT1": 8,
+   "GESAMT2": 7
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q006": {
+  "kennung": "F2-AB-05",
+  "punkte": {
+   "KANON": 7,
+   "TON": 7,
+   "SPASS": 5,
+   "GESAMT1": 6,
+   "GESAMT2": 6
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q007": {
+  "kennung": "F2-FE-06",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 7,
+   "GESAMT1": 7,
+   "GESAMT2": 6
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q008": {
+  "kennung": "F2-FE-04",
+  "punkte": {
+   "KANON": 7,
+   "TON": 8,
+   "SPASS": 8,
+   "GESAMT1": 6,
+   "GESAMT2": 7
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q009": {
+  "kennung": "FUELL-03",
+  "punkte": {
+   "KANON": 0,
+   "TON": 2,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 1
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q010": {
+  "kennung": "F2-GA-11",
+  "punkte": {
+   "KANON": 5,
+   "TON": 7,
+   "SPASS": 6,
+   "GESAMT1": 6,
+   "GESAMT2": 6
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q011": {
+  "kennung": "F2-GA-03",
+  "punkte": {
+   "KANON": 8,
+   "TON": 9,
+   "SPASS": 8,
+   "GESAMT1": 6,
+   "GESAMT2": 7
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q012": {
+  "kennung": "F2-AB-07",
+  "punkte": {
+   "KANON": 4,
+   "TON": 8,
+   "SPASS": 7,
+   "GESAMT1": 6,
+   "GESAMT2": 7
+  },
+  "angenommen": true,
+  "verfahren": "median5"
+ },
+ "Q013": {
+  "kennung": "F2-GA-07",
+  "punkte": {
+   "KANON": 4,
+   "TON": 8,
+   "SPASS": 5,
+   "GESAMT1": 5,
+   "GESAMT2": 6
+  },
+  "angenommen": false,
+  "verfahren": "median5"
+ },
+ "Q014": {
+  "kennung": "F2-FE-02",
+  "punkte": {
+   "KANON": 8,
+   "TON": 7,
+   "SPASS": 8,
+   "GESAMT1": 8,
+   "GESAMT2": 8
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q015": {
+  "kennung": "FUELL-10",
+  "punkte": {
+   "KANON": 1,
+   "TON": 2,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 1
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q016": {
+  "kennung": "F2-FE-08",
+  "punkte": {
+   "KANON": 7,
+   "TON": 6,
+   "SPASS": 5,
+   "GESAMT1": 7,
+   "GESAMT2": 5
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q017": {
+  "kennung": "FUELL-19",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q018": {
+  "kennung": "F2-FE-12",
+  "punkte": {
+   "KANON": 6,
+   "TON": 6,
+   "SPASS": 7,
+   "GESAMT1": 5,
+   "GESAMT2": 5
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q019": {
+  "kennung": "F2-GA-10",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 6,
+   "GESAMT1": 6,
+   "GESAMT2": 6
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q020": {
+  "kennung": "F2-GA-08",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 6,
+   "GESAMT1": 7,
+   "GESAMT2": 6
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q021": {
+  "kennung": "FUELL-02",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q022": {
+  "kennung": "F2-AB-09",
+  "punkte": {
+   "KANON": 7,
+   "TON": 8,
+   "SPASS": 7,
+   "GESAMT1": 7,
+   "GESAMT2": 7
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q023": {
+  "kennung": "FUELL-08",
+  "punkte": {
+   "KANON": 0,
+   "TON": 2,
+   "SPASS": 0,
+   "GESAMT1": 1,
+   "GESAMT2": 1
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q024": {
+  "kennung": "F2-AB-02",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 6,
+   "GESAMT1": 6,
+   "GESAMT2": 6
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q025": {
+  "kennung": "FUELL-13",
+  "punkte": {
+   "KANON": 0,
+   "TON": 2,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 1
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q026": {
+  "kennung": "FUELL-17",
+  "punkte": {
+   "KANON": 1,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q027": {
+  "kennung": "F2-GA-01",
+  "punkte": {
+   "KANON": 7,
+   "TON": 9,
+   "SPASS": 8,
+   "GESAMT1": 8,
+   "GESAMT2": 7
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q028": {
+  "kennung": "F2-AB-04",
+  "punkte": {
+   "KANON": 6,
+   "TON": 8,
+   "SPASS": 5,
+   "GESAMT1": 7,
+   "GESAMT2": 7
+  },
+  "angenommen": true,
+  "verfahren": "median5"
+ },
+ "Q029": {
+  "kennung": "FUELL-04",
+  "punkte": {
+   "KANON": 1,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q030": {
+  "kennung": "F2-AB-10",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 5,
+   "GESAMT1": 7,
+   "GESAMT2": 6
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q031": {
+  "kennung": "FUELL-18",
+  "punkte": {
+   "KANON": 0,
+   "TON": 3,
+   "SPASS": 1,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "median5"
+ },
+ "Q032": {
+  "kennung": "F2-FE-01",
+  "punkte": {
+   "KANON": 7,
+   "TON": 7,
+   "SPASS": 7,
+   "GESAMT1": 7,
+   "GESAMT2": 7
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q033": {
+  "kennung": "FUELL-06",
+  "punkte": {
+   "KANON": 1,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q034": {
+  "kennung": "F2-GA-05",
+  "punkte": {
+   "KANON": 9,
+   "TON": 8,
+   "SPASS": 9,
+   "GESAMT1": 8,
+   "GESAMT2": 9
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q035": {
+  "kennung": "FUELL-15",
+  "punkte": {
+   "KANON": 1,
+   "TON": 2,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 1
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q036": {
+  "kennung": "F2-FE-07",
+  "punkte": {
+   "KANON": 5,
+   "TON": 6,
+   "SPASS": 5,
+   "GESAMT1": 5,
+   "GESAMT2": 5
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q037": {
+  "kennung": "F2-GA-09",
+  "punkte": {
+   "KANON": 6,
+   "TON": 8,
+   "SPASS": 6,
+   "GESAMT1": 6,
+   "GESAMT2": 7
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q038": {
+  "kennung": "FUELL-01",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q039": {
+  "kennung": "F2-AB-01",
+  "punkte": {
+   "KANON": 8,
+   "TON": 8,
+   "SPASS": 7,
+   "GESAMT1": 7,
+   "GESAMT2": 8
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q040": {
+  "kennung": "F2-GA-06",
+  "punkte": {
+   "KANON": 8,
+   "TON": 9,
+   "SPASS": 9,
+   "GESAMT1": 7,
+   "GESAMT2": 8
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q041": {
+  "kennung": "FUELL-12",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q042": {
+  "kennung": "F2-AB-11",
+  "punkte": {
+   "KANON": 8,
+   "TON": 7,
+   "SPASS": 6,
+   "GESAMT1": 6,
+   "GESAMT2": 8
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q043": {
+  "kennung": "F2-AB-12",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 5,
+   "GESAMT1": 5,
+   "GESAMT2": 6
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q044": {
+  "kennung": "FUELL-05",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 1
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q045": {
+  "kennung": "FUELL-14",
+  "punkte": {
+   "KANON": 1,
+   "TON": 3,
+   "SPASS": 1,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q046": {
+  "kennung": "FUELL-20",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q047": {
+  "kennung": "F2-FE-09",
+  "punkte": {
+   "KANON": 6,
+   "TON": 6,
+   "SPASS": 6,
+   "GESAMT1": 5,
+   "GESAMT2": 7
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q048": {
+  "kennung": "F2-GA-02",
+  "punkte": {
+   "KANON": 7,
+   "TON": 9,
+   "SPASS": 8,
+   "GESAMT1": 9,
+   "GESAMT2": 9
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q049": {
+  "kennung": "F2-FE-10",
+  "punkte": {
+   "KANON": 7,
+   "TON": 6,
+   "SPASS": 7,
+   "GESAMT1": 6,
+   "GESAMT2": 6
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q050": {
+  "kennung": "F2-FE-05",
+  "punkte": {
+   "KANON": 7,
+   "TON": 7,
+   "SPASS": 8,
+   "GESAMT1": 7,
+   "GESAMT2": 7
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q051": {
+  "kennung": "FUELL-11",
+  "punkte": {
+   "KANON": 1,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 1,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q052": {
+  "kennung": "F2-AB-03",
+  "punkte": {
+   "KANON": 7,
+   "TON": 7,
+   "SPASS": 6,
+   "GESAMT1": 7,
+   "GESAMT2": 6
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q053": {
+  "kennung": "FUELL-16",
+  "punkte": {
+   "KANON": 1,
+   "TON": 2,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 1
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q054": {
+  "kennung": "FUELL-07",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0,
+   "GESAMT1": 0,
+   "GESAMT2": 0
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ },
+ "Q055": {
+  "kennung": "F2-FE-03",
+  "punkte": {
+   "KANON": 7,
+   "TON": 7,
+   "SPASS": 7,
+   "GESAMT1": 7,
+   "GESAMT2": 8
+  },
+  "angenommen": true,
+  "verfahren": "mehrheit3"
+ },
+ "Q056": {
+  "kennung": "F2-FE-11",
+  "punkte": {
+   "KANON": 6,
+   "TON": 6,
+   "SPASS": 6,
+   "GESAMT1": 6,
+   "GESAMT2": 7
+  },
+  "angenommen": false,
+  "verfahren": "mehrheit3"
+ }
+}

@@ -1,0 +1,7 @@
+HEAD 30fadff64ac5625bdfe7e1e6494677ce493b22a7 · tree fd36258079d4014fdb4cb7bc90141a8a7ea646e3 · 2026-10-10 04:19:20 CEST · schnell --vorlauf · Exit 0 · 30113ef3691e127a18ee6f78dd17fdc84a42dce2cd8c217db92e9ca4c35fe620
+git diff --stat <BW0> HEAD -- tool/bollwerk: BW0 – (Vorlauf)
+Status GRÜN · Dauer 1 s
+
+$ dart run tool/bollwerk/fuellstoff.dart
+Running build hooks...Running build hooks...L5 schicht GRÜN · 0 Einheiten
+→ Exit 0

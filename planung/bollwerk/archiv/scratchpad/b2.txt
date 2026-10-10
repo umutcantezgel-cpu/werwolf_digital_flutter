@@ -1,0 +1,3 @@
+SKALA Welt 320x180 ×4 · UI 640x360 ×2
+WAND haus-H-005 · x 4,25 · z 3,00 · yaw 1,5708 rad · Abstand 2,00 m
+BANDING · Stufen 5 · größter Sprung 40,8 Luma / 1 Stufen · Sprünge>1 0

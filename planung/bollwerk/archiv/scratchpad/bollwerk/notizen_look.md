@@ -1,0 +1,18 @@
+# Look (Bericht Leser „Look“, 2026-10-09)
+- Projektion lib/game/iso_math.dart (64/32/40). Render-Pipeline mordakte_game.dart:830–920 (Böden, Bodendekor, Tiefensortierung, Licht, nach Licht, Wetter, Overlays, Vignette).
+- Kamera folgt nur eigener Figur (_px/_py); Zoom base clamp 0.42–2.4 × user 0.6–1.8. Cutaway hängt an _playerRoom.
+- Figuren: FigurePainter.standing (figure_painter.dart:80–247), nur Gehen/Stehen, 6 Ansichten; keine Ruhe-Animation, keine Posen (Tür/Untersuchen/Sitzen/Reden). lying/Geist/Schatten vorhanden.
+- Wegfindung nur im Kern: TileGrid.findPath (mordakte_core/lib/src/scenario/grid.dart:138–178), RaumGraph.weg (party/raumgraph.dart:84–105).
+- ActionTarget (mordakte_game.dart:21–45) kinds search/lab/hide/body/blood/npc/item/trace/revive/cancel.
+- Overlays: markers.dart (targetRing, channelRing, nameTag, targetLabel, bubble); UI: TypewriterText, PaperCard, Stamp, theme (SpecialElite, Inter).
+- GameView: GameWidget + Joystick (linke 45%×untere 60%) + ActionButton 88px.
+- Vorschau: preview_main.dart (Hoheit Finalisierung, E-016), ScenarioPreviewSession (Timer 100 ms, Bots kreisen) = Vorlage für Zug-Sitzung (implements GameSession).
+- KANON HAT entscheidungen.json: 9 Entscheidungen in 3 Runden; ziel person 12×, gegenstand 6×, raum 3×.
+- figuren.json: 22 idleAnimation-Texte, nicht umgesetzt.
+- Palette szenario_export.dart:22–40 (accent #ff9329, dayAmbient 0.62, nightAmbient 0.06).
+- Lücken: kein Golden-Test, Szenenzeit frei (_time) → fester Uhr-Haken nötig; Leistung 8,4/4,0/2,8 B/s; Tische mit grünen Flaschen (Inhaltsregel!); Detektiv-Look Rot statt Kanon #B8A48A; Herr Schneider steht statt liegt; Hotspots/Items leer im Export; ravensmoor-Reste; playerSpeed 3,2 vs Kanon 1–1,5 m/s; Türblatt nur bei L-Türen (2/8); kein Würfel-Code.
+- F4 plant: lib/party/**, karte_session.dart, prop_painter.dart (F4-ORCH-06), rueckblende.dart, Haken NpcFilter/RaumSicht in mordakte_game.dart → Kollisionszone.
+- FEINKORN SZENENVERTRAG.md: Ereignisse GehtZu, Zustand(stehen,gehen,sitzen,tuer_oeffnen,untersuchen,erschrecken,lampe_schwenken,reden), TuerAuf, Sicht, Angekommen → Vokabular übernehmen.
+- Rng: core/util/rng.dart (deterministisch aus Fall-Code).
+- Look-Vertrag: unverändert 1–9 (Iso, Kamera, Reihenfolge, Palette, Licht, Cutaway, FigurePainter, Bedien-Optik, keine Blockfiguren); erweiterbar additiv (Zug-Sitzung, optionale Haken session is …, neue Maler in neuen Dateien, Flutter-Ebene Noir, Türblatt nur nach F4-Absprache).
+- Offene Nutzerfragen: Detektiv-Look Kanon vs Rot; Joystick; Gehtempo; Schneider liegend.

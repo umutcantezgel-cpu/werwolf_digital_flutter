@@ -1,0 +1,194 @@
+{
+ "welle": "W2",
+ "stat": {
+  "ring1": 15,
+  "ring2": 15,
+  "ring3": 15,
+  "ring5": 15,
+  "ring6": 15
+ },
+ "durch": [
+  "ABST-turmgang-1-01",
+  "ABST-turmgang-1-02",
+  "ABST-turmgang-1-03",
+  "ABST-turmgang-1-04",
+  "ABST-turmgang-1-05",
+  "ABST-turmgang-1-06",
+  "ABST-turmgang-1-07",
+  "ABST-turmgang-1-08",
+  "ABST-turmgang-1-09",
+  "ABST-turmgang-1-10",
+  "ABST-turmgang-1-11",
+  "ABST-turmgang-1-12",
+  "ABST-turmgang-1-13",
+  "ABST-turmgang-1-14",
+  "ABST-turmgang-1-15"
+ ],
+ "einzeln": [
+  {
+   "kennung": "ABST-turmgang-1-01",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:1",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-02",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:2",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-03",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:3",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-04",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:4",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-05",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:5",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-06",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:6",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-07",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:7",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-08",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:8",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-09",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:9",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-10",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:10",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-11",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:11",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-12",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:12",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-13",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:13",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-14",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:14",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  },
+  {
+   "kennung": "ABST-turmgang-1-15",
+   "slot": "ABST-turmgang-1",
+   "art": "abstecher",
+   "quelle": "planung/bollwerk/vorrat/roh/W2/ABST-turmgang-1.jsonl:15",
+   "ring1": [],
+   "ring2": [],
+   "ring3": [],
+   "ring5": [],
+   "ring6": []
+  }
+ ]
+}

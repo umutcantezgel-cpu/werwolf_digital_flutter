@@ -1,0 +1,16 @@
+HEAD 30fadff64ac5625bdfe7e1e6494677ce493b22a7 · tree fd36258079d4014fdb4cb7bc90141a8a7ea646e3 · 2026-10-10 04:19:20 CEST · schnell --vorlauf · Exit 0 · c77c5c49907d294d23c8eb633341c80e5b6d39a1581ae02eeed2e53f1e757732
+git diff --stat <BW0> HEAD -- tool/bollwerk: BW0 – (Vorlauf)
+Status GRÜN · Dauer 1 s
+
+$ (cd packages/mordakte_core && dart test test/runden/)
+00:00 +0: loading test/runden/eigenschaften_test.dart
+00:00 +0: test/runden/determinismus_web_test.dart: 1.000 Codes: Protokoll-Summen gleich der Soll-Liste (WÜ-6)
+00:00 +1: test/runden/determinismus_web_test.dart: 1.000 Codes: Protokoll-Summen gleich der Soll-Liste (WÜ-6)
+00:00 +2: test/runden/determinismus_web_test.dart: 1.000 Codes: Protokoll-Summen gleich der Soll-Liste (WÜ-6)
+00:00 +3: test/runden/eigenschaften_test.dart: Faktenstand beim Öffnen gleich dem Lauf ohne Würfel (K-14, 500 Fälle)
+00:00 +4: test/runden/eigenschaften_test.dart: Seed nach WÜ-1: gleiche Augen je Entscheidung und Anlauf, unabhängig von der Option (500 Fälle)
+00:00 +5: test/runden/eigenschaften_test.dart: Chancen vor dem Wurf: Summe 100, gleiche Chance für alle Optionen, Garantie ohne Pech
+00:00 +6: test/runden/eigenschaften_test.dart: Budget-Ungleichung und Suchen-Regel (K-05, K-11)
+00:00 +7: test/runden/eigenschaften_test.dart: Determinismus: gleiche Eingaben ergeben dasselbe Würfelprotokoll (WÜ-6)
+00:00 +8: All tests passed!
+→ Exit 0

@@ -1,0 +1,7 @@
+Du bist Autor im Projekt „Burgstadt HD“. Paket **P1-AUTOR-04 · ★ Textur pflaster v2, Variante A** (HZ-04).
+Lies zuerst /home/user/werwolf_digital_flutter/hd/rollen/KOPF.md, /home/user/werwolf_digital_flutter/hd/rollen/AUTOR.md und /tmp/claude-0/-home-user-werwolf-digital-flutter/f7a52164-ab37-599f-81d4-460776fcac08/scratchpad/briefings/TEXTUR-KOPF.md.
+
+**Gegenstand:** Kopfsteinpflaster der Oberstadt-Gassen (ersetzt Bestand `pflaster`). Datei `kit/texturen/pflaster_a.dart`, Funktion `pflasterV2A()`, Kandidat `pflaster_a`.
+**Gestaltung Variante A – Reihenpflaster:** 128×128 (2 m × 2 m). Gerundete Natursteine 12–16 Texel breit, 9–12 hoch, in leicht versetzten Reihen (Reihenhöhe schwankt je Reihe ±1, Fugen nicht schnurgerade: jede Reihe hat einen eigenen kleinen Versatz). Steinkörper `stone` Stufen 7–10 (je Stein über Lcg eine von drei Körperstufen), Rundung: Eckpixel jedes Steins in Fugenfarbe; Oberkante + linke Kante 1 Texel hell (+2 Stufen), Unterkante + rechte Kante 1–2 Texel dunkel (−2 Stufen); Fugen 2 Texel `stone` Stufe 3; jeder ~6. Stein aus `neutral` (kühler Granit, Stufen 6–9) zur Abwechslung. Gelegentlich (jeder ~10. Stein) ein 3–4 Texel langer Riss in Fugenfarbe. Kein Grün.
+Beleg-Paketname für den Kontaktbogen: `P1-AUTOR-04`.
+**Rückgabe:** Rückgabeformular laut AUTOR.md (STILBLATT-CHECK mit den Zahlen aus der Kontaktbogen-Zeile und deiner Sichtbeurteilung), letzte Zeile `ENDE PAKET P1-AUTOR-04`.

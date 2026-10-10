@@ -1,0 +1,27 @@
+# Steuerung & Sitzung (Bericht, 2026-10-09)
+- lib/, tool/, server/, room_host gleich auf main und finalisierung; Unterschiede nur content/party und Party-Tests/Werkzeuge.
+- Heute: Echtzeit-Joystick (lib/game/input/joystick.dart r56 deadZone .14) + ActionButton 88px; WASD/E/Space; Interact(id) im Umkreis 1.5 (Tuning.interactRange); _computeTarget nur in investigation/night.
+- Naht: GameSession (lib/session/game_session.dart): playerId, roomCode, isOnline, world, caseView, events, connected, scenarios, move(), send(Command), dispose().
+- Sessions: LocalSession (RoomRuntime 50 ms), OnlineSession (WebSocket server/, 20 Hz), FakeSession (?fake=), ScenarioPreviewSession (100 ms, send() tut nichts).
+- App startet in BURGSTADT (lib/main.dart:73, Routes.burgstadt); „Klassische Fälle“ → Mordakte-Hub (Fall des Tages, Fallakten story/random/daily, Online, Sammlung, Profil). KEINE /party-Route, keine Party-Kachel.
+- Schlosskeller iso nur über preview_main.dart?party=schlosskeller.
+- PARTY-LOGIK IST SCHON RUNDENBASIERT: packages/mordakte_core/lib/src/party/ablauf.dart: Spiel mit 13 PartyPhase, einrichten(Einstellungen: rollen, detektiv m/w, FallCode, druck, rundendauerMinuten 30), weiter(), optionen() je Code gemischt, waehle(), abstimmen(), anklagen(), punkte, ende.
+- entscheidungen.dart + content/party/schlosskeller/entscheidungen.json: 9 Entscheidungen e1_1..e3_3 (3 Runden), 2–3 Optionen (e3_1 hat 3), ziel person|gegenstand|raum; 30 Fakten; Regeln R-ENTLASTET/R-UEBERFUEHRT; aufdecken() → Aufdeckung.
+- gruppenwahl.dart: Qualitaet wahr/neutral/falsch (5×kooperativ ≥ 3×Rollen …), Sabotage −1 → braucht Rollen-Bots im Solo.
+- enden.dart: Meister 7–9, Teilerfolg 0–6 (richtig), Justizirrtum 4–9, Eskalation 0–3 (falsch).
+- fall_code.dart: 5 Zeichen, seed = hashString('schlosskeller:'+code); Pfad = erster Zug.
+- simulator.dart: erschöpfend 768 Folgen × 4 Pfade × 4 Anklagen in 0,3 s; bin/party_simulate.dart --pruefen in tool/pruefen.sh. Determinismus_test.
+- Rng: packages/mordakte_core/lib/src/util/rng.dart (mulberry32, nextInt, chance, pick, shuffle, hashString FNV-1a; VM=Web).
+- Glücks-Vorbild engine.dart:803 (Spur aufheben).
+- szenario_export.dart: partySzenarioJson (hotspots/items leer, councilRoom thekensaal).
+- Engine (engine.dart 1468 Z.) Echtzeit, E-001: Party baut NICHT auf Engine.
+- commands.dart sealed Command (15) – nicht anfassen; Party-Befehle eigener Typ.
+- room_host: RaumSpiel-Naht (beitreten, nachricht, tick, zustandFuer…), RaumHost dart:io /raum; im Browser nur Gast.
+- BurgstadtRaum: Gastgeber=Detektiv, N=4–20, Bots für offene Rollen, wahlFrist 90 s, bots.rollenWahl → Muster.
+- F4 (nicht begonnen; nächster Schritt F4-ORCH-01; lib/party/ existiert nirgends): PartyKarte, PartySitzung extends ChangeNotifier, PartyKartenSession implements GameSession, NpcFilter/RaumSicht, BAUMEISTER-01..09, Route /party, Dev ?party=&code=&n=&skript=&dauer=; Joystick zum Ziel; Fund nach „Das ist endgültig“. Pfade PLAN (lib/party/spiel/*) vs Entwurf (karte.dart, lib/party/sitzung.dart, karte_session.dart) weichen ab.
+- Harte Regeln des Laufs: F-06/F-07 Determinismus ×1000, Simulator; 7.7 „Reines Raten gibt es nicht“; Fair Play (Aufgedecktes ist wahr); W-1, D-1, G-1, S-1, K-1 (Karte vor Finale pfadgleich), P-1; F-16 kein Story-Text im Code.
+- ORCH-Dateien: pubspec.yaml, mordakte_core/pubspec.yaml, Barrel mordakte_core.dart, app_de.arb, analysis_options.yaml, build.sh, router.dart, main.dart, hub_screen.dart, .gitignore, Kanon außer texte/*.json. Party-UI-Texte in texte/ui.json.
+- AUFTRAGSVORLAGE Finalisierung: 13 Abschnitte, L-01 eine Rückgabe/Nachricht, L-02 ≤1800 Wörter, L-03 Worktree git checkout --detach <Commit>, Abnahme ≥8/10 ohne 0.
+- Prüfwerkzeug tool/pruefen.sh alles (Analyse, Kern-Tests, Validator, Party-CLIs, Server-Smoke, Web-Build --no-web-resources-cdn, Secret-Scan); e2e playwright@1.56.1; root test/ fehlt (keine App-Widget-Tests).
+- pensive-gates fehlen Party-Dateien (besetzung.dart, bildprompts.dart, textpruefer.dart) → nie Basis.
+- Risiken: Kollision lib/party mit F4 → Nutzerentscheidung (pausieren/übernehmen/zusammenlegen); Würfel vs F-06/7.7/Simulator; 30-min-Rundendauer = Gesprächszeit am Tisch.
