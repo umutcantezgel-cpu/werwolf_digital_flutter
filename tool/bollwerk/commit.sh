@@ -80,7 +80,8 @@ if [ "$NUR_ZUSTAND" = 0 ] && [ -z "$TOR" ]; then
   done
   LOG="/home/user/bw-logs/commit-$(date -u +%Y%m%dT%H%M%S).log"
   MODUS=(schnell); b02_erfuellt || MODUS=(schnell --vorlauf)
-  if [ -f "$SAUBER/baum/tool/bollwerk/bollwerk.dart" ]; then
+  # Volles Tor erst ab dem Abnahme-Commit des Torwerkzeugs (TOR-SHA im PRUEFPUNKT, Master-Prompt §3).
+  if grep -qE '^- TOR-SHA: [0-9a-f]{40}' "$BW/planung/bollwerk/PRUEFPUNKT.md" && [ -f "$SAUBER/baum/tool/bollwerk/bollwerk.dart" ]; then
     if ! (cd "$SAUBER/baum" && flock /tmp/bw-leicht-1.lock dart run tool/bollwerk/bollwerk.dart "${MODUS[@]}" --ohne-belege) > "$LOG" 2>&1; then
       echo "TOR ROT – kein Commit. Log: $LOG"; tail -15 "$LOG"; git reset -q -- "${PFADE[@]}"; exit 1
     fi
@@ -88,10 +89,13 @@ if [ "$NUR_ZUSTAND" = 0 ] && [ -z "$TOR" ]; then
     echo "Tor grün: $(tail -1 "$LOG")"
   else
     # Aufbauphase des Torwerkzeugs (Vorlauf vor TOR-SHA): Analyse der geänderten Dart-Pakete
-    echo "Torwerkzeug fehlt noch – Aufbauprüfung (dart analyze) für geänderte Dart-Dateien" | tee "$LOG"
-    DART=$(git diff --cached --name-only -- '*.dart' || true)
+    echo "Torwerkzeug noch nicht abgenommen – Aufbauprüfung (dart analyze, Rundentests)" | tee "$LOG"
+    DART=$(git diff --cached --name-only -- '*.dart')
     if [ -n "$DART" ]; then
-      (cd "$SAUBER/baum" && dart analyze $DART) >> "$LOG" 2>&1 || { echo "ANALYSE ROT – kein Commit. Log: $LOG"; tail -15 "$LOG"; git reset -q -- "${PFADE[@]}"; exit 1; }
+      (cd "$SAUBER/baum" && dart analyze --fatal-infos $DART) >> "$LOG" 2>&1 || { echo "ANALYSE ROT – kein Commit. Log: $LOG"; tail -15 "$LOG"; git reset -q -- "${PFADE[@]}"; exit 1; }
+    fi
+    if [ -d "$SAUBER/baum/packages/mordakte_core/test/runden" ] && git diff --cached --name-only | grep -qE '^(packages/mordakte_core/(lib/src|test)/runden/|tool/bollwerk/runden_simulate)'; then
+      (cd "$SAUBER/baum/packages/mordakte_core" && flock /tmp/bw-leicht-1.lock dart test test/runden/) >> "$LOG" 2>&1 || { echo "RUNDENTESTS ROT – kein Commit. Log: $LOG"; tail -15 "$LOG"; git reset -q -- "${PFADE[@]}"; exit 1; }
     fi
   fi
   aufraeumen; trap - EXIT

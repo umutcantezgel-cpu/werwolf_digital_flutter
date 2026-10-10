@@ -16,6 +16,4 @@ mkdir -p /home/user/bw-logs
 LOG="/home/user/bw-logs/tor-$MODUS-${SHA:0:7}${EXTRA[1]:+-g${EXTRA[1]}}.log"
 cd "$BAUM"
 setsid nohup flock /tmp/bw-schwer.lock dart run tool/bollwerk/bollwerk.dart "$MODUS" "${EXTRA[@]}" > "$LOG" 2>&1 < /dev/null &
-sleep 1
-PID="$(pgrep -f "bollwerk.dart $MODUS" | head -1 || true)"
-echo "TOR $MODUS · SHA $SHA · PID ${PID:-?} · Log $LOG"
+echo "TOR $MODUS · SHA $SHA · PID $! (setsid) · Log $LOG"
