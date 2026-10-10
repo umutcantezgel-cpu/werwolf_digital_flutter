@@ -101,6 +101,7 @@ class PartyKartenSession implements GameSession, SzenenErweiterung {
       if (_rbSekunden >= dauer) fertig.value = true;
       final t = rb.schritte.first.plus(_rbSekunden.floor());
       if (zeit.value != t) zeit.value = t;
+      sitzung.rueckblendeZeit = t;
       final b = _bild = rb.bild(t);
       npcs = [
         for (final e in b.personen.entries)

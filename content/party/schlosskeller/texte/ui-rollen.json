@@ -56,8 +56,12 @@
       "text": "Hinweis zur Besetzung"
     },
     {
-      "id": "ui.rollen.taeter_titel",
-      "text": "Nur für dich: Du warst es"
+      "id": "ui.rollen.taeter_satz",
+      "text": "Du warst es. Vor dem Morgen darf das niemand erfahren."
+    },
+    {
+      "id": "ui.rollen.unschuldig_satz",
+      "text": "Du warst es nicht. Trotzdem hast du heute Nacht etwas zu verbergen."
     },
     {
       "id": "ui.rollen.taeter_tarnung",

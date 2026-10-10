@@ -1217,3 +1217,16 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
 
 - **Belege:** 396 Kern-Tests (neu: `druck_nachpruefung_test`, `tonregeln_test`), Analyse ohne Befund, Texte 0 Befunde (1604), Plausibilität, Simulator, Story-Bibel und Bildprompts OK.
 
+## E-041 · Sichtprüfung der Täteransicht und der Rückblende (F6-SICHT-04)
+- **Abnahme:** `F6-SICHT-04`: FREIGEGEBEN · 10/10. Alle 32 Bilder der vier Meister-Läufe geprüft, Helligkeit und Kopfzeile gemessen. Die Uhr der Rückblende ist in 16 von 16 Bildern frei (E-039 wirkt). Vier begründete Befunde, kein `git log`.
+- **Befunde und Entscheidungen:**
+
+| Befund | Entscheidung | Folge |
+|---|---|---|
+| Nr. 1: Die Täteransicht trägt „Nur für dich: Du warst es“ und einen roten Rand; ein Blick über die Schulter verrät die Rolle | Ü | Wie im Druck (E-035, E-039) steht die Täterfassung im Abschnitt „Was ich verberge“: zuerst „Du warst es. Vor dem Morgen darf das niemand erfahren.“, dann Tarnung und Tatwissen. Die unschuldigen Kernrollen lesen an derselben Stelle „Du warst es nicht. Trotzdem hast du heute Nacht etwas zu verbergen.“ Die Tafel mit Warnfarbe entfällt; die Ansicht hat bei allen dieselben Abschnitte (Widget-Test ohne `Keller.gefahr`). |
+| Nr. 2: Ausnahmelisten in B8, README und `e2e.mjs` unterschiedlich | Ü | Alle drei nennen `dossier`, `dossier_taeter`, `wahl_verdeckt_*` und `wahl_taeter_*` (E-008, E-039). |
+| Nr. 3: Nur ein Rückblendenfoto liegt im Stromausfall | Ü | Die Ansicht meldet ihre Uhrzeit an die Sitzung (`rueckblendeZeit`). Das Skript nimmt `rueckblende_1` in jedem Pfad kurz nach 23:58:05 auf. |
+| Nr. 4: Leere Täteransicht würde bestehen, Täterwahl ungeprüft | Ü | `dossier_taeter` muss die Tarnung zeigen, `wahl_taeter_r1..3` den Sabotage-Text der Runde; ein leerer Text ist dort ein Fehler. |
+
+- **Folge:** Die App-Ansicht hat sich geändert. Deshalb läuft die E2E-Matrix auf dem neuen Endstand noch einmal; ihr Beleg ersetzt `E2E-081e258.md` in F-12 und F-16.
+

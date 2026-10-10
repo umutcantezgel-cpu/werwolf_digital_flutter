@@ -383,4 +383,8 @@ class PartySitzung extends ChangeNotifier {
   }
 
   Rueckblende? _rueckblende;
+
+  /// Uhrzeit, die die laufende Rückblende gerade zeigt (gesetzt von der Ansicht).
+  /// Nur der Entwickler-Einstieg liest sie, um eine Fotostelle im Stromausfall zu treffen.
+  Uhrzeit? rueckblendeZeit;
 }

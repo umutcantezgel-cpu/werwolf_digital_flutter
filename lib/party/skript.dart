@@ -179,7 +179,14 @@ class PartySkript {
       case PartyPhase.finale:
         await _foto('finale');
         final dauer = s.rueckblende.schritte.last.minus(s.rueckblende.schritte.first) / (dev.zeitraffer ?? 25);
-        for (var i = 1; i <= 3; i++) {
+        // Das erste Rückblendenfoto liegt im Stromausfall, kurz nach dem Knall, in jedem
+        // Pfad zur selben Kanon-Uhrzeit (F6-SICHT-04 Nr. 3). Höchstens 20 s warten.
+        final stromausfall = Uhrzeit.parse('23:58:05');
+        for (var i = 0; i < 400 && (s.rueckblendeZeit == null || s.rueckblendeZeit! < stromausfall); i++) {
+          await Future<void>.delayed(const Duration(milliseconds: 50));
+        }
+        await _foto('rueckblende_1');
+        for (var i = 2; i <= 3; i++) {
           await Future<void>.delayed(Duration(milliseconds: (dauer * 1000 * 0.2).round()));
           await _foto('rueckblende_$i');
         }

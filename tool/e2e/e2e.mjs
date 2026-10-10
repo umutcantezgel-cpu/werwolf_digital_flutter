@@ -104,7 +104,8 @@ function adresse(lauf, port) {
     `&takt=${p.takt}&zeitraffer=${p.zeitraffer}&fotos=${lauf.fotos ? 1 : 0}${lauf.fotos ? '&fotopause=2000' : ''}${semantik}`;
 }
 
-/** Erzählertexte der Runden und die Täterfassungen (je Pfad, die ersten 40 Zeichen des Feldes tarnung). */
+/** Erzählertexte der Runden, die Täterfassungen (je Pfad, die ersten 40 Zeichen des Feldes tarnung)
+ * und die heimliche Wahl B der Täterrolle je Runde (die ersten 40 Zeichen von `sabotage`). */
 function ladeDaten() {
   const runden = lesJson(path.join(texteOrdner, 'erzaehler-runden.json')).eintraege;
   const runde = {};
@@ -119,7 +120,16 @@ function ladeDaten() {
     if (!e) throw new Error(`Täterfassung für ${p} fehlt in taeter-${p}.json`);
     tarnung[p] = norm(e.tarnung).slice(0, 40);
   }
-  return { runde, tarnung };
+  const wahlen = lesJson(path.join(texteOrdner, 'wahlen-kern.json')).eintraege;
+  const sabotage = {};
+  for (const p of PFADE) {
+    for (const r of [1, 2, 3]) {
+      const w = wahlen.find((x) => x.id === `gw_${p}_${r}`);
+      if (!w || !w.sabotage) throw new Error(`Sabotage-Text gw_${p}_${r} fehlt in wahlen-kern.json`);
+      sabotage[`${p}_${r}`] = norm(w.sabotage).slice(0, 40);
+    }
+  }
+  return { runde, tarnung, sabotage };
 }
 
 /** Läuft im Browser vor dem Spiel: merkt sich bei jeder Fotostelle den Bildschirmtext (nur semantik=1). */
@@ -160,10 +170,16 @@ function pruefeSemantik(lauf, texte, daten) {
     if (!t.includes(UHRZEIT[r])) f.push(`Semantik: Uhrzeit ${UHRZEIT[r]} fehlt an ${name}`);
     if (!t.includes(daten.runde[r])) f.push(`Semantik: Erzählertext der Runde ${r} fehlt an ${name}`);
   }
-  // Die Täteransicht: Sie zeigt die Tarnung und den Hinweis „Nur für dich“ (F6-SPIEL-01).
+  // Die Täteransicht (E-039, E-041): Das Dossier zeigt die Tarnung, die heimliche Wahl
+  // zeigt in jeder Runde den Sabotage-Text. Ein leerer Text gilt hier als Fehler.
   const taeter = texte.find((x) => x.name === 'dossier_taeter');
   if (!taeter) f.push('Semantik: keine Fotostelle „dossier_taeter“');
-  else if (norm(taeter.text) && !norm(taeter.text).includes(daten.tarnung[lauf.pfad])) f.push('Semantik: Täterfassung fehlt an dossier_taeter');
+  else if (!norm(taeter.text).includes(daten.tarnung[lauf.pfad])) f.push('Semantik: Täterfassung fehlt an dossier_taeter');
+  for (const r of [1, 2, 3]) {
+    const w = texte.find((x) => x.name === `wahl_taeter_r${r}`);
+    if (!w) f.push(`Semantik: keine Fotostelle „wahl_taeter_r${r}“`);
+    else if (!norm(w.text).includes(daten.sabotage[`${lauf.pfad}_${r}`])) f.push(`Semantik: heimliche Wahl fehlt an wahl_taeter_r${r}`);
+  }
   const finale = texte.findIndex((x) => x.name === 'finale');
   if (finale < 0) f.push('Semantik: keine Fotostelle „finale“');
   for (const e of finale < 0 ? texte : texte.slice(0, finale)) {

@@ -141,10 +141,13 @@ class _RollenBildschirmState extends State<RollenBildschirm> {
 
   // Verdeckte Ansicht ----------------------------------------------------------
 
-  /// Das Dossier der Rolle, nur für diese Person. Die Täterfassung steht oben.
+  /// Das Dossier der Rolle, nur für diese Person. Die Täterfassung steht wie im
+  /// Druck unter „Was ich verberge“, ohne eigene Tafel und ohne eigene Farbe: Ein
+  /// Blick über die Schulter verrät nicht, wer es war (F6-SICHT-04, E-041).
   Widget _verdeckt(String rolle) {
     final d = s.dossier(rolle);
     final taeter = s.istTaeter(rolle);
+    final kern = s.kernverdaechtige.contains(rolle);
     final tarnung = d.tarnung;
     final titel = s.figurTitel(rolle);
     return PartyRahmen(
@@ -155,10 +158,13 @@ class _RollenBildschirmState extends State<RollenBildschirm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (taeter && tarnung != null) ...[_taeterTafel(d, tarnung), const SizedBox(height: 16)],
           _abschnitt(s.ui('ui.rollen.wer_titel'), [Text(d.wer, style: Keller.text)]),
           _abschnitt(s.ui('ui.rollen.weiss_titel'), _zeilen(d.weiss)),
-          _abschnitt(s.ui('ui.rollen.verbirgt_titel'), _zeilen(d.verbirgt)),
+          _abschnitt(s.ui('ui.rollen.verbirgt_titel'), [
+            if (kern) ...[Text(s.ui(taeter ? 'ui.rollen.taeter_satz' : 'ui.rollen.unschuldig_satz'), style: Keller.text), const SizedBox(height: 10)],
+            if (taeter && tarnung != null) ..._taeterZeilen(d, tarnung),
+            ..._zeilen(d.verbirgt),
+          ]),
           _abschnitt(s.ui('ui.rollen.ziel_titel'), [Text(d.ziel, style: Keller.text)]),
           _abschnitt(s.ui('ui.rollen.gespraeche_titel'), _gespraeche(d)),
           _abschnitt(s.ui('ui.rollen.wahl_titel'), _wahlen(d)),
@@ -168,23 +174,15 @@ class _RollenBildschirmState extends State<RollenBildschirm> {
     );
   }
 
-  /// Nur für die Täterin oder den Täter: die Tarngeschichte und das wirkliche Geschehen.
-  Widget _taeterTafel(Dossier d, String tarnung) => PartyTafel(
-        akzent: Keller.gefahr,
-        padding: const EdgeInsets.all(18),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(s.ui('ui.rollen.taeter_titel'), style: Keller.ueberschrift),
-            const SizedBox(height: 12),
-            Text(s.ui('ui.rollen.taeter_tarnung'), style: Keller.leise),
-            Text(tarnung, style: Keller.text),
-            const SizedBox(height: 12),
-            Text(s.ui('ui.rollen.taeter_tatwissen'), style: Keller.leise),
-            ..._zeilen(d.tatwissen),
-          ],
-        ),
-      );
+  /// Nur für die Täterin oder den Täter: die Tarngeschichte und das wirkliche
+  /// Geschehen, gesetzt wie die übrigen Zeilen des Abschnitts.
+  List<Widget> _taeterZeilen(Dossier d, String tarnung) => [
+        Text(s.ui('ui.rollen.taeter_tarnung'), style: Keller.leise),
+        Text(tarnung, style: Keller.text),
+        const SizedBox(height: 10),
+        Text(s.ui('ui.rollen.taeter_tatwissen'), style: Keller.leise),
+        ..._zeilen(d.tatwissen),
+      ];
 
   /// Ein Abschnitt des Dossiers: Überschrift, darunter der Inhalt, in einer Tafel.
   Widget _abschnitt(String titel, List<Widget> kinder) => Padding(

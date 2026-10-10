@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mordakte_core/mordakte_core.dart';
 import 'package:mordakte/party/bildschirme/rollen.dart';
+import 'package:mordakte/party/party_stil.dart';
 import 'package:mordakte/party/sitzung.dart';
 
 import 'hilfe.dart';
@@ -82,14 +83,17 @@ void main() {
     expect(find.text(_sammlung.dossiers['emine']!.wer), findsOneWidget);
   });
 
-  testWidgets('die Täterin sieht die Täter-Tafel mit ihrer Tarngeschichte', (t) async {
+  testWidgets('die Täterin liest unter „Was ich verberge“, dass sie es war, und ihre Tarngeschichte', (t) async {
     final s = _sitzung();
     await _zeige(t, s);
     s.zeigeVerdeckt('fatma');
     await t.pump();
     expect(s.istTaeter('fatma'), isTrue);
-    expect(find.text(s.ui('ui.rollen.taeter_titel')), findsOneWidget);
+    expect(find.text(s.ui('ui.rollen.taeter_satz')), findsOneWidget);
+    expect(find.text(s.ui('ui.rollen.unschuldig_satz')), findsNothing);
     expect(find.text(_sammlung.taeter['fatma']!.tarnung), findsOneWidget);
+    // Keine eigene Tafel mit Warnfarbe: Die Täteransicht sieht aus wie jedes Dossier (E-041).
+    expect(find.byWidgetPredicate((w) => w is PartyTafel && w.akzent == Keller.gefahr), findsNothing);
   });
 
   testWidgets('die Täterin sieht ihre Sabotage in der Rundenwahl', (t) async {
@@ -106,7 +110,8 @@ void main() {
     s.zeigeVerdeckt('ahmet');
     await t.pump();
     expect(s.istTaeter('ahmet'), isFalse);
-    expect(find.text(s.ui('ui.rollen.taeter_titel')), findsNothing);
+    expect(find.text(s.ui('ui.rollen.taeter_satz')), findsNothing);
+    expect(find.text(s.ui('ui.rollen.unschuldig_satz')), findsOneWidget);
     expect(find.text(_sammlung.wahlen['gw_ahmet_1']!.sabotage!), findsNothing);
   });
 

@@ -34,7 +34,7 @@ c. Die Phasenfolge aus `PARTY phase=` lautet einrichtung, rollen, intro, 3 × (g
 d. Keine Konsolenfehler (Typ `error`), keine `pageerror`, kein `PARTY fehler`.
 e. Keine Anfragen an andere Hosts als 127.0.0.1 und localhost. `data:`, `blob:` und `about:` sind erlaubt.
 
-Zusätzlich bei Semantik-Läufen: An `gespraeche_r1` bis `r3` stehen die Uhrzeit 00:30, 01:15 bzw. 02:00 und der Erzählertext der Runde (`runde.N.start`) im Bildschirmtext (DOM `flt-semantics-host` und alle `aria-label`). An jeder Fotostelle vor `finale` außer `dossier` und `wahl_verdeckt_*` stehen weder „Nur für dich“ noch die ersten 40 Zeichen der Täterfassung (Feld `tarnung` aus `taeter-<pfad>.json`). Ein leerer Text gilt dort als nicht gezeichnet und wird nicht bewertet.
+Zusätzlich bei Semantik-Läufen: An `gespraeche_r1` bis `r3` stehen die Uhrzeit 00:30, 01:15 bzw. 02:00 und der Erzählertext der Runde (`runde.N.start`) im Bildschirmtext (DOM `flt-semantics-host` und alle `aria-label`). An jeder Fotostelle vor `finale` außer den verdeckten Ansichten (`dossier`, `dossier_taeter`, `wahl_verdeckt_*`, `wahl_taeter_*`; E-008, E-039) stehen weder „Nur für dich“ noch die ersten 40 Zeichen der Täterfassung (Feld `tarnung` aus `taeter-<pfad>.json`). Ein leerer Text gilt dort als nicht gezeichnet und wird nicht bewertet. Umgekehrt muss `dossier_taeter` die Tarnung zeigen und `wahl_taeter_r1` bis `r3` den Sabotage-Text der Runde (`wahlen-kern.json`); dort ist ein leerer Text ein Fehler.
 
 ## Ausgabe
 
