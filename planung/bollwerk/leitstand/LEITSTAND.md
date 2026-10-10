@@ -65,7 +65,7 @@ Nutzerwortlaut: „das eine raus den rest fusionieren“ · „dieses 3D-Game �
 - Tagesprüfung 06:00, Morgenbericht 07:00.
 
 ## Herzschlag-Zug
-1. Diese Datei lesen (`git fetch origin bollwerk-leitstand && git show origin/bollwerk-leitstand:planung/bollwerk/leitstand/LEITSTAND.md`).
+1. Diese Datei lesen (`git fetch origin main && git show origin/main:planung/bollwerk/leitstand/LEITSTAND.md`). Seit 10.10. liegt alles auf `main` (S-5).
 2. `git fetch origin`; B-02 prüfen.
 3. `get_session` je eigener Kind-ID; `LAUF.md` und `PRUEFPUNKT.md` auf `origin/bollwerk` lesen.
 4. Handeln nach der Tabelle „Zustandserkennung“.
@@ -144,3 +144,4 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-10 10:39 UTC · Herzschlag 15: Finalisierung c5c1af3 (E2E 84/84); B-02 offen; G2-2 weiter offen. Nutzer hat die **Aufteilung** freigegeben (Abschnitt oben); Phase 1 läuft (Filter, Eigenständigkeits-Commit d814992 lokal, Tore laufen).
 - 2026-10-10 ~11:15 UTC · Aufteilung Phase 1 fertig: Repo `burgstadt-schartenfels` (öffentlich, vom Nutzer angelegt, da `create_repository` 403) befüllt, `main` d814992 und `hd-linie` 2f6db13 gepusht und per ls-remote bestätigt. Phase 3: NACHTRAG-AUFTEILUNG.md und S-4 geschrieben. Phase 2 wartet auf PR #43.
 - 2026-10-10 ~14:10 UTC · Fusion-Workflow fertig (10 Agenten, ~3 h): `fusion` 2e2c7db gepusht, alle Prüfungen grün (nur MINOR offen: Browser-Zurück bei offener Mappe, Kanon-Dateien im Web-Bündel abrufbar, Ladezeit 2–4 s, Wortbruch bei 320 px, R09-Kanonbefund). Bilder im Chat gezeigt. B-02 offen (Finalisierung 37c7ecf, F5/F7).
+- 2026-10-10 ~15:20 UTC · **EIN BRANCH**: alle Branches in main zusammengeführt und gepusht (`main` 632018f): fusion (Burgstadt raus, Fusion), bollwerk (Würfelkern, tool/bollwerk, Planung; FEINKORN als `packages/feinkorn`), claude/pensive-gates-ajtp7x (Meta-Prompt v4.1; Burgstadt-HD nicht übernommen), bollwerk-leitstand, bollwerk-probe, Jules-Branch nur als Verlauf (`-s ours`, neue Server-Abhängigkeit abgelehnt). Alle früheren Branch-Spitzen außer `finalisierung-schlosskeller` sind Vorfahren von main. Tore: analyze 0, flutter test 166/166, core 397, krimidinner_kanon 67/67, room_host 5/5, feinkorn 37/37, Party-E2E 8/8, Web-Build, Secret-Scan sauber, Einstellungen/Deploy/content unverändert. Der Merge des neuesten Finalisierungsstands wurde vom Auto-Modus abgelehnt (fremder aktiver Branch) und folgt nach ihrem Ende. Burgstadt-Repo: hd-linie echt in main gemergt (ada82b8, ALLE TESTS GRÜN, LAYOUT GLEICH). **Branch-Löschen lehnt der Git-Proxy ab** → Nutzer löscht. Ab jetzt: Leitstand-Zustand auf `main` (S-5).
