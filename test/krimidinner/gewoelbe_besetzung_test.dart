@@ -13,7 +13,7 @@ IconButton knopf(WidgetTester tester, String tooltip) =>
     tester.widget<IconButton>(find.ancestor(of: find.byTooltip(tooltip), matching: find.byType(IconButton)).first);
 
 void pruefeListe(WidgetTester tester, int n) {
-  expect(find.text('$n Rollen und das Geburtstagskind – ${n + 1} Personen'), findsOneWidget);
+  expect(find.text('$n\u00a0Rollen und das Geburtstagskind\u00a0– ${n + 1}\u00a0Personen'), findsOneWidget);
   double? vorher;
   for (var r = 1; r <= 20; r++) {
     if (r <= n) {

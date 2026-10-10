@@ -56,6 +56,11 @@ h3 { font-size: 12pt; margin: 0; }
 .deckblatt h1 { font-size: 30pt; }
 .deckblatt .fuer { font-size: 16pt; margin-top: 10mm; }
 @media screen { body { max-width: 190mm; margin: 0 auto; padding: 10mm 6mm; } }
+@media screen and (max-width: 640px) {
+  body { padding: 6mm 4mm; }
+  .raster { grid-template-columns: 1fr; }
+  .deckblatt { min-height: 0; padding: 12mm 6mm; margin-bottom: 6mm; }
+}
 ''';
 
 String _seite(String titel, String inhalt) =>

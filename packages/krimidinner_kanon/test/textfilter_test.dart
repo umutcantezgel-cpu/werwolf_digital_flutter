@@ -275,6 +275,41 @@ void main() {
     },
   );
 
+  group('F7 Sätze mit Namen', () {
+    test('teilt an Satzenden, nie innerhalb von „…“', () {
+      expect(
+        saetze('Er kam. Sie ging! Wer? „Psst! Ich bin nicht hier.“ Dann'),
+        ['Er kam.', 'Sie ging!', 'Wer?', '„Psst! Ich bin nicht hier.“', 'Dann'],
+      );
+      expect(saetze('um 23.50 Uhr. danach'), ['um 23.50 Uhr. danach']);
+    });
+
+    test('lässt nur Sätze mit dem Namen weg', () {
+      const t =
+          'Er erzählt. Zofia ruft: „Gespenster sind Physik!“ Seitdem sagt er: „Im Reif lügt keiner.“';
+      expect(
+        ohneSaetzeMit(t, ['Zofia']),
+        'Er erzählt. Seitdem sagt er: „Im Reif lügt keiner.“',
+      );
+      expect(ohneSaetzeMit(t, ['Elif']), t);
+      expect(ohneSaetzeMit(t, const []), t);
+      expect(ohneSaetzeMit('Zofias Hut.', ['Zofia']), 'Zofias Hut.');
+      expect(ohneSaetzeMit('Nur Zofia.', ['Zofia']), 'Nur Zofia.');
+    });
+
+    test(
+      'R17-ÖFFENTLICH: der Zofia-Satz fällt bei N 17–19 weg, sonst nichts',
+      () {
+        final roh = feld('R17-ÖFFENTLICH', 'Comedy-Beteiligung (sichtbar)');
+        final ohne = ohneSaetzeMit(roh, ['Zofia']);
+        expect(ohne, isNot(contains('Zofia')));
+        expect(ohne, contains('Brockengespenst'));
+        expect(ohne, contains('„Im Reif lügt keiner.“'));
+        expect(istGekuerzt(ohne, roh), isTrue);
+      },
+    );
+  });
+
   test('Hilfen: nummerierte Zeilen und Uhrzeit vorne', () {
     expect(nummerierteZeilen('1) eins 2) zwei („Ja.“) 3) drei'), [
       '1) eins',

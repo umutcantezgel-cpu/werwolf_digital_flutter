@@ -80,6 +80,21 @@ void main() {
     expect(find.text('gesehen'), findsOneWidget);
   });
 
+  testWidgets('Zwischenstufe steht oben wie die Liste, kein Sprung in die Mitte', (tester) async {
+    groesse(tester, const Size(390, 844));
+    await tester.pumpWidget(gewoelbeApp(teil: GewoelbeTeil.mappen, n: 4));
+    await bilder(tester);
+    final erklaerung = tester.getTopLeft(find.textContaining('Jede Person liest ihre Mappe allein.')).dy;
+    final listeOben = tester.getTopLeft(find.text('Das Geburtstagskind')).dy;
+    await tester.tap(find.text('Adnan Hodžić'));
+    await bilder(tester);
+    expect(tester.getTopLeft(find.textContaining('Jede Person liest ihre Mappe allein.')).dy, closeTo(erklaerung, 0.5));
+    final stufe = tester.getTopLeft(find.text('Gib das Gerät an Adnan. Nur Adnan schaut jetzt hin.')).dy;
+    // Die Zwischenstufe beginnt dort, wo die Liste begann (Symbol und Abstand darüber).
+    expect(stufe - listeOben, lessThan(120));
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('Teilwechsel deckt zu', (tester) async {
     groesse(tester, const Size(800, 2400));
     await tester.pumpWidget(gewoelbeApp(teil: GewoelbeTeil.mappen, n: 6));
@@ -133,7 +148,7 @@ void main() {
     expect(find.text(feld('R07-STAMM', 'Name')), findsOneWidget);
   });
 
-  testWidgets('Detektiv-Mappe: Beobachtungen und Entscheidungen, keine Lösung', (tester) async {
+  testWidgets('Detektiv-Mappe: Beobachtungen, keine Entscheidungsfragen, keine Lösung', (tester) async {
     groesse(tester, const Size(800, 2400));
     await tester.pumpWidget(gewoelbeApp(teil: GewoelbeTeil.mappen, n: 4));
     await bilder(tester);
@@ -145,9 +160,16 @@ void main() {
     for (var i = 1; i <= 6; i++) {
       expect(sichtbar(tester, feld('DET-B$i', 'Beobachtung')), isTrue, reason: 'DET-B$i');
     }
-    expect(find.text('Deine neun Entscheidungen'), findsOneWidget);
-    expect(sichtbar(tester, feld('D3-1', 'Frage')), isTrue);
-    expect(sichtbar(tester, 'Was deine Wahl ergibt, erfährst du am Abend.'), isTrue);
+    // IF-4/IF-7: Zu Beginn nur die Beobachtungen; die Entscheidungen fallen erst in ihrer Phase.
+    expect(find.text('Deine Entscheidungen'), findsOneWidget);
+    expect(sichtbar(tester, feld('IF-7', 'Regel')), isTrue);
+    for (var p = 1; p <= 3; p++) {
+      for (var i = 1; i <= 3; i++) {
+        expect(sichtbar(tester, feld('D$p-$i', 'Frage')), isFalse, reason: 'D$p-$i');
+      }
+    }
+    expect(sichtbar(tester, 'Bezeichnung'), isFalse);
+    expect(sichtbar(tester, 'werden nie genannt'), isFalse);
     expect(find.text('So läuft die Anklage'), findsOneWidget);
     for (var p = 1; p <= 3; p++) {
       for (var i = 1; i <= 3; i++) {

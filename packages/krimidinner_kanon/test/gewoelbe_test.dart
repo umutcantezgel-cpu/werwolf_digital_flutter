@@ -69,13 +69,17 @@ void main() {
   });
 
   test(
-    'Steckbrief des Geburtstagskinds: Bezeichnung, Anrede, Rolle im Spiel',
+    'Steckbrief des Geburtstagskinds: nur Rolle im Spiel, keine Produktionsangaben',
     () {
       final d = g.detektivSteckbrief;
       expect(d.titel, 'Das Geburtstagskind');
-      expect(d.eintraege.map((e) => e.label), ['Bezeichnung', 'Anrede']);
+      expect(d.eintraege, isEmpty);
+      expect(d.aufklappbar, isFalse);
       expect(d.kopfzeile, k.datensaetze['DET-STAMM']!.feld('Rolle im Spiel'));
-      expect(d.texte.join(' '), isNot(contains('nie genannt')));
+      final text = d.texte.join(' ');
+      for (final meta in ['nie genannt', 'Bezeichnung', 'Anrede']) {
+        expect(text, isNot(contains(meta)), reason: meta);
+      }
     },
   );
 
@@ -109,7 +113,10 @@ void main() {
     expect(u[1].aufklappbar, isTrue);
     expect(u[1].eintraege, hasLength(8));
     final ablauf = k.datensaetze['ZM-3']!.feld('Ablauf')!.split(' · ');
-    expect(u[5].eintraege, hasLength(ablauf.length));
+    // Je Teil von ZM-3 ein Punkt, dazu der Hinweis, dass Zahlen Minuten sind.
+    expect(u[5].eintraege, hasLength(ablauf.length + 1));
+    expect(u[5].eintraege.last.text, GewoelbeTexte.ablaufMinuten);
+    expect(u[5].eintraege.last.art, EintragArt.hinweis);
     expect(u[8].eintraege, hasLength(7));
     final alles = u.expand((a) => a.texte).join(' ');
     for (final id in ['K-009', 'K-011']) {
@@ -210,11 +217,15 @@ void main() {
   });
 
   test(
-    'detektivMappe: B1–B6, neun Entscheidungen mit je drei Optionen, Anklage',
+    'detektivMappe: Rolle, B1–B6, keine Entscheidungen (erst in ihrer Phase), Anklage',
     () {
       final m = g.detektivMappe();
       expect(m.schluessel, 'DET');
       expect(m.nummer, 0);
+      expect(m.abschnitte.first.eintraege.map((e) => e.label), [
+        'Rolle im Spiel',
+        'Rolle im Streich',
+      ]);
       final beob = m.abschnitte.firstWhere(
         (a) => a.titel == 'Was du beobachtet hast',
       );
@@ -222,28 +233,53 @@ void main() {
         for (var i = 1; i <= 6; i++)
           k.datensaetze['DET-B$i']!.feld('Beobachtung'),
       ]);
+      // IF-4: Zu Beginn nur die eigenen Beobachtungen. IF-7: Die Entscheidungen
+      // fallen erst in ihrer Phase nach der Lagerunde.
       final ent = m.abschnitte.firstWhere((a) => a.schluessel == 'D');
-      expect(
-        ent.eintraege.where((e) => e.label?.startsWith('Phase ') ?? false),
-        hasLength(9),
-      );
-      for (final b in ['A', 'B', 'C']) {
-        expect(zaehle(ent.eintraege, 'Option $b'), 9);
+      expect(ent.titel, 'Deine Entscheidungen');
+      expect(ent.eintraege.first.text, k.datensaetze['IF-7']!.feld('Regel'));
+      expect(ent.eintraege.last.art, EintragArt.hinweis);
+      final text = normal(m.texte.join(' ¦ '));
+      for (var p = 1; p <= 3; p++) {
+        for (var i = 1; i <= 3; i++) {
+          final d = k.datensaetze['D$p-$i']!;
+          // Kurze Optionen wie „Adnan“ stehen auch sonst in der Mappe.
+          for (final feld in ['Frage', 'Option A', 'Option B', 'Option C']) {
+            final wert = normal(d.feld(feld)!);
+            if (feld != 'Frage' && wert.length < 20) continue;
+            expect(text, isNot(contains(wert)), reason: 'D$p-$i $feld');
+          }
+        }
       }
-      expect(
-        ent.eintraege.first.text,
-        'Was deine Wahl ergibt, erfährst du am Abend.',
-      );
+      expect(text, isNot(contains('Sohlenkarte')));
+      expect(text, isNot(contains('geklimpert')));
       final anklage = m.abschnitte.firstWhere(
         (a) => a.titel == 'So läuft die Anklage',
       );
       expect(anklage.eintraege, hasLength(4));
-      expect(
-        m.abschnitte.first.eintraege.map((e) => e.label),
-        contains('Rolle im Spiel'),
-      );
+      final wer = m.abschnitte.first.texte.join(' ');
+      for (final meta in ['nie genannt', 'Bezeichnung', 'Anrede']) {
+        expect(wer, isNot(contains(meta)), reason: meta);
+      }
     },
   );
+
+  test('„Wen du kennst“: jede Verbindung mit dem Namen als Label', () {
+    for (final n in [4, 12, 20]) {
+      final m = g.mappe('R02', n);
+      final v = m.abschnitte.firstWhere((a) => a.titel == 'Wen du kennst');
+      expect(v.eintraege, isNotEmpty);
+      for (final e in v.eintraege) {
+        expect(e.art, EintragArt.punkt);
+        expect(e.label, isNotNull, reason: e.text);
+        expect(e.label, isNotEmpty);
+      }
+      // R02-VERBINDUNGEN nennt „BW“ ohne Erläuterung.
+      final bw = v.eintraege.where((e) => e.label == 'Der Burgwart').toList();
+      expect(bw, hasLength(1), reason: 'N=$n');
+      expect(bw.single.text, isEmpty);
+    }
+  });
 
   test('N außerhalb 4–20 und unbesetzte Rollen werfen ArgumentError', () {
     for (final n in [3, 21, 0, -1]) {

@@ -9,7 +9,7 @@ abstract final class GewoelbeTexte {
   // Kopf und Laden -------------------------------------------------------------
   static const titel = 'Spuk im Gewölbe';
   static const untertitel = 'Krimidinner auf Burg Schartenfels';
-  static const marke = 'Krimidinner';
+  static const marke = 'Partyabend';
   static const laden = 'Die Mappen werden aus dem Kanon gelesen …';
   static const ladeFehler = 'Der Kanon des Krimidinners ließ sich nicht lesen.';
   static const zurueck = 'Zurück';
@@ -33,6 +33,9 @@ abstract final class GewoelbeTexte {
   static const werMitspieltText =
       '4 bis 20 Rollen und das Geburtstagskind als Detektiv';
   static const ablauf = 'Ablauf';
+  static const ablaufMinuten =
+      'Zahlen ohne Einheit sind Minuten. Wie lang Gesprächsfenster und '
+      'Lagerunde dauern, hängt von der Zahl der Rollen ab (siehe „Gespräche“).';
   static const dauer = 'Dauer';
   static const gespraecheRegeln = 'Gespräche';
   static const luegenRegeln = 'Regeln zum Lügen';
@@ -43,8 +46,10 @@ abstract final class GewoelbeTexte {
   static const besetzungAendern = 'Besetzung ändern';
 
   // Besetzung ------------------------------------------------------------------
+  /// Mit festen Leerzeichen: Der Strich bleibt am Wort davor, die Zahl bei
+  /// „Personen“. Umbrochen wird höchstens nach dem Strich.
   static String personen(int n) =>
-      '$n Rollen und das Geburtstagskind – ${n + 1} Personen';
+      '$n\u00a0Rollen und das Geburtstagskind\u00a0– ${n + 1}\u00a0Personen';
   static const reihenfolge =
       'Die Rollen werden immer in dieser Reihenfolge besetzt.';
   static const weniger = 'Eine Rolle weniger';
@@ -111,12 +116,10 @@ abstract final class GewoelbeTexte {
   static const detektivWer = 'Wer du bist';
   static const detektivAlibi = 'Wo du warst';
   static const detektivBeobachtet = 'Was du beobachtet hast';
-  static const detektivEntscheidungen = 'Deine neun Entscheidungen';
+  static const detektivEntscheidungen = 'Deine Entscheidungen';
   static const detektivEntscheidungenHinweis =
-      'Was deine Wahl ergibt, erfährst du am Abend.';
-  static String entscheidung(int phase, int nr) =>
-      'Phase $phase · Entscheidung $nr';
-  static String option(String buchstabe) => 'Option $buchstabe';
+      'Die Fragen stehen nicht in dieser Mappe. Du bekommst sie am Abend, '
+      'jede erst in ihrer Phase.';
   static const anklage = 'So läuft die Anklage';
   static String schritt(int nr) => 'Schritt $nr';
 

@@ -357,6 +357,18 @@ abstract class L {
   /// **'Name'**
   String get name_prompt_hint;
 
+  /// No description provided for @name_prompt_title_du.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie heißt du, Detektiv?'**
+  String get name_prompt_title_du;
+
+  /// No description provided for @name_prompt_text_du.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Name steht ab sofort auf deiner Dienstmarke.'**
+  String get name_prompt_text_du;
+
   /// No description provided for @name_prompt_confirm.
   ///
   /// In de, this message translates to:

@@ -39,10 +39,6 @@ class _AbschnittAnsichtState extends State<AbschnittAnsicht> {
       mainAxisSize: MainAxisSize.min,
       children: [
         _kopf(aufklappbar),
-        if (a.kopfzeile != null) ...[
-          const SizedBox(height: 8),
-          Text(a.kopfzeile!, style: _leise),
-        ],
         if (zeigeInhalt && a.eintraege.isNotEmpty) ...[
           const SizedBox(height: 12),
           EintraegeAnsicht(a.eintraege, hell: hell),
@@ -60,9 +56,16 @@ class _AbschnittAnsichtState extends State<AbschnittAnsicht> {
         child: inhalt,
       );
     }
-    return PartyTafel(akzent: a.initiale != null || a.schluessel == 'DET' ? K9.akzent : null, child: inhalt);
+    final tafel = PartyTafel(akzent: a.initiale != null || a.schluessel == 'DET' ? K9.akzent : null, child: inhalt);
+    if (!aufklappbar || _offen) return tafel;
+    // Zugeklappt öffnet ein Tipp irgendwo auf der Karte, auch auf den Rand.
+    return GestureDetector(behavior: HitTestBehavior.opaque, onTap: _umschalten, child: tafel);
   }
 
+  void _umschalten() => setState(() => _offen = !_offen);
+
+  /// Kopf der Karte: Namensschild, Titel, Untertitel und Kurzzeile. Bei einer
+  /// aufklappbaren Karte ist der ganze Kopf samt Kurzzeile die Schaltfläche.
   Widget _kopf(bool aufklappbar) {
     final mitSchild = a.initiale != null || a.schluessel == 'DET';
     final titel = Column(
@@ -95,15 +98,22 @@ class _AbschnittAnsichtState extends State<AbschnittAnsicht> {
           ),
       ],
     );
-    if (!aufklappbar) return zeile;
+    final kopf = a.kopfzeile == null
+        ? zeile
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisSize: MainAxisSize.min,
+            children: [zeile, const SizedBox(height: 8), Text(a.kopfzeile!, style: _leise)],
+          );
+    if (!aufklappbar) return kopf;
     return Semantics(
       button: true,
       expanded: _offen,
       hint: _offen ? GewoelbeTexte.zuklappen : GewoelbeTexte.aufklappen,
       child: InkWell(
         borderRadius: BorderRadius.circular(8),
-        onTap: () => setState(() => _offen = !_offen),
-        child: Padding(padding: const EdgeInsets.symmetric(vertical: 2), child: zeile),
+        onTap: _umschalten,
+        child: Padding(padding: const EdgeInsets.symmetric(vertical: 2), child: kopf),
       ),
     );
   }
@@ -196,6 +206,7 @@ class EintraegeAnsicht extends StatelessWidget {
         ],
       );
     }
+    if (e.text.isEmpty) return Text(label, style: fett);
     return Text.rich(TextSpan(children: [TextSpan(text: '$label  ', style: fett), TextSpan(text: e.text, style: _text)]));
   }
 }

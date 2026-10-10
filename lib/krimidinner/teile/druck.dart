@@ -60,12 +60,14 @@ class _DruckTeilState extends State<DruckTeil> {
           const SizedBox(height: 8),
           _steckbriefTafel(),
           const SizedBox(height: 14),
+          // Die Mappen-Knöpfe stehen vor der langen Vorschau, damit sie auch bei
+          // vielen Rollen ohne langes Rollen erreichbar sind.
+          _mappenTafel(),
+          const SizedBox(height: 18),
           // Die Vorschau steht außerhalb der Tafel: Sie misst ihre Breite selbst.
           Text(GewoelbeTexte.vorschau.toUpperCase(), style: Keller.marke),
           const SizedBox(height: 8),
           _vorschau(),
-          const SizedBox(height: 18),
-          _mappenTafel(),
         ],
       );
 

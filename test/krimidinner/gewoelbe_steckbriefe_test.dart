@@ -34,6 +34,31 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('ein Tipp auf die Kurzzeile oder den Rand öffnet die Karte, wie der Hinweis sagt', (tester) async {
+    groesse(tester, const Size(390, 2400));
+    await tester.pumpWidget(gewoelbeApp(teil: GewoelbeTeil.steckbriefe, n: 4));
+    await bilder(tester);
+    final bw = gewoelbe().burgwartSteckbrief;
+    final inhalt = bw.eintraege.first.text;
+    expect(sichtbar(tester, inhalt), isFalse);
+    // Kurzzeile „71 Jahre · …“
+    await tester.tap(find.text(bw.kopfzeile!));
+    await bilder(tester);
+    expect(sichtbar(tester, inhalt), isTrue);
+    // Offen klappt nur der Kopf wieder zu; ein Tipp in den Text lässt sie offen.
+    await tester.tap(find.text(inhalt).first, warnIfMissed: false);
+    await bilder(tester);
+    expect(sichtbar(tester, inhalt), isTrue);
+    await tester.tap(find.text('Der Burgwart'));
+    await bilder(tester);
+    expect(sichtbar(tester, inhalt), isFalse);
+    // Rand der zugeklappten Karte (links oben, innerhalb der Tafel)
+    final karte = find.ancestor(of: find.text('Der Burgwart'), matching: find.byType(AbschnittAnsicht));
+    await tester.tapAt(tester.getTopLeft(karte) + const Offset(4, 4));
+    await bilder(tester);
+    expect(sichtbar(tester, inhalt), isTrue);
+  });
+
   testWidgets('ein Wechsel von N ändert die Zahl der Karten', (tester) async {
     groesse(tester, const Size(800, 3000));
     await tester.pumpWidget(gewoelbeApp(teil: GewoelbeTeil.steckbriefe, n: 5));

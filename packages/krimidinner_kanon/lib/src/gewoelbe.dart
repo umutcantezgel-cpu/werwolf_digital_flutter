@@ -55,7 +55,8 @@ class Gewoelbe {
       'ZM-4': (Sicht.o, ['Dauer']),
       for (final i in [1, 2, 3, 4, 5, 6, 8]) 'LR-$i': (Sicht.o, ['Regel']),
       for (var i = 1; i <= 4; i++) 'AK-$i': (Sicht.o, ['Schritt']),
-      'DET-STAMM': (Sicht.o, ['Bezeichnung', 'Anrede', 'Rolle im Spiel']),
+      'DET-STAMM': (Sicht.o, ['Rolle im Spiel', 'Rolle im Streich']),
+      'IF-7': (Sicht.o, ['Regel']),
       'DET-ALIBI': (Sicht.o, ['Alibi']),
       for (var i = 1; i <= 6; i++)
         'DET-B$i': (Sicht.g, ['Rolle', 'Beobachtung']),
@@ -256,6 +257,7 @@ class Gewoelbe {
               Eintrag(m.group(2)!, label: m.group(1), art: EintragArt.punkt)
             else
               Eintrag(teil.trim(), art: EintragArt.punkt),
+          const Eintrag(GewoelbeTexte.ablaufMinuten, art: EintragArt.hinweis),
         ],
       ),
       Abschnitt(
@@ -309,21 +311,16 @@ class Gewoelbe {
     for (final rolle in rollen(n)) _steckbrief(rolle, n),
   ];
 
-  /// Karte „Das Geburtstagskind“ (DET-STAMM, gekürzt).
+  /// Karte „Das Geburtstagskind“ (DET-STAMM, gekürzt auf „Rolle im Spiel“).
+  ///
+  /// Die übrigen Felder sind Produktionsangaben (Bezeichnung, Anrede, „werden nie
+  /// genannt“) und erscheinen nicht als Spieltext.
   Abschnitt get detektivSteckbrief {
     final d = _o('DET-STAMM');
     return Abschnitt(
       schluessel: 'DET',
       titel: GewoelbeTexte.geburtstagskind,
       kopfzeile: ohneKennungen(_wert(d, 'Rolle im Spiel')),
-      aufklappbar: true,
-      eintraege: [
-        for (final feld in ['Bezeichnung', 'Anrede'])
-          Eintrag(
-            ohneKennungen(_wert(d, feld)),
-            label: GewoelbeTexte.label(feld),
-          ),
-      ],
     );
   }
 
@@ -361,7 +358,11 @@ class Gewoelbe {
     final st = _o('$rolle-STAMM');
     final oe = _o('$rolle-ÖFFENTLICH');
     final name = _wert(st, 'Name');
-    String t(KanonDatensatz d, String feld) => filtereText(_wert(d, feld), n);
+    // F7: Ein Satz, der eine bei N unbesetzte Rolle nennt, fällt weg (etwa
+    // „Zofia ruft …“ im Steckbrief von R17 bei N = 17 bis 19).
+    final unbesetzt = [for (var r = n + 1; r <= maxRollen; r++) _vornameNr(r)];
+    String t(KanonDatensatz d, String feld) =>
+        ohneSaetzeMit(filtereText(_wert(d, feld), n), unbesetzt);
     Eintrag e(KanonDatensatz d, String feld) =>
         Eintrag(_zeilen(t(d, feld)), label: GewoelbeTexte.label(feld));
     return Abschnitt(
@@ -450,13 +451,13 @@ class Gewoelbe {
               geburtstagskind: GewoelbeTexte.geburtstagskindKlein,
               burgwart: GewoelbeTexte.burgwartKlein,
             ))
-              v.erlaeuterung == null
-                  ? Eintrag(_gross(v.name), art: EintragArt.punkt)
-                  : Eintrag(
-                      v.erlaeuterung!,
-                      label: _gross(v.name),
-                      art: EintragArt.punkt,
-                    ),
+              // Jede Verbindung steht gleich: der Name als Label, dahinter die
+              // Erläuterung, falls der Kanon eine nennt.
+              Eintrag(
+                v.erlaeuterung ?? '',
+                label: _gross(v.name),
+                art: EintragArt.punkt,
+              ),
           ],
         ),
         Abschnitt(
@@ -538,7 +539,14 @@ class Gewoelbe {
     return null;
   }
 
-  /// Mappe des Geburtstagskinds: Steckbrief, Alibi, Beobachtungen, Entscheidungen, Anklage.
+  /// Mappe des Geburtstagskinds: wer es ist, Alibi, Beobachtungen, wann die
+  /// Entscheidungen fallen, Anklage.
+  ///
+  /// Die Mappe ist das, was zu Beginn auf dem Tisch liegt (IF-4): die eigenen
+  /// Beobachtungen DET-B1 bis DET-B6. Die neun Entscheidungen D1-1 bis D3-3
+  /// fallen erst in ihrer Phase nach der Lagerunde (IF-7) und verraten Inhalte
+  /// späterer Phasen (etwa die Aussage des Burgwarts zum Start von Phase 2 oder
+  /// die Sohlenkarten aus Phase 3). Deshalb stehen sie nicht in der Mappe.
   Mappe detektivMappe() {
     final stamm = _o('DET-STAMM');
     String o(String id, String feld) => ohneKennungen(_wert(_o(id), feld));
@@ -552,10 +560,10 @@ class Gewoelbe {
           schluessel: 'DET',
           titel: GewoelbeTexte.detektivWer,
           eintraege: [
-            for (final f in stamm.felder.entries)
+            for (final feld in ['Rolle im Spiel', 'Rolle im Streich'])
               Eintrag(
-                ohneKennungen(f.value),
-                label: GewoelbeTexte.label(f.key),
+                ohneKennungen(_wert(stamm, feld)),
+                label: GewoelbeTexte.label(feld),
               ),
           ],
         ),
@@ -576,26 +584,12 @@ class Gewoelbe {
         Abschnitt(
           schluessel: 'D',
           titel: GewoelbeTexte.detektivEntscheidungen,
-          neueSeite: true,
           eintraege: [
+            Eintrag(o('IF-7', 'Regel')),
             const Eintrag(
               GewoelbeTexte.detektivEntscheidungenHinweis,
               art: EintragArt.hinweis,
             ),
-            for (var p = 1; p <= 3; p++)
-              for (var i = 1; i <= 3; i++) ...[
-                Eintrag(
-                  o('D$p-$i', 'Frage'),
-                  label: GewoelbeTexte.entscheidung(p, i),
-                  block: true,
-                ),
-                for (final b in ['A', 'B', 'C'])
-                  Eintrag(
-                    o('D$p-$i', 'Option $b'),
-                    label: GewoelbeTexte.option(b),
-                    art: EintragArt.punkt,
-                  ),
-              ],
           ],
         ),
         Abschnitt(

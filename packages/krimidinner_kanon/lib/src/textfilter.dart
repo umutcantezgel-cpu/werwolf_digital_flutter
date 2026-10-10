@@ -10,6 +10,8 @@
 /// - F5 löst Verbindungen auf: `Rnn (…)` fällt weg, wenn nn > N; ein führendes
 ///   `Rnn`, `DET` oder `BW` wird zum Namen.
 /// - F6 glättet Leerzeichen und Satzzeichen.
+/// - F7 lässt einen Satz weg, der einen der übergebenen Namen nennt (etwa den
+///   Vornamen einer unbesetzten Rolle); geteilt wird nur außerhalb von „…“.
 library;
 
 final _ersatzMarker = RegExp(r'\s*\[NUR WENN ROLLE \d\d NICHT BESETZT\]\s*');
@@ -159,4 +161,58 @@ final _uhrzeitVorne = RegExp(
 (String?, String) uhrzeitVorne(String s) {
   final m = _uhrzeitVorne.firstMatch(s);
   return m == null ? (null, s) : (m[1], m[2]!);
+}
+
+/// Sätze eines Texts. Ein Satz endet an `.`, `!` oder `?` (auch vor `“`), wenn
+/// danach Leerraum und ein Großbuchstabe oder `„` folgen; innerhalb von „…“
+/// wird nie geteilt.
+List<String> saetze(String s) {
+  final out = <String>[];
+  var tiefe = 0;
+  var start = 0;
+  bool ende(int i) {
+    final c = s[i];
+    if (c == '.' || c == '!' || c == '?') return true;
+    return c == '“' && i > 0 && '.!?'.contains(s[i - 1]);
+  }
+
+  for (var i = 0; i < s.length; i++) {
+    final c = s[i];
+    if (c == '„') {
+      tiefe++;
+    } else if (c == '“' && tiefe > 0) {
+      tiefe--;
+    }
+    if (tiefe != 0 || !ende(i) || i + 2 >= s.length || s[i + 1] != ' ') {
+      continue;
+    }
+    final naechstes = s[i + 2];
+    final gross =
+        naechstes == '„' ||
+        (naechstes.toUpperCase() == naechstes &&
+            naechstes.toLowerCase() != naechstes);
+    if (!gross) continue;
+    out.add(s.substring(start, i + 1).trim());
+    start = i + 2;
+  }
+  final rest = s.substring(start).trim();
+  if (rest.isNotEmpty) out.add(rest);
+  return out;
+}
+
+/// F7: lässt jeden Satz weg, der einen der [namen] als ganzes Wort nennt.
+///
+/// Kürzt nur; bleibt kein Satz übrig, kommt der Text unverändert zurück.
+String ohneSaetzeMit(String s, Iterable<String> namen) {
+  final muster = [
+    for (final n in namen)
+      if (n.isNotEmpty)
+        RegExp('(?<![\\p{L}])${RegExp.escape(n)}(?![\\p{L}])', unicode: true),
+  ];
+  if (muster.isEmpty || !muster.any((m) => m.hasMatch(s))) return s;
+  final bleibt = [
+    for (final satz in saetze(s))
+      if (!muster.any((m) => m.hasMatch(satz))) satz,
+  ];
+  return bleibt.isEmpty ? s : glaetten(bleibt.join(' '));
 }

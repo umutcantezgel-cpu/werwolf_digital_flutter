@@ -140,15 +140,35 @@ class _GewoelbeSeiteState extends State<GewoelbeSeite> {
   }
 
   @override
-  Widget build(BuildContext context) => FutureBuilder<Gewoelbe>(
-        future: _gewoelbe,
-        builder: (context, snap) {
-          if (snap.hasError) return _rahmen(child: _fehler(snap.error!));
-          final g = snap.data;
-          if (g == null) return _rahmen(child: _laden());
-          return _geladen(g);
-        },
-      );
+  Widget build(BuildContext context) {
+    // Wie alle Kacheln im Hub öffnet „go“ die Seite; darunter liegt dann kein Hub.
+    // Im Router übernimmt die Seite die Zurück-Geste selbst ([_zurueck]) und führt
+    // in den Hub, statt die App zu verlassen. Das gilt auch beim Laden und bei Fehlern.
+    final imRouter = GoRouter.maybeOf(context) != null;
+    return FutureBuilder<Gewoelbe>(
+      future: _gewoelbe,
+      builder: (context, snap) {
+        final g = snap.data;
+        return PopScope(
+          // Eine offene Mappe deckt die Zurück-Geste zuerst zu, statt die Seite zu verlassen.
+          canPop: _offen == null && !imRouter,
+          onPopInvokedWithResult: (didPop, _) {
+            if (didPop) return;
+            if (_offen != null && g != null) {
+              _zudecken(g);
+            } else if (imRouter) {
+              _zurueck();
+            }
+          },
+          child: snap.hasError
+              ? _rahmen(child: _fehler(snap.error!))
+              : g == null
+                  ? _rahmen(child: _laden())
+                  : _geladen(g),
+        );
+      },
+    );
+  }
 
   /// Hintergrund, Kopf und Inhalt; unten optional die Navigation.
   Widget _rahmen({required Widget child, Widget? navigation, bool kopf = true}) => Scaffold(
@@ -285,18 +305,14 @@ class _GewoelbeSeiteState extends State<GewoelbeSeite> {
         },
       );
     }
-    return PopScope(
-      // Eine offene Mappe deckt die Zurück-Geste zuerst zu, statt die Seite zu verlassen.
-      canPop: offen == null,
-      onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) _zudecken(g);
-      },
-      child: _rahmen(kopf: offen == null, navigation: _navigation(), child: inhalt),
-    );
+    return _rahmen(kopf: offen == null, navigation: _navigation(), child: inhalt);
   }
 
-  /// Rollbarer Inhalt, höchstens [Keller.breite] breit.
-  Widget _flaeche({required Key key, required Widget child}) => Center(
+  /// Rollbarer Inhalt, höchstens [Keller.breite] breit, immer oben angesetzt:
+  /// Kurze Inhalte (etwa die Zwischenstufe „Gib das Gerät an …“) springen so
+  /// nicht in die Mitte.
+  Widget _flaeche({required Key key, required Widget child}) => Align(
+        alignment: Alignment.topCenter,
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: Keller.breite),
           child: RollFlaeche(key: key, padding: const EdgeInsets.fromLTRB(20, 8, 20, 28), child: child),
@@ -348,7 +364,8 @@ class MappeAnsicht extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final zudecken = PartyKnopf(text: GewoelbeTexte.zudecken, icon: Icons.visibility_off_rounded, onPressed: onZudecken);
-    return Center(
+    return Align(
+      alignment: Alignment.topCenter,
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: Keller.breite),
         child: RollFlaeche(

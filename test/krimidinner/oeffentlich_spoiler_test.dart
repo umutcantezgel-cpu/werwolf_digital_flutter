@@ -29,7 +29,8 @@ void main() {
     expect(spoilerBefunde([feld('K-090', 'Tatsache')], 8), isNotEmpty);
     expect(spoilerBefunde(['Karte (H-17)'], 8), isNotEmpty);
     expect(spoilerBefunde(['Zofia'], 8), isNotEmpty);
-    expect(spoilerBefunde(['Zofia'], 18), isEmpty);
+    expect(spoilerBefunde(['Zofia'], 18), isNotEmpty);
+    expect(spoilerBefunde(['Zofia'], 20), isEmpty);
     expect(spoilerBefunde(['alle besetzten Rollen'], 8), isEmpty);
   });
 

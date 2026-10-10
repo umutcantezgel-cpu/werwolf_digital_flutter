@@ -22,6 +22,14 @@ void main() {
       expect(html, contains('@page { size: A4; margin: 14mm; }'));
       expect(html, contains('system-ui'));
       expect(html, contains('break-inside: avoid'));
+      // Im schmalen Browser eine Spalte, im A4-Druck zwei.
+      expect(
+        html,
+        contains(
+          '@media screen and (max-width: 640px) {\n  body { padding: 6mm 4mm; }\n  .raster { grid-template-columns: 1fr; }',
+        ),
+      );
+      expect(html, contains('grid-template-columns: 1fr 1fr'));
       expect(html, isNot(contains('http://')));
       expect(html, isNot(contains('https://')));
       expect(html, isNot(contains('<script')));
@@ -37,7 +45,9 @@ void main() {
         expect(anzahl(html, 'class="karte"'), 2, reason: 'N=$n');
         expect(
           html,
-          contains('$n Rollen und das Geburtstagskind – ${n + 1} Personen'),
+          contains(
+            '$n\u00a0Rollen und das Geburtstagskind\u00a0– ${n + 1}\u00a0Personen',
+          ),
         );
       }
     },
@@ -126,15 +136,26 @@ void main() {
   );
 
   test(
-    'Detektiv-Mappe: Deckblatt für das Geburtstagskind, Entscheidungen auf neuer Seite',
+    'Detektiv-Mappe: Deckblatt für das Geburtstagskind, keine Entscheidungsfragen',
     () {
       final html = mappeHtml(g.detektivMappe());
       expect(html, contains('Rollenmappe · Nur für das Geburtstagskind'));
-      expect(anzahl(html, 'neue-seite"'), 1);
-      expect(
-        ohneHtml(html),
-        contains('Was deine Wahl ergibt, erfährst du am Abend.'),
-      );
+      expect(anzahl(html, 'neue-seite"'), 0);
+      final text = normal(ohneHtml(html));
+      expect(text, contains(GewoelbeTexte.detektivEntscheidungenHinweis));
+      for (var p = 1; p <= 3; p++) {
+        for (var i = 1; i <= 3; i++) {
+          expect(
+            text,
+            isNot(
+              contains(
+                normal(echterKanon.datensaetze['D$p-$i']!.feld('Frage')!),
+              ),
+            ),
+            reason: 'D$p-$i',
+          );
+        }
+      }
     },
   );
 

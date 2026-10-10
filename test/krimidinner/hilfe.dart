@@ -116,8 +116,9 @@ final verboteneMuster = <String, RegExp>{
   '[NUR': RegExp(r'\[NUR'),
 };
 
-/// Ausnahmeliste (Kanonlücken, gemeldet): R17-ÖFFENTLICH nennt Zofia (R20) bei N=17–19.
-bool ausnahmeOeffentlich(int n, String vorname) => vorname == 'Zofia' && n >= 17 && n <= 19;
+/// Ausnahmeliste öffentlicher Ansichten (Kanonlücken): leer. R17-ÖFFENTLICH nennt
+/// Zofia (R20); diesen Satz lässt der Filter F7 bei N=17–19 weg.
+bool ausnahmeOeffentlich(int n, String vorname) => false;
 
 Set<String>? _verboten;
 

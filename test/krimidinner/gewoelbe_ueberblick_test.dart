@@ -12,6 +12,10 @@ void main() {
 
     expect(find.text('Spuk im Gewölbe'), findsOneWidget);
     expect(find.text('Krimidinner auf Burg Schartenfels'), findsOneWidget);
+    // Der Kopf nennt „Krimidinner“ nur einmal.
+    expect(find.text('PARTYABEND'), findsOneWidget);
+    expect(find.text('KRIMIDINNER'), findsNothing);
+    expect(sichtbar(tester, 'Zahlen ohne Einheit sind Minuten.'), isTrue);
     expect(
       sichtbar(tester, 'Den geführten Abend mit Erzähler gibt es hier noch nicht. Besetzung, Steckbriefe und Rollenmappen kannst du schon nutzen.'),
       isTrue,
@@ -73,7 +77,7 @@ void main() {
   testWidgets('Einstieg über die Adresse: ?teil= und ?n=', (tester) async {
     await tester.pumpWidget(MaterialApp(home: GewoelbeSeite.ausUrl(const {'teil': 'besetzung', 'n': '12'}).kopieMitKanon()));
     await bilder(tester);
-    expect(find.text('12 Rollen und das Geburtstagskind – 13 Personen'), findsOneWidget);
+    expect(find.text('12\u00a0Rollen und das Geburtstagskind\u00a0– 13\u00a0Personen'), findsOneWidget);
   });
 
   testWidgets('Ladefehler zeigt eine Tafel mit Text und Zurück', (tester) async {

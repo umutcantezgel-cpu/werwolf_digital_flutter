@@ -1,8 +1,9 @@
 // Spoiler-Test: Öffentliche Ansichten verraten nichts, Mappen nur das Eigene.
 //
 // Gemessene Kanonlücken stehen auf der Ausnahmeliste (Meldung an den Krimidinner-Lauf):
-// R09-GEHEIM, R09-LÜGE und R09-WISSEN nennen Annika (R10) bei N=9;
-// R17-ÖFFENTLICH nennt Zofia (R20) bei N=17–19.
+// R09-GEHEIM, R09-LÜGE und R09-WISSEN nennen Annika (R10) bei N=9. Kürzen hilft
+// dort nicht, ohne das Geheimnis zu leeren. R17-ÖFFENTLICH nennt Zofia (R20);
+// diesen Satz lässt F7 bei N=17–19 weg, deshalb gibt es dafür keine Ausnahme mehr.
 import 'package:krimidinner_kanon/krimidinner_kanon.dart';
 import 'package:test/test.dart';
 
@@ -27,7 +28,6 @@ final verboteneMuster = <String, RegExp>{
 /// Erlaubte Namen unbesetzter Rollen je Ansicht und N (Ausnahmeliste).
 /// Der Steckbrief von R17 steht öffentlich und in der eigenen Mappe.
 bool ausnahme(String ansicht, int n, String vorname) => switch (ansicht) {
-  'oeffentlich' || 'R17' => vorname == 'Zofia' && n >= 17 && n <= 19,
   'R09' => vorname == 'Annika' && n == 9,
   _ => false,
 };
@@ -149,7 +149,10 @@ void main() {
     expect(befunde('Zofia lacht', 8, const {}, 'oeffentlich'), [
       'NAME R20 Zofia bei N=8',
     ]);
-    expect(befunde('Zofia lacht', 18, const {}, 'oeffentlich'), isEmpty);
+    expect(befunde('Zofia lacht', 18, const {}, 'oeffentlich'), [
+      'NAME R20 Zofia bei N=18',
+    ]);
+    expect(befunde('Annika lacht', 9, const {}, 'R09'), isEmpty);
     expect(
       befunde('alle besetzten Rollen', 8, const {}, 'oeffentlich'),
       isEmpty,

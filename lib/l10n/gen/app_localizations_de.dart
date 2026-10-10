@@ -175,6 +175,13 @@ class LDe extends L {
   String get name_prompt_hint => 'Name';
 
   @override
+  String get name_prompt_title_du => 'Wie heißt du, Detektiv?';
+
+  @override
+  String get name_prompt_text_du =>
+      'Dein Name steht ab sofort auf deiner Dienstmarke.';
+
+  @override
   String get name_prompt_confirm => 'Dienstmarke ausstellen';
 
   @override

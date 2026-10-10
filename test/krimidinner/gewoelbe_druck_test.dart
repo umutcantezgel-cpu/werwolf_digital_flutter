@@ -71,4 +71,17 @@ void main() {
     await bilder(tester);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('die Mappen-Knöpfe stehen vor der Vorschau, auch bei 20 Rollen schnell erreichbar', (tester) async {
+    groesse(tester, const Size(390, 844));
+    await tester.pumpWidget(gewoelbeApp(teil: GewoelbeTeil.druck, n: 20));
+    await bilder(tester);
+    final mappen = tester.getTopLeft(find.text('Rollenmappen – geheim')).dy;
+    final vorschau = tester.getTopLeft(find.text('VORSCHAU')).dy;
+    final ersteKarte = tester.getTopLeft(find.byWidgetPredicate((w) => w is AbschnittAnsicht && w.hell).first).dy;
+    expect(mappen, lessThan(vorschau));
+    expect(mappen, lessThan(ersteKarte));
+    // Der Knopf für das Geburtstagskind liegt höchstens zwei Bildschirmhöhen tief.
+    expect(tester.getTopLeft(find.text('Mappe für das Geburtstagskind')).dy, lessThan(2 * 844));
+  });
 }
