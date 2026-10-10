@@ -78,6 +78,7 @@ List<Schicht> schichten(String modus, bool vorlauf) {
         ['(cd packages/mordakte_core && dart test test/runden/)'],
         umgebung: {'BOLLWERK_FAELLE': '$faelle'}),
     Schicht('L3', const Duration(minutes: 3), [
+      'dart run tool/bollwerk/kanon_einbetten.dart --pruefe',
       '(cd packages/mordakte_core && dart test -p vm test/runden/determinismus_web_test.dart)',
       '(cd packages/mordakte_core && dart test -p node test/runden/determinismus_web_test.dart)',
     ], fehlt: 'packages/mordakte_core/test/runden/determinismus_web_test.dart'),
