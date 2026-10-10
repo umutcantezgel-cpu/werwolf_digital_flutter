@@ -88,3 +88,20 @@ Jede folgenreiche Entscheidung nach dem Denkprotokoll (Ziel · Wege · Bewertung
 - **Wahl:** (b) mit `tool/bollwerk/tor_start.sh`; Probe L-9 (`setsid nohup sleep 7500`, PID 694, Start 01:56Z) wird ab 04:01Z geprüft. Scheitert sie, wird `--gruppe <k>` im Torwerkzeug Pflicht (c).
 - **Tor-Rest:** `tool/bollwerk/tor_rest.sh sichern <gen> <phase>` schreibt `planung/bollwerk/tor-rest/G<n>.patch` (Zeile `TOR-REST` im PRUEFPUNKT); `anwenden <gen>` legt den Tor-Worktree an und wendet ihn mit `--index` an.
 - **Umkehrprobe:** Wenn die Cloud-Maschine selbst nach 2 h Inaktivität pausiert, hilft keins von beiden; dagegen hält der Herzschlag alle 30 min die Sitzung aktiv.
+
+## E-G1-04 · Lichtung L-1 · voller Testlauf auf dieser Maschine (02:12 UTC)
+- `bash tool/alle_tests.sh` (voll, Schwerlast-Slot, ohne Parallellast außer einem Simulatorlauf): **621 s, „ALLE TESTS GRÜN“**, Exit 0. Damit passt L1 (Budget ≤ 12 min) knapp; für `phase` (≤ 190 min) bleibt reichlich Luft.
+
+## E-G1-05 · Würfelkern und Simulator-Port (02:05 UTC)
+- **Ziel:** Kern in `packages/mordakte_core/lib/src/runden/` und `tool/bollwerk/runden_simulate.dart` mit „gleichen Zahlen am gleichen Seed-Satz“ wie `proben/wuerfel_sim.py`.
+- **Wege:** (a) eigenes Modell im Simulator (verboten, MP §6); (b) Kern mit Würfelquelle als Schnittstelle, Strategien im Simulator, Strategie-Zufall über einen bitgenauen Nachbau von Pythons `random.Random` (MT19937, randbelow, shuffle, choice, sample) nur im Werkzeug; (c) Gleichheit nur statistisch (Bänder ±1 %).
+- **Wahl:** (b). Belegt: erschöpfend 313.344 Läufe, alle Zähler 0 und gleich Python (18 s statt Minuten); Bänder bei 1.000 Partien je Form × Besetzung **0 von 200 Kennzahlen abweichend** gegenüber einem frischen Python-Lauf.
+- **Befund an der Vorlage:** `proben/wuerfel_sim.py` hat heute sha256 `8a8d1ec3…`, nicht den in A-4 genannten `7f568495…`; `proben/sim-voll-ergebnis.json` stimmt bei den Bändern nicht mehr mit der heutigen Vorlage überein (der erschöpfende Teil schon). Maßgeblich für den Port ist die eingecheckte Vorlage; nachgereicht wird die Bandprüfung (Z-05) an den Schwellen, nicht an der alten JSON.
+- **Port-Treue, bewusst übernommen und als Kern-Frage offen:** Die Vorlage zählt mit `marken` die *eingesetzten* Seifenblasen-Marken (≤ 3 je Partie) und vergibt eine Marke nur bei Pech in der Auftakt-Suche; K-10 verlangt „Glück im Unglück (Marke + wahrer Satz)“ bei jedem Pech. Eine Änderung verschiebt die Bänder und ist ein „KERN 1.1“-Schritt nach Denkprotokoll (Prüfbericht PRUEF-KERN-1 abwarten).
+- **Umkehrprobe:** Bitgleichheit beweist nur Port-Treue, nicht Regeltreue; deshalb unabhängige Opus-Prüfung PRUEF-KERN-1 gegen WÜ-1…6 und K-01…K-26.
+
+## E-G1-06 · Torwerkzeug und Rot-Probe (02:11 UTC)
+- `tool/bollwerk/bollwerk.dart` führt Schichten mit Budget und Timeout (2 × Budget), schreibt Belege mit HEAD-Kopf, prüft sauberen Baum vor und nach dem Lauf, kennt `--gruppe <k>` (F-2) und meldet fehlende Schichten als `OFFEN` (rot).
+- `schnell --vorlauf` an 2764671: L0 grün (8 s), L2 grün, L4 grün (39 s), L3 und L5 OFFEN → rot, Wandzeit 50 s.
+- **Rot-Probe** (Wegwerf-Worktree, Patch in /home/user/bw-archiv/rotprobe/): absichtlich roter Test in `test/runden/` → L2 rot; `import 'dart:math'` in der Zugschicht → L0 (L0.4 und Analyse) rot; Endzeile `BOLLWERK ROT · L0 L2 L3 L5`, Exit 1. Dabei gefunden und behoben: L2 lief nur die Eigenschaftsdatei; jetzt alle Tests unter `test/runden/`.
+- `commit.sh` fährt das volle Tor erst ab `TOR-SHA` im PRUEFPUNKT; davor Aufbauprüfung (Analyse mit `--fatal-infos` und Rundentests).
