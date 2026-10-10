@@ -30,7 +30,7 @@ Der Freigabeabschnitt im Plan lautet:
 | L0 v4 bauen | fertig: v4.1 `f275929` (10 Linsen, 6 BLOCKER und ~70 MAJOR eingearbeitet) |
 | L1 Leitstand | fertig (Routine aktiv) |
 | L1b Kinder-Probe | fertig |
-| L2 Meta-Lauf | Leitstand-Rubrik an 3460ca7: 21/26 → Nachbesserung (F-1) an Meta geschickt 00:57 UTC; danach Rubrik neu |
+| L2 Meta-Lauf | Runde 4 übergeben 00:59 UTC: `=== BOLLWERK-META-ENDE · BEREIT · Runde 4 · 2094a67525cd07526c5e80ab1897e53d3fddac02 ===` (MASTER-PROMPT sha256 6eb7a606…, 54.822 Byte); Leitstand-Rubrik Runde 4 läuft seit 01:40 UTC |
 | L3 Generationen | offen |
 | L4 main | offen |
 | L5 Abschluss | offen |
@@ -43,7 +43,7 @@ Wahr nur, wenn alles zutrifft:
 4. PR #43 ist gemergt oder geschlossen (lesend prüfen).
 Sonst nur „FREIGABE BOLLWERK“ des Nutzers (nachdem er die Finalisierung angehalten hat).
 
-Letzte Prüfung: 2026-10-10 00:39 UTC · Finalisierung F5 von F7, Abnahme 9/17, letzter Commit ea8d765 (09.10. 23:09 UTC), kein ZIEL ERREICHT · **offen**
+Letzte Prüfung: 2026-10-10 01:39 UTC · Finalisierung F5 von F7, Abnahme 9/17, letzter Commit ea8d765 (09.10. 23:09 UTC), kein ZIEL ERREICHT · **offen**
 
 ## Gezeigte Bilder
 - 22:39 UTC · `bilder/meta/m1-bildverfahren-fin-5c83242.jpg` (bollwerk-plan e2b27da)
@@ -118,4 +118,5 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-09 23:39 UTC · Herzschlag 3: Meta in M6 (Rubrik 17/26 Zwischenstand); Meta hat `bollwerk` versehentlich angelegt (Heredoc mit Backticks, offengelegt in FUER-DEN-NUTZER §1) – harmlos, Fast-Forward-fähig; 4 Design-Bilder gezeigt; B-02 offen.
 - - 2026-10-10 00:39 UTC · Herzschlag 4: Meta fertig mit HALT (21/26 vor letzter Nachbesserung, Kaltstart ohne blockierende Frage, 2 Skeptiker-BLOCKER: einer behoben, einer als A-26); Leitstand startet unabhängige Rubrik an 3460ca7. Master-Prompt 54.843 Byte, sha256 234292126f70a292…
 - 2026-10-10 00:57 UTC · Rubrik Leitstand 21/26 (P3, P4, P5, P8, P9 je 1); F-1 und Nachbesserung per send_message an Meta (einzige Runde).
+- 2026-10-10 01:39 UTC · Herzschlag 6: Meta-Nachbesserung fertig (2094a67, BEREIT, F-1 quittiert); Rubrik Runde 4 gestartet; B-02 offen.
 - Prüfpunkt für L2-Abnahme: Die Meta-Fassung schreibt in FUER-DEN-NUTZER „Merge auf main nur nach menschlicher Freigabe“ – der Plan hat diese Freigabe (Leitstand, nach allen Toren); bei der Abnahme angleichen.
