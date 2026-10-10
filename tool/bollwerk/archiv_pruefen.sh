@@ -12,6 +12,7 @@ BESTAND=planung/bollwerk/BESTAND.md
 ARCHIV=planung/bollwerk/ARCHIV.md
 [ -f "$ARCHIV" ] || { echo "ARCHIV.md fehlt"; echo "Z-29 ROT"; exit 1; }
 REFS="$(git ls-remote origin 'refs/heads/*')"
+BETREFFE="$(git log --format=%s bollwerk)"
 linien="$(sed -n '/^## 2\./,/^## 3\./p' "$BESTAND" | grep -E '^\| ' | grep -vE '^\| (Linie|---)' | cut -d'|' -f2 | sed 's/^ *//; s/ *$//')"
 rot=0; n=0
 while IFS= read -r linie; do
@@ -24,7 +25,7 @@ while IFS= read -r linie; do
   klasse="$(echo "$zeile" | cut -d'|' -f5 | sed 's/^ *//; s/ *$//')"
   if [ -z "$ref" ] || [ -z "$klasse" ]; then echo "unvollständig: $linie"; rot=$((rot+1)); continue; fi
   muster="refs/heads/${ref//\*/.*}"
-  if ! echo "$REFS" | grep -qE "[[:space:]]$muster\$"; then echo "Ref fehlt auf origin: $ref ($linie)"; rot=$((rot+1)); continue; fi
+  if ! grep -qE "[[:space:]]$muster\$" <<< "$REFS"; then echo "Ref fehlt auf origin: $ref ($linie)"; rot=$((rot+1)); continue; fi
   if [[ "$sha" =~ ^[0-9a-f]{7,40}$ ]]; then
     git cat-file -e "$sha^{commit}" || { echo "SHA unbekannt: $sha ($linie)"; rot=$((rot+1)); continue; }
   elif [[ "$ref" != *'*'* ]]; then
@@ -32,7 +33,7 @@ while IFS= read -r linie; do
   fi
   if [ "${1:-}" = --uebernahmen ] && [[ "$klasse" =~ ^(zusammenführen|übernehmen|mitführen) ]]; then
     art="$(echo "$zeile" | cut -d'|' -f6)"
-    if git log --format=%s bollwerk | grep -qE "^(Merge $ref@$sha|aus $ref@[0-9a-f]+:)"; then
+    if grep -qE "^(Merge $ref@$sha|aus $ref@[0-9a-f]+:)" <<< "$BETREFFE"; then
       echo "übernommen: $linie"
     elif echo "$art" | grep -qiE 'Absage:'; then
       echo "abgesagt (begründet): $linie"

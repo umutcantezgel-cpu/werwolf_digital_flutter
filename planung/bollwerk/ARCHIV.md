@@ -6,7 +6,7 @@ Quelle: `planung/bollwerk/BESTAND.md` §2. Die SHA ist der Stand beim Eintrag (G
 |---|---|---|---|---|---|
 | main (Basis) | main | 47611d8 | Basis | – (kommt in BW0 und BW8 per Hereinholen) | archiv/vor-bollwerk (Leitstand, vor dem main-Push) |
 | Finalisierung | finalisierung-schlosskeller | ea8d765 | läuft → Basis ab B-02 | – (kommt über origin/main mit B-02) | nicht nötig |
-| FEINKORN | kern-feinkorn | 1145cb9 | zusammenführen | Merge geplant im Vorlauf (`Merge kern-feinkorn@1145cb9`, nur Leben über `feinkorn_leben.dart`) | archiv/feinkorn-1145cb9 (falls abgesagt) |
+| FEINKORN | kern-feinkorn | 1145cb9 | zusammenführen | Merge im Vorlauf (`Merge kern-feinkorn@1145cb9`, G1, Tor grün an e1e1f9d; Spielcode nur über `feinkorn_leben.dart`) | archiv/feinkorn-1145cb9 (falls abgesagt) |
 | Burgstadt HD | claude/pensive-gates-ajtp7x | caf1d61 | zusammenführen nur nach A-2 Definitionen | zurückgestellt: Merge erst, wenn danach L1 grün ist („LAYOUT GLEICH“, `hd_migbeleg` bytegleich) oder „A12: ja“ | archiv/hd-caf1d61 |
 | Nachtlauf Burgstadt | nachtlauf/burgstadt | 47611d8 | eingefroren | – (kommt über main) | – |
 | Krimidinner | main | 47611d8 | eingefroren | – (`krimidinner/**` auf main, nie geändert) | – |
