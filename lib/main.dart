@@ -75,6 +75,6 @@ String _devEntry(AppState app) {
     'collection' => Routes.collection,
     'profile' => Routes.profile,
     'online' => Routes.online,
-    _ => Routes.burgstadt,
+    _ => Routes.hub,
   };
 }

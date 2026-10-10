@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../burgstadt/burgstadt_seite.dart';
 import '../party/party_seite.dart';
 import '../party/skript.dart';
 import '../ui/screens/cases_screen.dart';
@@ -21,7 +20,6 @@ abstract final class Routes {
   static const online = '/online';
   static const lobby = '/lobby';
   static const game = '/game';
-  static const burgstadt = '/burgstadt';
   static const party = '/party';
 }
 
@@ -58,7 +56,6 @@ GoRouter buildRouter(AppState app, {String initialLocation = Routes.hub}) => GoR
     GoRoute(path: Routes.online, pageBuilder: (c, s) => _fade(s, const OnlineScreen())),
     GoRoute(path: Routes.lobby, pageBuilder: (c, s) => _fade(s, const LobbyScreen())),
     GoRoute(path: Routes.game, pageBuilder: (c, s) => _fade(s, const GameScreen())),
-    GoRoute(path: Routes.burgstadt, pageBuilder: (c, s) => _fade(s, const BurgstadtSeite())),
     GoRoute(path: Routes.party, pageBuilder: (c, s) => _fade(s, PartySeite(dev: PartyDev.ausUrl(_query)))),
   ],
 );
