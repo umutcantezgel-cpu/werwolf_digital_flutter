@@ -105,3 +105,9 @@ Jede folgenreiche Entscheidung nach dem Denkprotokoll (Ziel · Wege · Bewertung
 - `schnell --vorlauf` an 2764671: L0 grün (8 s), L2 grün, L4 grün (39 s), L3 und L5 OFFEN → rot, Wandzeit 50 s.
 - **Rot-Probe** (Wegwerf-Worktree, Patch in /home/user/bw-archiv/rotprobe/): absichtlich roter Test in `test/runden/` → L2 rot; `import 'dart:math'` in der Zugschicht → L0 (L0.4 und Analyse) rot; Endzeile `BOLLWERK ROT · L0 L2 L3 L5`, Exit 1. Dabei gefunden und behoben: L2 lief nur die Eigenschaftsdatei; jetzt alle Tests unter `test/runden/`.
 - `commit.sh` fährt das volle Tor erst ab `TOR-SHA` im PRUEFPUNKT; davor Aufbauprüfung (Analyse mit `--fatal-infos` und Rundentests).
+
+## E-G1-07 · Abnahme des Torwerkzeugs im Vorlauf (02:20 UTC)
+- `dart run tool/bollwerk/bollwerk.dart schnell --vorlauf` an `30fadff`: L0 7 s, L2 1 s (500 Fälle je Eigenschaft), L3 9 s (1.000 Codes VM = Node = Soll-Liste), L4 40 s (erschöpfend 313.344 Läufe, Wertung, Bänder 200 Seeds), L5 1 s (0 Einheiten) → `BOLLWERK GRÜN · schnell · 30fadff…`, Wandzeit ≈ 60 s (Budget ≤ 9 min).
+- Rot-Proben: roter Test → L2 rot; `dart:math` im Kern → L0 rot; drei Probe-Einheiten → L5 mit 10 Befunden rot (Alkohol, Sperrliste, Gewalt, Platzhalter, fehlende Stufen, keine Folge, `fakt:`-Glied, Dublette).
+- **TOR-SHA = 30fadff64ac5625bdfe7e1e6494677ce493b22a7.** Ab hier fährt `commit.sh` vor jedem Code-Commit das volle `schnell`-Tor (vor B-02 mit `--vorlauf`).
+- **Lücken, bewusst offen:** `schwellen.dart` (Schwellen maschinell aus MP §6) fehlt noch; L4 hat noch keine Modi `fairness` und `dauer` (im Vorlauf-Schnelltor nicht verlangt, in `phase` als rot gemeldet); `belege/rotproben.tsv` entsteht mit L9.
