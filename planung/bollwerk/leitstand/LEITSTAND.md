@@ -1,4 +1,4 @@
-STAND · Leitstand · Phase L2 (Meta-Lauf) · Generation 0 · B-02 offen · nächster Schritt: Meta-Lauf überwachen, Übergabe prüfen (Rubrik ≥ 23/26)
+STAND · Leitstand · Phase L2 (Abnahme der Meta-Übergabe) · Generation 0 · B-02 offen · nächster Schritt: unabhängige Rubrik der gelieferten Fassung 3460ca7; ≥ 23/26 → L3, sonst eine Nachbesserung
 
 # LEITSTAND · BOLLWERK-DAUERLAUF
 
@@ -17,7 +17,7 @@ Der Freigabeabschnitt im Plan lautet:
 | Leitstand-Sitzung | `session_01Aix28JmFAfTMVcF4Z8bgqP` | aktiv |
 | Herzschlag-Routine | `trig_01UrDrhXFjttzCW1tkXFPGVr` (Name `BOLLWERK-LEITSTAND-session_01Aix28JmFAfTMVcF4Z8bgqP`, stündlich zur Minute 38) | aktiv |
 | Kinder-Probe | `session_01NqNiTSMXk6qK5FVbNAbkrF` (Branch `bollwerk-probe`) | fertig 21:03 UTC |
-| Meta-Sitzung | `session_01V8nVEJcaAbNDmTCrmHBoBq` (Branch `bollwerk-plan`, Meta-Prompt v4.1 aus `f2759297c4f5f9a627199b8fe52655f0d3d13e77`) | gestartet 21:18 UTC |
+| Meta-Sitzung | `session_01V8nVEJcaAbNDmTCrmHBoBq` (Branch `bollwerk-plan`, Meta-Prompt v4.1 aus `f2759297c4f5f9a627199b8fe52655f0d3d13e77`) | Übergabe 23:58 UTC: `=== BOLLWERK-META-ENDE · HALT · Runde 3 · 3460ca7e708fd0f74f62a45401f395ae4bedc2fb ===` (M-10: Rubrik 21/26 an der vorletzten Fassung; gelieferte Fassung ungeprüft); Kosten ≈ 116 $ |
 | Nachtlauf-Generationen | – | – |
 | Merge-Bau | – | – |
 | Branch `bollwerk` | `f84715d` (versehentlich vom Meta-Lauf angelegt, 22:57 UTC, Inhalt = damaliger `bollwerk-plan`; Vorfahr des Übergabe-SHA → Leitstand übernimmt per Fast-Forward) | vorhanden |
@@ -30,7 +30,7 @@ Der Freigabeabschnitt im Plan lautet:
 | L0 v4 bauen | fertig: v4.1 `f275929` (10 Linsen, 6 BLOCKER und ~70 MAJOR eingearbeitet) |
 | L1 Leitstand | fertig (Routine aktiv) |
 | L1b Kinder-Probe | fertig |
-| L2 Meta-Lauf | läuft seit 21:18 UTC · 23:39: M4/M5 fertig (1b4d5d7: Master-Prompt, Anhänge A-1…A-9, Startpaket), M6 Prüfrunde 2b (7b9e62b), Rubrik-Zwischenstand 17/26 |
+| L2 Meta-Lauf | Übergabe HALT (3460ca7); Leitstand-Rubrik läuft (00:40 UTC); höchstens 1 Nachbesserung |
 | L3 Generationen | offen |
 | L4 main | offen |
 | L5 Abschluss | offen |
@@ -43,7 +43,7 @@ Wahr nur, wenn alles zutrifft:
 4. PR #43 ist gemergt oder geschlossen (lesend prüfen).
 Sonst nur „FREIGABE BOLLWERK“ des Nutzers (nachdem er die Finalisierung angehalten hat).
 
-Letzte Prüfung: 2026-10-09 23:39 UTC · Finalisierung F5 von F7, Abnahme 9/17, letzter Commit ea8d765 (23:09 UTC), kein ZIEL ERREICHT · **offen**
+Letzte Prüfung: 2026-10-10 00:39 UTC · Finalisierung F5 von F7, Abnahme 9/17, letzter Commit ea8d765 (09.10. 23:09 UTC), kein ZIEL ERREICHT · **offen**
 
 ## Gezeigte Bilder
 - 22:39 UTC · `bilder/meta/m1-bildverfahren-fin-5c83242.jpg` (bollwerk-plan e2b27da)
@@ -116,4 +116,5 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-09 21:39 UTC · Herzschlag 1: Meta in M0 (working, kein Limit), `bollwerk-plan` = cf06ca9; B-02 offen (F5 von F7).
 - 2026-10-09 22:39 UTC · Herzschlag 2: Meta M0+M1 fertig, M3 läuft; erstes Bild gezeigt; B-02 offen.
 - 2026-10-09 23:39 UTC · Herzschlag 3: Meta in M6 (Rubrik 17/26 Zwischenstand); Meta hat `bollwerk` versehentlich angelegt (Heredoc mit Backticks, offengelegt in FUER-DEN-NUTZER §1) – harmlos, Fast-Forward-fähig; 4 Design-Bilder gezeigt; B-02 offen.
+- - 2026-10-10 00:39 UTC · Herzschlag 4: Meta fertig mit HALT (21/26 vor letzter Nachbesserung, Kaltstart ohne blockierende Frage, 2 Skeptiker-BLOCKER: einer behoben, einer als A-26); Leitstand startet unabhängige Rubrik an 3460ca7. Master-Prompt 54.843 Byte, sha256 234292126f70a292…
 - Prüfpunkt für L2-Abnahme: Die Meta-Fassung schreibt in FUER-DEN-NUTZER „Merge auf main nur nach menschlicher Freigabe“ – der Plan hat diese Freigabe (Leitstand, nach allen Toren); bei der Abnahme angleichen.
