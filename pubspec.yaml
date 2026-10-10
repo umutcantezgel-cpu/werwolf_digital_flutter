@@ -15,6 +15,8 @@ dependencies:
     sdk: flutter
   go_router: ^18.0.2
   intl: ^0.20.3
+  krimidinner_kanon:
+    path: packages/krimidinner_kanon
   mordakte_core:
     path: packages/mordakte_core
   room_host:

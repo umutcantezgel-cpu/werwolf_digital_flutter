@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../krimidinner/gewoelbe_seite.dart';
 import '../party/party_seite.dart';
 import '../party/skript.dart';
 import '../ui/screens/cases_screen.dart';
@@ -21,6 +22,7 @@ abstract final class Routes {
   static const lobby = '/lobby';
   static const game = '/game';
   static const party = '/party';
+  static const gewoelbe = '/gewoelbe';
 }
 
 CustomTransitionPage<void> _fade(GoRouterState state, Widget child) => CustomTransitionPage<void>(
@@ -57,6 +59,7 @@ GoRouter buildRouter(AppState app, {String initialLocation = Routes.hub}) => GoR
     GoRoute(path: Routes.lobby, pageBuilder: (c, s) => _fade(s, const LobbyScreen())),
     GoRoute(path: Routes.game, pageBuilder: (c, s) => _fade(s, const GameScreen())),
     GoRoute(path: Routes.party, pageBuilder: (c, s) => _fade(s, PartySeite(dev: PartyDev.ausUrl(_query)))),
+    GoRoute(path: Routes.gewoelbe, pageBuilder: (c, s) => _fade(s, GewoelbeSeite.ausUrl(_query))),
   ],
 );
 

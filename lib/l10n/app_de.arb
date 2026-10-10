@@ -56,6 +56,13 @@
   "hub_online_sub": "Mit bis zu fünf Freunden",
   "hub_party": "Partyabend: Spuk im Schlosskeller",
   "hub_party_sub": "Ein Krimi für den Geburtstag, für 4 bis 20 Personen und ein Geburtstagskind",
+  "hub_section_party": "Partyabende",
+  "hub_section_classic": "Klassische Fälle",
+  "hub_section_meta": "Sammlung und Profil",
+  "hub_party_keller": "Spuk im Schlosskeller",
+  "hub_party_keller_sub": "Partyabend an einem Gerät · 4 bis 20 Personen",
+  "hub_party_gewoelbe": "Spuk im Gewölbe",
+  "hub_party_gewoelbe_sub": "Krimidinner auf Burg Schartenfels · Besetzung, Steckbriefe, Mappen",
   "hub_online_rejoin": "Zurück zu Raum {code}",
   "@hub_online_rejoin": {
     "placeholders": {

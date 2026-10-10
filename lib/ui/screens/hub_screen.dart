@@ -99,19 +99,54 @@ class _HubScreenState extends State<HubScreen> {
                       .fadeIn(duration: 700.ms)
                       .slideY(begin: -0.08, curve: Curves.easeOutCubic),
                   const SizedBox(height: 30),
-                  // Reihe 1: Dienstmarke (2/3) + Serie (1/3)
-                  IntrinsicHeight(
+                  // Partyabende: beide Abende gleichrangig nebeneinander.
+                  stagger(_Abschnitt(l.hub_section_party)),
+                  SizedBox(
+                    height: 156,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Expanded(flex: 2, child: stagger(_BadgeTile(meta: meta))),
+                        Expanded(
+                          child: stagger(
+                            BentoTile(
+                              highlight: true,
+                              accent: Noir.flame,
+                              onTap: () => context.push(Routes.party),
+                              padding: const EdgeInsets.all(16),
+                              child: _TileBody(
+                                icon: Icons.celebration_rounded,
+                                title: l.hub_party_keller,
+                                subtitle: l.hub_party_keller_sub,
+                                dark: true,
+                                big: true,
+                              ),
+                            ),
+                          ),
+                        ),
                         const SizedBox(width: gap),
-                        Expanded(child: stagger(_StreakTile(streak: meta.streak))),
+                        Expanded(
+                          child: stagger(
+                            BentoTile(
+                              highlight: true,
+                              accent: Noir.flame,
+                              onTap: () => context.push(Routes.gewoelbe),
+                              padding: const EdgeInsets.all(16),
+                              child: _TileBody(
+                                icon: Icons.castle_rounded,
+                                title: l.hub_party_gewoelbe,
+                                subtitle: l.hub_party_gewoelbe_sub,
+                                dark: true,
+                                big: true,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                  const SizedBox(height: gap),
-                  // Reihe 2: Fall des Tages (volle Breite)
+                  const SizedBox(height: 26),
+                  // Klassische Fälle: Fall des Tages, Fallakten und Online.
+                  stagger(_Abschnitt(l.hub_section_classic)),
                   if (dailyScenario != null) ...[
                     stagger(
                       _DailyCard(
@@ -126,7 +161,7 @@ class _HubScreenState extends State<HubScreen> {
                     ),
                     const SizedBox(height: gap + 4),
                   ],
-                  // Reihe 3: Fallakten (Hauptkachel mit Glow) + Online
+                  // Fallakten (Hauptkachel mit Glow) + Online
                   SizedBox(
                     height: 156,
                     child: Row(
@@ -172,23 +207,20 @@ class _HubScreenState extends State<HubScreen> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: gap),
-                  // Partymodus (F4-ORCH-02): eigener Abend mit Kanon, Karte und Druck
-                  SizedBox(
-                    height: 112,
-                    child: stagger(
-                      BentoTile(
-                        onTap: () => context.go(Routes.party),
-                        child: _TileBody(
-                          icon: Icons.celebration_rounded,
-                          title: l.hub_party,
-                          subtitle: l.hub_party_sub,
-                        ),
-                      ),
+                  const SizedBox(height: 26),
+                  // Sammlung und Profil: Dienstmarke (2/3) + Serie (1/3), dann Sammlung + Profil.
+                  stagger(_Abschnitt(l.hub_section_meta)),
+                  IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(flex: 2, child: stagger(_BadgeTile(meta: meta))),
+                        const SizedBox(width: gap),
+                        Expanded(child: stagger(_StreakTile(streak: meta.streak))),
+                      ],
                     ),
                   ),
                   const SizedBox(height: gap),
-                  // Reihe 4: Sammlung + Profil
                   SizedBox(
                     height: 112,
                     child: Row(
@@ -239,6 +271,25 @@ class _HubScreenState extends State<HubScreen> {
       ),
     );
   }
+}
+
+/// Überschrift eines Hub-Bereichs: Schreibmaschine in hellem Messing, dahinter eine feine Linie.
+class _Abschnitt extends StatelessWidget {
+  const _Abschnitt(this.titel);
+
+  final String titel;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 10),
+    child: Row(
+      children: [
+        Text(titel, style: Noir.title(13, color: Noir.brassLight, spacing: 1.6)),
+        const SizedBox(width: 10),
+        const Expanded(child: Divider(color: Noir.lineSoft, thickness: 1, height: 1)),
+      ],
+    ),
+  );
 }
 
 /// Inhalt einer Bento-Kachel: Symbol oben, Titel + Untertitel unten.

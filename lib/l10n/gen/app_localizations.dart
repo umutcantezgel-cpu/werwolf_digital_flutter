@@ -219,6 +219,48 @@ abstract class L {
   /// **'Ein Krimi für den Geburtstag, für 4 bis 20 Personen und ein Geburtstagskind'**
   String get hub_party_sub;
 
+  /// No description provided for @hub_section_party.
+  ///
+  /// In de, this message translates to:
+  /// **'Partyabende'**
+  String get hub_section_party;
+
+  /// No description provided for @hub_section_classic.
+  ///
+  /// In de, this message translates to:
+  /// **'Klassische Fälle'**
+  String get hub_section_classic;
+
+  /// No description provided for @hub_section_meta.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammlung und Profil'**
+  String get hub_section_meta;
+
+  /// No description provided for @hub_party_keller.
+  ///
+  /// In de, this message translates to:
+  /// **'Spuk im Schlosskeller'**
+  String get hub_party_keller;
+
+  /// No description provided for @hub_party_keller_sub.
+  ///
+  /// In de, this message translates to:
+  /// **'Partyabend an einem Gerät · 4 bis 20 Personen'**
+  String get hub_party_keller_sub;
+
+  /// No description provided for @hub_party_gewoelbe.
+  ///
+  /// In de, this message translates to:
+  /// **'Spuk im Gewölbe'**
+  String get hub_party_gewoelbe;
+
+  /// No description provided for @hub_party_gewoelbe_sub.
+  ///
+  /// In de, this message translates to:
+  /// **'Krimidinner auf Burg Schartenfels · Besetzung, Steckbriefe, Mappen'**
+  String get hub_party_gewoelbe_sub;
+
   /// No description provided for @hub_online_rejoin.
   ///
   /// In de, this message translates to:

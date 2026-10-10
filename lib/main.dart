@@ -47,6 +47,7 @@ Map<String, String> get _query {
 /// Zusätzlich: `open=notebook|board|dialog|signals|map`, `life=downed|ghost`,
 /// `name=<Spielername>`, `xp=<Zahl>`. `?autoplay=<scenarioId>` startet ein echtes Solo-Spiel,
 /// in dem die KI den eigenen Detektiv steuert. `?party=<fall>` öffnet den Partymodus.
+/// `?screen=gewoelbe` öffnet den Begleiter „Spuk im Gewölbe“ (optional `&teil=…&n=…`).
 String _devEntry(AppState app) {
   final q = _query;
   final name = q['name'];
@@ -75,6 +76,7 @@ String _devEntry(AppState app) {
     'collection' => Routes.collection,
     'profile' => Routes.profile,
     'online' => Routes.online,
+    'gewoelbe' => Routes.gewoelbe,
     _ => Routes.hub,
   };
 }
