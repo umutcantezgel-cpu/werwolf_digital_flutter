@@ -50,6 +50,7 @@ VOR_B02_RE='^(planung/bollwerk/|tool/bollwerk/|content/runden/|packages/mordakte
 GESCHUETZT_RE='^planung/bollwerk/(MASTER-PROMPT\.md|STARTPAKET\.md|anhang/)'
 NUR_ZUSTAND=1
 for p in "${PFADE[@]}"; do
+  if [ -d "$p" ]; then p="${p%/}/"; fi
   if [[ "$p" =~ $GESCHUETZT_RE ]]; then echo "GESCHÜTZT: $p – kein Commit"; exit 1; fi
   if [[ "$p" == planung/bollwerk/belege/* ]]; then
     echo "belege/ schreibt nur das Torwerkzeug: $p – kein Commit über commit.sh"; exit 1
