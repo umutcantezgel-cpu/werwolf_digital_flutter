@@ -1,4 +1,4 @@
-STAND · Bauphase F6 von F7 · Abnahme 16 von 17 · Brüche offen 0 · Aufträge 157 von 190 · Agenten aktiv 1 · nächster Schritt: F6-SICHT-04 abnehmen, Tor F6 schließen, dann F7 Übergabe auf main
+STAND · Bauphase F6 von F7 · Abnahme 16 von 17 · Brüche offen 0 · Aufträge 158 von 191 · Agenten aktiv 0 · nächster Schritt: E2E-Matrix auf c54d708 auswerten, pruefen.sh alles, ABNAHME auf c54d708 umstellen, dann F7
 
 # STATUS
 

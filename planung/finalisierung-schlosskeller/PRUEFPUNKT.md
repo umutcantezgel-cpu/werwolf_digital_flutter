@@ -1,6 +1,6 @@
 # PRÜFPUNKT · Wiederaufnahme
 
-STAND · Bauphase F6 von F7 · Abnahme 16 von 17 · Brüche offen 0 · Aufträge 157 von 190 · Agenten aktiv 1 · nächster Schritt: F6-SICHT-04 abnehmen, Tor F6 schließen, dann F7 Übergabe auf main
+STAND · Bauphase F6 von F7 · Abnahme 16 von 17 · Brüche offen 0 · Aufträge 158 von 191 · Agenten aktiv 0 · nächster Schritt: E2E-Matrix auf c54d708 auswerten, pruefen.sh alles, ABNAHME auf c54d708 umstellen, dann F7
 
 ## Nach einem Neustart oder in einer neuen Sitzung
 1. `cd /home/user/werwolf_digital_flutter && git checkout finalisierung-schlosskeller` (lokal; falls fehlend: `git fetch origin finalisierung-schlosskeller` bzw. Sicherungsbranch `claude/universal-prompt-orchestrator-trt8uu`).
@@ -73,4 +73,9 @@ STAND · Bauphase F6 von F7 · Abnahme 16 von 17 · Brüche offen 0 · Aufträge
   2. `tool/pruefen.sh alles` (baut `build/web` neu, deshalb erst nach der Matrix), dann `dart test -r json > scratchpad/tests.json` im Kern und `python3 scratchpad/abnahme_f6.py 081e258 scratchpad/tests.json E2E-081e258.md`.
   3. STATUS, PLAN; Tor F6 committen und pushen.
   4. F7: `python3 scratchpad/abschluss.py 081e258 merge`, ABNAHME F-17, Commit; `git checkout main && git merge --ff-only origin/main && git merge --ff-only finalisierung-schlosskeller`; Push, Tag `schlosskeller-1.0` (annotiert), Push des Tags; `git ls-remote` prüfen; Worktrees entfernen.
+
+## Stand 10.10.2026, später Abend (E-041)
+- **Commit `c54d708`** (Code-Endstand, gepusht): Täteransicht ohne Verrat auf einen Blick, Rückblendenfoto im Stromausfall, strengere E2E-Prüfung (E-041). Bericht F6-SICHT-04 abgenommen.
+- **Läuft:** E2E-Matrix auf `c54d708`, Log `scratchpad/e2e_final2.log`.
+- **Danach:** `belege/E2E-c54d708.md`; `tool/pruefen.sh alles`; in ABNAHME `081e258` → `c54d708` und `E2E-081e258.md` → `E2E-c54d708.md`; STATUS (Tor F6 bestanden); Commit, Push; F7 wie oben (Schritt 4).
 
