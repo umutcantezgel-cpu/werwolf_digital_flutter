@@ -1,4 +1,4 @@
-STAND · Bauphase F6 von F7 · Abnahme 15 von 17 · Brüche offen 0 · Aufträge 152 von 188 · Agenten aktiv 3 · nächster Schritt: E2E-Matrix auf f26f2de, Nachprüfung F6-GEGEN-04/05 und F7-DOKU-01 auswerten, dann Tor F-16
+STAND · Bauphase F6 von F7 · Abnahme 15 von 17 · Brüche offen 0 · Aufträge 156 von 190 · Agenten aktiv 0 · nächster Schritt: Abschluss-Matrix auf 081e258 auswerten, F6-SICHT-04, tool/pruefen.sh alles, ABNAHME F-16, dann F7
 
 # STATUS
 
@@ -43,3 +43,4 @@ STAND · Bauphase F6 von F7 · Abnahme 15 von 17 · Brüche offen 0 · Aufträge
 | SENS (Haiku) | 6 (F1 1, F3 5) | 9,4 | 0 | übersieht, dass Unschuldsfassungen nur im fremden Pfad gelten (SENS-01 Nr. 1–3) |
 | BAUMEISTER/TEST (Haiku) | 14 (F4 10) | 9,3 | 0 | Worktree vom falschen Commit (L-03); Spoilerprüfung zu grob (Fünf-Wort-Folgen ohne Pfadmenge) |
 | AUTOR (Haiku, F3) | 40 | 9,3 | 2 Wellen (P-2 bis P-4, Ausgangsregel) | Fehler, die erst über viele Dateien sichtbar werden (Last, Partnername, Bund-Fund) |
+

@@ -1,6 +1,6 @@
 # PRÜFPUNKT · Wiederaufnahme
 
-STAND · Bauphase F6 von F7 · Abnahme 15 von 17 · Brüche offen 0 · Aufträge 152 von 188 · Agenten aktiv 3 · nächster Schritt: E2E-Matrix auf f26f2de, Nachprüfung F6-GEGEN-04/05 und F7-DOKU-01 auswerten, dann Tor F-16
+STAND · Bauphase F6 von F7 · Abnahme 15 von 17 · Brüche offen 0 · Aufträge 156 von 190 · Agenten aktiv 0 · nächster Schritt: Abschluss-Matrix auf 081e258 auswerten, F6-SICHT-04, tool/pruefen.sh alles, ABNAHME F-16, dann F7
 
 ## Nach einem Neustart oder in einer neuen Sitzung
 1. `cd /home/user/werwolf_digital_flutter && git checkout finalisierung-schlosskeller` (lokal; falls fehlend: `git fetch origin finalisierung-schlosskeller` bzw. Sicherungsbranch `claude/universal-prompt-orchestrator-trt8uu`).
@@ -64,4 +64,13 @@ STAND · Bauphase F6 von F7 · Abnahme 15 von 17 · Brüche offen 0 · Aufträge
   - Workflow `f7-doku` (F7-DOKU-01 schreibt `docs/partykrimi/ANLEITUNG.md`), Auftrag aus `scratchpad/f7_auftraege.py`.
   - Verloren nach einem Neustart: Matrix neu starten (`cd tool/e2e && node e2e.mjs --parallel 2`), Workflows über ihre Skripte neu starten.
 - **Danach:** Nachprüfung abnehmen, Restbefunde einarbeiten; `tool/pruefen.sh alles`; ABNAHME F-16 und Neubeleg F-01..F-15; F7: `scratchpad/abschluss.py <commit> merge` erzeugt den Abschlussbericht.
+
+## Stand 10.10.2026, Abend (E-040)
+- **Commit `081e258`** (gepusht, Code-Endstand): Nachprüfung F6-GEGEN-04/05 und Anleitung F7-DOKU-01 abgenommen und eingearbeitet (E-040). 396 Kern- und 129 Widget-Tests grün.
+- **Läuft:** Abschluss-Matrix auf `081e258` (`build/web` aus `wt-build`), Log `scratchpad/e2e_final.log`. Die Matrix auf `f26f2de` wurde nach 36/36 grünen Läufen abgebrochen, weil der Endstand feststand.
+- **Danach, in dieser Reihenfolge:**
+  1. Beleg `belege/E2E-081e258.md` aus `tool/e2e/fotos/e2e/bericht.md`, Fotos zeigen; Workflow `scratchpad/f6-sicht.js` (F6-SICHT-04) starten und abnehmen.
+  2. `tool/pruefen.sh alles` (baut `build/web` neu, deshalb erst nach der Matrix), dann `dart test -r json > scratchpad/tests.json` im Kern und `python3 scratchpad/abnahme_f6.py 081e258 scratchpad/tests.json E2E-081e258.md`.
+  3. STATUS, PLAN; Tor F6 committen und pushen.
+  4. F7: `python3 scratchpad/abschluss.py 081e258 merge`, ABNAHME F-17, Commit; `git checkout main && git merge --ff-only origin/main && git merge --ff-only finalisierung-schlosskeller`; Push, Tag `schlosskeller-1.0` (annotiert), Push des Tags; `git ls-remote` prüfen; Worktrees entfernen.
 
