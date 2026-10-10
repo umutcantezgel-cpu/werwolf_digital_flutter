@@ -57,7 +57,9 @@ const geschuetzt = r'^planung/bollwerk/(MASTER-PROMPT\.md|STARTPAKET\.md|anhang/
 
 List<Schicht> schichten(String modus, bool vorlauf) {
   final faelle = {'schnell': 500, 'phase': 2000, 'nacht': 10000, 'ziel': 10000}[modus]!;
-  final seeds = {'schnell': 200, 'phase': 2000, 'nacht': 10000, 'ziel': 10000}[modus]!;
+  // Bänder (Z-05) und Fairness immer mit 10.000 Partien je Form × Besetzung (E-G2-02: Verschärfung gegenüber 200,
+  // weil der Pech-Anteil seit Kern 1.1 nahe der 35-%-Grenze liegt und 200 Partien im Rauschen kippen).
+  final seeds = {'schnell': 10000, 'phase': 10000, 'nacht': 10000, 'ziel': 10000}[modus]!;
   final l0 = [
     r'for d in . packages/mordakte_core packages/pixel_engine packages/room_host packages/burgstadt_core packages/burgstadt_spiel server tool/ton; do '
         r'if grep -q "sdk: flutter" $d/pubspec.yaml; then (cd $d && flutter pub get --offline >/dev/null); else (cd $d && dart pub get --offline >/dev/null); fi; done',

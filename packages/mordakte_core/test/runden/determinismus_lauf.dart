@@ -24,7 +24,7 @@ List<int> determinismusListe([int n = 1000]) {
       h = Rng.hashString('$h|${jsonEncode(w.toJson())}');
     }
     final rest = [...z.fakten]..sort();
-    h = Rng.hashString('$h|${jsonEncode({'gewaehlt': z.optionsfolge, 'fakten': rest, 'rest': z.rest, 'marken': z.marken})}');
+    h = Rng.hashString('$h|${jsonEncode({'gewaehlt': z.optionsfolge, 'fakten': rest, 'rest': z.rest, 'marken': z.markenEingeloest, 'bestand': z.markenBestand})}');
     aus.add(h);
   }
   return aus;

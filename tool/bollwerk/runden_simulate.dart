@@ -2,8 +2,10 @@
 // Port von planung/bollwerk/proben/wuerfel_sim.py, aber gegen den Würfelkern
 // (packages/mordakte_core/lib/src/runden/) und die echte Kanon-Engine (Ermittlung,
 // Simulator.verlauf) statt eines eigenen Modells. Die Strategie-Zufallszahlen kommen
-// aus einem Nachbau von Pythons random.Random, damit am Seed-Satz des Meta-Laufs
-// dieselben Zahlen entstehen (Modus meta-gleich).
+// aus einem Nachbau von Pythons random.Random (Seed-Satz des Meta-Laufs). Bis Kern 1.0
+// (TOR-SHA 30fadff) war der Modus meta-gleich bitgleich zur Python-Vorlage; ab Kern 1.1
+// (Marke bei jedem Pech, „gründlich“ im Abstecher kostet, eigener Würfelstrom getrennt vom
+// Bot-Strom, E-G2-01) weicht er gewollt ab und dient nur noch dem Vergleich.
 //
 // Aufruf: dart run tool/bollwerk/runden_simulate.dart --modus <m> [--seeds N] [--json <aus>] [--kanon <ordner>]
 //   Modi: meta-gleich (JSON wie wuerfel_sim.py) · erschoepfend (Z-03) · wertung (Z-04) · baender (Z-05) ·
@@ -130,7 +132,8 @@ Partie spiele(Welt w, String pfad, int n, String form, Map<String, String> wahl,
           pt.ersteWuerfe++;
           pt.geraetS += 6;
           final werkzeug = rs.random() < pHelfer;
-          final wu = z.abstecher(a, mitWurf: true, werkzeug: werkzeug, gruendlich: strategie == 'gier', marke: marke())!;
+          final g = strategie == 'gier' && z.abstecherErlaubt(gruendlich: true);
+          final wu = z.abstecher(a, mitWurf: true, werkzeug: werkzeug, gruendlich: g, marke: marke())!;
           nimmWuerfe(runde);
           if (wu.stufe == Stufe.pech) pt.erstePech++;
           if (wu.stufe == Stufe.erfolg) angebot.add('${a}f');
@@ -289,7 +292,8 @@ List<Partie> zufall(Welt w, String form, int n, int k) {
     final s = pySeed(['bollwerk-meta', form, n, pfad, i]);
     final rs = PyRandom(s);
     final wahl = {for (final e in w.ermittlung.entscheidungen) e.id: rs.choice([for (final o in e.optionen) o.id])};
-    out.add(spiele(w, pfad, n, form, wahl, PyStrom(s), 'neutral', rs));
+    // Kern 1.1 (#4): Würfelstrom nach WÜ-1 getrennt vom Bot-Strom `rs`.
+    out.add(spiele(w, pfad, n, form, wahl, SalzWuerfel('meta:$s'), 'neutral', rs));
   }
   return out;
 }
@@ -379,7 +383,7 @@ Map<String, Object> fairness(Welt w, int seeds) {
     final punkte = <int>[];
     for (var i = 0; i < seeds; i++) {
       final s = pySeed(['fair-geiz', pfad, i]);
-      punkte.add(spiele(w, pfad, 8, 'party', geizWahl, PyStrom(s), 'geiz', PyRandom(s)).punkte);
+      punkte.add(spiele(w, pfad, 8, 'party', geizWahl, SalzWuerfel('geiz:$s'), 'geiz', PyRandom(s)).punkte);
     }
     geizPunkte[pfad] = mean(punkte);
   }
