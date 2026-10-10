@@ -116,6 +116,10 @@
       "text": "Jede Rolle gibt genau einen Streifen ab. Gäste reißen ihn von ihrer Karte A oder B ab. Die vier Kernrollen nehmen Streifen A oder B aus ihrer Fassung. Alle falten den Streifen und legen ihn in eine Schüssel."
     },
     {
+      "id": "ui.druck.spielleitung.gruppenwahl_kern",
+      "text": "Jede Rolle gibt genau einen Streifen ab. Die vier Kernrollen nehmen Streifen A oder B aus ihrer Fassung. Alle falten den Streifen und legen ihn in eine Schüssel."
+    },
+    {
       "id": "ui.druck.spielleitung.auszaehlung.summe",
       "text": "Summe"
     },
@@ -329,11 +333,11 @@
     },
     {
       "id": "ui.druck.spielleitung.teile.indiz",
-      "text": "Indizkarten: Schneide jede Karte aus und falte sie an der gestrichelten Mittellinie. Vorn steht dann der Code, hinten der Fund. Leg sie mit dem Code nach oben bereit."
+      "text": "Indizkarten: Schneide jede Karte aus und falte sie an der gestrichelten Mittellinie. Vorn steht dann der Code, hinten der Fund. Leg sie mit dem Code nach oben bereit. Lies dabei nicht, was hinten steht."
     },
     {
       "id": "ui.druck.spielleitung.teile.umschlag",
-      "text": "Hinweis-Umschläge: Falte jedes Blatt an der gestrichelten Linie, sodass vorn der Code steht und hinten der Text. Wer mag, steckt es in einen echten Umschlag und schreibt den Code darauf."
+      "text": "Hinweis-Umschläge: Falte jedes Blatt an der gestrichelten Linie, sodass vorn der Code steht und hinten der Text. Wer mag, steckt es in einen echten Umschlag und schreibt den Code darauf. Lies dabei nicht, was hinten steht."
     },
     {
       "id": "ui.druck.spielleitung.teile.fassung",
@@ -342,6 +346,10 @@
     {
       "id": "ui.druck.spielleitung.teile.stimme",
       "text": "Stimmkarten: Schneide die Karten aus und leg sie zu den Rollenheften mit demselben Namen."
+    },
+    {
+      "id": "ui.druck.spielleitung.teile.stimme_keine",
+      "text": "Stimmkarten: Heute gibt es keine. Die vier Kernrollen stimmen mit den Streifen aus ihrer Fassung ab."
     },
     {
       "id": "ui.druck.spielleitung.teile.aufloesung",

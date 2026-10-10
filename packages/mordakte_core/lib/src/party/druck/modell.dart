@@ -207,6 +207,9 @@ class DruckSatz {
   final FallCode code;
   final int rollen;
   final String detektiv;
+
+  /// Minuten je Runde für das Spielleitungsheft.
+  final int rundendauerMinuten;
   final List<String> besetzt;
   final Spielleitungsheft spielleitung;
   final List<BogenEntscheidung> detektivbogen;
@@ -225,6 +228,7 @@ class DruckSatz {
     required this.code,
     required this.rollen,
     required this.detektiv,
+    required this.rundendauerMinuten,
     required this.besetzt,
     required this.spielleitung,
     required this.detektivbogen,
@@ -242,7 +246,8 @@ class DruckSatz {
   HinweisUmschlag umschlag(String code) => umschlaege.firstWhere((u) => u.code == code);
 
   /// Erzeugt den Satz für [code], [rollen] Personen und Detektiv [detektiv] (m/w).
-  factory DruckSatz.aus(Kanon kanon, Texte texte, FallCode code, {required int rollen, required String detektiv}) {
+  /// [rundendauerMinuten]: Dauer einer Runde, wie in der Einrichtung gewählt; ohne Angabe die Vorgabe aus `fall.json`.
+  factory DruckSatz.aus(Kanon kanon, Texte texte, FallCode code, {required int rollen, required String detektiv, int? rundendauerMinuten}) {
     final spiel = Spiel(kanon)..einrichten(Einstellungen(rollen: rollen, detektiv: detektiv, code: code, druck: true));
     final pfad = spiel.pfad;
     final ermittlung = spiel.ermittlung;
@@ -395,12 +400,13 @@ class DruckSatz {
       code: code,
       rollen: rollen,
       detektiv: detektiv,
+      rundendauerMinuten: rundendauerMinuten ?? (kanon.fall['rundendauerMinuten'] as num).toInt(),
       besetzt: besetzt,
       spielleitung: heft,
       detektivbogen: bogen,
       ermittlungsbogen: Ermittlungsbogen(
         kern,
-        [for (final t in ['alibi', 'nebendelikt', 'spaetankunft', 'zusatzindiz', 'fundort', 'schluesselbeweis']) if (bogenTypen.contains(t)) t],
+        [for (final t in ['alibi', 'nebendelikt', 'spaetankunft', 'motiv', 'zusatzindiz', 'fundort', 'schluesselbeweis']) if (bogenTypen.contains(t)) t],
         ermittlung.regeln,
         // Spielertext der Regel (F-10: wortgleich mit dem Ermittlungsbogen im Kanon).
         {for (final r in ermittlung.regeln) r.id: texte.baustein('ermittlungsbogen.${r.folge}')},

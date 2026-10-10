@@ -22,8 +22,8 @@ DruckStil get druckStil => _stil ??= DruckStil(
     );
 
 /// Kontext für Pfad [pfad], [n] Personen und Detektiv [detektiv].
-DruckKontext druckKontext({String pfad = 'ahmet', int n = 12, String detektiv = 'w'}) =>
-    DruckKontext(kanon, druckTexte, DruckSatz.aus(kanon, druckTexte, FallCode.fuerPfad(pfad, kanon.pfade), rollen: n, detektiv: detektiv), druckStil);
+DruckKontext druckKontext({String pfad = 'ahmet', int n = 12, String detektiv = 'w', int? dauer}) => DruckKontext(
+    kanon, druckTexte, DruckSatz.aus(kanon, druckTexte, FallCode.fuerPfad(pfad, kanon.pfade), rollen: n, detektiv: detektiv, rundendauerMinuten: dauer), druckStil);
 
 /// Seitenzahl, Format und Text einer PDF-Datei.
 typedef PdfBefund = ({int seiten, bool a4, String text, List<String> seitenText});

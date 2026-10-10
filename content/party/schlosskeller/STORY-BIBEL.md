@@ -1607,6 +1607,6 @@ Nur diese Matrix und die Prüfwerkzeuge lesen das Feld `herkunft`; im Spiel ersc
 | h_can_2_wahr | Can | 2 | wahr | Can hat mit einer Leuchtmaske im dunklen Vorratsraum gewartet. | belastet Can (can) |  |
 | h_can_2_neutral | Can | 2 | neutral | Um Viertel vor zwölf war Fatmas Tasche auffällig ausgebeult. | neutral |  |
 | h_can_2_falsch | Can | 2 | falsch | Olli hat um zwanzig vor zwölf die Münzschatulle aus der Vitrine genommen. | belastet Olli (olli) | e2_2_tasche |
-| h_can_3_wahr | Can | 3 | wahr | Beim Scheppern war Ahmet nicht an der Anrichte, sondern drüben im Ost-Saal an seiner Jacke. | entlastet Ahmet (ahmet) |  |
+| h_can_3_wahr | Can | 3 | wahr | Beim Scheppern war Ahmet nicht an der Theke, sondern drüben im Ost-Saal an seiner Jacke. | entlastet Ahmet (ahmet) |  |
 | h_can_3_neutral | Can | 3 | neutral | Um drei vor zwölf war Can nirgends an der Theke zu sehen. | neutral |  |
 | h_can_3_falsch | Can | 3 | falsch | Ahmet hat den Schlüsselbund in seiner Jacke im Ost-Saal versteckt. | belastet Ahmet (ahmet) | e3_1_turmgang |

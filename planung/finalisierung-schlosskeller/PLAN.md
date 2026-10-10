@@ -154,13 +154,14 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 |---|---|---|---|---|---|
 | F6-GEGEN-01..03 | GEGEN | Logik/Abkürzungen · Spoiler (Bildschirm, Druck, Erzähler) · Ton und Klischee am fertigen Spiel | – (Bericht) | F5 | abgenommen 9/10, 9/10, 9/10; Befunde in E-039 |
 | F6-SPIEL-01..02 | SPIEL | vollständige Durchläufe, Lesung wie ein Gast | – (Bericht) | F5 | abgenommen 10/10, 9/10; Befunde in E-039 |
+| F6-GEGEN-04..05 | GEGEN | Nachprüfung von E-039: Logik (eigene Nachrechnung aller Folgen) · Druck (drei Sätze, Auszählung) | – (Bericht) | E-039 | abgenommen 10/10, 9/10; Befunde in E-040 |
 | F6-TEST-01 | TEST | „kein Story-Text außerhalb des Kanons“, Netz- und Konsolenprüfung im E2E | `test/party/story_text_ausserhalb_test.dart`, `tool/e2e/netz.spec.*` | F5 | Story-Text-Test vorgezogen (E-033); Netz und Konsole im E2E-Gerüst |
 | F6-ORCH-01 | ORCH | Fehlerbehebung, Regression Bestand, Tor, Commit, Push | – | alle F6 | offen |
 
 ## F7 – Übergabe (Tor F-17)
 | Kennung | Rolle | Gegenstand | Eigene Dateien | Abhängig | Status |
 |---|---|---|---|---|---|
-| F7-DOKU-01 | DOKU | Anleitung: Einrichtung, Spielablauf, Druck, Fall-Code, Spielleitung, Prüfwerkzeuge | `docs/partykrimi/ANLEITUNG.md` | F6 | offen |
+| F7-DOKU-01 | DOKU | Anleitung: Einrichtung, Spielablauf, Druck, Fall-Code, Spielleitung, Prüfwerkzeuge | `docs/partykrimi/ANLEITUNG.md` | F6 | abgenommen 10/10 (E-040) |
 | F7-ORCH-01 | ORCH | Abschlussbericht mit Beleg je F-Kriterium | `planung/.../ABSCHLUSSBERICHT.md` | F7-DOKU-01 | offen |
 | F7-ORCH-02 | ORCH | origin holen, zusammenführen, alles testen, Secret-Scan, lokales main per `--ff-only` auf origin/main, Merge, Push, Tag; bei Schutzregel PR (Master §3) | – | F7-ORCH-01 | offen |
 

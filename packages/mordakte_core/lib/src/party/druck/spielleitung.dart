@@ -124,7 +124,9 @@ List<pw.Widget> _vorbereitung(DruckKontext k) => [
   ),
   pw.SizedBox(height: 10),
   _unterlabel(k, k.ui('ui.druck.spielleitung.teile')),
-  for (final t in ['indiz', 'umschlag', 'fassung', 'stimme', 'aufloesung']) _absatz(k, k.ui('ui.druck.spielleitung.teile.$t')),
+  // Ohne Gäste gibt es keine Stimmkarten (E-039): Das Heft sagt es dann so.
+  for (final t in ['indiz', 'umschlag', 'fassung', if (k.satz.stimmkarten.isEmpty) 'stimme_keine' else 'stimme', 'aufloesung'])
+    _absatz(k, k.ui('ui.druck.spielleitung.teile.$t')),
 ];
 
 /// Jede Runde und die Anklage beginnen auf einer neuen Seite, damit keine Überschrift am Seitenende hängt.
@@ -152,7 +154,7 @@ List<pw.Widget> _runde(DruckKontext k, Spielleitungsheft heft, int r) => [
     _absatz(
       k,
       k.ui('ui.druck.spielleitung.gespraeche', {
-        'minuten': '${k.kanon.fall['rundendauerMinuten']}',
+        'minuten': '${k.satz.rundendauerMinuten}',
       }),
     ),
   ]),
@@ -160,7 +162,7 @@ List<pw.Widget> _runde(DruckKontext k, Spielleitungsheft heft, int r) => [
     _absatz(k, k.ui('ui.druck.spielleitung.entscheidung')),
   ]),
   ..._block(k, k.ui('ui.druck.spielleitung.schritt.gruppenwahl'), [
-    _absatz(k, k.ui('ui.druck.spielleitung.gruppenwahl')),
+    _absatz(k, k.ui(k.satz.stimmkarten.isEmpty ? 'ui.druck.spielleitung.gruppenwahl_kern' : 'ui.druck.spielleitung.gruppenwahl')),
     _absatz(k, k.ui('ui.druck.spielleitung.wertseite')),
     _codetabelle(k, heft.auszaehlung.firstWhere((a) => a.runde == r)),
     _auszaehlung(k, heft.auszaehlung.firstWhere((a) => a.runde == r)),

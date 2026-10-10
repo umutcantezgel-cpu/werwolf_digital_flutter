@@ -1,6 +1,6 @@
 # Anleitung: Partyabend „Spuk im Schlosskeller“
 
-Stand: Commit f26f2de.
+Stand: Version `schlosskeller-1.0` (Oktober 2026).
 
 Diese Anleitung hat drei Teile:
 
@@ -55,7 +55,7 @@ Die Einrichtung hat diese Abschnitte, von oben nach unten.
    - Passt der Code nicht, steht da: „Zu diesem Code gibt es keinen Fall. Prüfe die fünf Zeichen.“
    - Mit demselben Code spielt ihr denselben Fall. Der Hinweis dazu lautet: „Mit demselben Code lässt sich derselbe Fall wieder spielen.“
 5. **Wie spielt ihr?** „Am Bildschirm“ ist die Vorgabe. Bei „Zum Drucken“ steht: „Die Druckfassung kommt als PDF. Der Bildschirm führt trotzdem durch den Abend.“ Teil 2 erklärt das Druckspiel.
-6. **Wie lange dauert eine Runde?** Zur Wahl stehen 20, 30, 45 und 60 Minuten. Die Vorgabe ist 30 Minuten. Die Uhr auf dem Bildschirm läuft mit dieser Zeit. Der Druck nennt trotzdem 30 Minuten (siehe Teil 2).
+6. **Wie lange dauert eine Runde?** Zur Wahl stehen 20, 30, 45 und 60 Minuten. Die Vorgabe ist 30 Minuten. Die Uhr auf dem Bildschirm läuft mit dieser Zeit, und die Druckfassung aus der App nennt dieselbe Dauer.
 7. **Erzählerstimme.** Der Schalter „Stimme einschalten“ ist anfangs aus. Die Stimme liest nur die festen Texte vor. Die Seite sagt es so: „Die Stimme liest nur die festen Texte vor und lässt sich jederzeit abschalten.“
 
 Tippt danach auf **„Abend starten“**. Der Knopf ist erst aktiv, wenn der Fall-Code passt. Danach lassen sich Personenzahl, Detektiv und Fall nicht mehr ändern.
@@ -168,7 +168,7 @@ Der Satz besteht aus diesen Dateien:
 | Spielleitungsheft | 00-spielleitung.pdf | Spielleitungsheft. Dieses Heft bleibt bei dir. |
 | Detektivbogen | 01-detektivbogen.pdf | Detektivbogen mit Ermittlungsbogen. Gehört dem Geburtstagskind. |
 | Rollenhefte | 10-rollenhefte.pdf | Rollenhefte. Je Person ein Heft mit der eigenen Rolle. |
-| Umschläge der Kernrollen | 11-fassungen.pdf | Fassungen. Vier versiegelte Fassungen, außen steht nur ein Code. |
+| Fassungen der Kernrollen | 11-fassungen.pdf | Fassungen. Vier versiegelte Fassungen, außen steht nur ein Code. |
 | Stimmkarten | 12-stimmkarten.pdf | Stimmkarten. Für jeden Gast je Runde zwei Karten, A und B, mit einem Streifen zum Abreißen. Die vier Kernrollen haben keine Stimmkarten, ihre Streifen stecken in der Fassung. |
 | Indizkarten | 20-indizkarten.pdf | Indizkarten. Verdeckt, nach Code geordnet, bei dir. |
 | Hinweis-Umschläge | 21-umschlaege.pdf | Hinweis-Umschläge. Geschlossen bei dir, je Runde drei Umschläge. |
@@ -178,8 +178,8 @@ Der Satz besteht aus diesen Dateien:
 
 1. **Einseitig drucken.** Druckt alle Dateien einseitig aus. Lest dabei nichts. Das Heft sagt: „Drucke alle Dateien einseitig aus und lies dabei nichts. Sortiere nur nach Nummern, Codes und Rollennamen.“
 2. **Teile vorbereiten.** Das Spielleitungsheft steht unter „So bereitest du die Teile vor“:
-   - **Indizkarten:** „Schneide jede Karte aus und falte sie an der gestrichelten Mittellinie. Vorn steht dann der Code, hinten der Fund. Leg sie mit dem Code nach oben bereit.“
-   - **Hinweis-Umschläge:** „Falte jedes Blatt an der gestrichelten Linie, sodass vorn der Code steht und hinten der Text. Wer mag, steckt es in einen echten Umschlag und schreibt den Code darauf.“
+   - **Indizkarten:** „Schneide jede Karte aus und falte sie an der gestrichelten Mittellinie. Vorn steht dann der Code, hinten der Fund. Leg sie mit dem Code nach oben bereit. Lies dabei nicht, was hinten steht.“
+   - **Hinweis-Umschläge:** „Falte jedes Blatt an der gestrichelten Linie, sodass vorn der Code steht und hinten der Text. Wer mag, steckt es in einen echten Umschlag und schreibt den Code darauf. Lies dabei nicht, was hinten steht.“
    - **Fassungen:** „Jede Fassung hat vier Blätter. Leg sie mit der Schrift nach oben aufeinander, das Blatt mit dem Code obenauf. Knick den Stapel in der Mitte nach hinten, sodass der Code vorn bleibt, und klebe ihn zu, ohne hineinzusehen.“
    - **Stimmkarten:** „Schneide die Karten aus und leg sie zu den Rollenheften mit demselben Namen.“ Auf dem Abreißstreifen unten steht der Code und der Hinweis „Abreißen, falten und in die Schüssel legen.“
    - **Auflösungsheft:** „Leg alle Blätter mit der Schrift nach oben aufeinander, das Deckblatt obenauf. Knick den Stapel in der Mitte nach hinten und klebe ihn zu, ohne hineinzusehen.“
@@ -193,12 +193,13 @@ Das Heft sagt der Spielleitung: „Lies die Texte mit der Marke Vorlesen genau s
 - **Zu Beginn:** Lest die Texte mit der Marke „Vorlesen“ vor.
 - **Rollen und Fassungen:** „Gib jeder Person ihr Rollenheft und, wenn sie welche hat, ihre Stimmkarten.“ Legt dann die vier versiegelten Fassungen aus und nennt ihre Codes. „Wer einen dieser Codes im eigenen Heft findet, nimmt die Fassung und liest sie allein.“
 - **Pro Runde:**
-  1. **Rundenstart.** Lest den Rundenstart vor. Stellt die Uhr auf 30 Minuten. Jede Rolle beginnt die drei Gespräche aus ihrem Heft. Wer angesprochen wird, antwortet aus der eigenen Rolle.
+  1. **Rundenstart.** Lest den Rundenstart vor. Stellt die Uhr auf die Minuten, die das Heft nennt. Jede Rolle beginnt die drei Gespräche aus ihrem Heft. Wer angesprochen wird, antwortet aus der eigenen Rolle.
   2. **Entscheidungen.** Das Geburtstagskind wählt auf dem Detektivbogen. Ihr gebt die Indizkarte mit dem gewählten Code aus.
   3. **Gruppenwahl.** Jede Rolle gibt genau einen Streifen ab. Gäste reißen ihn von ihrer Karte A oder B ab. Die vier Kernrollen nehmen Streifen A oder B aus ihrer Fassung. Alle falten den Streifen und legen ihn in eine Schüssel.
      - „Nimm die Streifen einzeln heraus und such jeden Code in der Tabelle. Zähl die Werte zusammen und sag die Summe nie laut. Danach kommen die Streifen weg.“
      - Die Tabelle hat die Spalten „Code“ und „Wert“.
      - Die Tabelle unter der Gruppenwahl hat die Spalten „Summe“ und „Umschlag“.
+     - Spielen nur die vier Kernrollen, gibt es keine Stimmkarten. Alle stimmen dann mit den Streifen aus ihrer Fassung; das Heft sagt es an dieser Stelle.
   4. **Umschlag.** „Öffne den Umschlag mit dem Code aus der Tabelle und lies ihn vor.“
   5. **Zwischenresümee.** Lest die Gruppe vor. Dann die Restmenge: Die Regeln stehen auf dem Detektivbogen, der Anhang „Anhang: Restmengen“ im Heft hat die Texte. Zuletzt die Lage: „Die Lage steht auf dem Bogen. Lies den Text vor, der dazu passt.“
 - **Nach Runde 3 die Anklage.** „Nach Runde 3 liest du die Anklage vor. Das Geburtstagskind klagt eine der vier Verdächtigen an.“
@@ -211,7 +212,8 @@ Das Heft sagt der Spielleitung: „Lies die Texte mit der Marke Vorlesen genau s
 
 - Die Datei mit den Fassungen enthält vier versiegelte Fassungen. Außen steht nur ein Code: „Versiegelt. Erst öffnen, wenn die Spielleitung diesen Code nennt.“
 - Jede Kernrolle findet ihren Code im eigenen Rollenheft. Wer den Code findet, nimmt die Fassung und liest sie allein.
-- Die Kernrollen haben keine Stimmkarten. Ihr Streifen steckt in der Fassung. Auf der Fassung steht: „Du hast keine Stimmkarten. In jeder Runde gibst du genau einen Streifen von dieser Seite ab.“
+- Die Kernrollen haben keine Stimmkarten. Ihre Streifen A und B stecken in der Fassung. Auf der Fassung steht: „Du hast keine Stimmkarten. In jeder Runde gibst du genau einen Streifen von dieser Seite ab.“ Unter jedem Streifen steht: „Nur wenn gewählt: abreißen, in die Schüssel.“
+- Im Rollenheft steht: „Deine Fassung trägt den Code … Öffne sie erst, wenn die Spielleitung diesen Code nennt.“
 - Die Fassungen faltet ihr nach dem Heft, ohne hineinzusehen.
 
 ### Das versiegelte Auflösungsheft
@@ -223,7 +225,7 @@ Das Heft sagt der Spielleitung: „Lies die Texte mit der Marke Vorlesen genau s
 ### Bekannte Grenzen
 
 - **Ausschneiden.** Wer beim Ausschneiden die Rückseiten liest, kann Funde und Fassungen lesen. Druckt einseitig, sortiert nur nach Codes und lasst jemanden ausschneiden, der nicht das Geburtstagskind ist.
-- **Dauer.** Das Spielleitungsheft nennt 30 Minuten je Runde. Eine andere Dauer aus der Einrichtung gilt nur am Bildschirm. Stellt die Uhr dann selbst.
+- **Dauer.** Das Spielleitungsheft nennt die Rundendauer, die bei der Einrichtung gewählt war. Per Befehl gilt die Vorgabe von 30 Minuten, außer ihr gebt `--dauer` an.
 - **Rückblende.** Den Zeitraffer im Finale gibt es nur am Bildschirm. Im Druck steht die Rückblende als Text im Auflösungsheft.
 - **Die Summe.** Die Spielleitung sagt die Summe nie laut.
 
@@ -275,14 +277,14 @@ Die Befehle laufen im Ordner `packages/mordakte_core`, nach `source .werkzeug/en
 
 | Befehl | Was er prüft oder tut | Ausgabe bei sauberem Stand |
 | --- | --- | --- |
-| `dart test` | Alle Kern-Tests: Kanon-Schema, Texte, Plausibilität, Simulator, Druck, Besetzung von 4 bis 20 Personen, Spoilerschutz, Farbabstand. | „All tests passed!“ (389 Tests, rund 2 Minuten) |
+| `dart test` | Alle Kern-Tests: Kanon-Schema, Texte, Plausibilität, Simulator, Druck, Besetzung von 4 bis 20 Personen, Spoilerschutz, Farbabstand. | „All tests passed!“ (396 Tests, rund 2 Minuten) |
 | `dart test test/party/texte_test.dart` | Nur die Textprüfung: Verweise und Regeln. | „All tests passed!“ (11 Tests) |
 | `dart run bin/party_texte.dart` | Textprüfer. Prüft Wortgleichheit des Erzählers, Inhaltsregeln, Lesbarkeit und Fachwörter. | „Texte: OK (1601 Texte)“ |
 | `dart run bin/party_pruefen.dart` | Plausibilitätsprüfer für alle Pfade: Tatmatrix, Wege, Wahrnehmung. Optionen: `--matrix <pfad>` gibt die Matrix als Markdown aus, `--wissen` zeigt, wer was weiß. | „Plausibilität: OK (4 Pfade, 22 Personen)“ |
 | `dart run bin/party_simulate.dart` | Fall-Simulator: Bericht über alle Pfade, Entscheidungen und Anklagen. Mit `--pruefen` nur die Prüfung, Exitcode 1 bei Verstoß. | „Simulator: OK (329 ms)“ |
 | `dart run bin/party_bibel.dart` | Schreibt `content/party/schlosskeller/STORY-BIBEL.md`. Mit `--pruefen` nur der Vergleich, es wird nichts geschrieben. | „Story-Bibel ist aktuell“ |
 | `dart run bin/party_prompts.dart` | Schreibt `content/party/schlosskeller/bildprompts.json`. Mit `--pruefen` nur der Vergleich. | „Bildprompts: aktuell (42 Prompts)“ |
-| `dart run bin/party_druck.dart --code XXXXX --n 7 --detektiv w --aus <Ordner>` | Erzeugt den PDF-Satz mit acht Dateien. Ohne `--aus` landet er in `build/druck/<Code>-n<Zahl>`. Die Vorgaben sind `--n 12` und `--detektiv w`. `--pfad` (ahmet, fatma, olli, can) ist nur für Testläufe gedacht. | Acht Dateien, dann „Druckspiel <Code> für 7 Rollen und das Geburtstagskind in <Ordner>“ |
+| `dart run bin/party_druck.dart --code XXXXX --n 7 --detektiv w --dauer 30 --aus <Ordner>` | Erzeugt den PDF-Satz mit acht Dateien. Ohne `--aus` landet er in `build/druck/<Code>-n<Zahl>`. Die Vorgaben sind `--n 12`, `--detektiv w` und die Rundendauer aus `fall.json` (30 Minuten). `--pfad` (ahmet, fatma, olli, can) ist nur für Testläufe gedacht. | Acht Dateien, dann „Druckspiel <Code> für 7 Rollen und das Geburtstagskind in <Ordner>“ |
 | `flutter test test/party_widgets` (im Repo-Wurzelordner) | Widget-Tests der Bildschirme. | „All tests passed!“ (129 Tests, rund 55 Sekunden) |
 | `tool/pruefen.sh schnell`, `alles` oder `e2e` | Gesamtprüfung. `schnell`: Pakete, Analyse, Kern-Tests. `alles` zusätzlich: Szenario-Validator, alle Partymodus-Prüfungen, Server-Smoke, Flutter-Tests und Web-Build ohne CDN. `e2e` zusätzlich die E2E-Läufe. Am Ende läuft immer der Secret-Scan. | „Alle Prüfungen bestanden (<Stufe>).“ |
 | `npm test` im Ordner `tool/e2e` (ruft `node e2e.mjs` auf) | Spielt den Abend im Browser vom Titel bis zum Ende durch. Braucht den Web-Build in `build/web` und Chromium. Optionen: `--nur pfad=ahmet,n=4`, `--parallel 1` und `--negativtest`. | Berichte in `tool/e2e/fotos/` (ignoriert durch Git) |

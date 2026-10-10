@@ -14,7 +14,7 @@
           "text": "Du bleibst erst am Eiskübel stehen. Dann gehst du vor der Theke entlang und durch die Theken-Klappe zum Kerzenlicht. Du willst mit Herrn Schneider reden. Zwei vor zwölf packt Herr Schneider dich am Ärmel und zischt: „Zweitausend. Sonst Polizei.“"
         },
         {
-          "text": "In Panik greifst du den Kerzenständer am Fuß und schlägst einmal zu. Dann ist da nur ein dumpfer Schlag und Poltern. Holzsplitter und weißer Kalk von deinem Ärmel bleiben im noch weichen Wachs am Fuß kleben. Rote Kerzenwachstropfen fallen auf den rechten Arbeitshandschuh, der aus deiner Westentasche hängt."
+          "text": "In Panik greifst du den Kerzenständer am Fuß. Dann ist da nur ein dumpfer Schlag und Poltern. Holzsplitter und weißer Kalk von deinem Ärmel bleiben im noch weichen Wachs am Fuß kleben. Rote Kerzenwachstropfen fallen auf den rechten Arbeitshandschuh, der aus deiner Westentasche hängt."
         },
         {
           "ref": "spur:spur_fuss_splitter"
@@ -40,7 +40,7 @@
           "ref": "nebendelikt:nd_tuerschaden"
         },
         {
-          "text": "Kommt es heraus, weiß die ganze Runde, dass du vor der Vorratstür warst und zugeschlagen hast."
+          "text": "Kommt es heraus, weiß die ganze Runde, dass du vor der Vorratstür warst und was dort passiert ist."
         }
       ],
       "ziel": "Du willst unentdeckt bleiben, ohne einen Unschuldigen ins Unglück zu stürzen. Den Türschaden willst du selbst mit Herrn Schneider klären, ohne die Gruppe hineinzuziehen."

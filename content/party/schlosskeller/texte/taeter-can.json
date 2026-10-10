@@ -14,7 +14,7 @@
           "ref": "spur:spur_fasern_kapuze"
         },
         {
-          "text": "Herr Schneider zischt leise: „Jetzt kommt die Polizei.“ Im Dunkeln greifst du in Panik mit der Hand voller Leuchtfarbe nach dem Kerzenständer von der Anrichte. Du schlägst einmal zu. Es gibt einen dumpfen Schlag und Poltern. Herr Schneider stürzt in den Vorratsraum."
+          "text": "Herr Schneider zischt leise: „Jetzt kommt die Polizei.“ Im Dunkeln greifst du in Panik mit der Hand voller Leuchtfarbe nach dem Kerzenständer von der Anrichte. Dann ist da nur ein dumpfer Schlag und Poltern. Herr Schneider stürzt in den Vorratsraum."
         },
         {
           "ref": "spur:spur_griff_leuchtfarbe"
@@ -43,7 +43,7 @@
           "ref": "nebendelikt:nd_streich"
         },
         {
-          "text": "Kommt es heraus, weiß die ganze Runde, dass du vor der Vorratstür zugeschlagen hast."
+          "text": "Kommt es heraus, weiß die ganze Runde, was vor der Vorratstür passiert ist."
         }
       ],
       "ziel": "Der Streich soll nicht herauskommen. Du willst unentdeckt bleiben, ohne einen Unschuldigen ins Unglück zu stürzen."

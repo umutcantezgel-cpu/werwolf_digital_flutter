@@ -53,7 +53,7 @@
     },
     {
       "id": "ui.druck.rollen.umschlag",
-      "text": "Dein Umschlag trägt den Code {code}. Öffne ihn erst, wenn die Spielleitung diesen Code nennt."
+      "text": "Deine Fassung trägt den Code {code}. Öffne sie erst, wenn die Spielleitung diesen Code nennt."
     },
     {
       "id": "ui.druck.rollen.weiss",
@@ -110,6 +110,10 @@
     {
       "id": "ui.druck.stimme.falz",
       "text": "Abreißen, falten und in die Schüssel legen."
+    },
+    {
+      "id": "ui.druck.stimme.falz_fassung",
+      "text": "Nur wenn gewählt: abreißen, in die Schüssel."
     },
     {
       "id": "ui.druck.fassung.taeter",

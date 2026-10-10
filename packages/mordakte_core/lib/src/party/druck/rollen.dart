@@ -367,7 +367,7 @@ pw.Widget _streifenReihe(DruckKontext k, String wahl, Map<int, String> streifen)
                 pw.SizedBox(height: 2),
                 pw.Text(k.ui('ui.druck.stimme.wert', {'code': streifen[r]!}), style: k.stil.ueberschrift(14)),
                 pw.SizedBox(height: 2),
-                pw.Text(k.ui('ui.druck.stimme.falz'), style: k.stil.klein(), textAlign: pw.TextAlign.center),
+                pw.Text(k.ui('ui.druck.stimme.falz_fassung'), style: k.stil.klein(), textAlign: pw.TextAlign.center),
               ],
             ),
           ),

@@ -158,7 +158,7 @@ void main() {
       if (fassung.isEmpty) {
         expect(heft, contains('Was ich weiß'), reason: rolle);
       } else {
-        expect(heft, contains('Dein Umschlag trägt den Code ${fassung.single.code}'), reason: rolle);
+        expect(heft, contains('Deine Fassung trägt den Code ${fassung.single.code}'), reason: rolle);
         expect(heft, isNot(contains('Was ich weiß')), reason: rolle);
         expect(heft, isNot(contains('Meine Rundenwahl')), reason: rolle);
       }

@@ -1130,7 +1130,7 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
     - Keine Folge lässt vor Runde 3 nur eine Person übrig.
     - Allein übrig bleibt die Täterperson nur mit Schlüsselbeweis und Fundort.
     - Nach Runde 1 bei bestem Spiel gibt es in jedem Pfad genau eine Spätankunft und zwei Alibis.
-    - Keine falsche Option schließt mehr aus als die richtige, ohne Ausnahme.
+    - Keine falsche Option schließt im Verlauf des besten Spiels mehr aus als die richtige, ohne Ausnahme (Wortlaut in E-040 präzisiert).
     - `abkuerzung_test` mit Rot-Probe auf dem alten Kanon.
   - **Umkehrprobe:**
     - Falsch wäre (b), wenn Ahmets Gang im Pfad Can einen Zeugen hätte. Der Prüfer zeigt, dass niemand außer Damir ihn wahrnimmt.
@@ -1179,3 +1179,41 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Plausibilität, Simulator, Story-Bibel und Bildprompts OK.
   - Druckproben der Fassungsseiten dem Nutzer gezeigt.
 - **Regelkreis Lernen (L-06):** Gegenprüfer lesen gern `git log`, obwohl der Auftrag nur `git status` erlaubt. Die Auftragsvorlage nennt jetzt ausdrücklich: „Zum Stand reicht `git status`; den Commit nennt der Auftrag.“
+
+## E-040 · Nachprüfung von E-039 (F6-GEGEN-04, F6-GEGEN-05) und Anleitung (F7-DOKU-01)
+- **Abnahmen:**
+  - `F6-GEGEN-04` (Logik): FREIGEGEBEN · 10/10. Eigene Nachrechnung aller 768 Folgen je Pfad bestätigt E-039 für GEGEN-01 Nr. 1, 2, 3, 6 und 7. Gefunden hat sie eine zu weite Aussage in E-039 und die Frage nach dem wahren Hinweis in Runde 3. Kein `git log` (L-06 wirkt).
+  - `F6-GEGEN-05` (Druck): FREIGEGEBEN · 9/10. Codes, Summen, Umschläge und Enden stimmen in drei Sätzen; sechs Befunde berechtigt. Ein Befund beruht auf einem Grammatikirrtum.
+  - `F7-DOKU-01` (Anleitung): FREIGEGEBEN · 10/10. 168 Zitate geprüft, Befehle ausgeführt, keine Spoiler. Vier offene Fragen sauber gemeldet.
+- **Denkprotokoll zum wahren Hinweis in Runde 3 (GEGEN-04 Nr. 2, Gegenprobe: schwer):**
+  - **Befund:** Bleiben nach Runde 3 zwei Personen ohne Überführung, entlastet der wahre Hinweis die zweite. Wer ihm glaubt, klagt richtig an. Das gilt für 14 Folgen je Pfad mit mindestens sieben Punkten.
+  - **Gegenprüfung:**
+    - Der falsche Hinweis derselben Runde beschuldigt in allen vier Pfaden genau diese zweite Person: „X hat den Schlüsselbund … versteckt“. Der neutrale nennt sie nicht.
+    - Die Qualität bleibt verborgen (G-1). Wer dem Satz folgt, wettet also darauf, dass die Gruppe zusammengehalten hat.
+    - Genau das ist der Lohn der Zusammenarbeit (Master 7.8): Ein wahrer Hinweis soll helfen. W-1 verlangt nur, dass er die Restmenge nicht ändert, und das hält.
+    - Im Beispiel liegt außerdem der Bund schon in der Jacke der Täterperson (Fundort aus `e3_1`).
+    - Das Ende hängt nach B-12 an Punkten und Anklage, nicht an der Restmenge. Meister ohne Schlüsselbeweis erzählt das Finale seit E-039 ehrlich: Der Beweis kommt erst nach dem Geständnis.
+  - **Entscheidung: V.** Keine Abkürzung, sondern die gewollte Wirkung der Gruppenwahl. FALL #2 aus E-025 gilt weiter.
+- **Befunde und Entscheidungen:**
+
+| Befund | Entscheidung | Folge |
+|---|---|---|
+| GEGEN-04 Nr. 1: Nach falschem `e2_1` schließt `e3_3_aylin` Ahmet aus, `e3_3_zeynep` niemanden (Pfade Fatma, Olli, je 80 Vorgeschichten) | V, Wortlaut berichtigt | Aylins Beleg ist ein zweiter Weg zu Ahmets Nebendelikt, wenn der Ascheneimer verpasst wurde. Er kostet den Punkt und führt nicht zum Täter (es bleiben immer zwei). E-039 meinte „im Verlauf des besten Spiels“; so prüft es der Simulator. |
+| GEGEN-04 Nr. 2 | V | Siehe Denkprotokoll. |
+| GEGEN-04 Nr. 3: `h_can_3_wahr` nennt die Anrichte | Ü | „Beim Scheppern war Ahmet nicht an der Theke, sondern drüben im Ost-Saal an seiner Jacke.“ |
+| GEGEN-05 Nr. 1: Täterfassungen „Du schlägst einmal zu.“ (TON §1) | Ü | Die vier `taeter-*.json` sagen nur noch „Dann ist da nur ein dumpfer Schlag und Poltern.“, auch im Satz „Kommt es heraus …“. `tonregeln_test`: kein Schlagverb in einem Spielertext, mit Rot-Probe. |
+| GEGEN-05 Nr. 2: Zeile „Motiv“ fehlt im gedruckten Ermittlungsbogen | Ü | Zeilenliste ergänzt. Test: Der Bogen hat für jede Art eine Zeile, die eine Indizkarte ankreuzen lässt. E-039 hatte das zu früh als erledigt geführt. |
+| GEGEN-05 Nr. 3: Rollenheft „Dein Umschlag“ | Ü | „Deine Fassung trägt den Code … Öffne sie erst …“. Der Knopf in der App heißt „Fassungen der Kernrollen“. |
+| GEGEN-05 Nr. 4: „Abreißen … in die Schüssel“ unter beiden Streifen | Ü | Die Fassungsstreifen sagen „Nur wenn gewählt: abreißen, in die Schüssel.“ Der erste, längere Wortlaut passte nicht in die Zelle und fiel im PDF weg; ein neuer Test fing das ab. |
+| GEGEN-05 Nr. 5: Stapeln mit Schrift nach oben | V | Gegenprobe: Obenauf liegt das Codeblatt, die Innenseite liegt darunter und wird nach innen gefaltet. FÜR DEN NUTZER verweist auf das Heft. |
+| GEGEN-05 Nr. 6: „ohne hineinzusehen“ fehlt bei Karten und Umschlägen | Ü | „Lies dabei nicht, was hinten steht.“ |
+| GEGEN-05 Nr. 7: „Herrn Schneiders Kollegin“ | V | Richtig gebeugt (vorangestellter Genitiv mit „Herr“: „Herrn Meiers Haus“). |
+| GEGEN-05 Nr. 8: Vier-Rollen-Heft spricht von Gästekarten | Ü | Ohne Stimmkarten nennt das Heft `teile.stimme_keine` und `gruppenwahl_kern` (Test). |
+| GEGEN-05 Nr. 9: Meister-Ende setzt gesammelte Spuren voraus | T | Fatma: „Du hast die Spuren gut zusammengetragen.“ statt „alle“. Mit mindestens sieben Punkten sind Spuren gesammelt; der Satz bei Ahmet bleibt. |
+| DOKU-01, Frage 1: Druck nennt immer 30 Minuten | Ü | `DruckSatz.aus(…, rundendauerMinuten:)`; die App gibt die gewählte Dauer weiter, `party_druck --dauer`. Test. |
+| DOKU-01, Frage 2: Falten in FÜR DEN NUTZER gegen Heft | Ü | FÜR DEN NUTZER verweist auf das Heft. |
+| DOKU-01, Frage 3: Lacher-Namen im Master | V | Der Master ist der Auftrag und bleibt unverändert. Die Kennungen `selin` und `meryem` tragen seit E-007 die Namen Sibel und Hana; den dritten Lacher hat TON §8 Olli gegeben. |
+| DOKU-01, Frage 4: Fotos älter als E-039 | Ü | Neue E2E-Matrix auf dem Endstand. |
+
+- **Belege:** 396 Kern-Tests (neu: `druck_nachpruefung_test`, `tonregeln_test`), Analyse ohne Befund, Texte 0 Befunde (1604), Plausibilität, Simulator, Story-Bibel und Bildprompts OK.
+

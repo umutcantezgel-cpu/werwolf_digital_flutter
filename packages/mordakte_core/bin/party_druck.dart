@@ -1,6 +1,6 @@
 // Druckspiel des Partymodus als PDF-Satz (F5, Master 7.14).
 // Aufruf (im Paketordner):
-//   dart run bin/party_druck.dart [--code XXXXX | --pfad <ahmet|fatma|olli|can>] [--n 12] [--detektiv w] [--aus ordner]
+//   dart run bin/party_druck.dart [--code XXXXX | --pfad <ahmet|fatma|olli|can>] [--n 12] [--detektiv w] [--dauer 30] [--aus ordner]
 // Ohne Code und Pfad entsteht ein Zufallsfall. Der Pfad ist nur für Testläufe
 // der Spielleitung gedacht; im Ordnernamen steht nur der Code.
 import 'dart:convert';
@@ -40,7 +40,8 @@ Future<void> main(List<String> args) async {
     fett: File('$wurzel/assets/fonts/Inter-Bold.ttf').readAsBytesSync(),
     schreibmaschine: File('$wurzel/assets/fonts/SpecialElite-Regular.ttf').readAsBytesSync(),
   );
-  final satz = DruckSatz.aus(kanon, texte, code, rollen: n, detektiv: detektiv);
+  final dauer = wert('dauer');
+  final satz = DruckSatz.aus(kanon, texte, code, rollen: n, detektiv: detektiv, rundendauerMinuten: dauer == null ? null : int.parse(dauer));
   final dateien = await druckDateien(DruckKontext(kanon, texte, satz, stil));
   for (final f in dateien) {
     File('${aus.path}/${f.name}').writeAsBytesSync(f.bytes);

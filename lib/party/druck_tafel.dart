@@ -36,7 +36,7 @@ class _DruckTafelState extends State<DruckTafel> {
       schreibmaschine: await schrift('SpecialElite-Regular.ttf'),
     );
     final e = s.einstellungen;
-    final satz = DruckSatz.aus(s.kanon, s.daten.texte, s.fallCode, rollen: e.rollen, detektiv: e.detektiv);
+    final satz = DruckSatz.aus(s.kanon, s.daten.texte, s.fallCode, rollen: e.rollen, detektiv: e.detektiv, rundendauerMinuten: e.rundendauerMinuten);
     final dateien = await druckDateien(DruckKontext(s.kanon, s.daten.texte, satz, stil));
     if (!mounted) return;
     setState(() {
