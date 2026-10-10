@@ -89,6 +89,52 @@ void main() {
     expect(WuerfelRegel.modifikator(werkzeug: true, gruendlich: true, marke: true), 2);
   });
 
+  test('Gleiche Chance für alle Optionen einer Entscheidung, am echten Zugstand (K-06, C3; $faelle Fälle)', () {
+    for (var i = 0; i < faelle; i++) {
+      final r = Rng(Rng.hashString('L2:option:$i'));
+      final pfad = kanon.pfade[r.nextInt(4)];
+      final wahl = zufallsWahl(erm, r);
+      final werkzeug = r.chance(0.5), marke = r.chance(0.5), gruendlich = r.chance(0.3);
+      for (final e in erm.entscheidungen.where(istSuche)) {
+        final vorschauen = <String>{};
+        for (final o in e.optionen) {
+          // gleicher Zugstand bis zu e, dann jede Option einzeln
+          final z = Zugschicht(erm, SalzWuerfel('opt$i'))..setzePfad(pfad);
+          var fertig = false;
+          for (final runde in [1, 2, 3]) {
+            z.beginneRunde(runde);
+            if (runde == 1) z.auftakt();
+            while (z.offen.isNotEmpty) {
+              final id = z.offen.first;
+              if (id == e.id) {
+                expect(z.waehle(o.id, gruendlich: gruendlich), isTrue);
+                final v = z.vorschau(werkzeug: werkzeug, marke: marke);
+                vorschauen.add('${v.mod}|${v.garantie}|${v.prozent}');
+                fertig = true;
+                break;
+              }
+              if (z.waehle(wahl[id]!)) {
+                while (z.untersuchungOffen) {
+                  z.anlauf();
+                  if (z.wartetAufTischruf) z.tischruf(Tischruf.nochmal);
+                }
+              }
+            }
+            if (fertig) break;
+            z.beendeRunde();
+          }
+        }
+        expect(vorschauen, hasLength(1), reason: 'Seed L2:option:$i ${e.id}');
+      }
+    }
+  });
+
+  test('Ohne Pfad gibt es keinen stillen leeren Faktenstand', () {
+    final z = Zugschicht(erm, const FesterWuerfel.neutral());
+    z.beginneRunde(1);
+    expect(() => z.waehle(erm.entscheidungen.first.optionen.first.id), throwsStateError);
+  });
+
   test('Budget-Ungleichung und Suchen-Regel (K-05, K-11)', () {
     const p = ZugParameter();
     expect(p.schlechtesterPflichtzug, 14);

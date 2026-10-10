@@ -22,7 +22,8 @@ class SkriptWuerfel implements WuerfelQuelle {
 void main() {
   final erm = Ermittlung(kanon);
   final suchen = [for (final e in erm.entscheidungen) if (istSuche(e)) e];
-  const folgen = ['E', 'T', 'PE', 'PT', 'PPE', 'PPT', 'PPP', 'PPPE'];
+  // PPP: der dritte Anlauf hat Garantie und endet mindestens als Teilerfolg (PPPE wäre gleich PPP, Befund F-6).
+  const folgen = ['E', 'T', 'PE', 'PT', 'PPE', 'PPT', 'PPP'];
 
   test('C8 1a: jede Ausgangsfolge × Tischruf × gründlich deckt auf, kostet ≤ 14 min, Fakten wie im Kanon', () {
     var faelle = 0;
@@ -56,6 +57,12 @@ void main() {
               }
               expect(z.aufgedeckt, hasLength(9));
               expect(z.maxPechFolge, lessThanOrEqualTo(2), reason: folge);
+              final amZiel = [for (final w in z.wuerfe) if (w.id == e.id) w];
+              expect(amZiel.length, lessThanOrEqualTo(3), reason: folge);
+              if (folge == 'PPP') {
+                expect(amZiel.last.garantie, isTrue);
+                expect(amZiel.last.stufe, Stufe.teilerfolg);
+              }
               faelle++;
             }
           }

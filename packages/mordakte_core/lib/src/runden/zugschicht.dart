@@ -298,8 +298,9 @@ class Zugschicht {
 
   void _decke(String id) {
     aufgedeckt.add(id);
-    final pf = _pfad;
-    if (pf != null) fakten.addAll(ermittlung.faktenVon(gewaehlt[id]!, pf));
+    // Befund F-6: ohne Pfad gäbe es still einen leeren Faktenstand – das ist ein Bedienfehler.
+    final pf = _pfad ?? (throw StateError('setzePfad fehlt: ohne Pfad kein Faktenstand'));
+    fakten.addAll(ermittlung.faktenVon(gewaehlt[id]!, pf));
   }
 
   void beendeRunde() {

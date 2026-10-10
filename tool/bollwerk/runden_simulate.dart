@@ -48,6 +48,13 @@ class Partie {
   final Set<int> wurfRunde = {};
   late Zugschicht z;
   int punkte = 0;
+
+  /// Angezeigte Erfolgschance (Vorschau der Zugschicht, WÜ-2) je Entscheidung und ob die gewählte Option
+  /// im Pfad richtig ist (Z-06 ρ, Befund F-6: am echten Zugstand statt fest `mod 0`). Befragungen: 1,0.
+  final List<(double, bool)> chanceRichtig = [];
+
+  /// Unabhängige Kettenprüfung (K-13): Vorgänger beim Öffnen nicht aufgedeckt.
+  int ketteUnabhaengig = 0;
   int get pechSzenen => z.pechSzenen;
   int get erfolgeZusatz => z.erfolgeMitZusatz;
   int get maxPechFolge => z.maxPechFolge;
@@ -149,8 +156,13 @@ Partie spiele(Welt w, String pfad, int n, String form, Map<String, String> wahl,
       final gruendlich = strategie == 'gier' || rs.random() < pGruendlich;
       pt.zuege++;
       pt.geraetS += 30;
+      for (final v in kettensperre[eid] ?? const <String>[]) {
+        if (!z.aufgedeckt.contains(v)) pt.ketteUnabhaengig++;
+      }
+      final richtig = w.ermittlung.entscheidung(eid).richtig[pfad] == opt;
       final suche = z.waehle(opt, gruendlich: gruendlich);
       if (!suche) {
+        pt.chanceRichtig.add((1.0, richtig));
         if (besetzt(ziel)) pt.befragungBesetzt++;
         pt.szenen.add('$opt:B');
         continue;
@@ -161,7 +173,9 @@ Partie spiele(Welt w, String pfad, int n, String form, Map<String, String> wahl,
         pt.geraetS += 6;
         if (anlauf == 1) pt.ersteWuerfe++;
         final werkzeug = rs.random() < pHelfer;
-        final wu = z.anlauf(werkzeug: werkzeug, marke: marke());
+        final mk = marke();
+        if (anlauf == 1) pt.chanceRichtig.add((z.vorschau(werkzeug: werkzeug, marke: mk).prozent[Stufe.erfolg]! / 100, richtig));
+        final wu = z.anlauf(werkzeug: werkzeug, marke: mk);
         nimmWuerfe(runde);
         if (anlauf == 1 && wu.stufe == Stufe.pech) pt.erstePech++;
         pt.szenen.add('$opt:$anlauf${wu.stufe.kurz}');
@@ -214,6 +228,11 @@ double pyRound(double x, int n) {
   return double.parse((r / f).toStringAsFixed(n));
 }
 
+/// Salz-Ströme je Folge × Pfad im Modus erschöpfend (C8 Nr. 2: „100 Ströme + immer Pech + immer Erfolg“).
+int salzStroeme = 100;
+
+bool _mengeGleich(Set<String> a, Set<String> b) => a.length == b.length && a.containsAll(b);
+
 Map<String, Object> erschoepfend(Welt w) {
   var sack = 0, kette = 0, budget = 0, wertAbw = 0, standAbw = 0, bestLuecke = 0, laeufe = 0;
   final folgen = alleFolgen(w).toList();
@@ -244,6 +263,8 @@ Map<String, Object> erschoepfend(Welt w) {
             budget += lg.z.budgetUeber;
             if (_wertungsSchluessel(w, lg.z.wertung(w.sim, pfad), pfad) != neutralWertung) wertAbw++;
             if (lg.z.standBeimOeffnen.length != 9 || !_standGleich(lg.z.standBeimOeffnen, neutralStand)) standAbw++;
+            kette += lg.ketteUnabhaengig;
+            if (!_mengeGleich(lg.z.fakten, ohne.fakten)) wertAbw++;
             if (best) {
               for (final e in lg.z.standBeimOeffnen.entries) {
                 final b = w.ermittlung.entscheidung(e.key).begruendungFuer(pfad);
@@ -257,8 +278,28 @@ Map<String, Object> erschoepfend(Welt w) {
       }
     }
   }
+  // C8 Nr. 2 (Befund F-6): zusätzlich 100 Salz-Ströme je Folge × Pfad, Strategie neutral, Besetzung 8
+  // (die Besetzung wirkt nicht auf die Zugschicht, nur auf die Zählung besetzter Befragungen).
+  var salzLaeufe = 0;
+  for (final pfad in pfadeMeta) {
+    for (var fi = 0; fi < folgen.length; fi++) {
+      final wahl = folgen[fi];
+      final ohne = w.sim.verlauf(pfad, [for (final e in w.ermittlung.entscheidungen) wahl[e.id]!]);
+      final neutralWertung = _wertungsSchluessel(w, ohne, pfad);
+      for (var k = 0; k < salzStroeme; k++) {
+        final lg = spiele(w, pfad, 8, 'party', wahl, SalzWuerfel('c82:$k'), 'neutral', PyRandom(pySeed(['c82', pfad, fi, k])));
+        salzLaeufe++;
+        if (lg.sackgasse) sack++;
+        kette += lg.z.kettenverletzungen + lg.ketteUnabhaengig;
+        budget += lg.z.budgetUeber;
+        if (_wertungsSchluessel(w, lg.z.wertung(w.sim, pfad), pfad) != neutralWertung) wertAbw++;
+        if (!_mengeGleich(lg.z.fakten, ohne.fakten)) wertAbw++;
+      }
+    }
+  }
   return {
     'laeufe': laeufe,
+    'laeufe_salz': salzLaeufe,
     'sackgassen': sack,
     'kettenverletzungen': kette,
     'budget_ueber': budget,
@@ -357,14 +398,16 @@ Map<String, Object?> baender(Welt w, int seeds) => {
 /// Z-06 Fairness: ρ(Chance, richtig) über alle Optionen; Geiz-Bot (billigste Option, bei Gleichstand
 /// die erste im Kanon, keine Abstecher); Pfadgleichheit des Würfelprotokolls; Gruppenwahl ohne Einfluss.
 Map<String, Object> fairness(Welt w, int seeds) {
-  // ρ: angezeigte Erfolgschance je Option (Modifikator 0, wie vor dem Wurf) gegen „richtig“ je Pfad
+  // ρ (Befund F-6): angezeigte Erfolgschance aus der Vorschau der Zugschicht beim ersten Anlauf, am echten
+  // Zugstand (Werkzeug, Marke, „gründlich“), gegen „gewählte Option richtig“; Zufallspartien je Form × Besetzung.
   final xs = <double>[], ys = <double>[];
-  for (final e in w.ermittlung.entscheidungen) {
-    final chance = istSuche(e) ? WuerfelRegel.chancen36(0)[Stufe.erfolg]! / 36 : 1.0;
-    for (final o in e.optionen) {
-      for (final pfad in pfadeMeta) {
-        xs.add(chance);
-        ys.add(e.richtig[pfad] == o.id ? 1 : 0);
+  for (final form in ['party', 'solo']) {
+    for (final n in [4, 12, 20]) {
+      for (final p in zufall(w, form, n, seeds ~/ 10)) {
+        for (final (c, r) in p.chanceRichtig) {
+          xs.add(c);
+          ys.add(r ? 1 : 0);
+        }
       }
     }
   }
