@@ -140,3 +140,9 @@ Bericht: `planung/bollwerk/berichte/G1/L4-WEISSLISTE.md` (Haiku max, Kanonwächt
 - **Befund:** Z-11 verlangt ≥ 14 Weißlisten-Zusatzfunde; der Kanon trägt sicher 10, mit `spur_handykorb` 11. Es fehlen 3–4.
 - **Wege:** (a) Z-11 über die Kürzungsleiter senken (nur mit „A<n>: ja“); (b) die zwei Täter-Befunde (Schneider, Tim) noch einmal selbst prüfen – eine Haiku-Stimme reicht für ein Herausnehmen nicht; (c) neue pfadgleiche, nicht lösungsrelevante Zusatzfunde der Schicht (z. B. Zustand von Teekocher, Torte, Handykorb), die nur Wahres über Dinge sagen, die in allen 4 Pfaden gleich sind, vom Kanonwächter je Fund geprüft.
 - **Wahl (Standard bis zur Nutzerantwort):** (b) in G2 durch Opus, dann (c) für den Rest; (a) nie still. Frage mit Standardwahl in FUER-DEN-NUTZER §G1-2.
+
+## E-G1-13 · Lichtung L-9 · abgekoppelter Prozess über 2 h (04:02 UTC) – unentschieden
+- Probe wie in F-2 vorgegeben: `setsid nohup sleep 7500 > /dev/null 2>&1 < /dev/null &` (PID 694, Start 01:56:06Z). Beobachtet lebend bei 117 min (03:53:24Z), weg bei 126 min (04:02:24Z). Das natürliche Ende von `sleep 7500` lag bei 125 min (04:01:06Z).
+- **Ergebnis:** unentschieden – die 2-h-Grenze (03:56Z) fällt in die Beobachtungslücke, und ohne Endstempel lässt sich natürliches Ende nicht von einem Abbruch trennen. Fehler im Aufbau: Die Probe selbst endete fast genau zum Prüfzeitpunkt.
+- **Folge bis zur Klärung:** Lange Tore laufen in Schichtgruppen < 100 min (`bollwerk.dart <modus> --gruppe <k>`), wie F-2 für den Fehlschlag vorsieht – die sichere Wahl.
+- **Neue Probe für G2 (früh im Fenster starten):** `setsid nohup bash -c 'echo start $(date -u +%T); sleep 9000; echo ende $(date -u +%T)' > /home/user/bw-logs/l9.log 2>&1 < /dev/null &` und Prüfungen bei 115, 125 und 135 min (`pgrep` plus Log). Lebt er bei 135 min oder steht „ende“ nach 150 min im Log, ist L-9 bestanden.

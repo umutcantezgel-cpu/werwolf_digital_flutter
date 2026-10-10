@@ -14,4 +14,4 @@
 - TOR-SHA: 30fadff64ac5625bdfe7e1e6494677ce493b22a7 (Abnahme: `schnell --vorlauf` grün in 58 s, Rot-Probe L0/L2/L5 rot; geschützt ab hier: bollwerk.dart, werkzeug_audit.sh, commit.sh, pool_reset.sh, env.sh, schwellen.dart – nur Verschärfung mit Rot-Probe)
 - Übergabe-SHA P: 2094a67525cd07526c5e80ab1897e53d3fddac02 (`git diff --quiet P HEAD -- MASTER-PROMPT anhang STARTPAKET` gleich, nach Entflachung geprüft)
 - Startbild der Refs: /home/user/bw-logs/refs-start.txt (100 Zeilen, 01:56Z) · bollwerk adc8ee6 · bollwerk-leitstand f997171 · bollwerk-plan 2094a67 · main 47611d8
-- Lange Befehle: L-9 Probe PID 694 (sleep 7500, Start 01:56Z, prüfen ab 04:01Z)
+- Lange Befehle: keine. L-9 unentschieden (E-G1-13): lange Tore bis zur Klärung nur in Schichtgruppen < 100 min

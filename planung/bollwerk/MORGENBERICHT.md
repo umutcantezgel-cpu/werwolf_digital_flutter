@@ -35,6 +35,7 @@ Siehe Zugende-Zeile im Chat; Code-Stand 7164edf (Würfelkern, Tests, Torwerkzeug
 - HD-Linie `caf1d61` zurückgestellt (Merge erst, wenn danach L1 grün ist; das prüft erst das Phasentor).
 - L4-Modus `dauer` offen (braucht das Zeitmodell aus BW0).
 - Rohchat fehlt in der Cloud: Secret-Scan ohne Passagenprüfung (G1-1).
+- Langlauf-Probe L-9 (überlebt ein abgekoppelter Prozess 2 h?) unentschieden: Die Probe endete planmäßig genau im Prüffenster. Bis zur neuen Probe in G2 laufen lange Tore in Teilen unter 100 min.
 
 ## 8. Nächster Schritt und Restbedarf
 G2 (Vorlauf, solange B-02 offen): Kern 1.1 (Marken, „gründlich“ im Abstecher, getrennter Bot-Strom) mit neuer Bandmessung; varianten.dart (Ringe 1–6), vorrat.dart; Weißlisten-Nachprüfung durch Opus; danach erste Variantenwelle für `content/runden/`. Ab B-02: BW0 (Basis an K), dann BW1. Restbedarf bis main unverändert: 6–7 Hauptlauf-Nächte nach B-02 (A-20).
