@@ -1,6 +1,6 @@
 # PRÜFPUNKT · Wiederaufnahme
 
-STAND · Bauphase F6 von F7 · Abnahme 15 von 17 · Brüche offen 0 · Aufträge 156 von 190 · Agenten aktiv 0 · nächster Schritt: Abschluss-Matrix auf 081e258 auswerten, F6-SICHT-04, tool/pruefen.sh alles, ABNAHME F-16, dann F7
+STAND · Bauphase F6 von F7 · Abnahme 16 von 17 · Brüche offen 0 · Aufträge 157 von 190 · Agenten aktiv 1 · nächster Schritt: F6-SICHT-04 abnehmen, Tor F6 schließen, dann F7 Übergabe auf main
 
 ## Nach einem Neustart oder in einer neuen Sitzung
 1. `cd /home/user/werwolf_digital_flutter && git checkout finalisierung-schlosskeller` (lokal; falls fehlend: `git fetch origin finalisierung-schlosskeller` bzw. Sicherungsbranch `claude/universal-prompt-orchestrator-trt8uu`).
