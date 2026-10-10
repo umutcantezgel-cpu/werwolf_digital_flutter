@@ -32,3 +32,11 @@
 - **Befund (Prüfbericht PRUEF-KERN-1):** Der Meta-Simulator, nach dem die Würfelbänder gemessen wurden, vergibt eine Marke nur bei Pech in der Auftakt-Suche und lässt „gründlich“ im Abstecher nichts kosten. Der Spielkern (A-4 K-07, K-10) verlangt: jedes Pech bringt eine Marke, „gründlich“ kostet 2 Nachtminuten.
 - **Standardwahl:** Der Spielkern gilt (Kern 1.1 in G2), die Bänder werden neu gemessen; liegen sie danach außerhalb, werden die Parameter nur innerhalb der Bänder nachgestellt (A-17).
 - **Folge beim Kippen:** Nichts zu tun; das Spiel würde dann seltener Marken verteilen als beschrieben.
+
+## G2 · Nachtlauf, Generation 2 (10.10.2026)
+
+### G2-1 · Frage: HD-Linie der Burgstadt (A-12)
+- **Befund:** Ein Probe-Merge der Linie `caf1d61` (Burgstadt HD: Hocker, Bänke, Tische, Licht) ändert 192 von 198 Burgstadt-Bildern des Migrationsbelegs. Konflikte gibt es keine.
+- **Frage:** Soll die HD-Linie trotz geänderter Burgstadt-Bilder in BOLLWERK zusammengeführt werden („A12: ja“ in STEUERUNG)?
+- **Standardwahl:** Nein – nur archiviert, Burgstadt bleibt bytegleich wie heute auf main.
+- **Folge beim Kippen:** Merge in einer späteren Generation mit Phasentor und Vorher/Nachher-Bogen der Burgstadt.

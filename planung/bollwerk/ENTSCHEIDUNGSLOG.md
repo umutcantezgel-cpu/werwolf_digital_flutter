@@ -174,3 +174,20 @@ Bericht: `planung/bollwerk/berichte/G1/L4-WEISSLISTE.md` (Haiku max, Kanonwächt
 ## E-G2-04 · Meta-Archiv übernommen; Z-30-Prüfung verschärft (05:10 UTC)
 - Durchsicht der 107 Dateien von `claude/pensive-gates-ajtp7x@f275929:planung/bollwerk/archiv` auf Rohchat-Spuren (Chat-Kopfzeilen, `teamchat`, `quellen/`, Schlüssel): kein Chat-Text gefunden; 7 Dateien nennen den Rohchat-Pfad, `nutzer-v1-v3/` (3) ist Nutzertext. Nach A-2 A4.5 („nichts mit … ‚teamchat‘ oder ‚quellen/‘“, nur Selbstgeschriebenes) übernommen: 97 Dateien blobgleich (Commit ea1b20f), Absage für 10 in ARCHIV.md.
 - **Befund am eigenen Werkzeug:** `archiv_pruefen.sh --uebernahmen` zählte die Meta-Archiv-Übernahme auch für die HD-Linie (gleicher Ref, andere SHA) – Z-30 war dadurch falsch grün. Verschärft: der Betreff muss die SHA der Zeile tragen. Ergebnis jetzt ehrlich: Z-30 ROT, offen nur „Burgstadt HD (caf1d61)“ (zurückgestellt bis L1-Nachweis nach dem Merge oder „A12: ja“). Z-29 bleibt grün.
+
+## E-G2-05 · HD-Linie caf1d61: Absage nach A-12 (05:16 UTC)
+- Probe-Merge `bollwerk` ← `caf1d61` in einem Wegwerf-Baum: 0 Konflikte, 188 Dateien (142 Probebilder unter `hd/bilder`, 23 Dateien `packages/burgstadt_spiel`, 14 `packages/pixel_engine`). `tool/hd_migbeleg.sh` vor und nach dem Merge (Schwerlast-Slot): **198 Bilder, 6 gleich, 192 anders**.
+- A-12 (Standard): „nur mergen, wenn die Burgstadt-Bilder bytegleich bleiben; sonst zurückgestellt bis ‚A12: ja‘“; A-2 Definitionen: „sonst nur archivieren“. → Kein Merge; ARCHIV.md trägt die Absage mit Beleg, Z-30 damit grün. Frage an den Nutzer: FUER-DEN-NUTZER G2-1.
+- Einschränkung: Die Gleichheit zweier Läufe desselben Stands wurde nicht gemessen; der Migrationsbeleg gilt laut Werkzeug als deterministisch, und die Linie ändert gewollt Möbel und Licht der Burgstadt.
+
+## E-G2-06 · Werkzeugverstoß in Welle W1 (05:16 UTC)
+- Audit: Agent FOLGE-e1_1 (Haiku) rief einmal `mcp__claude-code-remote__read_documentation` auf (lesend, ohne ToolSearch – das Werkzeug war also direkt sichtbar). Der Agent meldete es selbst.
+- Nach A-2 A4.2: Ergebnis verworfen (Datei nach `W1/verworfen/`); lesend → kein ABBRUCH. Der Slot FOLGE-e1_1 wird einmal neu eingereiht (Regelkreis „Welle zurück“, 1 von 2).
+- Gegenmaßnahme im Briefing ab W2: der Werkzeugabsatz bleibt wortgleich; zusätzlich im Auftrag „Lies keine Dokumentation; du brauchst nur die genannten Dateien“.
+
+## E-G2-07 · Befunde F-3…F-8 der Tagesprüfung 1 (05:25 UTC)
+- **F-3/F-4 (Türregel):** neue L0-Teilprüfung `--l0-tuer` (Verschärfung des geschützten Torwerkzeugs). Rot-Probe im Wegwerf-Baum: `lib/runden/probe.dart` mit vollem Barrel → Exit 1. Altlast `lib/game/dev/feinkorn_k0_main.dart` (Import des Barrels, `IsoAnsicht`): blobgleich mit 1145cb9, vor B-02 nicht änderbar (A-2 A4.8), deshalb im Vorlauf nur gemeldet; ohne `--vorlauf` rot → erste BW0-Aufgabe: Demo auf `feinkorn_leben.dart` umstellen oder als Werkzeug außerhalb von `lib/` führen.
+- **F-7 (L0.4-Geltungsbereich):** Der Partycode des anderen Laufs (`farbe.dart`, `textpruefer.dart`: `dart:math`; `fall_code.dart`, `zeit.dart`: `hashCode`) ist Bestand und kein Würfelpfad; BOLLWERK ändert ihn nicht. L0.4 prüft jetzt zusätzlich jede von BOLLWERK neu angelegte oder geänderte Dart-Datei unter `lib/` und `packages/` (ohne blobgleiche 1145cb9-Dateien). Rot-Probe: Testdatei mit `dart:math` → Exit 1.
+- **F-5:** env.sh mit Rückfall (Leitstand-Abhilfe). **F-8:** 7 Meta-Archiv-Dateien nachübernommen.
+- **F-6 Rest (in G2):** ρ(Chance, richtig) aus `Zugschicht.vorschau` statt fest `mod 0`; Erschöpfend zusätzlich mit 100 Salz-Strömen je Folge × Pfad (C8 Nr. 2) und mit Kettenprüfung, die rot werden kann; Testlücken („gleiche Chance je Option“ mit echten Optionen, PPPE ≠ PPP, fehlendes `setzePfad` wirft).
+- **Selbstkorrektur:** Bei der Rot-Probe habe ich im Wegwerf-Baum `git add -A <pfade>` benutzt; A-2 A4.1 verbietet `-A` ohne Ausnahme. Kein Schaden (Baum entfernt, nie gepusht); ab jetzt auch dort nur `git add -- <pfade>`.

@@ -68,6 +68,7 @@ List<Schicht> schichten(String modus, bool vorlauf) {
     'bash tool/secret_scan.sh | tail -1 | grep -qx "Secret-Scan: sauber"',
     'dart run tool/bollwerk/bollwerk.dart --l0-erlaubnis${vorlauf ? ' --vorlauf' : ''}',
     'dart run tool/bollwerk/bollwerk.dart --l0-wuerfelquelle',
+    'dart run tool/bollwerk/bollwerk.dart --l0-tuer${vorlauf ? ' --vorlauf' : ''}',
     'dart run tool/bollwerk/bollwerk.dart --l0-selbst',
     if (!vorlauf) 'dart run tool/bollwerk/bestand.dart --pruefe',
     if (!vorlauf) 'dart run tool/bollwerk/bollwerk.dart --l0-kanon',
@@ -145,9 +146,69 @@ Future<int> l0Erlaubnis(bool vorlauf) async {
 }
 
 /// L0.4 Würfelquelle (WÜ-1, WÜ-6): verbotene Aufrufe im Würfel- und Rundencode.
+/// Dateien, die BOLLWERK gegenüber origin/main neu angelegt oder geändert hat, ohne blobgleiche Dateien
+/// aus dem FEINKORN-Merge 1145cb9 (die gehören der Linie, Bestand).
+Future<List<String>> bollwerkDateien(String muster) async {
+  await bash('git fetch -q origin main', const Duration(minutes: 2));
+  final basis = await git('merge-base HEAD origin/main');
+  final namen = (await git('diff --name-only --diff-filter=AM $basis HEAD -- $muster')).split('\n').where((x) => x.isNotEmpty);
+  final out = <String>[];
+  for (final n in namen) {
+    final h = await git('rev-parse -q --verify HEAD:$n');
+    final k = await git('rev-parse -q --verify 1145cb9:$n');
+    if (h.isNotEmpty && h != k) out.add(n);
+  }
+  return out;
+}
+
+/// Türregel BE-01 (Befunde F-3, F-4): `lib/**` erreicht FEINKORN nur über `feinkorn_leben.dart`, nennt
+/// keine gesperrten Typen (FeinZufall, Blockkoerper und Sperrnamen) und importiert nie den vollen Barrel.
+/// Im Vorlauf ist eine blobgleiche Datei aus 1145cb9 als Altlast gemeldet, aber nicht rot (vor B-02 darf
+/// sie nicht geändert werden); ab BW0 ist auch sie rot.
+Future<int> l0Tuer(bool vorlauf) async {
+  final verboten = RegExp(r"package:pixel_engine/(feinkorn\.dart|src/feinkorn/)|\b(FeinZufall|Blockkoerper|baueFigur|Gelenkweg|backeWolke|IsoAnsicht)\b");
+  var treffer = 0, altlast = 0;
+  final d = Directory('$bw/lib');
+  for (final f in d.listSync(recursive: true).whereType<File>().where((f) => f.path.endsWith('.dart'))) {
+    final rel = f.path.substring(bw.length + 1);
+    final zeilen = f.readAsLinesSync();
+    for (var i = 0; i < zeilen.length; i++) {
+      final z = zeilen[i].replaceAll(RegExp(r'//.*$'), '');
+      if (!verboten.hasMatch(z)) continue;
+      final blob = await git('hash-object $rel');
+      final linie = await git('rev-parse -q --verify 1145cb9:$rel');
+      if (vorlauf && blob == linie) {
+        stdout.writeln('L0.5 Altlast (Vorlauf, ab BW0 rot) $rel:${i + 1}: ${zeilen[i].trim()}');
+        altlast++;
+      } else {
+        stdout.writeln('L0.5 Tür $rel:${i + 1}: ${zeilen[i].trim()}');
+        treffer++;
+      }
+    }
+  }
+  stdout.writeln('L0.5 Türregel: $treffer Verstöße, $altlast Altlasten');
+  return treffer == 0 ? 0 : 1;
+}
+
 Future<int> l0Wuerfelquelle() async {
   final verboten = RegExp(r"dart:math|DateTime\.now|Stopwatch|\.hashCode\b|identityHashCode|\bZufall\b|\bLcg\b|FeinZufall|FallCode\.rng|Random\(");
   var treffer = 0;
+  // Befund F-7: zusätzlich jede von BOLLWERK neu angelegte oder geänderte Dart-Datei unter lib/ und packages/
+  // (Partycode des anderen Laufs bleibt Bestand und wird hier nicht geprüft, E-G2-07).
+  final zusatz = await bollwerkDateien("'lib/*.dart' 'packages/*.dart'");
+  for (final rel in zusatz) {
+    if (rel.startsWith('packages/mordakte_core/lib/src/runden/') || rel.startsWith('lib/runden/')) continue;
+    final f = File('$bw/$rel');
+    if (!f.existsSync()) continue;
+    final zeilen = f.readAsLinesSync();
+    for (var i = 0; i < zeilen.length; i++) {
+      final z = zeilen[i].replaceAll(RegExp(r'//.*$'), '');
+      if (verboten.hasMatch(z)) {
+        stdout.writeln('L0.4 $rel:${i + 1}: ${zeilen[i].trim()}');
+        treffer++;
+      }
+    }
+  }
   for (final wurzel in ['packages/mordakte_core/lib/src/runden', 'lib/runden']) {
     final d = Directory('$bw/$wurzel');
     if (!d.existsSync()) continue;
@@ -217,6 +278,7 @@ Future<void> main(List<String> args) async {
   if (args.contains('--l0-erlaubnis')) exit(await l0Erlaubnis(args.contains('--vorlauf')));
   if (args.contains('--l0-wuerfelquelle')) exit(await l0Wuerfelquelle());
   if (args.contains('--l0-selbst')) exit(await l0Selbst());
+  if (args.contains('--l0-tuer')) exit(await l0Tuer(args.contains('--vorlauf')));
   if (args.isEmpty || !['schnell', 'phase', 'nacht', 'ziel'].contains(args.first)) {
     stdout.writeln('Aufruf: dart run tool/bollwerk/bollwerk.dart <schnell|phase|nacht|ziel> [--vorlauf] [--ohne-belege] [--gruppe <k>]');
     stdout.writeln('BOLLWERK ROT · Aufruf');
