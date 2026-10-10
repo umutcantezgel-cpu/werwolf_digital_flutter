@@ -44,7 +44,7 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 - **Herkunft:** Das Feld `herkunft` dient nur der Ausgewogenheitsprüfung. Es erscheint im Spiel nie als Etikett.
   - Im Burgstadt-Strang habt ihr entschieden, dass Herkunft nicht Teil der Spieldaten ist (dort E48). Hier zeigt kein Spielertext eine Herkunft, nur die Story-Bibel und die Prüfwerkzeuge lesen das Feld.
   - Soll die Regel auch hier gelten, kommt das Feld aus `figuren.json` heraus und die Namensbalance wird über eine eigene Prüfliste belegt. Das ist eine kleine Änderung (E-028).
-- **Farbnamen (E-028):** Fatma heißt jetzt „Beerenrot“ (Änderung aus dem Burgstadt-Strang), Tugba „Karminrot mit Gold“ statt „Bordeaux mit Gold“, damit keine Farbe nach Wein klingt.
+- **Farbnamen (E-028, E-037):** Fatma heißt jetzt „Beerenrot“ (Änderung aus dem Burgstadt-Strang). Tugba hieß zuerst „Bordeaux mit Gold“, dann „Karminrot mit Gold“, damit keine Farbe nach Wein klingt; seit E-037 trägt sie „Rostorange mit Gold“, weil Karminrot zu nah an Fatmas Beerenrot lag. Fatmas Kopftuch ist taubengrau.
 
 ## Nur durch Menschen prüfbar
 - Ein echter Testabend: Ton, Humor, Rundendauer (Vorgabe 30 Minuten), Verständlichkeit der Regeln.
