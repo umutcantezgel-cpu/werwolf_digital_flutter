@@ -1,0 +1,27 @@
+HEAD 30fadff64ac5625bdfe7e1e6494677ce493b22a7 · tree fd36258079d4014fdb4cb7bc90141a8a7ea646e3 · 2026-10-10 04:19:20 CEST · schnell --vorlauf · Exit 0 · 7262a71ea422e0d96bf2cb2871830e24705a81e9acf66f5f2064f146ba1835ea
+git diff --stat <BW0> HEAD -- tool/bollwerk: BW0 – (Vorlauf)
+Status GRÜN · Dauer 7 s
+
+$ for d in . packages/mordakte_core packages/pixel_engine packages/room_host packages/burgstadt_core packages/burgstadt_spiel server tool/ton; do if grep -q "sdk: flutter" $d/pubspec.yaml; then (cd $d && flutter pub get --offline >/dev/null); else (cd $d && dart pub get --offline >/dev/null); fi; done
+
+→ Exit 0
+$ (cd packages/mordakte_core && dart analyze --fatal-infos lib/src/runden test/runden)
+Analyzing runden, runden...
+No issues found!
+→ Exit 0
+$ dart analyze --fatal-infos tool/bollwerk
+Analyzing bollwerk...
+No issues found!
+→ Exit 0
+$ bash tool/secret_scan.sh | tail -1 | grep -qx "Secret-Scan: sauber"
+
+→ Exit 0
+$ dart run tool/bollwerk/bollwerk.dart --l0-erlaubnis --vorlauf
+Running build hooks...Running build hooks...L0.2 Erlaubnis: grün · Basis 47611d8 · B-02 offen
+→ Exit 0
+$ dart run tool/bollwerk/bollwerk.dart --l0-wuerfelquelle
+Running build hooks...Running build hooks...L0.4 Würfelquelle: 0 verbotene Aufrufe
+→ Exit 0
+$ dart run tool/bollwerk/bollwerk.dart --l0-selbst
+Running build hooks...Running build hooks...L0 Selbstprüfung: 0 Treffer
+→ Exit 0

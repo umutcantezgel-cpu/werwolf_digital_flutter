@@ -1,0 +1,794 @@
+{
+ "P001": {
+  "kennung": "F-GA1-06",
+  "punkte": {
+   "KANON": 5,
+   "TON": 8,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P002": {
+  "kennung": "F-TX1-10",
+  "punkte": {
+   "KANON": 7,
+   "TON": 7,
+   "SPASS": 7
+  },
+  "angenommen": true
+ },
+ "P003": {
+  "kennung": "F-AB1-04",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P004": {
+  "kennung": "FUELL-15",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P005": {
+  "kennung": "F-TX1-12",
+  "punkte": {
+   "KANON": 5,
+   "TON": 5,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P006": {
+  "kennung": "F-FE1-07",
+  "punkte": {
+   "KANON": 2,
+   "TON": 7,
+   "SPASS": 3
+  },
+  "angenommen": false
+ },
+ "P007": {
+  "kennung": "FUELL-05",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P008": {
+  "kennung": "F-AB1-02",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P009": {
+  "kennung": "F-AB2-06",
+  "punkte": {
+   "KANON": 7,
+   "TON": 8,
+   "SPASS": 7
+  },
+  "angenommen": true
+ },
+ "P010": {
+  "kennung": "F-TX1-09",
+  "punkte": {
+   "KANON": 5,
+   "TON": 5,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P011": {
+  "kennung": "F-AB2-11",
+  "punkte": {
+   "KANON": 4,
+   "TON": 9,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P012": {
+  "kennung": "F-GA1-11",
+  "punkte": {
+   "KANON": 4,
+   "TON": 8,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P013": {
+  "kennung": "FUELL-06",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P014": {
+  "kennung": "F-AB1-12",
+  "punkte": {
+   "KANON": 2,
+   "TON": 5,
+   "SPASS": 2
+  },
+  "angenommen": false
+ },
+ "P015": {
+  "kennung": "F-AB2-07",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P016": {
+  "kennung": "F-GA1-01",
+  "punkte": {
+   "KANON": 4,
+   "TON": 7,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P017": {
+  "kennung": "F-AB2-01",
+  "punkte": {
+   "KANON": 4,
+   "TON": 4,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P018": {
+  "kennung": "F-AB1-03",
+  "punkte": {
+   "KANON": 7,
+   "TON": 7,
+   "SPASS": 6
+  },
+  "angenommen": true
+ },
+ "P019": {
+  "kennung": "F-FE1-08",
+  "punkte": {
+   "KANON": 2,
+   "TON": 4,
+   "SPASS": 2
+  },
+  "angenommen": false
+ },
+ "P020": {
+  "kennung": "F-AB2-10",
+  "punkte": {
+   "KANON": 4,
+   "TON": 7,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P021": {
+  "kennung": "F-TX1-08",
+  "punkte": {
+   "KANON": 4,
+   "TON": 8,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P022": {
+  "kennung": "F-AB2-12",
+  "punkte": {
+   "KANON": 2,
+   "TON": 7,
+   "SPASS": 3
+  },
+  "angenommen": false
+ },
+ "P023": {
+  "kennung": "F-AB2-03",
+  "punkte": {
+   "KANON": 3,
+   "TON": 6,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P024": {
+  "kennung": "F-AK1-12",
+  "punkte": {
+   "KANON": 4,
+   "TON": 7,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P025": {
+  "kennung": "F-TX1-03",
+  "punkte": {
+   "KANON": 3,
+   "TON": 4,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P026": {
+  "kennung": "F-TX1-11",
+  "punkte": {
+   "KANON": 6,
+   "TON": 9,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P027": {
+  "kennung": "F-AK1-08",
+  "punkte": {
+   "KANON": 3,
+   "TON": 6,
+   "SPASS": 3
+  },
+  "angenommen": false
+ },
+ "P028": {
+  "kennung": "FUELL-02",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P029": {
+  "kennung": "F-AB2-08",
+  "punkte": {
+   "KANON": 8,
+   "TON": 8,
+   "SPASS": 6
+  },
+  "angenommen": true
+ },
+ "P030": {
+  "kennung": "F-FE1-12",
+  "punkte": {
+   "KANON": 2,
+   "TON": 6,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P031": {
+  "kennung": "F-GA1-04",
+  "punkte": {
+   "KANON": 4,
+   "TON": 8,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P032": {
+  "kennung": "F-AB1-01",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P033": {
+  "kennung": "F-GA1-12",
+  "punkte": {
+   "KANON": 5,
+   "TON": 8,
+   "SPASS": 7
+  },
+  "angenommen": true
+ },
+ "P034": {
+  "kennung": "FUELL-04",
+  "punkte": {
+   "KANON": 0,
+   "TON": 0,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P035": {
+  "kennung": "F-AB1-11",
+  "punkte": {
+   "KANON": 4,
+   "TON": 7,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P036": {
+  "kennung": "F-GA1-02",
+  "punkte": {
+   "KANON": 5,
+   "TON": 7,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P037": {
+  "kennung": "F-AB1-10",
+  "punkte": {
+   "KANON": 2,
+   "TON": 8,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P038": {
+  "kennung": "FUELL-14",
+  "punkte": {
+   "KANON": 1,
+   "TON": 1,
+   "SPASS": 1
+  },
+  "angenommen": false
+ },
+ "P039": {
+  "kennung": "FUELL-16",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P040": {
+  "kennung": "F-TX1-07",
+  "punkte": {
+   "KANON": 7,
+   "TON": 7,
+   "SPASS": 7
+  },
+  "angenommen": true
+ },
+ "P041": {
+  "kennung": "F-AK1-02",
+  "punkte": {
+   "KANON": 3,
+   "TON": 8,
+   "SPASS": 3
+  },
+  "angenommen": false
+ },
+ "P042": {
+  "kennung": "F-FE1-05",
+  "punkte": {
+   "KANON": 5,
+   "TON": 7,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P043": {
+  "kennung": "F-FE1-02",
+  "punkte": {
+   "KANON": 7,
+   "TON": 5,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P044": {
+  "kennung": "F-AK1-10",
+  "punkte": {
+   "KANON": 3,
+   "TON": 6,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P045": {
+  "kennung": "F-AB2-05",
+  "punkte": {
+   "KANON": 3,
+   "TON": 6,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P046": {
+  "kennung": "F-AB1-09",
+  "punkte": {
+   "KANON": 4,
+   "TON": 8,
+   "SPASS": 3
+  },
+  "angenommen": false
+ },
+ "P047": {
+  "kennung": "F-AK1-06",
+  "punkte": {
+   "KANON": 4,
+   "TON": 7,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P048": {
+  "kennung": "F-AK1-11",
+  "punkte": {
+   "KANON": 4,
+   "TON": 8,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P049": {
+  "kennung": "F-TX1-06",
+  "punkte": {
+   "KANON": 6,
+   "TON": 5,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P050": {
+  "kennung": "F-GA1-09",
+  "punkte": {
+   "KANON": 3,
+   "TON": 8,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P051": {
+  "kennung": "F-AK1-03",
+  "punkte": {
+   "KANON": 2,
+   "TON": 6,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P052": {
+  "kennung": "FUELL-11",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P053": {
+  "kennung": "F-FE1-03",
+  "punkte": {
+   "KANON": 6,
+   "TON": 5,
+   "SPASS": 4
+  },
+  "angenommen": false
+ },
+ "P054": {
+  "kennung": "F-AK1-01",
+  "punkte": {
+   "KANON": 3,
+   "TON": 6,
+   "SPASS": 3
+  },
+  "angenommen": false
+ },
+ "P055": {
+  "kennung": "F-GA1-03",
+  "punkte": {
+   "KANON": 6,
+   "TON": 8,
+   "SPASS": 7
+  },
+  "angenommen": true
+ },
+ "P056": {
+  "kennung": "F-FE1-09",
+  "punkte": {
+   "KANON": 2,
+   "TON": 4,
+   "SPASS": 2
+  },
+  "angenommen": false
+ },
+ "P057": {
+  "kennung": "F-GA1-08",
+  "punkte": {
+   "KANON": 4,
+   "TON": 8,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P058": {
+  "kennung": "FUELL-17",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P059": {
+  "kennung": "F-GA1-10",
+  "punkte": {
+   "KANON": 6,
+   "TON": 8,
+   "SPASS": 7
+  },
+  "angenommen": true
+ },
+ "P060": {
+  "kennung": "FUELL-07",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P061": {
+  "kennung": "F-FE1-04",
+  "punkte": {
+   "KANON": 6,
+   "TON": 6,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P062": {
+  "kennung": "FUELL-10",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P063": {
+  "kennung": "F-AK1-07",
+  "punkte": {
+   "KANON": 5,
+   "TON": 8,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P064": {
+  "kennung": "F-TX1-01",
+  "punkte": {
+   "KANON": 6,
+   "TON": 7,
+   "SPASS": 7
+  },
+  "angenommen": true
+ },
+ "P065": {
+  "kennung": "FUELL-19",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P066": {
+  "kennung": "F-GA1-07",
+  "punkte": {
+   "KANON": 6,
+   "TON": 8,
+   "SPASS": 7
+  },
+  "angenommen": true
+ },
+ "P067": {
+  "kennung": "FUELL-09",
+  "punkte": {
+   "KANON": 0,
+   "TON": 0,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P068": {
+  "kennung": "F-AB1-05",
+  "punkte": {
+   "KANON": 7,
+   "TON": 7,
+   "SPASS": 6
+  },
+  "angenommen": true
+ },
+ "P069": {
+  "kennung": "F-TX1-05",
+  "punkte": {
+   "KANON": 6,
+   "TON": 8,
+   "SPASS": 8
+  },
+  "angenommen": true
+ },
+ "P070": {
+  "kennung": "FUELL-03",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P071": {
+  "kennung": "F-GA1-05",
+  "punkte": {
+   "KANON": 3,
+   "TON": 8,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P072": {
+  "kennung": "FUELL-13",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P073": {
+  "kennung": "F-FE1-06",
+  "punkte": {
+   "KANON": 4,
+   "TON": 6,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P074": {
+  "kennung": "F-FE1-11",
+  "punkte": {
+   "KANON": 2,
+   "TON": 3,
+   "SPASS": 2
+  },
+  "angenommen": false
+ },
+ "P075": {
+  "kennung": "FUELL-08",
+  "punkte": {
+   "KANON": 0,
+   "TON": 2,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P076": {
+  "kennung": "F-FE1-01",
+  "punkte": {
+   "KANON": 8,
+   "TON": 6,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P077": {
+  "kennung": "FUELL-12",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P078": {
+  "kennung": "F-AB2-04",
+  "punkte": {
+   "KANON": 5,
+   "TON": 8,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P079": {
+  "kennung": "F-AK1-09",
+  "punkte": {
+   "KANON": 4,
+   "TON": 9,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P080": {
+  "kennung": "FUELL-20",
+  "punkte": {
+   "KANON": 0,
+   "TON": 1,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P081": {
+  "kennung": "FUELL-01",
+  "punkte": {
+   "KANON": 0,
+   "TON": 0,
+   "SPASS": 0
+  },
+  "angenommen": false
+ },
+ "P082": {
+  "kennung": "F-AK1-04",
+  "punkte": {
+   "KANON": 3,
+   "TON": 7,
+   "SPASS": 3
+  },
+  "angenommen": false
+ },
+ "P083": {
+  "kennung": "F-AB2-02",
+  "punkte": {
+   "KANON": 5,
+   "TON": 7,
+   "SPASS": 6
+  },
+  "angenommen": false
+ },
+ "P084": {
+  "kennung": "F-FE1-10",
+  "punkte": {
+   "KANON": 2,
+   "TON": 4,
+   "SPASS": 2
+  },
+  "angenommen": false
+ },
+ "P085": {
+  "kennung": "F-AB2-09",
+  "punkte": {
+   "KANON": 2,
+   "TON": 6,
+   "SPASS": 3
+  },
+  "angenommen": false
+ },
+ "P086": {
+  "kennung": "F-TX1-04",
+  "punkte": {
+   "KANON": 5,
+   "TON": 7,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P087": {
+  "kennung": "F-AK1-05",
+  "punkte": {
+   "KANON": 4,
+   "TON": 7,
+   "SPASS": 5
+  },
+  "angenommen": false
+ },
+ "P088": {
+  "kennung": "FUELL-18",
+  "punkte": {
+   "KANON": 0,
+   "TON": 0,
+   "SPASS": 0
+  },
+  "angenommen": false
+ }
+}

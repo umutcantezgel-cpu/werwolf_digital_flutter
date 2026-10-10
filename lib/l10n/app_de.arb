@@ -56,6 +56,13 @@
   "hub_online_sub": "Mit bis zu fünf Freunden",
   "hub_party": "Partyabend: Spuk im Schlosskeller",
   "hub_party_sub": "Ein Krimi für den Geburtstag, für 4 bis 20 Personen und ein Geburtstagskind",
+  "hub_section_party": "Partyabende",
+  "hub_section_classic": "Klassische Fälle",
+  "hub_section_meta": "Sammlung und Profil",
+  "hub_party_keller": "Spuk im Schlosskeller",
+  "hub_party_keller_sub": "Partyabend an einem Gerät · 4 bis 20 Personen",
+  "hub_party_gewoelbe": "Spuk im Gewölbe",
+  "hub_party_gewoelbe_sub": "Krimidinner auf Burg Schartenfels · Besetzung, Steckbriefe, Mappen",
   "hub_online_rejoin": "Zurück zu Raum {code}",
   "@hub_online_rejoin": {
     "placeholders": {
@@ -117,6 +124,8 @@
   "name_prompt_title": "Wie lautet Ihr Name, Detektiv?",
   "name_prompt_text": "Er steht ab sofort auf Ihrer Dienstmarke.",
   "name_prompt_hint": "Name",
+  "name_prompt_title_du": "Wie heißt du, Detektiv?",
+  "name_prompt_text_du": "Dein Name steht ab sofort auf deiner Dienstmarke.",
   "name_prompt_confirm": "Dienstmarke ausstellen",
   "name_edit": "Name ändern",
   "name_default": "Detektiv",

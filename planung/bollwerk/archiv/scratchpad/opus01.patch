@@ -1,0 +1,1087 @@
+diff --git a/packages/burgstadt_spiel/lib/burgstadt_spiel.dart b/packages/burgstadt_spiel/lib/burgstadt_spiel.dart
+index 1c837f5..2ada905 100644
+--- a/packages/burgstadt_spiel/lib/burgstadt_spiel.dart
++++ b/packages/burgstadt_spiel/lib/burgstadt_spiel.dart
+@@ -20,4 +20,8 @@ export 'src/bildschirme/wlan.dart';
+ export 'src/fallsitzung.dart';
+ export 'src/figuren_lager.dart';
+ export 'src/welt_geometrie.dart';
++export 'src/bau/form.dart';
++export 'src/bau/formen/register.dart';
++export 'src/bau/bauteil.dart';
++export 'src/bau/teile/register.dart';
+ export 'src/texte.dart';
+diff --git a/packages/burgstadt_spiel/lib/src/bau/bauteil.dart b/packages/burgstadt_spiel/lib/src/bau/bauteil.dart
+new file mode 100644
+index 0000000..ed0f2c0
+--- /dev/null
++++ b/packages/burgstadt_spiel/lib/src/bau/bauteil.dart
+@@ -0,0 +1,62 @@
++import 'dart:math' as math;
++
++import 'package:pixel_engine/pixel_engine.dart';
++
++/// Eine Fassadenfläche, auf der Bauteile sitzen (Burgstadt HD): Grundlinie von (x0, z0) nach
++/// (x1, z1) in Metern, Unterkante [y0], Oberkante [y1], Außennormale ([nx], [nz]) und Licht.
++class Wandflaeche {
++  const Wandflaeche({
++    required this.x0,
++    required this.z0,
++    required this.x1,
++    required this.z1,
++    required this.y0,
++    required this.y1,
++    required this.nx,
++    required this.nz,
++    this.warm = 0,
++    this.kalt = 0,
++  });
++
++  final double x0, z0, x1, z1, y0, y1, nx, nz, warm, kalt;
++
++  double get laenge => math.sqrt((x1 - x0) * (x1 - x0) + (z1 - z0) * (z1 - z0));
++
++  /// Weltpunkt (x, z) an der Stelle [u] Meter entlang der Grundlinie, [aussen] Meter vor der Fläche.
++  (double, double) punkt(double u, [double aussen = 0]) {
++    final l = laenge;
++    final f = l == 0 ? 0.0 : u / l;
++    return (x0 + (x1 - x0) * f + nx * aussen, z0 + (z1 - z0) * f + nz * aussen);
++  }
++}
++
++/// Ort eines Bauteils: Fläche, Mittelpunkt entlang der Fläche [u], Unterkante [y], Maße, Texturen
++/// und eine stabile Kennung für Varianten über [hashTeil].
++class BauteilOrt {
++  const BauteilOrt({
++    required this.flaeche,
++    required this.u,
++    required this.y,
++    required this.breite,
++    required this.hoehe,
++    required this.kennung,
++    this.texturen = const {},
++  });
++
++  final Wandflaeche flaeche;
++  final double u, y, breite, hoehe;
++  final String kennung;
++
++  /// Rollen → Texturindex (z. B. `glas`, `rahmen`, `laibung`, `sims`).
++  final Map<String, int> texturen;
++
++  int hash(int teil) => hashTeil(kennung, teil);
++}
++
++/// Ein Fassaden-Bauteil (Fenster, Laden, Gaube …): erzeugt Geometrie vor oder in der Fläche.
++/// Vorsprünge unter 2,3 m höchstens 0,10 m, nie in Tür- oder Wegkacheln (Stilblatt §6).
++abstract interface class Bauteil {
++  String get name;
++
++  void baue(MeshBuilder m, BauteilOrt o);
++}
+diff --git a/packages/burgstadt_spiel/lib/src/bau/form.dart b/packages/burgstadt_spiel/lib/src/bau/form.dart
+new file mode 100644
+index 0000000..80d82ac
+--- /dev/null
++++ b/packages/burgstadt_spiel/lib/src/bau/form.dart
+@@ -0,0 +1,43 @@
++import 'package:burgstadt_core/burgstadt_core.dart';
++import 'package:pixel_engine/pixel_engine.dart';
++
++/// Ort einer Möbel- oder Objektform im Bereich (Burgstadt HD, P1-OPUS-01): Grundfläche in Metern
++/// (schon um 0,04 m eingerückt), Höhe, Textur, Licht und eine stabile Kennung für Varianten.
++class FormOrt {
++  const FormOrt({
++    required this.ding,
++    required this.bereichId,
++    required this.x0,
++    required this.z0,
++    required this.x1,
++    required this.z1,
++    required this.hoehe,
++    required this.textur,
++    required this.warm,
++    required this.kalt,
++  });
++
++  final Ding ding;
++  final String bereichId;
++  final double x0, z0, x1, z1, hoehe;
++  final int textur;
++  final double warm, kalt;
++
++  double get breite => x1 - x0;
++  double get tiefe => z1 - z0;
++
++  /// Kennung für [hashTeil]: Bereich und Kachel des Dings.
++  String get kennung => '$bereichId|${ding.x0}|${ding.z0}';
++
++  /// Deterministische Variante für Teil [teil] dieser Form (nie der Zufall des Stadtgenerators).
++  int hash(int teil) => hashTeil(kennung, teil);
++}
++
++/// Eine Möbel- oder Objektform ([Moebelform]): Geometrie innerhalb der Grundfläche des Dings. Karte, Kollision,
++/// Marken und Stationen bleiben die des Dings – die Form ist reine Darstellung (P5 des Kerns).
++abstract interface class Moebelform {
++  /// Name wie `legende.form` in den Daten (z. B. `tisch`).
++  String get name;
++
++  void baue(MeshBuilder m, FormOrt o);
++}
+diff --git a/packages/burgstadt_spiel/lib/src/bau/formen/register.dart b/packages/burgstadt_spiel/lib/src/bau/formen/register.dart
+new file mode 100644
+index 0000000..79cf854
+--- /dev/null
++++ b/packages/burgstadt_spiel/lib/src/bau/formen/register.dart
+@@ -0,0 +1,8 @@
++import '../form.dart';
++import 'tisch.dart';
++
++/// Register der Möbel- und Objektformen nach Name (E-010). Jede Form liegt in einer eigenen Datei
++/// unter `bau/formen/`; Formen ohne Eintrag zeichnet der Bestand (Quader).
++final Map<String, Moebelform> kFormen = {
++  for (final f in const <Moebelform>[TischForm()]) f.name: f,
++};
+diff --git a/packages/burgstadt_spiel/lib/src/bau/formen/tisch.dart b/packages/burgstadt_spiel/lib/src/bau/formen/tisch.dart
+new file mode 100644
+index 0000000..675f989
+--- /dev/null
++++ b/packages/burgstadt_spiel/lib/src/bau/formen/tisch.dart
+@@ -0,0 +1,20 @@
++import 'package:pixel_engine/pixel_engine.dart';
++
++import '../form.dart';
++
++/// Tisch (Muster-Form, 1:1 aus dem Bestand portiert): Platte 6 cm, vier Beine 8 × 8 cm.
++class TischForm implements Moebelform {
++  const TischForm();
++
++  @override
++  String get name => 'tisch';
++
++  @override
++  void baue(MeshBuilder m, FormOrt o) {
++    final t = o.textur, h = o.hoehe, w = o.warm, k = o.kalt;
++    m.box(o.x0, h - 0.06, o.z0, o.x1, h, o.z1, t, warm: w, cold: k);
++    for (final (lx, lz) in [(o.x0 + 0.1, o.z0 + 0.1), (o.x1 - 0.18, o.z0 + 0.1), (o.x0 + 0.1, o.z1 - 0.18), (o.x1 - 0.18, o.z1 - 0.18)]) {
++      m.box(lx, 0, lz, lx + 0.08, h - 0.06, lz + 0.08, t, warm: w * 0.8, cold: k);
++    }
++  }
++}
+diff --git a/packages/burgstadt_spiel/lib/src/bau/profile/register.dart b/packages/burgstadt_spiel/lib/src/bau/profile/register.dart
+new file mode 100644
+index 0000000..a9e6a28
+--- /dev/null
++++ b/packages/burgstadt_spiel/lib/src/bau/profile/register.dart
+@@ -0,0 +1,4 @@
++/// Register der Bauprofile (Haustyp → Bauteile, Farben, Dachform) nach Name (E-010). Die
++/// Schnittstelle legt P3-OPUS-01 fest (BauKontext); jedes Profil liegt in einer eigenen Datei
++/// unter `bau/profile/`.
++const List<String> kBauprofilNamen = [];
+diff --git a/packages/burgstadt_spiel/lib/src/bau/teile/register.dart b/packages/burgstadt_spiel/lib/src/bau/teile/register.dart
+new file mode 100644
+index 0000000..565e412
+--- /dev/null
++++ b/packages/burgstadt_spiel/lib/src/bau/teile/register.dart
+@@ -0,0 +1,7 @@
++import '../bauteil.dart';
++
++/// Register der Fassaden-Bauteile nach Name (E-010). Jedes Bauteil liegt in einer eigenen Datei
++/// unter `bau/teile/` und wird hier eingetragen.
++final Map<String, Bauteil> kBauteile = {
++  for (final t in const <Bauteil>[]) t.name: t,
++};
+diff --git a/packages/burgstadt_spiel/lib/src/welt_geometrie.dart b/packages/burgstadt_spiel/lib/src/welt_geometrie.dart
+index 099f57e..af06e5c 100644
+--- a/packages/burgstadt_spiel/lib/src/welt_geometrie.dart
++++ b/packages/burgstadt_spiel/lib/src/welt_geometrie.dart
+@@ -3,6 +3,9 @@ import 'dart:math' as math;
+ import 'package:burgstadt_core/burgstadt_core.dart';
+ import 'package:pixel_engine/pixel_engine.dart';
+ 
++import 'bau/form.dart';
++import 'bau/formen/register.dart';
++
+ /// Lichtquelle in Weltkoordinaten (Meter).
+ class Lichtpunkt {
+   final double x, y, z, warm, kalt, weite;
+@@ -247,12 +250,13 @@ class BereichGeometrie {
+       final t = tex(l.textur, TexturId.holzDielen);
+       final x0 = d.x0 * s + 0.04, z0 = d.z0 * s + 0.04, x1 = (d.x1 + 1) * s - 0.04, z1 = (d.z1 + 1) * s - 0.04;
+       final (w, k) = licht(d.mitteX, l.hoehe / 2, d.mitteZ);
++      final form = kFormen[l.form];
++      if (form != null) {
++        form.baue(m, FormOrt(ding: d, bereichId: b.id, x0: x0, z0: z0, x1: x1, z1: z1, hoehe: l.hoehe, textur: t, warm: w, kalt: k));
++        meshes.add(m.build());
++        continue;
++      }
+       switch (l.form) {
+-        case 'tisch':
+-          m.box(x0, l.hoehe - 0.06, z0, x1, l.hoehe, z1, t, warm: w, cold: k);
+-          for (final (lx, lz) in [(x0 + 0.1, z0 + 0.1), (x1 - 0.18, z0 + 0.1), (x0 + 0.1, z1 - 0.18), (x1 - 0.18, z1 - 0.18)]) {
+-            m.box(lx, 0, lz, lx + 0.08, l.hoehe - 0.06, lz + 0.08, t, warm: w * 0.8, cold: k);
+-          }
+         case 'zinnen':
+           m.box(x0 - 0.04, 0, z0 - 0.04, x1 + 0.04, 0.9, z1 + 0.04, t, warm: w, cold: k);
+           for (var xx = d.x0; xx <= d.x1; xx += 4) {
+diff --git a/packages/pixel_engine/lib/pixel_engine.dart b/packages/pixel_engine/lib/pixel_engine.dart
+index 1a887a8..c90ac91 100644
+--- a/packages/pixel_engine/lib/pixel_engine.dart
++++ b/packages/pixel_engine/lib/pixel_engine.dart
+@@ -23,5 +23,6 @@ export 'src/figur/figur.dart';
+ export 'src/figur/teile_basis.dart';
+ export 'src/figur/sprite_pruef.dart';
+ export 'src/kit/texturen.dart';
++export 'src/kit/werkzeug.dart';
+ export 'src/figur/bewohner_karten.dart';
+ export 'src/figur/portraet.dart';
+diff --git a/packages/pixel_engine/lib/src/kit/texturen.dart b/packages/pixel_engine/lib/src/kit/texturen.dart
+index f88d6b5..e495ee0 100644
+--- a/packages/pixel_engine/lib/src/kit/texturen.dart
++++ b/packages/pixel_engine/lib/src/kit/texturen.dart
+@@ -1,7 +1,6 @@
+-import 'dart:typed_data';
+-
+ import '../palette.dart';
+ import '../raster/texture.dart';
++import 'werkzeug.dart';
+ 
+ /// Textur-Bibliothek der Burgstadt (Auftrag A-302a).
+ ///
+@@ -48,8 +47,27 @@ enum TexturId {
+   eisenGitter,
+ }
+ 
+-/// Baut eine einzelne Textur (jedes Mal identische Bytes).
+-IndexedTexture baueTextur(TexturId id) => _bauer[id.index]();
++/// Eintrag des Textur-Registers (Burgstadt HD, P1-OPUS-01): Bauer und Zeichendichte.
++class TexturEintrag {
++  const TexturEintrag(this.bauer, {this.dichte = 32});
++
++  /// Baut die Textur (jedes Mal identische Bytes).
++  final IndexedTexture Function() bauer;
++
++  /// Texel pro Meter, in der die Textur gezeichnet ist: 32 = Bestand (Nachtlauf), 64 = Burgstadt HD.
++  final int dichte;
++}
++
++/// HD-Fassungen nach Name: ersetzen den Bestandseintrag mit gleichem [TexturId]. Jede HD-Textur
++/// liegt in einer eigenen Datei `kit/texturen/<name>.dart` und wird hier eingetragen (Register nach
++/// Name, E-010; der Enum [TexturId] bleibt die Namensquelle).
++final Map<TexturId, TexturEintrag> _hdTexturen = {};
++
++/// Registereintrag einer Textur: HD-Fassung, sonst Bestand.
++TexturEintrag texturEintrag(TexturId id) => _hdTexturen[id] ?? TexturEintrag(_bauer[id.index]);
++
++/// Baut eine einzelne Textur in ihrer Zeichendichte (jedes Mal identische Bytes).
++IndexedTexture baueTextur(TexturId id) => texturEintrag(id).bauer();
+ 
+ /// Alle Texturen; Index = `TexturId.index`.
+ List<IndexedTexture> baueAlleTexturen() => [for (final id in TexturId.values) baueTextur(id)];
+@@ -59,12 +77,12 @@ typedef _Bauer = IndexedTexture Function();
+ final List<_Bauer> _bauer = [
+   _pflaster,
+   _pflasterGross,
+-  () => _putz(Ramp.amber, 4, seed: 1),
+-  () => _putz(Ramp.skin, 4, seed: 2),
+-  () => _putz(Ramp.blue, 5, seed: 3),
+-  () => _putz(Ramp.skin, 5, seed: 4),
+-  () => _putz(Ramp.stone, 5, seed: 5),
+-  () => _putz(Ramp.wood, 5, seed: 6),
++  () => putz(Ramp.amber, 4, seed: 1),
++  () => putz(Ramp.skin, 4, seed: 2),
++  () => putz(Ramp.blue, 5, seed: 3),
++  () => putz(Ramp.skin, 5, seed: 4),
++  () => putz(Ramp.stone, 5, seed: 5),
++  () => putz(Ramp.wood, 5, seed: 6),
+   _sockelBruchstein,
+   _dachBiberschwanz,
+   _dachBiberschwanzMoos,
+@@ -91,201 +109,17 @@ final List<_Bauer> _bauer = [
+   _regalBuecher,
+   _tapeteStreifen,
+   _holzVertaefelung,
+-  () => _putz(Ramp.amber, 3, seed: 7),
++  () => putz(Ramp.amber, 3, seed: 7),
+   _eisenGitter,
+ ];
+ 
+-// ---------------------------------------------------------------- Werkzeuge
+-
+-/// Kleiner LCG mit festem Seed. Modulo statt Bit-Maske, damit auch dart2js exakt rechnet.
+-class _Lcg {
+-  _Lcg(this._s);
+-  int _s;
+-
+-  int next() {
+-    _s = (_s * 1664525 + 1013904223) % 4294967296;
+-    return _s ~/ 65536;
+-  }
+-
+-  int below(int k) => next() % k;
+-}
+-
+-/// Quadratische Indexfläche mit Wrap: Koordinaten außerhalb werden umbrochen,
+-/// dadurch setzt sich jede Figur, die über den Rand läuft, auf der Gegenseite fort.
+-class _Tex {
+-  _Tex(this.n) : px = Uint8List(n * n);
+-
+-  final int n;
+-  final Uint8List px;
+-
+-  int _i(int x, int y) => ((y % n) + n) % n * n + ((x % n) + n) % n;
+-
+-  void p(int x, int y, int c) => px[_i(x, y)] = c;
+-
+-  int g(int x, int y) => px[_i(x, y)];
+-
+-  void fill(int c) => px.fillRange(0, px.length, c);
+-
+-  void rect(int x, int y, int w, int h, int c) {
+-    for (var j = 0; j < h; j++) {
+-      for (var i = 0; i < w; i++) {
+-        p(x + i, y + j, c);
+-      }
+-    }
+-  }
+-
+-  void hline(int x, int y, int w, int c) => rect(x, y, w, 1, c);
+-
+-  void vline(int x, int y, int h, int c) => rect(x, y, 1, h, c);
+-
+-  IndexedTexture build() => IndexedTexture(n, n, Uint8List.fromList(px));
+-}
+-
+-/// Steine zwischen Fugen. Zeilenfugen [zeilen] sind aufsteigend; Band k reicht von
+-/// zeilen[k]+1 bis zeilen[k+1]-1 (mit Wrap). Spaltenfugen je Band stehen in [spalten][k].
+-/// Oben und links eine Stufe heller, unten und rechts eine Stufe dunkler. Mit [toene]
+-/// wird ein Teil der Steine eine Stufe dunkler gezeichnet. [ecken] färbt die unteren
+-/// Ecken jedes Steins (abgerundete Ziegelenden).
+-void _steine(
+-  _Tex t,
+-  _Lcg r, {
+-  required int rampe,
+-  required int koerper,
+-  required int fuge,
+-  required List<int> zeilen,
+-  required List<List<int>> spalten,
+-  int toene = 1,
+-  int? ecken,
+-  int? runden,
+-}) {
+-  final n = t.n;
+-  t.fill(fuge);
+-  for (var k = 0; k < zeilen.length; k++) {
+-    final y0 = zeilen[k] + 1;
+-    final y1 = (k + 1 < zeilen.length ? zeilen[k + 1] : zeilen[0] + n) - 1;
+-    final fugen = spalten[k];
+-    if (fugen.isEmpty) {
+-      _stein(t, r, rampe, koerper, toene, 0, n - 1, y0, y1, kanten: false, ecken: ecken, runden: runden);
+-      continue;
+-    }
+-    for (var i = 0; i < fugen.length; i++) {
+-      final a = fugen[i] + 1;
+-      final b = (i + 1 < fugen.length ? fugen[i + 1] : fugen[0] + n) - 1;
+-      _stein(t, r, rampe, koerper, toene, a, b, y0, y1, kanten: true, ecken: ecken, runden: runden);
+-    }
+-  }
+-}
+-
+-void _stein(
+-  _Tex t,
+-  _Lcg r,
+-  int rampe,
+-  int koerper,
+-  int toene,
+-  int a,
+-  int b,
+-  int y0,
+-  int y1, {
+-  required bool kanten,
+-  int? ecken,
+-  int? runden,
+-}) {
+-  final dunkler = toene > 0 && r.below(3) == 0;
+-  final s = koerper - (dunkler ? 1 : 0);
+-  final korper = Ramp.at(rampe, s), hell = Ramp.at(rampe, s + 1), schatten = Ramp.at(rampe, s - 1);
+-  for (var y = y0; y <= y1; y++) {
+-    for (var x = a; x <= b; x++) {
+-      t.p(x, y, korper);
+-    }
+-  }
+-  for (var x = a; x <= b; x++) {
+-    t.p(x, y0, hell);
+-  }
+-  if (kanten) {
+-    for (var y = y0; y <= y1; y++) {
+-      t.p(a, y, hell);
+-    }
+-  }
+-  for (var x = a; x <= b; x++) {
+-    t.p(x, y1, schatten);
+-  }
+-  if (kanten) {
+-    for (var y = y0; y <= y1; y++) {
+-      t.p(b, y, schatten);
+-    }
+-  }
+-  if (ecken != null && kanten) {
+-    t.p(a, y1, ecken);
+-    t.p(b, y1, ecken);
+-  }
+-  if (runden != null && kanten) {
+-    for (final (x, y) in [(a, y0), (b, y0), (a, y1), (b, y1)]) {
+-      t.p(x, y, runden);
+-    }
+-  }
+-}
+-
+-/// Senkrechte Bohlen zwischen den Fugen [fugenX] (aufsteigend, Wrap). Links hell, rechts dunkel,
+-/// dazu kurze Maserungsstriche in Körperfarbe dunkler.
+-void _planken(
+-  _Tex t,
+-  _Lcg r, {
+-  required int rampe,
+-  required int koerper,
+-  required int fuge,
+-  required List<int> fugenX,
+-  int toene = 1,
+-  int maserung = 2,
+-}) {
+-  final n = t.n;
+-  t.fill(fuge);
+-  for (var i = 0; i < fugenX.length; i++) {
+-    final a = fugenX[i] + 1;
+-    final b = (i + 1 < fugenX.length ? fugenX[i + 1] : fugenX[0] + n) - 1;
+-    final dunkler = toene > 0 && r.below(3) == 0;
+-    final s = koerper - (dunkler ? 1 : 0);
+-    final korper = Ramp.at(rampe, s), hell = Ramp.at(rampe, s + 1), schatten = Ramp.at(rampe, s - 1);
+-    for (var y = 0; y < n; y++) {
+-      for (var x = a; x <= b; x++) {
+-        t.p(x, y, korper);
+-      }
+-      t.p(a, y, hell);
+-      t.p(b, y, schatten);
+-    }
+-    final breite = b - a - 1;
+-    for (var k = 0; k < maserung && breite > 0; k++) {
+-      final x0 = a + 1 + r.below(breite), y = r.below(n), laenge = 2 + r.below(3);
+-      for (var j = 0; j < laenge && x0 + j < b; j++) {
+-        t.p(x0 + j, y, schatten);
+-      }
+-    }
+-  }
+-}
+-
+-/// Verputzte Fläche: gleichmäßiger Körper mit weichen Flecken und wenigen feuchten Schlieren.
+-IndexedTexture _putz(int rampe, int b, {required int seed}) {
+-  final t = _Tex(32), r = _Lcg(seed);
+-  t.fill(Ramp.at(rampe, b));
+-  // Weiche Flecken: kleine Gruppen einen Schritt dunkler, nicht über die ganze Fläche.
+-  for (var k = 0; k < 5; k++) {
+-    final x = 2 + r.below(27), y = r.below(32);
+-    t.rect(x, y, 3 + r.below(2), 2, Ramp.at(rampe, b - 1));
+-  }
+-  // Feuchte Schlieren: zwei Pixel breit, nach unten kürzer.
+-  for (var k = 0; k < 3; k++) {
+-    final x = 3 + r.below(25), y = r.below(32), h = 4 + r.below(4);
+-    t.rect(x, y, 2, h, Ramp.at(rampe, b - 1));
+-  }
+-  return t.build();
+-}
+-
+ // ---------------------------------------------------------------- Texturen
+ 
+ IndexedTexture _pflaster() {
+-  final t = _Tex(32);
+-  _steine(
++  final t = Tex(32);
++  steine(
+     t,
+-    _Lcg(11),
++    Lcg(11),
+     rampe: Ramp.stone,
+     koerper: 4,
+     fuge: Ramp.at(Ramp.stone, 1),
+@@ -304,10 +138,10 @@ IndexedTexture _pflaster() {
+ }
+ 
+ IndexedTexture _pflasterGross() {
+-  final t = _Tex(64);
+-  _steine(
++  final t = Tex(64);
++  steine(
+     t,
+-    _Lcg(21),
++    Lcg(21),
+     rampe: Ramp.neutral,
+     koerper: 5,
+     fuge: Ramp.at(Ramp.neutral, 1),
+@@ -320,10 +154,10 @@ IndexedTexture _pflasterGross() {
+ }
+ 
+ IndexedTexture _sockelBruchstein() {
+-  final t = _Tex(32);
+-  _steine(
++  final t = Tex(32);
++  steine(
+     t,
+-    _Lcg(31),
++    Lcg(31),
+     rampe: Ramp.stone,
+     koerper: 3,
+     fuge: Ramp.at(Ramp.stone, 1),
+@@ -347,7 +181,7 @@ IndexedTexture _dachBiberschwanzMoos() => _dach(seed: 42, moos: true);
+ /// eine helle Oberkante, eine dunkle Unterkante und abgerundete Enden. Moos sitzt in den
+ /// Fugen und an den Unterkanten.
+ IndexedTexture _dach({required int seed, required bool moos}) {
+-  final t = _Tex(32), r = _Lcg(seed);
++  final t = Tex(32), r = Lcg(seed);
+   final fuge = Ramp.at(Ramp.red, 0), schattenFarbe = Ramp.at(Ramp.red, 2);
+   for (var reihe = 0; reihe < 8; reihe++) {
+     final y0 = 2 + reihe * 4;
+@@ -394,9 +228,9 @@ IndexedTexture _dach({required int seed, required bool moos}) {
+ }
+ 
+ IndexedTexture _bruchsteinMauer() {
+-  final t = _Tex(64), r = _Lcg(51);
++  final t = Tex(64), r = Lcg(51);
+   final fuge = Ramp.at(Ramp.stone, 2);
+-  _steine(
++  steine(
+     t,
+     r,
+     rampe: Ramp.stone,
+@@ -425,10 +259,10 @@ IndexedTexture _bruchsteinMauer() {
+ }
+ 
+ IndexedTexture _quaderMauer() {
+-  final t = _Tex(64);
+-  _steine(
++  final t = Tex(64);
++  steine(
+     t,
+-    _Lcg(61),
++    Lcg(61),
+     rampe: Ramp.stone,
+     koerper: 5,
+     fuge: Ramp.at(Ramp.stone, 2),
+@@ -444,10 +278,10 @@ IndexedTexture _quaderMauer() {
+ }
+ 
+ IndexedTexture _burgBruchstein() {
+-  final t = _Tex(64);
+-  _steine(
++  final t = Tex(64);
++  steine(
+     t,
+-    _Lcg(71),
++    Lcg(71),
+     rampe: Ramp.stone,
+     koerper: 3,
+     fuge: Ramp.at(Ramp.stone, 0),
+@@ -466,7 +300,7 @@ IndexedTexture _burgBruchstein() {
+ }
+ 
+ IndexedTexture _gewoelbeDecke() {
+-  final t = _Tex(64);
++  final t = Tex(64);
+   // Rippen: 2 Pixel breit (Kern, helle Kante), dunkle Gegenkante; Felder dazwischen.
+   final panel = Ramp.at(Ramp.stone, 3), schatten = Ramp.at(Ramp.stone, 2);
+   final rippe = Ramp.at(Ramp.stone, 5), licht = Ramp.at(Ramp.stone, 6);
+@@ -488,16 +322,16 @@ IndexedTexture _gewoelbeDecke() {
+ }
+ 
+ IndexedTexture _holzBohlen() {
+-  final t = _Tex(32);
+-  _planken(t, _Lcg(81), rampe: Ramp.wood, koerper: 3, fuge: Ramp.at(Ramp.wood, 1), fugenX: [3, 11, 19, 27]);
++  final t = Tex(32);
++  planken(t, Lcg(81), rampe: Ramp.wood, koerper: 3, fuge: Ramp.at(Ramp.wood, 1), fugenX: [3, 11, 19, 27]);
+   return t.build();
+ }
+ 
+ IndexedTexture _holzDielen() {
+-  final t = _Tex(32);
+-  _steine(
++  final t = Tex(32);
++  steine(
+     t,
+-    _Lcg(91),
++    Lcg(91),
+     rampe: Ramp.wood,
+     koerper: 4,
+     fuge: Ramp.at(Ramp.wood, 1),
+@@ -513,17 +347,17 @@ IndexedTexture _holzDielen() {
+ }
+ 
+ IndexedTexture _eichenTuer() {
+-  final t = _Tex(32);
++  final t = Tex(32);
+   final fuge = Ramp.at(Ramp.wood, 1);
+-  _planken(t, _Lcg(101), rampe: Ramp.wood, koerper: 3, fuge: fuge, fugenX: [2, 10, 18, 26]);
++  planken(t, Lcg(101), rampe: Ramp.wood, koerper: 3, fuge: fuge, fugenX: [2, 10, 18, 26]);
+   t.hline(0, 9, 32, fuge);
+   t.hline(0, 22, 32, fuge);
+   return t.build();
+ }
+ 
+ IndexedTexture _eichenTuerEisen() {
+-  final t = _Tex(32);
+-  _planken(t, _Lcg(111), rampe: Ramp.wood, koerper: 3, fuge: Ramp.at(Ramp.wood, 2), fugenX: [2, 10, 18, 26], toene: 0);
++  final t = Tex(32);
++  planken(t, Lcg(111), rampe: Ramp.wood, koerper: 3, fuge: Ramp.at(Ramp.wood, 2), fugenX: [2, 10, 18, 26], toene: 0);
+   for (final y in [7, 22]) {
+     t.hline(0, y, 32, Ramp.at(Ramp.neutral, 5));
+     t.hline(0, y + 1, 32, Ramp.at(Ramp.neutral, 3));
+@@ -532,10 +366,10 @@ IndexedTexture _eichenTuerEisen() {
+ }
+ 
+ IndexedTexture _fensterLaden() {
+-  final t = _Tex(32);
+-  _steine(
++  final t = Tex(32);
++  steine(
+     t,
+-    _Lcg(121),
++    Lcg(121),
+     rampe: Ramp.wood,
+     koerper: 4,
+     fuge: Ramp.at(Ramp.wood, 1),
+@@ -546,7 +380,7 @@ IndexedTexture _fensterLaden() {
+ }
+ 
+ IndexedTexture _fensterDunkel() {
+-  final t = _Tex(32);
++  final t = Tex(32);
+   final rahmen = Ramp.at(Ramp.wood, 2), rahmenHell = Ramp.at(Ramp.wood, 3);
+   final glas = Ramp.at(Ramp.blue, 2), glasTief = Ramp.at(Ramp.blue, 1), glasHell = Ramp.at(Ramp.blue, 3);
+   t.fill(glas);
+@@ -570,7 +404,7 @@ IndexedTexture _fensterDunkel() {
+ }
+ 
+ IndexedTexture _fensterKerze() {
+-  final t = _Tex(32);
++  final t = Tex(32);
+   final rahmen = Ramp.at(Ramp.wood, 2), glas = Ramp.at(Ramp.amber, 3), glut = Ramp.at(Ramp.amber, 4);
+   final flamme = Ramp.at(Ramp.amber, 5);
+   t.fill(glas);
+@@ -587,7 +421,7 @@ IndexedTexture _fensterKerze() {
+ }
+ 
+ IndexedTexture _fachwerkPutz() {
+-  final t = _Tex(64), r = _Lcg(131);
++  final t = Tex(64), r = Lcg(131);
+   final putz = Ramp.at(Ramp.skin, 4), dunkel = Ramp.at(Ramp.skin, 3);
+   final holz = Ramp.at(Ramp.wood, 3), holzHell = Ramp.at(Ramp.wood, 4), holzDunkel = Ramp.at(Ramp.wood, 2);
+   t.fill(putz);
+@@ -616,10 +450,10 @@ IndexedTexture _fachwerkPutz() {
+ }
+ 
+ IndexedTexture _ziegelKamin() {
+-  final t = _Tex(32);
+-  _steine(
++  final t = Tex(32);
++  steine(
+     t,
+-    _Lcg(141),
++    Lcg(141),
+     rampe: Ramp.red,
+     koerper: 4,
+     fuge: Ramp.at(Ramp.stone, 5),
+@@ -630,7 +464,7 @@ IndexedTexture _ziegelKamin() {
+ }
+ 
+ IndexedTexture _kiesWeg() {
+-  final t = _Tex(32), r = _Lcg(151);
++  final t = Tex(32), r = Lcg(151);
+   t.fill(Ramp.at(Ramp.stone, 3));
+   for (var k = 0; k < 20; k++) {
+     final x = r.below(32), y = r.below(32);
+@@ -643,7 +477,7 @@ IndexedTexture _kiesWeg() {
+ }
+ 
+ IndexedTexture _wiese() {
+-  final t = _Tex(32), r = _Lcg(161);
++  final t = Tex(32), r = Lcg(161);
+   final tief = Ramp.at(Ramp.green, 2), gras = Ramp.at(Ramp.green, 3);
+   final halm = Ramp.at(Ramp.green, 5), spitze = Ramp.at(Ramp.green, 6);
+   t.fill(gras);
+@@ -661,7 +495,7 @@ IndexedTexture _wiese() {
+ }
+ 
+ IndexedTexture _erde() {
+-  final t = _Tex(32), r = _Lcg(171);
++  final t = Tex(32), r = Lcg(171);
+   t.fill(Ramp.at(Ramp.wood, 3));
+   for (var k = 0; k < 30; k++) {
+     t.p(r.below(32), r.below(32), Ramp.at(Ramp.wood, 2));
+@@ -677,10 +511,10 @@ IndexedTexture _erde() {
+ }
+ 
+ IndexedTexture _schieferPlatten() {
+-  final t = _Tex(32);
+-  _steine(
++  final t = Tex(32);
++  steine(
+     t,
+-    _Lcg(181),
++    Lcg(181),
+     rampe: Ramp.blue,
+     koerper: 3,
+     fuge: Ramp.at(Ramp.blue, 0),
+@@ -696,10 +530,10 @@ IndexedTexture _schieferPlatten() {
+ }
+ 
+ IndexedTexture _stufenStein() {
+-  final t = _Tex(32);
+-  _steine(
++  final t = Tex(32);
++  steine(
+     t,
+-    _Lcg(191),
++    Lcg(191),
+     rampe: Ramp.stone,
+     koerper: 5,
+     fuge: Ramp.at(Ramp.stone, 2),
+@@ -715,7 +549,7 @@ IndexedTexture _stufenStein() {
+ }
+ 
+ IndexedTexture _teppichRot() {
+-  final t = _Tex(32);
++  final t = Tex(32);
+   final grund = Ramp.at(Ramp.red, 2), ring = Ramp.at(Ramp.red, 3), kern = Ramp.at(Ramp.red, 4);
+   final rand = Ramp.at(Ramp.red, 1), gold = Ramp.at(Ramp.amber, 4);
+   for (var y = 0; y < 32; y++) {
+@@ -741,11 +575,11 @@ IndexedTexture _teppichRot() {
+ }
+ 
+ IndexedTexture _kachelOfen() {
+-  final t = _Tex(32);
++  final t = Tex(32);
+   final fuge = Ramp.at(Ramp.neutral, 2), ornament = fuge;
+-  _steine(
++  steine(
+     t,
+-    _Lcg(201),
++    Lcg(201),
+     rampe: Ramp.blue,
+     koerper: 4,
+     fuge: fuge,
+@@ -764,7 +598,7 @@ IndexedTexture _kachelOfen() {
+ }
+ 
+ IndexedTexture _regalBuecher() {
+-  final t = _Tex(32), r = _Lcg(211);
++  final t = Tex(32), r = Lcg(211);
+   final lucke = Ramp.at(Ramp.wood, 0), brett = Ramp.at(Ramp.wood, 2);
+   final buecher = [Ramp.at(Ramp.red, 4), Ramp.at(Ramp.blue, 4), Ramp.at(Ramp.amber, 3)];
+   t.fill(lucke);
+@@ -785,7 +619,7 @@ IndexedTexture _regalBuecher() {
+ }
+ 
+ IndexedTexture _tapeteStreifen() {
+-  final t = _Tex(32);
++  final t = Tex(32);
+   final grund = Ramp.at(Ramp.skin, 3), hell = Ramp.at(Ramp.skin, 5);
+   final dunkel = Ramp.at(Ramp.skin, 2), mittel = Ramp.at(Ramp.skin, 4);
+   for (var y = 0; y < 32; y++) {
+@@ -802,16 +636,16 @@ IndexedTexture _tapeteStreifen() {
+ }
+ 
+ IndexedTexture _holzVertaefelung() {
+-  final t = _Tex(32);
++  final t = Tex(32);
+   final fuge = Ramp.at(Ramp.wood, 1);
+-  _planken(t, _Lcg(221), rampe: Ramp.wood, koerper: 4, fuge: fuge, fugenX: [4, 12, 20, 28]);
++  planken(t, Lcg(221), rampe: Ramp.wood, koerper: 4, fuge: fuge, fugenX: [4, 12, 20, 28]);
+   t.hline(0, 10, 32, fuge);
+   t.hline(0, 21, 32, fuge);
+   return t.build();
+ }
+ 
+ IndexedTexture _eisenGitter() {
+-  final t = _Tex(32);
++  final t = Tex(32);
+   final loch = Ramp.at(Ramp.blue, 1), hell = Ramp.at(Ramp.neutral, 5);
+   final koerper = Ramp.at(Ramp.neutral, 3), niet = Ramp.at(Ramp.neutral, 6);
+   t.fill(loch);
+diff --git a/packages/pixel_engine/lib/src/kit/werkzeug.dart b/packages/pixel_engine/lib/src/kit/werkzeug.dart
+new file mode 100644
+index 0000000..0700b96
+--- /dev/null
++++ b/packages/pixel_engine/lib/src/kit/werkzeug.dart
+@@ -0,0 +1,217 @@
++import 'dart:typed_data';
++
++import '../palette.dart';
++import '../raster/texture.dart';
++
++/// Werkzeugkasten für Pixeltexturen (Burgstadt HD, P1-OPUS-01): öffentliche Helfer, mit denen
++/// die Bestandstexturen gezeichnet sind und neue Texturen in `kit/texturen/<name>.dart` entstehen.
++/// Alles deterministisch: [Lcg] mit festem Seed, [hashTeil] für Varianten je Objekt und Teil –
++/// nie `dart:math`-Zufall.
++
++/// Kleiner LCG mit festem Seed. Modulo statt Bit-Maske, damit auch dart2js exakt rechnet.
++class Lcg {
++  Lcg(this._s);
++  int _s;
++
++  int next() {
++    _s = (_s * 1664525 + 1013904223) % 4294967296;
++    return _s ~/ 65536;
++  }
++
++  int below(int k) => next() % k;
++}
++
++/// Quadratische Indexfläche mit Wrap: Koordinaten außerhalb werden umbrochen,
++/// dadurch setzt sich jede Figur, die über den Rand läuft, auf der Gegenseite fort.
++class Tex {
++  Tex(this.n) : px = Uint8List(n * n);
++
++  final int n;
++  final Uint8List px;
++
++  int _i(int x, int y) => ((y % n) + n) % n * n + ((x % n) + n) % n;
++
++  void p(int x, int y, int c) => px[_i(x, y)] = c;
++
++  int g(int x, int y) => px[_i(x, y)];
++
++  void fill(int c) => px.fillRange(0, px.length, c);
++
++  void rect(int x, int y, int w, int h, int c) {
++    for (var j = 0; j < h; j++) {
++      for (var i = 0; i < w; i++) {
++        p(x + i, y + j, c);
++      }
++    }
++  }
++
++  void hline(int x, int y, int w, int c) => rect(x, y, w, 1, c);
++
++  void vline(int x, int y, int h, int c) => rect(x, y, 1, h, c);
++
++  IndexedTexture build() => IndexedTexture(n, n, Uint8List.fromList(px));
++}
++
++/// Steine zwischen Fugen. Zeilenfugen [zeilen] sind aufsteigend; Band k reicht von
++/// zeilen[k]+1 bis zeilen[k+1]-1 (mit Wrap). Spaltenfugen je Band stehen in [spalten][k].
++/// Oben und links eine Stufe heller, unten und rechts eine Stufe dunkler. Mit [toene]
++/// wird ein Teil der Steine eine Stufe dunkler gezeichnet. [ecken] färbt die unteren
++/// Ecken jedes Steins (abgerundete Ziegelenden).
++void steine(
++  Tex t,
++  Lcg r, {
++  required int rampe,
++  required int koerper,
++  required int fuge,
++  required List<int> zeilen,
++  required List<List<int>> spalten,
++  int toene = 1,
++  int? ecken,
++  int? runden,
++}) {
++  final n = t.n;
++  t.fill(fuge);
++  for (var k = 0; k < zeilen.length; k++) {
++    final y0 = zeilen[k] + 1;
++    final y1 = (k + 1 < zeilen.length ? zeilen[k + 1] : zeilen[0] + n) - 1;
++    final fugen = spalten[k];
++    if (fugen.isEmpty) {
++      stein(t, r, rampe, koerper, toene, 0, n - 1, y0, y1, kanten: false, ecken: ecken, runden: runden);
++      continue;
++    }
++    for (var i = 0; i < fugen.length; i++) {
++      final a = fugen[i] + 1;
++      final b = (i + 1 < fugen.length ? fugen[i + 1] : fugen[0] + n) - 1;
++      stein(t, r, rampe, koerper, toene, a, b, y0, y1, kanten: true, ecken: ecken, runden: runden);
++    }
++  }
++}
++
++void stein(
++  Tex t,
++  Lcg r,
++  int rampe,
++  int koerper,
++  int toene,
++  int a,
++  int b,
++  int y0,
++  int y1, {
++  required bool kanten,
++  int? ecken,
++  int? runden,
++}) {
++  final dunkler = toene > 0 && r.below(3) == 0;
++  final s = koerper - (dunkler ? 1 : 0);
++  final korper = Ramp.at(rampe, s), hell = Ramp.at(rampe, s + 1), schatten = Ramp.at(rampe, s - 1);
++  for (var y = y0; y <= y1; y++) {
++    for (var x = a; x <= b; x++) {
++      t.p(x, y, korper);
++    }
++  }
++  for (var x = a; x <= b; x++) {
++    t.p(x, y0, hell);
++  }
++  if (kanten) {
++    for (var y = y0; y <= y1; y++) {
++      t.p(a, y, hell);
++    }
++  }
++  for (var x = a; x <= b; x++) {
++    t.p(x, y1, schatten);
++  }
++  if (kanten) {
++    for (var y = y0; y <= y1; y++) {
++      t.p(b, y, schatten);
++    }
++  }
++  if (ecken != null && kanten) {
++    t.p(a, y1, ecken);
++    t.p(b, y1, ecken);
++  }
++  if (runden != null && kanten) {
++    for (final (x, y) in [(a, y0), (b, y0), (a, y1), (b, y1)]) {
++      t.p(x, y, runden);
++    }
++  }
++}
++
++/// Senkrechte Bohlen zwischen den Fugen [fugenX] (aufsteigend, Wrap). Links hell, rechts dunkel,
++/// dazu kurze Maserungsstriche in Körperfarbe dunkler.
++void planken(
++  Tex t,
++  Lcg r, {
++  required int rampe,
++  required int koerper,
++  required int fuge,
++  required List<int> fugenX,
++  int toene = 1,
++  int maserung = 2,
++}) {
++  final n = t.n;
++  t.fill(fuge);
++  for (var i = 0; i < fugenX.length; i++) {
++    final a = fugenX[i] + 1;
++    final b = (i + 1 < fugenX.length ? fugenX[i + 1] : fugenX[0] + n) - 1;
++    final dunkler = toene > 0 && r.below(3) == 0;
++    final s = koerper - (dunkler ? 1 : 0);
++    final korper = Ramp.at(rampe, s), hell = Ramp.at(rampe, s + 1), schatten = Ramp.at(rampe, s - 1);
++    for (var y = 0; y < n; y++) {
++      for (var x = a; x <= b; x++) {
++        t.p(x, y, korper);
++      }
++      t.p(a, y, hell);
++      t.p(b, y, schatten);
++    }
++    final breite = b - a - 1;
++    for (var k = 0; k < maserung && breite > 0; k++) {
++      final x0 = a + 1 + r.below(breite), y = r.below(n), laenge = 2 + r.below(3);
++      for (var j = 0; j < laenge && x0 + j < b; j++) {
++        t.p(x0 + j, y, schatten);
++      }
++    }
++  }
++}
++
++/// Verputzte Fläche: gleichmäßiger Körper mit weichen Flecken und wenigen feuchten Schlieren.
++IndexedTexture putz(int rampe, int b, {required int seed}) {
++  final t = Tex(32), r = Lcg(seed);
++  t.fill(Ramp.at(rampe, b));
++  // Weiche Flecken: kleine Gruppen einen Schritt dunkler, nicht über die ganze Fläche.
++  for (var k = 0; k < 5; k++) {
++    final x = 2 + r.below(27), y = r.below(32);
++    t.rect(x, y, 3 + r.below(2), 2, Ramp.at(rampe, b - 1));
++  }
++  // Feuchte Schlieren: zwei Pixel breit, nach unten kürzer.
++  for (var k = 0; k < 3; k++) {
++    final x = 3 + r.below(25), y = r.below(32), h = 4 + r.below(4);
++    t.rect(x, y, 2, h, Ramp.at(rampe, b - 1));
++  }
++  return t.build();
++}
++
++/// 32-Bit-Multiplikation modulo 2³² aus 16-Bit-Teilprodukten – gleiche Ergebnisse auf der VM
++/// und im Web (dart2js rechnet mit Gleitkommazahlen, volle 32×32-Produkte wären dort ungenau).
++int _mul32(int a, int b) {
++  final aLo = a & 0xFFFF, aHi = (a >> 16) & 0xFFFF;
++  final bLo = b & 0xFFFF, bHi = (b >> 16) & 0xFFFF;
++  return (aLo * bLo + ((((aHi * bLo) + (aLo * bHi)) & 0xFFFF) << 16)) & 0xFFFFFFFF;
++}
++
++/// Deterministischer Hash für Detailvarianten (K-011, E-008): [id] = stabile Objektkennung
++/// (z. B. Haus-ID, Bereich + Ding), [teil] = Nummer des Teils (Fenster 3, Laden links …).
++/// FNV-1a über die Zeichen, dann [teil] eingemischt und mit dem murmur3-Finalisierer verteilt.
++/// Ergebnis 0 … 2³¹−1, auf VM und Web gleich. Nie den Zufallsstrom des Stadtgenerators nutzen.
++int hashTeil(String id, int teil) {
++  var h = 0x811C9DC5;
++  for (final c in id.codeUnits) {
++    h = _mul32(h ^ c, 0x01000193);
++  }
++  h = _mul32(h ^ (teil & 0xFFFFFFFF), 0x01000193);
++  h ^= h >> 16;
++  h = _mul32(h, 0x85EBCA6B);
++  h ^= h >> 13;
++  h = _mul32(h, 0xC2B2AE35);
++  h ^= h >> 16;
++  return h & 0x7FFFFFFF;
++}
+diff --git a/packages/pixel_engine/test/werkzeug_test.dart b/packages/pixel_engine/test/werkzeug_test.dart
+new file mode 100644
+index 0000000..1c90b91
+--- /dev/null
++++ b/packages/pixel_engine/test/werkzeug_test.dart
+@@ -0,0 +1,51 @@
++import 'package:pixel_engine/pixel_engine.dart';
++import 'package:test/test.dart';
++
++void main() {
++  // Golden-Werte: auf der Dart-VM und per dart2js (Node) identisch gemessen (P1-OPUS-01, N-19).
++  test('hashTeil: Golden-Werte (VM = Web)', () {
++    const golden = {
++      ('', 0): 91794203,
++      ('H-001', 0): 2134525537,
++      ('H-001', 1): 1110042783,
++      ('H-001', 2): 1698396510,
++      ('haus-H-155', 7): 1542450800,
++      ('stadt|fenster', 123456): 1929464221,
++      ('Ünïcödé', 42): 181973872,
++      ('innen-kirche', -1): 1701518416,
++    };
++    for (final e in golden.entries) {
++      expect(hashTeil(e.key.$1, e.key.$2), e.value, reason: '${e.key}');
++    }
++  });
++
++  test('hashTeil: nicht negativ, gleichmäßig verteilt (16 Fächer, je ±15 %)', () {
++    final faecher = List<int>.filled(16, 0);
++    for (var i = 0; i < 16000; i++) {
++      final h = hashTeil('H-${i ~/ 8}', i % 8);
++      expect(h, greaterThanOrEqualTo(0));
++      faecher[h % 16]++;
++    }
++    for (final f in faecher) {
++      expect(f, inInclusiveRange(850, 1150));
++    }
++  });
++
++  test('Lcg und Tex: Wrap und Wiederholbarkeit', () {
++    final a = Lcg(7), b = Lcg(7);
++    for (var i = 0; i < 100; i++) {
++      expect(a.next(), b.next());
++    }
++    final t = Tex(8)..p(-1, -1, 5);
++    expect(t.g(7, 7), 5);
++    expect(t.build().width, 8);
++  });
++
++  test('Textur-Register: Bestand mit Dichte 32, Bauer liefert gleiche Bytes', () {
++    for (final id in TexturId.values) {
++      final e = texturEintrag(id);
++      expect(e.dichte, anyOf(32, 64));
++      expect(e.bauer().levels[0], baueTextur(id).levels[0]);
++    }
++  });
++}

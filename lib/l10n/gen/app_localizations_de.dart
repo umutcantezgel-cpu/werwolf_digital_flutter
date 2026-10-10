@@ -84,6 +84,29 @@ class LDe extends L {
       'Ein Krimi für den Geburtstag, für 4 bis 20 Personen und ein Geburtstagskind';
 
   @override
+  String get hub_section_party => 'Partyabende';
+
+  @override
+  String get hub_section_classic => 'Klassische Fälle';
+
+  @override
+  String get hub_section_meta => 'Sammlung und Profil';
+
+  @override
+  String get hub_party_keller => 'Spuk im Schlosskeller';
+
+  @override
+  String get hub_party_keller_sub =>
+      'Partyabend an einem Gerät · 4 bis 20 Personen';
+
+  @override
+  String get hub_party_gewoelbe => 'Spuk im Gewölbe';
+
+  @override
+  String get hub_party_gewoelbe_sub =>
+      'Krimidinner auf Burg Schartenfels · Besetzung, Steckbriefe, Mappen';
+
+  @override
   String hub_online_rejoin(String code) {
     return 'Zurück zu Raum $code';
   }
@@ -150,6 +173,13 @@ class LDe extends L {
 
   @override
   String get name_prompt_hint => 'Name';
+
+  @override
+  String get name_prompt_title_du => 'Wie heißt du, Detektiv?';
+
+  @override
+  String get name_prompt_text_du =>
+      'Dein Name steht ab sofort auf deiner Dienstmarke.';
 
   @override
   String get name_prompt_confirm => 'Dienstmarke ausstellen';

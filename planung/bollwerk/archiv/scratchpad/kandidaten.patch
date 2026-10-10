@@ -1,0 +1,258 @@
+diff --git a/packages/burgstadt_spiel/bin/kontaktbogen.dart b/packages/burgstadt_spiel/bin/kontaktbogen.dart
+index fc2b13b..442cd5d 100644
+--- a/packages/burgstadt_spiel/bin/kontaktbogen.dart
++++ b/packages/burgstadt_spiel/bin/kontaktbogen.dart
+@@ -67,6 +67,8 @@ void main(List<String> args) {
+       _texturen(pos, zoom, licht: true);
+     case 'bereich':
+       _bereich(pos);
++    case 'kandidaten':
++      _kandidaten(pos, zoom);
+     default:
+       _abbruch('unbekannter Modus „${pos[0]}“');
+   }
+@@ -105,6 +107,36 @@ void _texturen(List<String> pos, int zoom, {required bool licht}) {
+   _fertig(licht ? 'texturen-licht' : 'texturen', bild, zellen.length, pos[1]);
+ }
+ 
++/// Textur-Kandidaten (kit/texturen/kandidaten.dart) in Weltdichte neben ihrer Bestandstextur
++/// (Name bis zum letzten „_“), je mit Befunden der Stilblatt-Prüfung; Befunde auch auf stdout.
++void _kandidaten(List<String> pos, int zoom) {
++  if (pos.length < 2 || pos.length > 3) _abbruch('Ausgabedatei fehlt oder zu viele Argumente');
++  final namen = pos.length == 3
++      ? pos[2].split(',').map((n) => n.trim()).where((n) => n.isNotEmpty).toList()
++      : kTexturKandidaten.keys.toList();
++  if (namen.isEmpty) _abbruch('keine Kandidaten eingetragen');
++  final ids = TexturId.values.asNameMap();
++  final zellen = <_Zelle>[];
++  final gezeigt = <String>{};
++  var befundeGesamt = 0;
++  for (final n in namen) {
++    final e = kTexturKandidaten[n];
++    if (e == null) _abbruch('unbekannter Kandidat „$n“ (siehe kit/texturen/kandidaten.dart)');
++    final basis = n.contains('_') ? n.substring(0, n.lastIndexOf('_')) : n;
++    final id = ids[basis];
++    if (id != null && gezeigt.add(basis)) zellen.add(_Zelle(baueWeltTextur(id), [basis, 'Bestand'], null));
++    final t = e.bauer();
++    final befunde = pruefeHdTextur(n, t);
++    befundeGesamt += befunde.length;
++    stdout.writeln('KANDIDAT $n · ${t.width}×${t.height} · ${befunde.isEmpty ? 'Stilblatt OK' : '${befunde.length} Befunde: ${befunde.join('; ')}'}');
++    zellen.add(_Zelle(t, [n, befunde.isEmpty ? 'Stilblatt OK' : '${befunde.length} Befunde'], null));
++  }
++  final spalten = math.max(1, math.sqrt(zellen.length).ceil());
++  final bild = _raster(zellen, spalten, zoom, null);
++  _fertig('kandidaten', bild, zellen.length, pos[1]);
++  if (befundeGesamt > 0) exitCode = 1;
++}
++
+ /// Ein Bereich aus drei Blickwinkeln (Bereichsfotos-Aufbau über ladeAusRepo).
+ void _bereich(List<String> pos) {
+   if (pos.length != 3) _abbruch('Bereich-id und Ausgabedatei nötig');
+diff --git a/packages/pixel_engine/lib/pixel_engine.dart b/packages/pixel_engine/lib/pixel_engine.dart
+index c90ac91..30d75ed 100644
+--- a/packages/pixel_engine/lib/pixel_engine.dart
++++ b/packages/pixel_engine/lib/pixel_engine.dart
+@@ -24,5 +24,7 @@ export 'src/figur/teile_basis.dart';
+ export 'src/figur/sprite_pruef.dart';
+ export 'src/kit/texturen.dart';
+ export 'src/kit/werkzeug.dart';
++export 'src/kit/textur_pruefung.dart';
++export 'src/kit/texturen/kandidaten.dart';
+ export 'src/figur/bewohner_karten.dart';
+ export 'src/figur/portraet.dart';
+diff --git a/packages/pixel_engine/lib/src/kit/textur_pruefung.dart b/packages/pixel_engine/lib/src/kit/textur_pruefung.dart
+new file mode 100644
+index 0000000..5e7ba31
+--- /dev/null
++++ b/packages/pixel_engine/lib/src/kit/textur_pruefung.dart
+@@ -0,0 +1,121 @@
++import '../palette.dart';
++import '../raster/texture.dart';
++
++/// Strukturmessungen und Stilblatt-Prüfung für Texturen (Burgstadt HD; texturen_test v2, E-047).
++/// Werkzeuge und Tests nutzen dieselben Funktionen, damit Kontaktbogen und Test gleich urteilen.
++
++/// Texturen, die Grün (Rampe 5) tragen dürfen (Grünregel E-025).
++const Set<String> kGruenErlaubt = {'dachBiberschwanzMoos', 'wiese', 'bruchsteinMauer'};
++
++/// „Gleich oder benachbart“: gleicher Index oder gleiche Rampe mit höchstens zwei 16er-Stufen Abstand.
++bool benachbart(int a, int b) => a == b || (rampeVon(a) == rampeVon(b) && (stufeVon(a) - stufeVon(b)).abs() <= 2);
++
++int _px(IndexedTexture t, int x, int y) {
++  final n = t.width;
++  final xm = ((x % n) + n) % n, ym = ((y % n) + n) % n;
++  return t.levels[0][ym * n + xm];
++}
++
++/// Luma eines Palettenindex (ganzzahlig, 0–255, Gewichte 299/587/114).
++int luma(int c) => (299 * paletteR(c) + 587 * paletteG(c) + 114 * paletteB(c)) ~/ 1000;
++
++/// Anteil der Randpaare (links/rechts und oben/unten), die gleich oder benachbart sind.
++double kantenAnteil(IndexedTexture t) {
++  final n = t.width, px = t.levels[0];
++  var gut = 0, alle = 0;
++  for (var i = 0; i < n; i++) {
++    alle += 2;
++    if (benachbart(px[i * n], px[i * n + n - 1])) gut++;
++    if (benachbart(px[i], px[(n - 1) * n + i])) gut++;
++  }
++  return gut / alle;
++}
++
++/// Streupixel: Anteil der Pixel, deren vier Nachbarn (mit Umbruch) alle einen anderen Index haben.
++double streuAnteil(IndexedTexture t) {
++  final n = t.width;
++  var streu = 0;
++  for (var y = 0; y < n; y++) {
++    for (var x = 0; x < n; x++) {
++      final c = _px(t, x, y);
++      if (_px(t, x, y - 1) != c && _px(t, x, y + 1) != c && _px(t, x - 1, y) != c && _px(t, x + 1, y) != c) streu++;
++    }
++  }
++  return streu / (n * n);
++}
++
++/// Mittlere Luma der Kantenpixel je Seite und deren Anzahl.
++typedef Lichtkanten = ({double oben, double unten, double links, double rechts, int nOben, int nUnten, int nLinks, int nRechts});
++
++/// Lichtkanten: Oberkante = Pixel, dessen oberer Nachbar um ≥ 12 Luma dunkler ist (mit Umbruch);
++/// Unter-, Links- und Rechtskante entsprechend.
++Lichtkanten lichtkanten(IndexedTexture t) {
++  final n = t.width;
++  var sO = 0, nO = 0, sU = 0, nU = 0, sL = 0, nL = 0, sR = 0, nR = 0;
++  for (var y = 0; y < n; y++) {
++    for (var x = 0; x < n; x++) {
++      final l = luma(_px(t, x, y));
++      if (l - luma(_px(t, x, y - 1)) >= 12) {
++        sO += l;
++        nO++;
++      }
++      if (l - luma(_px(t, x, y + 1)) >= 12) {
++        sU += l;
++        nU++;
++      }
++      if (l - luma(_px(t, x - 1, y)) >= 12) {
++        sL += l;
++        nL++;
++      }
++      if (l - luma(_px(t, x + 1, y)) >= 12) {
++        sR += l;
++        nR++;
++      }
++    }
++  }
++  double m(int s, int k) => k == 0 ? 0.0 : s / k;
++  return (oben: m(sO, nO), unten: m(sU, nU), links: m(sL, nL), rechts: m(sR, nR), nOben: nO, nUnten: nU, nLinks: nL, nRechts: nR);
++}
++
++/// Licht von oben links (Bestand-Maß, ohne Abstand): Oberkanten ≥ Unterkanten, Linkskanten ≥ Rechtskanten.
++bool lichtVonObenLinks(Lichtkanten k) => k.oben >= k.unten && k.links >= k.rechts;
++
++/// Stilblatt-Prüfung einer HD-Textur (Zeichendichte 64). Liefert die Befunde (leer = bestanden).
++/// Lichtkante: je Achse nur, wenn beide Seiten ≥ 20 Kantenpixel haben; dann Ober- bzw. Linkskanten um
++/// mindestens 2 Luma heller als Unter- bzw. Rechtskanten (Licht oben links, Stilblatt §3).
++List<String> pruefeHdTextur(String name, IndexedTexture t, {bool? gruenErlaubt}) {
++  final b = <String>[];
++  if (!(t.width == 64 || t.width == 128) || t.height != t.width) b.add('Größe ${t.width}×${t.height} (erlaubt 64 oder 128, quadratisch)');
++  for (final lv in t.levels) {
++    if (lv.any((c) => c >= paletteRgb.length)) {
++      b.add('Index außerhalb der Palette oder durchsichtig');
++      break;
++    }
++  }
++  if (t.hasTransparency) b.add('durchsichtige Texel');
++  final ka = kantenAnteil(t);
++  if (ka < 0.6) b.add('nicht kachelbar: ${(ka * 100).toStringAsFixed(1)} % Randpaare passen (≥ 60 %)');
++  final farben = t.levels[0].toSet();
++  final proRampe = <int, Set<int>>{};
++  for (final c in farben) {
++    proRampe.putIfAbsent(rampeVon(c), () => <int>{}).add(stufeVon(c));
++  }
++  for (final e in proRampe.entries) {
++    if (e.value.length > 8) b.add('Rampe ${e.key}: ${e.value.length} Stufen (höchstens 8)');
++  }
++  if (proRampe.length > 3) b.add('${proRampe.length} Rampen (höchstens 3)');
++  if (farben.length > 14) b.add('${farben.length} Indizes (höchstens 14)');
++  final gruen = gruenErlaubt ?? kGruenErlaubt.any(name.startsWith);
++  if (!gruen && proRampe.containsKey(Ramp.green)) b.add('Grün (Rampe 5) außerhalb der Grünregel');
++  final s = streuAnteil(t);
++  if (s > 0.08) b.add('Streupixel ${(s * 100).toStringAsFixed(1)} % (höchstens 8 %)');
++  final k = lichtkanten(t);
++  if (k.nOben >= 20 && k.nUnten >= 20 && k.oben < k.unten + 2) {
++    b.add('Lichtkante: oben ${k.oben.toStringAsFixed(1)} nicht heller als unten ${k.unten.toStringAsFixed(1)}');
++  }
++  if (k.nLinks >= 20 && k.nRechts >= 20 && k.links < k.rechts + 2) {
++    b.add('Lichtkante: links ${k.links.toStringAsFixed(1)} nicht heller als rechts ${k.rechts.toStringAsFixed(1)}');
++  }
++  if (t.levels.length < 5) b.add('${t.levels.length} Mip-Stufen (mindestens 5)');
++  return b;
++}
+diff --git a/packages/pixel_engine/lib/src/kit/texturen/kandidaten.dart b/packages/pixel_engine/lib/src/kit/texturen/kandidaten.dart
+new file mode 100644
+index 0000000..30045b3
+--- /dev/null
++++ b/packages/pixel_engine/lib/src/kit/texturen/kandidaten.dart
+@@ -0,0 +1,9 @@
++import '../texturen.dart';
++
++/// Textur-Kandidaten (Burgstadt HD): neue HD-Texturen und ★-Varianten vor der Wahl, nach Name.
++/// Jede liegt in einer eigenen Datei `kit/texturen/<name>.dart`; ihr Autor trägt sie hier mit EINER
++/// Zeile ein (Name `<textur>_<variante>`, z. B. `pflaster_a`). Der Orchestrator übernimmt die gewählte
++/// Fassung in das Register (`texturen.dart`, HD-Fassungen nach [TexturId]) und streicht sie hier.
++/// Kontaktbogen: `dart run bin/kontaktbogen.dart kandidaten <png> [namen]` (packages/burgstadt_spiel).
++final Map<String, TexturEintrag> kTexturKandidaten = {
++};
+diff --git a/packages/pixel_engine/test/texturen_test.dart b/packages/pixel_engine/test/texturen_test.dart
+index fd5d8de..6ce3edf 100644
+--- a/packages/pixel_engine/test/texturen_test.dart
++++ b/packages/pixel_engine/test/texturen_test.dart
+@@ -243,27 +243,9 @@ void main() {
+       });
+ 
+       if (hd) {
+-        test('Streupixel ≤ 8 % (HD)', () {
+-          final anteil = _streuAnteil(baueTextur(id));
+-          expect(anteil, lessThanOrEqualTo(0.08), reason: 'Streupixel ${_prozent(anteil)}');
+-        });
+-
+-        test('Lichtkante (HD): ≥ 20 Kantenpixel je Seite, Licht oben links', () {
+-          final k = _lichtkanten(baueTextur(id));
+-          expect(
+-            [k.nOben, k.nUnten, k.nLinks, k.nRechts].every((n) => n >= 20),
+-            isTrue,
+-            reason: 'Kantenpixel oben/unten/links/rechts: ${k.nOben}/${k.nUnten}/${k.nLinks}/${k.nRechts}',
+-          );
+-          expect(
+-            _lichtVonObenLinks(k),
+-            isTrue,
+-            reason: 'oben ${k.oben}, unten ${k.unten}, links ${k.links}, rechts ${k.rechts}',
+-          );
+-        });
+-
+-        test('Mip (HD): mindestens 5 Mip-Stufen', () {
+-          expect(baueTextur(id).levels.length, greaterThanOrEqualTo(5));
++        test('Stilblatt v2 (HD): pruefeHdTextur ohne Befund (Größe, Stufen, Grün, Streupixel, Lichtkante, Mip)', () {
++          final befunde = pruefeHdTextur(id.name, baueTextur(id), gruenErlaubt: _gruenErlaubt.contains(id.name));
++          expect(befunde, isEmpty, reason: befunde.join('; '));
+         });
+       }
+ 
+@@ -277,6 +259,18 @@ void main() {
+     });
+   }
+ 
++  group('Kandidaten (kit/texturen/kandidaten.dart)', () {
++    for (final e in kTexturKandidaten.entries) {
++      test('${e.key}: Dichte 64, Stilblatt v2 ohne Befund, deterministisch', () {
++        expect(e.value.dichte, 64);
++        final t = e.value.bauer();
++        final befunde = pruefeHdTextur(e.key, t);
++        expect(befunde, isEmpty, reason: befunde.join('; '));
++        expect(e.value.bauer().levels[0], orderedEquals(t.levels[0]));
++      });
++    }
++  });
++
+   test('Bestand-Bericht: Streupixel und Lichtkante je Bestandstextur (nur Ausgabe, keine Prüfung)', () {
+     for (final id in TexturId.values) {
+       if (texturEintrag(id).dichte == _hdDichte) continue;

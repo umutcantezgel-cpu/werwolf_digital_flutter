@@ -1,0 +1,9 @@
+Verbindungen der 7 Räume (Kanon raeume.json, Türen):
+thekensaal – windfang (Innentür)
+thekensaal – vorratsraum (Vorratsraumtür)
+thekensaal – durchgang (Tür zum Durchgang)
+durchgang – west_saal (Bogen zum Kaminsaal)
+thekensaal – ost_saal (Tür zum Ostsaal)
+west_saal – turmgang (Bogentür zum Turm)
+Außentor (windfang) und Hoftür (turmgang) sind verschlossen; niemand geht hinaus.
+Ein Weg (`aktion.weg`) bleibt im Raum der Variante oder führt über diese Türen in einen direkt verbundenen Raum. Der Ort `wc` (oben im Turm) ist nur über den Abstecher Wendeltreppe erreichbar und für W1 gesperrt.

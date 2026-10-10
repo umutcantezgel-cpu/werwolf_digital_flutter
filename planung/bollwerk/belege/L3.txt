@@ -1,0 +1,17 @@
+HEAD 30fadff64ac5625bdfe7e1e6494677ce493b22a7 · tree fd36258079d4014fdb4cb7bc90141a8a7ea646e3 · 2026-10-10 04:19:20 CEST · schnell --vorlauf · Exit 0 · f8e883c8ba50957d6be97bb248047b769902e1ad9b9d0423c5d64ebacbb14f25
+git diff --stat <BW0> HEAD -- tool/bollwerk: BW0 – (Vorlauf)
+Status GRÜN · Dauer 9 s
+
+$ dart run tool/bollwerk/kanon_einbetten.dart --pruefe
+Running build hooks...Running build hooks...Kanon eingebettet: gleich (17 Dateien)
+→ Exit 0
+$ (cd packages/mordakte_core && dart test -p vm test/runden/determinismus_web_test.dart)
+00:00 +0: loading test/runden/determinismus_web_test.dart
+00:00 +0: 1.000 Codes: Protokoll-Summen gleich der Soll-Liste (WÜ-6)
+00:00 +1: All tests passed!
+→ Exit 0
+$ (cd packages/mordakte_core && dart test -p node test/runden/determinismus_web_test.dart)
+00:00 +0: loading test/runden/determinismus_web_test.dart
+00:00 +0: 1.000 Codes: Protokoll-Summen gleich der Soll-Liste (WÜ-6)
+00:00 +1: All tests passed!
+→ Exit 0

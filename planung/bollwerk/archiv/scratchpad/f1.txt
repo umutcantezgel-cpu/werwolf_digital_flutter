@@ -1,0 +1,8 @@
+SKALA Welt 320x180 ×4 · UI 640x360 ×2
+SZENE A-Oberstadt · Bereich stadt (Marke b, längste freie Richtung) · x 80,25 · z 11,25 · yaw 1,5708 rad · Sicht 53,7 m · Boden bis 44,1 m
+FLIMMERN A-Oberstadt · Boden 10754 Pixel · Änderung 0,756 · Ferne 0,716
+SZENE B-Innenraum · Bereich innen-kirche (Marke t, 306 begehbare Kacheln) · x 5,75 · z 9,25 · yaw -1,5120 rad · Sicht 7,2 m · Boden bis 8,8 m
+FLIMMERN B-Innenraum · Boden 5785 Pixel · Änderung 0,501 · Ferne 0,462
+SZENE C-Burghof · Bereich hofebene (Marke h) · x 0,75 · z 1,75 · yaw 0,1419 rad · Sicht 3,7 m · Boden bis 4,2 m
+FLIMMERN C-Burghof · Boden 3845 Pixel · Änderung 0,370 · Ferne 0,000
+FLIMMERN MITTEL 0,542 · FERNE 0,393

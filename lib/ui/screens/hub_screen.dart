@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl/intl.dart';
+import 'package:intl/intl.dart' show DateFormat;
 import 'package:provider/provider.dart';
 
 import '../../session/session_factory.dart';
@@ -75,12 +75,15 @@ class _HubScreenState extends State<HubScreen> {
     final accent = accentOf(dailyScenario);
     final now = DateTime.now();
     const gap = 12.0;
-    var step = 0;
-    // Gestaffeltes Einblenden der Kacheln.
-    Widget stagger(Widget w) => w
+    // Gestaffeltes Einblenden der Kacheln. Die Überschrift „Partyabende“ (0) und
+    // die beiden Partykacheln (1, 2) stehen fest vorn, danach zählt [stagger] weiter.
+    var step = 3;
+    const partyStufe = 1;
+    Widget staggerAt(int i, Widget w) => w
         .animate()
-        .fadeIn(delay: (120 + 70 * step++).ms, duration: 420.ms)
+        .fadeIn(delay: (120 + 70 * i).ms, duration: 420.ms)
         .slideY(begin: 0.08, curve: Curves.easeOutCubic);
+    Widget stagger(Widget w) => staggerAt(step++, w);
 
     return Scaffold(
       body: NoirBackdrop(
@@ -99,19 +102,29 @@ class _HubScreenState extends State<HubScreen> {
                       .fadeIn(duration: 700.ms)
                       .slideY(begin: -0.08, curve: Curves.easeOutCubic),
                   const SizedBox(height: 30),
-                  // Reihe 1: Dienstmarke (2/3) + Serie (1/3)
-                  IntrinsicHeight(
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Expanded(flex: 2, child: stagger(_BadgeTile(meta: meta))),
-                        const SizedBox(width: gap),
-                        Expanded(child: stagger(_StreakTile(streak: meta.streak))),
-                      ],
-                    ),
+                  // Partyabende: beide Abende gleichrangig, gleich groß und in gleicher Schrift.
+                  staggerAt(0, _Abschnitt(l.hub_section_party)),
+                  _PartyReihe(
+                    kacheln: [
+                      _PartyKachel(
+                        icon: Icons.celebration_rounded,
+                        titel: l.hub_party_keller,
+                        untertitel: l.hub_party_keller_sub,
+                        onTap: () => context.go(Routes.party),
+                      ),
+                      _PartyKachel(
+                        icon: Icons.castle_rounded,
+                        titel: l.hub_party_gewoelbe,
+                        untertitel: l.hub_party_gewoelbe_sub,
+                        onTap: () => context.go(Routes.gewoelbe),
+                      ),
+                    ],
+                    gap: gap,
+                    einblenden: (i, w) => staggerAt(partyStufe + i, w),
                   ),
-                  const SizedBox(height: gap),
-                  // Reihe 2: Fall des Tages (volle Breite)
+                  const SizedBox(height: 26),
+                  // Klassische Fälle: Fall des Tages, Fallakten und Online.
+                  stagger(_Abschnitt(l.hub_section_classic)),
                   if (dailyScenario != null) ...[
                     stagger(
                       _DailyCard(
@@ -126,7 +139,7 @@ class _HubScreenState extends State<HubScreen> {
                     ),
                     const SizedBox(height: gap + 4),
                   ],
-                  // Reihe 3: Fallakten (Hauptkachel mit Glow) + Online
+                  // Fallakten (Hauptkachel mit Glow) + Online
                   SizedBox(
                     height: 156,
                     child: Row(
@@ -172,23 +185,20 @@ class _HubScreenState extends State<HubScreen> {
                       ],
                     ),
                   ),
-                  const SizedBox(height: gap),
-                  // Partymodus (F4-ORCH-02): eigener Abend mit Kanon, Karte und Druck
-                  SizedBox(
-                    height: 112,
-                    child: stagger(
-                      BentoTile(
-                        onTap: () => context.go(Routes.party),
-                        child: _TileBody(
-                          icon: Icons.celebration_rounded,
-                          title: l.hub_party,
-                          subtitle: l.hub_party_sub,
-                        ),
-                      ),
+                  const SizedBox(height: 26),
+                  // Sammlung und Profil: Dienstmarke (2/3) + Serie (1/3), dann Sammlung + Profil.
+                  stagger(_Abschnitt(l.hub_section_meta)),
+                  IntrinsicHeight(
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(flex: 2, child: stagger(_BadgeTile(meta: meta))),
+                        const SizedBox(width: gap),
+                        Expanded(child: stagger(_StreakTile(streak: meta.streak))),
+                      ],
                     ),
                   ),
                   const SizedBox(height: gap),
-                  // Reihe 4: Sammlung + Profil
                   SizedBox(
                     height: 112,
                     child: Row(
@@ -239,6 +249,182 @@ class _HubScreenState extends State<HubScreen> {
       ),
     );
   }
+}
+
+/// Überschrift eines Hub-Bereichs: Schreibmaschine in hellem Messing, dahinter eine feine Linie.
+class _Abschnitt extends StatelessWidget {
+  const _Abschnitt(this.titel);
+
+  final String titel;
+
+  @override
+  Widget build(BuildContext context) => Padding(
+    padding: const EdgeInsets.only(bottom: 10),
+    child: Row(
+      children: [
+        Text(titel, style: Noir.title(13, color: Noir.brassLight, spacing: 1.6)),
+        const SizedBox(width: 10),
+        const Expanded(child: Divider(color: Noir.lineSoft, thickness: 1, height: 1)),
+      ],
+    ),
+  );
+}
+
+/// Daten einer Partyabend-Kachel; gesetzt wird sie von [_PartyReihe].
+class _PartyKachel {
+  const _PartyKachel({required this.icon, required this.titel, required this.untertitel, required this.onTap});
+
+  final IconData icon;
+  final String titel;
+  final String untertitel;
+  final VoidCallback onTap;
+}
+
+/// Die Partyabende gleichrangig: gleich groß, gleiche Titelschrift, kein Text abgeschnitten.
+///
+/// Beide Titel bekommen dieselbe Größe, die größte, bei der jeder Titel ohne
+/// Worttrennung passt. Reicht der Platz nebeneinander dafür nicht (am Telefon),
+/// stehen die Kacheln untereinander in voller Breite. Titel und Untertitel
+/// nehmen in jeder Kachel die Höhe des längsten ein, so sind beide gleich hoch.
+class _PartyReihe extends StatelessWidget {
+  const _PartyReihe({required this.kacheln, required this.gap, required this.einblenden});
+
+  final List<_PartyKachel> kacheln;
+  final double gap;
+
+  /// Blendet die Kachel mit dem Index ein (gestaffelt wie der übrige Hub).
+  final Widget Function(int index, Widget kachel) einblenden;
+
+  static const _innen = 16.0;
+  static const _maxTitel = 26.0;
+  static const _minTitel = 16.0;
+
+  /// Kleinere Titel als diese stehen nicht nebeneinander, sondern untereinander.
+  static const _minNebeneinander = 20.0;
+
+  static TextStyle _titelStil(double groesse) => Noir.title(groesse, color: Noir.night, spacing: 1.4);
+  static final _unterStil = Noir.text(12.5, color: Noir.night.withValues(alpha: 0.78), height: 1.3);
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, box) {
+      final scaler = MediaQuery.textScalerOf(context);
+      final titel = [for (final k in kacheln) k.titel];
+      final halb = (box.maxWidth - gap * (kacheln.length - 1)) / kacheln.length - 2 * _innen;
+      final voll = box.maxWidth - 2 * _innen;
+      final nebenGroesse = _gemeinsameGroesse(titel, halb, 2, scaler);
+      final nebeneinander = nebenGroesse >= _minNebeneinander;
+      final double breite;
+      final double groesse;
+      if (nebeneinander) {
+        breite = halb;
+        groesse = nebenGroesse;
+      } else {
+        breite = voll;
+        final einzeilig = _gemeinsameGroesse(titel, voll, 1, scaler);
+        groesse = einzeilig >= _minNebeneinander ? einzeilig : _gemeinsameGroesse(titel, voll, 2, scaler);
+      }
+      final titelHoehe = _maxHoehe(titel, _titelStil(groesse), breite, scaler);
+      final unterHoehe = _maxHoehe([for (final k in kacheln) _zusammen(k.untertitel)], _unterStil, breite, scaler);
+      final tiles = [
+        for (var i = 0; i < kacheln.length; i++) einblenden(i, _kachel(kacheln[i], groesse, titelHoehe, unterHoehe)),
+      ];
+      if (!nebeneinander) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (var i = 0; i < tiles.length; i++) ...[if (i > 0) SizedBox(height: gap), tiles[i]],
+          ],
+        );
+      }
+      return IntrinsicHeight(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (var i = 0; i < tiles.length; i++) ...[if (i > 0) SizedBox(width: gap), Expanded(child: tiles[i])],
+          ],
+        ),
+      );
+    },
+  );
+
+  Widget _kachel(_PartyKachel k, double groesse, double titelHoehe, double unterHoehe) => BentoTile(
+    highlight: true,
+    accent: Noir.flame,
+    onTap: k.onTap,
+    padding: const EdgeInsets.all(_innen),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Row(
+          children: [
+            TileIcon(k.icon, onDark: false, size: 24),
+            const Spacer(),
+            Icon(Icons.arrow_forward_rounded, size: 18, color: Noir.night.withValues(alpha: 0.55)),
+          ],
+        ),
+        const SizedBox(height: 18),
+        ConstrainedBox(
+          constraints: BoxConstraints(minHeight: titelHoehe),
+          child: Align(
+            alignment: Alignment.bottomLeft,
+            child: Text(k.titel, style: _titelStil(groesse)),
+          ),
+        ),
+        const SizedBox(height: 4),
+        ConstrainedBox(
+          constraints: BoxConstraints(minHeight: unterHoehe),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: Text(_zusammen(k.untertitel), style: _unterStil),
+          ),
+        ),
+      ],
+    ),
+  );
+
+  /// Zahlen bleiben bei ihren Nachbarwörtern („4 bis 20 Personen“ bricht nicht um).
+  static String _zusammen(String s) => s.replaceAllMapped(RegExp(r'(?<=\d) | (?=\d)(?<![·] )'), (m) => '\u00a0');
+
+  /// Größte Titelgröße, bei der jeder Titel in [zeilen] Zeilen passt, ohne ein Wort zu trennen.
+  static double _gemeinsameGroesse(List<String> titel, double breite, int zeilen, TextScaler scaler) {
+    for (var s = _maxTitel; s > _minTitel; s -= 0.5) {
+      if (titel.every((t) => _passt(t, _titelStil(s), breite, zeilen, scaler))) return s;
+    }
+    return _minTitel;
+  }
+
+  static bool _passt(String text, TextStyle stil, double breite, int zeilen, TextScaler scaler) {
+    if (breite <= 0) return false;
+    final ganz = _maler(text, stil, scaler, maxLines: zeilen)..layout(maxWidth: breite);
+    var ok = !ganz.didExceedMaxLines;
+    ganz.dispose();
+    for (final wort in text.split(' ')) {
+      if (!ok) break;
+      final w = _maler(wort, stil, scaler)..layout();
+      ok = w.width <= breite;
+      w.dispose();
+    }
+    return ok;
+  }
+
+  static double _maxHoehe(List<String> texte, TextStyle stil, double breite, TextScaler scaler) {
+    var hoehe = 0.0;
+    for (final t in texte) {
+      final p = _maler(t, stil, scaler)..layout(maxWidth: breite > 1 ? breite : 1);
+      if (p.height > hoehe) hoehe = p.height;
+      p.dispose();
+    }
+    return hoehe;
+  }
+
+  static TextPainter _maler(String text, TextStyle stil, TextScaler scaler, {int? maxLines}) => TextPainter(
+    text: TextSpan(text: text, style: stil),
+    textDirection: TextDirection.ltr,
+    maxLines: maxLines,
+    textScaler: scaler,
+  );
 }
 
 /// Inhalt einer Bento-Kachel: Symbol oben, Titel + Untertitel unten.
@@ -498,9 +684,9 @@ Future<void> showNameDialog(BuildContext context, {bool first = false}) async {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(first ? l.name_prompt_title : l.name_edit, style: Noir.title(22, color: Noir.ink, spacing: 0.5)),
+                Text(first ? l.name_prompt_title_du : l.name_edit, style: Noir.title(22, color: Noir.ink, spacing: 0.5)),
                 const SizedBox(height: 6),
-                Text(l.name_prompt_text, style: Noir.typed(13.5, color: Noir.inkSoft)),
+                Text(l.name_prompt_text_du, style: Noir.typed(13.5, color: Noir.inkSoft)),
                 const SizedBox(height: 18),
                 TextField(
                   controller: ctrl,

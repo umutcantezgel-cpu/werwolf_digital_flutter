@@ -1,0 +1,65 @@
+{
+ "per_pat": {
+  ">>\\s*3": 6,
+  "&\\s*7\\b": 8,
+  "<<\\s*3": 2,
+  "<<\\s*6": 3,
+  "\\*\\s*8\\b": 14,
+  "\\b8\\s*\\*": 11,
+  "~/\\s*8\\b": 5,
+  "%\\s*8\\b": 7,
+  "[/*]\\s*7\\b": 29,
+  "fog\\s*\\*\\s*3": 2,
+  "[<>]=?\\s*[37]\\b": 62,
+  "clamp\\(\\s*0\\s*,\\s*[37]\\s*\\)": 3,
+  "\\b(40|47|63|64|255)\\b": 177,
+  "Pal\\.": 52,
+  "Ramp\\.at": 92,
+  "Ramp\\.": 121,
+  "shades": 2,
+  "paletteRgb": 13,
+  "blickFilter": 2,
+  "LightTable": 13,
+  "lookup\\(": 2
+ },
+ "n_dart": 216,
+ "n_all": 513,
+ "n_ja": 167,
+ "n_verw": 346,
+ "pz_only": 162,
+ "zz": 155,
+ "Z_in_pflicht": [
+  "packages/pixel_engine/lib/src/figur/baker.dart:106",
+  "packages/pixel_engine/lib/src/figur/portraet.dart:334",
+  "packages/pixel_engine/lib/src/figur/portraet.dart:335",
+  "packages/pixel_engine/lib/src/kit/texturen.dart:518",
+  "packages/pixel_engine/lib/src/kit/texturen.dart:807"
+ ],
+ "cnt_ja": {
+  "P1-OPUS-04": 17,
+  "P1-OPUS-03": 118,
+  "P6-OPUS-03": 6,
+  "P1-AUTOR-02": 10,
+  "P6-AUTOR-08": 4,
+  "P6-AUTOR-07": 3,
+  "P1-AUTOR-01": 5,
+  "P6-AUTOR-11": 4
+ },
+ "cnt_P": {
+  "P1-OPUS-03": 115,
+  "P1-OPUS-04": 17,
+  "P6-OPUS-03": 4,
+  "P1-AUTOR-01": 5,
+  "P6-AUTOR-07": 3,
+  "P6-AUTOR-08": 4,
+  "P6-AUTOR-11": 4,
+  "P1-AUTOR-02": 10
+ },
+ "cnt_Z": {
+  "P1-OPUS-03": 118,
+  "P1-OPUS-04": 9,
+  "P6-OPUS-03": 4,
+  "P6-AUTOR-07": 23,
+  "P6-AUTOR-11": 1
+ }
+}

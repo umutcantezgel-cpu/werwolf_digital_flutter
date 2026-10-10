@@ -1,0 +1,15 @@
+SKALA Welt 320x180 ×4 · UI 640x360 ×2
+Test 320x180 (Qualität mittel) · Referenz 1280x720 · 9 Bilder je Szene · Schritt je Bild 0,025 m
+SZENE A-Oberstadt · Bereich stadt (Marke b, längste freie Richtung) · x 80,25 · z 11,25 · yaw 1,5708 rad · Sicht 53,7 m · Boden bis 44,1 m · Fernpixel 2012
+FLIMMERN A-Oberstadt · Boden 10735 · Wechsel Test 34056 · Referenz 32588 · Überschuss 0,045 · FERNE -0,031
+PNG /tmp/claude-0/-home-user-werwolf-digital-flutter/f7a52164-ab37-599f-81d4-460776fcac08/scratchpad/rep01/A_test.png · /tmp/claude-0/-home-user-werwolf-digital-flutter/f7a52164-ab37-599f-81d4-460776fcac08/scratchpad/rep01/A_referenz.png
+SZENE B-Innenraum · Bereich innen-kirche (Marke t, Blick zur Raummitte) · x 5,75 · z 9,25 · yaw -1,5120 rad · Sicht 7,2 m · Boden bis 8,8 m · Fernpixel 603
+FLIMMERN B-Innenraum · Boden 5551 · Wechsel Test 9975 · Referenz 8408 · Überschuss 0,186 · FERNE 0,138
+PNG /tmp/claude-0/-home-user-werwolf-digital-flutter/f7a52164-ab37-599f-81d4-460776fcac08/scratchpad/rep01/B_test.png · /tmp/claude-0/-home-user-werwolf-digital-flutter/f7a52164-ab37-599f-81d4-460776fcac08/scratchpad/rep01/B_referenz.png
+SZENE C-Burghof · Bereich hof (Marke b, längste freie Richtung) · x 7,75 · z 7,25 · yaw 3,5343 rad · Sicht 7,8 m · Boden bis 8,7 m · Fernpixel 994
+FLIMMERN C-Burghof · Boden 8916 · Wechsel Test 23223 · Referenz 21130 · Überschuss 0,099 · FERNE 0,402
+PNG /tmp/claude-0/-home-user-werwolf-digital-flutter/f7a52164-ab37-599f-81d4-460776fcac08/scratchpad/rep01/C_test.png · /tmp/claude-0/-home-user-werwolf-digital-flutter/f7a52164-ab37-599f-81d4-460776fcac08/scratchpad/rep01/C_referenz.png
+SZENE D-Oberstadt-2 · Bereich stadt (Marke vor-H-063, längste freie Richtung) · x 143,75 · z 69,75 · yaw 3,1416 rad · Sicht 60,0 m · Boden bis 44,1 m · Fernpixel 1997
+FLIMMERN D-Oberstadt-2 · Boden 10101 · Wechsel Test 24779 · Referenz 24020 · Überschuss 0,032 · FERNE -0,063
+PNG /tmp/claude-0/-home-user-werwolf-digital-flutter/f7a52164-ab37-599f-81d4-460776fcac08/scratchpad/rep01/D_test.png · /tmp/claude-0/-home-user-werwolf-digital-flutter/f7a52164-ab37-599f-81d4-460776fcac08/scratchpad/rep01/D_referenz.png
+FLIMMERN v2 · Überschuss 0,068 · FERNE 0,042 · Welt 320x180
