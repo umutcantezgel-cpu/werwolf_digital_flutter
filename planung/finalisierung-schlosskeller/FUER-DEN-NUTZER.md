@@ -63,4 +63,7 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 ## Abschluss (F7)
 - **Letzte E2E-Matrix:** Vollständig (84/84, 0 Konsolenfehler, 0 fremde Anfragen) lief sie auf `081e258`. Danach hat E-041 nur noch die Täteransicht in der App und die Fotostellen geändert. Die Matrix auf diesem Stand habe ich auf deinen Wunsch abgebrochen, um schnell auf main zu kommen. Belegt ist die Änderung durch die Widget-Tests. Wer sicher gehen will: `tool/pruefen.sh e2e` (gut 1,5 Stunden).
 - **main:** Die neuen Commits von origin/main (BOLLWERK, Fusion, Leitstand) sind per Merge übernommen, ohne Konflikt. Danach lief die Prüfung grün: Analyse, 416 Kern-Tests, 166 Flutter-Tests, Server-Smoke.
+- **Tag `schlosskeller-1.0` noch nicht auf GitHub:** Der Git-Proxy dieser Sitzung blockt das Pushen von Tags (HTTP 403); main selbst ist gepusht. Der Tag liegt annotiert auf dem letzten Commit von main. So kommt er nach GitHub, von einem eigenen Rechner aus:
+  `git fetch origin main && git tag -a schlosskeller-1.0 origin/main -m "Spuk im Schlosskeller 1.0" && git push origin schlosskeller-1.0`
+  Alternativ auf GitHub unter „Releases“ ein Release mit dem Tag `schlosskeller-1.0` auf `main` anlegen (E-042).
 

@@ -1230,3 +1230,10 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
 
 - **Folge:** Die App-Ansicht hat sich geändert. Deshalb läuft die E2E-Matrix auf dem neuen Endstand noch einmal; ihr Beleg ersetzt `E2E-081e258.md` in F-12 und F-16.
 
+## E-042 · Übergabe an main ohne entfernten Tag, Matrix auf dem Endstand abgebrochen (F7)
+- **Anlass 1:** Der Nutzer will schnell fertig werden: „nah beende schnell wir sind zu stark gesplittet und müssen einfach alles auf main pushen“. Die Matrix aus E-041 auf `c54d708` ist deshalb nach 37 von 84 Läufen abgebrochen; alle 37 waren OK (Pfad Ahmet ganz, Fatma zur Hälfte).
+- **Anlass 2:** `main` ist per Fast-forward gepusht (`681ebb9..d5f580e`, kein Force). Den Push des Tags `schlosskeller-1.0` lehnt der Git-Proxy der Sitzung ab: `POST git-receive-pack … HTTP 403`. Branches gehen durch, `refs/tags/*` nicht.
+- **Denkprotokoll:** Master §2 sagt, eine blockierte Aktion lasse ich weg, notiere sie unter FÜR DEN NUTZER und arbeite weiter. Die Umgebung verbietet, eine 403 zu umgehen. Ein anderer Weg, etwa ein Release über die GitHub-Oberfläche, wäre genau das. F-17 hat für blockierte Schritte einen Ersatzweg (E-014): Er ist erfüllt, wenn der Abschlussbericht ihn ausweist.
+- **Entscheidung:** Der Tag liegt annotiert im lokalen Repo, auf dem letzten Commit von main. Der Befehl, mit dem der Nutzer ihn pusht, steht unter FÜR DEN NUTZER und im Abschlussbericht. Der Tag aus dem ersten Versuch zeigte auf `d5f580e`. Er war nie auf origin und wird lokal auf den Commit mit diesem Eintrag gesetzt; ein veröffentlichter Tag wird also nicht überschrieben.
+- **Prüfung statt Matrix:** Nach dem Merge von origin/main sind grün: `tool/pruefen.sh schnell` (Analyse, 416 Kern-Tests, Secret-Scan), `flutter test` 166/166, Server-Smoke 63/63. Die letzte volle Matrix (84/84) lief auf `081e258`. E-041 änderte danach nur die Täteransicht, belegt im Widget-Test.
+

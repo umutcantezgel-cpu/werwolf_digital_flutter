@@ -1,4 +1,4 @@
-STAND · Bauphase F7 von F7 · Abnahme 17 von 17 · Brüche offen 0 · Aufträge 159 von 191 (Rest durch E-Entscheidungen entfallen oder selbst gebaut) · Agenten aktiv 0 · nächster Schritt: keiner, übergeben (Tag schlosskeller-1.0)
+STAND · Bauphase F7 von F7 · Abnahme 17 von 17 (F-17 mit Ersatzweg E-042) · Brüche offen 0 · Aufträge 159 von 191 (Rest durch E-Entscheidungen entfallen oder selbst gebaut) · Agenten aktiv 0 · nächster Schritt: Nutzer pusht den Tag schlosskeller-1.0 (Befehl unter FÜR DEN NUTZER)
 
 # STATUS
 
@@ -14,7 +14,7 @@ STAND · Bauphase F7 von F7 · Abnahme 17 von 17 · Brüche offen 0 · Aufträge
 | 09.10.2026, später Abend nach Neustart | F3-Tor bestanden: 10 KONT- und 5 SENS-Berichte abgenommen, Nachbesserung II der Gespräche (133 von 180) und der 16 Finaltexte (Ausgangsregel), F3-TEST-01 (Dossier, Erzähler, Spoiler über Pfadmengen); 228 Party-Tests, 250 Kern-Tests, `tool/pruefen.sh alles` grün | 9 / 17 | 0 | E-029 |
 | 10.10.2026 | F4- und F5-Tor bestanden: dritte und vierte E2E-Matrix je 84/84 (`17173e2`, `04f007a`), Nachprüfung der Fotos (E-038: Verb am Knopf, Uhr oben, Rückblende-Kopf, Scroll-Abzeichen), `druck_pfadgleich_test`, ABNAHME F-09, F-11, F-12, F-13, F-14; 378 Kern- und 129 Widget-Tests | 14 / 17 | 0 | E-038 |
 | 10.10.2026, Abend | F6: Nachprüfung GEGEN-04/05 und Anleitung F7-DOKU-01 abgenommen (E-040); E2E-Matrix 84/84 auf `081e258` (0 Konsolenfehler, 0 fremde Anfragen, 976 Fotos), `tool/pruefen.sh alles` grün (396 Kern-, 129 Widget-Tests, Server-Smoke 63/63), Bestand unverändert; ABNAHME F-16 erfüllt, F-01..F-15 neu belegt | 16 / 17 | 0 | E-040 |
-| 10.10.2026, spät | F7-Tor: E-041 (Täteransicht, Fotostellen), origin/main per Merge übernommen (`5ca54db`), danach `tool/pruefen.sh schnell` grün, 416 Kern- und 166 Flutter-Tests, Server-Smoke 63/63; ABSCHLUSSBERICHT; main per Fast-forward, Tag `schlosskeller-1.0`. Matrix auf `c54d708` auf Nutzerwunsch abgebrochen | 17 / 17 | 0 | E-041 |
+| 10.10.2026, spät | F7-Tor: E-041 (Täteransicht, Fotostellen), origin/main per Merge übernommen (`5ca54db`), danach `tool/pruefen.sh schnell` grün, 416 Kern- und 166 Flutter-Tests, Server-Smoke 63/63; ABSCHLUSSBERICHT; main per Fast-forward gepusht, Tag nur lokal (Proxy 403); Matrix auf `c54d708` nach 37/84 OK auf Nutzerwunsch abgebrochen | 17 / 17 | 0 | E-041, E-042 |
 | 10.10.2026, Nachmittag | F6: fünf Prüfberichte abgenommen (GEGEN-01..03, SPIEL-01/02, je mit Gegenprobe); E-039: Pfad Can ohne Abkürzung, Stimmen der Kernrollen nur über die Fassung, Hinweise und Funde ohne Pfadsignal, Ausgang am Morgen, Herkunftsmatrix; 388 Kern- und 129 Widget-Tests; Matrix und Nachprüfung laufen | 15 / 17 | 0 | E-039 |
 | 09.10.2026, später Abend II | F4/F5: E2E-Gerüst (E-034), Druckfassung in der App, Druck ohne Spoiler für den Drucker (E-035, E-036: Wertcodes, Sabotage-Streifen in der Fassung, vier gleiche Fassungsseiten), Gästewissen über den Erzähler (F-09), erste E2E-Matrix 83/84 (Semantik unter Last, behoben), 372 Kern- und 129 Widget-Tests | 9 / 17 | 0 | E-034 bis E-036 |
 | 09.10.2026, Nacht | F4: Karte, Sitzung, Renderer-Erweiterung (E-030); 8 Bildschirme, 2 Testaufträge abgenommen (E-031); Party-Requisiten, Seifenblasen, Gags; Dossier in der Du-Form, Rückblende nach Uhr (E-032); Druckmodell F5 vorgezogen; ganze Abende im Browser mit Fotos, 0 Fehler | 9 / 17 | 0 | E-030 bis E-032 |
@@ -32,7 +32,7 @@ STAND · Bauphase F7 von F7 · Abnahme 17 von 17 · Brüche offen 0 · Aufträge
 | F4 | F-12, F-13 | bestanden (E-034, E-037, E-038; E2E 84/84 auf `04f007a`) |
 | F5 | F-09, F-14 | bestanden (E-035, E-036; `druck_pfadgleich_test`, Druckprüfer 01–04) |
 | F6 | F-16; alle erneut | bestanden (E-039, E-040, E-041 mit F6-SICHT-04 10/10; E2E 84/84 auf `081e258`, `tool/pruefen.sh alles` grün) |
-| F7 | F-17 | bestanden (Merge nach main per Fast-forward, Tag `schlosskeller-1.0`) |
+| F7 | F-17 | bestanden mit Ersatzweg (main per Fast-forward gepusht; Tag `schlosskeller-1.0` lokal, Push vom Proxy blockiert, E-042) |
 
 ## Fehlerstatistik je Rolle (Regelkreis Lernen)
 | Rolle | Abnahmen | Ø Punkte | Nachbesserungen | Häufigster Mangel |

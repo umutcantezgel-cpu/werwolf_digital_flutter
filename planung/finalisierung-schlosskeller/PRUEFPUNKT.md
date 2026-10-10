@@ -1,6 +1,6 @@
 # PRÜFPUNKT · Wiederaufnahme
 
-STAND · Bauphase F7 von F7 · Abnahme 17 von 17 · Brüche offen 0 · Aufträge 159 von 191 (Rest durch E-Entscheidungen entfallen oder selbst gebaut) · Agenten aktiv 0 · nächster Schritt: keiner, übergeben (Tag schlosskeller-1.0)
+STAND · Bauphase F7 von F7 · Abnahme 17 von 17 (F-17 mit Ersatzweg E-042) · Brüche offen 0 · Aufträge 159 von 191 (Rest durch E-Entscheidungen entfallen oder selbst gebaut) · Agenten aktiv 0 · nächster Schritt: Nutzer pusht den Tag schlosskeller-1.0 (Befehl unter FÜR DEN NUTZER)
 
 ## Nach einem Neustart oder in einer neuen Sitzung
 1. `cd /home/user/werwolf_digital_flutter && git checkout finalisierung-schlosskeller` (lokal; falls fehlend: `git fetch origin finalisierung-schlosskeller` bzw. Sicherungsbranch `claude/universal-prompt-orchestrator-trt8uu`).
