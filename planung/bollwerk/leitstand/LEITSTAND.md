@@ -15,11 +15,11 @@ Der Freigabeabschnitt im Plan lautet:
 | Was | Kennung | Stand |
 |---|---|---|
 | Leitstand-Sitzung | `session_01Aix28JmFAfTMVcF4Z8bgqP` | aktiv |
-| Tagesprüfung/Morgenbericht 10.10. | `trig_01Q5uKrxsfR2D8EBjmy59Z7t` (`send_later`, 04:45 UTC) | geplant |
+| Tagesprüfung/Morgenbericht 10.10. | `trig_01Q5uKrxsfR2D8EBjmy59Z7t` (`send_later`, 04:45 UTC) | Tagesprüfung läuft (vorgezogen 04:40 UTC) |
 | Herzschlag-Routine | `trig_01UrDrhXFjttzCW1tkXFPGVr` (Name `BOLLWERK-LEITSTAND-session_01Aix28JmFAfTMVcF4Z8bgqP`, stündlich zur Minute 38) | aktiv |
 | Kinder-Probe | `session_01NqNiTSMXk6qK5FVbNAbkrF` (Branch `bollwerk-probe`) | fertig 21:03 UTC |
 | Meta-Sitzung | `session_01V8nVEJcaAbNDmTCrmHBoBq` (Branch `bollwerk-plan`, Meta-Prompt v4.1 aus `f2759297c4f5f9a627199b8fe52655f0d3d13e77`) | Übergabe 23:58 UTC: `=== BOLLWERK-META-ENDE · HALT · Runde 3 · 3460ca7e708fd0f74f62a45401f395ae4bedc2fb ===` (M-10: Rubrik 21/26 an der vorletzten Fassung; gelieferte Fassung ungeprüft); Kosten ≈ 116 $ |
-| Nachtlauf-Generationen | G1 `session_01J12w9BSCysBqiSdn143rRF` (Titel „BOLLWERK G1“, `source_revision`/`outcome_branch` = `bollwerk`, Master-Prompt aus 2094a67) | gestartet 01:54 UTC, Vorlauf |
+| Nachtlauf-Generationen | G1 `session_01J12w9BSCysBqiSdn143rRF` (Titel „BOLLWERK G1“, `source_revision`/`outcome_branch` = `bollwerk`, Master-Prompt aus 2094a67) · G2 `session_018hkemyWQo4CxMz8cZptrGd` (Titel „BOLLWERK G2“, gleiche Quelle/Ziel) | G1: NACHT-ENDE 04:03 UTC an 371b527 (28 Commits, ≈ 27 $) · G2: gestartet 04:39 UTC, Vorlauf |
 | Merge-Bau | – | – |
 | Branch `bollwerk` | per Fast-Forward `f84715d..2094a67` auf den Übergabe-SHA gesetzt (01:52 UTC) | Arbeitsbranch der Generationen |
 | Übergabe-SHA (Master-Prompt) | `2094a67525cd07526c5e80ab1897e53d3fddac02` (MASTER-PROMPT sha256 6eb7a606…) | unveränderlich auf `bollwerk` |
@@ -33,7 +33,7 @@ Der Freigabeabschnitt im Plan lautet:
 | L1 Leitstand | fertig (Routine aktiv) |
 | L1b Kinder-Probe | fertig |
 | L2 Meta-Lauf | **abgenommen**: Rubrik Runde 4 an `2094a67` = 23/26 ohne Null (RUBRIK-L2-2094a67.md); F-2 für BW1 offen |
-| L3 Generationen | G1 gestartet (Vorlauf) |
+| L3 Generationen | G1 NACHT-ENDE (371b527) · G2 läuft (Vorlauf) |
 | L4 main | offen |
 | L5 Abschluss | offen |
 
@@ -45,7 +45,7 @@ Wahr nur, wenn alles zutrifft:
 4. PR #43 ist gemergt oder geschlossen (lesend prüfen).
 Sonst nur „FREIGABE BOLLWERK“ des Nutzers (nachdem er die Finalisierung angehalten hat).
 
-Letzte Prüfung: 2026-10-10 03:39 UTC · Finalisierung F5 von F7, letzter Commit ea8d765 (09.10. 23:09 UTC), kein ZIEL ERREICHT · **offen**
+Letzte Prüfung: 2026-10-10 04:42 UTC · Finalisierung F5 von F7 (Abnahme 9/17, Aufträge 138/177, „Agenten aktiv 0“), letzter Commit ea8d765 (09.10. 23:09 UTC, seit ≈ 5,5 h still), kein ZIEL ERREICHT, fin nicht Vorfahr von main · **offen**
 
 ## Gezeigte Bilder
 - 22:39 UTC · `bilder/meta/m1-bildverfahren-fin-5c83242.jpg` (bollwerk-plan e2b27da)
@@ -126,3 +126,4 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-10 02:39 UTC · Herzschlag 7: G1 LÄUFT (LEASE gen=1, Herzschlag 02:34Z, FENSTER M=04:30Z), Tor `schnell --vorlauf` grün, FEINKORN 1145cb9 gemergt mit `feinkorn_leben.dart`, QUITTIERT S=3 F=1; B-02 offen. Tagesprüfung + Morgenbericht per send_later 04:45 UTC (nach Morgenbericht-Datei um 04:30Z).
 - 2026-10-10 03:39 UTC · Herzschlag 8: G1 LÄUFT, 25 Commits seit 2094a67, LEASE-Herzschlag 03:13Z, QUITTIERT S=3 F=2, Kosten G1 ≈ 26 $; B-02 offen.
 - Prüfpunkt für L2-Abnahme: Die Meta-Fassung schreibt in FUER-DEN-NUTZER „Merge auf main nur nach menschlicher Freigabe“ – der Plan hat diese Freigabe (Leitstand, nach allen Toren); bei der Abnahme angleichen.
+- 2026-10-10 04:38 UTC · Herzschlag 9: G1 meldet `ZUSTAND: NACHT-ENDE` (371b527, Zugende 04:03Z, MORGENBERICHT.md). Vor 07:00 Berlin → G2 sofort gestartet (`session_018hkemyWQo4CxMz8cZptrGd`, Startpaket mit Master-Prompt 2094a67, Generation 2). Tagesprüfung des Diffs 2094a67..371b527 (97 Dateien, +11.534) mit unabhängigen Prüf-Agenten gestartet. B-02 offen; Finalisierung seit 23:09 UTC ohne Commit.
