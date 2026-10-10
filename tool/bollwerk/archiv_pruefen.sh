@@ -33,7 +33,10 @@ while IFS= read -r linie; do
   fi
   if [ "${1:-}" = --uebernahmen ] && [[ "$klasse" =~ ^(zusammenführen|übernehmen|mitführen) ]]; then
     art="$(echo "$zeile" | cut -d'|' -f6)"
-    if grep -qE "^(Merge $ref@$sha|aus $ref@[0-9a-f]+:)" <<< "$BETREFFE"; then
+    # Die SHA im Betreff muss zur Zeile passen (gleicher Anfang); sonst zählte eine Übernahme aus einer
+    # anderen Linie desselben Refs mit (E-G2-04: HD caf1d61 und Meta-Archiv f275929 teilen den Ref).
+    kurz="${sha:0:7}"
+    if grep -qE "^(Merge $ref@$kurz|aus $ref@$kurz[0-9a-f]*:)" <<< "$BETREFFE"; then
       echo "übernommen: $linie"
     elif echo "$art" | grep -qiE 'Absage:'; then
       echo "abgesagt (begründet): $linie"
