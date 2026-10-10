@@ -1,6 +1,6 @@
 # PRÜFPUNKT · Wiederaufnahme
 
-STAND · Bauphase F5 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 138 von 177 · Agenten aktiv 0 · nächster Schritt: zweite E2E-Matrix auf eacf0b4 auswerten (läuft), dann Spiel- und Sichtprüfung F4-SPIEL/SICHT, F4- und F5-Tor
+STAND · Bauphase F6 von F7 · Abnahme 14 von 17 · Brüche offen 0 · Aufträge 147 von 184 · Agenten aktiv 0 · nächster Schritt: F6 Härtung starten (F6-GEGEN-01..03, F6-SPIEL-01/02 mit Gegenproben)
 
 ## Nach einem Neustart oder in einer neuen Sitzung
 1. `cd /home/user/werwolf_digital_flutter && git checkout finalisierung-schlosskeller` (lokal; falls fehlend: `git fetch origin finalisierung-schlosskeller` bzw. Sicherungsbranch `claude/universal-prompt-orchestrator-trt8uu`).
@@ -40,3 +40,18 @@ STAND · Bauphase F5 von F7 · Abnahme 9 von 17 · Brüche offen 0 · Aufträge 
 - main beschreibt ein paralleler Strang (Burgstadt/Nachtlauf). Vor jedem Tor: `git fetch origin main`, mergen, prüfen (E-028).
 - Nach Kanon-Änderungen neu erzeugen: `python3 tool/quellabgleich.py`, `dart run bin/party_bibel.dart`.
 - **Nutzerwunsch:** Jedes erzeugte Bild sofort im Chat zeigen (SendUserFile).
+
+
+## Stand 10.10.2026 (nach dem F4/F5-Tor)
+- **Tore:** F4 und F5 bestanden. ABNAHME F-01 bis F-15 erfüllt, offen F-16 und F-17.
+- **E2E-Beleg:** `belege/E2E-04f007a.md` (84/84).
+- **F6 Härtung:**
+  - Aufträge aus `scratchpad/f6_auftraege.py` erzeugen (COMMIT setzen).
+  - Workflows aus `scratchpad/wf_f6.py` bauen: je Prüfer strukturierte Befunde und Gegenprobe je schwerem oder mittlerem Befund.
+  - Verteilung: A = GEGEN-01, GEGEN-02; B = GEGEN-03, SPIEL-01, SPIEL-02. Je Workflow laufen nur 2 Agenten gleichzeitig (4 CPUs).
+  - Die Prüfer lesen die Fotos der Matrix auf `04f007a`. Vor ihrem Ende keine neue Matrix starten, sonst werden die Fotos überschrieben.
+- **Danach:** Befunde beheben, Mordakte-Regression (`tool/pruefen.sh alles`, Server-Smoke), `LIZENZEN.md`, Tor F-16, alle Kriterien neu belegen.
+- **F7:**
+  - `docs/partykrimi/ANLEITUNG.md` (F7-DOKU-01) und `ABSCHLUSSBERICHT.md`.
+  - Merge nach main, Tag `schlosskeller-1.0`.
+  - Worktrees `wt-build`, `wt-f5` und `wt-orch06` entfernen.
