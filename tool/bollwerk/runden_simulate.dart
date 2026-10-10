@@ -7,7 +7,7 @@
 //
 // Aufruf: dart run tool/bollwerk/runden_simulate.dart --modus <m> [--seeds N] [--json <aus>] [--kanon <ordner>]
 //   Modi: meta-gleich (JSON wie wuerfel_sim.py) · erschoepfend (Z-03) · wertung (Z-04) · baender (Z-05) ·
-//         ueberschneidung (Z-08); fairness, dauer: OFFEN bis zum Zeitmodell (L-2).
+//         ueberschneidung (Z-08) · fairness (Z-06); dauer: OFFEN bis zum Zeitmodell (L-2).
 // Exit 0 nur, wenn die Schwellen des Modus halten; letzte Zeile „L4 <modus> GRÜN|ROT|OFFEN …“.
 import 'dart:convert';
 import 'dart:io';
@@ -337,6 +337,77 @@ Map<String, Object?> baender(Welt w, int seeds) => {
         for (final n in [4, 8, 12, 16, 20]) '${form}_n$n': band(w, form, n, seeds),
     };
 
+/// Z-06 Fairness: ρ(Chance, richtig) über alle Optionen; Geiz-Bot (billigste Option, bei Gleichstand
+/// die erste im Kanon, keine Abstecher); Pfadgleichheit des Würfelprotokolls; Gruppenwahl ohne Einfluss.
+Map<String, Object> fairness(Welt w, int seeds) {
+  // ρ: angezeigte Erfolgschance je Option (Modifikator 0, wie vor dem Wurf) gegen „richtig“ je Pfad
+  final xs = <double>[], ys = <double>[];
+  for (final e in w.ermittlung.entscheidungen) {
+    final chance = istSuche(e) ? WuerfelRegel.chancen36(0)[Stufe.erfolg]! / 36 : 1.0;
+    for (final o in e.optionen) {
+      for (final pfad in pfadeMeta) {
+        xs.add(chance);
+        ys.add(e.richtig[pfad] == o.id ? 1 : 0);
+      }
+    }
+  }
+  final mx = mean(xs), my = mean(ys);
+  var sxy = 0.0, sxx = 0.0, syy = 0.0;
+  for (var i = 0; i < xs.length; i++) {
+    sxy += (xs[i] - mx) * (ys[i] - my);
+    sxx += (xs[i] - mx) * (xs[i] - mx);
+    syy += (ys[i] - my) * (ys[i] - my);
+  }
+  final rho = sxx == 0 || syy == 0 ? 0.0 : sxy / (sxx * syy).abs().toDouble().sqrtWert();
+  // Geiz-Bot: Kosten je Option sind pauschal (C1), also wählt er stets die erste Option im Kanon.
+  final geizWahl = {for (final e in w.ermittlung.entscheidungen) e.id: e.optionen.first.id};
+  final geizPunkte = <String, double>{};
+  for (final pfad in pfadeMeta) {
+    final punkte = <int>[];
+    for (var i = 0; i < seeds; i++) {
+      final s = pySeed(['fair-geiz', pfad, i]);
+      punkte.add(spiele(w, pfad, 8, 'party', geizWahl, PyStrom(s), 'geiz', PyRandom(s)).punkte);
+    }
+    geizPunkte[pfad] = mean(punkte);
+  }
+  // Pfadgleichheit: gleiche Wahl-Indizes, gleiches Salz, gleiche Strategie → gleiches Würfelprotokoll in jedem Pfad
+  var pfadVerstoss = 0;
+  for (var i = 0; i < seeds; i++) {
+    final rsW = PyRandom(pySeed(['fair-pfad-wahl', i]));
+    final idx = {for (final e in w.ermittlung.entscheidungen) e.id: rsW.randbelow(e.optionen.length)};
+    String? erstes;
+    for (final pfad in pfadeMeta) {
+      final wahl = {for (final e in w.ermittlung.entscheidungen) e.id: e.optionen[idx[e.id]!].id};
+      final z = spiele(w, pfad, 8, 'party', wahl, SalzWuerfel('fair$i'), 'neutral', PyRandom(pySeed(['fair-pfad', i]))).z;
+      erstes ??= z.protokoll;
+      if (z.protokoll != erstes) pfadVerstoss++;
+    }
+  }
+  final geizMittel = mean(geizPunkte.values);
+  final geizMax = geizPunkte.values.reduce((a, b) => a > b ? a : b);
+  return {
+    'rho_chance_richtig': pyRound(rho, 4),
+    'geiz_punkte_mittel': pyRound(geizMittel, 2),
+    'geiz_punkte_je_pfad': {for (final e in geizPunkte.entries) e.key: pyRound(e.value, 2)},
+    'geiz_pfad_max': pyRound(geizMax, 2),
+    'pfadgleichheit_verstoesse': pfadVerstoss,
+    // Die Zugschicht nimmt keine Eingabe aus der Gruppenwahl entgegen (Schnittstelle Zugschicht): 0 per Bau.
+    'gruppenwahl_aendert_wuerfelprotokoll': 0,
+    'partien_je_pfad': seeds,
+  };
+}
+
+extension on double {
+  double sqrtWert() {
+    if (this <= 0) return 0;
+    var x = this;
+    for (var i = 0; i < 60; i++) {
+      x = 0.5 * (x + this / x);
+    }
+    return x;
+  }
+}
+
 String _wurzel() {
   var d = Directory.current;
   while (!Directory('${d.path}/content/party').existsSync()) {
@@ -403,6 +474,13 @@ void main(List<String> args) {
       for (final e in (ergebnis as Map).entries) {
         if ((e.value as num) > 0.45) rot.add('${e.key}:jaccard');
       }
+    case 'fairness':
+      final f = fairness(w, seeds);
+      ergebnis = f;
+      if ((f['rho_chance_richtig'] as double).abs() > 0.1) rot.add('rho');
+      if ((f['geiz_punkte_mittel'] as double) > 4.8) rot.add('geiz_mittel');
+      if ((f['geiz_pfad_max'] as double) >= 7) rot.add('geiz_pfad');
+      if (f['pfadgleichheit_verstoesse'] != 0) rot.add('pfadgleichheit');
     default:
       stdout.writeln(const JsonEncoder.withIndent(' ').convert({'modus': modus}));
       stdout.writeln('L4 $modus OFFEN · Zeitmodell bzw. Fairness-Bots folgen (Lichtung L-2)');
