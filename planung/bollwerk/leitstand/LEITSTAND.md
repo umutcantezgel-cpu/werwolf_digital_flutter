@@ -1,4 +1,4 @@
-STAND · Leitstand · Phase L2 (Abnahme der Meta-Übergabe) · Generation 0 · B-02 offen · nächster Schritt: Nachbesserungsrunde der Meta-Sitzung (F-1) abwarten, dann Rubrik neu; ≥ 23/26 → L3, sonst Halt und Meldung
+STAND · Leitstand · Phase L3 · Generation 1 (Vorlauf) · B-02 offen · nächster Schritt: G1 überwachen; Tagesprüfung 06:00, Morgenbericht 07:00 Berlin
 
 # LEITSTAND · BOLLWERK-DAUERLAUF
 
@@ -20,7 +20,8 @@ Der Freigabeabschnitt im Plan lautet:
 | Meta-Sitzung | `session_01V8nVEJcaAbNDmTCrmHBoBq` (Branch `bollwerk-plan`, Meta-Prompt v4.1 aus `f2759297c4f5f9a627199b8fe52655f0d3d13e77`) | Übergabe 23:58 UTC: `=== BOLLWERK-META-ENDE · HALT · Runde 3 · 3460ca7e708fd0f74f62a45401f395ae4bedc2fb ===` (M-10: Rubrik 21/26 an der vorletzten Fassung; gelieferte Fassung ungeprüft); Kosten ≈ 116 $ |
 | Nachtlauf-Generationen | – | – |
 | Merge-Bau | – | – |
-| Branch `bollwerk` | `f84715d` (versehentlich vom Meta-Lauf angelegt, 22:57 UTC, Inhalt = damaliger `bollwerk-plan`; Vorfahr des Übergabe-SHA → Leitstand übernimmt per Fast-Forward) | vorhanden |
+| Branch `bollwerk` | per Fast-Forward `f84715d..2094a67` auf den Übergabe-SHA gesetzt (01:52 UTC) | Arbeitsbranch der Generationen |
+| Übergabe-SHA (Master-Prompt) | `2094a67525cd07526c5e80ab1897e53d3fddac02` (MASTER-PROMPT sha256 6eb7a606…) | unveränderlich auf `bollwerk` |
 
 **Fremd, nie anfassen** (nur lesen): Sitzung „Krimidinner-Produktion“ `session_01Y7GqaaTYTmzoji6hpfHPLj`; die Sitzungen der Finalisierung und des Nachtlaufs Burgstadt (nur über Git sichtbar); jede Routine, deren ID hier nicht steht.
 
@@ -30,8 +31,8 @@ Der Freigabeabschnitt im Plan lautet:
 | L0 v4 bauen | fertig: v4.1 `f275929` (10 Linsen, 6 BLOCKER und ~70 MAJOR eingearbeitet) |
 | L1 Leitstand | fertig (Routine aktiv) |
 | L1b Kinder-Probe | fertig |
-| L2 Meta-Lauf | Runde 4 übergeben 00:59 UTC: `=== BOLLWERK-META-ENDE · BEREIT · Runde 4 · 2094a67525cd07526c5e80ab1897e53d3fddac02 ===` (MASTER-PROMPT sha256 6eb7a606…, 54.822 Byte); Leitstand-Rubrik Runde 4 läuft seit 01:40 UTC |
-| L3 Generationen | offen |
+| L2 Meta-Lauf | **abgenommen**: Rubrik Runde 4 an `2094a67` = 23/26 ohne Null (RUBRIK-L2-2094a67.md); F-2 für BW1 offen |
+| L3 Generationen | G1 gestartet (Vorlauf) |
 | L4 main | offen |
 | L5 Abschluss | offen |
 
@@ -119,4 +120,5 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - - 2026-10-10 00:39 UTC · Herzschlag 4: Meta fertig mit HALT (21/26 vor letzter Nachbesserung, Kaltstart ohne blockierende Frage, 2 Skeptiker-BLOCKER: einer behoben, einer als A-26); Leitstand startet unabhängige Rubrik an 3460ca7. Master-Prompt 54.843 Byte, sha256 234292126f70a292…
 - 2026-10-10 00:57 UTC · Rubrik Leitstand 21/26 (P3, P4, P5, P8, P9 je 1); F-1 und Nachbesserung per send_message an Meta (einzige Runde).
 - 2026-10-10 01:39 UTC · Herzschlag 6: Meta-Nachbesserung fertig (2094a67, BEREIT, F-1 quittiert); Rubrik Runde 4 gestartet; B-02 offen.
+- 2026-10-10 01:55 UTC · Rubrik Runde 4: 23/26 → L2 abgenommen; `bollwerk` → 2094a67; F-2 (zwei MAJOR für BW1) eingetragen; G1 wird gestartet.
 - Prüfpunkt für L2-Abnahme: Die Meta-Fassung schreibt in FUER-DEN-NUTZER „Merge auf main nur nach menschlicher Freigabe“ – der Plan hat diese Freigabe (Leitstand, nach allen Toren); bei der Abnahme angleichen.
