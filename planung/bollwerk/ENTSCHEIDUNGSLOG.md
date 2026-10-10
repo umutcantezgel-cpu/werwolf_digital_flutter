@@ -70,3 +70,21 @@ Jede folgenreiche Entscheidung nach dem Denkprotokoll (Ziel · Wege · Bewertung
 - **Befund:** Leitstand-Rubrik 21/26 mit 12 Mängeln, darunter unerfüllbare Tor-Budgets und Herzschlagsperre (Ablösung mitten im Tor), Design ohne Regelkreis und mehrdeutiges Z-14.
 - **Wahl:** alle Ersatztexte aus F-1 übernehmen; Tore im Worktree `bw-tor` als einzige Ausnahme zu `commit.sh`; Wandzeit-Budgets aus der Schichtensumme; D2-Zwischenziele 50/65/85 %.
 - **Umkehrprobe:** Falsch, wenn L-1 in G1 deutlich kürzere Schichtzeiten misst. Dann werden die Budgets über SCHWELLEN-NACHTRAG strenger.
+
+# Nachtlauf · Generation 1 (10.10.2026)
+
+## E-G1-01 · Lichtung L-8 · Weg der Sitzungskennung (02:00 UTC)
+- `mcp__claude-code-remote__get_session` ohne `session_id` lieferte `id = session_01J12w9BSCysBqiSdn143rRF`, `parent_session_id = session_01Aix28JmFAfTMVcF4Z8bgqP` (= Leitstand) und `rate_limit_info.resetsAt`. Der Weg über `$CLAUDE_CODE_REMOTE_SESSION_ID` wurde nicht gebraucht.
+- Folge: Weckruf-Name `BOLLWERK-G1-session_01J12w9BSCysBqiSdn143rRF`; die Herkunft der Startnachricht ist über `parent_session_id` belegt.
+
+## E-G1-02 · Werkzeugkette und Messwerte der Maschine (02:00 UTC)
+- B-01: `flutter --version` meldet 3.47.6 / Dart 3.13.5 (sha256 des Archivs geprüft, Download 16 s). `pub get` in allen 8 Paketen 39 s.
+- Maschine: 4 Kerne, 15 GB RAM, 30 GB frei unter /home/user.
+
+## E-G1-03 · Befund F-2 (lange Tore) · Umsetzung ohne Master-Prompt-Änderung (02:00 UTC)
+- **Ziel:** Tore `phase`/`nacht`/`ziel` überleben die 2-h-Grenze der Bash-Hintergrundbefehle; `bw-tor`-Stand überlebt den Generationswechsel.
+- **Wege:** (a) Tor als Bash-Hintergrundbefehl (bricht nach 2 h ab); (b) abgekoppelt mit `setsid nohup` + Wartebefehl auf die Endzeile; (c) immer in Schichtgruppen < 100 min.
+- **Bewertung:** (b) ist am einfachsten und hält die Tor-Semantik; ob der Prozess > 2 h lebt, ist nicht belegt. (c) ist sicher, aber teilt jeden Lauf.
+- **Wahl:** (b) mit `tool/bollwerk/tor_start.sh`; Probe L-9 (`setsid nohup sleep 7500`, PID 694, Start 01:56Z) wird ab 04:01Z geprüft. Scheitert sie, wird `--gruppe <k>` im Torwerkzeug Pflicht (c).
+- **Tor-Rest:** `tool/bollwerk/tor_rest.sh sichern <gen> <phase>` schreibt `planung/bollwerk/tor-rest/G<n>.patch` (Zeile `TOR-REST` im PRUEFPUNKT); `anwenden <gen>` legt den Tor-Worktree an und wendet ihn mit `--index` an.
+- **Umkehrprobe:** Wenn die Cloud-Maschine selbst nach 2 h Inaktivität pausiert, hilft keins von beiden; dagegen hält der Herzschlag alle 30 min die Sitzung aktiv.

@@ -1,13 +1,17 @@
 # PRUEFPUNKT · BOLLWERK-Nachtlauf
 
-- Zeit: – (vom Meta-Lauf angelegt; die erste Generation schreibt den ersten Eintrag)
-- Generation: 0
-- Phase: NICHT BEGONNEN
-- Nächster Schritt: Abschnitt 13 des Master-Prompts
-- boot_id: –
-- SPERREN folge=0 gesamt=0
-- Weckruf-ID: –
+- Zeit: 2026-10-10T02:01Z (04:01 Berlin)
+- Generation: 1 · Sitzung session_01J12w9BSCysBqiSdn143rRF
+- Phase: V (Vorlauf; B-02 offen)
+- Nächster Schritt: Würfelkern und Simulator (Dart) im Tor-Worktree, dann Torwerkzeug `bollwerk.dart schnell --vorlauf`
+- boot_id: 2ab768fd-f7b0-4704-91b3-ea4112f62459
+- SPERREN gen=1 folge=0 gesamt=0
+- Weckruf-ID: trig_019ayXDJ52krZ8SbL9vZE7Je (BOLLWERK-G1-session_01J12w9BSCysBqiSdn143rRF, fällig 02:59Z)
 - Eigene Worktrees und Pool-Plätze: keine
-- B-02: offen (Meta-Lauf 09.10.2026 21:23 UTC: 1 von 5 Bedingungen)
+- Token-Zähler: Agentenaufrufe 0
+- B-02: offen (b02.sh 02:00Z: 2 von 5 – ZIEL ERREICHT nein, Vorfahr von main nein, PR #43 unbekannt; kein Eintrag in STEUERUNG.md)
 - BW0-SHA: –
-- Startbild der Refs: – (G1 nimmt es in Schritt 6 auf; erwartet: `origin/bollwerk` = Übergabe-SHA von `bollwerk-plan` oder ein Vorfahr davon, siehe FUER-DEN-NUTZER §1)
+- TOR-SHA: – (Torwerkzeug noch nicht abgenommen)
+- Übergabe-SHA P: 2094a67525cd07526c5e80ab1897e53d3fddac02 (`git diff --quiet P HEAD -- MASTER-PROMPT anhang STARTPAKET` gleich, nach Entflachung geprüft)
+- Startbild der Refs: /home/user/bw-logs/refs-start.txt (100 Zeilen, 01:56Z) · bollwerk adc8ee6 · bollwerk-leitstand f997171 · bollwerk-plan 2094a67 · main 47611d8
+- Lange Befehle: L-9 Probe PID 694 (sleep 7500, Start 01:56Z, prüfen ab 04:01Z)
