@@ -1,13 +1,13 @@
 # PRUEFPUNKT · BOLLWERK-Nachtlauf
 
-- Zeit: 2026-10-10T03:43Z (Herzschlag, nur Sicherung; L-9 lebt)
+- Zeit: 2026-10-10T04:03Z (Generationsende G1)
 - Generation: 1 · Sitzung session_01J12w9BSCysBqiSdn143rRF
-- Phase: V (Vorlauf; ab E − 1,5 h nur Sicherung)
-- Nächster Schritt: G1 nur noch Sicherung; L-9 prüfen ab 04:01Z; Zugende spätestens 05:00Z mit NACHT-ENDE. G2: Kern 1.1 (#1 #2 #4), varianten.dart, vorrat.dart, Weißliste nachprüfen, Meta-Archiv durchsehen
+- Phase: V (Vorlauf) · ZUSTAND NACHT-ENDE
+- Nächster Schritt (G2): neue L-9-Probe früh starten (E-G1-13); Kern 1.1 (#1 #2 #4) mit neuer Bandmessung; varianten.dart, vorrat.dart; Weißliste durch Opus nachprüfen (G1-2); Meta-Archiv durchsehen; dann erste Variantenwelle
 - boot_id: 2ab768fd-f7b0-4704-91b3-ea4112f62459
 - SPERREN gen=1 folge=0 gesamt=0
-- Weckruf-ID: trig_01FSAgTAp6vKBgf2LwXyNLFP (BOLLWERK-G1-session_01J12w9BSCysBqiSdn143rRF, fällig 04:30Z = M)
-- Eigene Worktrees und Pool-Plätze: /home/user/bw-arbeit/tor (bw-tor = bollwerk e98610e, nichts offen)
+- Weckruf-ID: keiner (gelöscht nach M; nächste Generation startet der Leitstand)
+- Eigene Worktrees und Pool-Plätze: keine (Tor-Worktree entfernt, bw-tor ohne Rest – kein TOR-REST)
 - Token-Zähler: Agentenaufrufe 3 (fertig, Audit 0 Verstöße); Agenten-Tokens ≈ 1,10 Mio (Opus 0,33 · Haiku 0,77)
 - B-02 offen (b02.sh 02:00Z: 2 von 5; STEUERUNG 02:43Z ohne Eintrag)
 - BW0-SHA: –
