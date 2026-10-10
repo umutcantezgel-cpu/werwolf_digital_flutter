@@ -15,7 +15,7 @@ Der Freigabeabschnitt im Plan lautet:
 | Was | Kennung | Stand |
 |---|---|---|
 | Leitstand-Sitzung | `session_01Aix28JmFAfTMVcF4Z8bgqP` | aktiv |
-| Tagesprüfung/Morgenbericht 10.10. | `trig_01Q5uKrxsfR2D8EBjmy59Z7t` (`send_later`, 04:45 UTC) | Tagesprüfung läuft (vorgezogen 04:40 UTC) |
+| Tagesprüfung/Morgenbericht 10.10. | `trig_01Q5uKrxsfR2D8EBjmy59Z7t` (`send_later`, 04:45 UTC, gefeuert) | erledigt 04:55 UTC (F-3…F-8), Morgenbericht im Chat |
 | Herzschlag-Routine | `trig_01UrDrhXFjttzCW1tkXFPGVr` (Name `BOLLWERK-LEITSTAND-session_01Aix28JmFAfTMVcF4Z8bgqP`, stündlich zur Minute 38) | aktiv |
 | Kinder-Probe | `session_01NqNiTSMXk6qK5FVbNAbkrF` (Branch `bollwerk-probe`) | fertig 21:03 UTC |
 | Meta-Sitzung | `session_01V8nVEJcaAbNDmTCrmHBoBq` (Branch `bollwerk-plan`, Meta-Prompt v4.1 aus `f2759297c4f5f9a627199b8fe52655f0d3d13e77`) | Übergabe 23:58 UTC: `=== BOLLWERK-META-ENDE · HALT · Runde 3 · 3460ca7e708fd0f74f62a45401f395ae4bedc2fb ===` (M-10: Rubrik 21/26 an der vorletzten Fassung; gelieferte Fassung ungeprüft); Kosten ≈ 116 $ |
@@ -127,3 +127,4 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-10 03:39 UTC · Herzschlag 8: G1 LÄUFT, 25 Commits seit 2094a67, LEASE-Herzschlag 03:13Z, QUITTIERT S=3 F=2, Kosten G1 ≈ 26 $; B-02 offen.
 - Prüfpunkt für L2-Abnahme: Die Meta-Fassung schreibt in FUER-DEN-NUTZER „Merge auf main nur nach menschlicher Freigabe“ – der Plan hat diese Freigabe (Leitstand, nach allen Toren); bei der Abnahme angleichen.
 - 2026-10-10 04:38 UTC · Herzschlag 9: G1 meldet `ZUSTAND: NACHT-ENDE` (371b527, Zugende 04:03Z, MORGENBERICHT.md). Vor 07:00 Berlin → G2 sofort gestartet (`session_018hkemyWQo4CxMz8cZptrGd`, Startpaket mit Master-Prompt 2094a67, Generation 2). Tagesprüfung des Diffs 2094a67..371b527 (97 Dateien, +11.534) mit unabhängigen Prüf-Agenten gestartet. B-02 offen; Finalisierung seit 23:09 UTC ohne Commit.
+- 2026-10-10 04:55 UTC · Tagesprüfung 1 (Diff 2094a67..371b527, 2 unabhängige Prüf-Agenten: Grenzen/Hoheit/Kanon/main-Reife und Würfelkern/Lösbarkeit/Tests; Design und Umfang ohne Gegenstand, da keine Bilder und keine Varianten): **kein BLOCKER**, F-3 MAJOR (zweite FEINKORN-Tür `lib/game/dev/feinkorn_k0_main.dart`), F-4…F-8 MINOR. Lösbarkeit, Pech-Garantie, Determinismus unabhängig bestätigt; `merge-tree` gegen main ohne Konflikt. Hinweis per send_message an G2. Kosten: Leitstand 316,79 $, G1 27,14 $. Morgenbericht an den Nutzer.
