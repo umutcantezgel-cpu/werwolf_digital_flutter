@@ -75,6 +75,8 @@ if [ "$NUR_ZUSTAND" = 0 ] && [ -z "$TOR" ]; then
   aufraeumen() { git -C "$BAUM" worktree remove --force "$SAUBER/baum" >/dev/null 2>&1; rm -rf "$SAUBER"; }
   trap aufraeumen EXIT
   git diff --cached --binary | git -C "$SAUBER/baum" apply --index --whitespace=nowarn
+  # Das Tor verlangt einen sauberen Baum: Probe-Commit nur im Wegwerf-Baum (losgelöst, nie gepusht).
+  git -C "$SAUBER/baum" -c user.name=bollwerk-probe -c user.email=probe@bollwerk.invalid commit -q -m "Probe vor Commit"
   for d in .dart_tool packages/*/.dart_tool tool/ton/.dart_tool server/.dart_tool tool/bollwerk/.dart_tool; do
     if [ -d "$BAUM/$d" ]; then mkdir -p "$SAUBER/baum/$(dirname "$d")"; cp -a "$BAUM/$d" "$SAUBER/baum/$d"; fi
   done

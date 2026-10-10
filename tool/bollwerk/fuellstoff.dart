@@ -168,10 +168,11 @@ void main(List<String> args) {
   final kanon = Kanon.lade((p) => jsonDecode(File('$bw/content/party/schlosskeller/$p').readAsStringSync()) as Map<String, Object?>);
   final namen = [
     for (final f in kanon.figuren) ...[f['id'] as String, if (f['name'] is String) f['name'] as String],
-    for (final r in (kanon.json['raeume.json']!['raeume'] as List? ?? const [])) ...[
+    for (final r in (kanon.json['raeume.json']!['rooms'] as List)) ...[
       (r as Map)['id'] as String,
-      if (r['name'] is String) r['name'] as String,
+      if (r['anzeigename'] is String) r['anzeigename'] as String,
     ],
+    for (final o in (kanon.json['raeume.json']!['orte'] as List)) (o as Map)['name'] as String,
   ]..sort((a, b) => b.length.compareTo(a.length));
   final befunde = <Befund>[];
   for (final e in es) {
