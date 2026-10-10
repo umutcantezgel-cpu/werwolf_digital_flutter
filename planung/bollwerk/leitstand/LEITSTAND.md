@@ -19,7 +19,7 @@ Der Freigabeabschnitt im Plan lautet:
 | Herzschlag-Routine | `trig_01UrDrhXFjttzCW1tkXFPGVr` (Name `BOLLWERK-LEITSTAND-session_01Aix28JmFAfTMVcF4Z8bgqP`, stündlich zur Minute 38) | aktiv |
 | Kinder-Probe | `session_01NqNiTSMXk6qK5FVbNAbkrF` (Branch `bollwerk-probe`) | fertig 21:03 UTC |
 | Meta-Sitzung | `session_01V8nVEJcaAbNDmTCrmHBoBq` (Branch `bollwerk-plan`, Meta-Prompt v4.1 aus `f2759297c4f5f9a627199b8fe52655f0d3d13e77`) | Übergabe 23:58 UTC: `=== BOLLWERK-META-ENDE · HALT · Runde 3 · 3460ca7e708fd0f74f62a45401f395ae4bedc2fb ===` (M-10: Rubrik 21/26 an der vorletzten Fassung; gelieferte Fassung ungeprüft); Kosten ≈ 116 $ |
-| Nachtlauf-Generationen | G1 `session_01J12w9BSCysBqiSdn143rRF` (Titel „BOLLWERK G1“, `source_revision`/`outcome_branch` = `bollwerk`, Master-Prompt aus 2094a67) · G2 `session_018hkemyWQo4CxMz8cZptrGd` (Titel „BOLLWERK G2“, gleiche Quelle/Ziel) | G1: NACHT-ENDE 04:03 UTC an 371b527 (28 Commits, ≈ 27 $) · G2: gestartet 04:39 UTC, Vorlauf |
+| Nachtlauf-Generationen | G1 `session_01J12w9BSCysBqiSdn143rRF` (Titel „BOLLWERK G1“, `source_revision`/`outcome_branch` = `bollwerk`, Master-Prompt aus 2094a67) · G2 `session_018hkemyWQo4CxMz8cZptrGd` (Titel „BOLLWERK G2“, gleiche Quelle/Ziel) | G1: NACHT-ENDE 04:03 UTC an 371b527 (28 Commits, ≈ 27 $) · G2: **ABBRUCH 05:27 UTC** (E-G2-08: Haiku-Agent rief `send_message` auf, vom Auto-Modus abgelehnt, ohne Wirkung; A-2 A4.2), Stand a9875a9, ≈ 18,9 $ · keine G3 ohne Nutzerentscheidung (FUER-DEN-NUTZER G2-2) |
 | Merge-Bau | – | – |
 | Branch `bollwerk` | per Fast-Forward `f84715d..2094a67` auf den Übergabe-SHA gesetzt (01:52 UTC) | Arbeitsbranch der Generationen |
 | Übergabe-SHA (Master-Prompt) | `2094a67525cd07526c5e80ab1897e53d3fddac02` (MASTER-PROMPT sha256 6eb7a606…) | unveränderlich auf `bollwerk` |
@@ -33,7 +33,7 @@ Der Freigabeabschnitt im Plan lautet:
 | L1 Leitstand | fertig (Routine aktiv) |
 | L1b Kinder-Probe | fertig |
 | L2 Meta-Lauf | **abgenommen**: Rubrik Runde 4 an `2094a67` = 23/26 ohne Null (RUBRIK-L2-2094a67.md); F-2 für BW1 offen |
-| L3 Generationen | G1 NACHT-ENDE (371b527) · G2 läuft (Vorlauf) |
+| L3 Generationen | G1 NACHT-ENDE (371b527) · G2 ABBRUCH (a9875a9) · **Pause bis Nutzerentscheidung G2-2/A-13** |
 | L4 main | offen |
 | L5 Abschluss | offen |
 
@@ -45,7 +45,7 @@ Wahr nur, wenn alles zutrifft:
 4. PR #43 ist gemergt oder geschlossen (lesend prüfen).
 Sonst nur „FREIGABE BOLLWERK“ des Nutzers (nachdem er die Finalisierung angehalten hat).
 
-Letzte Prüfung: 2026-10-10 04:42 UTC · Finalisierung F5 von F7 (Abnahme 9/17, Aufträge 138/177, „Agenten aktiv 0“), letzter Commit ea8d765 (09.10. 23:09 UTC, seit ≈ 5,5 h still), kein ZIEL ERREICHT, fin nicht Vorfahr von main · **offen**
+Letzte Prüfung: 2026-10-10 05:40 UTC (unverändert seit 04:42) · Finalisierung F5 von F7 (Abnahme 9/17, Aufträge 138/177, „Agenten aktiv 0“), letzter Commit ea8d765 (09.10. 23:09 UTC, seit ≈ 5,5 h still), kein ZIEL ERREICHT, fin nicht Vorfahr von main · **offen**
 
 ## Gezeigte Bilder
 - 22:39 UTC · `bilder/meta/m1-bildverfahren-fin-5c83242.jpg` (bollwerk-plan e2b27da)
@@ -128,3 +128,4 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - Prüfpunkt für L2-Abnahme: Die Meta-Fassung schreibt in FUER-DEN-NUTZER „Merge auf main nur nach menschlicher Freigabe“ – der Plan hat diese Freigabe (Leitstand, nach allen Toren); bei der Abnahme angleichen.
 - 2026-10-10 04:38 UTC · Herzschlag 9: G1 meldet `ZUSTAND: NACHT-ENDE` (371b527, Zugende 04:03Z, MORGENBERICHT.md). Vor 07:00 Berlin → G2 sofort gestartet (`session_018hkemyWQo4CxMz8cZptrGd`, Startpaket mit Master-Prompt 2094a67, Generation 2). Tagesprüfung des Diffs 2094a67..371b527 (97 Dateien, +11.534) mit unabhängigen Prüf-Agenten gestartet. B-02 offen; Finalisierung seit 23:09 UTC ohne Commit.
 - 2026-10-10 04:55 UTC · Tagesprüfung 1 (Diff 2094a67..371b527, 2 unabhängige Prüf-Agenten: Grenzen/Hoheit/Kanon/main-Reife und Würfelkern/Lösbarkeit/Tests; Design und Umfang ohne Gegenstand, da keine Bilder und keine Varianten): **kein BLOCKER**, F-3 MAJOR (zweite FEINKORN-Tür `lib/game/dev/feinkorn_k0_main.dart`), F-4…F-8 MINOR. Lösbarkeit, Pech-Garantie, Determinismus unabhängig bestätigt; `merge-tree` gegen main ohne Konflikt. Hinweis per send_message an G2. Kosten: Leitstand 316,79 $, G1 27,14 $. Morgenbericht an den Nutzer.
+- 2026-10-10 05:40 UTC · Herzschlag 10: G2 `ZUSTAND: ABBRUCH Werkzeugverstoß steuernd` (05:27Z, idle/blocked). Ursache: Haiku-Agent ABST-west_saal-1 rief `mcp__claude-code-remote__send_message` mit `{}` auf, Auto-Modus lehnte ab; vorher 1 lesender Verstoß (`read_documentation`, verworfen). G2 hat vorher gesichert: Kern 1.1 (be5a990), F-6-Rest (52632ba), F-3…F-8 quittiert (QUITTIERT S=3 F=8), 135 Rohvarianten unter `vorrat/roh/`, Weckruf gelöscht. Zustandstabelle: Abbruch mit Grenzfrage → **Pause, keine G3** bis der Nutzer G2-2 entscheidet (A-13 „Sperrdatei“ ist Nutzerentscheidung; Leitstand prüft vorher die Technik). B-02 offen (fin ea8d765, still seit 23:09 UTC).
