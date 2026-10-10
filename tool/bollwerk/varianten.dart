@@ -224,8 +224,9 @@ List<String> ring2(Map<String, Object?> v, Textpruefer tp) {
   for (final x in hinaus) {
     if (alle.contains(x)) f.add('hinaus:$x');
   }
-  final roh = ts.join(' ');
-  if (RegExp(r'\b(Sie|Ihnen|Ihr(e|en|er|em)?)\b').hasMatch(roh.replaceAll(RegExp(r'(^|[.!?…:]\s+|[„"]\s*)(Sie|Ihr\w*)\b'), ' '))) {
+  // Siezen je Text einzeln: „Ihr“/„Sie“ am Satz- oder Textanfang, nach Doppelpunkt oder Anführung ist Anrede der Runde.
+  final ent = RegExp(r'(^|[.!?…:]\s+|[„"]\s*)(Sie|Ihr\w*)\b');
+  if (ts.any((t) => RegExp(r'\b(Sie|Ihnen|Ihr(e|en|er|em)?)\b').hasMatch(t.replaceAll(ent, ' ')))) {
     f.add('siezen');
   }
   if (alle.contains('pfeife') && !alle.contains('seifenblase')) f.add('pfeife_ohne_seifenblasen');
