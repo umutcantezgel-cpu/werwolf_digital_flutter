@@ -1,0 +1,28 @@
+{
+ "n_all": 513,
+ "n_ja": 167,
+ "n_verw": 346,
+ "zusatz": 150,
+ "ja_by": {
+  "P1-OPUS-03": 118,
+  "P1-OPUS-04": 17,
+  "P6-OPUS-03": 6,
+  "P1-AUTOR-01": 5,
+  "P6-AUTOR-07": 3,
+  "P6-AUTOR-08": 4,
+  "P6-AUTOR-11": 4,
+  "P1-AUTOR-02": 10
+ },
+ "zonly_by": {
+  "P1-OPUS-03": 115,
+  "P1-OPUS-04": 9,
+  "P6-OPUS-03": 2,
+  "P6-AUTOR-07": 23,
+  "P6-AUTOR-11": 1
+ },
+ "tot": [
+  92,
+  111,
+  52
+ ]
+}

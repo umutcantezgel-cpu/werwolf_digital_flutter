@@ -1,0 +1,3971 @@
+{
+"compl": {
+"packages/pixel_engine/lib/src/figur/baker.dart:18": [
+"&\\s*7\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:186": [
+"&\\s*7\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:187": [
+"&\\s*7\\b"
+],
+"packages/burgstadt_core/lib/src/fall/bots.dart:44": [
+"<<\\s*3"
+],
+"lib/ui/overlays/intro.dart:91": [
+"<<\\s*3"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:38": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:48": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:65": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/bin/figurenprobe.dart:45": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:66": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:109": [
+"\\*\\s*8\\b"
+],
+"lib/game/mordakte_game.dart:110": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:52": [
+"Pal\\.",
+"\\b8\\s*\\*"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:61": [
+"\\b8\\s*\\*"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:54": [
+"\\b8\\s*\\*"
+],
+"packages/pixel_engine/test/pixel_test.dart:107": [
+"Pal\\.",
+"\\b8\\s*\\*"
+],
+"packages/burgstadt_spiel/bin/belegfotos.dart:60": [
+"\\b8\\s*\\*"
+],
+"lib/game/mordakte_game.dart:1358": [
+"\\b8\\s*\\*"
+],
+"lib/game/scene/prop_painter.dart:495": [
+"\\b8\\s*\\*"
+],
+"lib/game/scene/weather.dart:164": [
+"\\b8\\s*\\*"
+],
+"lib/game/scene/markers.dart:138": [
+"\\b8\\s*\\*"
+],
+"lib/game/scene/markers.dart:406": [
+"\\b8\\s*\\*"
+],
+"lib/game/scene/markers.dart:411": [
+"\\b8\\s*\\*"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:123": [
+"~/\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:129": [
+"[/*]\\s*7\\b",
+"~/\\s*8\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/hauptmenue.dart:41": [
+"~/\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:793": [
+"%\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:797": [
+"%\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:124": [
+"%\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:125": [
+"%\\s*8\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:366": [
+"%\\s*8\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:193": [
+"%\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:109": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:110": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:288": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:292": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:299": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:305": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:315": [
+"[/*]\\s*7\\b"
+],
+"packages/burgstadt_core/lib/src/welt/stadtgenerator.dart:149": [
+"[/*]\\s*7\\b"
+],
+"packages/burgstadt_core/lib/src/welt/stadtgenerator.dart:321": [
+"[/*]\\s*7\\b"
+],
+"packages/burgstadt_spiel/lib/src/welt_geometrie.dart:60": [
+"[/*]\\s*7\\b"
+],
+"packages/burgstadt_spiel/lib/src/welt_geometrie.dart:213": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:106": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:521": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:597": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:901": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:993": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:1237": [
+"[/*]\\s*7\\b"
+],
+"lib/game/scene/prop_painter.dart:435": [
+"[/*]\\s*7\\b"
+],
+"lib/game/scene/prop_painter.dart:810": [
+"[/*]\\s*7\\b"
+],
+"lib/game/scene/prop_painter.dart:817": [
+"[/*]\\s*7\\b"
+],
+"lib/game/scene/prop_painter.dart:828": [
+"[/*]\\s*7\\b"
+],
+"lib/game/scene/figure_painter.dart:56": [
+"[/*]\\s*7\\b"
+],
+"lib/game/input/joystick.dart:81": [
+"[/*]\\s*7\\b"
+],
+"lib/game/input/joystick.dart:82": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:345": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:389": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:293": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:179": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:275": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:286": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:291": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:298": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:304": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:445": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/bin/benchmark.dart:11": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:15": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/kanon/proben.dart:381": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/kanon/proben.dart:430": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/pruef/leitplanken.dart:59": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/fall/fall_zustand.dart:283": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/fall/fall_zustand.dart:293": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/fall/fall_zustand.dart:300": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/fall/fall_zustand.dart:309": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/fall/bots.dart:119": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/test/kanon_test.dart:232": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/test/fall_zustand_test.dart:103": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/lagerunde.dart:105": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/erkundung.dart:202": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/wlan.dart:256": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/optionen_bildschirm.dart:58": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/kompass.dart:52": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/steuerung.dart:55": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/bin/bildschirmfoto.dart:22": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/bin/belegfotos.dart:247": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/bin/spieltest.dart:15": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/test/wlan_test.dart:127": [
+"[<>]=?\\s*[37]\\b"
+],
+"tool/ton/geraeusche.dart:320": [
+"[<>]=?\\s*[37]\\b"
+],
+"tool/abnahme.dart:120": [
+"[<>]=?\\s*[37]\\b"
+],
+"tool/abnahme.dart:128": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/ui/overlays/toasts.dart:28": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/ui/widgets/meters.dart:102": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/mordakte_game.dart:97": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/floor_painter.dart:122": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/floor_painter.dart:341": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/floor_painter.dart:411": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/floor_painter.dart:418": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/weather.dart:190": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/markers.dart:124": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/markers.dart:334": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/markers.dart:340": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/markers.dart:400": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/meta/meta_store.dart:233": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/ui/screens/profile_screen.dart:129": [
+"clamp\\(\\s*0\\s*,\\s*[37]\\s*\\)"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:1": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:24": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:25": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:28": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/teile_basis.dart:94": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:141": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:143": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:167": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:307": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:316": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:397": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:405": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:407": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:416": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:417": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:428": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:447": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:456": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:469": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:473": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:474": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:590": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:595": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:599": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:600": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:601": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:604": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:605": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:606": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:56": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:57": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:58": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:7": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:8": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/bin/pixel_pruef.dart:70": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/bin/bewohnerkarten.dart:15": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/karten_test.dart:113": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/karten_test.dart:173": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/karten_test.dart:186": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:74": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:94": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:103": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:112": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/texturen_test.dart:37": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/texturen_test.dart:39": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/portraet_test.dart:48": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/portraet_test.dart:51": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/portraet_test.dart:72": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/lib/src/pruef/leitplanken.dart:644": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/lib/src/welt/stadtgenerator.dart:446": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/lib/src/welt/oberstadt.dart:17": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/kanon_test.dart:10": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/kanon_test.dart:11": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/kanon_test.dart:365": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/stadt_test.dart:22": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/stadt_test.dart:27": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/stadtleben_test.dart:10": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/stadtleben_test.dart:30": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/stadtleben_test.dart:33": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/lagerunde.dart:89": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/lagerunde.dart:104": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/lagerunde.dart:124": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/lagerunde.dart:160": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/fallakte.dart:139": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/fallakte.dart:140": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/erkundung.dart:551": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/anklage.dart:56": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/spuren_geometrie.dart:118": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:133": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:134": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:173": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/bin/leistung.dart:84": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/bin/leistung.dart:142": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/bin/bildschirmfoto.dart:30": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/test/fledermaeuse_test.dart:90": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/test/fledermaeuse_test.dart:110": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/klangwerk.dart:437": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/test/ton_test.dart:40": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/geraeusche.dart:197": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/geraeusche.dart:379": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:128": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:136": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:139": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:141": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:142": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:144": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:157": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:166": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:173": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:175": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:178": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:179": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:182": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:195": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:196": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:197": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:211": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:217": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/abnahme.dart:90": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/abnahme.dart:91": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/abnahme.dart:113": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/abnahme.dart:114": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/abnahme.dart:192": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/signal_wheel.dart:31": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/interrogation.dart:595": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:102": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:131": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:360": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:412": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:413": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:418": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/council.dart:26": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/notebook.dart:376": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/notebook.dart:510": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/notebook.dart:735": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/ending.dart:122": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/ending.dart:382": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/screens/collection_screen.dart:312": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/screens/collection_screen.dart:313": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/screens/lobby_screen.dart:260": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/screens/lobby_screen.dart:732": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/screens/game_screen.dart:515": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/portrait.dart:57": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/portrait.dart:295": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/paper.dart:144": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/noir_backdrop.dart:89": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/noir_backdrop.dart:90": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/noir_backdrop.dart:110": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:172": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:173": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:320": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:326": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:371": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:411": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:463": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:467": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:468": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:548": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:560": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:573": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:634": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:703": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:851": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:862": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/figure_painter.dart:474": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/figure_painter.dart:475": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/figure_painter.dart:482": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/figure_painter.dart:494": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/figure_painter.dart:495": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/static_scene.dart:131": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/static_scene.dart:132": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/static_scene.dart:133": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/static_scene.dart:134": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/iso_math.dart:4": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/iso_math.dart:13": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/iso_math.dart:19": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/session/fake_session.dart:173": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:20": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:22": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:24": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:26": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:28": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:29": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:388": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:420": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:171": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:186": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/texturprobe.dart:6": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/texturprobe.dart:13": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/texturprobe.dart:27": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/figurenprobe.dart:34": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/aufstellung.dart:36": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/portraetprobe.dart:26": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/portraetprobe.dart:35": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/portraetprobe.dart:38": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/schriftprobe.dart:17": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/schriftprobe.dart:19": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:45": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:50": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:57": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:42": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:50": [
+"Pal\\."
+],
+"packages/pixel_engine/test/pixel_test.dart:71": [
+"Pal\\."
+],
+"packages/pixel_engine/test/pixel_test.dart:92": [
+"Pal\\."
+],
+"packages/pixel_engine/test/pixel_test.dart:113": [
+"Pal\\."
+],
+"packages/pixel_engine/test/font_test.dart:19": [
+"Pal\\."
+],
+"packages/pixel_engine/test/font_test.dart:20": [
+"Pal\\."
+],
+"packages/pixel_engine/test/font_test.dart:22": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:201": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:208": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:209": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:210": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/erkundung.dart:418": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/spuren_geometrie.dart:9": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/spiel.dart:236": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/spiel.dart:304": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:14": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:19": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:21": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:23": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:24": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:26": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:27": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/test/stadtkarte_test.dart:71": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/test/stadtkarte_test.dart:80": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:289": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:311": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:327": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:402": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:432": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:451": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:501": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:539": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:623": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:684": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:703": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:749": [
+"Ramp\\."
+],
+"packages/pixel_engine/test/karten_test.dart:52": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/pixel_buffer.dart:73": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/pixel_buffer.dart:74": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/pruef.dart:10": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:94": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:96": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:97": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:98": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:109": [
+"paletteRgb"
+],
+"packages/pixel_engine/test/pixel_test.dart:14": [
+"paletteRgb"
+],
+"packages/burgstadt_spiel/test/fledermaeuse_test.dart:70": [
+"paletteRgb"
+],
+"packages/burgstadt_spiel/lib/src/spiel.dart:327": [
+"blickFilter"
+],
+"packages/pixel_engine/lib/src/lighting.dart:9": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/lighting.dart:30": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/lighting.dart:34": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/lighting.dart:67": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:79": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:83": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:383": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/demo/benchmark.dart:29": [
+"LightTable"
+],
+"packages/pixel_engine/test/pixel_test.dart:7": [
+"LightTable"
+],
+"packages/pixel_engine/test/pixel_test.dart:19": [
+"LightTable"
+],
+"packages/burgstadt_spiel/lib/src/spiel.dart:59": [
+"LightTable"
+],
+"packages/burgstadt_spiel/test/fledermaeuse_test.dart:89": [
+"LightTable"
+]
+},
+"P": {
+"packages/pixel_engine/lib/src/palette.dart:1": [
+"L01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:10": [
+"L01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:43": [
+"L01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:59": [
+"L01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:37": [
+"L02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:40": [
+"L03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:44": [
+"L04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:89": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:114": [
+"L06",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:45": [
+"L07",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:159": [
+"L08",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:160": [
+"L08",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:189": [
+"L08",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:198": [
+"L08",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:453": [
+"L09",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:454": [
+"L09",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:455": [
+"L09",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:456": [
+"L09",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:457": [
+"L09",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:523": [
+"L10",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:524": [
+"L10",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:525": [
+"L10",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:526": [
+"L10",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:527": [
+"L10",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:13": [
+"L11",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:21": [
+"L12",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:25": [
+"L12",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:28": [
+"L12",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:62": [
+"L13",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:71": [
+"L14",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:72": [
+"L14",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:385": [
+"F01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:489": [
+"F02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:490": [
+"F02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:491": [
+"F02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:582": [
+"F03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/sprite_pruef.dart:26": [
+"F06",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/sprite_pruef.dart:34": [
+"F06",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/sprite_pruef.dart:63": [
+"F06",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:235": [
+"F07",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:237": [
+"F08",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:255": [
+"F08",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:307": [
+"F12",
+"P6-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:309": [
+"F12",
+"P6-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:311": [
+"F12",
+"P6-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:349": [
+"F12",
+"P6-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:9": [
+"T01",
+"P1-AUTOR-01"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:195": [
+"T02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:247": [
+"T02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:268": [
+"T02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:272": [
+"T02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:277": [
+"T02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:387": [
+"T03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:419": [
+"T03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:291": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:292": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:313": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:329": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:351": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:360": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:398": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:434": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:453": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:471": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:472": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:492": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:503": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:517": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:526": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:528": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:529": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:541": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:550": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:551": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:574": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:575": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:591": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:592": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:625": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:634": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:637": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:638": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:639": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:640": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:647": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:648": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:665": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:667": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:671": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:672": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:673": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:674": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:686": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:705": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:719": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:720": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:745": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:768": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:769": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:789": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:790": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:806": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:815": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:816": [
+"T04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:62": [
+"T06",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:63": [
+"T06",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:64": [
+"T06",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:65": [
+"T06",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:66": [
+"T06",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:67": [
+"T06",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:94": [
+"T06",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/spuren_geometrie.dart:110": [
+"S01",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/spuren_geometrie.dart:113": [
+"S01",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/spuren_geometrie.dart:119": [
+"S01",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:198": [
+"S02",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:199": [
+"S02",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:200": [
+"S02",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:202": [
+"S02",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:203": [
+"S02",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:204": [
+"S02",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:205": [
+"S02",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:206": [
+"S02",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:207": [
+"S02",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/fledermaeuse.dart:225": [
+"S03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:131": [
+"D01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:132": [
+"D01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:145": [
+"D01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:157": [
+"D01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:168": [
+"D01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:183": [
+"D01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:195": [
+"D01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:20": [
+"D02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:21": [
+"D02",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:20": [
+"W01",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:22": [
+"W01",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:25": [
+"W01",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/aufstellung.dart:26": [
+"W02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:43": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/figur_test.dart:52": [
+"X02",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:32": [
+"X03",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/karten_test.dart:135": [
+"X04",
+"P6-AUTOR-08"
+],
+"packages/pixel_engine/test/karten_test.dart:136": [
+"X04",
+"P6-AUTOR-08"
+],
+"packages/pixel_engine/test/karten_test.dart:137": [
+"X04",
+"P6-AUTOR-08"
+],
+"packages/pixel_engine/test/karten_test.dart:138": [
+"X04",
+"P6-AUTOR-08"
+],
+"packages/pixel_engine/test/portraet_test.dart:43": [
+"X05",
+"P6-AUTOR-11"
+],
+"packages/pixel_engine/test/portraet_test.dart:53": [
+"X05",
+"P6-AUTOR-11"
+],
+"packages/pixel_engine/test/portraet_test.dart:82": [
+"X05",
+"P6-AUTOR-11"
+],
+"packages/pixel_engine/test/portraet_test.dart:87": [
+"X05",
+"P6-AUTOR-11"
+],
+"packages/pixel_engine/test/pixel_test.dart:10": [
+"X06",
+"P1-AUTOR-02"
+],
+"packages/pixel_engine/test/pixel_test.dart:11": [
+"X06",
+"P1-AUTOR-02"
+],
+"packages/pixel_engine/test/pixel_test.dart:12": [
+"X06",
+"P1-AUTOR-02"
+],
+"packages/pixel_engine/test/pixel_test.dart:20": [
+"X06",
+"P1-AUTOR-02"
+],
+"packages/pixel_engine/test/pixel_test.dart:22": [
+"X06",
+"P1-AUTOR-02"
+],
+"packages/pixel_engine/test/pixel_test.dart:23": [
+"X06",
+"P1-AUTOR-02"
+],
+"packages/pixel_engine/test/pixel_test.dart:39": [
+"X06",
+"P1-AUTOR-02"
+],
+"packages/burgstadt_spiel/test/fledermaeuse_test.dart:79": [
+"X07",
+"P1-AUTOR-02"
+],
+"packages/burgstadt_spiel/test/stadtkarte_test.dart:81": [
+"X08",
+"P1-AUTOR-02"
+],
+"packages/burgstadt_spiel/test/stadtkarte_test.dart:142": [
+"X08",
+"P1-AUTOR-02"
+],
+"packages/pixel_engine/test/texturen_test.dart:10": [
+"X09",
+"P1-AUTOR-01"
+],
+"packages/pixel_engine/test/texturen_test.dart:43": [
+"X09",
+"P1-AUTOR-01"
+],
+"packages/pixel_engine/test/texturen_test.dart:46": [
+"X09",
+"P1-AUTOR-01"
+],
+"packages/pixel_engine/test/texturen_test.dart:63": [
+"X09",
+"P1-AUTOR-01"
+]
+},
+"Z": {
+"packages/pixel_engine/lib/src/palette.dart:36": [
+"L02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:65": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:66": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:67": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:68": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:69": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:70": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:71": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:72": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:73": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:74": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:75": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:76": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:77": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:78": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:79": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:80": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:81": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:82": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:83": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:84": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:85": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:86": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:87": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:88": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/palette.dart:90": [
+"L05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:158": [
+"L08",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:451": [
+"L09",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:452": [
+"L09",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:10": [
+"L11",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:11": [
+"L11",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:12": [
+"L11",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:42": [
+"L11",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:54": [
+"L11",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:23": [
+"L12",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/lighting.dart:24": [
+"L12",
+"P1-OPUS-04"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:484": [
+"F02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:583": [
+"F02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:584": [
+"F02",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:18": [
+"F04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:53": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:54": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:55": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:56": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:57": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:58": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:83": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:86": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:87": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:88": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:90": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:91": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:95": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:96": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:97": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:98": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:99": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:100": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:199": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:230": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:239": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:281": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:321": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:322": [
+"F05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:231": [
+"F07",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:233": [
+"F07",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:106": [
+"F09",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:93": [
+"F10",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:203": [
+"F10",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:204": [
+"F10",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:205": [
+"F10",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:206": [
+"F10",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:207": [
+"F10",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:208": [
+"F10",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:209": [
+"F10",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:9": [
+"F11",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:38": [
+"F11",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:39": [
+"F11",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:40": [
+"F11",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:41": [
+"F11",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:43": [
+"F11",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:44": [
+"F11",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:82": [
+"F11",
+"P1-OPUS-03"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:85": [
+"F11",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:303": [
+"F12",
+"P6-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:320": [
+"F12",
+"P6-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:334": [
+"F12",
+"P6-OPUS-03"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:335": [
+"F12",
+"P6-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:290": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:312": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:328": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:403": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:433": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:452": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:502": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:518": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:540": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:624": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:685": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:704": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:750": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:807": [
+"T05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/figurenprobe.dart:12": [
+"W03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/figurenprobe.dart:13": [
+"W03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/figurenprobe.dart:16": [
+"W03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/figurenprobe.dart:17": [
+"W03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/figurenprobe.dart:20": [
+"W03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/figurenprobe.dart:21": [
+"W03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/figurenprobe.dart:24": [
+"W03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/figurenprobe.dart:25": [
+"W03",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:72": [
+"W04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:73": [
+"W04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:74": [
+"W04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:75": [
+"W04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:76": [
+"W04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:77": [
+"W04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:78": [
+"W04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:79": [
+"W04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:80": [
+"W04",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:13": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:14": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:15": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:16": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:17": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:18": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:19": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:20": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:21": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:22": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:23": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:24": [
+"W05",
+"P1-OPUS-03"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:21": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:22": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:23": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:24": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:25": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:26": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:27": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:28": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:29": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:30": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:31": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:32": [
+"X01",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/figur_test.dart:7": [
+"X02",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/figur_test.dart:8": [
+"X02",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:10": [
+"X03",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:11": [
+"X03",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:12": [
+"X03",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:13": [
+"X03",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:14": [
+"X03",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:15": [
+"X03",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:16": [
+"X03",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:17": [
+"X03",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:18": [
+"X03",
+"P6-AUTOR-07"
+],
+"packages/pixel_engine/test/portraet_test.dart:136": [
+"X05",
+"P6-AUTOR-11"
+]
+},
+"allhits": {
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:490": [
+">>\\s*3",
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:62": [
+">>\\s*3",
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:114": [
+">>\\s*3",
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:23": [
+">>\\s*3",
+"Ramp\\.",
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/test/texturen_test.dart:10": [
+">>\\s*3",
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/test/texturen_test.dart:63": [
+">>\\s*3",
+"Ramp\\.",
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:489": [
+"&\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:491": [
+"&\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/figur/sprite_pruef.dart:34": [
+"&\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:18": [
+"&\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:45": [
+"&\\s*7\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:186": [
+"&\\s*7\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:187": [
+"&\\s*7\\b"
+],
+"packages/burgstadt_spiel/test/fledermaeuse_test.dart:79": [
+"&\\s*7\\b"
+],
+"packages/burgstadt_core/lib/src/fall/bots.dart:44": [
+"<<\\s*3"
+],
+"lib/ui/overlays/intro.dart:91": [
+"<<\\s*3"
+],
+"packages/pixel_engine/lib/src/lighting.dart:72": [
+"<<\\s*6"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:457": [
+"<<\\s*6",
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:527": [
+"<<\\s*6",
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:10": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:38": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:48": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:65": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/bin/figurenprobe.dart:45": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:66": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/test/karten_test.dart:135": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/test/karten_test.dart:136": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/test/karten_test.dart:137": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/test/karten_test.dart:138": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:109": [
+"\\*\\s*8\\b"
+],
+"lib/game/mordakte_game.dart:110": [
+"\\*\\s*8\\b"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:52": [
+"Pal\\.",
+"\\b8\\s*\\*"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:61": [
+"\\b8\\s*\\*"
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:54": [
+"\\b8\\s*\\*"
+],
+"packages/pixel_engine/test/pixel_test.dart:107": [
+"Pal\\.",
+"\\b8\\s*\\*"
+],
+"packages/burgstadt_spiel/bin/belegfotos.dart:60": [
+"\\b8\\s*\\*"
+],
+"lib/game/mordakte_game.dart:1358": [
+"\\b8\\s*\\*"
+],
+"lib/game/scene/prop_painter.dart:495": [
+"\\b8\\s*\\*"
+],
+"lib/game/scene/weather.dart:164": [
+"\\b8\\s*\\*"
+],
+"lib/game/scene/markers.dart:138": [
+"\\b8\\s*\\*"
+],
+"lib/game/scene/markers.dart:406": [
+"\\b8\\s*\\*"
+],
+"lib/game/scene/markers.dart:411": [
+"\\b8\\s*\\*"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:385": [
+"~/\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/figur/bewohner_karten.dart:582": [
+"%\\s*8\\b",
+"~/\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:123": [
+"~/\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:129": [
+"[/*]\\s*7\\b",
+"~/\\s*8\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/hauptmenue.dart:41": [
+"~/\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:793": [
+"%\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:797": [
+"%\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:124": [
+"%\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:125": [
+"%\\s*8\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:366": [
+"%\\s*8\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:193": [
+"%\\s*8\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:21": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:25": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:28": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:109": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:110": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:288": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:292": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:299": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:305": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:315": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:59": [
+"[/*]\\s*7\\b",
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/lib/src/welt/stadtgenerator.dart:149": [
+"[/*]\\s*7\\b"
+],
+"packages/burgstadt_core/lib/src/welt/stadtgenerator.dart:321": [
+"[/*]\\s*7\\b"
+],
+"packages/burgstadt_spiel/lib/src/welt_geometrie.dart:60": [
+"[/*]\\s*7\\b"
+],
+"packages/burgstadt_spiel/lib/src/welt_geometrie.dart:213": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:106": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:521": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:597": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:901": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:993": [
+"[/*]\\s*7\\b"
+],
+"lib/game/mordakte_game.dart:1237": [
+"[/*]\\s*7\\b"
+],
+"lib/game/scene/prop_painter.dart:435": [
+"[/*]\\s*7\\b"
+],
+"lib/game/scene/prop_painter.dart:810": [
+"[/*]\\s*7\\b"
+],
+"lib/game/scene/prop_painter.dart:817": [
+"[/*]\\s*7\\b"
+],
+"lib/game/scene/prop_painter.dart:828": [
+"[/*]\\s*7\\b"
+],
+"lib/game/scene/figure_painter.dart:56": [
+"[/*]\\s*7\\b"
+],
+"lib/game/input/joystick.dart:81": [
+"[/*]\\s*7\\b"
+],
+"lib/game/input/joystick.dart:82": [
+"[/*]\\s*7\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:453": [
+"fog\\s*\\*\\s*3"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:523": [
+"LightTable",
+"fog\\s*\\*\\s*3"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:345": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:389": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/figur/sprite_pruef.dart:63": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:293": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:179": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:275": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:286": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:291": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:298": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:304": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:445": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:454": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:455": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:456": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:524": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:525": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:526": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:40": [
+"[<>]=?\\s*[37]\\b",
+"shades"
+],
+"packages/pixel_engine/bin/benchmark.dart:11": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:15": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/kanon/proben.dart:381": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/kanon/proben.dart:430": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/pruef/leitplanken.dart:59": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/fall/fall_zustand.dart:283": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/fall/fall_zustand.dart:293": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/fall/fall_zustand.dart:300": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/fall/fall_zustand.dart:309": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/lib/src/fall/bots.dart:119": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/test/kanon_test.dart:232": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_core/test/fall_zustand_test.dart:103": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/lagerunde.dart:105": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/erkundung.dart:202": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/wlan.dart:256": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/optionen_bildschirm.dart:58": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/kompass.dart:52": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/lib/src/steuerung.dart:55": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/bin/bildschirmfoto.dart:22": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/bin/belegfotos.dart:247": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/bin/spieltest.dart:15": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/burgstadt_spiel/test/wlan_test.dart:127": [
+"[<>]=?\\s*[37]\\b"
+],
+"tool/ton/geraeusche.dart:320": [
+"[<>]=?\\s*[37]\\b"
+],
+"tool/abnahme.dart:120": [
+"[<>]=?\\s*[37]\\b"
+],
+"tool/abnahme.dart:128": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/ui/overlays/toasts.dart:28": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/ui/widgets/meters.dart:102": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/mordakte_game.dart:97": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/floor_painter.dart:122": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/floor_painter.dart:341": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/floor_painter.dart:411": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/floor_painter.dart:418": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/weather.dart:190": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/markers.dart:124": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/markers.dart:334": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/markers.dart:340": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/game/scene/markers.dart:400": [
+"[<>]=?\\s*[37]\\b"
+],
+"lib/meta/meta_store.dart:233": [
+"[<>]=?\\s*[37]\\b"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:235": [
+"clamp\\(\\s*0\\s*,\\s*[37]\\s*\\)"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:159": [
+"clamp\\(\\s*0\\s*,\\s*[37]\\s*\\)"
+],
+"lib/ui/screens/profile_screen.dart:129": [
+"clamp\\(\\s*0\\s*,\\s*[37]\\s*\\)"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:1": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:24": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:25": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:28": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/teile_basis.dart:94": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:141": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:143": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/figur.dart:167": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/figur/sprite_pruef.dart:26": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:9": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:307": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:316": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:397": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:405": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:407": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:416": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:417": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:428": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:447": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:456": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:469": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:473": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:474": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:590": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:595": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:599": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:600": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:601": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:604": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:605": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:606": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:13": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:56": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:57": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/lighting.dart:58": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:1": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:7": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:8": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:43": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/palette.dart:89": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/bin/pixel_pruef.dart:70": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/bin/bewohnerkarten.dart:15": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/karten_test.dart:113": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/karten_test.dart:173": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/karten_test.dart:186": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:10": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:11": [
+"\\b(40|47|63|64|255)\\b",
+"paletteRgb"
+],
+"packages/pixel_engine/test/pixel_test.dart:12": [
+"\\b(40|47|63|64|255)\\b",
+"paletteRgb"
+],
+"packages/pixel_engine/test/pixel_test.dart:20": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:39": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:74": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:94": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:103": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/pixel_test.dart:112": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/texturen_test.dart:37": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/texturen_test.dart:39": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/texturen_test.dart:43": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/texturen_test.dart:46": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/portraet_test.dart:43": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/portraet_test.dart:48": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/portraet_test.dart:51": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/portraet_test.dart:53": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/portraet_test.dart:72": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/portraet_test.dart:82": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/test/portraet_test.dart:87": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/lib/src/pruef/leitplanken.dart:644": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/lib/src/welt/stadtgenerator.dart:446": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/lib/src/welt/oberstadt.dart:17": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/kanon_test.dart:10": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/kanon_test.dart:11": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/kanon_test.dart:365": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/stadt_test.dart:22": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/stadt_test.dart:27": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/stadtleben_test.dart:10": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/stadtleben_test.dart:30": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_core/test/stadtleben_test.dart:33": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/lagerunde.dart:89": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/lagerunde.dart:104": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/lagerunde.dart:124": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/lagerunde.dart:160": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/fallakte.dart:139": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/fallakte.dart:140": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/erkundung.dart:551": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/anklage.dart:56": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/spuren_geometrie.dart:113": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/spuren_geometrie.dart:118": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:133": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:134": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/lib/src/figuren_lager.dart:173": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/bin/leistung.dart:84": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/bin/leistung.dart:142": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/bin/bildschirmfoto.dart:30": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/test/stadtkarte_test.dart:142": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/test/fledermaeuse_test.dart:90": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/burgstadt_spiel/test/fledermaeuse_test.dart:110": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/klangwerk.dart:437": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/test/ton_test.dart:40": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/geraeusche.dart:197": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/geraeusche.dart:379": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:128": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:136": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:139": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:141": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:142": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:144": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:157": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:166": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:173": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:175": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:178": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:179": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:182": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:195": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:196": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:197": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:211": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/ton/musik.dart:217": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/abnahme.dart:90": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/abnahme.dart:91": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/abnahme.dart:113": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/abnahme.dart:114": [
+"\\b(40|47|63|64|255)\\b"
+],
+"tool/abnahme.dart:192": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/signal_wheel.dart:31": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/interrogation.dart:595": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:102": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:131": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:360": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:412": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:413": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/hud.dart:418": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/council.dart:26": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/notebook.dart:376": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/notebook.dart:510": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/notebook.dart:735": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/ending.dart:122": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/overlays/ending.dart:382": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/screens/collection_screen.dart:312": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/screens/collection_screen.dart:313": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/screens/lobby_screen.dart:260": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/screens/lobby_screen.dart:732": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/screens/game_screen.dart:515": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/portrait.dart:57": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/portrait.dart:295": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/paper.dart:144": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/noir_backdrop.dart:89": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/noir_backdrop.dart:90": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/ui/widgets/noir_backdrop.dart:110": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:172": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:173": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:320": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:326": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:371": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:411": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:463": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:467": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:468": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:548": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:560": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:573": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:634": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:703": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:851": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/prop_painter.dart:862": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/figure_painter.dart:474": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/figure_painter.dart:475": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/figure_painter.dart:482": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/figure_painter.dart:494": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/figure_painter.dart:495": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/static_scene.dart:131": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/static_scene.dart:132": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/static_scene.dart:133": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/scene/static_scene.dart:134": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/iso_math.dart:4": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/iso_math.dart:13": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/game/iso_math.dart:19": [
+"\\b(40|47|63|64|255)\\b"
+],
+"lib/session/fake_session.dart:173": [
+"\\b(40|47|63|64|255)\\b"
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:20": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:22": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:24": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:26": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:28": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/ui/pixel_ui.dart:29": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:388": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:420": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:171": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:186": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/texturprobe.dart:6": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/texturprobe.dart:13": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/texturprobe.dart:27": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/figurenprobe.dart:34": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/aufstellung.dart:36": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/portraetprobe.dart:26": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/portraetprobe.dart:35": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/portraetprobe.dart:38": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/schriftprobe.dart:17": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/schriftprobe.dart:19": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:45": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:50": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/teile_koepfe_probe.dart:57": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:42": [
+"Pal\\."
+],
+"packages/pixel_engine/bin/teile_kleidung_probe.dart:50": [
+"Pal\\."
+],
+"packages/pixel_engine/test/pixel_test.dart:22": [
+"Pal\\.",
+"lookup\\("
+],
+"packages/pixel_engine/test/pixel_test.dart:71": [
+"Pal\\."
+],
+"packages/pixel_engine/test/pixel_test.dart:92": [
+"Pal\\."
+],
+"packages/pixel_engine/test/pixel_test.dart:113": [
+"Pal\\."
+],
+"packages/pixel_engine/test/font_test.dart:19": [
+"Pal\\."
+],
+"packages/pixel_engine/test/font_test.dart:20": [
+"Pal\\."
+],
+"packages/pixel_engine/test/font_test.dart:22": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:201": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:208": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:209": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:210": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/erkundung.dart:418": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/spuren_geometrie.dart:9": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/spiel.dart:236": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/lib/src/spiel.dart:304": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:14": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:19": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:21": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:23": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:24": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:25": [
+"Pal\\.",
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:26": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:27": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/test/stadtkarte_test.dart:71": [
+"Pal\\."
+],
+"packages/burgstadt_spiel/test/stadtkarte_test.dart:80": [
+"Pal\\."
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:307": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:309": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:311": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:349": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:237": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:255": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:195": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:247": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:268": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:272": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:277": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:291": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:292": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:313": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:329": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:351": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:360": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:387": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:398": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:419": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:434": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:453": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:471": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:472": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:492": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:503": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:517": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:526": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:528": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:529": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:541": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:550": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:551": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:574": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:575": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:591": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:592": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:625": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:634": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:637": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:638": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:639": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:640": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:647": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:648": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:665": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:667": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:671": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:672": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:673": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:674": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:686": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:705": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:719": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:720": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:745": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:768": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:769": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:789": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:790": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:806": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:815": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:816": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:160": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:189": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:198": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:131": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:132": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:145": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:157": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:168": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:183": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:195": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/bin/aufstellung.dart:26": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/test/teile_kleidung_test.dart:43": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/test/figur_test.dart:52": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/test/teile_koepfe_test.dart:32": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:198": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:199": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:200": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:202": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:203": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:204": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:205": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:206": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/bildschirme/stadtkarte.dart:207": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/spuren_geometrie.dart:119": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/lib/src/fledermaeuse.dart:225": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:20": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/bin/stadtplan.dart:22": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/burgstadt_spiel/test/stadtkarte_test.dart:81": [
+"Ramp\\.",
+"Ramp\\.at"
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:334": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/figur/portraet.dart:335": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/figur/baker.dart:106": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:62": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:63": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:64": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:65": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:66": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:67": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:94": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:289": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:311": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:327": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:402": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:432": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:451": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:501": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:518": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:539": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:623": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:684": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:703": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:749": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/kit/texturen.dart:807": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:20": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/demo/demo_scene.dart:21": [
+"Ramp\\."
+],
+"packages/pixel_engine/test/karten_test.dart:52": [
+"Ramp\\."
+],
+"packages/pixel_engine/lib/src/palette.dart:37": [
+"shades"
+],
+"packages/pixel_engine/lib/src/pixel_buffer.dart:73": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/pixel_buffer.dart:74": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/pruef.dart:10": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:44": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:94": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:96": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:97": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:98": [
+"paletteRgb"
+],
+"packages/pixel_engine/lib/src/palette.dart:109": [
+"paletteRgb"
+],
+"packages/pixel_engine/test/pixel_test.dart:14": [
+"paletteRgb"
+],
+"packages/burgstadt_spiel/test/fledermaeuse_test.dart:70": [
+"paletteRgb"
+],
+"packages/burgstadt_spiel/lib/src/spuren_geometrie.dart:110": [
+"blickFilter"
+],
+"packages/burgstadt_spiel/lib/src/spiel.dart:327": [
+"blickFilter"
+],
+"packages/pixel_engine/lib/src/lighting.dart:9": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/lighting.dart:30": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/lighting.dart:34": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/lighting.dart:67": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:79": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:83": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/raster/renderer.dart:383": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/demo/benchmark.dart:29": [
+"LightTable"
+],
+"packages/pixel_engine/test/pixel_test.dart:7": [
+"LightTable"
+],
+"packages/pixel_engine/test/pixel_test.dart:19": [
+"LightTable"
+],
+"packages/burgstadt_spiel/lib/src/spiel.dart:59": [
+"LightTable"
+],
+"packages/burgstadt_spiel/test/fledermaeuse_test.dart:89": [
+"LightTable"
+],
+"packages/pixel_engine/lib/src/lighting.dart:71": [
+"lookup\\("
+]
+}
+}

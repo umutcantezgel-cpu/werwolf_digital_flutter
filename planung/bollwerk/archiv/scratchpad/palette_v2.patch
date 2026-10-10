@@ -1,0 +1,663 @@
+diff --git a/packages/burgstadt_spiel/lib/src/bildschirme/fallakte.dart b/packages/burgstadt_spiel/lib/src/bildschirme/fallakte.dart
+index b4dd072..463b020 100644
+--- a/packages/burgstadt_spiel/lib/src/bildschirme/fallakte.dart
++++ b/packages/burgstadt_spiel/lib/src/bildschirme/fallakte.dart
+@@ -106,7 +106,7 @@ class FallakteBildschirm extends Bildschirm {
+       if (ui.tippflaeche(r)) auswahl = i;
+       final hw = f.daten.hinweise[l[i]]!;
+       final gewaehlt = i == auswahl;
+-      if (gewaehlt) ui.flaeche(r, 51);
++      if (gewaehlt) ui.flaeche(r, Ramp.at(Ramp.blue, 3));
+       final faden = f.faeden.any((x) => x.$1 == l[i] || x.$2 == l[i]) ? '~ ' : '';
+       var t = '$faden${hw.inhalt}';
+       if (ui.font.measure(t) > lr.w - 6) {
+diff --git a/packages/burgstadt_spiel/lib/src/spuren_geometrie.dart b/packages/burgstadt_spiel/lib/src/spuren_geometrie.dart
+index cdef01a..e244549 100644
+--- a/packages/burgstadt_spiel/lib/src/spuren_geometrie.dart
++++ b/packages/burgstadt_spiel/lib/src/spuren_geometrie.dart
+@@ -110,7 +110,7 @@ Mesh? baueSpurenMesh(List<Spur> spuren, String bereich, int phase, String schich
+ final Uint8List blickFilter = () {
+   final t = Uint8List(256);
+   for (var i = 0; i < 256; i++) {
+-    if (i >= 64) {
++    if (i >= paletteRgb.length) {
+       t[i] = i;
+       continue;
+     }
+diff --git a/packages/burgstadt_spiel/test/fledermaeuse_test.dart b/packages/burgstadt_spiel/test/fledermaeuse_test.dart
+index 04a9e51..e5a1260 100644
+--- a/packages/burgstadt_spiel/test/fledermaeuse_test.dart
++++ b/packages/burgstadt_spiel/test/fledermaeuse_test.dart
+@@ -76,7 +76,7 @@ void main() {
+               b.pixels[y * b.width + x + 1] == kTransparent ||
+               b.pixels[(y - 1) * b.width + x] == kTransparent ||
+               b.pixels[(y + 1) * b.width + x] == kTransparent;
+-          if (rand) expect(c & 7, lessThanOrEqualTo(4), reason: 'Bild $i bei $x/$y: helle Kontur');
++          if (rand) expect(stufe8Von(c), lessThanOrEqualTo(4), reason: 'Bild $i bei $x/$y: helle Kontur');
+         }
+       }
+       expect(sichtbar, greaterThanOrEqualTo(15), reason: 'Bild $i: zu wenig Pixel');
+diff --git a/packages/burgstadt_spiel/test/stadtkarte_test.dart b/packages/burgstadt_spiel/test/stadtkarte_test.dart
+index 9277137..a212098 100644
+--- a/packages/burgstadt_spiel/test/stadtkarte_test.dart
++++ b/packages/burgstadt_spiel/test/stadtkarte_test.dart
+@@ -139,7 +139,7 @@ void main() {
+         final buf = PixelBuffer(200, 16);
+         final ui = _ui()..beginne(buf, Eingabe());
+         zeichneKompass(ui, yaw, const Rechteck(0, 0, 200, 16));
+-        expect(buf.color.every((c) => c == kTransparent || c < 64), isTrue, reason: 'yaw $yaw');
++        expect(buf.color.every((c) => c == kTransparent || c < paletteRgb.length), isTrue, reason: 'yaw $yaw');
+       }
+     });
+   });
+diff --git a/packages/pixel_engine/lib/src/figur/bewohner_karten.dart b/packages/pixel_engine/lib/src/figur/bewohner_karten.dart
+index 3762017..d0dc14f 100644
+--- a/packages/pixel_engine/lib/src/figur/bewohner_karten.dart
++++ b/packages/pixel_engine/lib/src/figur/bewohner_karten.dart
+@@ -382,7 +382,7 @@ class Figurenbild {
+       for (var y = y0 + (h * von).round(); y < y0 + (h * bis).round(); y++) {
+         for (var x = 0; x < s.width; x++) {
+           final p = s.pixels[y * s.width + x];
+-          if (p == kTransparent || p ~/ 8 == kRampeNamen['haut']) continue;
++          if (p == kTransparent || rampeVon(p) == kRampeNamen['haut']) continue;
+           if (frei(x - 1, y) || frei(x + 1, y) || frei(x, y - 1) || frei(x, y + 1)) continue; // Umriss
+           final f = farbFamilie(p);
+           zaehl[f] = (zaehl[f] ?? 0) + 1;
+@@ -481,14 +481,14 @@ class Figurenbild {
+       y1 = math.max(y1, y);
+     }
+     final ab = y0 + (y1 - y0 + 1) * kZonen[2];
+-    final h = List<double>.filled(24, 0);
++    final h = List<double>.filled(Ramp.count * 3, 0);
+     var n = 0;
+     for (var y = ab.ceil(); y <= y1; y++) {
+       for (var x = 0; x < s.width; x++) {
+         final p = s.pixels[y * s.width + x];
+-        if (p == kTransparent || (p & 7) <= 1) continue; // Kontur und tiefste Schatten zählen nicht
+-        final rampe = p >> 3 == 1 ? 0 : p >> 3; // Stein zählt als Grau wie Neutral
+-        h[rampe * 3 + ((p & 7) >= 6 ? 2 : ((p & 7) >= 4 ? 1 : 0))]++;
++        if (p == kTransparent || stufe8Von(p) <= 1) continue; // Kontur und tiefste Schatten zählen nicht
++        final rampe = rampeVon(p) == 1 ? 0 : rampeVon(p); // Stein zählt als Grau wie Neutral
++        h[rampe * 3 + (stufe8Von(p) >= 6 ? 2 : (stufe8Von(p) >= 4 ? 1 : 0))]++;
+         n++;
+       }
+     }
+@@ -579,7 +579,7 @@ bool kopfbedeckungLesbar(Figurenkarte k) {
+ /// Farbfamilie eines Palettenindex, wie Sichtprüfer Farben benennen: 'dunkel' (Stufe 0–1 jeder
+ /// Rampe), 'grau' (neutral und stein), sonst die Rampe.
+ String farbFamilie(int index) {
+-  final rampe = index ~/ 8, stufe = index % 8;
++  final rampe = rampeVon(index), stufe = stufe8Von(index);
+   if (stufe <= 1) return 'dunkel';
+   if (rampe <= 1) return 'grau';
+   return 'r$rampe';
+diff --git a/packages/pixel_engine/lib/src/figur/portraet.dart b/packages/pixel_engine/lib/src/figur/portraet.dart
+index 2f73170..f2c76e7 100644
+--- a/packages/pixel_engine/lib/src/figur/portraet.dart
++++ b/packages/pixel_engine/lib/src/figur/portraet.dart
+@@ -5,7 +5,7 @@
+ /// und Materialien wie die Ganzkörperfiguren (FigurBaker), aber mit einer Nahansicht: Der Kopf
+ /// füllt 60 % der Höhe, die Schultern werden unten beschnitten, leichte Dreiviertelansicht nach
+ /// rechts. Gegenstände (Zubehör, Kanon K9 §8) werden nie gezeichnet. Nur das Gesicht wechselt
+-/// mit dem Ausdruck; Index 1 (Pupille) ist den Augen vorbehalten.
++/// mit dem Ausdruck; die Augenfarbe Ramp.at(neutral, 1) (Pupille) ist den Augen vorbehalten.
+ library;
+ 
+ import 'dart:math' as math;
+@@ -59,7 +59,7 @@ bool _frontLeiste(Grundkoerper g) =>
+     g.knochen == 'rumpf' && g.material == 'darunter' && g.groesse[0] < 0.05 && g.groesse[2] < 0.03 && g.groesse[1] > 0.1;
+ 
+ /// Gesichtsmuster in Pixeln relativ zum Anker: Pupillen je Auge, Brauen über dem Auge, Mund in der Mitte.
+-/// Pupillen (Index 1) und Brauen/Mund (Index 0) sind die dunkelsten Töne: lesbar in Licht und Schatten.
++/// Pupillen (Ramp.at(neutral, 1)) und Brauen/Mund (Ramp.at(neutral, 0)) sind die dunkelsten Töne: lesbar in Licht und Schatten.
+ class _Gesicht {
+   final List<(int, int)> pupillen;
+   final List<(int, int)> braueL;
+@@ -310,14 +310,14 @@ class _Prim {
+       } else {
+         idx = Ramp.at(mm.rampe, (c + schwelle).floor());
+       }
+-      pix[i] = idx == 1 ? 2 : idx; // Index 1 ist den Augen vorbehalten
++      pix[i] = idx == _auge ? Ramp.at(Ramp.neutral, 2) : idx; // die Augenfarbe ist den Augen vorbehalten
+     }
+   }
+   return (pix, brille);
+ }
+ 
+ /// Material eines Grundkörpers mit Umleitungen und Ersatzregeln wie FigurBaker. Die Brille hat im
+-/// Porträt Stufe 3 statt der Standardstufe 1 (Index 1 bleibt den Augen).
++/// Porträt Stufe 3 statt der Standardstufe 1 (die Augenfarbe bleibt den Augen).
+ Material _material(String name, Figurenkarte k, Map<String, String> umleitung) {
+   var n = name;
+   for (var i = 0; i < 8; i++) {
+@@ -335,7 +335,7 @@ Material _material(String name, Figurenkarte k, Map<String, String> umleitung) {
+       const Material(Ramp.neutral, 4);
+ }
+ 
+-/// Gesicht: Pupillen (Index 1), Brauen und Mund (Index 0). Die Linien bleiben auch im Schatten der
++/// Gesicht: Pupillen (Ramp.at(neutral, 1)), Brauen und Mund (Ramp.at(neutral, 0)). Die Linien bleiben auch im Schatten der
+ /// rechten Gesichtshälfte lesbar; abgedunkelte Hauttöne würden dort verschwinden.
+ void _gesicht(Uint8List pix, Uint8List brille, _Ansicht a, _Gesicht g) {
+   for (final u in const [-0.38, 0.38]) {
+@@ -350,18 +350,21 @@ void _gesicht(Uint8List pix, Uint8List brille, _Ansicht a, _Gesicht g) {
+       }
+     }
+     for (final (dx, dy) in g.pupillen) {
+-      _tupfen(pix, ax + dx, ay + dy, (_) => 1);
++      _tupfen(pix, ax + dx, ay + dy, (_) => _auge);
+     }
+     for (final (dx, dy) in u < 0 ? g.braueL : g.braueR) {
+-      _tupfen(pix, ax + dx, ay + dy, (_) => 0);
++      _tupfen(pix, ax + dx, ay + dy, (_) => _linie);
+     }
+   }
+   final (mx, my) = a.kopfPunkt(0, -0.45);
+   for (final (dx, dy) in g.mund) {
+-    _tupfen(pix, mx + dx, my + dy, (_) => 0);
++    _tupfen(pix, mx + dx, my + dy, (_) => _linie);
+   }
+ }
+ 
++/// Augenfarbe (Pupillen) und Linienfarbe (Brauen, Mund) – die beiden dunkelsten Neutral-Stufen.
++final int _auge = Ramp.at(Ramp.neutral, 1), _linie = Ramp.at(Ramp.neutral, 0);
++
+ void _tupfen(Uint8List pix, int x, int y, int Function(int alt) neu) {
+   if (x < 0 || y < 0 || x >= kPortraetBreite || y >= kPortraetHoehe) return;
+   final i = y * kPortraetBreite + x;
+diff --git a/packages/pixel_engine/lib/src/figur/sprite_pruef.dart b/packages/pixel_engine/lib/src/figur/sprite_pruef.dart
+index 55b2228..7e57025 100644
+--- a/packages/pixel_engine/lib/src/figur/sprite_pruef.dart
++++ b/packages/pixel_engine/lib/src/figur/sprite_pruef.dart
+@@ -23,7 +23,7 @@ List<String> pruefeFigur(FigurSatz satz) {
+             final c = s.pixels[y * s.width + x];
+             if (c == kTransparent) continue;
+             deckend++;
+-            if (c >= 64) out.add('$ort: Index $c außerhalb der Palette');
++            if (c >= paletteRgb.length) out.add('$ort: Index $c außerhalb der Palette');
+             unterste = y;
+             // Kontur: Randpixel müssen dunkle Stufe (≤ 4) haben
+             final rand = x == 0 || y == 0 || x == s.width - 1 || y == s.height - 1 ||
+@@ -31,7 +31,7 @@ List<String> pruefeFigur(FigurSatz satz) {
+                 s.pixels[y * s.width + x + 1] == kTransparent ||
+                 s.pixels[(y - 1) * s.width + x] == kTransparent ||
+                 s.pixels[(y + 1) * s.width + x] == kTransparent;
+-            if (rand && (c & 7) > 4) out.add('$ort: helle Kontur bei $x/$y');
++            if (rand && stufe8Von(c) > 4) out.add('$ort: helle Kontur bei $x/$y');
+           }
+         }
+         if (deckend < 200) out.add('$ort: zu wenig sichtbar ($deckend px)');
+diff --git a/packages/pixel_engine/lib/src/lighting.dart b/packages/pixel_engine/lib/src/lighting.dart
+index 47fbbe0..6d16c15 100644
+--- a/packages/pixel_engine/lib/src/lighting.dart
++++ b/packages/pixel_engine/lib/src/lighting.dart
+@@ -10,7 +10,8 @@ class LightTable {
+   static const warmLevels = 8;
+   static const coldLevels = 8;
+   static const fogLevels = 4;
+-  static const colors = 64;
++  /// Farben der Palette v2 (Zeilenlänge der Tabelle).
++  static const colors = 160;
+ 
+   /// [fog][warm][cold][farbe]
+   final Uint8List table;
+@@ -59,7 +60,8 @@ class LightTable {
+             r = r + (fr - r) * ft;
+             g = g + (fg - g) * ft;
+             b = b + (fb - b) * ft;
+-            t[i++] = nearestPaletteIndexBiased(r.round(), g.round(), b.round(), p >> 3, crossRamp: crossRamp);
++            // Übergang (Migrationsbeleg 1): Suche nur über die 64 Farben der Palette v1
++            t[i++] = nearestPaletteIndexBiased(r.round(), g.round(), b.round(), p >> 4, crossRamp: crossRamp, nurV1: true);
+           }
+         }
+       }
+@@ -69,5 +71,5 @@ class LightTable {
+ 
+   @pragma('vm:prefer-inline')
+   int lookup(int color, int warm, int cold, int fog) =>
+-      table[(((fog * warmLevels + warm) * coldLevels + cold) << 6) + color];
++      table[((fog * warmLevels + warm) * coldLevels + cold) * colors + color];
+ }
+diff --git a/packages/pixel_engine/lib/src/palette.dart b/packages/pixel_engine/lib/src/palette.dart
+index 00dc340..d7b9740 100644
+--- a/packages/pixel_engine/lib/src/palette.dart
++++ b/packages/pixel_engine/lib/src/palette.dart
+@@ -1,13 +1,18 @@
+-/// Feste Nachtpalette: 8 Rampen × 8 Stufen = 64 Farben (dunkel → hell).
++/// Feste Nachtpalette v2 (Burgstadt HD): 10 Rampen × 16 Stufen = 160 Farben (dunkel → hell).
++///
++/// Index = Rampe · 16 + Stufe. Die 64 Farben der Palette v1 (8 Rampen × 8 Stufen) liegen exakt
++/// auf den ungeraden Stufen: alte Stufe s ↔ neue Stufe 2s + 1. Die geraden Stufen sind die
++/// OKLab-Mitte zwischen den alten Nachbarstufen (Stufe 0 eine tiefere Variante der alten Stufe 0).
++/// Neu sind die Rampen 8 (Altrosa) und 9 (Türkis, blauseitig – kein Grün).
+ ///
+ /// Jede Farbe im fertigen Bild gehört zu dieser Palette. Die Kernfarben aus dem
+-/// Kanon-Stilblatt K8 sind exakt enthalten (markiert mit K8).
++/// Kanon-Stilblatt K8 sind exakt enthalten.
+ library;
+ 
+ /// Index 255 bedeutet in Sprites und Texturen „durchsichtig“.
+ const int kTransparent = 255;
+ 
+-/// Rampen (je 8 Stufen, Index = rampe * 8 + stufe).
++/// Rampen (je 16 Stufen, Index = rampe * 16 + stufe).
+ abstract final class Ramp {
+   /// Neutral kühl: Eisenschwarz bis Raureif-Weiß.
+   static const neutral = 0;
+@@ -33,61 +38,100 @@ abstract final class Ramp {
+   /// Haut und Pergament.
+   static const skin = 7;
+ 
+-  static const count = 8;
+-  static const shades = 8;
++  /// Altrosa (Fassaden, Burgstadt HD).
++  static const altrosa = 8;
++
++  /// Türkis, blauseitig (Fassaden, Burgstadt HD).
++  static const tuerkis = 9;
++
++  static const count = 10;
++
++  /// Stufen je Rampe in Palette v2.
++  static const shades = 16;
+ 
+-  /// Palettenindex einer Rampe/Stufe (Stufe wird auf 0..7 begrenzt).
+-  static int at(int ramp, int shade) => ramp * shades + (shade < 0 ? 0 : (shade > 7 ? 7 : shade));
++  /// Palettenindex einer Rampe in der 8er-Stufung der Palette v1 (Stufe 0..7 → 2·Stufe + 1).
++  /// So bleiben alle Bestandsaufrufe und die eingefrorenen Figurendaten farbgleich.
++  static int at(int ramp, int shade) => ramp * shades + 2 * (shade < 0 ? 0 : (shade > 7 ? 7 : shade)) + 1;
++
++  /// Palettenindex einer Rampe in der vollen 16er-Stufung (Stufe 0..15).
++  static int at16(int ramp, int shade) => ramp * shades + (shade < 0 ? 0 : (shade > 15 ? 15 : shade));
+ }
+ 
+-/// RGB-Werte der 64 Palettenfarben als 0xRRGGBB.
++/// Rampe eines Palettenindex.
++@pragma('vm:prefer-inline')
++int rampeVon(int index) => index >> 4;
++
++/// Stufe eines Palettenindex in der 16er-Stufung (0..15).
++@pragma('vm:prefer-inline')
++int stufeVon(int index) => index & 15;
++
++/// Stufe eines Palettenindex in der 8er-Stufung der Palette v1 (0..7; Zwischenstufen abgerundet).
++@pragma('vm:prefer-inline')
++int stufe8Von(int index) => (index & 15) >> 1;
++
++/// RGB-Werte der 160 Palettenfarben als 0xRRGGBB (Index = Rampe · 16 + Stufe).
+ const List<int> paletteRgb = [
+-  // 0 neutral (Eisenschwarz K8 = Index 2)
+-  0x0B0C10, 0x16171D, 0x22201E, 0x34353B, 0x4B4D55, 0x6E717A, 0xA3A6AE, 0xE4E6EA,
+-  // 1 Bruchstein (K8 #6B6660 = Index 12)
+-  0x1C1A18, 0x2C2926, 0x403B37, 0x55504A, 0x6B6660, 0x8A847C, 0xADA69C, 0xD4CEC3,
++  // 0 neutral (Eisenschwarz K8 = Ramp.at(neutral, 2))
++  0x06070A, 0x0B0C10, 0x101116, 0x16171D, 0x1C1B1E, 0x22201E, 0x2B2A2C, 0x34353B,
++  0x3F4148, 0x4B4D55, 0x5C5F67, 0x6E717A, 0x888B94, 0xA3A6AE, 0xC3C6CC, 0xE4E6EA,
++  // 1 Bruchstein (K8 #6B6660 = Ramp.at(stone, 4))
++  0x141311, 0x1C1A18, 0x24211F, 0x2C2926, 0x36322E, 0x403B37, 0x4A4540, 0x55504A,
++  0x605B55, 0x6B6660, 0x7A756E, 0x8A847C, 0x9B958C, 0xADA69C, 0xC0BAAF, 0xD4CEC3,
+   // 2 Holz
+-  0x1E120B, 0x2E1C11, 0x45291A, 0x5E3A24, 0x7A4E31, 0x976743, 0xB98A5E, 0xD9B88E,
+-  // 3 Rot/Glut (K8 Punschbraun #9C4A23 = 28, Glutorange #C8642B = 29)
+-  0x200C0A, 0x3A1410, 0x5A1E16, 0x7E2A1C, 0x9C4A23, 0xC8642B, 0xE08A4A, 0xF2B37A,
+-  // 4 Bernstein (K8 Kerzenbernstein #E8A33D = 37)
+-  0x2A1D08, 0x4A330E, 0x6E4C14, 0x94661A, 0xBC8424, 0xE8A33D, 0xF2C46A, 0xFBE6A8,
+-  // 5 Grün (K8 Moosgrün #4A5A3C = 44)
+-  0x0D140D, 0x172317, 0x22331F, 0x2F4429, 0x4A5A3C, 0x5F7A48, 0x7E9C5C, 0xA9C083,
+-  // 6 Blau (K8 Nachtblau #1E2A3A = 50, Spukcyan #A9D6D9 = 55)
+-  0x0A0F18, 0x121A28, 0x1E2A3A, 0x2A3B55, 0x3A5378, 0x56739B, 0x7F9DBF, 0xA9D6D9,
+-  // 7 Haut/Pergament (K8 Pergament #E9DCC0 = 63)
+-  0x2B1A12, 0x4A2E20, 0x6E4632, 0x93624A, 0xB98466, 0xD8A888, 0xEBC9AA, 0xE9DCC0,
++  0x170D07, 0x1E120B, 0x26170E, 0x2E1C11, 0x392215, 0x45291A, 0x51311F, 0x5E3A24,
++  0x6C442A, 0x7A4E31, 0x885A3A, 0x976743, 0xA87850, 0xB98A5E, 0xC9A176, 0xD9B88E,
++  // 3 Rot/Glut (K8 Punschbraun #9C4A23 = Ramp.at(red, 4), Glutorange #C8642B = Ramp.at(red, 5))
++  0x160705, 0x200C0A, 0x2D100D, 0x3A1410, 0x4A1913, 0x5A1E16, 0x6C2419, 0x7E2A1C,
++  0x8D3A20, 0x9C4A23, 0xB25727, 0xC8642B, 0xD4773B, 0xE08A4A, 0xE99F63, 0xF2B37A,
++  // 4 Bernstein (K8 Kerzenbernstein #E8A33D = Ramp.at(amber, 5))
++  0x1D1203, 0x2A1D08, 0x3A280B, 0x4A330E, 0x5C3F11, 0x6E4C14, 0x815917, 0x94661A,
++  0xA8751F, 0xBC8424, 0xD29331, 0xE8A33D, 0xEDB455, 0xF2C46A, 0xF7D58A, 0xFBE6A8,
++  // 5 Grün (K8 Moosgrün #4A5A3C = Ramp.at(green, 4))
++  0x080D08, 0x0D140D, 0x121B12, 0x172317, 0x1C2B1B, 0x22331F, 0x283B24, 0x2F4429,
++  0x3C4F32, 0x4A5A3C, 0x546A42, 0x5F7A48, 0x6E8B52, 0x7E9C5C, 0x93AE6F, 0xA9C083,
++  // 6 Blau (K8 Nachtblau #1E2A3A = Ramp.at(blue, 2), Spukcyan #A9D6D9 = Ramp.at(blue, 7))
++  0x060A11, 0x0A0F18, 0x0E1420, 0x121A28, 0x182231, 0x1E2A3A, 0x243247, 0x2A3B55,
++  0x324766, 0x3A5378, 0x486389, 0x56739B, 0x6A88AD, 0x7F9DBF, 0x94B9CC, 0xA9D6D9,
++  // 7 Haut/Pergament (K8 Pergament #E9DCC0 = Ramp.at(skin, 7))
++  0x1E100A, 0x2B1A12, 0x3A2419, 0x4A2E20, 0x5C3A29, 0x6E4632, 0x80543E, 0x93624A,
++  0xA67358, 0xB98466, 0xC89677, 0xD8A888, 0xE2B899, 0xEBC9AA, 0xEAD3B5, 0xE9DCC0,
++  // 8 Altrosa (neu, Fassaden Marktviertel)
++  0x150A09, 0x261211, 0x371B1A, 0x492525, 0x5A3030, 0x6C3B3C, 0x7D4849, 0x8D5557,
++  0x9D6466, 0xAC7375, 0xBB8386, 0xC89497, 0xD4A6A8, 0xDFB8BB, 0xEACBCD, 0xF3DFE0,
++  // 9 Türkis (neu, blauseitig, Fassaden Untere Stadt)
++  0x031012, 0x021D21, 0x002A30, 0x03383F, 0x014750, 0x09565F, 0x18666E, 0x27757D,
++  0x39848C, 0x4C949B, 0x60A3A9, 0x76B2B7, 0x8DC1C5, 0xA5D0D2, 0xBEDEE0, 0xD8EDED,
+ ];
+ 
+-/// Benannte Farben für Oberfläche und Effekte.
++/// Benannte Farben für Oberfläche und Effekte (Werte = `Ramp.at(…)` der Palette v1, als
++/// Literale, damit sie `const` bleiben; der Palettentest prüft Name → RGB).
+ abstract final class Pal {
+-  static const black = 0; // fast schwarz
+-  static const iron = 2; // Eisenschwarz K8
+-  static const darkGrey = 3;
+-  static const grey = 5;
+-  static const lightGrey = 6;
+-  static const white = 7; // Raureif, Laken
+-  static const stone = 12; // Bruchstein K8
+-  static const woodDark = 19;
+-  static const wood = 21;
+-  static const bordeaux = 27;
+-  static const punch = 28; // Punschbraun K8
+-  static const ember = 29; // Glutorange K8
+-  static const orange = 30;
+-  static const mustard = 36;
+-  static const candle = 37; // Kerzenbernstein K8
+-  static const candleLight = 38;
+-  static const paleGold = 39;
+-  static const moss = 44; // Moosgrün K8
+-  static const green = 45;
+-  static const nightBlue = 50; // Nachtblau K8
+-  static const midBlue = 51;
+-  static const blue = 52;
+-  static const skyBlue = 54;
+-  static const ghostCyan = 55; // Spukcyan K8, sparsam
+-  static const parchment = 63; // Pergament K8
+-  static const ink = 1;
++  static const black = 1; // fast schwarz = Ramp.at(neutral, 0)
++  static const iron = 5; // Eisenschwarz K8 = Ramp.at(neutral, 2)
++  static const darkGrey = 7; // Ramp.at(neutral, 3)
++  static const grey = 11; // Ramp.at(neutral, 5)
++  static const lightGrey = 13; // Ramp.at(neutral, 6)
++  static const white = 15; // Raureif, Laken = Ramp.at(neutral, 7)
++  static const stone = 25; // Bruchstein K8 = Ramp.at(stone, 4)
++  static const woodDark = 39; // Ramp.at(wood, 3)
++  static const wood = 43; // Ramp.at(wood, 5)
++  static const bordeaux = 55; // Ramp.at(red, 3)
++  static const punch = 57; // Punschbraun K8 = Ramp.at(red, 4)
++  static const ember = 59; // Glutorange K8 = Ramp.at(red, 5)
++  static const orange = 61; // Ramp.at(red, 6)
++  static const mustard = 73; // Ramp.at(amber, 4)
++  static const candle = 75; // Kerzenbernstein K8 = Ramp.at(amber, 5)
++  static const candleLight = 77; // Ramp.at(amber, 6)
++  static const paleGold = 79; // Ramp.at(amber, 7)
++  static const moss = 89; // Moosgrün K8 = Ramp.at(green, 4)
++  static const green = 91; // Ramp.at(green, 5)
++  static const nightBlue = 101; // Nachtblau K8 = Ramp.at(blue, 2)
++  static const midBlue = 103; // Ramp.at(blue, 3)
++  static const blue = 105; // Ramp.at(blue, 4)
++  static const skyBlue = 109; // Ramp.at(blue, 6)
++  static const ghostCyan = 111; // Spukcyan K8, sparsam = Ramp.at(blue, 7)
++  static const parchment = 127; // Pergament K8 = Ramp.at(skin, 7)
++  static const ink = 3; // Ramp.at(neutral, 1)
+ }
+ 
+ /// Palette als ARGB-Ints (0xFFRRGGBB).
+@@ -103,15 +147,17 @@ int nearestPaletteIndex(int r, int g, int b) => nearestPaletteIndexBiased(r, g,
+ /// Wie [nearestPaletteIndex], aber Farben außerhalb der Rampe [ramp] zählen
+ /// [crossRamp]-mal weiter entfernt. So bleibt beim Abdunkeln der Farbton
+ /// erhalten und benachbarte Lichtstufen liegen in derselben Rampe (ruhiges Dithering).
+-int nearestPaletteIndexBiased(int r, int g, int b, int ramp, {double crossRamp = 1.6}) {
++/// [nurV1] beschränkt die Suche auf die 64 Farben der Palette v1 (ungerade Stufen, Rampen 0–7).
++int nearestPaletteIndexBiased(int r, int g, int b, int ramp, {double crossRamp = 1.6, bool nurV1 = false}) {
+   var best = 0;
+   var bestD = double.infinity;
+   for (var i = 0; i < paletteRgb.length; i++) {
++    if (nurV1 && ((i & 1) == 0 || (i >> 4) >= 8)) continue;
+     final pr = paletteR(i), pg = paletteG(i), pb = paletteB(i);
+     final rm = (r + pr) >> 1;
+     final dr = r - pr, dg = g - pg, db = b - pb;
+     var d = (((512 + rm) * dr * dr) / 256 + 4 * dg * dg + ((767 - rm) * db * db) / 256).toDouble();
+-    if (ramp >= 0 && (i >> 3) != ramp) d *= crossRamp;
++    if (ramp >= 0 && (i >> 4) != ramp) d *= crossRamp;
+     if (d < bestD) {
+       bestD = d;
+       best = i;
+diff --git a/packages/pixel_engine/lib/src/raster/renderer.dart b/packages/pixel_engine/lib/src/raster/renderer.dart
+index ace856b..55d4371 100644
+--- a/packages/pixel_engine/lib/src/raster/renderer.dart
++++ b/packages/pixel_engine/lib/src/raster/renderer.dart
+@@ -42,7 +42,7 @@ class SpriteImage {
+           for (final v in [a, b, c, d]) {
+             if (v != kTransparent) {
+               count++;
+-              if (best == kTransparent || (v & 7) < (best & 7)) best = v;
++              if (best == kTransparent || (v & 15) < (best & 15)) best = v;
+             }
+           }
+           n[y * nw + x] = count >= 2 ? best : kTransparent;
+@@ -454,7 +454,7 @@ class Renderer {
+             wq = wq < 0 ? 0 : (wq > 7 ? 7 : wq);
+             cq = cq < 0 ? 0 : (cq > 7 ? 7 : cq);
+             fq = fq < 0 ? 0 : (fq > 3 ? 3 : fq);
+-            col[idx] = table[(((fq * 8 + wq) * 8 + cq) << 6) + texel];
++            col[idx] = table[((fq * 8 + wq) * 8 + cq) * LightTable.colors + texel];
+             dep[idx] = iz;
+             written++;
+           }
+@@ -524,7 +524,7 @@ class Renderer {
+         wq = wq < 0 ? 0 : (wq > 7 ? 7 : wq);
+         cq = cq < 0 ? 0 : (cq > 7 ? 7 : cq);
+         fq = fq < 0 ? 0 : (fq > 3 ? 3 : fq);
+-        col[idx] = table[(((fq * 8 + wq) * 8 + cq) << 6) + c];
++        col[idx] = table[((fq * 8 + wq) * 8 + cq) * LightTable.colors + c];
+         dep[idx] = iz;
+       }
+     }
+diff --git a/packages/pixel_engine/lib/src/ui/pixel_ui.dart b/packages/pixel_engine/lib/src/ui/pixel_ui.dart
+index 363c0ee..3b391f1 100644
+--- a/packages/pixel_engine/lib/src/ui/pixel_ui.dart
++++ b/packages/pixel_engine/lib/src/ui/pixel_ui.dart
+@@ -18,13 +18,13 @@ class Rechteck {
+ /// Farben der Pixel-Oberfläche (nur Palette, K8-Stilblatt).
+ abstract final class UiFarbe {
+   static const grund = Pal.nightBlue; // Nachtblau
+-  static const grundDunkel = 49;
++  static const grundDunkel = 99; // Ramp.at(blue, 1)
+   static const rand = Pal.stone; // Bruchstein
+-  static const randHell = 14;
++  static const randHell = 29; // Ramp.at(stone, 6)
+   static const text = Pal.parchment; // Pergament
+-  static const textGedimmt = 13;
++  static const textGedimmt = 27; // Ramp.at(stone, 5)
+   static const akzent = Pal.candle; // Kerzenbernstein
+-  static const akzentDunkel = 35;
++  static const akzentDunkel = 71; // Ramp.at(amber, 3)
+   static const schatten = Pal.black;
+   static const spuk = Pal.ghostCyan; // Spukcyan, sparsam
+ }
+@@ -163,7 +163,7 @@ class PixelUi {
+     if (ausgeloest) ausgeloestImBild++;
+     final grund = !aktiv
+         ? UiFarbe.grundDunkel
+-        : (gedrueckt ? UiFarbe.akzentDunkel : (hervorgehoben ? 51 : UiFarbe.grund));
++        : (gedrueckt ? UiFarbe.akzentDunkel : (hervorgehoben ? Ramp.at(Ramp.blue, 3) : UiFarbe.grund));
+     final rand = hatFokus ? UiFarbe.akzent : (hervorgehoben ? UiFarbe.akzent : UiFarbe.rand);
+     final dy = gedrueckt ? 1 : 0;
+     if (!gedrueckt) fb.fillRect(r.x + 1, r.y + 1, r.w, r.h, UiFarbe.schatten);
+diff --git a/packages/pixel_engine/test/karten_test.dart b/packages/pixel_engine/test/karten_test.dart
+index 31ceb85..36b7c06 100644
+--- a/packages/pixel_engine/test/karten_test.dart
++++ b/packages/pixel_engine/test/karten_test.dart
+@@ -132,10 +132,10 @@ void main() {
+   });
+ 
+   test('Farbfamilie wie bei den Sichtprüfern: dunkel, grau (neutral + stein), sonst Rampe', () {
+-    expect(farbFamilie(0 * 8 + 1), 'dunkel');
+-    expect(farbFamilie(6 * 8 + 0), 'dunkel');
+-    expect(farbFamilie(0 * 8 + 5), farbFamilie(1 * 8 + 4));
+-    expect(farbFamilie(6 * 8 + 3), isNot(farbFamilie(2 * 8 + 3)));
++    expect(farbFamilie(Ramp.at(0, 1)), 'dunkel');
++    expect(farbFamilie(Ramp.at(6, 0)), 'dunkel');
++    expect(farbFamilie(Ramp.at(0, 5)), farbFamilie(Ramp.at(1, 4)));
++    expect(farbFamilie(Ramp.at(6, 3)), isNot(farbFamilie(Ramp.at(2, 3))));
+   });
+ 
+   test('Keine Materialien auf [0,1] (Augenfarbe liegt auf Rampe 0 Stufe 1)', () {
+diff --git a/packages/pixel_engine/test/pixel_test.dart b/packages/pixel_engine/test/pixel_test.dart
+index 6e571cc..e54b6bd 100644
+--- a/packages/pixel_engine/test/pixel_test.dart
++++ b/packages/pixel_engine/test/pixel_test.dart
+@@ -7,20 +7,63 @@ import 'package:test/test.dart';
+ Renderer _renderer(PixelBuffer fb, List<IndexedTexture> tex) => Renderer(fb, LightTable.night(), tex);
+ 
+ void main() {
+-  test('Palette: 64 Farben, K8-Kernfarben exakt enthalten', () {
+-    expect(paletteRgb.length, 64);
+-    expect(paletteRgb.toSet().length, 64, reason: 'keine doppelten Farben');
++  test('Palette v2: 160 Farben (10 Rampen × 16 Stufen), K8-Kernfarben exakt enthalten', () {
++    expect(paletteRgb.length, 160);
++    expect(Ramp.count * Ramp.shades, 160);
++    expect(paletteRgb.toSet().length, 160, reason: 'keine doppelten Farben');
+     for (final k8 in const [0x22201E, 0x6B6660, 0x9C4A23, 0xC8642B, 0xE8A33D, 0x4A5A3C, 0x1E2A3A, 0xA9D6D9, 0xE9DCC0]) {
+-      expect(paletteRgb, contains(k8));
++      expect(paletteRgb, contains(k8), reason: 'K8-Kernfarbe ${k8.toRadixString(16)}');
++    }
++  });
++
++  // Wächter (E-035): Die 64 Farben der Palette v1 liegen unverändert auf Ramp.at(r, s) = r·16 + 2s + 1,
++  // und jede benannte Farbe behält ihren RGB-Wert. So bleiben Bestandsbilder farbgleich.
++  test('Palette v2: Palette v1 auf den ungeraden Stufen, Ramp.at-Semantik und Pal-Namen unverändert', () {
++    const v1 = [
++      0x0B0C10, 0x16171D, 0x22201E, 0x34353B, 0x4B4D55, 0x6E717A, 0xA3A6AE, 0xE4E6EA,
++  0x1C1A18, 0x2C2926, 0x403B37, 0x55504A, 0x6B6660, 0x8A847C, 0xADA69C, 0xD4CEC3,
++  0x1E120B, 0x2E1C11, 0x45291A, 0x5E3A24, 0x7A4E31, 0x976743, 0xB98A5E, 0xD9B88E,
++  0x200C0A, 0x3A1410, 0x5A1E16, 0x7E2A1C, 0x9C4A23, 0xC8642B, 0xE08A4A, 0xF2B37A,
++  0x2A1D08, 0x4A330E, 0x6E4C14, 0x94661A, 0xBC8424, 0xE8A33D, 0xF2C46A, 0xFBE6A8,
++  0x0D140D, 0x172317, 0x22331F, 0x2F4429, 0x4A5A3C, 0x5F7A48, 0x7E9C5C, 0xA9C083,
++  0x0A0F18, 0x121A28, 0x1E2A3A, 0x2A3B55, 0x3A5378, 0x56739B, 0x7F9DBF, 0xA9D6D9,
++  0x2B1A12, 0x4A2E20, 0x6E4632, 0x93624A, 0xB98466, 0xD8A888, 0xEBC9AA, 0xE9DCC0,
++    ];
++    for (var r = 0; r < 8; r++) {
++      for (var s = 0; s < 8; s++) {
++        expect(paletteRgb[Ramp.at(r, s)], v1[r * 8 + s], reason: 'Rampe $r Stufe $s');
++        expect(Ramp.at(r, s), Ramp.at16(r, 2 * s + 1));
++        expect(rampeVon(Ramp.at(r, s)), r);
++        expect(stufe8Von(Ramp.at(r, s)), s);
++      }
++    }
++    const pal = {
++      Pal.black: 0x0B0C10, Pal.iron: 0x22201E, Pal.darkGrey: 0x34353B, Pal.grey: 0x6E717A,
++      Pal.lightGrey: 0xA3A6AE, Pal.white: 0xE4E6EA, Pal.stone: 0x6B6660, Pal.woodDark: 0x5E3A24,
++      Pal.wood: 0x976743, Pal.bordeaux: 0x7E2A1C, Pal.punch: 0x9C4A23, Pal.ember: 0xC8642B,
++      Pal.orange: 0xE08A4A, Pal.mustard: 0xBC8424, Pal.candle: 0xE8A33D, Pal.candleLight: 0xF2C46A,
++      Pal.paleGold: 0xFBE6A8, Pal.moss: 0x4A5A3C, Pal.green: 0x5F7A48, Pal.nightBlue: 0x1E2A3A,
++      Pal.midBlue: 0x2A3B55, Pal.blue: 0x3A5378, Pal.skyBlue: 0x7F9DBF, Pal.ghostCyan: 0xA9D6D9,
++      Pal.parchment: 0xE9DCC0, Pal.ink: 0x16171D,
++    };
++    for (final e in pal.entries) {
++      expect(paletteRgb[e.key], e.value, reason: 'Pal-Index ${e.key}');
++    }
++    // Neue Rampen: je 16 Stufen, von dunkel nach hell (Luma steigt streng)
++    for (final r in [Ramp.altrosa, Ramp.tuerkis]) {
++      double luma(int i) => 0.2126 * paletteR(i) + 0.7152 * paletteG(i) + 0.0722 * paletteB(i);
++      for (var s = 1; s < 16; s++) {
++        expect(luma(Ramp.at16(r, s)), greaterThan(luma(Ramp.at16(r, s - 1))), reason: 'Rampe $r Stufe $s');
++      }
+     }
+   });
+ 
+   test('Lichttabelle bleibt in der Palette und dunkelt im Farbton ab', () {
+     final lt = LightTable.night();
+-    expect(lt.table.every((i) => i < 64), isTrue);
++    expect(lt.table.every((i) => i < paletteRgb.length), isTrue);
+     // Kerzenbernstein unter schwachem Warmlicht bleibt in der Bernstein-Rampe.
+     final dim = lt.lookup(Pal.candle, 3, 0, 0);
+-    expect(dim >> 3, Ramp.amber);
++    expect(rampeVon(dim), Ramp.amber);
+   });
+ 
+   test('Szene rendern: Palettentest und Blocktest (×3) bestehen', () {
+@@ -36,7 +79,7 @@ void main() {
+     for (final m in scene.meshes) {
+       r.drawMesh(m);
+     }
+-    expect(fb.color.every((c) => c < 64), isTrue, reason: 'kein Pixel ohne Farbe');
++    expect(fb.color.every((c) => c < paletteRgb.length), isTrue, reason: 'kein Pixel ohne Farbe');
+     final rgba = fb.toRgbaBytes();
+     expect(countOffPalette(rgba), 0);
+     final big = upscaleRgba(rgba, 320, 180, 3);
+diff --git a/packages/pixel_engine/test/portraet_test.dart b/packages/pixel_engine/test/portraet_test.dart
+index b1515a9..48c0de6 100644
+--- a/packages/pixel_engine/test/portraet_test.dart
++++ b/packages/pixel_engine/test/portraet_test.dart
+@@ -40,7 +40,7 @@ void main() {
+     for (final k in karten) k.id: [for (final a in Ausdruck.values) portraet(k, a, bibliothek: bibliothek)],
+   };
+ 
+-  test('66 Karten × 4 Ausdrücke: 64×64, Pixel < 64 oder 255, je Bild mindestens 1500 sichtbare Pixel', () {
++  test('66 Karten × 4 Ausdrücke: 64×64, nur Palettenindizes oder 255, je Bild mindestens 1500 sichtbare Pixel', () {
+     expect(karten, hasLength(66));
+     final befunde = <String>[];
+     for (final k in karten) {
+@@ -50,7 +50,7 @@ void main() {
+         for (final c in s.pixels) {
+           if (c != 255) {
+             sichtbar++;
+-            if (c >= 64) {
++            if (c >= paletteRgb.length) {
+               befunde.add('${k.id}: Index $c');
+               break;
+             }
+@@ -62,11 +62,11 @@ void main() {
+     expect(befunde, isEmpty, reason: befunde.take(10).join('\n'));
+   });
+ 
+-  test('Augen: Index 1 kommt in jedem Bild vor, nur innerhalb der oberen 70 % und nur als Augen', () {
++  test('Augen: Augenfarbe Ramp.at(neutral, 1) kommt in jedem Bild vor, nur innerhalb der oberen 70 % und nur als Augen', () {
+     final befunde = <String>[];
+     for (final k in karten) {
+       for (final s in bilder[k.id]!) {
+-        final augen = _wo(s, (c) => c == 1).toList();
++        final augen = _wo(s, (c) => c == Ramp.at(Ramp.neutral, 1)).toList();
+         if (augen.isEmpty) befunde.add('${k.id}: keine Augen');
+         for (final (y, _) in augen) {
+           if (y >= 0.7 * 64) befunde.add('${k.id}: Index 1 in Zeile $y');
+@@ -79,12 +79,12 @@ void main() {
+     expect(befunde, isEmpty, reason: befunde.take(10).join('\n'));
+   });
+ 
+-  test('Rampe 5 (Indizes 40–47) nur bei Karten mit einem Material auf Rampe 5', () {
++  test('Rampe 5 (Grün) nur bei Karten mit einem Material auf Rampe 5', () {
+     final befunde = <String>[];
+     for (final k in karten) {
+       final hatGruen = k.materialien.values.any((m) => m.rampe == 5);
+       for (final s in bilder[k.id]!) {
+-        final gruen = _wo(s, (c) => c >= 40 && c <= 47).isNotEmpty;
++        final gruen = _wo(s, (c) => c != kTransparent && rampeVon(c) == Ramp.green).isNotEmpty;
+         if (gruen && !hatGruen) befunde.add('${k.id}: Grün ohne Rampe-5-Material');
+       }
+     }
+diff --git a/packages/pixel_engine/test/texturen_test.dart b/packages/pixel_engine/test/texturen_test.dart
+index e4ca731..48c2e8a 100644
+--- a/packages/pixel_engine/test/texturen_test.dart
++++ b/packages/pixel_engine/test/texturen_test.dart
+@@ -7,7 +7,7 @@ import 'package:test/test.dart';
+ const _gruenErlaubt = {'dachBiberschwanzMoos', 'wiese', 'bruchsteinMauer'};
+ 
+ /// „Gleich oder benachbart“: gleicher Index, oder gleiche Rampe mit höchstens einer Stufe Unterschied.
+-bool _benachbart(int a, int b) => a == b || (a >> 3 == b >> 3 && (a - b).abs() <= 1);
++bool _benachbart(int a, int b) => a == b || (rampeVon(a) == rampeVon(b) && (stufeVon(a) - stufeVon(b)).abs() <= 2);
+ 
+ /// Anteil der Randpaare (links/rechts und oben/unten), die gleich oder benachbart sind.
+ double _kantenAnteil(IndexedTexture t) {
+@@ -40,10 +40,10 @@ void main() {
+         expect(t.height, t.width);
+       });
+ 
+-      test('nur Palettenindizes 0–63, keine Transparenz', () {
++      test('nur Palettenindizes der Palette, keine Transparenz', () {
+         final t = baueTextur(id);
+         for (final lv in t.levels) {
+-          expect(lv.every((c) => c < 64), isTrue, reason: 'Index ≥ 64 oder 255');
++          expect(lv.every((c) => c < paletteRgb.length), isTrue, reason: 'Index außerhalb der Palette oder 255');
+         }
+         expect(t.hasTransparency, isFalse);
+       });
+@@ -60,7 +60,7 @@ void main() {
+ 
+       test('keine Grüntöne (Rampe 5) außer Moos, Wiese und Bruchsteinmauer', () {
+         if (_gruenErlaubt.contains(id.name)) return;
+-        final gruen = baueTextur(id).levels[0].where((c) => c >> 3 == Ramp.green);
++        final gruen = baueTextur(id).levels[0].where((c) => rampeVon(c) == Ramp.green);
+         expect(gruen, isEmpty);
+       });
+ 

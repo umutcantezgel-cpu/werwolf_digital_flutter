@@ -13,4 +13,4 @@ Quelle: `planung/bollwerk/BESTAND.md` §2. Die SHA ist der Stand beim Eintrag (G
 | Jules-Optimierung | loop/epoch-* | (42 Refs) | nur archivieren | – (schon Vorfahr) | nicht nötig |
 | Krimidinner-Kanon-PR | claude/ecstatic-cerf-7kzi1c | d92a675 | nur archivieren | – (gemergt) | nicht nötig |
 | Kinder-Probe | bollwerk-probe | b8b74fa | nur archivieren | – | bleibt liegen |
-| Meta-Archiv | claude/pensive-gates-ajtp7x | f275929 | mitführen | Übernahme je Pfad `aus claude/pensive-gates-ajtp7x@<sha>:planung/bollwerk/archiv/<pfad>` (offen) | – |
+| Meta-Archiv | claude/pensive-gates-ajtp7x | f275929 | mitführen | Übernahme `aus claude/pensive-gates-ajtp7x@f275929:planung/bollwerk/archiv` (G2): 97 von 107 Dateien blobgleich; Absage für 10 Dateien nach A-2 A4.5 (nennen `teamchat`/`quellen/` bzw. sind Nutzertext): meta-v2.3/META-PROMPT.md, meta-v2.3/META-ANHANG-A-MASTERPROMPT.md, meta-v2.3/META-ANHANG-B-FAKTEN.md, scratchpad/bollwerk_rs_fin.md, scratchpad/bollwerk/befunde/V_Z_A.md, scratchpad/bollwerk/befunde/S_P_R.md, scratchpad/MANIFEST.md, nutzer-v1-v3/** (3); sie bleiben auf der Linie | – |

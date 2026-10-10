@@ -165,3 +165,8 @@ Bericht: `planung/bollwerk/berichte/G1/L4-WEISSLISTE.md` (Haiku max, Kanonwächt
 - **Wahl (b):** `tool/bollwerk/bollwerk.dart` (geschützt seit TOR-SHA) setzt `seeds` für alle Modi auf 10.000. Nur Verschärfung: mehr Fälle, keine Schwelle verändert.
 - **Rot-Probe** (Wegwerf-Worktree `/home/user/bw-arbeit/rot`, danach entfernt): Mutant `teilerfolgAb = 8` → `L4 baender ROT` in allen 10 Kombinationen (pech1); Mutant „Pech bringt keine Marke“ → `kern11_test.dart` 4 von 8 Tests rot. Beides als Zeilen für `belege/rotproben.tsv` vorgemerkt (die Datei schreibt nur das Torwerkzeug, L9).
 - **Risiko (Nebelkarte 17):** Pech im 1. Anlauf hat 1,1 Punkte Abstand zur Grenze. Neue Würfel-Quellen (Werkzeug-Abstecher, Marken-Einsatz der Bots) können ihn verschieben; jede Kern-Änderung misst neu.
+
+## E-G2-03 · Weißliste: Nachprüfung der zwei Täter-Befunde durch Opus (G1-2 Weg b, 05:40 UTC)
+- `b_schneider_erinnerung` (Erzähler): Beleg „sehen can, leuchten/erkannt/umriss, 23:58:09–23:58:13“ und „fühlen can“, Feld `belastet: [can]`. `b_tim_gesicht` (Pflichtgespräch Tim, auch in bonus.json 4×): Beleg „sehen can, leuchten, 23:58:00–23:59:30“, `belastet: [can]`.
+- **Urteil:** beide bleiben außerhalb der Weißliste. Gründe: C4 „kein Nebendelikt einer Kernperson, keine falsche Fährte“ (das leuchtende Gesicht ist Cans Nebendelikt bzw. eine Fährte), A-8 „kein neues Wissen über 23:50–00:15“, und `b_tim_gesicht` ist Bonus-Material (E-025). Die Haiku-Stimme aus L-4 ist damit bestätigt.
+- **Folge:** Weißliste = 10 sichere + `spur_handykorb` = 11 (so in `varianten.dart`). Für Z-11 (≥ 14) gilt die Standardwahl G1-2 (c): drei oder mehr neue pfadgleiche Kleinigkeiten der Schicht, je Fund vom Kanonwächter geprüft; Auftrag folgt als eigener Slot `ZUSATZ-<n>` (Opus prüft am Kanon).

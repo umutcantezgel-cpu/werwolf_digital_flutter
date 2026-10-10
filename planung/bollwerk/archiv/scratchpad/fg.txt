@@ -1,0 +1,2737 @@
+   Woah! You appear to be trying to run flutter as root.
+   We strongly recommend running the flutter tool without superuser privileges.
+  /
+📎
+*** BEGIN CFG
+After AllocateRegisters
+==== package:pixel_engine/src/raster/renderer.dart_Renderer__rasterTri@60000373 (RegularFunction)
+  0: B0[graph]:0 {
+      v0 <- Constant(#null) T{Null?}
+      v1 <- Constant(#<optimized out>) T{Sentinel~}
+      v8 <- Constant(#1) [1, 1] T{_Smi}
+      v14 <- Constant(#true) T{bool}
+      v50 <- Constant(#1e-9) T{_Double}
+      v61 <- Constant(#2) [2, 2] T{_Smi}
+      v88 <- Constant(#3) [3, 3] T{_Smi}
+      v115 <- Constant(#4) [4, 4] T{_Smi}
+      v142 <- Constant(#5) [5, 5] T{_Smi}
+      v169 <- Constant(#6) [6, 6] T{_Smi}
+      v210 <- Constant(#TypeArguments: (H32c84ab6) [Type: int]) T{TypeArguments}
+      v211 <- Constant(#0) [0, 0] T{_Smi}
+      v212 <- Constant(#0.5) T{_Double}
+      v386 <- Constant(#32) [32, 32] T{_Smi}
+      v452 <- Constant(#65536) [65536, 65536] T{_Smi}
+      v507 <- Constant(#16) [16, 16] T{_Smi}
+      v539 <- Constant(#160) [160, 160] T{_Smi}
+      v545 <- Constant(#255) [255, 255] T{_Smi}
+      v1311 <- UnboxedConstant(#1.0) double
+      v1312 <- UnboxedConstant(#0.5) double
+      v1315 <- UnboxedConstant(#6.0) double
+      v1316 <- UnboxedConstant(#1.2) double
+      v1317 <- UnboxedConstant(#65536.0) double
+      v1379 <- UnboxedConstant(#1e-9) double
+      v1380 <- UnboxedConstant(#64.0) double
+      v1381 <- UnboxedConstant(#2.0) double
+      v1382 <- UnboxedConstant(#0.0) double
+      v1385 <- Constant(#245760) [245760, 245760] T{_Smi}
+      v1563 <- UnboxedConstant(#0) [0, 0] int64
+}
+  2: B1[function entry]:2 {
+      v2 <- Parameter(0 @fp[7]) T{Renderer}
+      v3 <- Parameter(1 @fp[6]) T{<:Float64List}
+      v4 <- Parameter(2 @fp[5]) [-9223372036854775808, 9223372036854775807] T{<:int}
+      v5 <- Parameter(3 @fp[4]) [-9223372036854775808, 9223372036854775807] T{<:int}
+      v6 <- Parameter(4 @fp[3]) [-9223372036854775808, 9223372036854775807] T{<:int}
+      v7 <- Parameter(5 @fp[2]) T{IndexedTexture}
+}
+  4:     CheckStackOverflow:8(stack=0, loop=0)
+  5:     ParallelMove rax <- fp[4]
+  6:     CheckSmi:18(v5)
+  8:     ParallelMove rcx <- rax
+  8:     v9 <- BinarySmiOp:18(+, v5 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+  9:     ParallelMove rbx <- fp[6]
+ 10:     CheckClass:20(v3 Cids[1: _Float64List@8027147 etc.  cid 153])
+ 12:     v591 <- LoadField(v3 T{_Float64List} . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+ 13:     ParallelMove fp[-6] <- rsi
+ 14:     CheckArrayBound:20(v591, v9) [0, 4611686018427387903] T{_Smi}
+ 16:     v593 <- LoadIndexed:20([_Float64List] v3 T{_Float64List}, v9 T{_Smi}) double
+ 17:     ParallelMove rcx <- fp[5]
+ 18:     CheckSmi:22(v4)
+ 20:     ParallelMove rdx <- rcx
+ 20:     v11 <- BinarySmiOp:22(+, v4 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 22:     CheckArrayBound:24(v591 T{_Smi}, v11) [0, 4611686018427387903] T{_Smi}
+ 24:     v596 <- LoadIndexed:24([_Float64List] v3 T{_Float64List}, v11 T{_Smi}) double
+ 26:     Branch if RelationalOp:26(<, v593 T{_Double}, v596 T{_Double}) T{bool} goto (3, 4)
+ 28: B3[target]:32
+ 30:     ParallelMove rdx <- rax, rcx <- rcx goto:44 B5
+ 32: B4[target]:40
+ 34:     ParallelMove rdx <- rcx, rcx <- rax goto:46 B5
+ 36: B5[join]:42 pred(B3, B4) {
+      v15 <- phi(v5 T{_Smi}, v4 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+      v16 <- phi(v4 T{_Smi}, v5 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+} ParallelMove rax <- fp[3]
+ 38:     CheckSmi:48(v6)
+ 40:     ParallelMove rdi <- rax
+ 40:     v17 <- BinarySmiOp:48(+, v6 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 42:     CheckArrayBound:50(v591 T{_Smi}, v17) [0, 4611686018427387903] T{_Smi}
+ 44:     v601 <- LoadIndexed:50([_Float64List] v3 T{_Float64List}, v17 T{_Smi}) double
+ 46:     ParallelMove rdi <- rdx
+ 46:     v19 <- BinarySmiOp:52(+, v15 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 48:     CheckArrayBound:54(v591 T{_Smi}, v19) [0, 4611686018427387903] T{_Smi}
+ 50:     v604 <- LoadIndexed:54([_Float64List] v3 T{_Float64List}, v19 T{_Smi}) double
+ 52:     Branch if RelationalOp:56(<, v601 T{_Double}, v604 T{_Double}) T{bool} goto (6, 7)
+ 54: B6[target]:62
+ 56:     RecordCoverage()
+ 58:     ParallelMove rdi <- rax, rax <- rdx goto:74 B8
+ 60: B7[target]:70
+ 62:     ParallelMove rdi <- rdx, rax <- rax goto:76 B8
+ 64: B8[join]:72 pred(B6, B7) {
+      v22 <- phi(v6 T{_Smi}, v15 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+      v23 <- phi(v15 T{_Smi}, v6 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+}
+ 65:     ParallelMove fp[-5] <- rdi
+ 66:     ParallelMove rdx <- rax
+ 66:     v24 <- BinarySmiOp:78(+, v23 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 68:     CheckArrayBound:80(v591 T{_Smi}, v24) [0, 4611686018427387903] T{_Smi}
+ 70:     v609 <- LoadIndexed:80([_Float64List] v3 T{_Float64List}, v24 T{_Smi}) double
+ 72:     ParallelMove rdx <- rcx
+ 72:     v26 <- BinarySmiOp:82(+, v16 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 74:     CheckArrayBound:84(v591 T{_Smi}, v26) [0, 4611686018427387903] T{_Smi}
+ 76:     v612 <- LoadIndexed:84([_Float64List] v3 T{_Float64List}, v26 T{_Smi}) double
+ 78:     Branch if RelationalOp:86(<, v609 T{_Double}, v612 T{_Double}) T{bool} goto (9, 10)
+ 80: B9[target]:92
+ 82:     ParallelMove rcx <- rax, rax <- rcx goto:104 B11
+ 84: B10[target]:100
+ 86:     ParallelMove rcx <- rcx, rax <- rax goto:106 B11
+ 88: B11[join]:102 pred(B9, B10) {
+      v29 <- phi(v23 T{_Smi}, v16 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+      v30 <- phi(v16 T{_Smi}, v23 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+}
+ 89:     ParallelMove fp[-3] <- rcx, fp[-4] <- rax
+ 90:     v31 <- LoadStaticField(zDreiecke) [-9223372036854775808, 9223372036854775807] T{<:int}
+ 92:     CheckSmi:108(v31)
+ 94:     ParallelMove r8 <- rdx
+ 94:     v32 <- BinarySmiOp:108(+, v31 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 95:     ParallelMove rdx <- r8
+ 96:     StoreStaticField:110(zDreiecke, v32)
+ 98:     CheckArrayBound:112(v591 T{_Smi}, v22) [0, 4611686018427387903] T{_Smi}
+100:     v617 <- LoadIndexed:112([_Float64List] v3 T{_Float64List}, v22 T{_Smi}) double
+101:     ParallelMove fp[-77] f64 <- xmm0
+102:     ParallelMove rdx <- rdi
+102:     v34 <- BinarySmiOp:116(+ [-o], v22 T{_Smi}, v8) [1, v1643] T{_Smi}
+104:     CheckArrayBound:118(v591 T{_Smi}, v34) [1, v1643] T{_Smi}
+106:     v620 <- LoadIndexed:118([_Float64List] v3 T{_Float64List}, v34 T{_Smi}) double
+107:     ParallelMove fp[-76] f64 <- xmm1
+108:     CheckArrayBound:122(v591 T{_Smi}, v29) [0, 4611686018427387903] T{_Smi}
+110:     v623 <- LoadIndexed:122([_Float64List] v3 T{_Float64List}, v29 T{_Smi}) double
+111:     ParallelMove fp[-75] f64 <- xmm2
+112:     ParallelMove rdx <- rcx
+112:     v37 <- BinarySmiOp:126(+ [-o], v29 T{_Smi}, v8) [1, v1641] T{_Smi}
+114:     CheckArrayBound:128(v591 T{_Smi}, v37) [1, v1641] T{_Smi}
+116:     v626 <- LoadIndexed:128([_Float64List] v3 T{_Float64List}, v37 T{_Smi}) double
+117:     ParallelMove fp[-74] f64 <- xmm3
+118:     CheckArrayBound:132(v591 T{_Smi}, v30) [0, 4611686018427387903] T{_Smi}
+120:     v629 <- LoadIndexed:132([_Float64List] v3 T{_Float64List}, v30 T{_Smi}) double
+121:     ParallelMove fp[-73] f64 <- xmm4
+122:     ParallelMove rdx <- rax
+122:     v40 <- BinarySmiOp:136(+ [-o], v30 T{_Smi}, v8) [1, v1639] T{_Smi}
+124:     CheckArrayBound:138(v591 T{_Smi}, v40) [1, v1639] T{_Smi}
+126:     v632 <- LoadIndexed:138([_Float64List] v3 T{_Float64List}, v40 T{_Smi}) double
+127:     ParallelMove fp[-72] f64 <- xmm5
+128:     ParallelMove xmm6 <- xmm2
+128:     v42 <- BinaryDoubleOp:142(-, v623 T{_Double}, v617 T{_Double}) double
+129:     ParallelMove fp[-71] f64 <- xmm6
+130:     ParallelMove xmm7 <- xmm5
+130:     v43 <- BinaryDoubleOp:144(-, v632 T{_Double}, v620 T{_Double}) double
+131:     ParallelMove fp[-70] f64 <- xmm7
+132:     ParallelMove xmm8 <- xmm6
+132:     v44 <- BinaryDoubleOp:146(*, v42 T{_Double}, v43 T{_Double}) double
+134:     ParallelMove xmm9 <- xmm4
+134:     v45 <- BinaryDoubleOp:148(-, v629 T{_Double}, v617 T{_Double}) double
+135:     ParallelMove fp[-69] f64 <- xmm9
+136:     ParallelMove xmm10 <- xmm3
+136:     v46 <- BinaryDoubleOp:150(-, v626 T{_Double}, v620 T{_Double}) double
+137:     ParallelMove fp[-68] f64 <- xmm10
+138:     ParallelMove xmm11 <- xmm9
+138:     v47 <- BinaryDoubleOp:152(*, v45 T{_Double}, v46 T{_Double}) double
+140:     v48 <- BinaryDoubleOp:154(-, v44 T{_Double}, v47 T{_Double}) double
+141:     ParallelMove fp[-67] f64 <- xmm8
+142:     v1428 <- Box(v48) T{_Double}
+144:     MoveArgument(sp[0] <- v1428 T{_Double})
+146:     v49 <- StaticCall:158( abs<0> v1428 T{_Double}) T{_Double}
+148:     v647 <- Unbox:160(v49) double
+149:     ParallelMove xmm1 <- C
+150:     Branch if RelationalOp:160(<, v647, v1379 T{_Double}) T{bool} goto (12, 13)
+152: B12[target]:166
+154:     RecordCoverage()
+155:     ParallelMove rax <- C
+156:     DartReturn:170(v0)
+158: B13[target]:172 ParallelMove rdx <- fp[7], rax <- fp[6], xmm0 <- fp[-69] f64, xmm2 <- fp[-67] f64, rcx <- fp[-6], xmm3 <- C
+160:     ParallelMove xmm4 <- C
+160:     v52 <- BinaryDoubleOp:174(/, v1311 T{_Double}, v48 T{_Double}) double
+162:     ParallelMove xmm2 <- fp[-70] f64
+162:     v54 <- BinaryDoubleOp:180(*, v43 T{_Double}, v52 T{_Double}) double
+164:     ParallelMove xmm5 <- fp[-68] f64
+164:     v56 <- BinaryDoubleOp:186(*, v46 T{_Double}, v52 T{_Double}) double
+166:     ParallelMove xmm6 <- fp[-71] f64
+166:     v58 <- BinaryDoubleOp:192(*, v42 T{_Double}, v52 T{_Double}) double
+168:     v60 <- BinaryDoubleOp:198(*, v52 T{_Double}, v45 T{_Double}) double
+170:     ParallelMove rbx <- fp[-3]
+170:     v62 <- BinarySmiOp:202(+, v29 T{_Smi}, v61) [2, v1641+1] T{_Smi}
+172:     CheckArrayBound:204(v591 T{_Smi}, v62) [2, 4611686018427387903] T{_Smi}
+174:     v669 <- LoadIndexed:204([_Float64List] v3 T{_Float64List}, v62 T{_Smi}) double
+176:     ParallelMove rbx <- fp[-5]
+176:     v64 <- BinarySmiOp:206(+, v22 T{_Smi}, v61) [2, v1643+1] T{_Smi}
+178:     CheckArrayBound:208(v591 T{_Smi}, v64) [2, 4611686018427387903] T{_Smi}
+180:     v672 <- LoadIndexed:208([_Float64List] v3 T{_Float64List}, v64 T{_Smi}) double
+181:     ParallelMove fp[-67] f64 <- xmm8
+182:     v66 <- BinaryDoubleOp:210(-, v669 T{_Double}, v672 T{_Double}) double
+184:     ParallelMove xmm9 <- xmm7
+184:     v67 <- BinaryDoubleOp:212(*, v66 T{_Double}, v54 T{_Double}) double
+186:     ParallelMove rbx <- fp[-4]
+186:     v68 <- BinarySmiOp:214(+, v30 T{_Smi}, v61) [2, v1639+1] T{_Smi}
+188:     CheckArrayBound:216(v591 T{_Smi}, v68) [2, 4611686018427387903] T{_Smi}
+190:     v679 <- LoadIndexed:216([_Float64List] v3 T{_Float64List}, v68 T{_Smi}) double
+192:     v72 <- BinaryDoubleOp:222(-, v679 T{_Double}, v672 T{_Double}) double
+194:     ParallelMove xmm11 <- xmm10
+194:     v73 <- BinaryDoubleOp:224(*, v72 T{_Double}, v56 T{_Double}) double
+196:     v74 <- BinaryDoubleOp:226(-, v67 T{_Double}, v73 T{_Double}) double
+197:     ParallelMove fp[-101] f64 <- xmm9
+198:     v80 <- BinaryDoubleOp:240(*, v72 T{_Double}, v58 T{_Double}) double
+200:     v86 <- BinaryDoubleOp:252(*, v66 T{_Double}, v60 T{_Double}) double
+202:     v87 <- BinaryDoubleOp:254(-, v80 T{_Double}, v86 T{_Double}) double
+203:     ParallelMove fp[-100] f64 <- xmm10
+204:     ParallelMove rbx <- fp[-3]
+204:     v89 <- BinarySmiOp:258(+, v29 T{_Smi}, v88) [3, v1641+2] T{_Smi}
+206:     CheckArrayBound:260(v591 T{_Smi}, v89) [3, 4611686018427387903] T{_Smi}
+208:     v713 <- LoadIndexed:260([_Float64List] v3 T{_Float64List}, v89 T{_Smi}) double
+210:     ParallelMove rbx <- fp[-5]
+210:     v91 <- BinarySmiOp:262(+, v22 T{_Smi}, v88) [3, v1643+2] T{_Smi}
+212:     CheckArrayBound:264(v591 T{_Smi}, v91) [3, 4611686018427387903] T{_Smi}
+214:     v716 <- LoadIndexed:264([_Float64List] v3 T{_Float64List}, v91 T{_Smi}) double
+215:     ParallelMove fp[-99] f64 <- xmm11
+216:     v93 <- BinaryDoubleOp:266(-, v713 T{_Double}, v716 T{_Double}) double
+218:     ParallelMove xmm12 <- xmm7
+218:     v94 <- BinaryDoubleOp:268(*, v93 T{_Double}, v54 T{_Double}) double
+220:     ParallelMove rbx <- fp[-4]
+220:     v95 <- BinarySmiOp:270(+, v30 T{_Smi}, v88) [3, v1639+2] T{_Smi}
+222:     CheckArrayBound:272(v591 T{_Smi}, v95) [3, 4611686018427387903] T{_Smi}
+224:     v723 <- LoadIndexed:272([_Float64List] v3 T{_Float64List}, v95 T{_Smi}) double
+226:     v99 <- BinaryDoubleOp:278(-, v723 T{_Double}, v716 T{_Double}) double
+228:     ParallelMove xmm14 <- xmm13
+228:     v100 <- BinaryDoubleOp:280(*, v99 T{_Double}, v56 T{_Double}) double
+230:     v101 <- BinaryDoubleOp:282(-, v94 T{_Double}, v100 T{_Double}) double
+231:     ParallelMove fp[-98] f64 <- xmm12
+232:     v107 <- BinaryDoubleOp:296(*, v99 T{_Double}, v58 T{_Double}) double
+234:     v113 <- BinaryDoubleOp:308(*, v93 T{_Double}, v60 T{_Double}) double
+236:     v114 <- BinaryDoubleOp:310(-, v107 T{_Double}, v113 T{_Double}) double
+237:     ParallelMove fp[-97] f64 <- xmm13
+238:     ParallelMove rbx <- fp[-3]
+238:     v116 <- BinarySmiOp:314(+, v29 T{_Smi}, v115) [4, v1641+3] T{_Smi}
+240:     CheckArrayBound:316(v591 T{_Smi}, v116) [4, 4611686018427387903] T{_Smi}
+242:     v757 <- LoadIndexed:316([_Float64List] v3 T{_Float64List}, v116 T{_Smi}) double
+244:     ParallelMove rbx <- fp[-5]
+244:     v118 <- BinarySmiOp:318(+, v22 T{_Smi}, v115) [4, v1643+3] T{_Smi}
+246:     CheckArrayBound:320(v591 T{_Smi}, v118) [4, 4611686018427387903] T{_Smi}
+248:     v760 <- LoadIndexed:320([_Float64List] v3 T{_Float64List}, v118 T{_Smi}) double
+249:     ParallelMove fp[-96] f64 <- xmm14
+250:     v120 <- BinaryDoubleOp:322(-, v757 T{_Double}, v760 T{_Double}) double
+252:     ParallelMove xmm0 <- xmm7
+252:     v121 <- BinaryDoubleOp:324(*, v120 T{_Double}, v54 T{_Double}) double
+254:     ParallelMove rbx <- fp[-4]
+254:     v122 <- BinarySmiOp:326(+, v30 T{_Smi}, v115) [4, v1639+3] T{_Smi}
+256:     CheckArrayBound:328(v591 T{_Smi}, v122) [4, 4611686018427387903] T{_Smi}
+258:     v767 <- LoadIndexed:328([_Float64List] v3 T{_Float64List}, v122 T{_Smi}) double
+260:     v126 <- BinaryDoubleOp:334(-, v767 T{_Double}, v760 T{_Double}) double
+262:     ParallelMove xmm8 <- xmm1
+262:     v127 <- BinaryDoubleOp:336(*, v126 T{_Double}, v56 T{_Double}) double
+264:     v128 <- BinaryDoubleOp:338(-, v121 T{_Double}, v127 T{_Double}) double
+265:     ParallelMove fp[-78] f64 <- xmm0
+266:     v134 <- BinaryDoubleOp:352(*, v126 T{_Double}, v58 T{_Double}) double
+268:     v140 <- BinaryDoubleOp:364(*, v120 T{_Double}, v60 T{_Double}) double
+270:     v141 <- BinaryDoubleOp:366(-, v134 T{_Double}, v140 T{_Double}) double
+271:     ParallelMove fp[-79] f64 <- xmm1
+272:     ParallelMove rbx <- fp[-3]
+272:     v143 <- BinarySmiOp:370(+, v29 T{_Smi}, v142) [5, v1641+4] T{_Smi}
+274:     CheckArrayBound:372(v591 T{_Smi}, v143) [5, 4611686018427387903] T{_Smi}
+276:     v801 <- LoadIndexed:372([_Float64List] v3 T{_Float64List}, v143 T{_Smi}) double
+278:     ParallelMove rbx <- fp[-5]
+278:     v145 <- BinarySmiOp:374(+, v22 T{_Smi}, v142) [5, v1643+4] T{_Smi}
+280:     CheckArrayBound:376(v591 T{_Smi}, v145) [5, 4611686018427387903] T{_Smi}
+282:     v804 <- LoadIndexed:376([_Float64List] v3 T{_Float64List}, v145 T{_Smi}) double
+283:     ParallelMove fp[-80] f64 <- xmm8
+284:     v147 <- BinaryDoubleOp:378(-, v801 T{_Double}, v804 T{_Double}) double
+286:     ParallelMove xmm0 <- xmm7
+286:     v148 <- BinaryDoubleOp:380(*, v147 T{_Double}, v54 T{_Double}) double
+288:     ParallelMove rbx <- fp[-4]
+288:     v149 <- BinarySmiOp:382(+, v30 T{_Smi}, v142) [5, v1639+4] T{_Smi}
+290:     CheckArrayBound:384(v591 T{_Smi}, v149) [5, 4611686018427387903] T{_Smi}
+292:     v811 <- LoadIndexed:384([_Float64List] v3 T{_Float64List}, v149 T{_Smi}) double
+294:     v153 <- BinaryDoubleOp:390(-, v811 T{_Double}, v804 T{_Double}) double
+296:     ParallelMove xmm8 <- xmm1
+296:     v154 <- BinaryDoubleOp:392(*, v153 T{_Double}, v56 T{_Double}) double
+298:     v155 <- BinaryDoubleOp:394(-, v148 T{_Double}, v154 T{_Double}) double
+299:     ParallelMove fp[-81] f64 <- xmm0
+300:     v161 <- BinaryDoubleOp:408(*, v153 T{_Double}, v58 T{_Double}) double
+302:     v167 <- BinaryDoubleOp:420(*, v147 T{_Double}, v60 T{_Double}) double
+304:     v168 <- BinaryDoubleOp:422(-, v161 T{_Double}, v167 T{_Double}) double
+305:     ParallelMove fp[-83] f64 <- xmm1
+306:     ParallelMove rbx <- fp[-3]
+306:     v170 <- BinarySmiOp:426(+, v29 T{_Smi}, v169) [6, v1641+5] T{_Smi}
+308:     CheckArrayBound:428(v591 T{_Smi}, v170) [6, 4611686018427387903] T{_Smi}
+310:     v845 <- LoadIndexed:428([_Float64List] v3 T{_Float64List}, v170 T{_Smi}) double
+312:     ParallelMove rbx <- fp[-5]
+312:     v172 <- BinarySmiOp:430(+, v22 T{_Smi}, v169) [6, v1643+5] T{_Smi}
+314:     CheckArrayBound:432(v591 T{_Smi}, v172) [6, 4611686018427387903] T{_Smi}
+316:     v848 <- LoadIndexed:432([_Float64List] v3 T{_Float64List}, v172 T{_Smi}) double
+317:     ParallelMove fp[-87] f64 <- xmm8
+318:     v174 <- BinaryDoubleOp:434(-, v845 T{_Double}, v848 T{_Double}) double
+320:     v175 <- BinaryDoubleOp:436(*, v54 T{_Double}, v174 T{_Double}) double
+322:     ParallelMove rbx <- fp[-4]
+322:     v176 <- BinarySmiOp:438(+, v30 T{_Smi}, v169) [6, v1639+5] T{_Smi}
+324:     CheckArrayBound:440(v591 T{_Smi}, v176) [6, 4611686018427387903] T{_Smi}
+326:     v855 <- LoadIndexed:440([_Float64List] v3 T{_Float64List}, v176 T{_Smi}) double
+328:     v180 <- BinaryDoubleOp:446(-, v855 T{_Double}, v848 T{_Double}) double
+330:     v181 <- BinaryDoubleOp:448(*, v56 T{_Double}, v180 T{_Double}) double
+332:     v182 <- BinaryDoubleOp:450(-, v175 T{_Double}, v181 T{_Double}) double
+333:     ParallelMove fp[-85] f64 <- xmm2
+334:     v188 <- BinaryDoubleOp:464(*, v180 T{_Double}, v58 T{_Double}) double
+336:     v194 <- BinaryDoubleOp:476(*, v174 T{_Double}, v60 T{_Double}) double
+338:     v195 <- BinaryDoubleOp:478(-, v188 T{_Double}, v194 T{_Double}) double
+339:     ParallelMove fp[-82] f64 <- xmm0
+340:     v206 <- LoadField(v2 . fb {final}) T{PixelBuffer}
+342:     v207 <- LoadField(v206 . width {final}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+343:     ParallelMove fp[-4] <- rcx
+344:     v209 <- LoadField(v206 T{PixelBuffer} . height {final}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+346:     ParallelMove xmm4 <- fp[-76] f64
+346:     v213 <- BinaryDoubleOp:524(-, v620 T{_Double}, v1312 T{_Double}) double
+348:     v1371 <- UnaryDoubleOp:10(ceiling, v213) double
+350:     v1304 <- DoubleToSmi:14(v1371) [-4611686018427387904, 4611686018427387903] T{_Smi}
+352:     v1429 <- UnboxInt64(v1304) [-4611686018427387904, 4611686018427387903] int64
+354:     ParallelMove rdi <- C
+354:     v904 <- MathMinMax(v1563 T{_Smi}, v1429 T{_Smi}) [-9223372036854775808, 9223372036854775807] int64
+355:     ParallelMove fp[-13] <- rdi
+356:     ParallelMove rsi <- rbx
+356:     v216 <- BinarySmiOp:532(-, v209, v8) [-4611686018427387904, 4611686018427387902] T{_Smi}
+358:     ParallelMove xmm4 <- fp[-72] f64
+358:     v217 <- BinaryDoubleOp:534(-, v632 T{_Double}, v1312 T{_Double}) double
+360:     v1377 <- UnaryDoubleOp:10(ceiling, v217) double
+362:     v1310 <- DoubleToSmi:14(v1377) [-4611686018427387904, 4611686018427387903] T{_Smi}
+364:     ParallelMove r8 <- rbx
+364:     v219 <- BinarySmiOp:538(-, v1310 T{_Smi}, v8) [-4611686018427387904, 4611686018427387902] T{_Smi}
+366:     v1433 <- UnboxInt64(v216) [-4611686018427387904, 4611686018427387902] int64
+368:     v1434 <- UnboxInt64(v219) [-4611686018427387904, 4611686018427387902] int64
+370:     v907 <- MathMinMax(v1433 T{_Smi}, v1434 T{_Smi}) [-9223372036854775808, 9223372036854775807] int64
+371:     ParallelMove fp[-12] <- rsi
+372:     v1431 <- BoxInt64(v904) [-9223372036854775808, 9223372036854775807] T{<:int}
+373:     ParallelMove fp[-11] <- rbx
+374:     CheckSmi:544(v1431 T{<:int})
+376:     v1437 <- BoxInt64(v907) [-9223372036854775808, 9223372036854775807] T{<:int}
+377:     ParallelMove fp[-10] <- r8
+378:     CheckSmi:544(v1437 T{<:int})
+380:     Branch if RelationalOp:544(>, v1431 T{_Smi}, v1437 T{_Smi}) T{bool} goto (14, 15)
+382: B14[target]:550
+383:     ParallelMove rax <- C
+384:     DartReturn:554(v0)
+386: B15[target]:556 ParallelMove r9 <- fp[2], xmm5 <- fp[-70] f64, xmm6 <- fp[-68] f64, xmm4 <- fp[-74] f64, xmm7 <- C
+388:     v223 <- LoadField(v206 T{PixelBuffer} . color {final}) T{_Uint8List}
+389:     ParallelMove fp[-9] <- r10
+390:     v225 <- LoadField(v206 T{PixelBuffer} . depth {final}) T{_Float32List}
+391:     ParallelMove fp[-8] <- r12
+392:     v226 <- LoadField(v2 . _cone@60000373) T{_Float32List}
+393:     ParallelMove fp[-3] <- rax
+394:     v227 <- LoadField(v2 . lights {final}) T{LightTable}
+396:     v228 <- LoadField(v227 . table {final}) T{_Uint8List}
+397:     ParallelMove fp[-5] <- rax
+398:     v229 <- LoadField(v2 . flashStrength) double
+399:     ParallelMove fp[-88] f64 <- xmm0
+400:     v230 <- LoadField(v2 . flashRange) double
+402:     v1564 <- UnaryDoubleOp:588(square, v230) double
+403:     ParallelMove fp[-84] f64 <- xmm1
+404:     v233 <- LoadField(v2 . fogStart) double
+405:     ParallelMove fp[-89] f64 <- xmm1
+406:     v234 <- LoadField(v2 . fogEnd) double
+408:     v236 <- BinaryDoubleOp:600(-, v234 T{_Double}, v233 T{_Double}) double
+410:     ParallelMove xmm3 <- C
+410:     v237 <- BinaryDoubleOp:602(/, v1311 T{_Double}, v236 T{_Double}) double
+411:     ParallelMove fp[-90] f64 <- xmm3
+412:     v238 <- LoadField(v2 . ambientCold) double
+413:     ParallelMove fp[-86] f64 <- xmm2
+414:     v239 <- LoadField(v7 . hasTransparency {final}) T{bool}
+415:     ParallelMove fp[-7] <- r13
+416:     v240 <- LoadField(v2 . camera {final}) T{Camera}
+418:     v241 <- LoadField(v240 . y) double
+419:     ParallelMove fp[-91] f64 <- xmm2
+420:     v243 <- LoadField(v240 T{Camera} . focal) double
+421:     ParallelMove fp[-92] f64 <- xmm4
+422:     v245 <- LoadField(v240 T{Camera} . cy) double
+423:     ParallelMove fp[-93] f64 <- xmm5
+424:     v246 <- LoadField(v2 . groundFog) double
+425:     ParallelMove fp[-94] f64 <- xmm6
+426:     ParallelMove xmm8 <- xmm6
+426:     v249 <- BinaryDoubleOp:638(/, v246 T{_Double}, v1316 T{_Double}) double
+427:     ParallelMove fp[-95] f64 <- xmm8
+428:     v250 <- LoadField(v2 . _dith@60000373 {final}) T{_Float32List}
+429:     ParallelMove fp[-6] <- rcx
+430:     v1290 <- LoadStaticField:4(levelLut, CallsInitializer) T{<:Float32List}
+432:     ParallelMove fp[-14] <- rax
+432:     v1293 <- LoadStaticField:4(_kehrwert@60000373, CallsInitializer) T{<:Float64List}
+433:     ParallelMove rax <- rax, xmm0 <- C
+434:     ParallelMove xmm1 <- fp[-92] f64, fp[-21] <- rax
+434:     v254 <- BinaryDoubleOp:654(/, v243 T{_Double}, v1380 T{_Double}) double
+435:     ParallelMove xmm0 <- C
+436:     v255 <- BinaryDoubleOp:656(*, v254 T{_Double}, v1381 T{_Double}) double
+437:     ParallelMove fp[-105] f64 <- xmm1
+438:     ParallelMove xmm2 <- xmm1
+438:     v256 <- BinaryDoubleOp:660(*, v255 T{_Double}, v1381 T{_Double}) double
+439:     ParallelMove fp[-104] f64 <- xmm2
+440:     ParallelMove xmm3 <- xmm2
+440:     v257 <- BinaryDoubleOp:664(*, v256 T{_Double}, v1381 T{_Double}) double
+441:     ParallelMove fp[-103] f64 <- xmm3
+442:     v258 <- BinaryDoubleOp:668(*, v1381 T{_Double}, v257 T{_Double}) double
+443:     ParallelMove rcx <- fp[2], fp[-102] f64 <- xmm0
+444:     v259 <- LoadField(v7 . levels {final}) T{_GrowableList}
+445:     ParallelMove fp[-20] <- rdx
+446:     v1298 <- LoadField(v259 T{_GrowableList} . GrowableObjectArray.length) [0, 576460752303423487] T{_Smi}
+448:     v261 <- BinarySmiOp:678(- [-o], v1298 T{_Smi}, v8) [v1298-1, v1298-1] T{_Smi}
+449:     ParallelMove fp[-19] <- rbx
+450:     v262 <- LoadField(v7 . widths {final}) T{_GrowableList}
+452:     v926 <- LoadField(v262 . GrowableObjectArray.length) [0, 576460752303423487] T{_Smi}
+454:     CheckArrayBound:684(v926, v211) [0, 0] T{_Smi}
+456:     v928 <- LoadField(v262 . GrowableObjectArray.data) T{_List}
+458:     v929 <- LoadIndexed:684([_List] v928, v211 T{_Smi}) [-9223372036854775808, 9223372036854775807] T{<:int}
+459:     ParallelMove fp[-18] <- rsi
+460:     v264 <- LoadField(v7 . heights {final}) T{_GrowableList}
+462:     v930 <- LoadField(v264 . GrowableObjectArray.length) [0, 576460752303423487] T{_Smi}
+464:     CheckArrayBound:690(v930, v211) [0, 0] T{_Smi}
+466:     v932 <- LoadField(v264 . GrowableObjectArray.data) T{_List}
+468:     v933 <- LoadIndexed:690([_List] v932, v211 T{_Smi}) [-9223372036854775808, 9223372036854775807] T{<:int}
+469:     ParallelMove fp[-17] <- rdi
+470:     CheckSmi:694(v929)
+472:     ParallelMove rcx <- rsi
+472:     v266 <- BinarySmiOp:694(-, v929 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+473:     ParallelMove fp[-16] <- rcx
+474:     CheckSmi:698(v933)
+476:     ParallelMove r8 <- rdi
+476:     v267 <- BinarySmiOp:698(-, v933 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+477:     ParallelMove fp[-15] <- r8
+478:     MoveArgument(sp[0] <- v929 T{_Smi})
+480:     v268 <- StaticCall:702( get:bitLength<0> v929 T{_Smi}, recognized_kind = Smi_bitLength) [-4611686018427387904, 4611686018427387903] T{_Smi}
+482:     ParallelMove rcx <- rax
+482:     v269 <- BinarySmiOp:704(-, v268, v8) [-4611686018427387904, 4611686018427387902] T{_Smi}
+483:     ParallelMove fp[-22] <- rcx
+484:     ParallelMove rax <- fp[-18]
+484:     v935 <- Unbox:708(v929 T{_Smi}) double
+486:     ParallelMove xmm1 <- C
+486:     v270 <- BinaryDoubleOp:708(/, v1311 T{_Double}, v935) double
+487:     ParallelMove fp[-106] f64 <- xmm1
+488:     ParallelMove rax <- fp[-17]
+488:     v937 <- Unbox:712(v933 T{_Smi}) double
+490:     ParallelMove xmm2 <- C
+490:     v271 <- BinaryDoubleOp:712(/, v1311 T{_Double}, v937) double
+491:     ParallelMove rax <- fp[-20], fp[-107] f64 <- xmm2
+492:     v938 <- LoadField(v259 . GrowableObjectArray.length) [0, 576460752303423487] T{_Smi}
+494:     CheckArrayBound:718(v938, v211) [0, 0] T{_Smi}
+496:     v940 <- LoadField(v259 . GrowableObjectArray.data) T{_List}
+498:     v941 <- LoadIndexed:718([_List] v940, v211 T{_Smi}) T{<:Uint8List}
+499:     ParallelMove xmm0 <- fp[-70] f64
+500:     ParallelMove xmm3 <- C
+500:     v274 <- BinaryDoubleOp:728(/, v1311 T{_Double}, v43 T{_Double}) double
+501:     ParallelMove xmm4 <- fp[-68] f64, xmm0 <- C, fp[-108] f64 <- xmm3
+502:     v276 <- RelationalOp:734(>, v46 T{_Double}, v1379 T{_Double}) T{bool}
+503:     ParallelMove xmm5 <- fp[-74] f64, fp[-32] <- rdx
+504:     ParallelMove xmm6 <- fp[-72] f64
+504:     v277 <- BinaryDoubleOp:738(-, v632 T{_Double}, v626 T{_Double}) double
+506:     v278 <- RelationalOp:740(>, v277 T{_Double}, v1379 T{_Double}) T{bool}
+507:     ParallelMove fp[-33] <- rsi
+508:     Branch if StrictCompare:746(===, v276, v14) goto (16, 17)
+510: B16[target]:750
+512:     ParallelMove xmm0 <- C
+512:     v590 <- BinaryDoubleOp:754(/, v1311 T{_Double}, v46 T{_Double}) double
+514:     ParallelMove xmm0 <- xmm0 goto:760 B18
+516: B17[target]:756
+518:     ParallelMove xmm0 <- C goto:762 B18
+520: B18[join]:758 pred(B16, B17) {
+      v280 <- phi(v590, v1382 T{_Double}) alive double T{_Double}
+}
+521:     ParallelMove fp[-68] f64 <- xmm0
+522:     Branch if StrictCompare:768(===, v278, v14) goto (19, 20)
+524: B19[target]:772
+526:     ParallelMove xmm4 <- C
+526:     v588 <- BinaryDoubleOp:776(/, v1311 T{_Double}, v277 T{_Double}) double
+528:     ParallelMove xmm11 <- xmm4 goto:782 B21
+530: B20[target]:778
+532:     ParallelMove xmm11 <- C goto:784 B21
+534: B21[join]:780 pred(B19, B20) {
+      v281 <- phi(v588, v1382 T{_Double}) alive double T{_Double}
+} ParallelMove rdi <- fp[-9], r8 <- fp[-8], r9 <- fp[-3], xmm9 <- fp[-89] f64, xmm8 <- fp[-90] f64, xmm7 <- fp[-91] f64, xmm6 <- fp[-94] f64, xmm4 <- fp[-95] f64, xmm10 <- fp[-75] f64
+535:     ParallelMove fp[-70] f64 <- xmm11
+536:     ParallelMove r10 <- fp[-4]
+536:     v315 <- BinarySmiOp:1938(-, v207, v8) [-4611686018427387904, 4611686018427387902] T{_Smi}
+537:     ParallelMove fp[-41] <- r10
+538:     v1439 <- Box:1938(v233) T{_Double}
+539:     ParallelMove fp[-40] <- r12
+540:     v1441 <- Box:1938(v237) T{_Double}
+541:     ParallelMove fp[-39] <- r13
+542:     v1443 <- Box:1938(v241) T{_Double}
+543:     ParallelMove fp[-23] <- rax
+544:     v1445 <- Box:1938(v246) T{_Double}
+545:     ParallelMove fp[-24] <- rcx
+546:     v1447 <- Box:1938(v249) T{_Double}
+547:     ParallelMove fp[-25] <- rax
+548:     v1173 <- LoadField:1938(v225 . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+549:     ParallelMove fp[-26] <- rcx
+550:     v1220 <- LoadField:1938(v223 . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+551:     ParallelMove fp[-28] <- rax
+552:     v1113 <- LoadField:1938(v226 . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+553:     ParallelMove fp[-27] <- rcx
+554:     ParallelMove xmm12 <- fp[-73] f64
+554:     v299 <- BinaryDoubleOp:1938(-, v629 T{_Double}, v623 T{_Double}) double
+555:     ParallelMove fp[-72] f64 <- xmm12
+556:     ParallelMove fp[-31] <- C, fp[-30] <- rbx, fp[-29] <- fp[-22], fp[-11] <- C, rcx <- fp[-11] goto:1938 B132
+558: B132[join]:1936 pred(B21, B43) {
+      v282 <- phi(v211, v575) alive [0, 4611686018427387903] T{_Smi}
+      v283 <- phi(v941, v576) alive T{<:*}
+      v284 <- phi(v269, v577) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+      v285 <- phi(v211, v578) alive [0, 4611686018427387903] T{_Smi}
+      v286 <- phi(v1431 T{_Smi}, v579) alive [-4611686018427387904, 4611686018427387903] T{_Smi}
+} ParallelMove xmm6 <- fp[-100] f64, xmm8 <- fp[-98] f64, xmm9 <- fp[-97] f64, xmm14 <- fp[-78] f64, rbx <- fp[-19], xmm2 <- fp[-77] f64, xmm4 <- fp[-76] f64, xmm7 <- fp[-99] f64, xmm13 <- fp[-96] f64, xmm1 <- C, rax <- fp[-10]
+559:     ParallelMove fp[-34] <- rcx
+560:     CheckStackOverflow:1942(stack=0, loop=1)
+562:     Branch if RelationalOp:790(<=, v286 T{_Smi}, v1437 T{_Smi}) T{bool} goto (22, 23)
+564: B22[target]:796
+566:     ParallelMove rbx <- rcx
+566:     v962 <- Unbox:802(v286 T{_Smi}) double
+568:     v291 <- BinaryDoubleOp:802(+, v962, v1312 T{_Double}) double
+569:     ParallelMove fp[-109] f64 <- xmm6
+570:     ParallelMove xmm7 <- xmm6
+570:     v293 <- BinaryDoubleOp:808(-, v291 T{_Double}, v620 T{_Double}) double
+571:     ParallelMove fp[-110] f64 <- xmm7
+572:     ParallelMove xmm4 <- fp[-69] f64
+572:     v294 <- BinaryDoubleOp:810(*, v45 T{_Double}, v293 T{_Double}) double
+574:     v295 <- BinaryDoubleOp:812(*, v294 T{_Double}, v274 T{_Double}) double
+576:     v296 <- BinaryDoubleOp:814(+, v295 T{_Double}, v617 T{_Double}) double
+578:     Branch if RelationalOp:820(<, v291 T{_Double}, v626 T{_Double}) T{bool} goto (24, 28)
+580: B24[target]:826
+582:     Branch if StrictCompare:830(===, v276, v14) goto (25, 26)
+584: B25[target]:834
+586:     ParallelMove xmm3 <- fp[-71] f64
+586:     v584 <- BinaryDoubleOp:840(*, v42 T{_Double}, v293 T{_Double}) double
+588:     v585 <- BinaryDoubleOp:842(*, v584 T{_Double}, v280 T{_Double}) double
+590:     v586 <- BinaryDoubleOp:844(+, v585 T{_Double}, v617 T{_Double}) double
+592:     ParallelMove xmm3 <- xmm3 goto:850 B27
+594: B26[target]:846
+596:     ParallelMove xmm3 <- xmm10 goto:852 B27
+598: B27[join]:848 pred(B25, B26) {
+      v581 <- phi(v586, v623) alive double T{_Double}
+}
+600:     ParallelMove xmm3 <- xmm3 goto:888 B32
+602: B28[target]:856
+604:     Branch if StrictCompare:860(===, v278, v14) goto (29, 30)
+606: B29[target]:864
+608:     ParallelMove xmm3 <- xmm6
+608:     v300 <- BinaryDoubleOp:868(-, v291 T{_Double}, v626 T{_Double}) double
+610:     v301 <- BinaryDoubleOp:870(*, v300 T{_Double}, v299 T{_Double}) double
+612:     v302 <- BinaryDoubleOp:872(*, v301 T{_Double}, v281 T{_Double}) double
+614:     v303 <- BinaryDoubleOp:874(+, v302 T{_Double}, v623 T{_Double}) double
+616:     ParallelMove xmm3 <- xmm3 goto:880 B31
+618: B30[target]:876
+620:     ParallelMove xmm3 <- xmm10 goto:882 B31
+622: B31[join]:878 pred(B29, B30) {
+      v298 <- phi(v303, v623) alive double T{_Double}
+}
+624:     ParallelMove xmm3 <- xmm3 goto:890 B32
+626: B32[join]:886 pred(B27, B31) {
+      v304 <- phi(v581, v298) alive double T{_Double}
+}
+628:     Branch if RelationalOp:896(>, v296 T{_Double}, v304 T{_Double}) T{bool} goto (33, 34)
+630: B33[target]:902
+632:     ParallelMove xmm4 <- xmm3, xmm3 <- xmm4 goto:914 B35
+634: B34[target]:910
+636:     ParallelMove xmm4 <- xmm4, xmm3 <- xmm3 goto:916 B35
+638: B35[join]:912 pred(B33, B34) {
+      v306 <- phi(v304, v296) alive double T{_Double}
+      v307 <- phi(v296, v304) alive double T{_Double}
+}
+640:     v308 <- BinaryDoubleOp:918(-, v306 T{_Double}, v1312 T{_Double}) double
+642:     v1359 <- UnaryDoubleOp:10(ceiling, v308) double
+644:     v1281 <- DoubleToSmi:14(v1359) [-4611686018427387904, 4611686018427387903] T{_Smi}
+646:     v310 <- BinaryDoubleOp:924(-, v307 T{_Double}, v1312 T{_Double}) double
+648:     v1365 <- UnaryDoubleOp:10(ceiling, v310) double
+650:     v1287 <- DoubleToSmi:14(v1365) [-4611686018427387904, 4611686018427387903] T{_Smi}
+652:     ParallelMove rsi <- rdx
+652:     v312 <- BinarySmiOp:928(-, v1287 T{_Smi}, v8) [-4611686018427387904, 4611686018427387902] T{_Smi}
+654:     Branch if RelationalOp:932(<, v1281 T{_Smi}, v211) T{bool} goto (36, 37)
+656: B36[target]:938
+658:     ParallelMove rdx <- C goto:946 B38
+660: B37[target]:942
+662:     ParallelMove rdx <- rbx goto:948 B38
+664: B38[join]:944 pred(B36, B37) {
+      v314 <- phi(v211, v1281 T{_Smi}) alive [0, 4611686018427387903] T{_Smi}
+}
+665:     ParallelMove fp[-35] <- rdx
+666:     Branch if RelationalOp:952(>, v312, v315) T{bool} goto (39, 40)
+668: B39[target]:958
+670:     ParallelMove rbx <- r10 goto:966 B41
+672: B40[target]:962
+674:     ParallelMove rbx <- rsi goto:968 B41
+676: B41[join]:964 pred(B39, B40) {
+      v317 <- phi(v315 T{_Smi}, v312 T{_Smi}) alive [-4611686018427387904, v312] T{_Smi}
+}
+677:     ParallelMove fp[-38] <- rbx
+678:     Branch if RelationalOp:970(>, v314 T{_Smi}, v317 T{_Smi}) T{bool} goto (42, 44)
+680: B42[target]:976
+682:     ParallelMove r8 <- fp[-31], rsi <- fp[-30], rbx <- fp[-29], rax <- fp[-11], xmm6 <- fp[-101] f64, xmm8 <- fp[-81] f64, xmm7 <- fp[-85] f64, rdx <- rdi, rdi <- r8, r9 <- fp[-5], r10 <- fp[-28] goto:982 B43
+684: B44[target]:984 ParallelMove xmm8 <- fp[-101] f64, xmm6 <- fp[-100] f64, xmm12 <- xmm8, xmm11 <- xmm9, xmm5 <- xmm14, xmm4 <- fp[-79] f64, xmm0 <- fp[-81] f64, xmm14 <- fp[-83] f64, xmm9 <- fp[-85] f64, rax <- rcx, xmm1 <- xmm2, xmm7 <- fp[-67] f64, xmm3 <- fp[-99] f64, xmm10 <- xmm13, xmm2 <- fp[-80] f64, xmm13 <- xmm1, rcx <- rax
+686:     ParallelMove rsi <- rdx
+686:     v1007 <- Unbox:986(v314 T{_Smi}) double
+688:     v319 <- BinaryDoubleOp:986(+, v1007, v1312) double
+690:     v320 <- BinaryDoubleOp:988(-, v319, v617) double
+692:     ParallelMove xmm1 <- xmm9
+692:     v322 <- BinaryDoubleOp:996(*, v320, v74) double
+694:     v323 <- BinaryDoubleOp:998(+, v322 T{_Double}, v672 T{_Double}) double
+696:     ParallelMove xmm7 <- fp[-110] f64
+696:     v324 <- BinaryDoubleOp:1000(*, v293 T{_Double}, v87) double
+698:     v325 <- BinaryDoubleOp:1002(+, v323, v324) double
+699:     ParallelMove fp[-113] f64 <- xmm1
+700:     ParallelMove xmm7 <- xmm9
+700:     v326 <- BinaryDoubleOp:1006(*, v320, v101) double
+702:     v327 <- BinaryDoubleOp:1008(+, v326 T{_Double}, v716 T{_Double}) double
+704:     ParallelMove xmm3 <- fp[-110] f64
+704:     v328 <- BinaryDoubleOp:1010(*, v293 T{_Double}, v114) double
+706:     v329 <- BinaryDoubleOp:1012(+, v327, v328) double
+707:     ParallelMove fp[-111] f64 <- xmm7
+708:     ParallelMove xmm3 <- xmm9
+708:     v330 <- BinaryDoubleOp:1016(*, v320, v128) double
+710:     v331 <- BinaryDoubleOp:1018(+, v330 T{_Double}, v760 T{_Double}) double
+712:     ParallelMove xmm7 <- fp[-110] f64
+712:     v332 <- BinaryDoubleOp:1020(*, v293 T{_Double}, v141) double
+714:     v333 <- BinaryDoubleOp:1022(+, v331, v332) double
+715:     ParallelMove fp[-112] f64 <- xmm3
+716:     ParallelMove xmm7 <- xmm9
+716:     v334 <- BinaryDoubleOp:1026(*, v320, v155) double
+718:     v335 <- BinaryDoubleOp:1028(+, v334 T{_Double}, v804 T{_Double}) double
+720:     ParallelMove xmm3 <- fp[-110] f64
+720:     v336 <- BinaryDoubleOp:1030(*, v293 T{_Double}, v168) double
+722:     v337 <- BinaryDoubleOp:1032(+, v335, v336) double
+723:     ParallelMove xmm3 <- fp[-85] f64, fp[-117] f64 <- xmm7
+724:     v338 <- BinaryDoubleOp:1036(*, v320, v182) double
+725:     ParallelMove xmm3 <- fp[-87] f64
+726:     v339 <- BinaryDoubleOp:1038(+, v338 T{_Double}, v848 T{_Double}) double
+727:     ParallelMove xmm3 <- fp[-82] f64
+728:     ParallelMove xmm14 <- fp[-110] f64
+728:     v340 <- BinaryDoubleOp:1040(*, v293 T{_Double}, v195) double
+730:     v341 <- BinaryDoubleOp:1042(+, v339, v340) double
+731:     ParallelMove fp[-110] f64 <- xmm9
+732:     ParallelMove rsi <- rax
+732:     v342 <- BinarySmiOp:1046(*, v286 T{_Smi}, v207) [-4611686018427387904, 4611686018427387903] T{_Smi}
+734:     ParallelMove rax <- rsi
+734:     v343 <- BinarySmiOp:1048(+, v342, v314 T{_Smi}) [-4611686018427387904, v317+4611686018427387903] T{_Smi}
+735:     ParallelMove fp[-36] <- rax
+736:     ParallelMove rsi <- fp[-34]
+736:     v344 <- BinarySmiOp:1052(& [-o], v286 T{_Smi}, v88) [0, 3] T{_Smi}
+738:     v345 <- BinarySmiOp:1054(<< [-o], v344, v61) [0, 12] T{_Smi}
+739:     ParallelMove xmm14 <- fp[-109] f64, fp[-37] <- rsi
+740:     ParallelMove xmm3 <- fp[-93] f64
+740:     v346 <- BinaryDoubleOp:1058(-, v245, v291) double
+741:     ParallelMove xmm14 <- fp[-92] f64
+742:     v347 <- BinaryDoubleOp:1060(/, v346, v243) double
+743:     ParallelMove fp[-109] f64 <- xmm3
+744:     ParallelMove xmm3 <- C
+744:     v348 <- BinaryDoubleOp:1064(/, v1311, v325) double
+745:     ParallelMove fp[-114] f64 <- xmm3
+746:     ParallelMove xmm1 <- fp[-111] f64
+746:     v349 <- BinaryDoubleOp:1068(*, v329, v348) double
+747:     ParallelMove fp[-115] f64 <- xmm1
+748:     ParallelMove xmm9 <- fp[-112] f64
+748:     v350 <- BinaryDoubleOp:1072(*, v333, v348) double
+749:     ParallelMove fp[-116] f64 <- xmm9
+750:     v1453 <- Box(v337) T{_Double}
+752:     MoveArgument(sp[1] <- v1290 T{<:Float32List})
+754:     MoveArgument(sp[0] <- v1453 T{_Double})
+755:     ParallelMove xmm2 <- xmm8, xmm4 <- xmm6, xmm6 <- xmm12, xmm8 <- xmm11, xmm11 <- xmm5, xmm12 <- xmm4, xmm0 <- fp[-67] f64, xmm5 <- fp[-99] f64, xmm13 <- xmm2
+756:     v351 <- StaticCall:1076( _stufe@60000373<0> v1290 T{<:Float32List}, v1453 T{_Double}) T{_Double}
+757:     ParallelMove rax <- rax, xmm0 <- fp[-86] f64
+758:     ParallelMove xmm1 <- fp[-110] f64, fp[-42] <- rax
+758:     v352 <- BinaryDoubleOp:1080(+, v341, v238) double
+759:     ParallelMove xmm3 <- fp[-88] f64, xmm2 <- C
+760:     Branch if RelationalOp:1082(>, v229 T{_Double}, v1382 T{_Double}) T{bool} goto (45, 46)
+762: B45[target]:1088 ParallelMove rcx <- fp[-3], rbx <- fp[-36], rdx <- fp[-27], xmm4 <- C, xmm5 <- fp[-84] f64
+764:     CheckArrayBound:1090(v1113 T{_Smi}, v343) [0, 4611686018427387903] T{_Smi}
+766:     v1069 <- LoadIndexed:1090([_Float32List] v226, v343 T{_Smi}) float
+768:     v1070 <- FloatToDouble:1090(v1069) double
+770:     v569 <- BinaryDoubleOp:1092(*, v1070 T{_Double}, v229 T{_Double}) double
+772:     v570 <- BinaryDoubleOp:1094(*, v569, v1564 T{_Double}) double
+774:     ParallelMove xmm7 <- fp[-114] f64
+774:     v1313 <- UnaryDoubleOp:1096(square, v348) double
+776:     v572 <- BinaryDoubleOp:1098(*, v1313, v1315) double
+778:     v573 <- BinaryDoubleOp:1100(+, v572 T{_Double}, v1564 T{_Double}) double
+780:     v574 <- BinaryDoubleOp:1102(/, v570, v573) double
+782:     v1459 <- Box(v574) T{_Double}
+784:     ParallelMove rsi <- rsi goto:1108 B47
+786: B46[target]:1104 ParallelMove rcx <- fp[-3], rbx <- fp[-36], rdx <- fp[-27], xmm4 <- C, xmm5 <- fp[-84] f64
+788:     ParallelMove rsi <- C goto:1110 B47
+790: B47[join]:1106 pred(B45, B46) {
+      v354 <- phi(v1459 T{_Double}, v211) alive T{<:Object}
+} ParallelMove xmm6 <- fp[-109] f64, xmm7 <- fp[-114] f64
+792:     v1458 <- Box(v352) T{_Double}
+794:     MoveArgument(sp[1] <- v1458 T{_Double})
+796:     MoveArgument(sp[0] <- v354)
+798:     v355 <- InstanceCall:1112( +<0>, v1458 T{_Double}, v354 IC[1: _Smi@0150898, _Smi@0150898 cnt:0 trgt:'_IntegerImplementation@0150898.+']) T{_Double}
+800:     MoveArgument(sp[1] <- v1290 T{<:Float32List})
+802:     MoveArgument(sp[0] <- v355)
+804:     v356 <- StaticCall:1114( _stufe@60000373<0> v1290 T{<:Float32List}, v355) T{_Double}
+805:     ParallelMove rax <- rax, xmm0 <- fp[-109] f64
+806:     ParallelMove fp[-44] <- rax
+806:     v1455 <- Box(v347) T{_Double}
+807:     ParallelMove xmm1 <- fp[-114] f64, fp[-43] <- rcx
+808:     v1456 <- Box(v348) T{_Double}
+810:     MoveArgument(sp[6] <- v1456 T{_Double})
+812:     MoveArgument(sp[5] <- v1439 T{_Double})
+814:     MoveArgument(sp[4] <- v1441 T{_Double})
+816:     MoveArgument(sp[3] <- v1445 T{_Double})
+818:     MoveArgument(sp[2] <- v1447 T{_Double})
+820:     MoveArgument(sp[1] <- v1443 T{_Double})
+822:     MoveArgument(sp[0] <- v1455 T{_Double})
+824:     v357 <- StaticCall:1118( _nebelStufe@60000373<0> v1456 T{_Double}, v1439 T{_Double}, v1441 T{_Double}, v1445 T{_Double}, v1447 T{_Double}, v1443 T{_Double}, v1455 T{_Double}) T{_Double}
+826:     v358 <- LoadStaticField(zZeilen) [-9223372036854775808, 9223372036854775807] T{<:int}
+828:     CheckSmi:1124(v358)
+830:     ParallelMove rdx <- rcx
+830:     v359 <- BinarySmiOp:1124(+, v358 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+832:     StoreStaticField:1126(zZeilen, v359)
+834:     v360 <- LoadStaticField(zIter) [-9223372036854775808, 9223372036854775807] T{<:int}
+836:     ParallelMove rdx <- fp[-38]
+836:     v361 <- BinarySmiOp:1128(- [-o], v317 T{_Smi}, v314 T{_Smi}) [-4611686018427387902, v312] T{_Smi}
+838:     v362 <- BinarySmiOp:1130(+ [-o], v361, v8) [-4611686018427387901, v312+1] T{_Smi}
+840:     CheckSmi:1132(v360)
+842:     ParallelMove rbx <- rcx
+842:     v363 <- BinarySmiOp:1132(+, v360 T{_Smi}, v362) [-4611686018427387904, 4611686018427387903] T{_Smi}
+843:     ParallelMove rdx <- rbx
+844:     StoreStaticField:1134(zIter, v363)
+845:     ParallelMove rcx <- fp[-42]
+846:     v1457 <- Unbox(v351) double
+847:     ParallelMove rcx <- fp[-44]
+848:     v1460 <- Unbox(v356) double
+850:     v1461 <- Unbox(v357) double
+852:     ParallelMove fp[-36] <- fp[-31], fp[-35] <- fp[-30], fp[-31] <- fp[-29], fp[-30] <- fp[-11], xmm4 <- fp[-113] f64, xmm3 <- fp[-111] f64, xmm2 <- fp[-112] f64, xmm1 <- fp[-117] f64, xmm0 <- fp[-110] f64, fp[-29] <- fp[-36], fp[-114] f64 <- fp[-114] f64, fp[-113] f64 <- fp[-115] f64, fp[-112] f64 <- fp[-116] f64, fp[-111] f64 <- xmm0, fp[-110] f64 <- xmm1, xmm14 <- xmm2, rax <- fp[-35], xmm8 <- fp[-101] f64, xmm11 <- fp[-81] f64, xmm7 <- fp[-85] f64, rsi <- fp[-9], rdi <- fp[-8], r13 <- fp[-5], r9 <- fp[-28] goto:1930 B130
+854: B130[join]:1924 pred(B47, B128) {
+      v364 <- phi(v282, v467) alive [0, 4611686018427387903] T{_Smi}
+      v365 <- phi(v283, v468) alive T{<:*}
+      v366 <- phi(v284, v469) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+      v367 <- phi(v285, v470) alive [0, 4611686018427387903] T{_Smi}
+      v368 <- phi(v325, v481) alive double T{_Double}
+      v369 <- phi(v329, v482) alive double T{_Double}
+      v370 <- phi(v333, v483) alive double T{_Double}
+      v371 <- phi(v337, v478) alive double T{_Double}
+      v372 <- phi(v341, v480) alive double T{_Double}
+      v373 <- phi(v343, v471 T{_Smi}) alive [-4611686018427387904, 4611686018427387903] T{_Smi}
+      v374 <- phi(v348, v484) alive double T{_Double}
+      v375 <- phi(v349, v485) alive double T{_Double}
+      v376 <- phi(v350, v486) alive double T{_Double}
+      v377 <- phi(v1457, v487) alive double T{_Double}
+      v378 <- phi(v1460, v488) alive double T{_Double}
+      v379 <- phi(v1461, v489) alive double T{_Double}
+      v380 <- phi(v314 T{_Smi}, v474) alive [-4611686018427387904, v1707+4611686018427387903] T{_Smi}
+} ParallelMove xmm9 <- fp[-98] f64, xmm10 <- fp[-78] f64, rdx <- fp[-6], xmm5 <- fp[-105] f64, xmm6 <- fp[-104] f64, xmm13 <- fp[-103] f64, xmm12 <- fp[-102] f64, rbx <- fp[-20], r10 <- fp[-19], r12 <- fp[-38], rcx <- fp[-27], r8 <- fp[-26]
+855:     ParallelMove fp[-45] <- rax, fp[-118] f64 <- xmm0, fp[-119] f64 <- xmm1, fp[-120] f64 <- xmm2, fp[-121] f64 <- xmm3, fp[-122] f64 <- xmm4, fp[-127] f64 <- xmm14
+856:     CheckStackOverflow:1928(stack=0, loop=2)
+858:     Branch if RelationalOp:1136(<=, v380 T{_Smi}, v317 T{_Smi}) T{bool} goto (129, 131)
+860: B129[target]:1922
+862:     v382 <- LoadStaticField(zSpannen) [-9223372036854775808, 9223372036854775807] T{<:int}
+864:     CheckSmi:1142(v382)
+866:     ParallelMove rbx <- rcx
+866:     v383 <- BinarySmiOp:1142(+, v382 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+867:     ParallelMove rdx <- rbx, rcx <- rdx
+868:     StoreStaticField:1144(zSpannen, v383)
+870:     ParallelMove rdx <- r12
+870:     v384 <- BinarySmiOp:1146(-, v317 T{_Smi}, v380 T{_Smi}) [-4611686018427387902, v312+4611686018427387904] T{_Smi}
+872:     ParallelMove rbx <- rdx
+872:     v385 <- BinarySmiOp:1148(+, v384, v8) [-4611686018427387901, 4611686018427387903] T{_Smi}
+874:     v387 <- RelationalOp:1152(>, v385, v386) T{bool}
+875:     ParallelMove fp[-47] <- rdx
+876:     Branch if StrictCompare:1158(===, v387 T{bool}, v14) goto (48, 49)
+878: B48[target]:1162
+880:     ParallelMove fp[-42] <- C goto:1168 B50
+882: B49[target]:1164
+884:     ParallelMove fp[-42] <- rbx goto:1170 B50
+886: B50[join]:1166 pred(B48, B49) {
+      v388 <- phi(v386, v385) alive [-4611686018427387901, 4611686018427387903] T{_Smi}
+}
+888:     Branch if StrictCompare:1176(===, v387 T{bool}, v14) goto (51, 52)
+890: B51[target]:1180
+892:     ParallelMove rcx <- C goto:1188 B53
+894: B52[target]:1182
+896:     ParallelMove rcx <- rbx
+896:     v389 <- BinarySmiOp:1184(- [-o], v385, v8) [-4611686018427387902, 4611686018427387902] T{_Smi}
+898:     ParallelMove rcx <- rcx goto:1190 B53
+900: B53[join]:1186 pred(B51, B52) {
+      v390 <- phi(v386, v389) alive [-4611686018427387902, 4611686018427387902] T{_Smi}
+}
+901:     ParallelMove fp[-44] <- rcx
+902:     v1083 <- Unbox:1194(v390) double
+904:     ParallelMove xmm6 <- xmm5
+904:     v391 <- BinaryDoubleOp:1194(*, v1083, v74) double
+906:     v392 <- BinaryDoubleOp:1196(+, v391 T{_Double}, v368 T{_Double}) double
+907:     ParallelMove fp[-117] f64 <- xmm6
+908:     ParallelMove xmm8 <- xmm5
+908:     v393 <- BinaryDoubleOp:1200(*, v1083 T{_Double}, v101) double
+910:     v394 <- BinaryDoubleOp:1202(+, v393 T{_Double}, v369 T{_Double}) double
+911:     ParallelMove fp[-115] f64 <- xmm8
+912:     ParallelMove xmm8 <- xmm5
+912:     v395 <- BinaryDoubleOp:1206(*, v1083 T{_Double}, v128) double
+914:     v396 <- BinaryDoubleOp:1208(+, v395 T{_Double}, v370 T{_Double}) double
+915:     ParallelMove fp[-116] f64 <- xmm8
+916:     ParallelMove xmm8 <- C
+916:     v397 <- BinaryDoubleOp:1212(/, v1311, v392) double
+917:     ParallelMove fp[-123] f64 <- xmm8
+918:     ParallelMove xmm6 <- fp[-115] f64
+918:     v398 <- BinaryDoubleOp:1216(*, v394, v397) double
+919:     ParallelMove fp[-124] f64 <- xmm6
+920:     ParallelMove xmm9 <- fp[-116] f64
+920:     v399 <- BinaryDoubleOp:1220(*, v396, v397) double
+921:     ParallelMove fp[-125] f64 <- xmm9
+922:     ParallelMove xmm10 <- xmm5
+922:     v400 <- BinaryDoubleOp:1224(*, v1083 T{_Double}, v155) double
+924:     v401 <- BinaryDoubleOp:1226(+, v400 T{_Double}, v371 T{_Double}) double
+926:     v402 <- BinaryDoubleOp:1230(*, v1083 T{_Double}, v182) double
+928:     v403 <- BinaryDoubleOp:1232(+, v402 T{_Double}, v372 T{_Double}) double
+929:     ParallelMove fp[-126] f64 <- xmm5
+930:     Branch if StrictCompare:1238(===, v387 T{bool}, v14) goto (54, 55)
+932: B54[target]:1242
+934:     ParallelMove rcx <- C goto:1250 B56
+936: B55[target]:1244
+938:     v404 <- BinarySmiOp:1246(- [-o], v385, v8) [-4611686018427387902, 4611686018427387902] T{_Smi}
+940:     ParallelMove rcx <- rbx goto:1252 B56
+942: B56[join]:1248 pred(B54, B55) {
+      v405 <- phi(v386, v404) alive [-4611686018427387902, 4611686018427387902] T{_Smi}
+} ParallelMove xmm3 <- xmm4, xmm4 <- xmm3, xmm6 <- xmm2, xmm8 <- xmm1, xmm9 <- xmm0, xmm2 <- xmm8, xmm1 <- xmm6, xmm0 <- xmm9
+944:     ParallelMove rbx <- fp[-29]
+944:     v406 <- BinarySmiOp:1254(+, v373, v405) [-4611686018427387904, 4611686018427387903] T{_Smi}
+945:     ParallelMove fp[-46] <- rbx
+946:     v1489 <- Box(v401) T{_Double}
+948:     MoveArgument(sp[1] <- v1290 T{<:Float32List})
+950:     MoveArgument(sp[0] <- v1489 T{_Double})
+952:     v407 <- StaticCall:1258( _stufe@60000373<0> v1290 T{<:Float32List}, v1489 T{_Double}) T{_Double}
+953:     ParallelMove rax <- rax, xmm0 <- fp[-86] f64
+954:     ParallelMove xmm1 <- fp[-126] f64, fp[-48] <- rax
+954:     v408 <- BinaryDoubleOp:1262(+, v403, v238) double
+955:     ParallelMove xmm3 <- fp[-88] f64, xmm2 <- C
+956:     Branch if RelationalOp:1264(>, v229 T{_Double}, v1382 T{_Double}) T{bool} goto (57, 58)
+958: B57[target]:1270 ParallelMove rcx <- fp[-3], rbx <- fp[-46], rdx <- fp[-27], xmm4 <- C, xmm5 <- fp[-84] f64
+960:     CheckArrayBound:1272(v1113, v406) [0, 4611686018427387903] T{_Smi}
+962:     v1115 <- LoadIndexed:1272([_Float32List] v226, v406 T{_Smi}) float
+964:     v1116 <- FloatToDouble:1272(v1115) double
+966:     v562 <- BinaryDoubleOp:1274(*, v1116 T{_Double}, v229 T{_Double}) double
+968:     v563 <- BinaryDoubleOp:1276(*, v562, v1564 T{_Double}) double
+970:     ParallelMove xmm7 <- fp[-123] f64
+970:     v1314 <- UnaryDoubleOp:1278(square, v397) double
+972:     v565 <- BinaryDoubleOp:1280(*, v1314, v1315) double
+974:     v566 <- BinaryDoubleOp:1282(+, v565 T{_Double}, v1564 T{_Double}) double
+976:     v567 <- BinaryDoubleOp:1284(/, v563, v566) double
+978:     v1492 <- Box(v567) T{_Double}
+980:     ParallelMove rbx <- rbx goto:1290 B59
+982: B58[target]:1286 ParallelMove rcx <- fp[-3], rdx <- fp[-27], xmm4 <- C, xmm5 <- fp[-84] f64
+984:     ParallelMove rbx <- C goto:1292 B59
+986: B59[join]:1288 pred(B57, B58) {
+      v410 <- phi(v1492 T{_Double}, v211) alive T{<:Object}
+} ParallelMove xmm6 <- fp[-105] f64, xmm9 <- fp[-114] f64, xmm10 <- fp[-111] f64, xmm11 <- fp[-110] f64, xmm7 <- fp[-127] f64, xmm8 <- fp[-123] f64
+988:     v1491 <- Box(v408) T{_Double}
+990:     MoveArgument(sp[1] <- v1491 T{_Double})
+992:     MoveArgument(sp[0] <- v410)
+994:     v411 <- InstanceCall:1294( +<0>, v1491 T{_Double}, v410 IC[1: _Smi@0150898, _Smi@0150898 cnt:0 trgt:'_IntegerImplementation@0150898.+']) T{_Double}
+996:     MoveArgument(sp[1] <- v1290 T{<:Float32List})
+998:     MoveArgument(sp[0] <- v411)
+1000:     v412 <- StaticCall:1296( _stufe@60000373<0> v1290 T{<:Float32List}, v411) T{_Double}
+1001:     ParallelMove rax <- rax, xmm0 <- fp[-123] f64
+1002:     ParallelMove fp[-46] <- rax
+1002:     v1488 <- Box(v397) T{_Double}
+1004:     MoveArgument(sp[6] <- v1488 T{_Double})
+1006:     MoveArgument(sp[5] <- v1439 T{_Double})
+1008:     MoveArgument(sp[4] <- v1441 T{_Double})
+1010:     MoveArgument(sp[3] <- v1445 T{_Double})
+1012:     MoveArgument(sp[2] <- v1447 T{_Double})
+1014:     MoveArgument(sp[1] <- v1443 T{_Double})
+1016:     MoveArgument(sp[0] <- v1455 T{_Double})
+1018:     v413 <- StaticCall:1300( _nebelStufe@60000373<0> v1488 T{_Double}, v1439 T{_Double}, v1441 T{_Double}, v1445 T{_Double}, v1447 T{_Double}, v1443 T{_Double}, v1455 T{_Double}) T{_Double}
+1020:     ParallelMove fp[-49] <- rax
+1020:     MoveArgument(sp[1] <- v1293 T{<:Float64List})
+1022:     MoveArgument(sp[0] <- v390 T{_Smi})
+1024:     v414 <- InstanceCall:1304( []<0>, v1293 T{<:Float64List}, v390 T{_Smi} IC[0: ]) T{<:X0?}
+1025:     ParallelMove rcx <- rax, rax <- fp[-48]
+1026:     ParallelMove fp[-44] <- rcx
+1026:     v1129 <- Unbox:1308(v407) double
+1027:     ParallelMove xmm1 <- fp[-111] f64
+1028:     v415 <- BinaryDoubleOp:1308(-, v1129, v377 T{_Double}) double
+1030:     v1495 <- Box(v415) T{_Double}
+1032:     MoveArgument(sp[1] <- v1495 T{_Double})
+1034:     MoveArgument(sp[0] <- v414)
+1036:     v416 <- InstanceCall:1310( *<0>, v1495 T{_Double}, v414 IC[0: ]) T{_Double}
+1037:     ParallelMove rcx <- rax, rax <- fp[-46]
+1038:     ParallelMove fp[-50] <- rcx
+1038:     v1131 <- Unbox:1314(v412) double
+1039:     ParallelMove xmm1 <- fp[-110] f64
+1040:     v417 <- BinaryDoubleOp:1314(-, v1131, v378 T{_Double}) double
+1042:     v1496 <- Box(v417) T{_Double}
+1044:     MoveArgument(sp[1] <- v1496 T{_Double})
+1046:     MoveArgument(sp[0] <- v414)
+1048:     v418 <- InstanceCall:1316( *<0>, v1496 T{_Double}, v414 IC[0: ]) T{_Double}
+1049:     ParallelMove rcx <- rax, rax <- fp[-49]
+1050:     ParallelMove fp[-51] <- rcx
+1050:     v1133 <- Unbox:1320(v413) double
+1051:     ParallelMove xmm1 <- fp[-127] f64
+1052:     v419 <- BinaryDoubleOp:1320(-, v1133, v379 T{_Double}) double
+1054:     v1497 <- Box(v419) T{_Double}
+1056:     MoveArgument(sp[1] <- v1497 T{_Double})
+1058:     MoveArgument(sp[0] <- v414)
+1060:     v420 <- InstanceCall:1322( *<0>, v1497 T{_Double}, v414 IC[0: ]) T{_Double}
+1061:     ParallelMove rax <- rax, xmm0 <- fp[-105] f64, xmm1 <- fp[-114] f64
+1062:     ParallelMove fp[-54] <- rax
+1062:     Branch if RelationalOp:1326(<, v374 T{_Double}, v255 T{_Double}) T{bool} goto (60, 61)
+1064: B60[target]:1332
+1066:     ParallelMove rcx <- C, xmm2 <- fp[-104] f64, xmm3 <- fp[-103] f64, xmm4 <- fp[-102] f64 goto:1386 B71
+1068: B61[target]:1334 ParallelMove xmm2 <- fp[-104] f64
+1070:     Branch if RelationalOp:1336(<, v374 T{_Double}, v256 T{_Double}) T{bool} goto (62, 63)
+1072: B62[target]:1342
+1074:     ParallelMove rcx <- C, xmm3 <- fp[-103] f64, xmm4 <- fp[-102] f64 goto:1380 B70
+1076: B63[target]:1344 ParallelMove xmm3 <- fp[-103] f64
+1078:     Branch if RelationalOp:1346(<, v374 T{_Double}, v257 T{_Double}) T{bool} goto (64, 65)
+1080: B64[target]:1352
+1082:     ParallelMove rcx <- C, xmm4 <- fp[-102] f64 goto:1374 B69
+1084: B65[target]:1354 ParallelMove xmm4 <- fp[-102] f64
+1086:     RecordCoverage()
+1088:     Branch if RelationalOp:1356(<, v374 T{_Double}, v258 T{_Double}) T{bool} goto (66, 67)
+1090: B66[target]:1362
+1092:     ParallelMove rcx <- C goto:1368 B68
+1094: B67[target]:1364
+1096:     ParallelMove rcx <- C goto:1370 B68
+1098: B68[join]:1366 pred(B66, B67) {
+      v425 <- phi(v88, v115) alive [3, 4] T{_Smi}
+}
+1100:     ParallelMove rcx <- rcx goto:1376 B69
+1102: B69[join]:1372 pred(B64, B68) {
+      v426 <- phi(v61, v425) alive [2, 4] T{_Smi}
+}
+1104:     ParallelMove rcx <- rcx goto:1382 B70
+1106: B70[join]:1378 pred(B62, B69) {
+      v427 <- phi(v8, v426) alive [1, 4] T{_Smi}
+}
+1108:     ParallelMove rcx <- rcx goto:1388 B71
+1110: B71[join]:1384 pred(B60, B70) {
+      v428 <- phi(v211, v427) alive [0, 4] T{_Smi}
+} ParallelMove xmm5 <- fp[-123] f64
+1112:     Branch if RelationalOp:1392(<, v397 T{_Double}, v255 T{_Double}) T{bool} goto (72, 73)
+1114: B72[target]:1398
+1116:     ParallelMove rbx <- C goto:1452 B83
+1118: B73[target]:1400
+1120:     Branch if RelationalOp:1402(<, v397 T{_Double}, v256 T{_Double}) T{bool} goto (74, 75)
+1122: B74[target]:1408
+1124:     ParallelMove rdx <- C goto:1446 B82
+1126: B75[target]:1410
+1128:     Branch if RelationalOp:1412(<, v397 T{_Double}, v257 T{_Double}) T{bool} goto (76, 77)
+1130: B76[target]:1418
+1132:     ParallelMove rdx <- C goto:1440 B81
+1134: B77[target]:1420
+1136:     RecordCoverage()
+1138:     Branch if RelationalOp:1422(<, v397 T{_Double}, v258 T{_Double}) T{bool} goto (78, 79)
+1140: B78[target]:1428
+1142:     ParallelMove rdx <- C goto:1434 B80
+1144: B79[target]:1430
+1146:     ParallelMove rdx <- C goto:1436 B80
+1148: B80[join]:1432 pred(B78, B79) {
+      v433 <- phi(v88, v115) alive [3, 4] T{_Smi}
+}
+1150:     ParallelMove rdx <- rdx goto:1442 B81
+1152: B81[join]:1438 pred(B76, B80) {
+      v434 <- phi(v61, v433) alive [2, 4] T{_Smi}
+}
+1154:     ParallelMove rdx <- rdx goto:1448 B82
+1156: B82[join]:1444 pred(B74, B81) {
+      v435 <- phi(v8, v434) alive [1, 4] T{_Smi}
+}
+1158:     ParallelMove rbx <- rdx goto:1454 B83
+1160: B83[join]:1450 pred(B72, B82) {
+      v436 <- phi(v211, v435) alive [0, 4] T{_Smi}
+} ParallelMove rdx <- fp[-19]
+1162:     Branch if RelationalOp:1458(>, v428 T{_Smi}, v261) T{bool} goto (84, 85)
+1164: B84[target]:1464
+1166:     RecordCoverage()
+1168:     ParallelMove rcx <- rdx goto:1472 B86
+1170: B85[target]:1468
+1172:     ParallelMove rcx <- rcx goto:1474 B86
+1174: B86[join]:1470 pred(B84, B85) {
+      v438 <- phi(v261 T{_Smi}, v428 T{_Smi}) alive [-1, v428] T{_Smi}
+}
+1175:     ParallelMove fp[-53] <- rcx
+1176:     Branch if RelationalOp:1476(>, v436 T{_Smi}, v261) T{bool} goto (87, 88)
+1178: B87[target]:1482
+1180:     RecordCoverage()
+1182:     ParallelMove rbx <- rdx goto:1490 B89
+1184: B88[target]:1486
+1186:     ParallelMove rbx <- rbx goto:1492 B89
+1188: B89[join]:1488 pred(B87, B88) {
+      v440 <- phi(v261 T{_Smi}, v436 T{_Smi}) alive [-1, v436] T{_Smi}
+}
+1189:     ParallelMove fp[-52] <- rbx
+1190:     Branch if EqualityCompare:1494(v438 == v440) T{bool} goto (90, 91)
+1192: B90[target]:1500
+1194:     ParallelMove xmm5 <- C goto:1510 B92
+1196: B91[target]:1502
+1198:     RecordCoverage()
+1200:     ParallelMove xmm6 <- xmm5
+1200:     v442 <- BinaryDoubleOp:1504(-, v397, v374 T{_Double}) double
+1202:     RecordCoverage()
+1204:     v1498 <- Box(v442) T{_Double}
+1206:     MoveArgument(sp[1] <- v1498 T{_Double})
+1208:     MoveArgument(sp[0] <- v414)
+1210:     v443 <- InstanceCall:1506( *<0>, v1498 T{_Double}, v414 IC[0: ]) T{_Double}
+1212:     v1499 <- Unbox(v443) double
+1214:     ParallelMove xmm5 <- xmm0, rax <- fp[-54] goto:1512 B92
+1216: B92[join]:1508 pred(B90, B91) {
+      v444 <- phi(v1382 T{_Double}, v1499) alive double T{_Double}
+} ParallelMove xmm0 <- fp[-106] f64, xmm1 <- fp[-107] f64, xmm3 <- fp[-113] f64, xmm4 <- fp[-112] f64, rdx <- fp[-50], rcx <- fp[-51], xmm2 <- C
+1217:     ParallelMove fp[-126] f64 <- xmm5
+1218:     ParallelMove xmm6 <- xmm3
+1218:     v445 <- BinaryDoubleOp:1516(*, v375 T{_Double}, v270) double
+1220:     v1323 <- UnaryDoubleOp:10(floor, v445) double
+1222:     v1245 <- DoubleToSmi:14(v1323) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1224:     ParallelMove rsi <- rbx
+1224:     v447 <- BinarySmiOp:1520(*, v1245, v929 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1226:     ParallelMove xmm6 <- xmm4
+1226:     v448 <- BinaryDoubleOp:1524(*, v376 T{_Double}, v271) double
+1228:     v1329 <- UnaryDoubleOp:10(floor, v448) double
+1230:     v1251 <- DoubleToSmi:14(v1329) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1232:     ParallelMove rdi <- rbx
+1232:     v450 <- BinarySmiOp:1528(*, v1251, v933 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1234:     ParallelMove rbx <- rsi
+1234:     v1158 <- Unbox:1532(v447) double
+1236:     ParallelMove xmm7 <- xmm3
+1236:     v451 <- BinaryDoubleOp:1532(-, v375 T{_Double}, v1158) double
+1238:     v453 <- BinaryDoubleOp:1534(*, v451, v1317) double
+1240:     v1335 <- UnaryDoubleOp:10(floor, v453) double
+1242:     v1257 <- DoubleToSmi:14(v1335) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1243:     ParallelMove fp[-56] <- rbx
+1244:     ParallelMove rsi <- rdi
+1244:     v1162 <- Unbox:1540(v450) double
+1246:     ParallelMove xmm7 <- xmm4
+1246:     v455 <- BinaryDoubleOp:1540(-, v376 T{_Double}, v1162) double
+1248:     v456 <- BinaryDoubleOp:1542(*, v455, v1317) double
+1250:     v1341 <- UnaryDoubleOp:10(floor, v456) double
+1252:     v1263 <- DoubleToSmi:14(v1341) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1253:     ParallelMove fp[-55] <- rsi
+1254:     ParallelMove xmm6 <- fp[-124] f64
+1254:     v458 <- BinaryDoubleOp:1548(-, v398, v375 T{_Double}) double
+1256:     v1501 <- Box(v458) T{_Double}
+1258:     MoveArgument(sp[1] <- v1501 T{_Double})
+1260:     MoveArgument(sp[0] <- v414)
+1262:     v459 <- InstanceCall:1550( *<0>, v1501 T{_Double}, v414 IC[0: ]) T{_Double}
+1264:     v1167 <- Unbox:1552(v459) double
+1265:     ParallelMove xmm1 <- C
+1266:     v460 <- BinaryDoubleOp:1552(*, v1167, v1317) double
+1268:     v1347 <- UnaryDoubleOp:10(floor, v460) double
+1270:     v1269 <- DoubleToSmi:14(v1347) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1271:     ParallelMove xmm0 <- fp[-112] f64, fp[-57] <- rax
+1272:     ParallelMove xmm2 <- fp[-125] f64
+1272:     v462 <- BinaryDoubleOp:1558(-, v399, v376 T{_Double}) double
+1274:     v1502 <- Box(v462) T{_Double}
+1276:     MoveArgument(sp[1] <- v1502 T{_Double})
+1278:     MoveArgument(sp[0] <- v414)
+1280:     v463 <- InstanceCall:1560( *<0>, v1502 T{_Double}, v414 IC[0: ]) T{_Double}
+1282:     v1171 <- Unbox:1562(v463) double
+1283:     ParallelMove xmm1 <- C
+1284:     v464 <- BinaryDoubleOp:1562(*, v1171, v1317) double
+1286:     v1353 <- UnaryDoubleOp:10(floor, v464) double
+1288:     v1275 <- DoubleToSmi:14(v1353) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1289:     ParallelMove fp[-44] <- rax
+1290:     ParallelMove rdx <- fp[-29]
+1290:     v466 <- BinarySmiOp:1570(+, v373, v388) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1291:     ParallelMove rbx <- fp[-50], fp[-61] <- rdx
+1292:     v1200 <- Unbox:1868(v416) double
+1293:     ParallelMove rsi <- fp[-51], fp[-128] f64 <- xmm0
+1294:     v1206 <- Unbox:1868(v418) double
+1295:     ParallelMove rdi <- fp[-54], fp[-131] f64 <- xmm2
+1296:     v1212 <- Unbox:1868(v420) double
+1297:     ParallelMove fp[-130] f64 <- xmm3
+1298:     ParallelMove rsi <- fp[-36], fp[-60] <- fp[-35], fp[-59] <- fp[-31], fp[-58] <- fp[-30], rbx <- fp[-29], xmm14 <- fp[-122] f64, xmm13 <- fp[-101] f64, r13 <- fp[-9], rcx <- fp[-8], xmm12 <- fp[-111] f64, xmm11 <- fp[-110] f64, xmm10 <- fp[-127] f64 goto:1868 B125
+1300: B125[join]:1866 pred(B92, B124) {
+      v467 <- phi(v364, v492) alive [0, 4611686018427387903] T{_Smi}
+      v468 <- phi(v365, v493) alive T{<:*}
+      v469 <- phi(v366, v494) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+      v470 <- phi(v367, v495) alive [0, 4611686018427387903] T{_Smi}
+      v471 <- phi(v373, v496) alive [-4611686018427387904, 4611686018427387903] T{_Smi}
+      v472 <- phi(v368, v497) alive double T{_Double}
+} ParallelMove xmm5 <- fp[-105] f64, xmm7 <- fp[-104] f64, xmm8 <- fp[-103] f64, xmm9 <- fp[-102] f64, r12 <- fp[-20], r8 <- fp[-19], xmm6 <- fp[-114] f64, r9 <- fp[-53], r10 <- fp[-52], xmm4 <- fp[-126] f64, rax <- fp[-26]
+1301:     ParallelMove fp[-64] <- rbx, fp[-129] f64 <- xmm14
+1302:     CheckStackOverflow:1872(stack=0, loop=3)
+1304:     Branch if RelationalOp:1576(<, v471, v466) T{bool} goto (93, 94)
+1306: B93[target]:1582
+1308:     CheckArrayBound:1590(v1173, v471 T{_Smi}) [0, v466-1] T{_Smi}
+1310:     v1175 <- LoadIndexed:1590([_Float32List] v225, v471 T{_Smi}) float
+1312:     v1176 <- FloatToDouble:1590(v1175) double
+1314:     Branch if RelationalOp:1592(>, v472 T{_Double}, v1176 T{_Double}) T{bool} goto (95, 123)
+1316: B95[target]:1598
+1318:     ParallelMove rdi <- rbx
+1318:     v498 <- BinarySmiOp:1600(-, v471 T{_Smi}, v373) [-4611686018427387903, v466+4611686018427387903] T{_Smi}
+1319:     ParallelMove fp[-62] <- rdi
+1320:     Branch if EqualityCompare:1606(v438 != v440) T{bool} goto (96, 112)
+1322: B96[target]:1612
+1324:     RecordCoverage()
+1326:     RecordCoverage()
+1328:     ParallelMove rdx <- fp[-62]
+1328:     v1179 <- Unbox:1614(v498) double
+1330:     v549 <- BinaryDoubleOp:1614(*, v1179, v444 T{_Double}) double
+1332:     RecordCoverage()
+1334:     v550 <- BinaryDoubleOp:1616(+, v549 T{_Double}, v374 T{_Double}) double
+1336:     RecordCoverage()
+1338:     Branch if RelationalOp:1620(<, v550 T{_Double}, v255 T{_Double}) T{bool} goto (97, 98)
+1340: B97[target]:1626
+1342:     ParallelMove rdx <- C goto:1680 B108
+1344: B98[target]:1628
+1346:     RecordCoverage()
+1348:     Branch if RelationalOp:1630(<, v550 T{_Double}, v256 T{_Double}) T{bool} goto (99, 100)
+1350: B99[target]:1636
+1352:     ParallelMove rdx <- C goto:1674 B107
+1354: B100[target]:1638
+1356:     RecordCoverage()
+1358:     Branch if RelationalOp:1640(<, v550 T{_Double}, v257 T{_Double}) T{bool} goto (101, 102)
+1360: B101[target]:1646
+1362:     ParallelMove rdx <- C goto:1668 B106
+1364: B102[target]:1648
+1366:     RecordCoverage()
+1368:     Branch if RelationalOp:1650(<, v550 T{_Double}, v258 T{_Double}) T{bool} goto (103, 104)
+1370: B103[target]:1656
+1372:     ParallelMove rdx <- C goto:1662 B105
+1374: B104[target]:1658
+1376:     ParallelMove rdx <- C goto:1664 B105
+1378: B105[join]:1660 pred(B103, B104) {
+      v555 <- phi(v88, v115) alive [3, 4] T{_Smi}
+}
+1380:     ParallelMove rdx <- rdx goto:1670 B106
+1382: B106[join]:1666 pred(B101, B105) {
+      v556 <- phi(v61, v555) alive [2, 4] T{_Smi}
+}
+1384:     ParallelMove rdx <- rdx goto:1676 B107
+1386: B107[join]:1672 pred(B99, B106) {
+      v557 <- phi(v8, v556) alive [1, 4] T{_Smi}
+}
+1388:     ParallelMove rdx <- rdx goto:1682 B108
+1390: B108[join]:1678 pred(B97, B107) {
+      v558 <- phi(v211, v557) alive [0, 4] T{_Smi}
+}
+1392:     RecordCoverage()
+1394:     Branch if RelationalOp:1686(>, v558 T{_Smi}, v261) T{bool} goto (109, 110)
+1396: B109[target]:1692
+1398:     RecordCoverage()
+1400:     ParallelMove rdx <- r8 goto:1700 B111
+1402: B110[target]:1696
+1404:     ParallelMove rdx <- rdx goto:1702 B111
+1406: B111[join]:1698 pred(B109, B110) {
+      v560 <- phi(v261 T{_Smi}, v558 T{_Smi}) alive [-1, v558] T{_Smi}
+}
+1408:     ParallelMove rdx <- rdx goto:1708 B113
+1410: B112[target]:1704
+1412:     ParallelMove rdx <- fp[-53] goto:1710 B113
+1414: B113[join]:1706 pred(B111, B112) {
+      v500 <- phi(v560, v438) alive [-1, 4] T{_Smi}
+}
+1416:     Branch if EqualityCompare:1712(v500 != v467 T{_Smi}) T{bool} goto (114, 115)
+1418: B114[target]:1718
+1420:     v1191 <- LoadField(v259 . GrowableObjectArray.length) [0, 576460752303423487] T{_Smi}
+1422:     CheckArrayBound:1722(v1191, v500) [0, 4] T{_Smi}
+1424:     v1193 <- LoadField(v259 . GrowableObjectArray.data) T{_List}
+1426:     v1194 <- LoadIndexed:1722([_List] v1193, v500 T{_Smi}) T{<:Uint8List}
+1428:     ParallelMove r9 <- fp[-22]
+1428:     v548 <- BinarySmiOp:1724(-, v269, v500 T{_Smi}) [-4611686018427387904, 4611686018427387902] T{_Smi}
+1430:     ParallelMove fp[-63] <- rdx, r9 <- rdi, rdi <- r9 goto:1730 B116
+1432: B115[target]:1726
+1434:     ParallelMove fp[-63] <- rsi, r9 <- fp[-60], rdi <- fp[-59] goto:1732 B116
+1436: B116[join]:1728 pred(B114, B115) {
+      v502 <- phi(v500 T{_Smi}, v467 T{_Smi}) alive [0, 4611686018427387903] T{_Smi}
+      v503 <- phi(v1194, v468) alive T{<:*}
+      v504 <- phi(v548, v469) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+} ParallelMove rbx <- fp[-7], rax <- rbx, rsi <- rax
+1437:     ParallelMove fp[-65] <- r9, fp[-66] <- rdi
+1438:     ParallelMove rax <- fp[-62]
+1438:     v505 <- BinarySmiOp:1734(*, v498, v1269) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1440:     ParallelMove rbx <- fp[-56]
+1440:     v506 <- BinarySmiOp:1736(+, v1257, v505) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1442:     v508 <- BinarySmiOp:1738(>> [-o], v506 T{_Smi}, v507) [-70368744177664, 70368744177663] T{_Smi}
+1444:     v509 <- BinarySmiOp:1740(& [-o], v508, v266) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1445:     ParallelMove rcx <- rdx, rax <- rcx
+1446:     ParallelMove rax <- rbx
+1446:     v510 <- BinarySmiOp:1742(>> [-o], v509, v500) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1448:     ParallelMove rcx <- fp[-62]
+1448:     v511 <- BinarySmiOp:1746(*, v498, v1275) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1450:     ParallelMove rbx <- fp[-55]
+1450:     v512 <- BinarySmiOp:1748(+, v1263, v511) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1452:     v513 <- BinarySmiOp:1750(>> [-o], v512 T{_Smi}, v507) [-70368744177664, 70368744177663] T{_Smi}
+1454:     v514 <- BinarySmiOp:1752(& [-o], v513, v267) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1455:     ParallelMove rcx <- rdx
+1456:     ParallelMove rsi <- rbx
+1456:     v515 <- BinarySmiOp:1754(>> [-o], v514, v500) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1457:     ParallelMove rcx <- rdi
+1458:     ParallelMove rdx <- rsi
+1458:     v516 <- BinarySmiOp:1758(<<, v515, v504 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1460:     v517 <- BinarySmiOp:1760(| [-o], v516, v510) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1462:     MoveArgument(sp[1] <- v503)
+1464:     MoveArgument(sp[0] <- v517)
+1466:     v518 <- InstanceCall:1762( []<0>, v503, v517 IC[0: ]) T{<:X0?}
+1467:     ParallelMove rax <- rax, rcx <- fp[-7]
+1468:     Branch if StrictCompare:1768(===, v239, v14) goto (117, 119)
+1470: B117[target]:1778
+1472:     RecordCoverage()
+1474:     CheckSmi:1772(v518)
+1476:     Branch if EqualityCompare:1772(v518 T{_Smi} == v545) T{bool} goto (121, 120)
+1478: B121[target]:1850
+1480:     ParallelMove rcx <- fp[-58], rdx <- fp[-9], rdi <- fp[-8], r9 <- fp[-5], xmm5 <- fp[-111] f64, xmm4 <- fp[-110] f64, xmm3 <- fp[-127] f64, rbx <- fp[-64], xmm0 <- fp[-128] f64, xmm1 <- fp[-131] f64, xmm2 <- fp[-130] f64, r10 <- fp[-28] goto:1856 B122
+1482: B120[target]:1786
+1484:     ParallelMove  goto:1788 B118
+1486: B119[target]:1782
+1488:     ParallelMove  goto:1784 B118
+1490: B118[join]:1780 pred(B119, B120) ParallelMove rdx <- fp[-9], rdi <- fp[-8], r9 <- fp[-5], r8 <- fp[-6], xmm5 <- fp[-111] f64, xmm4 <- fp[-110] f64, xmm3 <- fp[-127] f64, rbx <- fp[-64], xmm0 <- fp[-128] f64, xmm1 <- fp[-131] f64, xmm2 <- fp[-130] f64, r10 <- fp[-28]
+1492:     ParallelMove r12 <- fp[-45]
+1492:     v519 <- BinarySmiOp:1790(+, v380 T{_Smi}, v498) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1494:     v520 <- BinarySmiOp:1792(& [-o], v519 T{_Smi}, v88) [0, 3] T{_Smi}
+1496:     ParallelMove r13 <- fp[-37]
+1496:     v521 <- BinarySmiOp:1794(| [-o], v345, v520) [0, 15] T{_Smi}
+1498:     v1197 <- LoadIndexed:1796([_Float32List] v250, v521 T{_Smi}) float
+1500:     v1198 <- FloatToDouble:1796(v1197) double
+1502:     ParallelMove r12 <- fp[-62]
+1502:     v1199 <- Unbox:1800(v498) double
+1504:     ParallelMove xmm8 <- xmm7
+1504:     v523 <- BinaryDoubleOp:1800(*, v1199, v1200) double
+1506:     v524 <- BinaryDoubleOp:1802(+, v523 T{_Double}, v377 T{_Double}) double
+1508:     v525 <- BinaryDoubleOp:1804(+, v524 T{_Double}, v1198 T{_Double}) double
+1510:     v526 <- DoubleToSmi:1806(v525) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1512:     ParallelMove xmm8 <- xmm7
+1512:     v527 <- BinaryDoubleOp:1810(*, v1199 T{_Double}, v1206) double
+1514:     v528 <- BinaryDoubleOp:1812(+, v527 T{_Double}, v378 T{_Double}) double
+1516:     v529 <- BinaryDoubleOp:1814(+, v528 T{_Double}, v1198 T{_Double}) double
+1518:     v530 <- DoubleToSmi:1816(v529) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1520:     v531 <- BinaryDoubleOp:1820(*, v1199 T{_Double}, v1212) double
+1522:     v532 <- BinaryDoubleOp:1822(+, v531 T{_Double}, v379 T{_Double}) double
+1524:     v533 <- BinaryDoubleOp:1824(+, v532 T{_Double}, v1198 T{_Double}) double
+1526:     v534 <- DoubleToSmi:1826(v533) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1528:     ParallelMove rcx <- rsi
+1528:     v1383 <- BinarySmiOp:1830(<<, v534, v115) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1530:     ParallelMove r8 <- rcx
+1530:     v536 <- BinarySmiOp:1832(+, v1383 T{_Smi}, v526) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1532:     ParallelMove rcx <- r8
+1532:     v1384 <- BinarySmiOp:1834(<<, v536, v115) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1534:     ParallelMove r8 <- rcx
+1534:     v538 <- BinarySmiOp:1836(+, v1384 T{_Smi}, v530) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1536:     ParallelMove rcx <- r8
+1536:     v540 <- BinarySmiOp:1838(*, v538, v539) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1538:     CheckSmi:1840(v518)
+1540:     ParallelMove r8 <- rcx
+1540:     v541 <- BinarySmiOp:1840(+, v540, v518 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1542:     CheckArrayBound:1842(v1385 T{_Smi}, v541) [0, 245760] T{_Smi}
+1544:     v1219 <- LoadIndexed:1842([_Uint8List] v228, v541 T{_Smi}) [0, 255] int64
+1546:     CheckArrayBound:1844(v1220, v471 T{_Smi}) [0, v466-1] T{_Smi}
+1548:     ParallelMove r8 <- rbx
+1548:     StoreIndexed:1844([_Uint8List] v223, v471 T{_Smi}, v1219, NoStoreBarrier)
+1550:     ParallelMove xmm6 <- fp[-129] f64
+1550:     v1225 <- DoubleToFloat:1846(v472) float
+1552:     StoreIndexed:1846([_Float32List] v225, v471 T{_Smi}, v1225, NoStoreBarrier)
+1554:     ParallelMove rcx <- fp[-58]
+1554:     v543 <- BinarySmiOp:1848(+, v470 T{_Smi}, v8) [1, 4611686018427387903] T{_Smi}
+1556:     ParallelMove rcx <- rcx goto:1854 B122
+1558: B122[join]:1852 pred(B118, B121) {
+      v544 <- phi(v543, v470) alive [0, 4611686018427387903] T{_Smi}
+}
+1560:     ParallelMove rsi <- fp[-63], r12 <- fp[-65], r8 <- fp[-66], rcx <- rcx goto:1862 B124
+1562: B123[target]:1858 ParallelMove rdx <- r13, rdi <- rcx, r9 <- fp[-5], xmm5 <- xmm12, xmm4 <- xmm11, xmm3 <- xmm10, xmm0 <- fp[-128] f64, xmm1 <- xmm2, xmm2 <- xmm3, r10 <- fp[-28]
+1564:     ParallelMove rsi <- rsi, r12 <- fp[-60], r8 <- fp[-59], rcx <- fp[-58] goto:1864 B124
+1566: B124[join]:1860 pred(B122, B123) {
+      v492 <- phi(v502, v467) alive [0, 4611686018427387903] T{_Smi}
+      v493 <- phi(v503 T{<:*}, v468) alive T{<:*}
+      v494 <- phi(v504 T{_Smi}, v469) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+      v495 <- phi(v544, v470) alive [0, 4611686018427387903] T{_Smi}
+} ParallelMove xmm6 <- fp[-101] f64
+1568:     v496 <- BinarySmiOp:1586(+ [-o], v471 T{_Smi}, v8) [1, v466] T{_Smi}
+1570:     ParallelMove xmm7 <- fp[-129] f64
+1570:     v497 <- BinaryDoubleOp:1588(+, v472 T{_Double}, v74 T{_Double}) double
+1572:     ParallelMove rsi <- rsi, fp[-60] <- r12, fp[-59] <- r8, fp[-58] <- rcx, rbx <- rbx, xmm14 <- xmm7, xmm13 <- xmm6, r13 <- rdx, rcx <- rdi, xmm12 <- xmm5, xmm11 <- xmm4, xmm10 <- xmm3, rdx <- fp[-61], xmm2 <- xmm1, xmm3 <- xmm2, xmm1 <- C goto:1870 B125
+1574: B94[target]:1584 ParallelMove xmm6 <- xmm13, xmm8 <- fp[-81] f64, xmm7 <- fp[-85] f64, rdx <- r13, rdi <- rcx, r9 <- fp[-5], xmm5 <- xmm12, xmm4 <- xmm11, xmm3 <- xmm10, rcx <- fp[-47], r10 <- fp[-28]
+1576:     ParallelMove r8 <- fp[-45]
+1576:     v474 <- BinarySmiOp:1874(+, v380 T{_Smi}, v388) [-4611686018427387904, v1707+4611686018427387903] T{_Smi}
+1578:     ParallelMove r12 <- fp[-42]
+1578:     v1228 <- Unbox:1876(v388) double
+1580:     ParallelMove xmm1 <- xmm0
+1580:     v475 <- BinaryDoubleOp:1876(*, v1228, v74) double
+1582:     ParallelMove xmm9 <- fp[-122] f64
+1582:     v476 <- BinaryDoubleOp:1878(+, v368 T{_Double}, v475) double
+1584:     ParallelMove xmm1 <- xmm0
+1584:     v477 <- BinaryDoubleOp:1880(*, v1228 T{_Double}, v155) double
+1586:     ParallelMove xmm10 <- fp[-119] f64
+1586:     v478 <- BinaryDoubleOp:1882(+, v371 T{_Double}, v477) double
+1588:     v479 <- BinaryDoubleOp:1884(*, v1228 T{_Double}, v182) double
+1590:     ParallelMove xmm11 <- fp[-118] f64
+1590:     v480 <- BinaryDoubleOp:1886(+, v372 T{_Double}, v479) double
+1592:     Branch if StrictCompare:1890(===, v387 T{bool}, v14) goto (126, 127)
+1594: B126[target]:1894 ParallelMove r13 <- fp[-48], r12 <- fp[-46], rcx <- fp[-49]
+1596:     v1490 <- Unbox(v407) double
+1598:     v1493 <- Unbox(v412) double
+1600:     v1494 <- Unbox(v413) double
+1602:     ParallelMove xmm4 <- fp[-117] f64, xmm3 <- fp[-115] f64, xmm2 <- fp[-116] f64, xmm0 <- fp[-123] f64, xmm13 <- fp[-124] f64, xmm12 <- fp[-125] f64, xmm9 <- xmm5, xmm5 <- xmm9, xmm14 <- xmm12 goto:1918 B128
+1604: B127[target]:1914
+1606:     ParallelMove xmm4 <- xmm9, xmm3 <- fp[-121] f64, xmm2 <- fp[-120] f64, xmm0 <- fp[-114] f64, xmm13 <- fp[-113] f64, xmm12 <- fp[-112] f64, xmm9 <- xmm5, xmm5 <- xmm4, xmm14 <- xmm3 goto:1920 B128
+1608: B128[join]:1916 pred(B126, B127) {
+      v481 <- phi(v392, v476) alive double T{_Double}
+      v482 <- phi(v394, v369) alive double T{_Double}
+      v483 <- phi(v396, v370) alive double T{_Double}
+      v484 <- phi(v397, v374) alive double T{_Double}
+      v485 <- phi(v398, v375) alive double T{_Double}
+      v486 <- phi(v399, v376) alive double T{_Double}
+      v487 <- phi(v1490, v377) alive double T{_Double}
+      v488 <- phi(v1493, v378) alive double T{_Double}
+      v489 <- phi(v1494, v379) alive double T{_Double}
+}
+1610:     ParallelMove fp[-36] <- rsi, fp[-35] <- fp[-60], fp[-31] <- fp[-59], fp[-30] <- fp[-58], xmm4 <- xmm4, xmm3 <- xmm3, xmm2 <- xmm2, xmm1 <- xmm10, xmm0 <- xmm11, fp[-29] <- rbx, fp[-114] f64 <- xmm0, fp[-113] f64 <- xmm13, fp[-112] f64 <- xmm12, fp[-111] f64 <- xmm9, fp[-110] f64 <- xmm5, xmm14 <- xmm14, rax <- r8, xmm8 <- xmm6, xmm11 <- xmm8, rsi <- rdx, r13 <- r9, r9 <- r10 goto:1926 B130
+1612: B131[target]:1932 ParallelMove xmm6 <- xmm8, xmm8 <- xmm11, rdx <- rsi, r9 <- r13, r10 <- r9
+1614:     ParallelMove r8 <- fp[-36], rsi <- fp[-35], rbx <- fp[-31], rax <- fp[-30] goto:1934 B43
+1616: B43[join]:978 pred(B42, B131) {
+      v575 <- phi(v282, v364) alive [0, 4611686018427387903] T{_Smi}
+      v576 <- phi(v283, v365) alive T{<:*}
+      v577 <- phi(v284, v366) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+      v578 <- phi(v285, v367) alive [0, 4611686018427387903] T{_Smi}
+}
+1618:     ParallelMove rcx <- fp[-34]
+1618:     v579 <- BinarySmiOp:800(+, v286 T{_Smi}, v8) [-4611686018427387903, 4611686018427387903] T{_Smi}
+1620:     ParallelMove fp[-31] <- r8, fp[-30] <- rsi, fp[-29] <- rbx, fp[-11] <- rax, rcx <- rcx, rdi <- rdx, r8 <- rdi, r9 <- fp[-3], xmm3 <- fp[-108] f64, rdx <- fp[-32], rsi <- fp[-33], xmm0 <- fp[-68] f64, xmm11 <- fp[-70] f64, xmm12 <- fp[-72] f64, r10 <- fp[-41], xmm10 <- fp[-75] f64, xmm5 <- fp[-74] f64, r12 <- fp[-40], r13 <- fp[-39] goto:1940 B132
+1622: B23[target]:798 ParallelMove rcx <- fp[7]
+1624:     v288 <- LoadField(v2 . stats {final}) T{FrameStats}
+1626:     v289 <- LoadField(v288 . pixelsWritten) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1628:     ParallelMove rbx <- rcx
+1628:     v290 <- BinarySmiOp:1948(+, v289, v285 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1630:     StoreField(v288 . pixelsWritten = v290)
+1631:     ParallelMove rax <- C
+1632:     DartReturn:1954(v0)
+*** END CFG
+*** BEGIN CFG
+After AllocateRegisters
+==== package:pixel_engine/src/raster/renderer.dart_Renderer__rasterTri@60000373 (RegularFunction)
+  0: B0[graph]:0 {
+      v0 <- Constant(#null) T{Null?}
+      v1 <- Constant(#<optimized out>) T{Sentinel~}
+      v8 <- Constant(#1) [1, 1] T{_Smi}
+      v14 <- Constant(#true) T{bool}
+      v50 <- Constant(#1e-9) T{_Double}
+      v61 <- Constant(#2) [2, 2] T{_Smi}
+      v88 <- Constant(#3) [3, 3] T{_Smi}
+      v115 <- Constant(#4) [4, 4] T{_Smi}
+      v142 <- Constant(#5) [5, 5] T{_Smi}
+      v169 <- Constant(#6) [6, 6] T{_Smi}
+      v210 <- Constant(#TypeArguments: (H32c84ab6) [Type: int]) T{TypeArguments}
+      v211 <- Constant(#0) [0, 0] T{_Smi}
+      v212 <- Constant(#0.5) T{_Double}
+      v386 <- Constant(#32) [32, 32] T{_Smi}
+      v507 <- Constant(#16) [16, 16] T{_Smi}
+      v539 <- Constant(#160) [160, 160] T{_Smi}
+      v545 <- Constant(#255) [255, 255] T{_Smi}
+      v1325 <- Constant(#1024) [1024, 1024] T{_Smi}
+      v1327 <- UnboxedConstant(#1024.0) double
+      v1328 <- UnboxedConstant(#15.0) double
+      v1407 <- UnboxedConstant(#0.0) double
+      v1408 <- UnboxedConstant(#1.2) double
+      v1409 <- UnboxedConstant(#3.0) double
+      v1410 <- UnboxedConstant(#5.0) double
+      v1677 <- UnboxedConstant(#1e-9) double
+      v1678 <- UnboxedConstant(#1.0) double
+      v1679 <- UnboxedConstant(#0.5) double
+      v1680 <- UnboxedConstant(#64.0) double
+      v1681 <- UnboxedConstant(#2.0) double
+      v1683 <- UnboxedConstant(#6.0) double
+      v1685 <- UnboxedConstant(#65536.0) double
+      v1688 <- Constant(#245760) [245760, 245760] T{_Smi}
+      v1874 <- UnboxedConstant(#0) [0, 0] int64
+}
+  2: B1[function entry]:2 {
+      v2 <- Parameter(0 @fp[7]) T{Renderer}
+      v3 <- Parameter(1 @fp[6]) T{<:Float64List}
+      v4 <- Parameter(2 @fp[5]) [-9223372036854775808, 9223372036854775807] T{<:int}
+      v5 <- Parameter(3 @fp[4]) [-9223372036854775808, 9223372036854775807] T{<:int}
+      v6 <- Parameter(4 @fp[3]) [-9223372036854775808, 9223372036854775807] T{<:int}
+      v7 <- Parameter(5 @fp[2]) T{IndexedTexture}
+}
+  4:     CheckStackOverflow:8(stack=0, loop=0)
+  5:     ParallelMove rax <- fp[4]
+  6:     CheckSmi:18(v5)
+  8:     ParallelMove rcx <- rax
+  8:     v9 <- BinarySmiOp:18(+, v5 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+  9:     ParallelMove rbx <- fp[6]
+ 10:     CheckClass:20(v3 Cids[1: _Float64List@8027147 etc.  cid 153])
+ 12:     v591 <- LoadField(v3 T{_Float64List} . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+ 13:     ParallelMove fp[-6] <- rsi
+ 14:     CheckArrayBound:20(v591, v9) [0, 4611686018427387903] T{_Smi}
+ 16:     v593 <- LoadIndexed:20([_Float64List] v3 T{_Float64List}, v9 T{_Smi}) double
+ 17:     ParallelMove rcx <- fp[5]
+ 18:     CheckSmi:22(v4)
+ 20:     ParallelMove rdx <- rcx
+ 20:     v11 <- BinarySmiOp:22(+, v4 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 22:     CheckArrayBound:24(v591 T{_Smi}, v11) [0, 4611686018427387903] T{_Smi}
+ 24:     v596 <- LoadIndexed:24([_Float64List] v3 T{_Float64List}, v11 T{_Smi}) double
+ 26:     Branch if RelationalOp:26(<, v593 T{_Double}, v596 T{_Double}) T{bool} goto (3, 4)
+ 28: B3[target]:32
+ 30:     ParallelMove rdx <- rax, rcx <- rcx goto:44 B5
+ 32: B4[target]:40
+ 34:     ParallelMove rdx <- rcx, rcx <- rax goto:46 B5
+ 36: B5[join]:42 pred(B3, B4) {
+      v15 <- phi(v5 T{_Smi}, v4 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+      v16 <- phi(v4 T{_Smi}, v5 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+} ParallelMove rax <- fp[3]
+ 38:     CheckSmi:48(v6)
+ 40:     ParallelMove rdi <- rax
+ 40:     v17 <- BinarySmiOp:48(+, v6 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 42:     CheckArrayBound:50(v591 T{_Smi}, v17) [0, 4611686018427387903] T{_Smi}
+ 44:     v601 <- LoadIndexed:50([_Float64List] v3 T{_Float64List}, v17 T{_Smi}) double
+ 46:     ParallelMove rdi <- rdx
+ 46:     v19 <- BinarySmiOp:52(+, v15 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 48:     CheckArrayBound:54(v591 T{_Smi}, v19) [0, 4611686018427387903] T{_Smi}
+ 50:     v604 <- LoadIndexed:54([_Float64List] v3 T{_Float64List}, v19 T{_Smi}) double
+ 52:     Branch if RelationalOp:56(<, v601 T{_Double}, v604 T{_Double}) T{bool} goto (6, 7)
+ 54: B6[target]:62
+ 56:     ParallelMove rdi <- rax, rax <- rdx goto:74 B8
+ 58: B7[target]:70
+ 60:     ParallelMove rdi <- rdx, rax <- rax goto:76 B8
+ 62: B8[join]:72 pred(B6, B7) {
+      v22 <- phi(v6 T{_Smi}, v15 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+      v23 <- phi(v15 T{_Smi}, v6 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+}
+ 63:     ParallelMove fp[-5] <- rdi
+ 64:     ParallelMove rdx <- rax
+ 64:     v24 <- BinarySmiOp:78(+, v23 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 66:     CheckArrayBound:80(v591 T{_Smi}, v24) [0, 4611686018427387903] T{_Smi}
+ 68:     v609 <- LoadIndexed:80([_Float64List] v3 T{_Float64List}, v24 T{_Smi}) double
+ 70:     ParallelMove rdx <- rcx
+ 70:     v26 <- BinarySmiOp:82(+, v16 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 72:     CheckArrayBound:84(v591 T{_Smi}, v26) [0, 4611686018427387903] T{_Smi}
+ 74:     v612 <- LoadIndexed:84([_Float64List] v3 T{_Float64List}, v26 T{_Smi}) double
+ 76:     Branch if RelationalOp:86(<, v609 T{_Double}, v612 T{_Double}) T{bool} goto (9, 10)
+ 78: B9[target]:92
+ 80:     ParallelMove rcx <- rax, rax <- rcx goto:104 B11
+ 82: B10[target]:100
+ 84:     ParallelMove rcx <- rcx, rax <- rax goto:106 B11
+ 86: B11[join]:102 pred(B9, B10) {
+      v29 <- phi(v23 T{_Smi}, v16 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+      v30 <- phi(v16 T{_Smi}, v23 T{_Smi}) alive [-9223372036854775808, 9223372036854775807] T{_Smi}
+}
+ 87:     ParallelMove fp[-3] <- rcx, fp[-4] <- rax
+ 88:     v31 <- LoadStaticField(zDreiecke) [-9223372036854775808, 9223372036854775807] T{<:int}
+ 90:     CheckSmi:108(v31)
+ 92:     ParallelMove r8 <- rdx
+ 92:     v32 <- BinarySmiOp:108(+, v31 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+ 93:     ParallelMove rdx <- r8
+ 94:     StoreStaticField:110(zDreiecke, v32)
+ 96:     CheckArrayBound:112(v591 T{_Smi}, v22) [0, 4611686018427387903] T{_Smi}
+ 98:     v617 <- LoadIndexed:112([_Float64List] v3 T{_Float64List}, v22 T{_Smi}) double
+ 99:     ParallelMove fp[-67] f64 <- xmm0
+100:     ParallelMove rdx <- rdi
+100:     v34 <- BinarySmiOp:116(+ [-o], v22 T{_Smi}, v8) [1, v1970] T{_Smi}
+102:     CheckArrayBound:118(v591 T{_Smi}, v34) [1, v1970] T{_Smi}
+104:     v620 <- LoadIndexed:118([_Float64List] v3 T{_Float64List}, v34 T{_Smi}) double
+105:     ParallelMove fp[-66] f64 <- xmm1
+106:     CheckArrayBound:122(v591 T{_Smi}, v29) [0, 4611686018427387903] T{_Smi}
+108:     v623 <- LoadIndexed:122([_Float64List] v3 T{_Float64List}, v29 T{_Smi}) double
+109:     ParallelMove fp[-65] f64 <- xmm2
+110:     ParallelMove rdx <- rcx
+110:     v37 <- BinarySmiOp:126(+ [-o], v29 T{_Smi}, v8) [1, v1968] T{_Smi}
+112:     CheckArrayBound:128(v591 T{_Smi}, v37) [1, v1968] T{_Smi}
+114:     v626 <- LoadIndexed:128([_Float64List] v3 T{_Float64List}, v37 T{_Smi}) double
+115:     ParallelMove fp[-64] f64 <- xmm3
+116:     CheckArrayBound:132(v591 T{_Smi}, v30) [0, 4611686018427387903] T{_Smi}
+118:     v629 <- LoadIndexed:132([_Float64List] v3 T{_Float64List}, v30 T{_Smi}) double
+119:     ParallelMove fp[-63] f64 <- xmm4
+120:     ParallelMove rdx <- rax
+120:     v40 <- BinarySmiOp:136(+ [-o], v30 T{_Smi}, v8) [1, v1966] T{_Smi}
+122:     CheckArrayBound:138(v591 T{_Smi}, v40) [1, v1966] T{_Smi}
+124:     v632 <- LoadIndexed:138([_Float64List] v3 T{_Float64List}, v40 T{_Smi}) double
+125:     ParallelMove fp[-62] f64 <- xmm5
+126:     ParallelMove xmm6 <- xmm2
+126:     v42 <- BinaryDoubleOp:142(-, v623 T{_Double}, v617 T{_Double}) double
+127:     ParallelMove fp[-61] f64 <- xmm6
+128:     ParallelMove xmm7 <- xmm5
+128:     v43 <- BinaryDoubleOp:144(-, v632 T{_Double}, v620 T{_Double}) double
+129:     ParallelMove fp[-60] f64 <- xmm7
+130:     ParallelMove xmm8 <- xmm6
+130:     v44 <- BinaryDoubleOp:146(*, v42 T{_Double}, v43 T{_Double}) double
+132:     ParallelMove xmm9 <- xmm4
+132:     v45 <- BinaryDoubleOp:148(-, v629 T{_Double}, v617 T{_Double}) double
+133:     ParallelMove fp[-59] f64 <- xmm9
+134:     ParallelMove xmm10 <- xmm3
+134:     v46 <- BinaryDoubleOp:150(-, v626 T{_Double}, v620 T{_Double}) double
+135:     ParallelMove fp[-58] f64 <- xmm10
+136:     ParallelMove xmm11 <- xmm9
+136:     v47 <- BinaryDoubleOp:152(*, v45 T{_Double}, v46 T{_Double}) double
+138:     v48 <- BinaryDoubleOp:154(-, v44 T{_Double}, v47 T{_Double}) double
+139:     ParallelMove fp[-57] f64 <- xmm8
+140:     v1733 <- Box(v48) T{_Double}
+142:     MoveArgument(sp[0] <- v1733 T{_Double})
+144:     v49 <- StaticCall:158( abs<0> v1733 T{_Double}) T{_Double}
+146:     v647 <- Unbox:160(v49) double
+147:     ParallelMove xmm1 <- C
+148:     Branch if RelationalOp:160(<, v647, v1677 T{_Double}) T{bool} goto (12, 13)
+150: B12[target]:166
+152:     RecordCoverage()
+153:     ParallelMove rax <- C
+154:     DartReturn:170(v0)
+156: B13[target]:172 ParallelMove rdx <- fp[7], rax <- fp[6], xmm0 <- fp[-59] f64, xmm2 <- fp[-57] f64, rcx <- fp[-6], xmm3 <- C
+158:     ParallelMove xmm4 <- C
+158:     v52 <- BinaryDoubleOp:174(/, v1678 T{_Double}, v48 T{_Double}) double
+160:     ParallelMove xmm2 <- fp[-60] f64
+160:     v54 <- BinaryDoubleOp:180(*, v43 T{_Double}, v52 T{_Double}) double
+162:     ParallelMove xmm5 <- fp[-58] f64
+162:     v56 <- BinaryDoubleOp:186(*, v46 T{_Double}, v52 T{_Double}) double
+164:     ParallelMove xmm6 <- fp[-61] f64
+164:     v58 <- BinaryDoubleOp:192(*, v42 T{_Double}, v52 T{_Double}) double
+166:     v60 <- BinaryDoubleOp:198(*, v52 T{_Double}, v45 T{_Double}) double
+168:     ParallelMove rbx <- fp[-3]
+168:     v62 <- BinarySmiOp:202(+, v29 T{_Smi}, v61) [2, v1968+1] T{_Smi}
+170:     CheckArrayBound:204(v591 T{_Smi}, v62) [2, 4611686018427387903] T{_Smi}
+172:     v669 <- LoadIndexed:204([_Float64List] v3 T{_Float64List}, v62 T{_Smi}) double
+174:     ParallelMove rbx <- fp[-5]
+174:     v64 <- BinarySmiOp:206(+, v22 T{_Smi}, v61) [2, v1970+1] T{_Smi}
+176:     CheckArrayBound:208(v591 T{_Smi}, v64) [2, 4611686018427387903] T{_Smi}
+178:     v672 <- LoadIndexed:208([_Float64List] v3 T{_Float64List}, v64 T{_Smi}) double
+179:     ParallelMove fp[-57] f64 <- xmm8
+180:     v66 <- BinaryDoubleOp:210(-, v669 T{_Double}, v672 T{_Double}) double
+182:     ParallelMove xmm9 <- xmm7
+182:     v67 <- BinaryDoubleOp:212(*, v66 T{_Double}, v54 T{_Double}) double
+184:     ParallelMove rbx <- fp[-4]
+184:     v68 <- BinarySmiOp:214(+, v30 T{_Smi}, v61) [2, v1966+1] T{_Smi}
+186:     CheckArrayBound:216(v591 T{_Smi}, v68) [2, 4611686018427387903] T{_Smi}
+188:     v679 <- LoadIndexed:216([_Float64List] v3 T{_Float64List}, v68 T{_Smi}) double
+190:     v72 <- BinaryDoubleOp:222(-, v679 T{_Double}, v672 T{_Double}) double
+192:     ParallelMove xmm11 <- xmm10
+192:     v73 <- BinaryDoubleOp:224(*, v72 T{_Double}, v56 T{_Double}) double
+194:     v74 <- BinaryDoubleOp:226(-, v67 T{_Double}, v73 T{_Double}) double
+195:     ParallelMove fp[-91] f64 <- xmm9
+196:     v80 <- BinaryDoubleOp:240(*, v72 T{_Double}, v58 T{_Double}) double
+198:     v86 <- BinaryDoubleOp:252(*, v66 T{_Double}, v60 T{_Double}) double
+200:     v87 <- BinaryDoubleOp:254(-, v80 T{_Double}, v86 T{_Double}) double
+201:     ParallelMove fp[-90] f64 <- xmm10
+202:     ParallelMove rbx <- fp[-3]
+202:     v89 <- BinarySmiOp:258(+, v29 T{_Smi}, v88) [3, v1968+2] T{_Smi}
+204:     CheckArrayBound:260(v591 T{_Smi}, v89) [3, 4611686018427387903] T{_Smi}
+206:     v713 <- LoadIndexed:260([_Float64List] v3 T{_Float64List}, v89 T{_Smi}) double
+208:     ParallelMove rbx <- fp[-5]
+208:     v91 <- BinarySmiOp:262(+, v22 T{_Smi}, v88) [3, v1970+2] T{_Smi}
+210:     CheckArrayBound:264(v591 T{_Smi}, v91) [3, 4611686018427387903] T{_Smi}
+212:     v716 <- LoadIndexed:264([_Float64List] v3 T{_Float64List}, v91 T{_Smi}) double
+213:     ParallelMove fp[-89] f64 <- xmm11
+214:     v93 <- BinaryDoubleOp:266(-, v713 T{_Double}, v716 T{_Double}) double
+216:     ParallelMove xmm12 <- xmm7
+216:     v94 <- BinaryDoubleOp:268(*, v93 T{_Double}, v54 T{_Double}) double
+218:     ParallelMove rbx <- fp[-4]
+218:     v95 <- BinarySmiOp:270(+, v30 T{_Smi}, v88) [3, v1966+2] T{_Smi}
+220:     CheckArrayBound:272(v591 T{_Smi}, v95) [3, 4611686018427387903] T{_Smi}
+222:     v723 <- LoadIndexed:272([_Float64List] v3 T{_Float64List}, v95 T{_Smi}) double
+224:     v99 <- BinaryDoubleOp:278(-, v723 T{_Double}, v716 T{_Double}) double
+226:     ParallelMove xmm14 <- xmm13
+226:     v100 <- BinaryDoubleOp:280(*, v99 T{_Double}, v56 T{_Double}) double
+228:     v101 <- BinaryDoubleOp:282(-, v94 T{_Double}, v100 T{_Double}) double
+229:     ParallelMove fp[-88] f64 <- xmm12
+230:     v107 <- BinaryDoubleOp:296(*, v99 T{_Double}, v58 T{_Double}) double
+232:     v113 <- BinaryDoubleOp:308(*, v93 T{_Double}, v60 T{_Double}) double
+234:     v114 <- BinaryDoubleOp:310(-, v107 T{_Double}, v113 T{_Double}) double
+235:     ParallelMove fp[-87] f64 <- xmm13
+236:     ParallelMove rbx <- fp[-3]
+236:     v116 <- BinarySmiOp:314(+, v29 T{_Smi}, v115) [4, v1968+3] T{_Smi}
+238:     CheckArrayBound:316(v591 T{_Smi}, v116) [4, 4611686018427387903] T{_Smi}
+240:     v757 <- LoadIndexed:316([_Float64List] v3 T{_Float64List}, v116 T{_Smi}) double
+242:     ParallelMove rbx <- fp[-5]
+242:     v118 <- BinarySmiOp:318(+, v22 T{_Smi}, v115) [4, v1970+3] T{_Smi}
+244:     CheckArrayBound:320(v591 T{_Smi}, v118) [4, 4611686018427387903] T{_Smi}
+246:     v760 <- LoadIndexed:320([_Float64List] v3 T{_Float64List}, v118 T{_Smi}) double
+247:     ParallelMove fp[-86] f64 <- xmm14
+248:     v120 <- BinaryDoubleOp:322(-, v757 T{_Double}, v760 T{_Double}) double
+250:     ParallelMove xmm0 <- xmm7
+250:     v121 <- BinaryDoubleOp:324(*, v120 T{_Double}, v54 T{_Double}) double
+252:     ParallelMove rbx <- fp[-4]
+252:     v122 <- BinarySmiOp:326(+, v30 T{_Smi}, v115) [4, v1966+3] T{_Smi}
+254:     CheckArrayBound:328(v591 T{_Smi}, v122) [4, 4611686018427387903] T{_Smi}
+256:     v767 <- LoadIndexed:328([_Float64List] v3 T{_Float64List}, v122 T{_Smi}) double
+258:     v126 <- BinaryDoubleOp:334(-, v767 T{_Double}, v760 T{_Double}) double
+260:     ParallelMove xmm8 <- xmm1
+260:     v127 <- BinaryDoubleOp:336(*, v126 T{_Double}, v56 T{_Double}) double
+262:     v128 <- BinaryDoubleOp:338(-, v121 T{_Double}, v127 T{_Double}) double
+263:     ParallelMove fp[-68] f64 <- xmm0
+264:     v134 <- BinaryDoubleOp:352(*, v126 T{_Double}, v58 T{_Double}) double
+266:     v140 <- BinaryDoubleOp:364(*, v120 T{_Double}, v60 T{_Double}) double
+268:     v141 <- BinaryDoubleOp:366(-, v134 T{_Double}, v140 T{_Double}) double
+269:     ParallelMove fp[-69] f64 <- xmm1
+270:     ParallelMove rbx <- fp[-3]
+270:     v143 <- BinarySmiOp:370(+, v29 T{_Smi}, v142) [5, v1968+4] T{_Smi}
+272:     CheckArrayBound:372(v591 T{_Smi}, v143) [5, 4611686018427387903] T{_Smi}
+274:     v801 <- LoadIndexed:372([_Float64List] v3 T{_Float64List}, v143 T{_Smi}) double
+276:     ParallelMove rbx <- fp[-5]
+276:     v145 <- BinarySmiOp:374(+, v22 T{_Smi}, v142) [5, v1970+4] T{_Smi}
+278:     CheckArrayBound:376(v591 T{_Smi}, v145) [5, 4611686018427387903] T{_Smi}
+280:     v804 <- LoadIndexed:376([_Float64List] v3 T{_Float64List}, v145 T{_Smi}) double
+281:     ParallelMove fp[-70] f64 <- xmm8
+282:     v147 <- BinaryDoubleOp:378(-, v801 T{_Double}, v804 T{_Double}) double
+284:     ParallelMove xmm0 <- xmm7
+284:     v148 <- BinaryDoubleOp:380(*, v147 T{_Double}, v54 T{_Double}) double
+286:     ParallelMove rbx <- fp[-4]
+286:     v149 <- BinarySmiOp:382(+, v30 T{_Smi}, v142) [5, v1966+4] T{_Smi}
+288:     CheckArrayBound:384(v591 T{_Smi}, v149) [5, 4611686018427387903] T{_Smi}
+290:     v811 <- LoadIndexed:384([_Float64List] v3 T{_Float64List}, v149 T{_Smi}) double
+292:     v153 <- BinaryDoubleOp:390(-, v811 T{_Double}, v804 T{_Double}) double
+294:     ParallelMove xmm8 <- xmm1
+294:     v154 <- BinaryDoubleOp:392(*, v153 T{_Double}, v56 T{_Double}) double
+296:     v155 <- BinaryDoubleOp:394(-, v148 T{_Double}, v154 T{_Double}) double
+297:     ParallelMove fp[-71] f64 <- xmm0
+298:     v161 <- BinaryDoubleOp:408(*, v153 T{_Double}, v58 T{_Double}) double
+300:     v167 <- BinaryDoubleOp:420(*, v147 T{_Double}, v60 T{_Double}) double
+302:     v168 <- BinaryDoubleOp:422(-, v161 T{_Double}, v167 T{_Double}) double
+303:     ParallelMove fp[-73] f64 <- xmm1
+304:     ParallelMove rbx <- fp[-3]
+304:     v170 <- BinarySmiOp:426(+, v29 T{_Smi}, v169) [6, v1968+5] T{_Smi}
+306:     CheckArrayBound:428(v591 T{_Smi}, v170) [6, 4611686018427387903] T{_Smi}
+308:     v845 <- LoadIndexed:428([_Float64List] v3 T{_Float64List}, v170 T{_Smi}) double
+310:     ParallelMove rbx <- fp[-5]
+310:     v172 <- BinarySmiOp:430(+, v22 T{_Smi}, v169) [6, v1970+5] T{_Smi}
+312:     CheckArrayBound:432(v591 T{_Smi}, v172) [6, 4611686018427387903] T{_Smi}
+314:     v848 <- LoadIndexed:432([_Float64List] v3 T{_Float64List}, v172 T{_Smi}) double
+315:     ParallelMove fp[-77] f64 <- xmm8
+316:     v174 <- BinaryDoubleOp:434(-, v845 T{_Double}, v848 T{_Double}) double
+318:     v175 <- BinaryDoubleOp:436(*, v54 T{_Double}, v174 T{_Double}) double
+320:     ParallelMove rbx <- fp[-4]
+320:     v176 <- BinarySmiOp:438(+, v30 T{_Smi}, v169) [6, v1966+5] T{_Smi}
+322:     CheckArrayBound:440(v591 T{_Smi}, v176) [6, 4611686018427387903] T{_Smi}
+324:     v855 <- LoadIndexed:440([_Float64List] v3 T{_Float64List}, v176 T{_Smi}) double
+326:     v180 <- BinaryDoubleOp:446(-, v855 T{_Double}, v848 T{_Double}) double
+328:     v181 <- BinaryDoubleOp:448(*, v56 T{_Double}, v180 T{_Double}) double
+330:     v182 <- BinaryDoubleOp:450(-, v175 T{_Double}, v181 T{_Double}) double
+331:     ParallelMove fp[-75] f64 <- xmm2
+332:     v188 <- BinaryDoubleOp:464(*, v180 T{_Double}, v58 T{_Double}) double
+334:     v194 <- BinaryDoubleOp:476(*, v174 T{_Double}, v60 T{_Double}) double
+336:     v195 <- BinaryDoubleOp:478(-, v188 T{_Double}, v194 T{_Double}) double
+337:     ParallelMove fp[-72] f64 <- xmm0
+338:     v206 <- LoadField(v2 . fb {final}) T{PixelBuffer}
+340:     v207 <- LoadField(v206 . width {final}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+341:     ParallelMove fp[-4] <- rcx
+342:     v209 <- LoadField(v206 T{PixelBuffer} . height {final}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+344:     ParallelMove xmm4 <- fp[-66] f64
+344:     v213 <- BinaryDoubleOp:524(-, v620 T{_Double}, v1679 T{_Double}) double
+346:     v1670 <- UnaryDoubleOp:10(ceiling, v213) double
+348:     v1610 <- DoubleToSmi:14(v1670) [-4611686018427387904, 4611686018427387903] T{_Smi}
+350:     v1734 <- UnboxInt64(v1610) [-4611686018427387904, 4611686018427387903] int64
+352:     ParallelMove rdi <- C
+352:     v904 <- MathMinMax(v1874 T{_Smi}, v1734 T{_Smi}) [-9223372036854775808, 9223372036854775807] int64
+353:     ParallelMove fp[-13] <- rdi
+354:     ParallelMove rsi <- rbx
+354:     v216 <- BinarySmiOp:532(-, v209, v8) [-4611686018427387904, 4611686018427387902] T{_Smi}
+356:     ParallelMove xmm4 <- fp[-62] f64
+356:     v217 <- BinaryDoubleOp:534(-, v632 T{_Double}, v1679 T{_Double}) double
+358:     v1676 <- UnaryDoubleOp:10(ceiling, v217) double
+360:     v1616 <- DoubleToSmi:14(v1676) [-4611686018427387904, 4611686018427387903] T{_Smi}
+362:     ParallelMove r8 <- rbx
+362:     v219 <- BinarySmiOp:538(-, v1616 T{_Smi}, v8) [-4611686018427387904, 4611686018427387902] T{_Smi}
+364:     v1738 <- UnboxInt64(v216) [-4611686018427387904, 4611686018427387902] int64
+366:     v1739 <- UnboxInt64(v219) [-4611686018427387904, 4611686018427387902] int64
+368:     v907 <- MathMinMax(v1738 T{_Smi}, v1739 T{_Smi}) [-9223372036854775808, 9223372036854775807] int64
+369:     ParallelMove fp[-12] <- rsi
+370:     v1736 <- BoxInt64(v904) [-9223372036854775808, 9223372036854775807] T{<:int}
+371:     ParallelMove fp[-11] <- rbx
+372:     CheckSmi:544(v1736 T{<:int})
+374:     v1742 <- BoxInt64(v907) [-9223372036854775808, 9223372036854775807] T{<:int}
+375:     ParallelMove fp[-10] <- r8
+376:     CheckSmi:544(v1742 T{<:int})
+378:     Branch if RelationalOp:544(>, v1736 T{_Smi}, v1742 T{_Smi}) T{bool} goto (14, 15)
+380: B14[target]:550
+381:     ParallelMove rax <- C
+382:     DartReturn:554(v0)
+384: B15[target]:556 ParallelMove r9 <- fp[2], xmm5 <- fp[-60] f64, xmm6 <- fp[-58] f64, xmm4 <- fp[-64] f64, xmm7 <- C
+386:     v223 <- LoadField(v206 T{PixelBuffer} . color {final}) T{_Uint8List}
+387:     ParallelMove fp[-9] <- r10
+388:     v225 <- LoadField(v206 T{PixelBuffer} . depth {final}) T{_Float32List}
+389:     ParallelMove fp[-8] <- r12
+390:     v226 <- LoadField(v2 . _cone@60000373) T{_Float32List}
+391:     ParallelMove fp[-3] <- rax
+392:     v227 <- LoadField(v2 . lights {final}) T{LightTable}
+394:     v228 <- LoadField(v227 . table {final}) T{_Uint8List}
+395:     ParallelMove fp[-5] <- rax
+396:     v229 <- LoadField(v2 . flashStrength) double
+397:     ParallelMove fp[-78] f64 <- xmm0
+398:     v230 <- LoadField(v2 . flashRange) double
+400:     v1875 <- UnaryDoubleOp:588(square, v230) double
+401:     ParallelMove fp[-74] f64 <- xmm1
+402:     v233 <- LoadField(v2 . fogStart) double
+403:     ParallelMove fp[-79] f64 <- xmm1
+404:     v234 <- LoadField(v2 . fogEnd) double
+406:     v236 <- BinaryDoubleOp:600(-, v234 T{_Double}, v233 T{_Double}) double
+408:     ParallelMove xmm3 <- C
+408:     v237 <- BinaryDoubleOp:602(/, v1678 T{_Double}, v236 T{_Double}) double
+409:     ParallelMove fp[-80] f64 <- xmm3
+410:     v238 <- LoadField(v2 . ambientCold) double
+411:     ParallelMove fp[-76] f64 <- xmm2
+412:     v239 <- LoadField(v7 . hasTransparency {final}) T{bool}
+413:     ParallelMove fp[-7] <- r13
+414:     v240 <- LoadField(v2 . camera {final}) T{Camera}
+416:     v241 <- LoadField(v240 . y) double
+417:     ParallelMove fp[-81] f64 <- xmm2
+418:     v243 <- LoadField(v240 T{Camera} . focal) double
+419:     ParallelMove fp[-82] f64 <- xmm4
+420:     v245 <- LoadField(v240 T{Camera} . cy) double
+421:     ParallelMove fp[-83] f64 <- xmm5
+422:     v246 <- LoadField(v2 . groundFog) double
+423:     ParallelMove fp[-84] f64 <- xmm6
+424:     ParallelMove xmm8 <- xmm6
+424:     v249 <- BinaryDoubleOp:638(/, v246 T{_Double}, v1408 T{_Double}) double
+425:     ParallelMove fp[-85] f64 <- xmm8
+426:     v250 <- LoadField(v2 . _dith@60000373 {final}) T{_Float32List}
+427:     ParallelMove fp[-6] <- rcx
+428:     v1596 <- LoadStaticField:4(levelLut, CallsInitializer) T{<:Float32List}
+430:     ParallelMove fp[-14] <- rax
+430:     v1599 <- LoadStaticField:4(_kehrwert@60000373, CallsInitializer) T{<:Float64List}
+431:     ParallelMove rax <- rax, xmm0 <- C
+432:     ParallelMove xmm1 <- fp[-82] f64, fp[-21] <- rax
+432:     v254 <- BinaryDoubleOp:654(/, v243 T{_Double}, v1680 T{_Double}) double
+433:     ParallelMove xmm0 <- C
+434:     v255 <- BinaryDoubleOp:656(*, v254 T{_Double}, v1681 T{_Double}) double
+435:     ParallelMove fp[-95] f64 <- xmm1
+436:     ParallelMove xmm2 <- xmm1
+436:     v256 <- BinaryDoubleOp:660(*, v255 T{_Double}, v1681 T{_Double}) double
+437:     ParallelMove fp[-94] f64 <- xmm2
+438:     ParallelMove xmm3 <- xmm2
+438:     v257 <- BinaryDoubleOp:664(*, v256 T{_Double}, v1681 T{_Double}) double
+439:     ParallelMove fp[-93] f64 <- xmm3
+440:     v258 <- BinaryDoubleOp:668(*, v1681 T{_Double}, v257 T{_Double}) double
+441:     ParallelMove rcx <- fp[2], fp[-92] f64 <- xmm0
+442:     v259 <- LoadField(v7 . levels {final}) T{_GrowableList}
+443:     ParallelMove fp[-20] <- rdx
+444:     v1604 <- LoadField(v259 T{_GrowableList} . GrowableObjectArray.length) [0, 576460752303423487] T{_Smi}
+446:     v261 <- BinarySmiOp:678(- [-o], v1604 T{_Smi}, v8) [v1604-1, v1604-1] T{_Smi}
+447:     ParallelMove fp[-19] <- rbx
+448:     v262 <- LoadField(v7 . widths {final}) T{_GrowableList}
+450:     v926 <- LoadField(v262 . GrowableObjectArray.length) [0, 576460752303423487] T{_Smi}
+452:     CheckArrayBound:684(v926, v211) [0, 0] T{_Smi}
+454:     v928 <- LoadField(v262 . GrowableObjectArray.data) T{_List}
+456:     v929 <- LoadIndexed:684([_List] v928, v211 T{_Smi}) [-9223372036854775808, 9223372036854775807] T{<:int}
+457:     ParallelMove fp[-18] <- rsi
+458:     v264 <- LoadField(v7 . heights {final}) T{_GrowableList}
+460:     v930 <- LoadField(v264 . GrowableObjectArray.length) [0, 576460752303423487] T{_Smi}
+462:     CheckArrayBound:690(v930, v211) [0, 0] T{_Smi}
+464:     v932 <- LoadField(v264 . GrowableObjectArray.data) T{_List}
+466:     v933 <- LoadIndexed:690([_List] v932, v211 T{_Smi}) [-9223372036854775808, 9223372036854775807] T{<:int}
+467:     ParallelMove fp[-17] <- rdi
+468:     CheckSmi:694(v929)
+470:     ParallelMove rcx <- rsi
+470:     v266 <- BinarySmiOp:694(-, v929 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+471:     ParallelMove fp[-16] <- rcx
+472:     CheckSmi:698(v933)
+474:     ParallelMove r8 <- rdi
+474:     v267 <- BinarySmiOp:698(-, v933 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+475:     ParallelMove fp[-15] <- r8
+476:     MoveArgument(sp[0] <- v929 T{_Smi})
+478:     v268 <- StaticCall:702( get:bitLength<0> v929 T{_Smi}, recognized_kind = Smi_bitLength) [-4611686018427387904, 4611686018427387903] T{_Smi}
+480:     ParallelMove rbx <- rax
+480:     v269 <- BinarySmiOp:704(-, v268, v8) [-4611686018427387904, 4611686018427387902] T{_Smi}
+481:     ParallelMove fp[-22] <- rbx
+482:     ParallelMove rsi <- fp[-18]
+482:     v935 <- Unbox:708(v929 T{_Smi}) double
+484:     ParallelMove xmm1 <- C
+484:     v270 <- BinaryDoubleOp:708(/, v1678 T{_Double}, v935) double
+485:     ParallelMove fp[-97] f64 <- xmm1
+486:     ParallelMove rsi <- fp[-17]
+486:     v937 <- Unbox:712(v933 T{_Smi}) double
+488:     ParallelMove xmm2 <- C
+488:     v271 <- BinaryDoubleOp:712(/, v1678 T{_Double}, v937) double
+489:     ParallelMove rsi <- fp[-20], fp[-96] f64 <- xmm2
+490:     v938 <- LoadField(v259 . GrowableObjectArray.length) [0, 576460752303423487] T{_Smi}
+491:     ParallelMove fp[-24] <- rdi
+492:     CheckArrayBound:718(v938, v211) [0, 0] T{_Smi}
+494:     v940 <- LoadField(v259 . GrowableObjectArray.data) T{_List}
+495:     ParallelMove fp[-23] <- r8
+496:     v941 <- LoadIndexed:718([_List] v940, v211 T{_Smi}) T{<:Uint8List}
+497:     ParallelMove xmm0 <- fp[-60] f64
+498:     ParallelMove xmm3 <- C
+498:     v274 <- BinaryDoubleOp:728(/, v1678 T{_Double}, v43 T{_Double}) double
+499:     ParallelMove xmm4 <- fp[-58] f64, xmm0 <- C, fp[-98] f64 <- xmm3
+500:     v276 <- RelationalOp:734(>, v46 T{_Double}, v1677 T{_Double}) T{bool}
+501:     ParallelMove xmm5 <- fp[-64] f64, fp[-31] <- r10
+502:     ParallelMove xmm6 <- fp[-62] f64
+502:     v277 <- BinaryDoubleOp:738(-, v632 T{_Double}, v626 T{_Double}) double
+504:     v278 <- RelationalOp:740(>, v277 T{_Double}, v1677 T{_Double}) T{bool}
+505:     ParallelMove fp[-33] <- r12
+506:     Branch if StrictCompare:746(===, v276, v14) goto (16, 17)
+508: B16[target]:750
+510:     ParallelMove xmm0 <- C
+510:     v590 <- BinaryDoubleOp:754(/, v1678 T{_Double}, v46 T{_Double}) double
+512:     ParallelMove xmm0 <- xmm0 goto:760 B18
+514: B17[target]:756
+516:     ParallelMove xmm0 <- C goto:762 B18
+518: B18[join]:758 pred(B16, B17) {
+      v280 <- phi(v590, v1407 T{_Double}) alive double T{_Double}
+}
+519:     ParallelMove fp[-58] f64 <- xmm0
+520:     Branch if StrictCompare:768(===, v278, v14) goto (19, 20)
+522: B19[target]:772
+524:     ParallelMove xmm4 <- C
+524:     v588 <- BinaryDoubleOp:776(/, v1678 T{_Double}, v277 T{_Double}) double
+526:     ParallelMove xmm6 <- xmm4 goto:782 B21
+528: B20[target]:778
+530:     ParallelMove xmm6 <- C goto:784 B21
+532: B21[join]:780 pred(B19, B20) {
+      v281 <- phi(v588, v1407 T{_Double}) alive double T{_Double}
+} ParallelMove rcx <- fp[-9], rdx <- fp[-8], rbx <- fp[-3], xmm4 <- fp[-65] f64, rax <- fp[-14], r13 <- fp[-21]
+533:     ParallelMove fp[-60] f64 <- xmm6
+534:     ParallelMove rsi <- fp[-4]
+534:     v315 <- BinarySmiOp:1938(-, v207, v8) [-4611686018427387904, 4611686018427387902] T{_Smi}
+535:     ParallelMove fp[-32] <- rsi
+536:     CheckClass:1938(v1596 T{<:Float32List} Cids[1: _Float32List@8027147 etc.  cid 149])
+538:     v1574 <- LoadField:1938(v1596 T{_Float32List} . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+539:     ParallelMove fp[-42] <- r8
+540:     CheckClass:1938(v1599 T{<:Float64List} Cids[1: _Float64List@8027147 etc.  cid 153])
+542:     v1128 <- LoadField:1938(v1599 T{_Float64List} . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+543:     ParallelMove fp[-27] <- rdi
+544:     v1181 <- LoadField:1938(v225 . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+545:     ParallelMove fp[-25] <- r13
+546:     v1219 <- LoadField:1938(v223 . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+547:     ParallelMove fp[-26] <- r13
+548:     v1110 <- LoadField:1938(v226 . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+549:     ParallelMove fp[-43] <- r13
+550:     ParallelMove xmm7 <- fp[-63] f64
+550:     v299 <- BinaryDoubleOp:1938(-, v629 T{_Double}, v623 T{_Double}) double
+551:     ParallelMove fp[-62] f64 <- xmm7
+552:     ParallelMove fp[-30] <- C, fp[-29] <- r9, fp[-28] <- fp[-22], fp[-11] <- C, rdi <- fp[-11], xmm14 <- fp[-91] f64 goto:1938 B132
+554: B132[join]:1936 pred(B21, B43) {
+      v282 <- phi(v211, v575) alive [0, 4611686018427387903] T{_Smi}
+      v283 <- phi(v941, v576) alive T{<:Uint8List}
+      v284 <- phi(v269, v577) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+      v285 <- phi(v211, v578) alive [0, 4611686018427387903] T{_Smi}
+      v286 <- phi(v1736 T{_Smi}, v579) alive [-4611686018427387904, 4611686018427387903] T{_Smi}
+} ParallelMove xmm2 <- fp[-90] f64, xmm11 <- fp[-88] f64, xmm10 <- fp[-87] f64, xmm9 <- fp[-67] f64, xmm8 <- fp[-66] f64, xmm13 <- fp[-57] f64, xmm1 <- fp[-89] f64, rcx <- fp[-21], xmm12 <- C, r9 <- fp[-10]
+555:     ParallelMove fp[-34] <- rdi
+556:     CheckStackOverflow:1942(stack=0, loop=1)
+558:     Branch if RelationalOp:790(<=, v286 T{_Smi}, v1742 T{_Smi}) T{bool} goto (22, 23)
+560: B22[target]:796
+562:     ParallelMove rcx <- rdi
+562:     v962 <- Unbox:802(v286 T{_Smi}) double
+564:     v291 <- BinaryDoubleOp:802(+, v962, v1679 T{_Double}) double
+565:     ParallelMove fp[-99] f64 <- xmm10
+566:     ParallelMove xmm1 <- xmm10
+566:     v293 <- BinaryDoubleOp:808(-, v291 T{_Double}, v620 T{_Double}) double
+567:     ParallelMove fp[-100] f64 <- xmm1
+568:     ParallelMove xmm8 <- fp[-59] f64
+568:     v294 <- BinaryDoubleOp:810(*, v45 T{_Double}, v293 T{_Double}) double
+570:     v295 <- BinaryDoubleOp:812(*, v294 T{_Double}, v274 T{_Double}) double
+572:     v296 <- BinaryDoubleOp:814(+, v295 T{_Double}, v617 T{_Double}) double
+574:     Branch if RelationalOp:820(<, v291 T{_Double}, v626 T{_Double}) T{bool} goto (24, 28)
+576: B24[target]:826
+578:     Branch if StrictCompare:830(===, v276, v14) goto (25, 26)
+580: B25[target]:834
+582:     ParallelMove xmm3 <- fp[-61] f64
+582:     v584 <- BinaryDoubleOp:840(*, v42 T{_Double}, v293 T{_Double}) double
+584:     v585 <- BinaryDoubleOp:842(*, v584 T{_Double}, v280 T{_Double}) double
+586:     v586 <- BinaryDoubleOp:844(+, v585 T{_Double}, v617 T{_Double}) double
+588:     ParallelMove xmm3 <- xmm3 goto:850 B27
+590: B26[target]:846
+592:     ParallelMove xmm3 <- xmm4 goto:852 B27
+594: B27[join]:848 pred(B25, B26) {
+      v581 <- phi(v586, v623) alive double T{_Double}
+}
+596:     ParallelMove xmm3 <- xmm3 goto:888 B32
+598: B28[target]:856
+600:     Branch if StrictCompare:860(===, v278, v14) goto (29, 30)
+602: B29[target]:864
+604:     ParallelMove xmm3 <- xmm10
+604:     v300 <- BinaryDoubleOp:868(-, v291 T{_Double}, v626 T{_Double}) double
+606:     v301 <- BinaryDoubleOp:870(*, v300 T{_Double}, v299 T{_Double}) double
+608:     v302 <- BinaryDoubleOp:872(*, v301 T{_Double}, v281 T{_Double}) double
+610:     v303 <- BinaryDoubleOp:874(+, v302 T{_Double}, v623 T{_Double}) double
+612:     ParallelMove xmm3 <- xmm3 goto:880 B31
+614: B30[target]:876
+616:     ParallelMove xmm3 <- xmm4 goto:882 B31
+618: B31[join]:878 pred(B29, B30) {
+      v298 <- phi(v303, v623) alive double T{_Double}
+}
+620:     ParallelMove xmm3 <- xmm3 goto:890 B32
+622: B32[join]:886 pred(B27, B31) {
+      v304 <- phi(v581, v298) alive double T{_Double}
+}
+624:     Branch if RelationalOp:896(>, v296 T{_Double}, v304 T{_Double}) T{bool} goto (33, 34)
+626: B33[target]:902
+628:     ParallelMove xmm8 <- xmm3, xmm3 <- xmm8 goto:914 B35
+630: B34[target]:910
+632:     ParallelMove xmm8 <- xmm8, xmm3 <- xmm3 goto:916 B35
+634: B35[join]:912 pred(B33, B34) {
+      v306 <- phi(v304, v296) alive double T{_Double}
+      v307 <- phi(v296, v304) alive double T{_Double}
+}
+636:     v308 <- BinaryDoubleOp:918(-, v306 T{_Double}, v1679 T{_Double}) double
+638:     v1658 <- UnaryDoubleOp:10(ceiling, v308) double
+640:     v1587 <- DoubleToSmi:14(v1658) [-4611686018427387904, 4611686018427387903] T{_Smi}
+642:     v310 <- BinaryDoubleOp:924(-, v307 T{_Double}, v1679 T{_Double}) double
+644:     v1664 <- UnaryDoubleOp:10(ceiling, v310) double
+646:     v1593 <- DoubleToSmi:14(v1664) [-4611686018427387904, 4611686018427387903] T{_Smi}
+648:     ParallelMove r10 <- r9
+648:     v312 <- BinarySmiOp:928(-, v1593 T{_Smi}, v8) [-4611686018427387904, 4611686018427387902] T{_Smi}
+650:     Branch if RelationalOp:932(<, v1587 T{_Smi}, v211) T{bool} goto (36, 37)
+652: B36[target]:938
+654:     ParallelMove r9 <- C goto:946 B38
+656: B37[target]:942
+658:     ParallelMove r9 <- rcx goto:948 B38
+660: B38[join]:944 pred(B36, B37) {
+      v314 <- phi(v211, v1587 T{_Smi}) alive [0, 4611686018427387903] T{_Smi}
+}
+662:     Branch if RelationalOp:952(>, v312, v315) T{bool} goto (39, 40)
+664: B39[target]:958
+666:     ParallelMove r10 <- rsi goto:966 B41
+668: B40[target]:962
+670:     ParallelMove r10 <- r10 goto:968 B41
+672: B41[join]:964 pred(B39, B40) {
+      v317 <- phi(v315 T{_Smi}, v312 T{_Smi}) alive [-4611686018427387904, v312] T{_Smi}
+}
+673:     ParallelMove fp[-38] <- r10
+674:     Branch if RelationalOp:970(>, v314 T{_Smi}, v317 T{_Smi}) T{bool} goto (42, 44)
+676: B42[target]:976
+678:     ParallelMove r10 <- fp[-30], rbx <- fp[-29], rdx <- fp[-28], rcx <- fp[-11], xmm0 <- fp[-71] f64, xmm1 <- fp[-75] f64, rsi <- fp[-9], r9 <- rdx, rdi <- fp[-5], xmm9 <- fp[-94] f64, xmm8 <- fp[-92] f64, r8 <- fp[-26] goto:982 B43
+680: B44[target]:984 ParallelMove xmm3 <- fp[-87] f64, xmm4 <- fp[-68] f64, xmm6 <- fp[-69] f64, xmm7 <- fp[-71] f64, xmm10 <- fp[-73] f64, xmm8 <- fp[-75] f64, xmm0 <- fp[-89] f64, xmm5 <- fp[-86] f64, xmm1 <- fp[-70] f64
+682:     ParallelMove rcx <- r9
+682:     v1002 <- Unbox:986(v314 T{_Smi}) double
+684:     v319 <- BinaryDoubleOp:986(+, v1002, v1679 T{_Double}) double
+686:     v320 <- BinaryDoubleOp:988(-, v319 T{_Double}, v617 T{_Double}) double
+688:     ParallelMove xmm9 <- xmm8
+688:     v322 <- BinaryDoubleOp:996(*, v320 T{_Double}, v74 T{_Double}) double
+690:     v323 <- BinaryDoubleOp:998(+, v322 T{_Double}, v672 T{_Double}) double
+692:     ParallelMove xmm12 <- fp[-100] f64
+692:     v324 <- BinaryDoubleOp:1000(*, v293 T{_Double}, v87 T{_Double}) double
+694:     v325 <- BinaryDoubleOp:1002(+, v323 T{_Double}, v324 T{_Double}) double
+696:     ParallelMove xmm12 <- xmm8
+696:     v326 <- BinaryDoubleOp:1006(*, v320 T{_Double}, v101 T{_Double}) double
+698:     v327 <- BinaryDoubleOp:1008(+, v326 T{_Double}, v716 T{_Double}) double
+700:     ParallelMove xmm0 <- fp[-100] f64
+700:     v328 <- BinaryDoubleOp:1010(*, v293 T{_Double}, v114 T{_Double}) double
+702:     v329 <- BinaryDoubleOp:1012(+, v327 T{_Double}, v328 T{_Double}) double
+704:     ParallelMove xmm0 <- xmm8
+704:     v330 <- BinaryDoubleOp:1016(*, v320 T{_Double}, v128 T{_Double}) double
+706:     v331 <- BinaryDoubleOp:1018(+, v330 T{_Double}, v760 T{_Double}) double
+708:     ParallelMove xmm2 <- fp[-100] f64
+708:     v332 <- BinaryDoubleOp:1020(*, v293 T{_Double}, v141 T{_Double}) double
+710:     v333 <- BinaryDoubleOp:1022(+, v331 T{_Double}, v332 T{_Double}) double
+711:     ParallelMove fp[-101] f64 <- xmm0
+712:     ParallelMove xmm2 <- xmm8
+712:     v334 <- BinaryDoubleOp:1026(*, v320 T{_Double}, v155 T{_Double}) double
+714:     v335 <- BinaryDoubleOp:1028(+, v334 T{_Double}, v804 T{_Double}) double
+716:     ParallelMove xmm1 <- fp[-100] f64
+716:     v336 <- BinaryDoubleOp:1030(*, v293 T{_Double}, v168 T{_Double}) double
+718:     v337 <- BinaryDoubleOp:1032(+, v335 T{_Double}, v336 T{_Double}) double
+719:     ParallelMove xmm1 <- fp[-75] f64
+720:     v338 <- BinaryDoubleOp:1036(*, v320 T{_Double}, v182 T{_Double}) double
+721:     ParallelMove xmm3 <- fp[-77] f64
+722:     v339 <- BinaryDoubleOp:1038(+, v338 T{_Double}, v848 T{_Double}) double
+723:     ParallelMove xmm3 <- fp[-72] f64
+724:     ParallelMove xmm5 <- fp[-100] f64
+724:     v340 <- BinaryDoubleOp:1040(*, v293 T{_Double}, v195 T{_Double}) double
+726:     v341 <- BinaryDoubleOp:1042(+, v339 T{_Double}, v340 T{_Double}) double
+728:     ParallelMove rcx <- rdi
+728:     v342 <- BinarySmiOp:1046(*, v286 T{_Smi}, v207) [-4611686018427387904, 4611686018427387903] T{_Smi}
+730:     ParallelMove rsi <- rcx
+730:     v343 <- BinarySmiOp:1048(+, v342, v314 T{_Smi}) [-4611686018427387904, v317+4611686018427387903] T{_Smi}
+732:     ParallelMove rcx <- rdi
+732:     v344 <- BinarySmiOp:1052(& [-o], v286 T{_Smi}, v88) [0, 3] T{_Smi}
+734:     v345 <- BinarySmiOp:1054(<< [-o], v344, v61) [0, 12] T{_Smi}
+735:     ParallelMove xmm5 <- fp[-99] f64, fp[-35] <- rcx
+736:     ParallelMove xmm3 <- fp[-83] f64
+736:     v346 <- BinaryDoubleOp:1058(-, v245 T{_Double}, v291 T{_Double}) double
+737:     ParallelMove xmm5 <- fp[-82] f64
+738:     v347 <- BinaryDoubleOp:1060(/, v346 T{_Double}, v243 T{_Double}) double
+739:     ParallelMove fp[-99] f64 <- xmm3
+740:     ParallelMove xmm5 <- C
+740:     v348 <- BinaryDoubleOp:1064(/, v1678 T{_Double}, v325 T{_Double}) double
+742:     ParallelMove xmm6 <- xmm12
+742:     v349 <- BinaryDoubleOp:1068(*, v329 T{_Double}, v348 T{_Double}) double
+744:     ParallelMove xmm10 <- xmm0
+744:     v350 <- BinaryDoubleOp:1072(*, v333 T{_Double}, v348 T{_Double}) double
+745:     ParallelMove xmm13 <- C
+746:     ParallelMove xmm3 <- xmm2
+746:     v1558 <- BinaryDoubleOp:12(*, v337 T{_Double}, v1327 T{_Double}) double
+748:     v1559 <- DoubleToSmi:14(v1558) [-4611686018427387904, 4611686018427387903] T{_Smi}
+750:     Branch if RelationalOp:18(<, v1559, v211) T{bool} goto (289, 290)
+752: B289[target]:24
+754:     ParallelMove rdi <- C goto:46 B294
+756: B290[target]:26
+758:     Branch if RelationalOp:28(>, v1559 T{_Smi}, v1325) T{bool} goto (291, 292)
+760: B291[target]:34
+762:     ParallelMove rdi <- C goto:40 B293
+764: B292[target]:36
+766:     ParallelMove rdi <- r12 goto:42 B293
+768: B293[join]:38 pred(B291, B292) {
+      v1564 <- phi(v1325 T{_Smi}, v1559 T{_Smi}) alive [0, 1024] T{_Smi}
+}
+770:     ParallelMove rdi <- rdi goto:48 B294
+772: B294[join]:44 pred(B289, B293) {
+      v1565 <- phi(v211 T{_Smi}, v1564) alive [0, 1024] T{_Smi}
+} ParallelMove xmm3 <- C
+774:     CheckArrayBound:52(v1574, v1565) [0, 1024] T{_Smi}
+776:     v1576 <- LoadIndexed:52([_Float32List] v1596 T{_Float32List}, v1565 T{_Smi}) float
+778:     v1577 <- FloatToDouble:52(v1576) double
+780:     Branch if RelationalOp:56(>, v1577, v1328 T{_Double}) T{bool} goto (295, 296)
+782: B295[target]:62
+784:     RecordCoverage()
+786:     ParallelMove fp[-100] f64 <- C goto:70 B297
+788: B296[target]:66
+790:     ParallelMove fp[-100] f64 <- xmm1 goto:72 B297
+792: B297[join]:68 pred(B295, B296) {
+      v1569 <- phi(v1328 T{_Double}, v1577 T{_Double}) alive double T{_Double}
+} ParallelMove xmm7 <- fp[-78] f64, xmm4 <- fp[-76] f64, xmm1 <- C
+794:     ParallelMove xmm11 <- xmm8
+794:     v352 <- BinaryDoubleOp:1080(+, v341 T{_Double}, v238 T{_Double}) double
+796:     Branch if RelationalOp:1082(>, v229 T{_Double}, v1407 T{_Double}) T{bool} goto (45, 46)
+798: B45[target]:1088 ParallelMove xmm4 <- C, xmm14 <- fp[-74] f64
+800:     CheckArrayBound:1090(v1110 T{_Smi}, v343) [0, 4611686018427387903] T{_Smi}
+802:     v1064 <- LoadIndexed:1090([_Float32List] v226, v343 T{_Smi}) float
+804:     v1065 <- FloatToDouble:1090(v1064) double
+806:     v569 <- BinaryDoubleOp:1092(*, v1065 T{_Double}, v229 T{_Double}) double
+808:     v570 <- BinaryDoubleOp:1094(*, v569 T{_Double}, v1875 T{_Double}) double
+810:     ParallelMove xmm7 <- xmm5
+810:     v1682 <- UnaryDoubleOp:1096(square, v348) double
+812:     v572 <- BinaryDoubleOp:1098(*, v1682 T{_Double}, v1683 T{_Double}) double
+814:     v573 <- BinaryDoubleOp:1100(+, v572 T{_Double}, v1875 T{_Double}) double
+816:     v574 <- BinaryDoubleOp:1102(/, v570 T{_Double}, v573 T{_Double}) double
+818:     v1750 <- Box(v574) T{_Double}
+820:     ParallelMove rdi <- rdi goto:1108 B47
+822: B46[target]:1104 ParallelMove xmm4 <- C, xmm14 <- fp[-74] f64
+824:     ParallelMove rdi <- C goto:1110 B47
+826: B47[join]:1106 pred(B45, B46) {
+      v354 <- phi(v1750 T{_Double}, v211) alive T{<:Object}
+}
+828:     ParallelMove r12 <- rdi
+828:     v1079 <- Unbox:1112(v354) double
+830:     v355 <- BinaryDoubleOp:1112(+, v352 T{_Double}, v1079) double
+832:     v1449 <- BinaryDoubleOp:12(*, v355 T{_Double}, v1327 T{_Double}) double
+834:     v1450 <- DoubleToSmi:14(v1449) [-4611686018427387904, 4611686018427387903] T{_Smi}
+836:     Branch if RelationalOp:18(<, v1450, v211) T{bool} goto (260, 261)
+838: B260[target]:24
+840:     ParallelMove rdi <- C goto:46 B265
+842: B261[target]:26
+844:     Branch if RelationalOp:28(>, v1450 T{_Smi}, v1325) T{bool} goto (262, 263)
+846: B262[target]:34
+848:     ParallelMove rdi <- C goto:40 B264
+850: B263[target]:36
+852:     ParallelMove rdi <- rdi goto:42 B264
+854: B264[join]:38 pred(B262, B263) {
+      v1455 <- phi(v1325 T{_Smi}, v1450 T{_Smi}) alive [0, 1024] T{_Smi}
+}
+856:     ParallelMove rdi <- rdi goto:48 B265
+858: B265[join]:44 pred(B260, B264) {
+      v1456 <- phi(v211 T{_Smi}, v1455) alive [0, 1024] T{_Smi}
+}
+860:     CheckArrayBound:52(v1574 T{_Smi}, v1456) [0, 1024] T{_Smi}
+862:     v1467 <- LoadIndexed:52([_Float32List] v1596 T{_Float32List}, v1456 T{_Smi}) float
+864:     v1468 <- FloatToDouble:52(v1467) double
+866:     Branch if RelationalOp:56(>, v1468, v1328 T{_Double}) T{bool} goto (266, 267)
+868: B266[target]:62
+870:     RecordCoverage()
+872:     ParallelMove fp[-102] f64 <- C goto:70 B268
+874: B267[target]:66
+876:     ParallelMove fp[-102] f64 <- xmm0 goto:72 B268
+878: B268[join]:68 pred(B266, B267) {
+      v1460 <- phi(v1328 T{_Double}, v1468 T{_Double}) alive double T{_Double}
+} ParallelMove xmm0 <- fp[-79] f64, xmm7 <- fp[-80] f64, xmm11 <- fp[-84] f64
+880:     ParallelMove xmm4 <- xmm5
+880:     v1489 <- BinaryDoubleOp:12(-, v348 T{_Double}, v233 T{_Double}) double
+882:     v1490 <- BinaryDoubleOp:14(*, v1489, v237 T{_Double}) double
+884:     Branch if RelationalOp:18(>, v246 T{_Double}, v1407 T{_Double}) T{bool} goto (272, 279)
+886: B272[target]:24 ParallelMove xmm11 <- fp[-81] f64, xmm7 <- C
+888:     ParallelMove xmm0 <- fp[-99] f64
+888:     v1503 <- BinaryDoubleOp:26(*, v347 T{_Double}, v348 T{_Double}) double
+890:     v1504 <- BinaryDoubleOp:28(+, v1503 T{_Double}, v241 T{_Double}) double
+892:     Branch if RelationalOp:32(<, v1504, v1408 T{_Double}) T{bool} goto (273, 277)
+894: B273[target]:38 ParallelMove xmm11 <- fp[-85] f64, xmm7 <- C
+896:     ParallelMove xmm14 <- C
+896:     v1508 <- BinaryDoubleOp:40(-, v1408 T{_Double}, v1504) double
+898:     v1509 <- BinaryDoubleOp:42(*, v1508 T{_Double}, v249 T{_Double}) double
+900:     Branch if RelationalOp:44(>, v348 T{_Double}, v1409 T{_Double}) T{bool} goto (274, 275)
+902: B274[target]:50
+904:     ParallelMove rdi <- C goto:58 B276
+906: B275[target]:52
+908:     ParallelMove xmm0 <- xmm5
+908:     v1512 <- BinaryDoubleOp:54(/, v348 T{_Double}, v1409 T{_Double}) double
+910:     v1753 <- Box(v1512) T{_Double}
+912:     ParallelMove rdi <- rdi goto:60 B276
+914: B276[join]:56 pred(B274, B275) {
+      v1513 <- phi(v8 T{_Smi}, v1753 T{_Double}) alive T{<:Object}
+}
+916:     ParallelMove r12 <- rdi
+916:     v1538 <- Unbox:62(v1513) double
+918:     v1514 <- BinaryDoubleOp:62(*, v1509, v1538) double
+920:     ParallelMove xmm0 <- xmm4
+920:     v1515 <- BinaryDoubleOp:64(+, v1490, v1514) double
+922:     ParallelMove xmm0 <- xmm0 goto:70 B278
+924: B277[target]:66 ParallelMove xmm11 <- fp[-85] f64, xmm7 <- C
+926:     ParallelMove xmm0 <- xmm4 goto:72 B278
+928: B278[join]:68 pred(B276, B277) {
+      v1507 <- phi(v1515, v1490) alive double T{_Double}
+}
+930:     ParallelMove xmm4 <- xmm0 goto:78 B280
+932: B279[target]:74 ParallelMove xmm11 <- fp[-85] f64, xmm7 <- C
+934:     ParallelMove xmm4 <- xmm4 goto:80 B280
+936: B280[join]:76 pred(B278, B279) {
+      v1494 <- phi(v1507, v1490) alive double T{_Double}
+} ParallelMove xmm0 <- C
+938:     v1496 <- BinaryDoubleOp:82(*, v1494 T{_Double}, v1410 T{_Double}) double
+940:     Branch if RelationalOp:86(<, v1496, v1407 T{_Double}) T{bool} goto (281, 282)
+942: B281[target]:92
+944:     ParallelMove xmm4 <- C goto:116 B286
+946: B282[target]:94
+948:     Branch if RelationalOp:96(>, v1496, v1410 T{_Double}) T{bool} goto (283, 284)
+950: B283[target]:102
+952:     ParallelMove xmm4 <- C goto:110 B285
+954: B284[target]:106
+956:     ParallelMove xmm4 <- xmm4 goto:112 B285
+958: B285[join]:108 pred(B283, B284) {
+      v1499 <- phi(v1410 T{_Double}, v1496) alive double T{_Double}
+}
+960:     ParallelMove xmm4 <- xmm4 goto:118 B286
+962: B286[join]:114 pred(B281, B285) {
+      v1501 <- phi(v1407 T{_Double}, v1499) alive double T{_Double}
+}
+964:     v358 <- LoadStaticField(zZeilen) [-9223372036854775808, 9223372036854775807] T{<:int}
+966:     CheckSmi:1124(v358)
+968:     ParallelMove r12 <- rdi
+968:     v359 <- BinarySmiOp:1124(+, v358 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+969:     ParallelMove rdx <- r12, r12 <- rdx
+970:     StoreStaticField:1126(zZeilen, v359)
+972:     v360 <- LoadStaticField(zIter) [-9223372036854775808, 9223372036854775807] T{<:int}
+974:     ParallelMove rdx <- r10
+974:     v361 <- BinarySmiOp:1128(- [-o], v317 T{_Smi}, v314 T{_Smi}) [-4611686018427387902, v312] T{_Smi}
+976:     v362 <- BinarySmiOp:1130(+ [-o], v361, v8) [-4611686018427387901, v312+1] T{_Smi}
+978:     CheckSmi:1132(v360)
+980:     ParallelMove rcx <- rdi
+980:     v363 <- BinarySmiOp:1132(+, v360 T{_Smi}, v362) [-4611686018427387904, 4611686018427387903] T{_Smi}
+981:     ParallelMove rdx <- rcx
+982:     StoreStaticField:1134(zIter, v363)
+984:     ParallelMove fp[-37] <- fp[-30], fp[-36] <- fp[-29], fp[-30] <- fp[-28], fp[-29] <- fp[-11], xmm2 <- xmm9, xmm10 <- xmm12, xmm6 <- fp[-101] f64, xmm8 <- xmm2, xmm9 <- xmm8, fp[-28] <- rsi, fp[-105] f64 <- xmm5, fp[-104] f64 <- xmm6, fp[-103] f64 <- xmm10, fp[-102] f64 <- fp[-100] f64, fp[-101] f64 <- fp[-102] f64, fp[-100] f64 <- xmm4, r12 <- r9, xmm14 <- fp[-91] f64, xmm5 <- fp[-71] f64, xmm4 <- fp[-75] f64 goto:1930 B130
+986: B130[join]:1924 pred(B128, B286) {
+      v364 <- phi(v467, v282) alive [0, 4611686018427387903] T{_Smi}
+      v365 <- phi(v468, v283) alive T{<:Uint8List}
+      v366 <- phi(v469, v284) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+      v367 <- phi(v470, v285) alive [0, 4611686018427387903] T{_Smi}
+      v368 <- phi(v481, v325) alive double T{_Double}
+      v369 <- phi(v482, v329) alive double T{_Double}
+      v370 <- phi(v483, v333) alive double T{_Double}
+      v371 <- phi(v478, v337) alive double T{_Double}
+      v372 <- phi(v480, v341) alive double T{_Double}
+      v373 <- phi(v471 T{_Smi}, v343) alive [-4611686018427387904, 4611686018427387903] T{_Smi}
+      v374 <- phi(v484, v348) alive double T{_Double}
+      v375 <- phi(v485, v349) alive double T{_Double}
+      v376 <- phi(v486, v350) alive double T{_Double}
+      v377 <- phi(v487, v1569) alive double T{_Double}
+      v378 <- phi(v488, v1460) alive double T{_Double}
+      v379 <- phi(v489, v1501) alive double T{_Double}
+      v380 <- phi(v474, v314 T{_Smi}) alive [-4611686018427387904, v2040+4611686018427387903] T{_Smi}
+} ParallelMove xmm7 <- fp[-88] f64, xmm11 <- fp[-68] f64, xmm12 <- fp[-78] f64, xmm0 <- fp[-76] f64, rdx <- fp[-19], rcx <- fp[-24], rsi <- fp[-27], rdi <- fp[-25], r9 <- fp[-21]
+987:     ParallelMove fp[-40] <- r12, fp[-106] f64 <- xmm2, fp[-107] f64 <- xmm6, fp[-108] f64 <- xmm10, fp[-117] f64 <- xmm9, fp[-118] f64 <- xmm8
+988:     CheckStackOverflow:1928(stack=0, loop=2)
+990:     Branch if RelationalOp:1136(<=, v380 T{_Smi}, v317 T{_Smi}) T{bool} goto (129, 131)
+992: B129[target]:1922
+994:     v382 <- LoadStaticField(zSpannen) [-9223372036854775808, 9223372036854775807] T{<:int}
+996:     CheckSmi:1142(v382)
+998:     ParallelMove r10 <- rdi
+998:     v383 <- BinarySmiOp:1142(+, v382 T{_Smi}, v8) [-4611686018427387904, 4611686018427387903] T{_Smi}
+999:     ParallelMove rdx <- r10, rdi <- rdx
+1000:     StoreStaticField:1144(zSpannen, v383)
+1002:     ParallelMove rdx <- fp[-38]
+1002:     v384 <- BinarySmiOp:1146(-, v317 T{_Smi}, v380 T{_Smi}) [-4611686018427387902, v312+4611686018427387904] T{_Smi}
+1004:     ParallelMove r10 <- rdx
+1004:     v385 <- BinarySmiOp:1148(+, v384, v8) [-4611686018427387901, 4611686018427387903] T{_Smi}
+1006:     v387 <- RelationalOp:1152(>, v385, v386) T{bool}
+1007:     ParallelMove fp[-41] <- rdx
+1008:     Branch if StrictCompare:1158(===, v387, v14) goto (48, 49)
+1010: B48[target]:1162
+1012:     ParallelMove fp[-39] <- C goto:1168 B50
+1014: B49[target]:1164
+1016:     ParallelMove fp[-39] <- r10 goto:1170 B50
+1018: B50[join]:1166 pred(B48, B49) {
+      v388 <- phi(v386, v385) alive [-4611686018427387901, 4611686018427387903] T{_Smi}
+}
+1020:     Branch if StrictCompare:1176(===, v387, v14) goto (51, 52)
+1022: B51[target]:1180
+1024:     ParallelMove r12 <- C goto:1188 B53
+1026: B52[target]:1182
+1028:     ParallelMove r12 <- r10
+1028:     v389 <- BinarySmiOp:1184(- [-o], v385, v8) [-4611686018427387902, 4611686018427387902] T{_Smi}
+1030:     ParallelMove r12 <- r12 goto:1190 B53
+1032: B53[join]:1186 pred(B51, B52) {
+      v390 <- phi(v386, v389) alive [-4611686018427387902, 4611686018427387902] T{_Smi}
+}
+1034:     ParallelMove rcx <- r12
+1034:     v1080 <- Unbox:1194(v390) double
+1036:     ParallelMove xmm12 <- xmm1
+1036:     v391 <- BinaryDoubleOp:1194(*, v1080, v74 T{_Double}) double
+1038:     v392 <- BinaryDoubleOp:1196(+, v391 T{_Double}, v368 T{_Double}) double
+1039:     ParallelMove fp[-116] f64 <- xmm12
+1040:     ParallelMove xmm2 <- xmm1
+1040:     v393 <- BinaryDoubleOp:1200(*, v1080 T{_Double}, v101 T{_Double}) double
+1042:     v394 <- BinaryDoubleOp:1202(+, v393 T{_Double}, v369 T{_Double}) double
+1043:     ParallelMove fp[-109] f64 <- xmm2
+1044:     ParallelMove xmm7 <- xmm1
+1044:     v395 <- BinaryDoubleOp:1206(*, v1080 T{_Double}, v128 T{_Double}) double
+1046:     v396 <- BinaryDoubleOp:1208(+, v395 T{_Double}, v370 T{_Double}) double
+1047:     ParallelMove fp[-112] f64 <- xmm7
+1048:     ParallelMove xmm11 <- C
+1048:     v397 <- BinaryDoubleOp:1212(/, v1678 T{_Double}, v392 T{_Double}) double
+1049:     ParallelMove fp[-119] f64 <- xmm11
+1050:     ParallelMove xmm6 <- xmm2
+1050:     v398 <- BinaryDoubleOp:1216(*, v394 T{_Double}, v397 T{_Double}) double
+1051:     ParallelMove fp[-110] f64 <- xmm6
+1052:     ParallelMove xmm10 <- xmm7
+1052:     v399 <- BinaryDoubleOp:1220(*, v396 T{_Double}, v397 T{_Double}) double
+1053:     ParallelMove fp[-113] f64 <- xmm10
+1054:     ParallelMove xmm2 <- xmm1
+1054:     v400 <- BinaryDoubleOp:1224(*, v1080 T{_Double}, v155 T{_Double}) double
+1056:     v401 <- BinaryDoubleOp:1226(+, v400 T{_Double}, v371 T{_Double}) double
+1058:     v402 <- BinaryDoubleOp:1230(*, v1080 T{_Double}, v182 T{_Double}) double
+1060:     v403 <- BinaryDoubleOp:1232(+, v402 T{_Double}, v372 T{_Double}) double
+1062:     Branch if StrictCompare:1238(===, v387, v14) goto (54, 55)
+1064: B54[target]:1242
+1066:     ParallelMove r10 <- C goto:1250 B56
+1068: B55[target]:1244
+1070:     v404 <- BinarySmiOp:1246(- [-o], v385, v8) [-4611686018427387902, 4611686018427387902] T{_Smi}
+1072:     ParallelMove r10 <- r10 goto:1252 B56
+1074: B56[join]:1248 pred(B54, B55) {
+      v405 <- phi(v386, v404) alive [-4611686018427387902, 4611686018427387902] T{_Smi}
+}
+1076:     ParallelMove rcx <- fp[-28]
+1076:     v406 <- BinarySmiOp:1254(+, v373 T{_Smi}, v405 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1078:     v1418 <- BinaryDoubleOp:12(*, v401 T{_Double}, v1327 T{_Double}) double
+1080:     v1419 <- DoubleToSmi:14(v1418) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1082:     Branch if RelationalOp:18(<, v1419, v211) T{bool} goto (248, 249)
+1084: B248[target]:24
+1086:     ParallelMove rdx <- C goto:46 B253
+1088: B249[target]:26
+1090:     Branch if RelationalOp:28(>, v1419 T{_Smi}, v1325) T{bool} goto (250, 251)
+1092: B250[target]:34
+1094:     ParallelMove rdx <- C goto:40 B252
+1096: B251[target]:36
+1098:     ParallelMove rdx <- r10 goto:42 B252
+1100: B252[join]:38 pred(B250, B251) {
+      v1424 <- phi(v1325 T{_Smi}, v1419 T{_Smi}) alive [0, 1024] T{_Smi}
+}
+1102:     ParallelMove rdx <- rdx goto:48 B253
+1104: B253[join]:44 pred(B248, B252) {
+      v1425 <- phi(v211 T{_Smi}, v1424) alive [0, 1024] T{_Smi}
+}
+1106:     CheckArrayBound:52(v1574 T{_Smi}, v1425) [0, 1024] T{_Smi}
+1108:     v1436 <- LoadIndexed:52([_Float32List] v1596 T{_Float32List}, v1425 T{_Smi}) float
+1110:     v1437 <- FloatToDouble:52(v1436) double
+1112:     Branch if RelationalOp:56(>, v1437, v1328 T{_Double}) T{bool} goto (254, 255)
+1114: B254[target]:62
+1116:     RecordCoverage()
+1118:     ParallelMove fp[-111] f64 <- C goto:70 B256
+1120: B255[target]:66
+1122:     ParallelMove fp[-111] f64 <- xmm2 goto:72 B256
+1124: B256[join]:68 pred(B254, B255) {
+      v1429 <- phi(v1328 T{_Double}, v1437 T{_Double}) alive double T{_Double}
+} ParallelMove xmm2 <- fp[-78] f64, xmm6 <- C
+1126:     v408 <- BinaryDoubleOp:1262(+, v403 T{_Double}, v238 T{_Double}) double
+1128:     Branch if RelationalOp:1264(>, v229 T{_Double}, v1407 T{_Double}) T{bool} goto (57, 58)
+1130: B57[target]:1270 ParallelMove xmm7 <- C, xmm0 <- fp[-74] f64
+1132:     CheckArrayBound:1272(v1110, v406) [0, 4611686018427387903] T{_Smi}
+1134:     v1112 <- LoadIndexed:1272([_Float32List] v226, v406 T{_Smi}) float
+1136:     v1113 <- FloatToDouble:1272(v1112) double
+1138:     v562 <- BinaryDoubleOp:1274(*, v1113 T{_Double}, v229 T{_Double}) double
+1140:     v563 <- BinaryDoubleOp:1276(*, v562 T{_Double}, v1875 T{_Double}) double
+1142:     ParallelMove xmm2 <- xmm11
+1142:     v1684 <- UnaryDoubleOp:1278(square, v397) double
+1144:     v565 <- BinaryDoubleOp:1280(*, v1684 T{_Double}, v1683 T{_Double}) double
+1146:     v566 <- BinaryDoubleOp:1282(+, v565 T{_Double}, v1875 T{_Double}) double
+1148:     v567 <- BinaryDoubleOp:1284(/, v563 T{_Double}, v566 T{_Double}) double
+1150:     v1784 <- Box(v567) T{_Double}
+1152:     ParallelMove rdx <- rdx goto:1290 B59
+1154: B58[target]:1286 ParallelMove xmm7 <- C, xmm0 <- fp[-74] f64
+1156:     ParallelMove rdx <- C goto:1292 B59
+1158: B59[join]:1288 pred(B57, B58) {
+      v410 <- phi(v1784 T{_Double}, v211) alive T{<:Object}
+}
+1160:     ParallelMove r10 <- rdx
+1160:     v1127 <- Unbox:1294(v410) double
+1162:     v411 <- BinaryDoubleOp:1294(+, v408 T{_Double}, v1127) double
+1164:     v1301 <- BinaryDoubleOp:12(*, v411 T{_Double}, v1327 T{_Double}) double
+1166:     v1302 <- DoubleToSmi:14(v1301) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1168:     Branch if RelationalOp:18(<, v1302, v211) T{bool} goto (219, 220)
+1170: B219[target]:24
+1172:     ParallelMove rdx <- C goto:46 B224
+1174: B220[target]:26
+1176:     Branch if RelationalOp:28(>, v1302 T{_Smi}, v1325) T{bool} goto (221, 222)
+1178: B221[target]:34
+1180:     ParallelMove rdx <- C goto:40 B223
+1182: B222[target]:36
+1184:     ParallelMove rdx <- rdx goto:42 B223
+1186: B223[join]:38 pred(B221, B222) {
+      v1307 <- phi(v1325 T{_Smi}, v1302 T{_Smi}) alive [0, 1024] T{_Smi}
+}
+1188:     ParallelMove rdx <- rdx goto:48 B224
+1190: B224[join]:44 pred(B219, B223) {
+      v1308 <- phi(v211 T{_Smi}, v1307) alive [0, 1024] T{_Smi}
+}
+1192:     CheckArrayBound:52(v1574 T{_Smi}, v1308) [0, 1024] T{_Smi}
+1194:     v1319 <- LoadIndexed:52([_Float32List] v1596 T{_Float32List}, v1308 T{_Smi}) float
+1196:     v1320 <- FloatToDouble:52(v1319) double
+1198:     Branch if RelationalOp:56(>, v1320, v1328 T{_Double}) T{bool} goto (225, 226)
+1200: B225[target]:62
+1202:     RecordCoverage()
+1204:     ParallelMove fp[-114] f64 <- C goto:70 B227
+1206: B226[target]:66
+1208:     ParallelMove fp[-114] f64 <- xmm1 goto:72 B227
+1210: B227[join]:68 pred(B225, B226) {
+      v1312 <- phi(v1328 T{_Double}, v1320 T{_Double}) alive double T{_Double}
+} ParallelMove xmm1 <- fp[-79] f64, xmm2 <- fp[-80] f64, xmm10 <- fp[-84] f64
+1212:     ParallelMove xmm0 <- xmm11
+1212:     v1345 <- BinaryDoubleOp:12(-, v397 T{_Double}, v233 T{_Double}) double
+1214:     v1346 <- BinaryDoubleOp:14(*, v1345, v237 T{_Double}) double
+1216:     Branch if RelationalOp:18(>, v246 T{_Double}, v1407 T{_Double}) T{bool} goto (231, 238)
+1218: B231[target]:24 ParallelMove xmm1 <- fp[-81] f64, xmm2 <- C
+1220:     ParallelMove xmm3 <- fp[-99] f64
+1220:     v1359 <- BinaryDoubleOp:26(*, v347 T{_Double}, v397 T{_Double}) double
+1222:     v1360 <- BinaryDoubleOp:28(+, v1359 T{_Double}, v241 T{_Double}) double
+1224:     Branch if RelationalOp:32(<, v1360, v1408 T{_Double}) T{bool} goto (232, 236)
+1226: B232[target]:38 ParallelMove xmm1 <- fp[-85] f64, xmm2 <- C
+1228:     ParallelMove xmm7 <- C
+1228:     v1364 <- BinaryDoubleOp:40(-, v1408 T{_Double}, v1360) double
+1230:     v1365 <- BinaryDoubleOp:42(*, v1364 T{_Double}, v249 T{_Double}) double
+1232:     Branch if RelationalOp:44(>, v397 T{_Double}, v1409 T{_Double}) T{bool} goto (233, 234)
+1234: B233[target]:50
+1236:     ParallelMove rdx <- C goto:58 B235
+1238: B234[target]:52
+1240:     ParallelMove xmm3 <- xmm11
+1240:     v1368 <- BinaryDoubleOp:54(/, v397 T{_Double}, v1409 T{_Double}) double
+1242:     v1788 <- Box(v1368) T{_Double}
+1244:     ParallelMove rdx <- rdx goto:60 B235
+1246: B235[join]:56 pred(B233, B234) {
+      v1369 <- phi(v8 T{_Smi}, v1788 T{_Double}) alive T{<:Object}
+}
+1248:     ParallelMove r10 <- rdx
+1248:     v1394 <- Unbox:62(v1369) double
+1250:     v1370 <- BinaryDoubleOp:62(*, v1365, v1394) double
+1252:     ParallelMove xmm3 <- xmm0
+1252:     v1371 <- BinaryDoubleOp:64(+, v1346, v1370) double
+1254:     ParallelMove xmm3 <- xmm3 goto:70 B237
+1256: B236[target]:66 ParallelMove xmm1 <- fp[-85] f64, xmm2 <- C
+1258:     ParallelMove xmm3 <- xmm0 goto:72 B237
+1260: B237[join]:68 pred(B235, B236) {
+      v1363 <- phi(v1371, v1346) alive double T{_Double}
+}
+1262:     ParallelMove xmm3 <- xmm3 goto:78 B239
+1264: B238[target]:74 ParallelMove xmm1 <- fp[-85] f64, xmm2 <- C
+1266:     ParallelMove xmm3 <- xmm0 goto:80 B239
+1268: B239[join]:76 pred(B237, B238) {
+      v1350 <- phi(v1363, v1346) alive double T{_Double}
+} ParallelMove xmm0 <- C
+1270:     v1352 <- BinaryDoubleOp:82(*, v1350 T{_Double}, v1410 T{_Double}) double
+1272:     Branch if RelationalOp:86(<, v1352, v1407 T{_Double}) T{bool} goto (240, 241)
+1274: B240[target]:92
+1276:     ParallelMove fp[-115] f64 <- C goto:116 B245
+1278: B241[target]:94
+1280:     Branch if RelationalOp:96(>, v1352, v1410 T{_Double}) T{bool} goto (242, 243)
+1282: B242[target]:102
+1284:     ParallelMove xmm3 <- C goto:110 B244
+1286: B243[target]:106
+1288:     ParallelMove xmm3 <- xmm3 goto:112 B244
+1290: B244[join]:108 pred(B242, B243) {
+      v1355 <- phi(v1410 T{_Double}, v1352) alive double T{_Double}
+}
+1292:     ParallelMove fp[-115] f64 <- xmm3 goto:118 B245
+1294: B245[join]:114 pred(B240, B244) {
+      v1357 <- phi(v1407 T{_Double}, v1355) alive double T{_Double}
+} ParallelMove xmm2 <- fp[-95] f64, xmm3 <- fp[-105] f64, xmm7 <- fp[-102] f64, xmm0 <- fp[-101] f64, xmm1 <- fp[-100] f64
+1296:     CheckArrayBound:1304(v1128, v390) [0, 4611686018427387902] T{_Smi}
+1298:     v1130 <- LoadIndexed:1304([_Float64List] v1599 T{_Float64List}, v390 T{_Smi}) double
+1300:     ParallelMove xmm10 <- fp[-111] f64
+1300:     v415 <- BinaryDoubleOp:1308(-, v1429 T{_Double}, v377 T{_Double}) double
+1302:     v416 <- BinaryDoubleOp:1310(*, v415 T{_Double}, v1130 T{_Double}) double
+1304:     ParallelMove xmm13 <- fp[-114] f64
+1304:     v417 <- BinaryDoubleOp:1314(-, v1312 T{_Double}, v378 T{_Double}) double
+1306:     v418 <- BinaryDoubleOp:1316(*, v417 T{_Double}, v1130 T{_Double}) double
+1307:     ParallelMove fp[-121] f64 <- xmm13
+1308:     ParallelMove xmm12 <- fp[-115] f64
+1308:     v419 <- BinaryDoubleOp:1320(-, v1357 T{_Double}, v379 T{_Double}) double
+1310:     v420 <- BinaryDoubleOp:1322(*, v419 T{_Double}, v1130 T{_Double}) double
+1311:     ParallelMove fp[-120] f64 <- xmm12
+1312:     Branch if RelationalOp:1326(<, v374 T{_Double}, v255 T{_Double}) T{bool} goto (60, 61)
+1314: B60[target]:1332
+1316:     ParallelMove rdx <- C, xmm9 <- fp[-94] f64, xmm4 <- fp[-93] f64, xmm8 <- fp[-92] f64 goto:1386 B71
+1318: B61[target]:1334 ParallelMove xmm9 <- fp[-94] f64
+1320:     Branch if RelationalOp:1336(<, v374 T{_Double}, v256 T{_Double}) T{bool} goto (62, 63)
+1322: B62[target]:1342
+1324:     ParallelMove rdx <- C, xmm4 <- fp[-93] f64, xmm8 <- fp[-92] f64 goto:1380 B70
+1326: B63[target]:1344 ParallelMove xmm4 <- fp[-93] f64
+1328:     Branch if RelationalOp:1346(<, v374 T{_Double}, v257 T{_Double}) T{bool} goto (64, 65)
+1330: B64[target]:1352
+1332:     ParallelMove rdx <- C, xmm8 <- fp[-92] f64 goto:1374 B69
+1334: B65[target]:1354 ParallelMove xmm8 <- fp[-92] f64
+1336:     Branch if RelationalOp:1356(<, v374 T{_Double}, v258 T{_Double}) T{bool} goto (66, 67)
+1338: B66[target]:1362
+1340:     ParallelMove rdx <- C goto:1368 B68
+1342: B67[target]:1364
+1344:     ParallelMove rdx <- C goto:1370 B68
+1346: B68[join]:1366 pred(B66, B67) {
+      v425 <- phi(v88, v115) alive [3, 4] T{_Smi}
+}
+1348:     ParallelMove rdx <- rdx goto:1376 B69
+1350: B69[join]:1372 pred(B64, B68) {
+      v426 <- phi(v61, v425) alive [2, 4] T{_Smi}
+}
+1352:     ParallelMove rdx <- rdx goto:1382 B70
+1354: B70[join]:1378 pred(B62, B69) {
+      v427 <- phi(v8, v426) alive [1, 4] T{_Smi}
+}
+1356:     ParallelMove rdx <- rdx goto:1388 B71
+1358: B71[join]:1384 pred(B60, B70) {
+      v428 <- phi(v211, v427) alive [0, 4] T{_Smi}
+}
+1360:     Branch if RelationalOp:1392(<, v397 T{_Double}, v255 T{_Double}) T{bool} goto (72, 73)
+1362: B72[target]:1398
+1364:     ParallelMove r10 <- C goto:1452 B83
+1366: B73[target]:1400
+1368:     Branch if RelationalOp:1402(<, v397 T{_Double}, v256 T{_Double}) T{bool} goto (74, 75)
+1370: B74[target]:1408
+1372:     ParallelMove r10 <- C goto:1446 B82
+1374: B75[target]:1410
+1376:     Branch if RelationalOp:1412(<, v397 T{_Double}, v257 T{_Double}) T{bool} goto (76, 77)
+1378: B76[target]:1418
+1380:     ParallelMove r10 <- C goto:1440 B81
+1382: B77[target]:1420
+1384:     Branch if RelationalOp:1422(<, v397 T{_Double}, v258 T{_Double}) T{bool} goto (78, 79)
+1386: B78[target]:1428
+1388:     ParallelMove r10 <- C goto:1434 B80
+1390: B79[target]:1430
+1392:     ParallelMove r10 <- C goto:1436 B80
+1394: B80[join]:1432 pred(B78, B79) {
+      v433 <- phi(v88, v115) alive [3, 4] T{_Smi}
+}
+1396:     ParallelMove r10 <- r10 goto:1442 B81
+1398: B81[join]:1438 pred(B76, B80) {
+      v434 <- phi(v61, v433) alive [2, 4] T{_Smi}
+}
+1400:     ParallelMove r10 <- r10 goto:1448 B82
+1402: B82[join]:1444 pred(B74, B81) {
+      v435 <- phi(v8, v434) alive [1, 4] T{_Smi}
+}
+1404:     ParallelMove r10 <- r10 goto:1454 B83
+1406: B83[join]:1450 pred(B72, B82) {
+      v436 <- phi(v211, v435) alive [0, 4] T{_Smi}
+}
+1408:     Branch if RelationalOp:1458(>, v428 T{_Smi}, v261) T{bool} goto (84, 85)
+1410: B84[target]:1464
+1412:     RecordCoverage()
+1414:     ParallelMove rdx <- rdi goto:1472 B86
+1416: B85[target]:1468
+1418:     ParallelMove rdx <- rdx goto:1474 B86
+1420: B86[join]:1470 pred(B84, B85) {
+      v438 <- phi(v261 T{_Smi}, v428 T{_Smi}) alive [-1, v428] T{_Smi}
+}
+1421:     ParallelMove fp[-52] <- rdx
+1422:     Branch if RelationalOp:1476(>, v436 T{_Smi}, v261) T{bool} goto (87, 88)
+1424: B87[target]:1482
+1426:     RecordCoverage()
+1428:     ParallelMove r10 <- rdi goto:1490 B89
+1430: B88[target]:1486
+1432:     ParallelMove r10 <- r10 goto:1492 B89
+1434: B89[join]:1488 pred(B87, B88) {
+      v440 <- phi(v261 T{_Smi}, v436 T{_Smi}) alive [-1, v436] T{_Smi}
+}
+1435:     ParallelMove fp[-54] <- r10
+1436:     Branch if EqualityCompare:1494(v438 T{_Smi} == v440 T{_Smi}) T{bool} goto (90, 91)
+1438: B90[target]:1500
+1440:     ParallelMove xmm0 <- C goto:1510 B92
+1442: B91[target]:1502
+1444:     v442 <- BinaryDoubleOp:1504(-, v397 T{_Double}, v374 T{_Double}) double
+1446:     v443 <- BinaryDoubleOp:1506(*, v442 T{_Double}, v1130 T{_Double}) double
+1448:     ParallelMove xmm0 <- xmm11 goto:1512 B92
+1450: B92[join]:1508 pred(B90, B91) {
+      v444 <- phi(v1407 T{_Double}, v443) alive double T{_Double}
+} ParallelMove xmm1 <- fp[-97] f64, xmm14 <- fp[-96] f64, xmm11 <- fp[-104] f64, xmm5 <- fp[-103] f64, xmm12 <- C
+1452:     ParallelMove xmm13 <- xmm11
+1452:     v445 <- BinaryDoubleOp:1516(*, v375 T{_Double}, v270 T{_Double}) double
+1454:     v1622 <- UnaryDoubleOp:10(floor, v445) double
+1456:     v1263 <- DoubleToSmi:14(v1622) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1458:     ParallelMove rcx <- r12
+1458:     v447 <- BinarySmiOp:1520(*, v1263 T{_Smi}, v929 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1460:     ParallelMove xmm1 <- xmm5
+1460:     v448 <- BinaryDoubleOp:1524(*, v376 T{_Double}, v271 T{_Double}) double
+1462:     v1628 <- UnaryDoubleOp:10(floor, v448) double
+1464:     v1269 <- DoubleToSmi:14(v1628) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1466:     ParallelMove rax <- r12
+1466:     v450 <- BinarySmiOp:1528(*, v1269 T{_Smi}, v933 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1468:     ParallelMove r12 <- rcx
+1468:     v1162 <- Unbox:1532(v447) double
+1470:     ParallelMove xmm13 <- xmm11
+1470:     v451 <- BinaryDoubleOp:1532(-, v375 T{_Double}, v1162) double
+1472:     v453 <- BinaryDoubleOp:1534(*, v451 T{_Double}, v1685 T{_Double}) double
+1474:     v1634 <- UnaryDoubleOp:10(floor, v453) double
+1476:     v1275 <- DoubleToSmi:14(v1634) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1477:     ParallelMove fp[-46] <- r12
+1478:     ParallelMove rcx <- rax
+1478:     v1166 <- Unbox:1540(v450) double
+1480:     ParallelMove xmm13 <- xmm5
+1480:     v455 <- BinaryDoubleOp:1540(-, v376 T{_Double}, v1166) double
+1482:     v456 <- BinaryDoubleOp:1542(*, v455 T{_Double}, v1685 T{_Double}) double
+1484:     v1640 <- UnaryDoubleOp:10(floor, v456) double
+1486:     v1281 <- DoubleToSmi:14(v1640) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1487:     ParallelMove fp[-44] <- rax
+1488:     ParallelMove xmm1 <- fp[-110] f64
+1488:     v458 <- BinaryDoubleOp:1548(-, v398 T{_Double}, v375 T{_Double}) double
+1490:     v459 <- BinaryDoubleOp:1550(*, v458 T{_Double}, v1130 T{_Double}) double
+1492:     v460 <- BinaryDoubleOp:1552(*, v459 T{_Double}, v1685 T{_Double}) double
+1494:     v1646 <- UnaryDoubleOp:10(floor, v460) double
+1496:     v1287 <- DoubleToSmi:14(v1646) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1497:     ParallelMove fp[-50] <- rcx
+1498:     ParallelMove xmm1 <- fp[-113] f64
+1498:     v462 <- BinaryDoubleOp:1558(-, v399 T{_Double}, v376 T{_Double}) double
+1500:     v463 <- BinaryDoubleOp:1560(*, v462 T{_Double}, v1130 T{_Double}) double
+1502:     v464 <- BinaryDoubleOp:1562(*, v463 T{_Double}, v1685 T{_Double}) double
+1504:     v1652 <- UnaryDoubleOp:10(floor, v464) double
+1506:     v1293 <- DoubleToSmi:14(v1652) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1507:     ParallelMove fp[-45] <- rbx
+1508:     ParallelMove rsi <- fp[-28]
+1508:     v466 <- BinarySmiOp:1570(+, v373 T{_Smi}, v388 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1509:     ParallelMove fp[-53] <- rsi
+1510:     ParallelMove r12 <- fp[-37], fp[-49] <- fp[-36], fp[-48] <- fp[-30], fp[-47] <- fp[-29], r13 <- fp[-28], xmm5 <- fp[-106] f64, xmm14 <- fp[-91] f64, r9 <- fp[-8], xmm6 <- fp[-101] f64, xmm12 <- fp[-100] f64, xmm1 <- fp[-121] f64, xmm13 <- fp[-120] f64 goto:1868 B125
+1512: B125[join]:1866 pred(B92, B124) {
+      v467 <- phi(v364, v492) alive [0, 4611686018427387903] T{_Smi}
+      v468 <- phi(v365, v493) alive T{<:Uint8List}
+      v469 <- phi(v366, v494) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+      v470 <- phi(v367, v495) alive [0, 4611686018427387903] T{_Smi}
+      v471 <- phi(v373 T{_Smi}, v496) alive [-4611686018427387904, 4611686018427387903] T{_Smi}
+      v472 <- phi(v368, v497) alive double T{_Double}
+} ParallelMove rbx <- fp[-24], rax <- fp[-23], r8 <- fp[-25]
+1514:     CheckStackOverflow:1872(stack=0, loop=3)
+1516:     Branch if RelationalOp:1576(<, v471 T{_Smi}, v466) T{bool} goto (93, 94)
+1518: B93[target]:1582
+1520:     CheckArrayBound:1590(v1181, v471 T{_Smi}) [0, v466-1] T{_Smi}
+1522:     v1183 <- LoadIndexed:1590([_Float32List] v225, v471 T{_Smi}) float
+1524:     v1184 <- FloatToDouble:1590(v1183) double
+1526:     Branch if RelationalOp:1592(>, v472 T{_Double}, v1184 T{_Double}) T{bool} goto (95, 123)
+1528: B95[target]:1598
+1530:     ParallelMove rcx <- r13
+1530:     v498 <- BinarySmiOp:1600(-, v471 T{_Smi}, v373 T{_Smi}) [-4611686018427387903, v466+4611686018427387903] T{_Smi}
+1532:     Branch if EqualityCompare:1606(v438 T{_Smi} != v440 T{_Smi}) T{bool} goto (96, 112)
+1534: B96[target]:1612
+1536:     ParallelMove r8 <- rcx
+1536:     v1246 <- Unbox:1614(v498) double
+1538:     v549 <- BinaryDoubleOp:1614(*, v1246, v444 T{_Double}) double
+1540:     v550 <- BinaryDoubleOp:1616(+, v549 T{_Double}, v374 T{_Double}) double
+1542:     Branch if RelationalOp:1620(<, v550 T{_Double}, v255 T{_Double}) T{bool} goto (97, 98)
+1544: B97[target]:1626
+1546:     ParallelMove r8 <- C goto:1680 B108
+1548: B98[target]:1628
+1550:     Branch if RelationalOp:1630(<, v550 T{_Double}, v256 T{_Double}) T{bool} goto (99, 100)
+1552: B99[target]:1636
+1554:     ParallelMove r8 <- C goto:1674 B107
+1556: B100[target]:1638
+1558:     Branch if RelationalOp:1640(<, v550 T{_Double}, v257 T{_Double}) T{bool} goto (101, 102)
+1560: B101[target]:1646
+1562:     ParallelMove r8 <- C goto:1668 B106
+1564: B102[target]:1648
+1566:     Branch if RelationalOp:1650(<, v550 T{_Double}, v258 T{_Double}) T{bool} goto (103, 104)
+1568: B103[target]:1656
+1570:     ParallelMove r8 <- C goto:1662 B105
+1572: B104[target]:1658
+1574:     ParallelMove r8 <- C goto:1664 B105
+1576: B105[join]:1660 pred(B103, B104) {
+      v555 <- phi(v88, v115) alive [3, 4] T{_Smi}
+}
+1578:     ParallelMove r8 <- r8 goto:1670 B106
+1580: B106[join]:1666 pred(B101, B105) {
+      v556 <- phi(v61, v555) alive [2, 4] T{_Smi}
+}
+1582:     ParallelMove r8 <- r8 goto:1676 B107
+1584: B107[join]:1672 pred(B99, B106) {
+      v557 <- phi(v8, v556) alive [1, 4] T{_Smi}
+}
+1586:     ParallelMove r8 <- r8 goto:1682 B108
+1588: B108[join]:1678 pred(B97, B107) {
+      v558 <- phi(v211, v557) alive [0, 4] T{_Smi}
+}
+1590:     Branch if RelationalOp:1686(>, v558 T{_Smi}, v261) T{bool} goto (109, 110)
+1592: B109[target]:1692
+1594:     RecordCoverage()
+1596:     ParallelMove rdi <- fp[-19] goto:1700 B111
+1598: B110[target]:1696
+1600:     ParallelMove rdi <- r8 goto:1702 B111
+1602: B111[join]:1698 pred(B109, B110) {
+      v560 <- phi(v261 T{_Smi}, v558 T{_Smi}) alive [-1, v558] T{_Smi}
+}
+1604:     ParallelMove rdi <- rdi goto:1708 B113
+1606: B112[target]:1704
+1608:     ParallelMove rdi <- rdx goto:1710 B113
+1610: B113[join]:1706 pred(B111, B112) {
+      v500 <- phi(v560, v438 T{_Smi}) alive [-1, 4] T{_Smi}
+}
+1612:     Branch if EqualityCompare:1712(v500 T{_Smi} != v467 T{_Smi}) T{bool} goto (114, 115)
+1614: B114[target]:1718
+1616:     CheckArrayBound:1722(v938 T{_Smi}, v500 T{_Smi}) [0, 4] T{_Smi}
+1618:     v1190 <- LoadIndexed:1722([_List] v940 T{_List}, v500 T{_Smi}) T{<:Uint8List}
+1620:     ParallelMove r12 <- fp[-22]
+1620:     v548 <- BinarySmiOp:1724(-, v269, v500 T{_Smi}) [-4611686018427387904, 4611686018427387902] T{_Smi}
+1622:     ParallelMove fp[-51] <- rdi, r12 <- r8, r8 <- r12 goto:1730 B116
+1624: B115[target]:1726
+1626:     ParallelMove fp[-51] <- r12, r12 <- fp[-49], r8 <- fp[-48] goto:1732 B116
+1628: B116[join]:1728 pred(B114, B115) {
+      v502 <- phi(v500 T{_Smi}, v467 T{_Smi}) alive [0, 4611686018427387903] T{_Smi}
+      v503 <- phi(v1190, v468) alive T{<:Uint8List}
+      v504 <- phi(v548, v469) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+}
+1629:     ParallelMove fp[-55] <- r8, fp[-56] <- r12
+1630:     ParallelMove rax <- rcx
+1630:     v505 <- BinarySmiOp:1734(*, v498, v1287 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1632:     ParallelMove rbx <- fp[-46]
+1632:     v506 <- BinarySmiOp:1736(+, v1275 T{_Smi}, v505) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1634:     v508 <- BinarySmiOp:1738(>> [-o], v506, v507) [-70368744177664, 70368744177663] T{_Smi}
+1636:     v509 <- BinarySmiOp:1740(& [-o], v508, v266) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1637:     ParallelMove rcx <- rdi, rsi <- fp[-9], rdx <- fp[-7], rax <- rcx
+1638:     ParallelMove r10 <- rbx
+1638:     v510 <- BinarySmiOp:1742(>> [-o], v509, v500 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1640:     ParallelMove rbx <- rax
+1640:     v511 <- BinarySmiOp:1746(*, v498, v1293 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1642:     ParallelMove rcx <- fp[-44]
+1642:     v512 <- BinarySmiOp:1748(+, v1281 T{_Smi}, v511) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1644:     v513 <- BinarySmiOp:1750(>> [-o], v512, v507) [-70368744177664, 70368744177663] T{_Smi}
+1646:     ParallelMove rbx <- rcx
+1646:     v514 <- BinarySmiOp:1752(& [-o], v513, v267) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1647:     ParallelMove rcx <- rdi
+1648:     ParallelMove r8 <- rbx
+1648:     v515 <- BinarySmiOp:1754(>> [-o], v514, v500 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1649:     ParallelMove rcx <- fp[-55]
+1650:     ParallelMove rbx <- r8
+1650:     v516 <- BinarySmiOp:1758(<<, v515, v504 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1652:     v517 <- BinarySmiOp:1760(| [-o], v516, v510) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1654:     CheckClass:1762(v503 Cids[1: _Uint8List@8027147 etc.  cid 117])
+1656:     v1191 <- LoadField(v503 T{_Uint8List} . TypedDataBase.length {final}) [0, 4611686018427387903] T{_Smi}
+1658:     CheckArrayBound:1762(v1191, v517) [0, 4611686018427387903] T{_Smi}
+1660:     v1193 <- LoadIndexed:1762([_Uint8List] v503 T{_Uint8List}, v517 T{_Smi}) [0, 255] int64
+1662:     Branch if StrictCompare:1768(===, v239, v14) goto (117, 119)
+1664: B117[target]:1778
+1666:     RecordCoverage()
+1668:     v1794 <- BoxInt64(v1193) [0, 255] T{_Smi}
+1670:     Branch if EqualityCompare:1772(v1794 T{_Smi} == v545) T{bool} goto (121, 120)
+1672: B121[target]:1850
+1674:     ParallelMove rcx <- fp[-47], rdi <- fp[-5], r8 <- fp[-26] goto:1856 B122
+1676: B120[target]:1786
+1678:     ParallelMove  goto:1788 B118
+1680: B119[target]:1782
+1682:     ParallelMove  goto:1784 B118
+1684: B118[join]:1780 pred(B119, B120) ParallelMove rdi <- fp[-5], rbx <- fp[-6], r8 <- fp[-26]
+1686:     ParallelMove r10 <- fp[-40]
+1686:     v519 <- BinarySmiOp:1790(+, v380 T{_Smi}, v498) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1688:     v520 <- BinarySmiOp:1792(& [-o], v519, v88) [0, 3] T{_Smi}
+1690:     ParallelMove rdx <- fp[-35]
+1690:     v521 <- BinarySmiOp:1794(| [-o], v345, v520) [0, 15] T{_Smi}
+1692:     v1196 <- LoadIndexed:1796([_Float32List] v250, v521 T{_Smi}) float
+1694:     v1197 <- FloatToDouble:1796(v1196) double
+1696:     ParallelMove rdx <- rax
+1696:     v1198 <- Unbox:1800(v498) double
+1698:     ParallelMove xmm4 <- xmm2
+1698:     v523 <- BinaryDoubleOp:1800(*, v1198, v416 T{_Double}) double
+1700:     v524 <- BinaryDoubleOp:1802(+, v523 T{_Double}, v377 T{_Double}) double
+1702:     v525 <- BinaryDoubleOp:1804(+, v524 T{_Double}, v1197 T{_Double}) double
+1704:     v526 <- DoubleToSmi:1806(v525) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1706:     ParallelMove xmm4 <- xmm2
+1706:     v527 <- BinaryDoubleOp:1810(*, v1198 T{_Double}, v418 T{_Double}) double
+1708:     v528 <- BinaryDoubleOp:1812(+, v527 T{_Double}, v378 T{_Double}) double
+1710:     v529 <- BinaryDoubleOp:1814(+, v528 T{_Double}, v1197 T{_Double}) double
+1712:     v530 <- DoubleToSmi:1816(v529) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1714:     v531 <- BinaryDoubleOp:1820(*, v1198 T{_Double}, v420 T{_Double}) double
+1716:     v532 <- BinaryDoubleOp:1822(+, v531 T{_Double}, v379 T{_Double}) double
+1718:     v533 <- BinaryDoubleOp:1824(+, v532 T{_Double}, v1197 T{_Double}) double
+1720:     v534 <- DoubleToSmi:1826(v533) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1722:     ParallelMove rax <- rbx
+1722:     v1686 <- BinarySmiOp:1830(<<, v534, v115) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1724:     ParallelMove rbx <- rax
+1724:     v536 <- BinarySmiOp:1832(+, v1686 T{_Smi}, v526) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1726:     ParallelMove rdx <- rbx
+1726:     v1687 <- BinarySmiOp:1834(<<, v536, v115) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1728:     ParallelMove rbx <- rdx
+1728:     v538 <- BinarySmiOp:1836(+, v1687 T{_Smi}, v530) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1730:     ParallelMove rdx <- rbx
+1730:     v540 <- BinarySmiOp:1838(*, v538, v539) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1732:     v1795 <- BoxInt64(v1193) [0, 255] T{_Smi}
+1734:     ParallelMove r10 <- rdx
+1734:     v541 <- BinarySmiOp:1840(+, v540, v1795 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1736:     CheckArrayBound:1842(v1688 T{_Smi}, v541) [0, 245760] T{_Smi}
+1738:     v1218 <- LoadIndexed:1842([_Uint8List] v228, v541 T{_Smi}) [0, 255] int64
+1740:     CheckArrayBound:1844(v1219, v471 T{_Smi}) [0, v466-1] T{_Smi}
+1742:     ParallelMove rdx <- r13
+1742:     StoreIndexed:1844([_Uint8List] v223, v471 T{_Smi}, v1218, NoStoreBarrier)
+1744:     ParallelMove xmm2 <- xmm5
+1744:     v1224 <- DoubleToFloat:1846(v472) float
+1746:     StoreIndexed:1846([_Float32List] v225, v471 T{_Smi}, v1224, NoStoreBarrier)
+1748:     ParallelMove rcx <- fp[-47]
+1748:     v543 <- BinarySmiOp:1848(+, v470 T{_Smi}, v8) [1, 4611686018427387903] T{_Smi}
+1750:     ParallelMove rcx <- rcx goto:1854 B122
+1752: B122[join]:1852 pred(B118, B121) {
+      v544 <- phi(v543, v470) alive [0, 4611686018427387903] T{_Smi}
+}
+1754:     ParallelMove r12 <- fp[-51], rbx <- fp[-56], rdx <- fp[-55], rcx <- rcx goto:1862 B124
+1756: B123[target]:1858 ParallelMove rsi <- fp[-9], rdi <- fp[-5], r8 <- fp[-26]
+1758:     ParallelMove r12 <- r12, rbx <- fp[-49], rdx <- fp[-48], rcx <- fp[-47] goto:1864 B124
+1760: B124[join]:1860 pred(B122, B123) {
+      v492 <- phi(v502, v467) alive [0, 4611686018427387903] T{_Smi}
+      v493 <- phi(v503 T{_Uint8List}, v468) alive T{<:Uint8List}
+      v494 <- phi(v504 T{_Smi}, v469) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+      v495 <- phi(v544, v470) alive [0, 4611686018427387903] T{_Smi}
+}
+1762:     v496 <- BinarySmiOp:1586(+ [-o], v471 T{_Smi}, v8) [1, v466] T{_Smi}
+1764:     v497 <- BinaryDoubleOp:1588(+, v472 T{_Double}, v74 T{_Double}) double
+1766:     ParallelMove r12 <- r12, fp[-49] <- rbx, fp[-48] <- rdx, fp[-47] <- rcx, r13 <- r13, xmm5 <- xmm5, xmm2 <- fp[-95] f64, xmm4 <- fp[-93] f64, rdi <- fp[-19], rdx <- fp[-52], r10 <- fp[-54], rsi <- fp[-53], rcx <- fp[-50] goto:1870 B125
+1768: B94[target]:1584 ParallelMove xmm0 <- fp[-71] f64, xmm1 <- fp[-75] f64, rsi <- fp[-9], rdi <- fp[-5], rcx <- fp[-41], r8 <- fp[-26]
+1770:     ParallelMove rdx <- fp[-40]
+1770:     v474 <- BinarySmiOp:1874(+, v380 T{_Smi}, v388 T{_Smi}) [-4611686018427387904, v2040+4611686018427387903] T{_Smi}
+1772:     ParallelMove rbx <- fp[-39]
+1772:     v1227 <- Unbox:1876(v388 T{_Smi}) double
+1774:     ParallelMove xmm4 <- xmm2
+1774:     v475 <- BinaryDoubleOp:1876(*, v1227, v74 T{_Double}) double
+1776:     ParallelMove xmm5 <- fp[-106] f64
+1776:     v476 <- BinaryDoubleOp:1878(+, v368 T{_Double}, v475 T{_Double}) double
+1778:     ParallelMove xmm4 <- xmm2
+1778:     v477 <- BinaryDoubleOp:1880(*, v1227 T{_Double}, v155 T{_Double}) double
+1780:     ParallelMove xmm11 <- fp[-118] f64
+1780:     v478 <- BinaryDoubleOp:1882(+, v371 T{_Double}, v477 T{_Double}) double
+1782:     v479 <- BinaryDoubleOp:1884(*, v1227 T{_Double}, v182 T{_Double}) double
+1784:     ParallelMove xmm4 <- fp[-117] f64
+1784:     v480 <- BinaryDoubleOp:1886(+, v372 T{_Double}, v479 T{_Double}) double
+1786:     Branch if StrictCompare:1890(===, v387, v14) goto (126, 127)
+1788: B126[target]:1894
+1790:     ParallelMove fp[-100] f64 <- fp[-116] f64, xmm10 <- fp[-109] f64, xmm6 <- fp[-112] f64, xmm2 <- fp[-119] f64, xmm13 <- fp[-110] f64, xmm12 <- fp[-113] f64, xmm7 <- fp[-111] f64, xmm5 <- fp[-114] f64, xmm3 <- fp[-115] f64 goto:1918 B128
+1792: B127[target]:1914
+1794:     ParallelMove fp[-100] f64 <- xmm5, xmm10 <- fp[-108] f64, xmm6 <- fp[-107] f64, xmm2 <- xmm3, xmm13 <- fp[-104] f64, xmm12 <- fp[-103] f64, xmm7 <- xmm7, xmm5 <- xmm6, xmm3 <- xmm12 goto:1920 B128
+1796: B128[join]:1916 pred(B126, B127) {
+      v481 <- phi(v392, v476) alive double T{_Double}
+      v482 <- phi(v394, v369) alive double T{_Double}
+      v483 <- phi(v396, v370) alive double T{_Double}
+      v484 <- phi(v397, v374) alive double T{_Double}
+      v485 <- phi(v398, v375) alive double T{_Double}
+      v486 <- phi(v399, v376) alive double T{_Double}
+      v487 <- phi(v1429, v377) alive double T{_Double}
+      v488 <- phi(v1312, v378) alive double T{_Double}
+      v489 <- phi(v1357, v379) alive double T{_Double}
+}
+1798:     ParallelMove fp[-37] <- r12, fp[-36] <- fp[-49], fp[-30] <- fp[-48], fp[-29] <- fp[-47], xmm2 <- fp[-100] f64, xmm10 <- xmm10, xmm6 <- xmm6, xmm8 <- xmm11, xmm9 <- xmm4, fp[-28] <- r13, fp[-105] f64 <- xmm2, fp[-104] f64 <- xmm13, fp[-103] f64 <- xmm12, fp[-102] f64 <- xmm7, fp[-101] f64 <- xmm5, fp[-100] f64 <- xmm3, r12 <- rdx, xmm5 <- xmm0, xmm4 <- xmm1, rbx <- fp[-3], r10 <- fp[-38], r13 <- fp[-43], xmm13 <- C, xmm3 <- C, xmm1 <- C, r8 <- fp[-42], rax <- fp[-14] goto:1926 B130
+1800: B131[target]:1932 ParallelMove xmm0 <- xmm5, xmm1 <- xmm4, rsi <- fp[-9], r9 <- fp[-8], rdi <- fp[-5], xmm9 <- fp[-94] f64, xmm8 <- fp[-92] f64, r8 <- fp[-26]
+1802:     ParallelMove r10 <- fp[-37], rbx <- fp[-36], rdx <- fp[-30], rcx <- fp[-29] goto:1934 B43
+1804: B43[join]:978 pred(B42, B131) {
+      v575 <- phi(v282, v364) alive [0, 4611686018427387903] T{_Smi}
+      v576 <- phi(v283, v365) alive T{<:Uint8List}
+      v577 <- phi(v284, v366) alive [-4611686018427387904, 4611686018427387902] T{_Smi}
+      v578 <- phi(v285, v367) alive [0, 4611686018427387903] T{_Smi}
+}
+1806:     ParallelMove r12 <- fp[-34]
+1806:     v579 <- BinarySmiOp:800(+, v286 T{_Smi}, v8) [-4611686018427387903, 4611686018427387903] T{_Smi}
+1808:     ParallelMove fp[-30] <- r10, fp[-29] <- rbx, fp[-28] <- rdx, fp[-11] <- rcx, rdi <- r12, rdx <- r9, rbx <- fp[-3], xmm3 <- fp[-98] f64, r10 <- fp[-31], r12 <- fp[-33], xmm0 <- fp[-58] f64, xmm6 <- fp[-60] f64, xmm7 <- fp[-62] f64, rsi <- fp[-32], xmm4 <- fp[-65] f64, xmm5 <- fp[-64] f64, r13 <- fp[-43], r8 <- fp[-42], rax <- fp[-14] goto:1940 B132
+1810: B23[target]:798 ParallelMove rcx <- fp[7]
+1812:     v288 <- LoadField(v2 . stats {final}) T{FrameStats}
+1814:     v289 <- LoadField(v288 . pixelsWritten) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1816:     ParallelMove rbx <- rcx
+1816:     v290 <- BinarySmiOp:1948(+, v289, v285 T{_Smi}) [-4611686018427387904, 4611686018427387903] T{_Smi}
+1818:     StoreField(v288 . pixelsWritten = v290)
+1819:     ParallelMove rax <- C
+1820:     DartReturn:1954(v0)
+*** END CFG
+Dreiecke 6019 Zeilen 41546 Spannen 53057 Iter 761983
+Marktplatz: Meshes 11.46 ms · Pixel geschrieben 395225
+Dreiecke 5756 Zeilen 24876 Spannen 28675 Iter 325511
+Oberstadt zweite Stelle: Meshes 6.85 ms · Pixel geschrieben 218566
+SUMME 18.31 ms
