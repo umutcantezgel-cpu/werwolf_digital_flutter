@@ -15,7 +15,7 @@ set -uo pipefail
 erlaubt='^(Read|Grep|Glob|Write|Edit|Bash|SubagentHandback)$'
 dirs=${1:-$(ls -d ~/.claude/projects/*/*/subagents 2>/dev/null)}
 wurzel=${2:-'^(/tmp/claude-[0-9]+/[^/]+/[^/]+/scratchpad/|/home/user/bw-arbeit/|/home/user/bw-varianten/|/home/user/bw/0[1-6]/)'}
-bash_rot='(^|[;&|( ]) *git +(commit|push|reset|checkout|switch|merge|rebase|tag|worktree|update-ref|branch +-[dDmM])|(^|[;&|( ]) *(curl|wget|ssh|scp) +(-|https?:)|rm +-[a-zA-Z]*r[a-zA-Z]* +/(home/user/werwolf|root)|(^|[;&|( ]) *(pip3?|npm|pnpm|yarn) +(install|i |add)|pub +global|flutter +build|--update-goldens'
+bash_rot='(^|[;&|( ]) *git( +-[cC] +[^ ]+| +--[a-z-]+(=[^ ]+)?)* +(commit|push|reset|checkout|switch|merge|rebase|tag|worktree|update-ref|branch +-[dDmM])|(^|[;&|( ]) *(curl|wget|ssh|scp) +(-|https?:)|rm +-[a-zA-Z]*r[a-zA-Z]* +/(home/user/werwolf|root)|(^|[;&|( ]) *(pip3?|npm|pnpm|yarn) +(install|i |add)|pub +global|flutter +build|--update-goldens|(^|[;&|( ]) *gh +'
 verstoss=0; agenten=0
 for d in $dirs; do for f in "$d"/agent-*.jsonl; do
   [ -f "$f" ] || continue; agenten=$((agenten+1))
@@ -23,6 +23,8 @@ for d in $dirs; do for f in "$d"/agent-*.jsonl; do
   aufrufe=$(jq -c 'select(.type=="assistant") | .message.content[]? | select(.type=="tool_use") | {n:.name, c:(.input.command // ""), p:(.input.file_path // "")}' "$f" 2>/dev/null)
   fremd=$(echo "$aufrufe" | jq -r '.n' 2>/dev/null | grep -vE "$erlaubt" | grep . | sort | uniq -c | tr '\n' ' ')
   bashrot=$(echo "$aufrufe" | jq -r 'select(.n=="Bash") | .c' 2>/dev/null | sed -E "s/'[^']*'//g; s/\"[^\"]*\"//g" | grep -E "$bash_rot" | head -3 | cut -c1-120 | tr '\n' ' ')
+  bwrot=$(echo "$aufrufe" | jq -r 'select(.n=="Bash") | .c' 2>/dev/null | grep -E '/home/user/werwolf_digital_flutter' | head -1 | cut -c1-120)
+  bashrot="$bashrot${bwrot:+ BW-Zugriff: $bwrot}"
   pfadrot=$(echo "$aufrufe" | jq -r 'select(.n=="Write" or .n=="Edit") | .p' 2>/dev/null | grep . | grep -vE "$wurzel" | sort -u | head -3 | tr '\n' ' ')
   if [ -n "$fremd$bashrot$pfadrot" ]; then
     verstoss=$((verstoss+1))

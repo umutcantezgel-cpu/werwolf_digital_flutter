@@ -1,4 +1,4 @@
-# A-5 · Prüfmauer und Torwerkzeug (Ringe und Schichten L0–L10)
+# A-5 · Prüfmauer und Torwerkzeug (Ringe und Schichten L0–L12)
 
 Teil 1 legt Ringe, Schichten, Befehle, Fallzahlen und Budgets fest (geht vor). Teil 2 ist MP-14 aus Anhang A.
 
@@ -13,7 +13,7 @@ Teil 1 legt Ringe, Schichten, Befehle, Fallzahlen und Budgets fest (geht vor). T
 | 4 Technik | Bauen, Analysieren, Tests, Golden, Leistung, Größe, keine fremden Server, Burgstadt-Schutz | L0, L1, L2, L3, L6, L8 | rot · 0 | Laufzeit, Exit |
 | 5 Spiel | erreichbar in Simulationen (F2 ≥ 1 % der Partien), keine Sackgasse, Balance im Band, alle drei Formen | L4, L7 | Sackgassen · 0; F2 ≥ 1 % | Erreichbarkeit je Einheit |
 | 6 Neuheit | kein Beinahe-Duplikat | F4 (Jaccard < 0,25 nach Platzhaltern, A-8 Nachtrag; Tupel eindeutig; Silhouetten-IoU < 0,9) | Dubletten · 0 | Dublettenquote |
-| 7 Qualität | 3 Linsen-Richter + bei Spreizung > 2 zwei weitere, Median; F5 mit 20 Füllstücken | F5, L10, D1–D3, S1–S5 | angenommen ≥ 2 × ≥ 7; F5 ≥ 18/20 abgelehnt | Annahmequote je Slot und Denkstufe |
+| 7 Qualität | 3 Linsen-Richter + bei Spreizung > 2 zwei weitere, Median; F5 mit 20 Füllstücken | F5, L10 (D und S laufen in L12) | angenommen ≥ 2 × ≥ 7; F5 ≥ 18/20 abgelehnt | Annahmequote je Slot und Denkstufe |
 | 8 Stichprobe | je Welle per Seed ≥ 10 % und ≥ 20 Einheiten, Opus; bei Wellen > 200 Einheiten ein frischer Opus-5.5-Agent | L10 | 1 Kanon-/Inhalts-/Lösbarkeitsfehler, > 5 % Fehler oder > 2 % Füllstoff (keine Wirkung oder Dublette) → Welle zurück | Fehlerquote |
 | 9 Mutanten | für neuen Code | L9a, L9b | Tötungsrate 100 % (Würfel, Lösbarkeit, Wahrheit, Inhalt, Bestand), ≥ 90 % gesamt | überlebende Mutanten |
 
@@ -36,7 +36,7 @@ Seed jedes Gremiums und jeder Stichprobe: erste 8 Hex von `sha256(<Welle>|<Inhal
 | L10 Gremien | Gremium-Belege prüfen (Hashes, Modell, Eichlauf) | – | ja | ja | ≤ 1 min |
 | L12 Design | `dart run tool/bollwerk/design_mass.dart` (D1) · `python3 -I tool/bollwerk/stil.py --alle` (S1–S6) · `node tool/bollwerk/gremium.mjs d2\|d3` | – | D1, S1–S6 | alles | ≤ 60 min (Schwerlast-Slot) |
 
-Budgets: `schnell` ≤ 9 min, `phase` ≤ 55 min (Schwerlast-Slot), `nacht` ≤ 4 h CPU, `ziel` = `nacht` + L10 + L11 (die Befehle aller Z-Zeilen aus Master-Prompt §6 außer Z-31…Z-34; jeder schreibt `belege/<Z-Nr>.txt` mit HEAD-Kopf; die Abnahmetabelle ist Master-Prompt §6). `ziel` liest R aus LAUF.md, prüft vor und nach dem Lauf `git diff --quiet R HEAD -- . ':!planung/bollwerk'` (Herzschlag-Commits erlaubt) und schreibt die Endzeile mit R. Endzeile genau `BOLLWERK GRÜN · <modus> · <sha>` oder `BOLLWERK ROT · <schichten>`.
+Wandzeit-Budgets: `schnell` ≤ 9 min, `phase` ≤ 190 min (Schwerlast-Slot seriell), `nacht` ≤ 5 h (überschritten = Befund, kein Rot; L-1 misst), `ziel` = `nacht` + L10 + L11 (die Befehle aller Z-Zeilen aus Master-Prompt §6 außer Z-31…Z-34; jeder schreibt `belege/<Z-Nr>.txt` mit HEAD-Kopf; die Abnahmetabelle ist Master-Prompt §6). `ziel` liest R aus LAUF.md, prüft vor und nach dem Lauf `git diff --quiet R HEAD -- . ':!planung/bollwerk'` (Herzschlag-Commits erlaubt) und schreibt die Endzeile mit R. Endzeile genau `BOLLWERK GRÜN · <modus> · <sha>` oder `BOLLWERK ROT · <schichten>`.
 
 ## Teil 2 · MP-14 aus Anhang A
 ### MP-14 · BOLLWERK (Prüfschichten)
@@ -45,8 +45,8 @@ Budgets: `schnell` ≤ 9 min, `phase` ≤ 55 min (Schwerlast-Slot), `nacht` ≤ 
 | Modus | Budget | Inhalt |
 |---|---|---|
 | schnell | ≤ 9 min | L0; betroffene Paket-Tests; L2 mit 500 Fällen je Eigenschaft; L3 auf Node; L4 mit 200 Partien je Pfad × Strategie; L5; L6 |
-| phase | ≤ 55 min, Schwerlast-Slot | zusätzlich `alle_tests.sh` voll und `pruefen.sh alles`; L4 mit 2.000; L7; L8; L9 |
-| nacht | ≤ 4 h CPU | L4 mit 10.000 und „immer Pech“; L2 mit 10.000; L9 voll |
+| phase | ≤ 190 min Wandzeit, Schwerlast-Slot | zusätzlich `alle_tests.sh` voll und `pruefen.sh alles`; L4 mit 2.000; L7; L8; L9 |
+| nacht | ≤ 5 h Wandzeit | L4 mit 10.000 und „immer Pech“; L2 mit 10.000; L9 voll |
 | ziel | – | nacht + L10 + L11 (alle Z-Befehle außer Z-31…Z-34) + L12 |
 
 - **Belege** `planung/bollwerk/belege/L<n>.txt` beginnen mit `HEAD <sha40> · <Berlin-Zeit> · <modus> · Exit <c> · <s>`. Ein Beleg gilt nur bei `git diff --quiet <sha> HEAD -- . ':!planung/bollwerk'` und zusätzlich `git diff --quiet <sha> HEAD -- planung/bollwerk/messbasis planung/bollwerk/BESTAND-AUSNAHMEN.txt`.
@@ -121,6 +121,6 @@ Budgets: `schnell` ≤ 9 min, `phase` ≤ 55 min (Schwerlast-Slot), `nacht` ≤ 
 - Ändert sich ein Hash, verfällt das Urteil.
 
 
-**L11 Abnahme** (nur `ziel`): je Z-Zeile aus Abschnitt 6 des Master-Prompts Befehl, Schwelle und Belegdatei aus `tool/bollwerk/abnahme.tsv` (maschinell aus der Tabelle erzeugt); jede fehlende oder rote Zeile macht `ziel` rot. L10 zählt Gremium-Stimmen nur aus `planung/bollwerk/belege/gremium/protokolle/<agentId>.jsonl` nach: Nach jeder Richter- oder Gremiumswelle kopierst du je Agent einen Auszug (agentId, `model`, jedes `tool_use`, Urteilszeile) aus `~/.claude/projects/*/*/subagents/agent-<id>.jsonl` dorthin und committest ihn mit dem REGISTER-Eintrag, denn jede Generation läuft auf einer neuen Maschine. Z-08 ist nur berichtet und macht `ziel` nie rot.
+**L11 Abnahme** (nur `ziel`): je Z-Zeile aus Abschnitt 6 des Master-Prompts Befehl, Schwelle und Belegdatei aus `tool/bollwerk/abnahme.tsv` (maschinell aus der Tabelle erzeugt); jede fehlende oder rote Zeile macht `ziel` rot. L10 zählt Gremium-Stimmen nur aus `planung/bollwerk/belege/gremium/protokolle/<agentId>.jsonl` nach: Nach jeder Richter- oder Gremiumswelle legst du je Agent einen Auszug (agentId, `model`, jedes `tool_use`, Urteilszeile) aus `~/.claude/projects/*/*/subagents/agent-<id>.jsonl` über `dart run tool/bollwerk/bollwerk.dart gremium-import <welle>` dort ab und committest ihn mit dem REGISTER-Eintrag, denn jede Generation läuft auf einer neuen Maschine. Z-08 ist nur berichtet und macht `ziel` nie rot.
 
 **L12 Design** (`phase`: D1 und S1–S6; `nacht` und `ziel`: dazu D2 und D3): Belege schreibt nur das Torwerkzeug mit HEAD-Kopfzeile nach `belege/D1.txt`, `belege/S.txt`, `belege/D2.txt`, `belege/D3.txt`. Die Werkzeuge entstehen in BW0: `design_mass.dart` als Port von `proben/designmass.py`, `foto.mjs` aus `proben/foto_probe.mjs`, Eichsatz aus `proben/eichsatz.py`, Gleichheit aus `proben/bildgleich.py`; `stil.py` und `gremium.mjs` neu, je mit Rot-Probe. D- und S-Tests laufen nicht in Ring 7.

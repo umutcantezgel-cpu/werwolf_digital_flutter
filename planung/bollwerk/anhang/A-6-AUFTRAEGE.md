@@ -62,6 +62,8 @@ Rückgabe genau: `KURZ · <Kennung> · <gruen|teil|rot> · Varianten <n> · Selb
 `dart run tool/bollwerk/vorrat.dart naechste --typ <T|C|B|U> --n <k>` gibt die nächsten Aufträge aus und trägt sie in FLUG.md ein. Fällt der Vorrat eines Typs unter 1 h, kommt im selben Zug Nachschub aus Umfangslücken, roten Tests, überlebenden Mutanten und Befunden.
 
 ## 5. Wellen
+**Erfahrung aus der Fabrikprobe** (`planung/bollwerk/FABRIKPROBE.md`): 22 gültige Einheiten je Agentenstunde, ≈ 61 Tsd. Tokens je gültiger Einheit, Annahme in Ring 7 nach geschärftem Briefing 58 %; Richter sind der Engpass.
+
 - Eine Welle = gleichzeitig gestartete Hintergrund-Agenten (Agent-Werkzeug, `run_in_background`), höchstens 12 (bis B-02: 6). Agenten einer Welle teilen Modell, Denkstufe, Werkzeuge und Schema.
 - Je Bauer 10–25 Varianten; je Richter Stapel bis 100 Bausteine.
 - FLUG.md wird **vor** jedem Start geschrieben: Kennung, Typ, agentId (aus dem Startergebnis), Start (echte Uhrzeit), erwartetes Ende, Ausgabedatei, Pool-Platz.

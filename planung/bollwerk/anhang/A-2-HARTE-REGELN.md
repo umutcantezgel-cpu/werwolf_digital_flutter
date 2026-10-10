@@ -202,7 +202,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 
 
 ### Zusatz Erlaubnisprüfung (L0.2)
-Jede Datei aus `git diff --name-status $B HEAD` außerhalb der Schreib-Erlaubnis ist rot: vor B-02 nur `planung/bollwerk/**` (ohne MASTER-PROMPT, anhang, STARTPAKET), `tool/bollwerk/**`, `content/runden/**`, `packages/mordakte_core/lib/src/runden/**`, `packages/mordakte_core/test/runden/**`, `lib/runden/**`, `assets/runden/**`, `test/runden/**`, `docs/bollwerk/**`; nach B-02 zusätzlich die übergegangenen Pfade aus A4.8 und Merges zugelassener Linien.
+Jede Datei aus `git diff --name-status $B HEAD` außerhalb der Schreib-Erlaubnis ist rot: vor B-02 nur `planung/bollwerk/**` (ohne MASTER-PROMPT, anhang, STARTPAKET), `tool/bollwerk/**`, `content/runden/**`, `packages/mordakte_core/lib/src/runden/**`, `packages/mordakte_core/test/runden/**`, `lib/runden/**`, `assets/runden/**`, `test/runden/**`, `docs/bollwerk/**` sowie Dateien aus den Vorlauf-Merges von `1145cb9` und (nur nach A-2 Definitionen) `caf1d61`, deren Blob gleich dem der Linie ist; nach B-02 zusätzlich die übergegangenen Pfade aus A4.8 und Merges zugelassener Linien.
 
 ### Definitionen
 - **Stolperdraht-Umfang:** verglichen werden nur Branch- und Tag-Refs (nie Pull-Refs); erwartete neue Refs siehe V-13 oben. Eine andere neue Ref ist nicht rot; sie kommt ins NACHTPROTOKOLL und nach FUER-DEN-NUTZER.
@@ -213,7 +213,7 @@ Jede Datei aus `git diff --name-status $B HEAD` außerhalb der Schreib-Erlaubnis
 
 ### Nachtrag M6 (Skeptiker-Runde)
 - `--update-goldens` nur im Commit `LOOK-ANKER neu · <Grund>` (Z-17); BW0 schreibt sha256 aller Dateien unter `tool/bollwerk/look_anker/` und `tool/bollwerk/mutanten/` nach `messbasis/` (eingefroren wie die Messbasis); L0 prüft sie.
-- `planung/bollwerk/belege/**` schreibt nur das Torwerkzeug. Zwischenziele in PLAN.md ändern sich nur nach oben oder per Neuplanung mit ENTSCHEIDUNGSLOG-Eintrag (höchstens zweimal, Abschnitt 8).
+- `planung/bollwerk/belege/**` schreibt nur das Torwerkzeug; Ausnahmen, nur als neue Dateien: `belege/gremium/**` über `dart run tool/bollwerk/bollwerk.dart gremium-import <welle>` (Auszüge nach A-5 L11) und `belege/pruefrunde/<n>.json` über `dart run tool/bollwerk/bollwerk.dart pruefrunde --schreibe <n>`. Zwischenziele in PLAN.md ändern sich nur nach oben oder per Neuplanung mit ENTSCHEIDUNGSLOG-Eintrag (höchstens zweimal, Abschnitt 8).
 - Nach einer Verdichtung liest du Master-Prompt und Anhänge mit `git show P:<pfad>` (P = Übergabe-SHA), nicht aus dem Arbeitsbaum.
 - Schreib-Erlaubnis vor B-02 zusätzlich: `packages/mordakte_core/test/web/kanon_eingebettet.g.dart` (Kanon-Generator, A-5 L3).
 - Steuerung: ein B-02- oder FREIGABE-Eintrag gilt nur mit „gilt für: Nacht“ oder „alle“. Annahmen-Schlüssel „A12“ und „A-12“ sind gleichwertig. Einträge außerhalb der Weißliste bekommen `QUITTUNG S-<n> · <UTC> · abgelehnt <grund>`; „WEITER BOLLWERK“ hebt einen STOPP auf.
