@@ -1,6 +1,6 @@
-LEASE gen=0 session=- seit=- herzschlag=-
-FENSTER gen=0 start=- ende=- M=-
-ZUSTAND: NICHT BEGONNEN
+LEASE gen=1 session=session_01J12w9BSCysBqiSdn143rRF seit=2026-10-10T01:55Z herzschlag=2026-10-10T01:56Z
+FENSTER gen=1 start=2026-10-10T01:55Z ende=2026-10-10T13:55Z M=2026-10-10T04:30Z
+ZUSTAND: LÄUFT
 K=-
 R=-
 QUITTIERT S=0 F=0
