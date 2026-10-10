@@ -1,44 +1,40 @@
-# MORGENBERICHT · BOLLWERK · Samstag, 10. Oktober 2026 (Generation 1)
+# MORGENBERICHT · BOLLWERK · Samstag, 10. Oktober 2026 (Generation 2, Zwischenstand bei ABBRUCH)
 
 ## 1. Kurz gesagt
-Die erste Nacht war Vorlauf, denn die Finalisierung ist noch nicht fertig (B-02 offen, 2 von 5 Bedingungen). In gut 2½ Stunden ist das Fundament entstanden: Werkzeugkette, Torwerkzeug mit bestandener Rot-Probe, der Würfelkern mit Pech-Garantie und Kettensperre, ein Simulator, der die Zahlen des Meta-Laufs bitgenau nachrechnet, und der FEINKORN-Merge. Eine unabhängige Prüfung des Würfelkerns fand 14 Befunde; 7 sind schon behoben, 3 brauchen einen kleinen Regel-Schritt („Kern 1.1“) in der nächsten Nacht. Am Spiel selbst sieht man noch nichts – das beginnt nach B-02.
+Generation 2 lief 45 Minuten im Vorlauf (B-02 weiter offen) und endete mit einem **Abbruch nach Regel**: Ein Haiku-Agent hat einmal das Steuerwerkzeug `send_message` aufgerufen. Die Plattform hat den Aufruf blockiert, es ist nichts passiert – aber die harte Regel A-2 A4.2 macht jeden steuernden Werkzeugaufruf eines Agenten zum Abbruchgrund. Vorher ist alles gesichert worden. Fertig sind: der Würfelkern 1.1 nach dem Spielkern (Marke bei jedem Pech, „gründlich“ kostet auch im Abstecher, Würfel getrennt vom Bot-Zufall), neu gemessen und grün; die Prüfwerkzeuge der Variantenfabrik; die Befunde F-3…F-8 des Leitstands; das Meta-Archiv. Entscheidung nötig: FUER-DEN-NUTZER G2-2 (Empfehlung „A13: ja“).
 
 ## 2. Zuerst ansehen
-- Torwerkzeug: `source tool/bollwerk/env.sh && dart run tool/bollwerk/bollwerk.dart schnell --vorlauf` (≈ 1 min, Endzeile `BOLLWERK GRÜN · schnell · <sha>`).
-- Simulator: `dart run tool/bollwerk/runden_simulate.dart --modus baender --seeds 1000` und `--modus fairness`.
-- Prüfbericht des Würfelkerns: `planung/bollwerk/berichte/G1/PRUEF-KERN-1.md`.
+- Torwerkzeug: `source tool/bollwerk/env.sh && dart run tool/bollwerk/bollwerk.dart schnell --vorlauf --ohne-belege` (≈ 2 min, Endzeile `BOLLWERK GRÜN · schnell · <sha>`; ohne eingerichtetes `.werkzeug/` greift jetzt das vorhandene SDK, Befund F-5).
+- Würfelbänder: `dart run tool/bollwerk/runden_simulate.dart --modus baender --seeds 10000` (10 s).
+- Rohvarianten: `planung/bollwerk/vorrat/roh/W1/*.jsonl`, Prüfung: `dart run tool/bollwerk/varianten.dart --welle W1 planung/bollwerk/vorrat/roh/W1/ABST-*.jsonl`.
+- Verstoß: `planung/bollwerk/berichte/G2/VERSTOSS-W2-ABST-west_saal-1.txt`.
 
 ## 3. Vorher/Nachher-Kontaktbogen
-Noch keiner: Die Vorher-Galerie entsteht erst in BW0 am B-02-Stand, Design-Arbeit erst ab BW3.
+Keiner: Vorher-Galerie erst in BW0 an K, Design-Arbeit erst ab BW3.
 
 ## 4. Die Nacht in Zahlen
-- U: noch nicht messbar (Basis erst in BW0 an K). Vorbereitete Basiszahl X3: 42 Orte (roh 43).
-- Abnahme: 0 von 35 (abgenommen wird erst am Ziel-Tor). Im Vorlauf grün belegt: L0, L2, L3, L4, L5 (`belege/tor-V.txt`, Stand 30fadff).
-- Würfelkern, Beweise: erschöpfend 313.344 Läufe mit 0 Sackgassen, 0 Kettenverletzungen, 0 Budgetüberschreitungen, 0 Wertungsabweichungen (jetzt mit Ende und Restverdächtigen), 0 Faktenstand-Abweichungen; C8 1a: 640 Folgefälle grün.
-- Bänder (Meta-Satz, 1.000 Partien je Form × Besetzung): Dart-Port = Python-Vorlage, 0 von 200 Kennzahlen abweichend. Fairness: |ρ| = 0,045, Geiz-Bot 4,0 Punkte.
-- L3 Determinismus: 1.000 Codes, VM = Node = eingecheckte Liste.
-- Tests: voller Bestandslauf 621 s, alles grün (L-1).
-- Varianten: 0 (keine Variantenwelle; die Fabrik-Werkzeuge varianten.dart/vorrat.dart folgen).
-- Agentenaufrufe: 3 (1 Opus-Prüfer, 2 Haiku-Berichte), Werkzeug-Audit 0 Verstöße.
+- U: noch nicht messbar (Basis erst in BW0 an K).
+- Abnahme: 0 von 35 (erst am Ziel-Tor). Vorlauf: Tor `schnell --vorlauf` grün an jedem Code-Commit (be5a990, 8dee563, 93c2fd9, 52632ba); Z-29 und Z-30 grün über `archiv_pruefen.sh`.
+- Würfelkern 1.1, 10.000 Partien je Form × Besetzung: Wurfanteil 43,1–43,2 % (streng bis 56,2 %), Pech im 1. Anlauf 33,4–33,9 % (Grenze 35 %), längste Pech-Folge 2, jede Runde mit Wurf, Median 3 Pech-Szenen und 3 Erfolge mit Zusatz, unteres Glücksquartil 30–31 % weniger Abstecher und 42–45 % weniger Zusatzfunde, Gerät je Runde 3,3 min (Party) bzw. 5,4 min (Solo). Fairness: |ρ| = 0,038 (jetzt aus der echten Vorschau), Geiz-Bot 4,0 Punkte. Erschöpfend: 313.344 + 307.200 Läufe mit Salz-Strömen, 0 Sackgassen, 0 Kettenverletzungen, 0 Budgetüberschreitungen, 0 Wertungs- und Faktenabweichungen.
+- Varianten: 135 roh (W1 72, W2 30, Füllstücke 60 – davon 15 mit Werkzeugverstoß verworfen); Ringe 1–6: 70 von 75 gesicherten grün (5 Ausfälle: Notlaterne, Pfeife ohne Seifenblasen, „nach draußen“); Ring 7 (Richter) nicht mehr gelaufen; übernommen 0.
+- Agentenaufrufe: 10 Haiku (1 gestoppt), ≈ 1,88 Mio Agenten-Tokens; Werkzeug-Audit: 2 Verstöße (1 lesend → verworfen, 1 steuernd → Abbruch).
 
 ## 5. Stand von `bollwerk`
-Siehe Zugende-Zeile im Chat; Code-Stand 7164edf (Würfelkern, Tests, Torwerkzeug, FEINKORN, Archiv). TOR-SHA 30fadff.
+Siehe Zugende-Zeile im Chat. Code-Stand 52632ba (Kern 1.1 mit F-6-Rest). TOR-SHA unverändert 30fadff, Verschärfungen danach mit Rot-Probe (E-G2-02, E-G2-07).
 
 ## 6. Was auf Standardwahlen beruht
-- X3-Basis 42 statt 43 (`wc` liegt oben im Turm, nicht im Keller). Kippt es, sinkt f_X3 um 2,4 %.
-- Weißliste: neue pfadgleiche Kleinigkeiten der Schicht dürfen Zusatzfunde sein (Frage G1-2). Kippt es, bleibt Z-11 rot.
-- Seifenblasen-Marken und „gründlich“ nach dem Spielkern, nicht nach dem Meta-Simulator (Frage G1-3). Kippt es, nichts zu tun.
+- HD-Linie der Burgstadt nicht zusammengeführt: 192 von 198 Burgstadt-Bildern würden sich ändern (G2-1). Kippt es („A12: ja“), Merge in einer späteren Generation.
+- Weißliste 11 Zusatzfunde (die zwei Täter-Befunde bleiben draußen, von Opus nachgeprüft); die fehlenden 3 für Z-11 kommen als neue pfadgleiche Kleinigkeiten (G1-2).
+- Kern 1.1 nach dem Spielkern (G1-3).
 
 ## 7. Was nicht lief
-- Keine Variantenwelle: Ohne varianten.dart/vorrat.dart wäre nichts zählbar geprüft worden.
-- Meta-Archiv (107 Dateien) noch nicht übernommen: braucht eine Durchsicht auf Rohchat-Spuren.
-- HD-Linie `caf1d61` zurückgestellt (Merge erst, wenn danach L1 grün ist; das prüft erst das Phasentor).
-- L4-Modus `dauer` offen (braucht das Zeitmodell aus BW0).
-- Rohchat fehlt in der Cloud: Secret-Scan ohne Passagenprüfung (G1-1).
-- Langlauf-Probe L-9 (überlebt ein abgekoppelter Prozess 2 h?) unentschieden: Die Probe endete planmäßig genau im Prüffenster. Bis zur neuen Probe in G2 laufen lange Tore in Teilen unter 100 min.
+- Ring 7 für W1: die Richter wären der nächste Schritt gewesen.
+- Folgeentscheidungen (FOLGE-e1_1) und ABST-west_saal-1 verworfen (Werkzeugverstöße), ABST-ost_saal-1 beim Abbruch gestoppt.
+- L-9b (abgekoppelter Prozess über 2 h): lief beim Abbruch erst 45 min – weiter offen; lange Tore bleiben in Schichtgruppen.
+- Zusatzfund-Slot, F2/F6-Anbindung der Schicht im Simulator, Vorlauf-Durchstich.
 
 ## 8. Nächster Schritt und Restbedarf
-G2 (Vorlauf, solange B-02 offen): Kern 1.1 (Marken, „gründlich“ im Abstecher, getrennter Bot-Strom) mit neuer Bandmessung; varianten.dart (Ringe 1–6), vorrat.dart; Weißlisten-Nachprüfung durch Opus; danach erste Variantenwelle für `content/runden/`. Ab B-02: BW0 (Basis an K), dann BW1. Restbedarf bis main unverändert: 6–7 Hauptlauf-Nächte nach B-02 (A-20).
+Nach der Entscheidung zu G2-2 (Empfehlung „A13: ja“): G3 im Vorlauf – Ring 7 für W1, verworfene Slots einmal neu, weitere Wellen nach `vorrat.dart`, L-9 neu. Ab B-02: BW0 (Basis an K, Türregel-Altlast der K0-Demo als erste Aufgabe), dann BW1. Restbedarf bis main unverändert 6–7 Hauptlauf-Nächte nach B-02.
 
 ## 9. Bis zum Store fehlt
 Release-Signatur, Datenschutzerklärung, Altersangaben, Bildschirmfotos, `web/manifest.json`, Tests auf echten Geräten.

@@ -6,3 +6,4 @@
 
 ## G2
 - 10.10. 07:16 Berlin · Phase V · U – (Basis erst an K) · Agenten aktiv 4 (W1 FUELL, W2 ×3), fertig 5 · Varianten W1 72 roh (davon 12 verworfen: Werkzeugverstoß), Ringe 1–6 grün 55/60 · Ausschuss Ringe 8 % · Annahmequote Ring 7 noch offen · Tokens ≈ 1,04 Mio (Haiku) · Stolperdraht: refs unverändert außer eigenem bollwerk (geprüft 05:17Z)
+- 10.10. 07:26 Berlin · Phase V · ABBRUCH (steuernder Werkzeugverstoß, E-G2-08) · Agenten aktiv 0 (1 mit TaskStop beendet), fertig 9 · Varianten roh 135 (W1 72, W2 30 gesichert, 60 Füllstücke), Ringe 1–6 grün 70 von 75 gesicherten · Ring 7 nicht gelaufen · Tokens ≈ 1,88 Mio (Haiku) · Stolperdraht ruhig

@@ -40,3 +40,13 @@
 - **Frage:** Soll die HD-Linie trotz geänderter Burgstadt-Bilder in BOLLWERK zusammengeführt werden („A12: ja“ in STEUERUNG)?
 - **Standardwahl:** Nein – nur archiviert, Burgstadt bleibt bytegleich wie heute auf main.
 - **Folge beim Kippen:** Merge in einer späteren Generation mit Phasentor und Vorher/Nachher-Bogen der Burgstadt.
+
+### G2-2 · ABBRUCH der Generation 2 (bitte entscheiden)
+- **Was geschah:** Ein Haiku-Agent (Abstecher Kaminsaal, Welle W2) hat einmal das Werkzeug `send_message` aufgerufen – mit leerer Eingabe. Die Plattform hat den Aufruf blockiert; es wurde keine Nachricht verschickt, nichts geändert. Schon vorher hatte ein anderer Haiku-Agent einmal ein lesendes Dokumentations-Werkzeug aufgerufen (Ergebnis verworfen).
+- **Warum Abbruch:** Die harte Regel (A-2 A4.2, Master-Prompt §3) sagt: Ein Verstoß mit steuerndem Werkzeug ist ein Abbruchgrund – ohne Ausnahme für abgewehrte Aufrufe. Der Lauf hat sie deshalb befolgt, nachdem alles gesichert war.
+- **Gesichert:** Kern 1.1 (Würfel nach dem Spielkern, neu gemessen, alles grün), Prüfwerkzeuge für die Variantenfabrik, Meta-Archiv, Befunde F-3…F-8 quittiert, 90 Rohvarianten und 60 Füllstücke im Repo (`planung/bollwerk/vorrat/roh/`).
+- **Optionen:**
+  1. **„A13: ja“** – der Leitstand legt die technische Sperrdatei an (nur `permissions.deny` für die Remote-, GitHub-, Dokument- und Steuerwerkzeuge der Unteragenten). Dann kann ein Agent diese Werkzeuge gar nicht erst aufrufen. **Empfehlung.**
+  2. Neustart ohne Sperrdatei: Das Risiko bleibt (2 von 10 Haiku-Aufrufen griffen daneben), und der nächste solche Aufruf bricht wieder ab.
+  3. Regeländerung „abgewehrte steuernde Aufrufe ohne Wirkung = verwerfen statt abbrechen“ – geht nur über dich, nicht über den Lauf (Grenzen ändert der Nachtlauf nie).
+- **Danach:** Der Leitstand startet G3; sie setzt beim PRUEFPUNKT „Nächster Schritt“ an (Richter für Welle W1, Wiederholung der verworfenen Slots).
