@@ -286,6 +286,13 @@ Future<void> main(List<String> args) async {
       if (kopf.length < 3 || !kopf[0].startsWith('HEAD $sha ') || !kopf[2].startsWith('Status GRÜN')) rot.add('${s.name}(gruppe)');
     }
   }
+  final endzeile = rot.isEmpty && letzteGruppe ? 'BOLLWERK GRÜN · $modus · $sha' : (rot.isEmpty ? '' : 'BOLLWERK ROT · ${rot.join(' ')}');
+  if (!ohneBelege && endzeile.isNotEmpty) {
+    // Tor-Beleg der Phase (2.3 Schritt 6): V im Vorlauf, sonst der Modus.
+    File('$bw/planung/bollwerk/belege/tor-${vorlauf ? 'V' : modus}.txt').writeAsStringSync(
+        'HEAD $sha · tree $tree · ${await berlinZeit()} · $modus${vorlauf ? ' --vorlauf' : ''} · Exit ${rot.isEmpty ? 0 : 1}\n'
+        '${ergebnisse.map((e) => '${e.name} ${e.status} ${e.dauer.inSeconds} s').join(' · ')}\n$endzeile\n');
+  }
   if (rot.isEmpty && letzteGruppe) {
     stdout.writeln('BOLLWERK GRÜN · $modus · $sha');
     exit(0);
