@@ -7,5 +7,6 @@ Einziger Schreiber: Leitstand. Einträge werden **nur angehängt**, nie geänder
 | S-1 | 2026-10-09 | Nacht | Wellengröße bis B-02: höchstens die Hälfte der gemessenen Kapazität (Kontingent für die Finalisierung lassen). | Plan L3 |
 | S-2 | 2026-10-09 | alle | Der Nachtlauf pusht ausschließlich `bollwerk`, der Meta-Lauf ausschließlich `bollwerk-plan`. Archive, Tags und main gehören dem Leitstand. | Plan L0.3 |
 | S-3 | 2026-10-09 | alle | Workflows sind in Kindsitzungen nicht freigegeben; Agentenarbeit nur über das Agent-Werkzeug (Kinder-Probe). | L1b |
+| S-4 | 2026-10-10 | alle | NACHTRAG AUFTEILUNG: `planung/bollwerk/leitstand/NACHTRAG-AUFTEILUNG.md` ist verbindlich und hat Vorrang vor MASTER-PROMPT, Anhängen, PLAN und Startpaket (Burgstadt in eigenes Repo, Lösch-Commit L nach Merge von PR #43, FEINKORN als `packages/feinkorn`, room_host bleibt). | Nutzer 10.10. |
 
 B-02 ist offen, solange hier kein Eintrag `B-02 ERFÜLLT · K=<sha40>` oder `FREIGABE BOLLWERK · K=<sha40>` steht.

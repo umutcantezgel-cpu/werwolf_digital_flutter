@@ -49,9 +49,9 @@ Letzte Prüfung: 2026-10-10 10:39 UTC · Finalisierung aktiv (c5c1af3, 09:38 UTC
 
 ## Aufteilung (Nutzerfreigabe 10.10.2026, Plan „AUFTEILUNG – Burgstadt raus, der Rest wird eine App“)
 Nutzerwortlaut: „das eine raus den rest fusionieren“ · „dieses 3D-Game … in einen separaten Repo“ · neues Repo „burgstadt-schartenfels, mit Verlauf“, öffentlich · Vorgehen „Kopieren, prüfen, dann hier entfernen“ · Zeitpunkt „Nach dem Merge von PR #43“.
-- Phase 1 (läuft): neues öffentliches Repo `umutcantezgel-cpu/burgstadt-schartenfels` aus gefiltertem Verlauf (Klon `/home/user/burgstadt-schartenfels`, Branches `main` und `hd-linie`, Basis A@47611d8, HD@f275929), eigene App-Kennung `de.codayweb.burgstadt`.
+- Phase 1 **fertig 10.10. ~11:15 UTC**: [burgstadt-schartenfels](https://github.com/umutcantezgel-cpu/burgstadt-schartenfels) `main`=d814992, `hd-linie`=2f6db13 (ls-remote = lokal), alle Tore grün; aus gefiltertem Verlauf (Klon `/home/user/burgstadt-schartenfels`, Branches `main` und `hd-linie`, Basis A@47611d8, HD@f275929), eigene App-Kennung `de.codayweb.burgstadt`.
 - **Phase 2 – Auslöser im Herzschlag prüfen:** PR #43 gemergt UND Finalisierung „ZIEL ERREICHT“ UND 60 min ohne Commit auf ihren Pfaden → Lösch-Commit hier (Branch `aufteilung/burgstadt`, Tore, `archiv/vor-aufteilung`, FF-Push auf main). Vorher Burgstadt-Nachzügler seit 47611d8 ins neue Repo.
-- Phase 3: `NACHTRAG-AUFTEILUNG.md` + STEUERUNG-Zeile für BOLLWERK; **B-02 erst nach dem Lösch-Commit auf main**.
+- Phase 3 **fertig**: `NACHTRAG-AUFTEILUNG.md` + STEUERUNG S-4; **B-02 erst nach dem Lösch-Commit auf main**.
 - Phase 4 (Krimidinner als Partyabend in die App): nur nach eigenem Plan und Nutzerwort.
 
 ## Gezeigte Bilder
@@ -140,3 +140,4 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-10 08:38 UTC · Herzschlag 13: Finalisierung nach 9 h Stille wieder aktiv (0690165, 08:15 UTC); B-02 offen. G2-2 weiter unbeantwortet, keine G3. Nebenbei: Statusprüfung für den Nutzer (Workflow, nur lesend, Proben in Wegwerf-Worktrees /home/user/probe-main und /home/user/probe-fin).
 - 2026-10-10 09:38 UTC · Herzschlag 14: keine Änderung. Nutzerfrage „was steht, ist es spielbar?“ beantwortet (Workflow, Proben in Wegwerf-Worktrees, Bilder gezeigt).
 - 2026-10-10 10:39 UTC · Herzschlag 15: Finalisierung c5c1af3 (E2E 84/84); B-02 offen; G2-2 weiter offen. Nutzer hat die **Aufteilung** freigegeben (Abschnitt oben); Phase 1 läuft (Filter, Eigenständigkeits-Commit d814992 lokal, Tore laufen).
+- 2026-10-10 ~11:15 UTC · Aufteilung Phase 1 fertig: Repo `burgstadt-schartenfels` (öffentlich, vom Nutzer angelegt, da `create_repository` 403) befüllt, `main` d814992 und `hd-linie` 2f6db13 gepusht und per ls-remote bestätigt. Phase 3: NACHTRAG-AUFTEILUNG.md und S-4 geschrieben. Phase 2 wartet auf PR #43.
