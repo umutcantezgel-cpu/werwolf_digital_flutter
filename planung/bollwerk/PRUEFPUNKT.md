@@ -1,6 +1,6 @@
 # PRUEFPUNKT · BOLLWERK-Nachtlauf
 
-- Zeit: 2026-10-10T02:43Z
+- Zeit: 2026-10-10T03:13Z (Herzschlag, nur Sicherung; L-9 lebt)
 - Generation: 1 · Sitzung session_01J12w9BSCysBqiSdn143rRF
 - Phase: V (Vorlauf; ab E − 1,5 h nur Sicherung)
 - Nächster Schritt: G1 nur noch Sicherung; L-9 prüfen ab 04:01Z; Zugende spätestens 05:00Z mit NACHT-ENDE. G2: Kern 1.1 (#1 #2 #4), varianten.dart, vorrat.dart, Weißliste nachprüfen, Meta-Archiv durchsehen
