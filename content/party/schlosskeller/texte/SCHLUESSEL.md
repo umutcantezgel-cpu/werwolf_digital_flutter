@@ -51,7 +51,8 @@ Die Kennungen der Erzählerbausteine kommen aus `Erzaehler.katalog()`; andere Ke
 
 ## Regeln für Finale und Ausgang (E-029)
 - Das Finale kennt nur Täterpfad, Ende und Punkte, nicht den Verlauf. Kein Finaltext sagt deshalb, ob das Geburtstagskind den Bund in der Nacht gefunden hat.
-- **Richtige Anklage** (`ende_meister`, `ende_teilerfolg`): Die Täterperson gesteht und gibt den Bund heraus. Herr Schneider schließt noch in der Nacht das Außentor auf.
+- **Richtige Anklage** (`ende_meister`, `ende_teilerfolg`): Die Täterperson gesteht und gibt den Bund heraus. Herr Schneider schließt das Außentor erst auf, als es dämmert; bis dahin gibt es Torte und Tee (Master 7.9, E-039).
+- **Schlüsselbeweis im Meister-Ende** (E-039): Er kommt erst nach dem Geständnis, wenn alle gemeinsam hinsehen. Meister-Detektiv gibt es ab sieben Punkten, also auch ohne die Entscheidung, die ihn aufdeckt.
 - **Falsche Anklage** (`ende_justizirrtum`, `ende_eskalation`): Der Bund bleibt verschwunden. Um sieben Uhr schließt Herrn Schneiders Kollegin mit dem Ersatzschlüssel auf (`z_morgen`). Die Täterperson gesteht erst danach.
 - Eine falsch angeklagte Person wird nie beim Namen genannt; der Text passt für jede.
 - Die Rückblende erzählt die Tat nach der Tatmatrix des Pfads: Weg zur Tat, Schlag, die Spuren, die dabei entstehen, und das Versteck des Bunds.

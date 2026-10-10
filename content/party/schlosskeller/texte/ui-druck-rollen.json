@@ -96,6 +96,14 @@
       "text": "Runde {nr}"
     },
     {
+      "id": "ui.druck.stimme.titel",
+      "text": "Stimmkarten"
+    },
+    {
+      "id": "ui.druck.stimme.keine",
+      "text": "Heute spielen nur die vier Kernrollen. Sie stimmen mit den Streifen aus ihrer versiegelten Fassung ab. Darum gibt es keine Stimmkarten."
+    },
+    {
       "id": "ui.druck.stimme.wert",
       "text": "Code {code}"
     },
@@ -108,8 +116,16 @@
       "text": "Du warst es. Vor dem Morgen darf das niemand erfahren."
     },
     {
+      "id": "ui.druck.fassung.unschuldig",
+      "text": "Du warst es nicht. Trotzdem hast du heute Nacht etwas zu verbergen."
+    },
+    {
+      "id": "ui.druck.fassung.tipp",
+      "text": "Bleib bei deiner Geschichte. Dein Geheimnis gibst du erst preis, wenn du in der Rundenwahl A wählst."
+    },
+    {
       "id": "ui.druck.fassung.streifen",
-      "text": "Wählst du in einer Runde B, gibst du den Streifen dieser Runde von dieser Seite ab. Den Streifen deiner Karte B behältst du. Wählst du A, gibst du wie alle den Streifen deiner Karte A ab."
+      "text": "Du hast keine Stimmkarten. In jeder Runde gibst du genau einen Streifen von dieser Seite ab. Wählst du A, ist es Streifen A, sonst Streifen B. Den anderen Streifen der Runde zerreißt du."
     }
   ]
 }

@@ -31,7 +31,7 @@ void rollenhefte(pw.Document doc, DruckKontext k) {
 }
 
 /// Jede Fassung hat genau vier Seiten mit denselben Überschriften (E-036):
-/// Außenseite, Inhalt, Rundenwahl mit den B-Streifen, Notizen. Eine Schriftgröße
+/// Außenseite, Inhalt, Rundenwahl mit den Streifen A und B (E-039), Notizen. Eine Schriftgröße
 /// für alle vier bringt die längste Fassung auf ihre Seite; so verrät weder
 /// Seitenzahl noch Aufbau, welche Fassung die Täterfassung ist.
 void fassungen(pw.Document doc, DruckKontext k) {
@@ -41,7 +41,7 @@ void fassungen(pw.Document doc, DruckKontext k) {
         for (final f in fs) k.stil.passendeGroesse((g) => bauen(f, g), DruckStil.breite, platz, wo: '$wo ${f.code}'),
       ].reduce(min);
   final gInhalt = gemeinsam((f, g) => _fassungInhalt(k, f, g), hoehe, 'fassung');
-  final gWahl = gemeinsam((f, g) => _fassungWahl(k, f, g), hoehe - _streifenReiheHoehe, 'rundenwahl');
+  final gWahl = gemeinsam((f, g) => _fassungWahl(k, f, g), hoehe - 2 * _streifenReiheHoehe - 6, 'rundenwahl');
   for (final f in fs) {
     doc.addPage(pw.Page(pageFormat: DruckStil.format, margin: DruckStil.rand, build: (c) => _fassungAussen(k, f)));
     doc.addPage(pw.Page(
@@ -55,7 +55,9 @@ void fassungen(pw.Document doc, DruckKontext k) {
       build: (c) => pw.Column(children: [
         _fassungWahl(k, f, gWahl),
         pw.Spacer(),
-        _streifenReihe(k, f),
+        _streifenReihe(k, 'A', f.streifenA),
+        pw.SizedBox(height: 6),
+        _streifenReihe(k, 'B', f.streifen),
         pw.SizedBox(height: 8),
         k.stil.fuss(c, k.fallTitel),
       ]),
@@ -65,12 +67,26 @@ void fassungen(pw.Document doc, DruckKontext k) {
 }
 
 void stimmkarten(pw.Document doc, DruckKontext k) {
-  // Reihenfolge: nach Runde, dann Besetzungsreihenfolge, A vor B.
+  // Reihenfolge: nach Runde, dann Besetzungsreihenfolge, A vor B. Nur Gäste haben
+  // Karten; die Kernrollen stimmen mit ihrer Fassung (E-039).
   final karten = [
     for (var r = 1; r <= 3; r++)
       for (final rolle in k.satz.besetzt)
-        for (final a in [true, false]) k.satz.stimmkarten.singleWhere((s) => s.rolle == rolle && s.runde == r && s.a == a),
+        for (final a in [true, false]) ...k.satz.stimmkarten.where((s) => s.rolle == rolle && s.runde == r && s.a == a),
   ];
+  if (karten.isEmpty) {
+    doc.addPage(pw.Page(
+      pageFormat: DruckStil.format,
+      margin: DruckStil.rand,
+      build: (c) => pw.Column(crossAxisAlignment: pw.CrossAxisAlignment.start, children: [
+        k.stil.kopf(k.ui('ui.druck.stimme.titel'), ''),
+        pw.Text(k.ui('ui.druck.stimme.keine'), style: k.stil.text()),
+        pw.Spacer(),
+        k.stil.fuss(c, k.fallTitel),
+      ]),
+    ));
+    return;
+  }
   final schrift = _kartenSchrift(k, karten);
   for (var i = 0; i < karten.length; i += 8) {
     final blatt = karten.sublist(i, min(i + 8, karten.length));
@@ -265,6 +281,7 @@ Fassung? _fassungVon(DruckKontext k, String rolle) {
 
 /// Platz für die Fußzeile einer Seite und Höhe der Streifenreihe (pt).
 const _fussRaum = 22.0;
+const _wahlSpalte = 24.0;
 const _streifenReiheHoehe = PdfPageFormat.mm * 24;
 
 /// Außenseite: Code und neutraler Hinweis im oberen Viertel. Beim Knick in der
@@ -280,6 +297,8 @@ pw.Widget _fassungAussen(DruckKontext k, Fassung f) => pw.Column(
 
 /// Inhalt einer Fassung: Ziel, Wissen, Verborgenes. Die Täterrolle bekommt keine
 /// eigene Überschrift; ihre Tat und Tarnung stehen unter „Was ich verberge“ (E-036).
+/// Jede Fassung beginnt und endet dort mit einem Satz an der gleichen Stelle; die
+/// Unschuldigen haben ihre Nacht als Chronik, damit die Seiten ähnlich dicht sind (E-039).
 pw.Widget _fassungInhalt(DruckKontext k, Fassung f, double g) {
   final d = f.dossier;
   return pw.Column(
@@ -291,7 +310,7 @@ pw.Widget _fassungInhalt(DruckKontext k, Fassung f, double g) {
       k.stil.abschnitt(
         k.ui('ui.druck.rollen.verberge'),
         [
-          if (d.taeter) k.ui('ui.druck.fassung.taeter'),
+          k.ui(d.taeter ? 'ui.druck.fassung.taeter' : 'ui.druck.fassung.unschuldig'),
           for (final z in d.tatwissen) z.text,
           if (d.tarnung != null) d.tarnung!,
           for (final z in d.verbirgt)
@@ -300,7 +319,7 @@ pw.Widget _fassungInhalt(DruckKontext k, Fassung f, double g) {
               k.ui('ui.druck.rollen.wahrheit', {'wahrheit': z.text}),
             ] else
               z.text,
-          if (d.taeter) k.ui('ui.druck.fassung.sabotage'),
+          k.ui(d.taeter ? 'ui.druck.fassung.sabotage' : 'ui.druck.fassung.tipp'),
         ],
         groesse: g,
       ),
@@ -330,12 +349,14 @@ pw.Widget _fassungWahl(DruckKontext k, Fassung f, double g) {
   );
 }
 
-/// Drei B-Streifen zum Abreißen, je Runde einer: nur Runde und Wertcode.
-pw.Widget _streifenReihe(DruckKontext k, Fassung f) => pw.Row(
+/// Drei Streifen zum Abreißen, je Runde einer: nur Runde und Wertcode. Die
+/// Wahl A oder B steht links daneben und bleibt auf der Seite.
+pw.Widget _streifenReihe(DruckKontext k, String wahl, Map<int, String> streifen) => pw.Row(
       children: [
+        pw.SizedBox(width: _wahlSpalte, child: pw.Center(child: pw.Text(wahl, style: k.stil.ueberschrift(16)))),
         for (var r = 1; r <= 3; r++)
           pw.Container(
-            width: DruckStil.breite / 3,
+            width: (DruckStil.breite - _wahlSpalte) / 3,
             height: _streifenReiheHoehe,
             padding: const pw.EdgeInsets.all(6),
             decoration: k.stil.schnitt(),
@@ -344,7 +365,7 @@ pw.Widget _streifenReihe(DruckKontext k, Fassung f) => pw.Row(
               children: [
                 pw.Text(k.ui('ui.druck.rollen.runde', {'nr': '$r'}), style: k.stil.klein()),
                 pw.SizedBox(height: 2),
-                pw.Text(k.ui('ui.druck.stimme.wert', {'code': f.streifen[r]!}), style: k.stil.ueberschrift(14)),
+                pw.Text(k.ui('ui.druck.stimme.wert', {'code': streifen[r]!}), style: k.stil.ueberschrift(14)),
                 pw.SizedBox(height: 2),
                 pw.Text(k.ui('ui.druck.stimme.falz'), style: k.stil.klein(), textAlign: pw.TextAlign.center),
               ],

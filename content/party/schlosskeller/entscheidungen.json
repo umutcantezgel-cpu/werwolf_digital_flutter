@@ -9,7 +9,7 @@
         "nebendelikt"
       ],
       "folge": "entlastet",
-      "text": "Wer beim Scheppern nachweislich woanders war und zusätzlich eine bewiesene Heimlichtuerei hat, scheidet aus. Beides muss zusammenkommen."
+      "text": "Wer beim Scheppern nachweislich woanders war und zusätzlich eine bewiesene Heimlichtuerei hat, scheidet aus. Beides muss zusammenkommen. Das Scheppern ist das laute Poltern an der Theke, gut eine halbe Minute nach dem Knall."
     },
     {
       "id": "R-UEBERFUEHRT",
@@ -516,13 +516,12 @@
         },
         "can": {
           "kette": [
-            "fakt:f_alibi_ahmet",
             "fakt:f_alibi_fatma",
             "fakt:f_alibi_olli",
             "beobachtung:b_marek_gesicht",
             "merkmal:can"
           ],
-          "text": "Ahmet, Fatma und Olli haben ein Alibi für das Scheppern, Can hat keins. Marek sah ein leuchtendes Gesicht, und Cans Hand steckt tief in der Bauchtasche seines Pullis."
+          "text": "Fatma und Olli haben ein Alibi für das Scheppern, Ahmet und Can nicht. Marek sah ein leuchtendes Gesicht, und Cans Hand steckt tief in der Bauchtasche seines Pullis."
         }
       }
     },
@@ -881,10 +880,10 @@
         },
         "can": {
           "kette": [
-            "fakt:f_alibi_ahmet",
+            "fakt:f_spaet_ahmet",
             "beobachtung:b_aylin_quittung"
           ],
-          "text": "Ahmet war beim Scheppern bei Damir, aber seine Miete ist ungeklärt. Aylin hat einen Beleg von Herrn Schneider."
+          "text": "Ahmet kam erst nach dem Scheppern zu Damir zurück, und seine Miete ist ungeklärt. Aylin hat einen Beleg von Herrn Schneider."
         }
       }
     }

@@ -30,6 +30,7 @@ export 'src/party/beweise.dart';
 export 'src/party/szenario_export.dart';
 export 'src/party/bibel.dart';
 export 'src/party/farbe.dart';
+export 'src/party/herkunft.dart';
 export 'src/party/spuren.dart';
 export 'src/party/entscheidungen.dart';
 export 'src/party/gruppenwahl.dart';

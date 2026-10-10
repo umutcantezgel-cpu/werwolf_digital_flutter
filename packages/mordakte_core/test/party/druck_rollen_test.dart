@@ -104,8 +104,11 @@ void main() {
       // Gleicher Aufbau: Inhalt auf Seite 2, Rundenwahl mit drei Streifen auf Seite 3, Notizen auf Seite 4.
       expect([for (final u in ueberschriften) _zaehle(text, u)], [1, 1, 1, 1, 1], reason: f.rolle);
       expect(_seiten(b, i * 4 + 2, i * 4 + 3), contains(flach(k.ui('ui.druck.rollen.wahl'))), reason: f.rolle);
+      // Je Runde ein Streifen A und ein Streifen B (E-039).
       for (var r = 1; r <= 3; r++) {
-        expect(_seiten(b, i * 4 + 2, i * 4 + 3), contains(flach(k.ui('ui.druck.stimme.wert', {'code': f.streifen[r]!}))), reason: '${f.rolle} Runde $r');
+        for (final c in [f.streifenA[r]!, f.streifen[r]!]) {
+          expect(_seiten(b, i * 4 + 2, i * 4 + 3), contains(flach(k.ui('ui.druck.stimme.wert', {'code': c}))), reason: '${f.rolle} Runde $r');
+        }
       }
       expect(_seiten(b, i * 4 + 3, i * 4 + 4), contains(flach(k.ui('ui.druck.fassung.notizen'))), reason: f.rolle);
     }
@@ -185,7 +188,7 @@ void main() {
     stimmkarten(doc, k);
     final bytes = await doc.save();
     final b = pdfPruefen(bytes);
-    expect(b.seiten, 9, reason: '72 Karten zu acht je Blatt');
+    expect(b.seiten, 6, reason: '48 Karten der acht Gäste zu acht je Blatt (E-039)');
     final seiten = _seitenRoh(bytes);
     final text = flach(seiten.join(' '));
     for (final s in k.satz.stimmkarten) {
@@ -198,12 +201,18 @@ void main() {
     for (final verboten in ['Wert', '−1', '+1', 'Name']) {
       expect(text, isNot(contains(verboten)), reason: verboten);
     }
-    expect(_zaehle(text, 'Code '), 72);
-    // Keine offene Karte trägt die Sabotage, auch nicht die der Täterrolle (E-036).
+    expect(_zaehle(text, 'Code '), 48);
+    // Keine offene Karte trägt die Sabotage (E-036), und die Kernrollen haben gar keine (E-039).
     expect(k.satz.stimmkarten.where((s) => s.wert == -1), isEmpty);
-    for (final s in k.satz.stimmkarten.where((s) => s.rolle == 'ahmet' && !s.a)) {
-      expect(s.text, k.texte.sammlung.wahlen['gw_ahmet_${s.runde}']!.b);
-    }
+    expect(k.satz.stimmkarten.where((s) => k.kanon.kernverdaechtige.contains(s.rolle)), isEmpty);
+  });
+
+  test('Bei vier Rollen gibt es keine Stimmkarten, nur ein Blatt mit dem Hinweis (E-039)', () async {
+    final k = druckKontext(pfad: 'can', n: 4);
+    expect(k.satz.stimmkarten, isEmpty);
+    final b = await _teil(stimmkarten, k);
+    expect(b.seiten, 1);
+    expect(flach(b.text), contains(flach(k.ui('ui.druck.stimme.keine'))));
   });
 
   test('n = 20 ohne Überlauf, alle Teile A4', () async {
@@ -213,8 +222,8 @@ void main() {
       expect(b.a4, isTrue);
     }
     final karten = await _teil(stimmkarten, k);
-    expect(karten.seiten, 15, reason: '120 Karten zu acht je Blatt');
-    expect(_zaehle(flach(karten.text), 'Code '), 120);
+    expect(karten.seiten, 12, reason: '96 Karten der 16 Gäste zu acht je Blatt');
+    expect(_zaehle(flach(karten.text), 'Code '), 96);
     expect(flach(karten.text), isNot(contains('−1')));
   });
 

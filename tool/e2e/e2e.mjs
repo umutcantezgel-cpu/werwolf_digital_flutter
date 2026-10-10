@@ -59,6 +59,7 @@ const FESTE_FOTOS = {
   einrichtung: 'einrichtung',
   rollen: 'rollen',
   dossier: 'rollen',
+  dossier_taeter: 'rollen',
   intro: 'intro',
   anklage: 'anklage',
   finale: 'finale',
@@ -78,7 +79,7 @@ function fotoGruppe(name) {
   if (Object.hasOwn(FESTE_FOTOS, name)) return FESTE_FOTOS[name];
   if (/^gespraeche_r\d+$/.test(name)) return 'gespraeche';
   if (/^(fund|endgueltig|ziel)_/.test(name) || /^entscheidungen_fertig_r\d+$/.test(name)) return 'entscheidungen';
-  if (/^(wahl_verdeckt|gruppenwahl)_r\d+$/.test(name)) return 'gruppenwahl';
+  if (/^(wahl_verdeckt|wahl_taeter|gruppenwahl)_r\d+$/.test(name)) return 'gruppenwahl';
   if (/^bonus_r\d+$/.test(name)) return 'bonus';
   if (/^resuemee_r\d+$/.test(name)) return 'resuemee';
   if (/^rueckblende_\d+$/.test(name)) return 'finale';
@@ -159,10 +160,14 @@ function pruefeSemantik(lauf, texte, daten) {
     if (!t.includes(UHRZEIT[r])) f.push(`Semantik: Uhrzeit ${UHRZEIT[r]} fehlt an ${name}`);
     if (!t.includes(daten.runde[r])) f.push(`Semantik: Erzählertext der Runde ${r} fehlt an ${name}`);
   }
+  // Die Täteransicht: Sie zeigt die Tarnung und den Hinweis „Nur für dich“ (F6-SPIEL-01).
+  const taeter = texte.find((x) => x.name === 'dossier_taeter');
+  if (!taeter) f.push('Semantik: keine Fotostelle „dossier_taeter“');
+  else if (norm(taeter.text) && !norm(taeter.text).includes(daten.tarnung[lauf.pfad])) f.push('Semantik: Täterfassung fehlt an dossier_taeter');
   const finale = texte.findIndex((x) => x.name === 'finale');
   if (finale < 0) f.push('Semantik: keine Fotostelle „finale“');
   for (const e of finale < 0 ? texte : texte.slice(0, finale)) {
-    if (e.name === 'dossier' || e.name.startsWith('wahl_verdeckt_')) continue;
+    if (e.name === 'dossier' || e.name === 'dossier_taeter' || e.name.startsWith('wahl_verdeckt_') || e.name.startsWith('wahl_taeter_')) continue;
     // Leerer Text: Der Bildschirm ist an dieser Stelle noch nicht gezeichnet (nur bei „titel“,
     // der vor dem ersten Bild gemeldet wird). Eine Leerprüfung verrät dann nichts.
     const t = norm(e.text);

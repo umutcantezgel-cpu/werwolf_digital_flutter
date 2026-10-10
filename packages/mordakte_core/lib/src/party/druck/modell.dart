@@ -61,10 +61,11 @@ class BogenEntscheidung {
   const BogenEntscheidung(this.id, this.runde, this.nr, this.frage, this.optionen);
 }
 
-/// Offene Stimmkarte einer Rolle in einer Runde. Der Abreißstreifen trägt nur den
+/// Offene Stimmkarte eines Gastes in einer Runde. Der Abreißstreifen trägt nur den
 /// neutralen [wertCode]; den [wert] (A = 1, B = 0) kennt die Codetabelle der Runde
-/// im Spielleitungsheft (E-035). Keine offene Karte trägt die Sabotage: Die liegt
-/// als Streifen in der versiegelten Fassung der Täterrolle (E-036).
+/// im Spielleitungsheft (E-035). Die vier Kernrollen haben keine offenen Karten:
+/// Sie stimmen nur mit den Streifen A und B aus ihrer versiegelten Fassung ab, so
+/// kennt die Spielleitung keinen ihrer Codes (E-036, E-039).
 class Stimmkarte {
   final String rolle;
   final int runde;
@@ -111,19 +112,23 @@ class Auszaehlung {
 }
 
 /// Versiegelte Fassung einer Kernrolle: außen nur [code]. Innen je Runde ein
-/// Streifen für die Wahl B (G-1, E-036): bei der Täterrolle zählt er −1
-/// (Sabotage), bei den anderen 0 wie ihre Karte B. So tun alle vier dasselbe.
+/// Streifen A (+1) und ein Streifen B (G-1, E-036, E-039): B zählt bei der
+/// Täterrolle −1 (Sabotage), bei den anderen 0. So tun alle vier dasselbe, und
+/// keine offene Karte verrät, welche Kernrolle wie gestimmt hat.
 class Fassung {
   final String code;
   final String rolle;
   final Dossier dossier;
+
+  /// Runde → Wertcode des A-Streifens (Wert 1).
+  final Map<int, String> streifenA;
 
   /// Runde → Wertcode des B-Streifens.
   final Map<int, String> streifen;
 
   /// Wert der B-Streifen: −1 bei der Täterrolle, sonst 0.
   final int streifenWert;
-  const Fassung(this.code, this.rolle, this.dossier, this.streifen, this.streifenWert);
+  const Fassung(this.code, this.rolle, this.dossier, this.streifenA, this.streifen, this.streifenWert);
 }
 
 /// Spielleitungsheft (ohne Lösung): Bausteine je Abschnitt in Lesereihenfolge.
@@ -280,11 +285,12 @@ class DruckSatz {
     // Druckreihenfolge nach Code: Die Lage im Stapel verrät nichts.
     karten.sort((a, b) => a.code.compareTo(b.code));
 
-    // Stimmkarten (G-1): Bei der Täterrolle ist B die Sabotage. Die Wertcodes
-    // entstehen erst nach allen anderen Codes, damit diese gleich bleiben.
+    // Stimmkarten nur für Gäste (E-039); die Kernrollen stimmen mit ihrer Fassung.
+    // Die Wertcodes entstehen erst nach allen anderen Codes, damit diese gleich bleiben.
     final stimmDaten = <(String, int, bool, String, int)>[];
     for (var r = 1; r <= 3; r++) {
       for (final rolle in besetzt) {
+        if (kanon.kernverdaechtige.contains(rolle)) continue;
         final w = texte.sammlung.wahlen['gw_${rolle}_$r']!;
         stimmDaten.add((rolle, r, true, w.a, 1));
         // Die offene Karte B ist bei allen gleich (Text ohne Sabotage, Wert 0).
@@ -340,12 +346,14 @@ class DruckSatz {
     final stimmen = [for (final (rolle, r, a, text, wert) in stimmDaten) Stimmkarte(rolle, r, a, text, wert, codes.neu())];
     final fassungen = [
       for (final p in kanon.kernverdaechtige)
-        Fassung(fassungsCodes[p]!, p, texte.dossier(p, pfad, rollen), {for (var r = 1; r <= 3; r++) r: codes.neu()}, p == pfad ? -1 : 0),
+        Fassung(fassungsCodes[p]!, p, texte.dossier(p, pfad, rollen), {for (var r = 1; r <= 3; r++) r: codes.neu()},
+            {for (var r = 1; r <= 3; r++) r: codes.neu()}, p == pfad ? -1 : 0),
     ];
     final zaehlung = [
       for (final a in auszaehlung)
         Auszaehlung(a.runde, a.stufen, {
           for (final s in stimmen.where((s) => s.runde == a.runde)) s.wertCode: s.wert,
+          for (final f in fassungen) f.streifenA[a.runde]!: 1,
           for (final f in fassungen) f.streifen[a.runde]!: f.streifenWert,
         }),
     ];
@@ -379,10 +387,7 @@ class DruckSatz {
       endentabelle: ende.regeln,
       finale: {for (final r in ende.regeln) r.id: ['finale.$pfad.${r.id}', 'rueckblende.$pfad']},
       gruppe: {for (var n = 0; n <= 3; n++) n: 'aufloesung.gruppe.$n'},
-      rollen: [
-        for (final r in besetzt)
-          if (kern.contains(r)) 'aufloesung.$r.${r == pfad ? 'taeter' : 'unschuldig'}' else 'aufloesung.$r',
-      ],
+      rollen: [for (final r in besetzt) erz.aufloesungRolle(r, pfad)],
       codes: Map.unmodifiable(bedeutung),
     );
 

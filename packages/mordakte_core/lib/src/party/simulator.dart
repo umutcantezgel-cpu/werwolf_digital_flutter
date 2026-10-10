@@ -1,6 +1,5 @@
 import 'enden.dart';
 import 'entscheidungen.dart';
-import 'erzaehler.dart';
 import 'gruppenwahl.dart';
 import 'kanon/kanon.dart';
 
@@ -132,19 +131,23 @@ class Simulator {
         final stNach = ermittlung.stand({...vorher, ...neu});
         final gewinn = kern.any((q) => stNach[q]!.length > stVor[q]!.length);
         if (!gewinn) f.add('Pfad $p, ${e.id}: richtige Option $r ändert den Stand nicht');
-        // Eine falsche Option darf nur dann mehr ausschließen, wenn die richtige
-        // ein Indiz gegen die Täterperson liefert (E-024, Nachtrag).
+        // Keine falsche Option schließt mehr aus als die richtige (Master 7.7;
+        // die Ausnahme aus E-024, Nachtrag, ist seit E-039 nicht mehr nötig).
         final restRichtig = ermittlung.restmenge({...vorher, ...neu}).length;
-        final gegenTaeter = neu.any((id) {
-          final x = ermittlung.fakten[id]!;
-          return x.personen.contains(p) && Erzaehler.belastend.contains(x.typ);
-        });
         for (final o in e.optionen) {
           if (o.id == r) continue;
           final restFalsch = ermittlung.restmenge({...vorher, ...ermittlung.faktenVon(o.id, p)}).length;
-          if (restFalsch < restRichtig && !gegenTaeter) f.add('Pfad $p, ${e.id}: falsche Option ${o.id} schließt mehr aus als die richtige');
+          if (restFalsch < restRichtig) f.add('Pfad $p, ${e.id}: falsche Option ${o.id} schließt mehr aus als die richtige');
         }
         vorher.addAll(neu);
+        // Nach Runde 1 sieht die Lage in jedem Pfad gleich aus: genau eine
+        // Spätankunft und zwei Alibis, also stets zwei Personen ohne Alibi (E-039).
+        if (i == _e.lastIndexWhere((x) => x.runde == 1)) {
+          final st = ermittlung.stand(vorher);
+          final spaet = [for (final q in kern) if (st[q]!.contains('spaetankunft')) q];
+          final alibi = [for (final q in kern) if (st[q]!.contains('alibi')) q];
+          if (spaet.length != 1 || alibi.length != 2) f.add('Pfad $p: nach Runde 1 bei bestem Spiel Spätankunft $spaet und Alibi $alibi statt 1 und 2');
+        }
       }
 
       // D-1: Optionen mit 0 Punkten zeigen weder Schlüsselbeweis noch Zusatzindiz.
@@ -167,6 +170,17 @@ class Simulator {
           f.add('Pfad $p: Runde 1 und 2 richtig, aber nach Runde 2 ${v.restNachRunde[1]}');
         }
         if (!v.rest.contains(p)) f.add('Pfad $p: Täterperson scheidet aus (${folge.join(',')})');
+        // Vor Runde 3 bleiben immer mindestens zwei (Master 7.6), und allein bleibt
+        // die Täterperson nur über R-UEBERFUEHRT: Schlüsselbeweis und Fundort (E-039).
+        for (var r = 0; r < 2; r++) {
+          if (v.restNachRunde[r].length < 2) f.add('Pfad $p: nach Runde ${r + 1} nur ${v.restNachRunde[r]} (${folge.join(',')})');
+        }
+        if (v.rest.length == 1) {
+          final typen = {for (final id in v.fakten) if (ermittlung.fakten[id]!.personen.contains(p)) ermittlung.fakten[id]!.typ};
+          if (!typen.contains('schluesselbeweis') || !typen.contains('fundort')) {
+            f.add('Pfad $p: allein übrig ohne Schlüsselbeweis und Fundort (${folge.join(',')})');
+          }
+        }
         // W-1 scharf: Hinweise sind keine Fakten und ändern die Restmenge nie.
         final mitHinweisen = {...v.fakten, for (final h in gruppe.hinweise) h['id'] as String};
         if (ermittlung.restmenge(mitHinweisen).length != v.rest.length) f.add('Pfad $p: Hinweise ändern die Restmenge');

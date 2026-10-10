@@ -26,6 +26,8 @@ Jeder Auftrag an einen Unteragenten folgt diesem Aufbau. Aufträge liegen als Da
 
 **Briefing wortgleich (seit F2, L-04):** Jeder Auftrag stellt das Rollenbriefing wortgleich aus ROLLENBRIEFINGS.md voran, auch bei Prüfaufträgen.
 
+**Prüfaufträge (seit F6, L-06):** Zum Stand reicht `git status`; den Commit nennt der Auftrag. `git log` und andere Git-Befehle sind auch lesend nicht nötig.
+
 **Ohne Arbeitsbaum (seit F2, L-05):** Aufträge, die nur neue Dateien anlegen, laufen direkt im Repo. Der Orchestrator prüft jede Rückgabe selbst nach (Tests, Analyse, `git status`), bevor er committet.
 
 Reicht der Platz nicht: `=== UNTERBROCHEN BEI <Stelle> · WEITER MIT „weiter“ ===`.

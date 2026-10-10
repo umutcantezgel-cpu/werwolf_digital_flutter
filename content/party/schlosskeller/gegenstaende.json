@@ -30,7 +30,7 @@
             "kerzenstaenderGegriffenVon": "ahmet"
           },
           "zeigt": "Am Griff klebt im erstarrten Wachs eine abgerissene Ecke braunes Umschlagpapier. Darauf steht „…keller“, in Ahmets Handschrift.",
-          "harmlos": "Der Griff ist mit rotem Wachs verschmiert.",
+          "harmlos": "Der Griff ist mit rotem Wachs verschmiert. Das Wachs ist hart geworden und an einer Kante abgeplatzt.",
           "rolle": {
             "ahmet": "schluesselbeweis"
           }
@@ -42,7 +42,7 @@
             "kerzenstaenderGegriffenVon": "can"
           },
           "zeigt": "Um den Griff liegt der Abdruck einer ganzen Hand in grünlich-weißer Leuchtfarbe. Es ist dieselbe Farbe wie auf der Maske.",
-          "harmlos": "Der Griff ist mit rotem Wachs verschmiert.",
+          "harmlos": "Am Griff kleben dicke rote Wachstropfen, die vom Kerzenteller hinuntergelaufen sind.",
           "rolle": {
             "can": "schluesselbeweis"
           }
@@ -54,7 +54,7 @@
             "kerzenstaenderGegriffenVon": "olli"
           },
           "zeigt": "Im erstarrten roten Wachs am Fuß kleben feine Holzsplitter und weißer Kalk.",
-          "harmlos": "Am Fuß klebt rotes Wachs.",
+          "harmlos": "Am Fuß klebt rotes Wachs. Es ist zu einer dicken Nase erstarrt.",
           "rolle": {
             "olli": "schluesselbeweis"
           }
@@ -151,7 +151,7 @@
             "kerzenstaenderGegriffenVon": "ahmet"
           },
           "zeigt": "Auf dem Umschlag sind drei erstarrte rote Wachstropfen. Eine Ecke des Umschlags ist abgerissen.",
-          "harmlos": "Auf dem Umschlag ist ein Knick.",
+          "harmlos": "Auf der Rückseite ist ein langer Knick, als hätte jemand den Umschlag zusammengefaltet.",
           "rolle": {
             "ahmet": "zusatzindiz"
           }
@@ -190,7 +190,7 @@
             "kerzenstaenderGegriffenVon": "fatma"
           },
           "zeigt": "Auf dem Deckel der Münzschatulle kleben rote Wachstropfen.",
-          "harmlos": "Der Deckel sieht unauffällig aus.",
+          "harmlos": "Der Deckel ist blank poliert und zeigt ein Wappen mit zwei Löwen.",
           "rolle": {
             "fatma": "zusatzindiz"
           }
@@ -466,7 +466,7 @@
           "entstehtWenn": {
             "immer": true
           },
-          "zeigt": "Braunes Möbelwachs und weißer Kalk an den Fingerkuppen. Darauf angesprochen gibt Olli zu: Er hat um 18:35 den Beschlag der Bogentür ausgerissen und die Schramme mit Wojteks Möbelwachs zugerieben.",
+          "zeigt": "In Ollis Westentasche steckt sein rechter Arbeitshandschuh. An den Fingerkuppen sind braunes Möbelwachs und weißer Kalk. Darauf angesprochen gibt Olli zu: Er hat um 18:35 den Beschlag der Bogentür ausgerissen und die Schramme mit Wojteks Möbelwachs zugerieben.",
           "rolle": {
             "alle": "nebendelikt"
           },

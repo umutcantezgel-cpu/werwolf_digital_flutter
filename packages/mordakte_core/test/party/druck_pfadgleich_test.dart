@@ -61,14 +61,22 @@ void main() {
     });
   }
 
-  test('Rot-Probe: die alte Stimmkarte mit −1 beim Täter (vor E-036) wäre aufgefallen', () {
+  test('Rot-Probe: offene Karten der Kernrollen mit −1 beim Täter (vor E-036) wären aufgefallen', () {
     final a = DruckSatz.aus(kanon, texte, FallCode.fuerPfad('ahmet', kanon.pfade), rollen: 7, detektiv: 'w');
     final b = DruckSatz.aus(kanon, texte, FallCode.fuerPfad('fatma', kanon.pfade), rollen: 7, detektiv: 'w');
+    // Vor E-036 hatte jede Kernrolle offene Karten, und die Karte B der Täterrolle zählte −1.
     List<Stimmkarte> alt(DruckSatz s, String pfad) => [
-          for (final k in s.stimmkarten) Stimmkarte(k.rolle, k.runde, k.a, k.text, !k.a && k.rolle == pfad ? -1 : k.wert, k.wertCode),
+          ...s.stimmkarten,
+          for (final r in [1, 2, 3])
+            for (final rolle in kanon.kernverdaechtige) ...[
+              Stimmkarte(rolle, r, true, 'A', 1, ''),
+              Stimmkarte(rolle, r, false, 'B', rolle == pfad ? -1 : 0, ''),
+            ],
         ];
     expect(_stimmen(a.stimmkarten), _stimmen(b.stimmkarten));
     expect(_stimmen(alt(a, 'ahmet')), isNot(_stimmen(alt(b, 'fatma'))));
+    // Seit E-039 haben die Kernrollen gar keine offenen Karten: Die Spielleitung kennt keinen ihrer Codes.
+    expect(a.stimmkarten.where((k) => kanon.kernverdaechtige.contains(k.rolle)), isEmpty);
     // Ebenso die B-Streifen-Werte der Fassungen: Sie sind pfadabhängig und stehen deshalb nur versiegelt.
     expect([for (final f in a.fassungen) f.streifenWert], isNot([for (final f in b.fassungen) f.streifenWert]));
   });

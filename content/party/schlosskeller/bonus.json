@@ -21,7 +21,7 @@
       "pfad": "ahmet",
       "runde": 1,
       "qualitaet": "neutral",
-      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
+      "text": "Im Dunkeln huschte ein leuchtendes Gesicht am Sicherungskasten vorbei.",
       "wirkung": {
         "art": "neutral"
       },
@@ -63,12 +63,12 @@
       "pfad": "ahmet",
       "runde": 2,
       "qualitaet": "neutral",
-      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
+      "text": "Um Viertel vor zwölf war Fatmas Tasche auffällig ausgebeult.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "beobachtung:b_tim_kurzschluss"
+        "beobachtung:b_azra_tasche"
       ]
     },
     {
@@ -90,7 +90,7 @@
       "pfad": "ahmet",
       "runde": 3,
       "qualitaet": "wahr",
-      "text": "Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang.",
+      "text": "Das leuchtende Gesicht rannte schon vor dem Scheppern durch den Durchgang.",
       "wirkung": {
         "art": "entlastet",
         "person": "can"
@@ -104,12 +104,12 @@
       "pfad": "ahmet",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Serkan stand um zwölf am abgeschlossenen Außentor.",
+      "text": "Um drei vor zwölf war Can nirgends an der Theke zu sehen.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "beobachtung:b_serkan_tor"
+        "beobachtung:b_damir_an_der_theke"
       ]
     },
     {
@@ -145,7 +145,7 @@
       "pfad": "fatma",
       "runde": 1,
       "qualitaet": "neutral",
-      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
+      "text": "Im Dunkeln huschte ein leuchtendes Gesicht am Sicherungskasten vorbei.",
       "wirkung": {
         "art": "neutral"
       },
@@ -186,12 +186,12 @@
       "pfad": "fatma",
       "runde": 2,
       "qualitaet": "neutral",
-      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
+      "text": "Um Viertel vor zwölf war Fatmas Tasche auffällig ausgebeult.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "beobachtung:b_tim_kurzschluss"
+        "beobachtung:b_azra_tasche"
       ]
     },
     {
@@ -213,7 +213,7 @@
       "pfad": "fatma",
       "runde": 3,
       "qualitaet": "wahr",
-      "text": "Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang.",
+      "text": "Das leuchtende Gesicht rannte schon vor dem Scheppern durch den Durchgang.",
       "wirkung": {
         "art": "entlastet",
         "person": "can"
@@ -227,12 +227,12 @@
       "pfad": "fatma",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Serkan stand um zwölf am abgeschlossenen Außentor.",
+      "text": "Um drei vor zwölf war Can nirgends an der Theke zu sehen.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "beobachtung:b_serkan_tor"
+        "beobachtung:b_damir_an_der_theke"
       ]
     },
     {
@@ -268,7 +268,7 @@
       "pfad": "olli",
       "runde": 1,
       "qualitaet": "neutral",
-      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
+      "text": "Im Dunkeln huschte ein leuchtendes Gesicht am Sicherungskasten vorbei.",
       "wirkung": {
         "art": "neutral"
       },
@@ -309,12 +309,12 @@
       "pfad": "olli",
       "runde": 2,
       "qualitaet": "neutral",
-      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
+      "text": "Um Viertel vor zwölf war Fatmas Tasche auffällig ausgebeult.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "beobachtung:b_tim_kurzschluss"
+        "beobachtung:b_azra_tasche"
       ]
     },
     {
@@ -322,10 +322,10 @@
       "pfad": "olli",
       "runde": 2,
       "qualitaet": "falsch",
-      "text": "Fatma hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt Geld dafür.",
+      "text": "Can hat am Abend die Bogentür beschädigt, und Herr Schneider verlangt Geld dafür.",
       "wirkung": {
         "art": "belastet",
-        "person": "fatma"
+        "person": "can"
       },
       "widerlegtDurch": [
         "e2_3_olli"
@@ -336,7 +336,7 @@
       "pfad": "olli",
       "runde": 3,
       "qualitaet": "wahr",
-      "text": "Das leuchtende Gesicht rannte schon vor dem Scheppern an Marek vorbei durch den Durchgang.",
+      "text": "Das leuchtende Gesicht rannte schon vor dem Scheppern durch den Durchgang.",
       "wirkung": {
         "art": "entlastet",
         "person": "can"
@@ -350,12 +350,12 @@
       "pfad": "olli",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Serkan stand um zwölf am abgeschlossenen Außentor.",
+      "text": "Um drei vor zwölf war Can nirgends an der Theke zu sehen.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "beobachtung:b_serkan_tor"
+        "beobachtung:b_damir_an_der_theke"
       ]
     },
     {
@@ -377,7 +377,7 @@
       "pfad": "can",
       "runde": 1,
       "qualitaet": "wahr",
-      "text": "Beim Scheppern war das leuchtende Gesicht noch nicht an Marek vorbei, sondern kam erst danach durch den Durchgang.",
+      "text": "Beim Scheppern war das leuchtende Gesicht noch nicht durch den Durchgang gekommen, sondern erst danach.",
       "wirkung": {
         "art": "belastet",
         "person": "can"
@@ -391,7 +391,7 @@
       "pfad": "can",
       "runde": 1,
       "qualitaet": "neutral",
-      "text": "Beim Scheppern war Tim am Sicherungskasten im Kaminsaal.",
+      "text": "Im Dunkeln huschte ein leuchtendes Gesicht am Sicherungskasten vorbei.",
       "wirkung": {
         "art": "neutral"
       },
@@ -432,12 +432,12 @@
       "pfad": "can",
       "runde": 2,
       "qualitaet": "neutral",
-      "text": "Tim hat trotz Warnung die alte Mehrfachsteckdose benutzt.",
+      "text": "Um Viertel vor zwölf war Fatmas Tasche auffällig ausgebeult.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "beobachtung:b_tim_kurzschluss"
+        "beobachtung:b_azra_tasche"
       ]
     },
     {
@@ -459,13 +459,13 @@
       "pfad": "can",
       "runde": 3,
       "qualitaet": "wahr",
-      "text": "Beim Scheppern kauerte Ahmet neben Damir am Ostende der Theke.",
+      "text": "Beim Scheppern war Ahmet nicht an der Anrichte, sondern drüben im Ost-Saal an seiner Jacke.",
       "wirkung": {
         "art": "entlastet",
         "person": "ahmet"
       },
       "quelle": [
-        "beobachtung:b_damir_ahmet_blieb"
+        "beobachtung:b_ahmet_jacke"
       ]
     },
     {
@@ -473,12 +473,12 @@
       "pfad": "can",
       "runde": 3,
       "qualitaet": "neutral",
-      "text": "Serkan stand um zwölf am abgeschlossenen Außentor.",
+      "text": "Um drei vor zwölf war Can nirgends an der Theke zu sehen.",
       "wirkung": {
         "art": "neutral"
       },
       "quelle": [
-        "beobachtung:b_serkan_tor"
+        "beobachtung:b_damir_an_der_theke"
       ]
     },
     {

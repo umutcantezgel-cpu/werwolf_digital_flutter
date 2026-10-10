@@ -59,7 +59,7 @@ Der Textprüfer prüft diese Liste wortgenau, ohne Groß- und Kleinschreibung.
 ## 7. Herkunft, Religion, Kopftuch
 - Die Gruppe lebt in Deutschland, mit deutschen, türkischen, polnischen, bosnischen und kurdischen Familien. Herkunft zeigt sich nur als warme Alltagsfarbe: Essen von zu Hause, ein Anruf bei der Oma, ein Wort in der Familiensprache. Sie ist nie Motiv, Indiz oder Pointe.
 - Kein Motiv hängt an Herkunft, Religion oder Kopftuch. Motive kommen aus der Lage: Geld, Angst, Stolz, Scham, Loyalität.
-- Keine Gruppe trägt allein die Verfehlungen. Die Verteilung prüft der Sensibilitätsleser mit der Herkunftsmatrix in `figuren.json`.
+- Keine Gruppe trägt allein die Verfehlungen. Die Verteilung prüft der Sensibilitätsleser mit der Herkunftsmatrix in der Story-Bibel (Kapitel 4, aus `figuren.json` erzeugt); `herkunft_test` prüft sie maschinell (E-039).
 - Das Kopftuch ist Kleidung wie jede andere. Es ist nie Spur, Erkennungsmerkmal einer Tat, Teil einer Lüge oder eines Delikts.
 - Herr Schneiders Ärger gilt nur Sachen, Geld und Regeln, nie Menschen wegen ihrer Herkunft. Er beleidigt niemanden.
 - Schulden und Geldsorgen werden nie mit Familie oder Herkunft begründet.

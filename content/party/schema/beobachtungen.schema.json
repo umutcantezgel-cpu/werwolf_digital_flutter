@@ -313,6 +313,10 @@
           "trenner": {
             "$ref": "#/$defs/pfad"
           },
+          "eigenwissen": {
+            "type": "boolean",
+            "description": "Pfadabhängiges Verhalten der eigenen Person in einem Pfad, in dem sie unschuldig ist (E-039). Nur sie selbst und ihr Trenner-Zeuge wissen davon; die Auflösung erzählt es mit aufloesung.<rolle>.unschuldig.<pfad>."
+          },
           "grundVerborgen": {
             "$ref": "#/$defs/text"
           }

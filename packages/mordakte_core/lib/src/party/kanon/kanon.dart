@@ -91,6 +91,12 @@ class Kanon {
         TatmatrixDatei.fromJson(json['tatmatrix/$pfad.json']!),
       );
 
+  /// Hat [person] in [pfad] ein eigenes, pfadabhängiges Verhalten, obwohl sie dort
+  /// unschuldig ist (Beobachtung mit `eigenwissen`, E-039)? Dann erzählt die
+  /// Auflösung ihre Pfadfassung `aufloesung.<person>.unschuldig.<pfad>`.
+  bool eigenesVerhalten(String person, String pfad) => person != pfad &&
+      beobachtungen.any((b) => b['eigenwissen'] == true && b['wer'] == person && giltIn(b['pfade'], pfad));
+
   /// Gilt ein Datensatz mit Feld `pfade` ("alle" oder Liste) für [pfad]?
   static bool giltIn(Object? pfadeFeld, String pfad) {
     if (pfadeFeld == null || pfadeFeld == 'alle') return true;

@@ -37,9 +37,28 @@ void main() {
     for (final z in zeugen.values) {
       expect(z, hasLength(1));
     }
-    final erlaubt = {for (final z in zeugen.values) ...z};
+    // Ausnahme (E-039): eine Kernperson mit erklärtem eigenem Pfadverhalten.
+    final eigen = {for (final b in kanon.beobachtungen) if (b['eigenwissen'] == true) b['wer'] as String};
+    expect(eigen, {'ahmet'});
+    final erlaubt = {for (final z in zeugen.values) ...z, ...eigen};
     final wissen = pruefer.wissensUnterschiede();
     expect(wissen.keys.where((p) => !erlaubt.contains(p)), isEmpty, reason: '$wissen');
+    expect(pruefer.verstoesse.where((v) => v.regel == 'Wissen'), isEmpty);
+  });
+
+  test('Rot-Probe: ohne erklärtes eigenes Pfadverhalten meldet der Prüfer Ahmets Wissen im Pfad Can', () {
+    final k = Kanon.lade((d) {
+      final j = kanon.json[d]!;
+      if (d != 'beobachtungen.json') return j;
+      return {
+        ...j,
+        'beobachtungen': [
+          for (final x in j['beobachtungen'] as List) {...(x as Map).cast<String, Object?>()}..remove('eigenwissen'),
+        ],
+      };
+    });
+    final p = Plausibilitaet(k)..pruefe();
+    expect(p.verstoesse.where((v) => v.regel == 'Wissen' && v.text.startsWith('ahmet ')), isNotEmpty);
   });
 
   test('Ein Gegenbeispiel wird erkannt: zu schneller Weg', () {

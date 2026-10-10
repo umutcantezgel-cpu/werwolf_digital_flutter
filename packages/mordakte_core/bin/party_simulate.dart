@@ -50,6 +50,21 @@ void main(List<String> args) {
     for (final s in strategien.entries) {
       stdout.writeln('  ${s.key}: ${[for (final p in kanon.pfade) '$p ${sim.verlauf(p, s.value(p)).punkte}'].join(' · ')}');
     }
+    // Feste Folgen ohne Pfadwissen (E-039 zu F6-GEGEN-03 Nr. 1): Wer den Fall
+    // mehrfach spielt, kann eine Folge lernen. Bericht, kein Verstoß.
+    var besteMin = -1;
+    List<String>? besteFolge;
+    var alleMeister = 0;
+    for (final f in sim.folgen()) {
+      final pk = [for (final p in kanon.pfade) sim.verlauf(p, f).punkte];
+      final mn = pk.reduce((a, b) => a < b ? a : b);
+      if (mn >= 7) alleMeister++;
+      if (mn > besteMin) {
+        besteMin = mn;
+        besteFolge = f;
+      }
+    }
+    stdout.writeln('  beste feste Folge ohne Pfadwissen: ${[for (final p in kanon.pfade) '$p ${sim.verlauf(p, besteFolge!).punkte}'].join(' · ')}; feste Folgen mit 7 Punkten in allen Pfaden: $alleMeister');
     stdout.writeln('');
   }
   stdout.writeln(verstoesse.isEmpty ? 'Simulator: OK (${uhr.elapsedMilliseconds} ms)' : 'Simulator: ${verstoesse.length} Verstöße');

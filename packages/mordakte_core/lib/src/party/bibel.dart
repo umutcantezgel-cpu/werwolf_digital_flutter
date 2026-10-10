@@ -1,6 +1,7 @@
 // Story-Bibel des Partymodus: eine lesbare Markdown-Übersicht, aus dem Kanon erzeugt.
 // Gibt nur wieder, was im Kanon steht. Im Code stehen nur Überschriften, Labels und
 // Tabellenköpfe; alle Story-Texte kommen aus den JSON-Dateien.
+import 'herkunft.dart';
 import 'kanon/kanon.dart';
 import 'plausibilitaet.dart';
 
@@ -373,6 +374,17 @@ class _Bibel {
       _z();
       _figurFelder(f);
     }
+    _z('### Herkunftsmatrix (TON §7, §10 Nr. 5)');
+    _z();
+    _z('Nur diese Matrix und die Prüfwerkzeuge lesen das Feld `herkunft`; im Spiel erscheint es nie. `herkunft_test` prüft, dass keine Herkunft eine Art von Verfehlung allein trägt.');
+    _z();
+    _tabelle(
+      ['Figur', 'Herkunft', 'Kernrolle', 'Nebendelikt', 'Lügen', 'Verschweigt etwas', 'Kopftuch'],
+      [
+        for (final z in herkunftsMatrix(kanon))
+          [_name(z.figur), z.herkunft, _ja(z.kernrolle), _ja(z.nebendelikt), '${z.luegen}', _ja(z.verschweigt), _ja(z.kopftuch)],
+      ],
+    );
   }
 
   /// Alle vorhandenen Felder einer Figur; fehlende Felder entfallen.

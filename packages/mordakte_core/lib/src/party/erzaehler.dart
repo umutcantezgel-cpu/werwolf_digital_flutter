@@ -13,7 +13,7 @@ class Erzaehler {
   final Kanon kanon;
   Erzaehler(this.kanon);
 
-  static const belastend = {'spaetankunft', 'zusatzindiz', 'fundort', 'schluesselbeweis'};
+  static const belastend = {'spaetankunft', 'motiv', 'zusatzindiz', 'fundort', 'schluesselbeweis'};
 
   List<String> intro(Spiel s) {
     final lacher = [for (final l in (kanon.json['setting.json']!['lacher'] as List? ?? const [])) (l as Map).cast<String, Object?>()];
@@ -117,9 +117,16 @@ class Erzaehler {
   /// Auflösung: erst jetzt, wie oft die Gruppe zusammengehalten hat, dann je Rolle.
   List<String> aufloesung(Spiel s) => [
         'aufloesung.gruppe.${[for (var r = 1; r <= 3; r++) if (Gruppenwahl.zusammengehalten(s.qualitaeten[r]!)) r].length}',
-        for (final r in s.besetzt)
-          if (kanon.kernverdaechtige.contains(r)) 'aufloesung.$r.${r == s.pfad ? 'taeter' : 'unschuldig'}' else 'aufloesung.$r',
+        for (final r in s.besetzt) aufloesungRolle(r, s.pfad),
       ];
+
+  /// Auflösungsbaustein einer Rolle: Kernrollen als Täter- oder Unschuldsfassung,
+  /// bei eigenem Pfadverhalten in der Pfadfassung (E-039).
+  String aufloesungRolle(String r, String pfad) {
+    if (!kanon.kernverdaechtige.contains(r)) return 'aufloesung.$r';
+    if (r == pfad) return 'aufloesung.$r.taeter';
+    return kanon.eigenesVerhalten(r, pfad) ? 'aufloesung.$r.unschuldig.$pfad' : 'aufloesung.$r.unschuldig';
+  }
 
   /// Alle Kennungen, die der Erzähler je wählen kann (Katalog für F3).
   List<String> katalog() {
@@ -154,7 +161,13 @@ class Erzaehler {
       for (final p in kanon.pfade) ...[for (final e in enden) 'finale.$p.$e', 'rueckblende.$p'],
       for (var n = 0; n <= 3; n++) 'aufloesung.gruppe.$n',
       for (final r in kanon.figuren.map((f) => f['id'] as String))
-        if (kern.contains(r)) ...['aufloesung.$r.taeter', 'aufloesung.$r.unschuldig'] else 'aufloesung.$r',
+        if (kern.contains(r)) ...[
+          'aufloesung.$r.taeter',
+          'aufloesung.$r.unschuldig',
+          for (final p in kanon.pfade)
+            if (kanon.eigenesVerhalten(r, p)) 'aufloesung.$r.unschuldig.$p',
+        ] else
+          'aufloesung.$r',
     ];
   }
 }

@@ -126,7 +126,8 @@ List<String> _kennungFehler(
   if (finale != 1) f.add('$finale Finaltexte statt 1');
   for (final k in besetzteKern) {
     final taeter = anzahl('aufloesung.$k.taeter');
-    final unschuldig = anzahl('aufloesung.$k.unschuldig');
+    // Bei eigenem Pfadverhalten erzählt die Pfadfassung der Unschuld (E-039).
+    final unschuldig = anzahl('aufloesung.$k.unschuldig') + anzahl('aufloesung.$k.unschuldig.$pfad');
     if (k == pfad) {
       if (taeter != 1 || unschuldig != 0) f.add('aufloesung.$k: Täterfassung $taeter, unschuldig $unschuldig');
     } else if (taeter != 0 || unschuldig != 1) {

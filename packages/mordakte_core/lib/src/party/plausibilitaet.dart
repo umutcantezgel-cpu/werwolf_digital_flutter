@@ -372,7 +372,9 @@ class Plausibilitaet {
   }
 
   /// Nur erklärte Trenner-Zeugen dürfen pfadabhängiges Wissen haben, und jede
-  /// Kernperson hat genau einen Trenner-Zeugen.
+  /// Kernperson hat genau einen Trenner-Zeugen. Ausnahme: Eine Kernperson mit
+  /// erklärtem eigenem Pfadverhalten (`eigenwissen`, E-039) weiß in diesem Pfad,
+  /// was sie selbst getan hat.
   void _wissensgrenzen() {
     final zeugen = <String, Set<String>>{};
     for (final b in kanon.beobachtungen) {
@@ -383,7 +385,11 @@ class Plausibilitaet {
       final z = zeugen[k] ?? const {};
       if (z.length != 1) _v('alle', 'Wissen', 'Trenner für $k hat ${z.length} Zeugen (${z.join(', ')}), erwartet genau 1');
     }
-    final erlaubt = {for (final s in zeugen.values) ...s};
+    final erlaubt = {
+      for (final s in zeugen.values) ...s,
+      for (final b in kanon.beobachtungen)
+        if (b['eigenwissen'] == true && kanon.kernverdaechtige.contains(b['wer'])) b['wer'] as String,
+    };
     for (final e in wissensUnterschiede().entries) {
       if (erlaubt.contains(e.key)) continue;
       for (final m in e.value.entries) {

@@ -1,7 +1,7 @@
 {
   "settingId": "spuk_im_schlosskeller",
   "bereich": "erzaehler",
-  "hinweis": "Auflösung: aufloesung.gruppe.N und aufloesung.<rolle> bzw. aufloesung.<kernrolle>.<taeter|unschuldig>.",
+  "hinweis": "Auflösung: aufloesung.gruppe.N und aufloesung.<rolle> bzw. aufloesung.<kernrolle>.<taeter|unschuldig>; bei eigenem Pfadverhalten einer unschuldigen Kernrolle aufloesung.<kernrolle>.unschuldig.<pfad> (E-039).",
   "eintraege": [
     {
       "id": "aufloesung.gruppe.0",
@@ -65,7 +65,7 @@
     },
     {
       "id": "aufloesung.dilara",
-      "text": "Azra hat verschwiegen, was sie im Dunkeln über Olli wusste. Sie wollte nicht, dass jemand denkt, sie hätte Fatma zu etwas angestiftet."
+      "text": "Azra hat verschwiegen, was sie im Dunkeln über Olli wusste. Sie hatte Fatma von der Schatulle in der Schauvitrine erzählt und wollte nicht, dass jemand denkt, sie hätte Fatma zu etwas angestiftet."
     },
     {
       "id": "aufloesung.enes",
@@ -88,8 +88,12 @@
       "text": "Ahmet hat von allen hundertfünfzig Euro Miete kassiert, obwohl der Keller nichts gekostet hat. Niemand sollte vor dem Morgen erfahren, dass die Miete erfunden war. Beim Knall duckte er sich hinter der Theke am Ostende, neben Damir. Dort hielt er den Umschlag mit dem Mietgeld fest. Später leerte er den Umschlag und warf ihn in den Ascheneimer am Kamin. Seine Ausrede mit den Servietten war gelogen."
     },
     {
+      "id": "aufloesung.ahmet.unschuldig.can",
+      "text": "Ahmet hat von allen hundertfünfzig Euro Miete kassiert, obwohl der Keller nichts gekostet hat. Niemand sollte vor dem Morgen erfahren, dass die Miete erfunden war. Beim Knall duckte er sich hinter der Theke am Ostende, neben Damir. Kurz vor dem Scheppern stand er auf und ging im Dunkeln in den Ost-Saal. Dort steckte er den Umschlag in seine Jacke, damit ihn keiner bei ihm findet. Deshalb war er beim Scheppern nicht bei Damir. Später leerte er den Umschlag und warf ihn in den Ascheneimer am Kamin. Seine Ausrede mit den Servietten war gelogen."
+    },
+    {
       "id": "aufloesung.ahmet.taeter",
-      "text": "Ahmet gesteht: In Panik hat er den Kerzenständer genommen und einmal zugeschlagen. Herr Schneider hat nur eine Beule. Dazu kommt die erfundene Miete: Er hat von allen hundertfünfzig Euro kassiert, obwohl der Keller nichts gekostet hat. Den Schlüsselbund riss er Herrn Schneider vom Gürtel und steckte ihn in seine Jacke."
+      "text": "Ahmet gesteht: Im Dunkeln hat ihn die Panik gepackt, und das tut ihm schrecklich leid. Herr Schneider hat nur eine Beule. Dazu kommt die erfundene Miete: Er hat von allen hundertfünfzig Euro kassiert, obwohl der Keller nichts gekostet hat. Den Schlüsselbund riss er Herrn Schneider vom Gürtel und steckte ihn in seine Jacke."
     },
     {
       "id": "aufloesung.fatma.unschuldig",
@@ -97,7 +101,7 @@
     },
     {
       "id": "aufloesung.fatma.taeter",
-      "text": "Fatma gesteht: Sie wollte die Schatulle zurückgeben, doch dann hat sie in Panik den Kerzenständer genommen und einmal zugeschlagen. Herr Schneider hat nur eine Beule. Dazu kommt die Münzschatulle aus der Schauvitrine, die sie mitgenommen hat. Den Schlüsselbund riss sie Herrn Schneider vom Gürtel und steckte ihn in die Brottasche auf dem linken Buffettisch."
+      "text": "Fatma gesteht: Sie wollte die Schatulle zurückgeben, doch im Dunkeln hat sie die Panik gepackt. Das tut ihr schrecklich leid. Herr Schneider hat nur eine Beule. Dazu kommt die Münzschatulle aus der Schauvitrine, die sie mitgenommen hat. Den Schlüsselbund riss sie Herrn Schneider vom Gürtel und steckte ihn in die Brottasche auf dem linken Buffettisch."
     },
     {
       "id": "aufloesung.olli.unschuldig",
@@ -105,7 +109,7 @@
     },
     {
       "id": "aufloesung.olli.taeter",
-      "text": "Olli gesteht: Er wollte mit Herrn Schneider reden, und in Panik hat er den Kerzenständer genommen und einmal zugeschlagen. Herr Schneider hat nur eine Beule. Dazu kommt die Bogentür, die er beschädigt hat, und die Schramme, die er mit Möbelwachs verdecken wollte. Den Schlüsselbund riss er Herrn Schneider vom Gürtel und warf ihn in den Eiskübel."
+      "text": "Olli gesteht: Er wollte mit Herrn Schneider reden, doch im Dunkeln hat ihn die Panik gepackt. Das tut ihm schrecklich leid. Herr Schneider hat nur eine Beule. Dazu kommt die Bogentür, die er beschädigt hat, und die Schramme, die er mit Möbelwachs verdecken wollte. Den Schlüsselbund riss er Herrn Schneider vom Gürtel und warf ihn in den Eiskübel."
     },
     {
       "id": "aufloesung.can.unschuldig",
@@ -113,7 +117,7 @@
     },
     {
       "id": "aufloesung.can.taeter",
-      "text": "Can gesteht: Herr Schneider hielt ihn fest, und in Panik hat Can den Kerzenständer genommen und einmal zugeschlagen. Herr Schneider hat nur eine Beule. Dazu kommt der Streich mit der Leuchtmaske im Vorratsraum, bei dem Zeynep Schmiere gestanden hat. Den Schlüsselbund riss er Herrn Schneider vom Gürtel und steckte ihn in den Helm der Ritterrüstung."
+      "text": "Can gesteht: Herr Schneider hielt ihn fest, und im Dunkeln hat ihn die Panik gepackt. Das tut ihm schrecklich leid. Herr Schneider hat nur eine Beule. Dazu kommt der Streich mit der Leuchtmaske im Vorratsraum, bei dem Zeynep Schmiere gestanden hat. Den Schlüsselbund riss er Herrn Schneider vom Gürtel und steckte ihn in den Helm der Ritterrüstung."
     }
   ]
 }

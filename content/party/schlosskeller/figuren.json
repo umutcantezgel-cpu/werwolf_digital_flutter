@@ -99,8 +99,8 @@
       "visualSpecs": {
         "silhouette": "Schlank, aufrecht, sportliche Haltung, Brille, kurzer Bart",
         "outfit": "Schwarzer Strickpulli über weißem T-Shirt, dunkle Jeans, weiße Turnschuhe. Die schwarze Stoffjacke hängt ab 23:55 am Jackenständer im Ost-Saal.",
-        "distinguishingFeature": "Blaues Schlüsselband aus der Hosentasche, Handy in der Hand (ab 0:05, vorher im Handykorb)",
-        "idleAnimation": "Dreht das Schlüsselband um den Finger und streicht sich nervös durch den Bart"
+        "distinguishingFeature": "Blaues Stoffarmband am Handgelenk, Handy in der Hand (ab 0:05, vorher im Handykorb)",
+        "idleAnimation": "Dreht am blauen Stoffarmband und streicht sich nervös durch den Bart"
       },
       "motiveAndConflict": "Ahmet hat den Keller umsonst bekommen. Dafür gestaltet er das Programm des Adventsmarkts. Beim Essen hat er viel zu groß bestellt. Statt das zuzugeben, hat er von allen 150 € „Miete“ eingesammelt. Um 23:51 sagt Herr Schneider an der Theke: „Um zwölf sag ich allen, was der Keller gekostet hat.“",
       "blackoutAlibi": "Behauptet, hinter der Theke nach Servietten gesucht zu haben.",
@@ -363,7 +363,7 @@
       "tier": 2,
       "besetzungsplatz": 5,
       "minPlayers": 5,
-      "roleTitle": "Die Buffet-Chefin",
+      "roleTitle": "Die Apothekerin",
       "isPotentialKiller": false,
       "colorCode": "#178582",
       "farbname": "Türkis",
@@ -421,8 +421,8 @@
       "visualSpecs": {
         "silhouette": "Mittelgroß, ruhige Haltung, beiges Kopftuch",
         "outfit": "Olivgrüner Steppmantel, beiges Kopftuch, dunkle Stoffhose, schwarze Stiefel",
-        "distinguishingFeature": "Hält eine silberne Thermosflasche mit beiden Händen",
-        "idleAnimation": "Dreht den Deckel der Thermosflasche auf und zu und schaut zu Fatma"
+        "distinguishingFeature": "Hält eine silberne Thermoskanne mit Tee in beiden Händen",
+        "idleAnimation": "Dreht den Deckel der Thermoskanne auf und zu und schaut zu Fatma"
       },
       "motiveAndConflict": "Um 23:40 sah sie im Turmgang, wie Fatma die Schatulle aus der Vitrine nahm. Sie hat geschwiegen, weil Fatma versprochen hat, die Schatulle am Montag zurückzubringen.",
       "blackoutAlibi": "Kauerte beim Knall hinter dem linken Buffettisch.",

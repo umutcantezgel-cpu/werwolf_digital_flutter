@@ -49,11 +49,11 @@
     },
     {
       "id": "ui.druck.spielleitung.datei.11",
-      "text": "Fassungen. Vier versiegelte Umschläge, außen steht nur ein Code."
+      "text": "Fassungen. Vier versiegelte Fassungen, außen steht nur ein Code."
     },
     {
       "id": "ui.druck.spielleitung.datei.12",
-      "text": "Stimmkarten. Je Runde zwei Karten pro Rolle, A und B, mit einem Streifen zum Abreißen."
+      "text": "Stimmkarten. Für jeden Gast je Runde zwei Karten, A und B, mit einem Streifen zum Abreißen. Die vier Kernrollen haben keine Stimmkarten, ihre Streifen stecken in der Fassung."
     },
     {
       "id": "ui.druck.spielleitung.datei.20",
@@ -113,7 +113,7 @@
     },
     {
       "id": "ui.druck.spielleitung.gruppenwahl",
-      "text": "Jede Rolle wählt eine ihrer zwei Karten dieser Runde. Sie reißt den Streifen mit dem Code ab, faltet ihn und legt ihn in eine Schüssel. Jede Rolle gibt genau einen Streifen ab."
+      "text": "Jede Rolle gibt genau einen Streifen ab. Gäste reißen ihn von ihrer Karte A oder B ab. Die vier Kernrollen nehmen Streifen A oder B aus ihrer Fassung. Alle falten den Streifen und legen ihn in eine Schüssel."
     },
     {
       "id": "ui.druck.spielleitung.auszaehlung.summe",
@@ -200,6 +200,10 @@
       "text": "Trage die Punkte auf dem Bogen ein. Dann liest du das Ende vor."
     },
     {
+      "id": "ui.druck.spielleitung.anklage.aufloesung_alle",
+      "text": "Zum Schluss liest du im Auflösungsheft den Teil „{alle}“ vor. Welche Zeile gilt, zeigen die Umschläge, die ihr in den drei Runden geöffnet habt. Danach liest du „{rollen}“ vor."
+    },
+    {
       "id": "ui.druck.spielleitung.anhang",
       "text": "Anhang: Restmengen"
     },
@@ -268,6 +272,10 @@
       "text": "Späte Ankunft"
     },
     {
+      "id": "ui.druck.bogen.typ.motiv",
+      "text": "Motiv"
+    },
+    {
       "id": "ui.druck.bogen.typ.zusatzindiz",
       "text": "Weiteres Indiz"
     },
@@ -329,7 +337,7 @@
     },
     {
       "id": "ui.druck.spielleitung.teile.fassung",
-      "text": "Fassungen: Jede Fassung hat vier Blätter. Leg sie mit der Schrift nach oben aufeinander, das Blatt mit dem Code obenauf. Knick den Stapel in der Mitte nach hinten, sodass der Code vorn bleibt, und klebe ihn zu."
+      "text": "Fassungen: Jede Fassung hat vier Blätter. Leg sie mit der Schrift nach oben aufeinander, das Blatt mit dem Code obenauf. Knick den Stapel in der Mitte nach hinten, sodass der Code vorn bleibt, und klebe ihn zu, ohne hineinzusehen."
     },
     {
       "id": "ui.druck.spielleitung.teile.stimme",
@@ -345,7 +353,7 @@
     },
     {
       "id": "ui.druck.spielleitung.fassungen",
-      "text": "Gib jeder Person ihr Rollenheft und ihre Stimmkarten. Leg dann die vier versiegelten Fassungen aus und nenne ihre Codes: {codes}. Wer einen dieser Codes im eigenen Heft findet, nimmt den Umschlag und liest ihn allein."
+      "text": "Gib jeder Person ihr Rollenheft und, wenn sie welche hat, ihre Stimmkarten. Leg dann die vier versiegelten Fassungen aus und nenne ihre Codes: {codes}. Wer einen dieser Codes im eigenen Heft findet, nimmt die Fassung und liest sie allein."
     },
     {
       "id": "ui.druck.spielleitung.auszaehlung.code",

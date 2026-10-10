@@ -138,6 +138,11 @@ class PartySkript {
         await _warte();
         await _foto('dossier');
         s.verdecken();
+        // Die Täteransicht einmal im Fotosatz, damit Lesbarkeit und Verdecktheit prüfbar sind (F6-SPIEL-01).
+        s.zeigeVerdeckt(s.spiel.pfad);
+        await _warte();
+        await _foto('dossier_taeter');
+        s.verdecken();
         s.weiter();
       case PartyPhase.entscheidungen:
         await _entscheiden();
@@ -147,6 +152,9 @@ class PartySkript {
           final a = switch (_gruppe) { 'b' => false, 'gemischt' => i.isEven, _ => true };
           if (i == 0) {
             await _foto('wahl_verdeckt_r${s.runde}');
+          }
+          if (s.verdeckt == s.spiel.pfad) {
+            await _foto('wahl_taeter_r${s.runde}');
           }
           s.stimme(s.verdeckt!, kooperativ: a);
         } else if (s.offeneWaehler.isNotEmpty) {

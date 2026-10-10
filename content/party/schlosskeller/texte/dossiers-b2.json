@@ -5,7 +5,7 @@
   "eintraege": [
     {
       "rolle": "leyla",
-      "wer": "Du bist Lejla, die Buffet-Chefin. Du bist Apothekerin und Ahmets Cousine. Du hast das Buffet für heute Abend geplant. Du trägst eine türkise Latzschürze und hältst einen Holzlöffel.",
+      "wer": "Du bist Lejla, die Apothekerin, und Ahmets Cousine. Du hast das Buffet für heute Abend geplant. Du trägst eine türkise Latzschürze und hältst einen Holzlöffel.",
       "weiss": [
         {
           "ref": "beobachtung:b_lejla_ahmet_theke"
@@ -21,7 +21,7 @@
     },
     {
       "rolle": "emine",
-      "wer": "Du bist Emine, die Grundschullehrerin. Fatma ist deine beste Freundin. Du trägst einen olivgrünen Steppmantel und schwarze Stiefel. Du hältst eine silberne Thermosflasche mit beiden Händen.",
+      "wer": "Du bist Emine, die Grundschullehrerin. Fatma ist deine beste Freundin. Du trägst einen olivgrünen Steppmantel und schwarze Stiefel. Du hältst eine silberne Thermoskanne mit Tee in beiden Händen.",
       "weiss": [
         {
           "ref": "beobachtung:b_emine_versteck"

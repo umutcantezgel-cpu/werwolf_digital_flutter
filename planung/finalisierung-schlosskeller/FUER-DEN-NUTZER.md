@@ -23,13 +23,17 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 
 - **Helligkeit der Karte (Master 7.13):** Die Ermittlung zeigt das verlangte Grundlicht von 23 % in kühlem Blaugrau, dazu warme Kerzenpunkte und den Lichtkegel des Geburtstagskinds. Auf hellen Bildschirmen wirkt das stimmungsvoll; auf einem dunklen Beamer kann es zu düster sein. Der Wert ist eine Zahl in `lib/party/karte_session.dart` (`dunkel: 0.77`).
 - **Erzählerstimme:** Sie nutzt nur Stimmen, die der Browser als lokal meldet, und liest genau den Bausteintext vor. Fehlt eine deutsche lokale Stimme, steht der Text da und ein Hinweis erscheint. Chrome kann sehr lange Sätze manchmal abbrechen; dann hilft „Noch einmal vorlesen“.
-- **Sabotage auf Papier (E-036):** Im Druckspiel trägt keine offene Stimmkarte die Sabotage. Die vier Kernrollen geben bei B einen Streifen aus ihrem versiegelten Umschlag ab; nur beim Täter zählt er −1. Die Spielleitung merkt beim Zählen, dass sabotiert wurde, aber nicht von wem. Am Bildschirm sieht das niemand.
+- **Stimmen auf Papier (E-036, E-039):** Die vier Kernrollen haben keine offenen Stimmkarten. Sie geben je Runde einen Streifen A oder B aus ihrer versiegelten Fassung ab; nur beim Täter zählt B −1. Die Spielleitung merkt beim Zählen, dass sabotiert wurde, aber nicht von wem, weil sie keinen Code einer Kernrolle kennt. Die Codes der Gäste stehen auf deren Karten; wer sie sich beim Ausschneiden merkt, wüsste, welcher Gast wie gestimmt hat. Am Bildschirm sieht das niemand.
+- **Fassungen beim Falten (E-039):** Die Innenseite der Täterfassung ist dichter beschrieben als die drei anderen (etwa 450 gegen 250 Wörter), weil sie die Tat erzählt. Ganz gleich würde es nur mit Fülltext. Faltet die Fassungen deshalb mit der Schrift nach unten weg, ohne hineinzusehen; das Heft sagt das auch.
+- **Kleine Runde und Sabotage (E-039):** Bei vier Rollen verhindert eine Sabotage der Täterrolle in dieser Runde den wahren Hinweis. Das ist gewollt: Die Täterrolle kann eine kleine Runde bremsen.
+- **Mehrmals spielen (E-039):** Fünf der neun Entscheidungen sind in jedem Pfad richtig. Wer den Fall mit mehreren Fall-Codes spielt, kann lernen, welche Optionen meist stimmen, und kommt dann leichter auf Meister-Punkte. Für einen Abend mit einem Fall spielt das keine Rolle. Der Simulator nennt die beste feste Folge (`party_simulate`).
 
 ## Optionen zur Entscheidung
 - **Kernnamen:**
   - Laut Einstellungen bleiben Ahmet, Fatma, Olli und Can. Damit es keine Klischees gibt, sind Herkunft, Motive und Kopftuch so verteilt, dass keine Gruppe allein die Verfehlungen trägt (E-007).
   - Die Vorprüfung hatte zusätzlich vorgeschlagen, die Kernnamen über alle fünf Herkunftsgruppen neu zu verteilen. Wollt ihr das, ist es eine kleine Kanon-Änderung.
 
+- **Kopftuch bei Emine (E-039):** Emine trägt ein Kopftuch und hat gesehen, wie Fatma die Schatulle nahm; sie schweigt darüber. Sie hat weder Lüge noch Nebendelikt, die Regel aus TON §7 ist also eingehalten. Zwei der drei Kopftuchträgerinnen stehen damit aber im Schatulle-Strang. Wer das ändern will, legt Emines Kopftuch in `figuren.json` (Look `kopf`) auf eine andere, unbelastete Figur.
 - **Kopftuch bei Fatma (E-014):**
   - Behzads Material gibt Fatma ein Kopftuch; sie ist zugleich eine der vier möglichen Täterinnen und hat die Münzschatulle mitgenommen.
   - Ich habe es behalten und Gegengewichte gesetzt: Ihr Motiv ist Ehrgeiz für ihre Abschlussarbeit, sie will die Schatulle zurückbringen. Emine (Kopftuch) ist Grundschullehrerin, Tugba (Kopftuch) die Geburtstags-Planerin, die beruflich Projekte leitet (E-029: das dritte Kopftuch lag zuerst bei Azra, damit standen alle drei Kopftuchträgerinnen im Schatulle-Strang).
@@ -53,4 +57,5 @@ Hier steht alles, was nur Menschen prüfen oder entscheiden können, und alles, 
 - Ob sich die Gruppe in den Figuren wiederfindet.
 - Wie hell die Karte auf eurem Bildschirm oder Beamer wirken soll (siehe oben).
 - Ob die Seifenblasen, der Staub an der Rüstung und die Rußwolke am Kamin witzig sind oder stören.
+- **Die drei Lacher im Intro (E-039):** Olli verläuft sich, Sibel erschrickt vor der Rüstung, Hana verqualmt den Kamin. Fragt vorher, ob die Spielerinnen und Spieler dieser Rollen damit einverstanden sind. Die Lacher sind Vorgabe (TON §8); ändern lässt sich das in `texte/erzaehler-intro.json`.
 - **Ähnliche Figurenfarben über Räume hinweg (E-037):** Meryem/Serkan, Olli/Serkan, Ahmet/Baran, Murat/Hakan, Olli/Meryem und Serkan/Kaan liegen unter ΔE 10. Im selben Startraum gilt überall mindestens 10. Die Figuren unterscheiden sich durch Silhouette, Kopf und Haar. Wer am Testabend Verwechslungen merkt, kann einzelne Farbcodes in `figuren.json` anpassen; der Farbtest zeigt dann sofort, ob die Abstände halten.

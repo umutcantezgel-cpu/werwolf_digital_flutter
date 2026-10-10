@@ -5,7 +5,7 @@
   "eintraege": [
     {
       "rolle": "ahmet",
-      "wer": "Du bist Ahmet, der Organisator, und arbeitest in einer Agentur, die Stadtfeste und Märkte plant. Mit Lejla bist du zusammen aufgewachsen. Man erkennt dich an deiner Brille, dem kurzen Bart und dem schwarzen Strickpulli. Ein blaues Schlüsselband schaut aus deiner Hosentasche.",
+      "wer": "Du bist Ahmet, der Organisator, und arbeitest in einer Agentur, die Stadtfeste und Märkte plant. Mit Lejla bist du zusammen aufgewachsen. Man erkennt dich an deiner Brille, dem kurzen Bart und dem schwarzen Strickpulli. Am Handgelenk trägst du ein blaues Stoffarmband.",
       "weiss": [
         {
           "text": "Um 23:55 Uhr hast du deine schwarze Jacke an den Jackenständer im Ost-Saal gehängt."
@@ -16,10 +16,19 @@
           "text": "Um 23:51 Uhr hat Herr Schneider dir an der Theke gesagt: „Um zwölf sag ich allen, was der Keller gekostet hat.“"
         },
         {
-          "text": "Beim Knall duckst du dich hinter der Theke am Ostende neben Damir."
+          "text": "Drei vor zwölf schlüpfst du mit dem Umschlag voller Mietgeld hinter die Theke. Du willst Herrn Schneider bitten, um zwölf nichts zu sagen."
         },
         {
-          "text": "Im Dunkeln hältst du den Umschlag mit dem Mietgeld fest, bis das Licht angeht. Später leerst du den Umschlag und wirfst ihn in den Ascheneimer am Kamin."
+          "text": "Beim Knall duckst du dich hinter der Theke am Ostende neben Damir. Du flüsterst: „Damir? Ich bin's, Ahmet.“"
+        },
+        {
+          "ref": "beobachtung:b_ahmet_haelt"
+        },
+        {
+          "ref": "beobachtung:b_ahmet_jacke"
+        },
+        {
+          "text": "Zwölf nach zwölf leerst du den Umschlag und wirfst ihn in den Ascheneimer am Kamin. Das Bündel mit dem Mietgeld steckst du in deine Hosentasche."
         },
         {
           "ref": "nebendelikt:nd_mietgeld"
@@ -47,7 +56,19 @@
       ],
       "verbirgt": [
         {
-          "text": "Beim Knall ziehst du dich mit der Tasche zum linken Buffettisch zurück und kauerst gleich danach neben Emine."
+          "text": "Zwanzig vor zwölf nimmst du im Turmgang die Münzschatulle aus der Vitrine und steckst sie in deine Tasche."
+        },
+        {
+          "text": "Vier vor zwölf sieht Herr Schneider Glassplitter an deinem Mantel. „Die Schatulle. Um Punkt zwölf geh ich raus und ruf die Polizei.“"
+        },
+        {
+          "text": "Drei vor zwölf gehst du mit der Tasche zur Theken-Klappe. Du willst Herrn Schneider die Schatulle sofort zurückgeben."
+        },
+        {
+          "text": "Beim Knall ziehst du dich mit der Tasche zum linken Buffettisch zurück und kauerst gleich danach neben Emine. Du flüsterst: „Emine? Ich bin's, Fatma.“"
+        },
+        {
+          "text": "Kurz danach poltert es laut an der Theke. Als um Mitternacht das Licht angeht, stehst du auf und hältst die Tasche fest."
         },
         {
           "ref": "nebendelikt:nd_schatulle"
@@ -78,10 +99,16 @@
       ],
       "verbirgt": [
         {
-          "text": "Beim Knall tastest du dich vom Eiskübel zum rechten Buffettisch und kauerst dort gleich danach neben Azra, bis das Licht angeht."
+          "text": "Acht vor zwölf sagst du zu Wojtek: „Ich hol dir Eis. Und dann red ich mit Schneider.“ Dann setzt du dich im Ost-Saal an den Kopf der langen Tafel."
         },
         {
-          "text": "Dann bringst du Wojtek das Eis und setzt dich in den Ost-Saal an die Tafel."
+          "text": "Drei vor zwölf holst du am Eiskübel Eis für Wojteks eingeklemmten Finger. Herr Schneider raunzt dich an: „Zweitausend, bis zwölf.“"
+        },
+        {
+          "text": "Beim Knall tastest du dich vom Eiskübel zum rechten Buffettisch und kauerst dort gleich danach neben Azra, bis das Licht angeht. Du flüsterst: „Azra? Ich bin's, Olli.“"
+        },
+        {
+          "text": "Kurz danach poltert es laut an der Theke. Nach Mitternacht bringst du Wojtek das Eis: „Hier, dein Eis. Sorry, hat gedauert.“ Dann setzt du dich wieder an die Tafel im Ost-Saal."
         },
         {
           "ref": "nebendelikt:nd_tuerschaden"
@@ -106,13 +133,16 @@
       ],
       "verbirgt": [
         {
-          "text": "Kurz vor zwölf hat Herr Schneider dich an der Kapuze gepackt und „Hab ich dich!“ gerufen."
+          "text": "Sechs vor zwölf schleichst du über den Durchgang hinter die Theke in den Vorratsraum. Du machst das Licht aus und wartest mit der Leuchtmaske. Zeynep steht am Bogen zum Durchgang Schmiere."
+        },
+        {
+          "text": "Zwei vor zwölf will Herr Schneider die Notlaterne holen. Da springst du mit der leuchtenden Maske aus dem Vorratsraum: „Buuuh!“ Herr Schneider packt dich an der Kapuze und ruft: „Hab ich dich!“"
         },
         {
           "text": "Du reißt dich los und rennst durch den Durchgang, noch bevor es scheppert. Die leuchtende Maske hältst du dabei in der Hand."
         },
         {
-          "text": "Im Kaminsaal stopfst du die Maske in die Bauchtasche deines Pullis. Dann versteckst du dich oben auf der Toilette im Turm."
+          "text": "Im Kaminsaal stopfst du die Maske in die Bauchtasche deines Pullis. Dann versteckst du dich oben auf der Toilette im Turm. Erst eine Minute nach zwölf setzt du dich wieder auf die Wandbank im Kaminsaal."
         },
         {
           "ref": "nebendelikt:nd_streich"

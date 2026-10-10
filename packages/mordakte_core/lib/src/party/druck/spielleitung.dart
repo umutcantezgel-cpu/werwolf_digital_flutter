@@ -183,6 +183,7 @@ List<pw.Widget> _runde(DruckKontext k, Spielleitungsheft heft, int r) => [
     _fach([
       _unterlabel(k, k.ui('ui.druck.spielleitung.resuemee.lage')),
       _absatz(k, k.ui('ui.druck.spielleitung.lage.anleitung')),
+      _marke(k, k.ui('ui.druck.spielleitung.vorlesen')),
       _lage(k, heft.resuemeeLage[r]!),
     ]),
   ]),
@@ -195,11 +196,13 @@ List<pw.Widget> _anklage(DruckKontext k, Spielleitungsheft heft) => [
   _absatz(k, k.ui('ui.druck.spielleitung.anklage.aufloesung')),
   _absatz(k, k.ui('ui.druck.spielleitung.anklage.punkte')),
   _absatz(k, k.ui('ui.druck.spielleitung.anklage.ende')),
+  _absatz(k, k.ui('ui.druck.spielleitung.anklage.aufloesung_alle', {'alle': k.ui('ui.druck.aufloesung.alle'), 'rollen': k.ui('ui.druck.aufloesung.rollen')})),
 ];
 
 List<pw.Widget> _anhang(DruckKontext k, Spielleitungsheft heft) => [
   _titel(k, k.ui('ui.druck.spielleitung.anhang')),
   _absatz(k, k.ui('ui.druck.spielleitung.anhang.einleitung')),
+  _marke(k, k.ui('ui.druck.spielleitung.vorlesen')),
   pw.Table(
     border: _gitter(),
     columnWidths: {

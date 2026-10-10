@@ -759,8 +759,7 @@
       "wer": "enes",
       "pfade": [
         "fatma",
-        "olli",
-        "can"
+        "olli"
       ],
       "art": "pfadabhaengig",
       "kanal": "verborgen",
@@ -794,7 +793,8 @@
       "id": "b_damir_ahmet_weg",
       "wer": "enes",
       "pfade": [
-        "ahmet"
+        "ahmet",
+        "can"
       ],
       "art": "pfadabhaengig",
       "kanal": "verborgen",
@@ -840,6 +840,51 @@
       ],
       "trenner": "ahmet",
       "grundVerborgen": "Ahmet ist ein Freund; er will ihn nicht ohne Not belasten."
+    },
+    {
+      "id": "b_ahmet_haelt",
+      "wer": "ahmet",
+      "pfade": [
+        "fatma",
+        "olli"
+      ],
+      "art": "pfadabhaengig",
+      "kanal": "verborgen",
+      "text": "Im Dunkeln blieb er neben Damir und hielt den Umschlag mit dem Mietgeld fest, bis das Licht anging.",
+      "duText": "Im Dunkeln bleibst du neben Damir und hältst den Umschlag mit dem Mietgeld fest, bis das Licht angeht.",
+      "beleg": {
+        "aufenthalt": {
+          "person": "ahmet",
+          "ort": "hinter_theke_ost",
+          "von": "23:58:00",
+          "bis": "00:00:00"
+        }
+      },
+      "grundVerborgen": "Sonst fragt jemand, was in dem Umschlag ist."
+    },
+    {
+      "id": "b_ahmet_jacke",
+      "wer": "ahmet",
+      "pfade": [
+        "can"
+      ],
+      "art": "pfadabhaengig",
+      "kanal": "verborgen",
+      "eigenwissen": true,
+      "text": "Kurz vor dem Scheppern stand er auf und ging im Dunkeln in den Ost-Saal. Dort steckte er den Umschlag in seine Jacke. Erst nach dem Scheppern kam er zurück zu Damir. Kurz nach zwölf holte er den Umschlag wieder aus der Jacke.",
+      "duText": "Kurz vor dem Scheppern stehst du auf und gehst im Dunkeln in den Ost-Saal. Dort steckst du den Umschlag in deine Jacke. Erst nach dem Scheppern kommst du zurück zu Damir. Kurz nach zwölf holst du den Umschlag wieder aus der Jacke.",
+      "beleg": {
+        "aufenthalt": {
+          "person": "ahmet",
+          "ort": "am_jackenstaender",
+          "von": "23:58:30",
+          "bis": "23:59:00"
+        }
+      },
+      "entlastet": [
+        "ahmet"
+      ],
+      "grundVerborgen": "Er will nicht, dass jemand nach dem Umschlag fragt. Lieber sieht er verdächtig aus."
     },
     {
       "id": "b_marek_vor",

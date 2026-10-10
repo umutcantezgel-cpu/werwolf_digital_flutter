@@ -74,7 +74,8 @@ class _RueckblendeAnsichtState extends State<RueckblendeAnsicht> {
             ],
           ),
         ),
-        Expanded(child: GameView(session: _session, steuerung: false)),
+        // Die Szene malt sonst über ihren Rand in die Kopfzeile mit der Uhr (F6-SPIEL-01).
+        Expanded(child: ClipRect(child: GameView(session: _session, steuerung: false))),
       ],
     ),
   );

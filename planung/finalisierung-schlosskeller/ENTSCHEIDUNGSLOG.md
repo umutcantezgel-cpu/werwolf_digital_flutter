@@ -961,7 +961,7 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
     - Dateinamen: Der Entwurf wird nachgeführt.
   - **Offen als Feinschliff:** Bei Joanna steht die Rundenwahl der Runde 3 allein auf einer Seite.
 - **Entscheidung Gästewissen (W1, F-09):**
-  - Die sechs Beobachtungen gelten in allen Pfaden gleich. Der Erzähler darf sie also sprechen, ohne den Pfad zu verraten.
+  - Die sechs Beobachtungen gelten in allen Pfaden gleich (`pfade: alle`, auch Lejlas `b_lejla_ahmet_theke`). Der Erzähler darf sie also sprechen, ohne den Pfad zu verraten. Es sind fünf Bausteine, weil Wojtek zwei Beobachtungen trägt (Zählung berichtigt in E-039).
   - `Erzaehler.npcWissen` wählt für jede Runde die Pflichtgespräch-Beobachtungen, die eine Begründungskette eines beliebigen Pfads zuerst in dieser Runde braucht und die keine Indizkarte liefert, weil die Figur kein Ziel einer Option ist.
   - Gesprochen wird zum Rundenstart, nur bei unbesetzter Figur, ohne Namen wie die Lacher im Intro.
   - Ergebnis: fünf Bausteine `npc.<figur>.<runde>` in `texte/erzaehler-npc.json`:
@@ -1102,3 +1102,80 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
     - Schild unter der Entscheidungskarte (SPIEL-03 #6): situativ, die Kamera folgt dem Detektiv.
     - Verschobene Fotostelle (SPIEL-03 #7): Fotozeitpunkt des Gerüsts unter Last, kein Spielfehler.
     - `fall.json` Kern Runde 3 „zwei Restverdächtige“: Er beschreibt den Stand zu Beginn der Runde und wird nicht mehr angezeigt (E-037).
+
+## E-039 · F6-Härtung: Gegenprüfung und Spieltests (F6-GEGEN-01..03, F6-SPIEL-01/02)
+- **Abnahmen** (je fünf Prüfungen zu 0–2 Punkten; Gegenprobe je schwerem und mittlerem Befund, die ihn zu widerlegen versucht):
+  - `F6-GEGEN-01` (Logik, Abkürzungen): FREIGEGEBEN · 9/10. Drei schwere Befunde mit Zahlen aus eigenen Skripten; eine Grenzüberschreitung (`git log` statt nur `git status`) kostet einen Punkt.
+  - `F6-GEGEN-02` (Spoiler): FREIGEGEBEN · 9/10. Stimmzuordnung im Druck gefunden; zwei Befunde von der Gegenprobe widerlegt.
+  - `F6-GEGEN-03` (Ton, Inhaltsregeln): FREIGEGEBEN · 9/10. Familie als Deckungsgrund und Ausgang am Morgen gefunden; ebenfalls `git log` gelesen.
+  - `F6-SPIEL-01` (zwei schwache App-Abende): FREIGEGEBEN · 10/10.
+  - `F6-SPIEL-02` (Papier-Abend, Fall KLRVK, 9 Rollen): FREIGEGEBEN · 9/10. Zwei Befunde beruhen auf einer Fehllesung von E-036.
+- **Denkprotokoll Pfad Can (GEGEN-01 Nr. 1 bis 3, 8):**
+  - **Befund:** Im Pfad Can hatte Ahmet Damirs Alibi. Nach Runde 1 hatten also Ahmet, Fatma und Olli ein Alibi und nur Can keins. Der Erzähler sagte „Noch keine Spur“ nur in diesem Pfad. Ahmet schied über sein Nebendelikt aus: in Runde 2 über die falsche Option Ascheneimer, in Runde 3 über Aylins Beleg. So blieb Can in 12 Folgen schon nach Runde 2 allein übrig, in 9 Folgen ohne Schlüsselbeweis.
+  - **Wege:**
+    - (a) Damirs Aussage im Pfad Can ohne Alibi und ohne Spätankunft. Dann fehlt Damirs Fund im Pfad Can, und die Lücke verrät den Pfad.
+    - (b) Ahmet verlässt auch im Pfad Can kurz vor dem Scheppern Damir, aus einem eigenen, harmlosen Grund.
+    - (c) Can bekommt einen Trenner in Runde 1. Das ergäbe vier Trenner für drei Entscheidungen und einen Umbau von Runde 1.
+  - **Gewählt: (b).** Ahmet steht im Pfad Can kurz vor dem Scheppern auf und versteckt den Umschlag in seiner Jacke im Ost-Saal. Danach kommt er mit „Damir, ich bin's wieder.“ zurück und holt den Umschlag kurz nach zwölf wieder heraus (`tatmatrix/can.json`).
+    - Damirs Satz `b_damir_ahmet_weg` gilt jetzt in den Pfaden Ahmet und Can.
+    - Ahmets eigenes Wissen steht in zwei verborgenen Beobachtungen: `b_ahmet_haelt` (Fatma, Olli) und `b_ahmet_jacke` (Can, `eigenwissen`).
+    - Die Auflösung erzählt es mit `aufloesung.ahmet.unschuldig.can`.
+  - **Folgen:**
+    - In jedem Pfad zeigt Runde 1 genau eine Spätankunft und zwei Alibis, und Can bleibt unbefragt. Es bleiben also stets zwei ohne Alibi, und der Erzähler sagt überall „Es gibt erste Spuren“.
+    - Ahmet kann im Pfad Can nicht mehr über R-ENTLASTET ausscheiden. Allein bleibt jede Täterperson nur über R-UEBERFUEHRT.
+    - Die Ausnahme aus E-024, Nachtrag (`gegenTaeter`), entfällt.
+    - Gästebeweise im Pfad Can sind unverändert. Ahmets Gang geschieht im Dunkeln und ungesehen; nur Damir als sein Trenner-Zeuge weiß davon.
+  - **Wissensgrenze:** Der Plausibilitätsprüfer erlaubt pfadabhängiges Wissen jetzt auch der Person, die ein erklärtes eigenes Pfadverhalten hat (`eigenwissen`). Für alle anderen gilt die Regel weiter; eine Rot-Probe ohne `eigenwissen` wird gemeldet.
+  - **Simulator, neue Prüfungen:**
+    - Keine Folge lässt vor Runde 3 nur eine Person übrig.
+    - Allein übrig bleibt die Täterperson nur mit Schlüsselbeweis und Fundort.
+    - Nach Runde 1 bei bestem Spiel gibt es in jedem Pfad genau eine Spätankunft und zwei Alibis.
+    - Keine falsche Option schließt mehr aus als die richtige, ohne Ausnahme.
+    - `abkuerzung_test` mit Rot-Probe auf dem alten Kanon.
+  - **Umkehrprobe:**
+    - Falsch wäre (b), wenn Ahmets Gang im Pfad Can einen Zeugen hätte. Der Prüfer zeigt, dass niemand außer Damir ihn wahrnimmt.
+    - Falsch wäre es auch, wenn der Pfad Can nun leichter oder schwerer würde. Der Simulator zählt in allen vier Pfaden 128 Folgen mit Restmenge 1, alle über den Schlüsselbeweis.
+- **Befunde und Entscheidungen** (Ü übernommen, T teilweise, V verworfen):
+
+| Befund | Entscheidung | Folge |
+|---|---|---|
+| GEGEN-01 Nr. 1–3, 8 | Ü | Pfad Can wie oben. Ketten `e2_1` und `e3_3` im Pfad Can neu begründet. |
+| GEGEN-01 Nr. 4: Codekette Codetabelle ↔ Streifen der Täterfassung | V | Die Kette braucht den Blick in die versiegelte Fassung. Wer sie öffnet, liest dort ohnehin „Du warst es“. Restrisiko wie E-035. |
+| GEGEN-01 Nr. 5: Gästewissen lenkt auf den Ascheneimer | V | Die Sätze sind pfadneutral und Teil der Ketten; eine falsche Fährte im Pfad Can ist gewollt. Die Gegenprobe zeigt: Neutralisieren bräche die Ketten für Zeynep. |
+| GEGEN-01 Nr. 6, Gegenprobe: Tim und Serkan nur in neutralen, Marek nur in wahren Hinweisen | Ü | Neutrale Hinweise sind jetzt pfadgleiche Sätze über Kernpersonen oder das leuchtende Gesicht. Die wahren Sätze nennen Marek nicht mehr, und Ollis Gerücht in Runde 2 nennt Can. `abkuerzung_test`: Kein Name steht in einer Runde nur bei einer Qualität. |
+| GEGEN-01 Nr. 7: Kerzenständer 3 oder 4 Funde, harmlose Sätze kurz | Ü | Die harmlosen Sätze an Griff (zweimal), Fuß, Umschlag und Schatulle sind verschieden und mindestens halb so lang wie die belastenden. Der Kerzenständer zeigt in allen Pfaden vier Funde (Test). |
+| GEGEN-01 Nr. 9: Bei vier Rollen verhindert Sabotage einen wahren Hinweis | Ü (Vermerk) | Folge der Regel −1 (5·2 < 3·4). Gewollt: Die Täterrolle kann die Gruppe bei kleiner Besetzung bremsen. Vermerk unter FÜR DEN NUTZER. |
+| GEGEN-02 Nr. 1, GEGEN-03 Nr. 7, SPIEL-02 Nr. 3: Stimmzuordnung über offene Karten der Kernrollen | Ü | Die vier Kernrollen haben keine offenen Stimmkarten mehr. Sie stimmen nur mit den Streifen A (+1) und B (0, bei der Täterrolle −1) aus ihrer Fassung ab. Die Spielleitung kennt keinen ihrer Codes und kann eine −1 keiner Rolle zuordnen. Heft, Karten und Fassung sagen dasselbe; bei vier Rollen erklärt ein Blatt, warum es keine Stimmkarten gibt. |
+| GEGEN-02 Nr. 2, 3, 4 | V | Von der Gegenprobe widerlegt (E-024, E-025; Foto-Zeitpunkt). Nr. 3 ist durch den neuen Hinweis `h_can_3_wahr` ohnehin geändert. |
+| GEGEN-02 Nr. 5: Täter-Innenseite doppelt so dicht | T | Jede unschuldige Kernrolle hat jetzt ihre Nacht als Chronik in der Du-Form (aus der Tatmatrix belegt). Dazu kommt je ein Eröffnungs- und Schlusssatz an derselben Stelle wie bei der Täterfassung. Wörter je Innenseite: unschuldig etwa 250 statt 140, Täter 400 bis 480. Ganz gleich würde es nur mit Fülltext. Das Heft sagt beim Falten jetzt „ohne hineinzusehen“. |
+| GEGEN-02 Nr. 6: Gästeheft eines Trenner-Zeugen pfadabhängig | V | Eigenes Rollenheft, privat wie jedes Heft (E-008, G1-7). Restrisiko beim Druck wie E-035. |
+| GEGEN-02 Nr. 7: Zahl in E-035 | Ü | Berichtigt: sechs Beobachtungen in fünf Bausteinen. |
+| GEGEN-03 Nr. 1: Mehrheitsschablone erreicht Meister-Punkte | V (Vermerk) | Master 7.7 erlaubt pfadunabhängig richtige frühe Entscheidungen. Fünf der neun sind es, und Meister beginnt bei sieben Punkten (B-12). Die Schablone setzt Wissen aus mehreren Fall-Codes voraus; an einem Abend ist sie nicht erreichbar. Der Vorschlag (Schlüsselbeweise in Runde 2) widerspräche Master 7.6, Runde 3. Der Simulator berichtet jetzt die beste feste Folge (8/7/8/7) und zählt 3 feste Folgen mit 7 Punkten in allen Pfaden; Vermerk unter FÜR DEN NUTZER. |
+| GEGEN-03 Nr. 2 | V | Von der Gegenprobe widerlegt (G1-15, E-035, E-036). |
+| GEGEN-03 Nr. 3: Verwandtschaft als Deckungsgrund | Ü | `gw_leyla_2`, `gw_zeynep_2`, `gw_can_2` begründen das Schweigen mit Versprechen und Mitschuld. `gw_ahmet_2` nennt Lejla beim Namen statt „meine Cousine“. |
+| GEGEN-03 Nr. 4: Geständnisse nennen Waffe und Schlag | Ü | Die vier `aufloesung.*.taeter` sagen „im Dunkeln hat ihn die Panik gepackt“ (TON §1). |
+| GEGEN-03 Nr. 5: Emines Kopftuch im Schatulle-Strang | V (Vermerk) | Gegenprobe: TON §7 verbietet das Kopftuch als Teil einer Lüge oder eines Delikts; Emine hat beides nicht. E-029 hat sie bedacht. Vermerk unter FÜR DEN NUTZER. |
+| GEGEN-03 Nr. 6: Ausgang in der Nacht gegen Master 7.9 | Ü | Bei richtiger Anklage schließt Herr Schneider das Außentor erst auf, als es dämmert; bis dahin gibt es Torte und Tee. SCHLUESSEL.md ist nachgeführt. |
+| GEGEN-03 Nr. 8: Herkunftsmatrix fehlt | Ü | `herkunft.dart` erzeugt sie, und die Story-Bibel zeigt sie in Kapitel 4. `herkunft_test` prüft: Keine Art von Verfehlung liegt bei einer Herkunft allein, und eine Kopftuchträgerin ist unbelastet. Dazu gibt es Rot-Proben. TON §7 verweist darauf. |
+| GEGEN-03 Nr. 9: Azras Tipp fehlt in der Auflösung | Ü | `aufloesung.dilara` nennt ihn. |
+| GEGEN-03 Nr. 10: Emines Prompt „bottle“ | Ü | „thermos jug of tea“; im Kanon „Thermoskanne mit Tee“. |
+| GEGEN-03 Nr. 11: Lacher führen Gäste vor | V (Vermerk) | TON §8 gibt sie vor. Hinweis für Gastgeber in Anleitung und FÜR DEN NUTZER: vorher fragen. |
+| GEGEN-03 Nr. 12: „Buffet-Chefin“ | Ü | Lejla heißt „Die Apothekerin“, wie ihr Beruf. |
+| SPIEL-01 Nr. 1: Szene malt in die Uhrzeile der Rückblende | Ü | `ClipRect` um die Szene. |
+| SPIEL-01 Nr. 2: keine Täteransicht im Fotosatz | Ü | Fotostellen `dossier_taeter` und `wahl_taeter_r1..3`, dazu eine positive Semantikprüfung (die Tarnung steht an `dossier_taeter`). |
+| SPIEL-01 Nr. 3: Lage „offen“ trotz Motiv | Ü | Das Motiv zählt zu den belastenden Arten (E-024 nannte es schon). Im Ermittlungsbogen gibt es die Spalte „Motiv“. |
+| SPIEL-02 Nr. 1, 2 | V | Von der Gegenprobe widerlegt (E-027, E-036). Seit E-039 gibt es ohnehin keine offenen Karten der Kernrollen mehr. |
+| SPIEL-02 Nr. 4: Vorlesetexte ohne Marke | Ü | Die Marke „Vorlesen“ steht vor der Lage-Tabelle und im Anhang. |
+| SPIEL-02 Nr. 5: Schritt „Auflösung für alle“ fehlt | Ü | Neuer Absatz nach dem Ende: „Auflösung für alle“, dann „Die Rollen am Tisch“. |
+| SPIEL-02 Nr. 6: Meister-Text behauptet einen Fund | Ü | In den vier Meister-Enden kommt der Schlüsselbeweis erst nach dem Geständnis: „Zusammen seht ihr euch den Kerzenständer an.“ Das gilt unabhängig vom Verlauf (wie E-029 für den Bund). |
+| SPIEL-02 Nr. 7: Knall und Scheppern | Ü | Die Regel R-ENTLASTET (Kanon und Ermittlungsbogen) erklärt: „Das Scheppern ist das laute Poltern an der Theke, gut eine halbe Minute nach dem Knall.“ |
+| SPIEL-02 Nr. 8: Option „Weste“, Karte „Handschuh“ | Ü | Der Fund nennt die Westentasche. |
+| SPIEL-02 Nr. 9: Schlüsselband neben Schlüsselbund | Ü | Ahmet trägt ein blaues Stoffarmband. |
+| SPIEL-02 Nr. 10: „Umschlag“ für die Fassung | Ü | Heft und Dateiliste sagen „Fassung“. |
+
+- **Belege:**
+  - 388 Kern-Tests (neu: `abkuerzung_test`, `herkunft_test`, Rot-Proben in Plausibilität und Druck) und 129 Widget-Tests grün.
+  - Texte 0 Befunde (1601).
+  - Plausibilität, Simulator, Story-Bibel und Bildprompts OK.
+  - Druckproben der Fassungsseiten dem Nutzer gezeigt.
+- **Regelkreis Lernen (L-06):** Gegenprüfer lesen gern `git log`, obwohl der Auftrag nur `git status` erlaubt. Die Auftragsvorlage nennt jetzt ausdrücklich: „Zum Stand reicht `git status`; den Commit nennt der Auftrag.“

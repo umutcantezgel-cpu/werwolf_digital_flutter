@@ -46,10 +46,14 @@ void main() {
         var sabotiert = false;
         for (final rolle in s.besetzt) {
           final a = rng.nextInt(3) > 0;
-          final k = satz.stimmkarten.firstWhere((x) => x.rolle == rolle && x.runde == r && x.a == a);
-          // Kernrollen geben bei B den Streifen aus ihrer Fassung ab (E-036).
+          // Kernrollen geben den Streifen A oder B aus ihrer Fassung ab, Gäste den ihrer Karte (E-039).
           final fassung = satz.fassungen.where((f) => f.rolle == rolle);
-          streifen.add(!a && fassung.isNotEmpty ? fassung.single.streifen[r]! : k.wertCode);
+          if (fassung.isNotEmpty) {
+            expect(satz.stimmkarten.where((x) => x.rolle == rolle), isEmpty, reason: 'Kernrolle $rolle ohne offene Karte');
+            streifen.add(a ? fassung.single.streifenA[r]! : fassung.single.streifen[r]!);
+          } else {
+            streifen.add(satz.stimmkarten.firstWhere((x) => x.rolle == rolle && x.runde == r && x.a == a).wertCode);
+          }
           if (rolle == s.pfad) {
             sabotiert = !a;
           } else if (a) {
@@ -100,7 +104,10 @@ void main() {
       for (final n in [4, 20]) {
         final satz = DruckSatz.aus(kanon, texte, FallCode.fuerPfad(p, kanon.pfade), rollen: n, detektiv: 'w');
         final andere = {for (final k in satz.indizkarten) k.code, for (final u in satz.umschlaege) u.code, for (final f in satz.fassungen) f.code};
-        final wertCodes = [for (final s in satz.stimmkarten) s.wertCode, for (final f in satz.fassungen) ...f.streifen.values];
+        final wertCodes = [for (final s in satz.stimmkarten) s.wertCode, for (final f in satz.fassungen) ...[...f.streifenA.values, ...f.streifen.values]];
+        // Offene Karten haben nur Gäste (E-039): Die Spielleitung kennt keinen Code einer Kernrolle.
+        expect(satz.stimmkarten.where((s) => kanon.kernverdaechtige.contains(s.rolle)), isEmpty, reason: '$p/$n');
+        expect(satz.stimmkarten, hasLength((n - 4) * 6), reason: '$p/$n: zwei Karten je Gast und Runde');
         expect(wertCodes.toSet(), hasLength(wertCodes.length), reason: '$p/$n: Wertcodes eindeutig');
         expect(wertCodes.toSet().intersection(andere), isEmpty, reason: '$p/$n: keine Überschneidung mit anderen Codes');
         for (final c in wertCodes) {
@@ -111,14 +118,15 @@ void main() {
         for (var r = 1; r <= 3; r++) {
           final tabelle = satz.spielleitung.auszaehlung[r - 1].werte;
           final runde = satz.stimmkarten.where((s) => s.runde == r);
-          expect(tabelle.keys.toSet(), {for (final s in runde) s.wertCode, for (final f in satz.fassungen) f.streifen[r]!}, reason: '$p/$n Runde $r');
+          expect(tabelle.keys.toSet(), {for (final s in runde) s.wertCode, for (final f in satz.fassungen) ...[f.streifenA[r]!, f.streifen[r]!]}, reason: '$p/$n Runde $r');
           // Offene Karten tragen nie die Sabotage (E-036): A = 1, B = 0, auch bei der Täterrolle.
           for (final s in runde) {
             expect(tabelle[s.wertCode], s.a ? 1 : 0, reason: '$p/$n ${s.rolle} Runde $r');
           }
-          // Die −1 liegt allein im B-Streifen der Täterfassung; die anderen Fassungen zählen 0.
+          // Die −1 liegt allein im B-Streifen der Täterfassung; die anderen Fassungen zählen 0, A zählt 1.
           for (final f in satz.fassungen) {
             expect(tabelle[f.streifen[r]!], f.rolle == p ? -1 : 0, reason: '$p/$n Fassung ${f.rolle} Runde $r');
+            expect(tabelle[f.streifenA[r]!], 1, reason: '$p/$n Fassung ${f.rolle} Runde $r, A');
           }
           expect(tabelle.values.where((w) => w == -1), hasLength(1), reason: 'genau ein Sabotagestreifen je Runde');
         }

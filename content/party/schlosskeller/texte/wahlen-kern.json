@@ -11,7 +11,7 @@
     },
     {
       "id": "gw_ahmet_2",
-      "a": "Ich sage dem Detektiv, dass Lejla von der Rechnung weiß und mir versprochen hat zu schweigen. Damit bringe ich meine Cousine in eine blöde Lage.",
+      "a": "Ich sage dem Detektiv, dass Lejla von der Rechnung weiß und mir versprochen hat zu schweigen. Damit bringe ich Lejla in eine blöde Lage.",
       "b": "Lejla und ich halten zusammen. Dem Detektiv sage ich dazu nichts.",
       "sabotage": "Ich erzähle dem Detektiv lieber von meiner Arbeit in der Agentur. Davon gibt es viel zu erzählen."
     },
@@ -66,7 +66,7 @@
     {
       "id": "gw_can_2",
       "a": "Zeynep hat für mich Schmiere gestanden. Trotzdem erzähle ich das dem Detektiv.",
-      "b": "Meine Schwester Zeynep hat für mich Schmiere gestanden. Ich halte sie raus und sage nichts.",
+      "b": "Zeynep hat für mich Schmiere gestanden. Wenn ich rede, steckt sie mit drin. Ich sage nichts.",
       "sabotage": "Ich erzähle lieber vom Buffet. Darüber rede ich gern."
     },
     {
