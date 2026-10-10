@@ -13,6 +13,8 @@ QUITTIERT S=0 F=0
 ```
 Jede Zeile genau einmal; Änderungen ersetzen die Zeile. `K=<sha40>` erst nach `B-02 ERFÜLLT · K=<sha40>` in STEUERUNG.md.
 
+**SCHWELLEN-NACHTRAG.tsv:** Kopfzeile `Z-Nr\tSchwelle\tneuer Wert\tS-<n>`; nur anhängen, nie ändern oder löschen; nur Verschärfungen aus STEUERUNG.md (Master-Prompt Abschnitt 0, A-5).
+
 **PRUEFPUNKT.md:** Zeit (UTC und Berlin), Generation, Phase, nächster Schritt, `boot_id` (`cat /proc/sys/kernel/random/boot_id`), `SPERREN gen=<n> folge=<a> gesamt=<b>`, Startbild der Refs (`git ls-remote origin`, gekürzt), Weckruf-ID (`send_later`), eigene Worktrees und Pool-Plätze, Token-Zähler, „B-02 vermutlich“ oder „B-02 offen“, BW0-SHA.
 
 **FLUG.md:** eine Zeile je Agent: `<Kennung> · <Typ> · agentId <id> · Start <UTC> · Ende erwartet <UTC> · Ausgabe <pfad> · Platz <NN|-> · Status <läuft|fertig|verloren|neu eingereiht>`.

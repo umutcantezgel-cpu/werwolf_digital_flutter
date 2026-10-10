@@ -54,7 +54,7 @@ Buffetsaal/Kaminsaal/Ostsaal am Stand fin@5c83242: Luminanz L* 6,4–10,2; Vigne
 - U = exp(Σ g_i · ln f_i / Σ g_i).
 - Die Gewichte legt der Meta-Lauf in M1 fest, mit Begründung (festgelegt g = 3, 2, 1, 1, 2 für X1, X2, X3, X4, X6, X5 Pflichtziel: sichtbare Aktionen hoch, Weißlisten-Funde kanongebunden niedrig). Danach ändert sie niemand.
 - (Ersetzt durch Teil 1 §1.1: Planziel f = 15, 6, 4, 40, 9 → U = 10,52; X4 = 400 Gags, X6 = 45 Aktionsarten, X5 nur Pflichtziel ≥ 14.)
-- **Umfangsplan** (aus M4): welche Kombination f_1 … f_6 U ≥ 10 erfüllt und wie viele Aufträge und Stunden (Vorlauf und Hauptlauf) sie braucht. Vorlauf-Ware in `content/runden/` zählt, sobald sie nach B-02 F1–F5 besteht. Reicht eine Hauptlauf-Nacht nicht, setzt der Master-Prompt je Nacht ein Zwischenziel aus diesem Plan (Annahme A-11). Das BK-Kriterium bleibt U ≥ 10; nichts wird still gesenkt.
+- **Umfangsplan** (aus M4): welche Kombination f_1 … f_6 U ≥ 10 erfüllt und wie viele Aufträge und Stunden (Vorlauf und Hauptlauf) sie braucht. Vorlauf-Ware in `content/runden/` zählt, sobald sie nach B-02 F1–F6 besteht. Reicht eine Hauptlauf-Nacht nicht, setzt der Master-Prompt je Nacht ein Zwischenziel aus diesem Plan (Annahme A-11). Das BK-Kriterium bleibt U ≥ 10; nichts wird still gesenkt.
 
 **Schwellen**
 - U ≥ 10, Streckziel 100.

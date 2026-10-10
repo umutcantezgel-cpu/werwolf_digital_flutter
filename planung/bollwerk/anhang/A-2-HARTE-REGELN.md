@@ -166,6 +166,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
   - Haiku ruft nie `git` auf. Den Patch erzeugt Opus: `diff -ruN -x .dart_tool -x build -x '.flutter-plugins*' /home/user/bw/basis-<sha7> /home/user/bw/<NN> > /home/user/bw-varianten/<welle>/<kennung>.patch`. Vor `git apply --check` in `$BW` prüft Opus, dass der Patch nur die Dateien des Auftrags berührt.
   - Teil 7 jeder Auftragsvorlage enthält wortgleich: „Du führst nie `git` aus und betrittst nie `$BW` oder einen anderen Checkout.“
   - `git reset --hard`, `git clean` und `git checkout -- <pfad>` laufen nur mit `-C <eigener Wegwerf-Worktree>` (Mutanten, Rot-Proben), nie ohne `-C`.
+- Tor-Worktree: genau einer, `/home/user/bw-arbeit/tor` auf dem lokalen Branch `bw-tor` (nie gepusht), angelegt mit `git worktree add`, eingetragen in FLUG.md und PRUEFPUNKT („eigene Worktrees“); nach dem Merge per `git merge --no-ff bw-tor` zurückgesetzt, am Generationsende entfernt.
 - Text-, Daten- und Urteilsaufträge bekommen keinen Worktree. Workflow-Option `isolation: 'worktree'` wird nicht benutzt.
 - **Ergebnis als Datei, Kurzurteil an Opus:**
   - Varianten schreibt der Agent als JSONL nach `/home/user/bw-varianten/<welle>/<kennung>.jsonl`, Code als Patch nach `…/<kennung>.patch`.
