@@ -1,4 +1,4 @@
-STAND · Bauphase F6 von F7 · Abnahme 14 von 17 · Brüche offen 0 · Aufträge 147 von 184 · Agenten aktiv 0 · nächster Schritt: F6 Härtung starten (F6-GEGEN-01..03, F6-SPIEL-01/02 mit Gegenproben)
+STAND · Bauphase F6 von F7 · Abnahme 15 von 17 · Brüche offen 0 · Aufträge 152 von 188 · Agenten aktiv 3 · nächster Schritt: E2E-Matrix auf f26f2de, Nachprüfung F6-GEGEN-04/05 und F7-DOKU-01 auswerten, dann Tor F-16
 
 # STATUS
 
@@ -13,6 +13,7 @@ STAND · Bauphase F6 von F7 · Abnahme 14 von 17 · Brüche offen 0 · Aufträge
 | 09.10.2026, Nacht | F3: Welle 1 (Dossiers, Täter, Detektiv, Intro) und Welle 2a (180 Gespräche, Runden, Auflösung) abgenommen; Gesprächsplan mit Höchstlast; Fundtexte und Kern-Wahltexte gewählt; main (Burgstadt-Strang) zurückgemergt | 6 / 17 | 0 | E-026 bis E-028 |
 | 09.10.2026, später Abend nach Neustart | F3-Tor bestanden: 10 KONT- und 5 SENS-Berichte abgenommen, Nachbesserung II der Gespräche (133 von 180) und der 16 Finaltexte (Ausgangsregel), F3-TEST-01 (Dossier, Erzähler, Spoiler über Pfadmengen); 228 Party-Tests, 250 Kern-Tests, `tool/pruefen.sh alles` grün | 9 / 17 | 0 | E-029 |
 | 10.10.2026 | F4- und F5-Tor bestanden: dritte und vierte E2E-Matrix je 84/84 (`17173e2`, `04f007a`), Nachprüfung der Fotos (E-038: Verb am Knopf, Uhr oben, Rückblende-Kopf, Scroll-Abzeichen), `druck_pfadgleich_test`, ABNAHME F-09, F-11, F-12, F-13, F-14; 378 Kern- und 129 Widget-Tests | 14 / 17 | 0 | E-038 |
+| 10.10.2026, Nachmittag | F6: fünf Prüfberichte abgenommen (GEGEN-01..03, SPIEL-01/02, je mit Gegenprobe); E-039: Pfad Can ohne Abkürzung, Stimmen der Kernrollen nur über die Fassung, Hinweise und Funde ohne Pfadsignal, Ausgang am Morgen, Herkunftsmatrix; 388 Kern- und 129 Widget-Tests; Matrix und Nachprüfung laufen | 15 / 17 | 0 | E-039 |
 | 09.10.2026, später Abend II | F4/F5: E2E-Gerüst (E-034), Druckfassung in der App, Druck ohne Spoiler für den Drucker (E-035, E-036: Wertcodes, Sabotage-Streifen in der Fassung, vier gleiche Fassungsseiten), Gästewissen über den Erzähler (F-09), erste E2E-Matrix 83/84 (Semantik unter Last, behoben), 372 Kern- und 129 Widget-Tests | 9 / 17 | 0 | E-034 bis E-036 |
 | 09.10.2026, Nacht | F4: Karte, Sitzung, Renderer-Erweiterung (E-030); 8 Bildschirme, 2 Testaufträge abgenommen (E-031); Party-Requisiten, Seifenblasen, Gags; Dossier in der Du-Form, Rückblende nach Uhr (E-032); Druckmodell F5 vorgezogen; ganze Abende im Browser mit Fotos, 0 Fehler | 9 / 17 | 0 | E-030 bis E-032 |
 
@@ -28,7 +29,7 @@ STAND · Bauphase F6 von F7 · Abnahme 14 von 17 · Brüche offen 0 · Aufträge
 | F3 | F-06, F-08, F-10, F-11, F-15 | bestanden (E-029; F-10 Druckteil in F5, F-11 E2E in F4) |
 | F4 | F-12, F-13 | bestanden (E-034, E-037, E-038; E2E 84/84 auf `04f007a`) |
 | F5 | F-09, F-14 | bestanden (E-035, E-036; `druck_pfadgleich_test`, Druckprüfer 01–04) |
-| F6 | F-16; alle erneut | offen |
+| F6 | F-16; alle erneut | läuft (E-039; Matrix und Nachprüfung auf `f26f2de`) |
 | F7 | F-17 | offen |
 
 ## Fehlerstatistik je Rolle (Regelkreis Lernen)
@@ -37,7 +38,8 @@ STAND · Bauphase F6 von F7 · Abnahme 14 von 17 · Brüche offen 0 · Aufträge
 | KONT (Haiku) | 16 (F0 2, F1 4, F3 10) | 9,6 | 0 | liest Kanon während laufender Änderungen; einzelne Fehlleser (KONT-06 D) |
 | TEST (Haiku, F2) | 4 | 10 | 0 | – (Rot-Proben vorbildlich) |
 | FALL (Haiku) | 1 | 10 | 0 | – |
-| GEGEN (Haiku) | 6 | 9,8 | 1 (03a/03b geteilt, E-017) | zu breite Aufträge sprengen die Ausgabelänge |
+| GEGEN (Haiku) | 9 (F6 3) | 9,6 | 1 (03a/03b geteilt, E-017) | zu breite Aufträge sprengen die Ausgabelänge; liest `git log` trotz Verbot (L-06) |
+| SPIEL (Haiku, F6) | 2 | 9,5 | 0 | liest E-036 falsch (Sabotage-Text der Fassung gegen Karte B) |
 | SENS (Haiku) | 6 (F1 1, F3 5) | 9,4 | 0 | übersieht, dass Unschuldsfassungen nur im fremden Pfad gelten (SENS-01 Nr. 1–3) |
 | BAUMEISTER/TEST (Haiku) | 14 (F4 10) | 9,3 | 0 | Worktree vom falschen Commit (L-03); Spoilerprüfung zu grob (Fünf-Wort-Folgen ohne Pfadmenge) |
 | AUTOR (Haiku, F3) | 40 | 9,3 | 2 Wellen (P-2 bis P-4, Ausgangsregel) | Fehler, die erst über viele Dateien sichtbar werden (Last, Partnername, Bund-Fund) |

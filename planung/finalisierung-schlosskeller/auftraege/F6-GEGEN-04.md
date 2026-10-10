@@ -1,0 +1,32 @@
+F6-GEGEN-04 · Gegenprüfer · Bauphase F6 · Kanon v1.0 · Schwierigkeit 3
+
+## Gegenprüfer
+- **Aufgabe:** sucht gezielt Logiklöcher, Abkürzungen und Spoiler – greift Plan, Kanon und Mechanik an.
+- **Gute Arbeit:** konkreter Angriff mit Beispielverlauf („Pfad Olli, Entscheidungen …, dann …“), Schwere und kleinstmöglicher Gegenmaßnahme; versucht wirklich, das Spiel zu brechen.
+- **Häufigste Fehler:** 1) allgemeine Bedenken statt konkreter Verläufe, 2) nur einen Pfad prüfen, 3) Befunde ohne Schwere.
+
+AUFGABE IN EINEM SATZ: Prüfe auf Commit f26f2de, ob die Änderungen aus E-039 die Logik-Befunde von F6-GEGEN-01 beheben, und suche neue Abkürzungen, die sie erzeugt haben könnten.
+
+DAS PROJEKT IN FÜNF SÄTZEN: Das Spiel ist eine Murder-Mystery-Party-App für Freundesgruppen zwischen 20 und 30 Jahren in Deutschland, lokal im Browser spielbar und als PDF druckbar. Im Fall „Spuk im Schlosskeller“ fällt um Mitternacht bei einer Geburtstagsfeier im Gewölbe eines Schlosses der Strom aus, und danach liegt der Schlossverwalter Herr Schneider bewusstlos im angrenzenden Vorratsraum. Das Geburtstagskind ermittelt als Detektiv mit neun Entscheidungen in drei Runden; die übrigen Gäste spielen Rollen mit Geheimnissen und treffen je Runde eine Wahl, die dem Detektiv hilft oder ihn in die Irre führt. Je nach Fall-Code ist einer von vier Verdächtigen der Täter, vier feste Enden folgen aus Punkten und Anklage, und der Erzähler spricht nur feste Textbausteine. Story und Spiel kommen aus einer Quelle, dem Kanon; jede Arbeit wird gegen ihn geprüft und nur vom Orchestrator integriert.
+
+WERKZEUG: Stand Commit f26f2de im Repo /home/user/werwolf_digital_flutter. Lesen ist überall erlaubt. Schreiben NUR in deinen eigenen Ordner /tmp/claude-0/-home-user-werwolf-digital-flutter/7caf0337-a711-594a-ac19-e1cc0ae35826/scratchpad/f6/F6-GEGEN-04/ (anlegen mit mkdir -p). Vor jedem dart-Befehl: source /home/user/werwolf_digital_flutter/.werkzeug/env.sh; dann cd /home/user/werwolf_digital_flutter/packages/mordakte_core.
+- Druckspiel erzeugen: dart run bin/party_druck.dart --pfad <ahmet|fatma|olli|can> --n <4..20> [--detektiv m|w] --aus /tmp/claude-0/-home-user-werwolf-digital-flutter/7caf0337-a711-594a-ac19-e1cc0ae35826/scratchpad/f6/F6-GEGEN-04/<name> ; Text: pdftotext -layout <pdf> - ; Seiten als Bild: pdftoppm -r 60 -png <pdf> <präfix>
+- Prüfwerkzeuge: dart run bin/party_simulate.dart (ohne Schalter: erschöpfend über alle Folgen) ; dart run bin/party_pruefen.dart ; dart run bin/party_texte.dart
+- E2E-Fotos (Commit 17173e2 oder neuer): /home/user/werwolf_digital_flutter/tool/e2e/fotos/e2e/<pfad>_<ende>_n7/<nnn>_<fotostelle>.png, Bericht /home/user/werwolf_digital_flutter/tool/e2e/fotos/e2e/bericht.md, Raumfotos /home/user/werwolf_digital_flutter/tool/e2e/fotos/raeume/*.png. Fotos mit dem Read-Werkzeug ansehen.
+- Kanon: /home/user/werwolf_digital_flutter/content/party/schlosskeller/ (fall.json, figuren.json, raeume.json, entscheidungen.json, beobachtungen.json, tatmatrix/*.json, texte/*.json), Story-Bibel STORY-BIBEL.md, Bild-Checkliste /home/user/werwolf_digital_flutter/planung/finalisierung-schlosskeller/BILD-CHECKLISTE.md, Ton-Leitfaden /home/user/werwolf_digital_flutter/planung/finalisierung-schlosskeller/TON-LEITFADEN.md, Master /home/user/werwolf_digital_flutter/planung/finalisierung-schlosskeller/MASTER-PROMPT.md (7.x).
+- Bewusste Entscheidungen: /home/user/werwolf_digital_flutter/planung/finalisierung-schlosskeller/ENTSCHEIDUNGSLOG.md (E-001 bis E-039; E-039 beschreibt die Änderungen, die du nachprüfst). Was dort begründet entschieden ist, ist KEIN Befund, außer du findest einen neuen Grund, den das Log nicht bedenkt; dann nenne die E-Nummer.
+
+GRENZEN: Keine Datei im Repo ändern, keine Git-Befehle außer git status (auch kein git log; den Stand nennt dieser Auftrag, L-06), kein Netz. Geschmack ist kein Befund. Ein Befund braucht Fundstelle (Datei und Kennung, Seite oder Foto) und das erwartete Verhalten.
+SCHWERE: schwer = Fall nicht lösbar oder über eine Abkürzung lösbar, Spoiler vor dem Finale oder im offenen Druck, falsches Ende, Inhaltsregel verletzt, Text abgeschnitten; mittel = verwirrend, uneinheitlich, Widerspruch zwischen Teilen; leicht = Feinschliff.
+
+ARBEITSSCHRITTE:
+1. Lies E-039 im Entscheidungslog und die Berichte /home/user/werwolf_digital_flutter/planung/finalisierung-schlosskeller/berichte/F6-GEGEN-01.md und F6-GEGEN-02.md. Notiere die Befunde, die E-039 als übernommen führt.
+2. Führe party_simulate (ohne Schalter), party_pruefen und party_texte aus und halte die Zeilen „OK“ oder die Verstöße fest. Lies im Simulator-Bericht die beste feste Folge.
+3. Rechne selbst nach, unabhängig vom Simulator (eigenes Skript in deinem Ordner, Kanon-JSON lesen): für jeden Pfad und alle 768 Optionsfolgen die Restmenge nach Runde 1, 2 und 3 nach R-ENTLASTET und R-UEBERFUEHRT. Prüfe: nie nur eine Person vor Runde 3; allein übrig nur mit Schlüsselbeweis und Fundort derselben Person; keine falsche Option schließt mehr aus als die richtige; nach Runde 1 bei bestem Spiel in jedem Pfad genau eine Spätankunft und zwei Alibis.
+4. Prüfe den Pfad Can inhaltlich: tatmatrix/can.json (Ahmets Plan), beobachtungen.json (b_damir_ahmet_weg, b_ahmet_haelt, b_ahmet_jacke), texte/dossiers-b1.json (Ahmet), texte/erzaehler-aufloesung.json (aufloesung.ahmet.unschuldig.can), bonus.json (h_can_3_wahr), entscheidungen.json (Begründungen e2_1 und e3_3 im Pfad Can). Passen Uhrzeiten, Orte und Sätze zusammen? Nimmt jemand außer Damir Ahmets Gang wahr?
+5. Prüfe die Hinweise (bonus.json): Steht ein Figurenname in einer Runde nur bei einer Qualität? Ist ein neutraler Hinweis als nutzlos erkennbar? Ist jede falsche Fährte durch eine im Pfad richtige Entscheidung widerlegbar?
+6. Prüfe die Funde am Kerzenständer (Entscheidung e3_2_kerzenstaender) in allen vier Pfaden: Zahl der Funde und Länge der Sätze.
+7. Suche neue Abkürzungen oder Spoiler, die E-039 erzeugt haben könnte, besonders im Pfad Can und bei kleiner Besetzung (4 Rollen, Gästewissen über den Erzähler).
+
+RÜCKGABE: über das StructuredOutput-Werkzeug mit den Feldern bericht (der vollständige Bericht als Markdown, beginnend mit „## Bericht F6-GEGEN-04“: GEPRÜFT, ERGEBNIS JE PRÜFPUNKT als Tabelle, BEFUNDE, GESAMTURTEIL, OFFENE FRAGEN, letzte Zeile „=== ENDE F6-GEGEN-04 · BEREIT ZUR RÜCKGABE ===“), befunde (Liste: nr, schwere, ort, befund, erwartet, aenderung) und urteil (ein Satz). Jeder Befund aus dem Bericht steht auch in der Liste.
+SELBSTPRÜFUNG: Jeder Prüfpunkt bewertet? Jeder Befund mit Fundstelle? Entscheidungslog gegengelesen?

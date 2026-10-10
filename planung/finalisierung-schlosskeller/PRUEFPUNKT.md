@@ -1,6 +1,6 @@
 # PRÜFPUNKT · Wiederaufnahme
 
-STAND · Bauphase F6 von F7 · Abnahme 14 von 17 · Brüche offen 0 · Aufträge 147 von 184 · Agenten aktiv 0 · nächster Schritt: F6 Härtung starten (F6-GEGEN-01..03, F6-SPIEL-01/02 mit Gegenproben)
+STAND · Bauphase F6 von F7 · Abnahme 15 von 17 · Brüche offen 0 · Aufträge 152 von 188 · Agenten aktiv 3 · nächster Schritt: E2E-Matrix auf f26f2de, Nachprüfung F6-GEGEN-04/05 und F7-DOKU-01 auswerten, dann Tor F-16
 
 ## Nach einem Neustart oder in einer neuen Sitzung
 1. `cd /home/user/werwolf_digital_flutter && git checkout finalisierung-schlosskeller` (lokal; falls fehlend: `git fetch origin finalisierung-schlosskeller` bzw. Sicherungsbranch `claude/universal-prompt-orchestrator-trt8uu`).
@@ -55,3 +55,13 @@ STAND · Bauphase F6 von F7 · Abnahme 14 von 17 · Brüche offen 0 · Aufträge
   - `docs/partykrimi/ANLEITUNG.md` (F7-DOKU-01) und `ABSCHLUSSBERICHT.md`.
   - Merge nach main, Tag `schlosskeller-1.0`.
   - Worktrees `wt-build`, `wt-f5` und `wt-orch06` entfernen.
+
+## Stand 10.10.2026, Nachmittag (F6-Befunde eingearbeitet)
+- **Commit `f26f2de`** (gepusht): alle Befunde aus F6-GEGEN-01..03 und F6-SPIEL-01/02 entschieden (E-039), Berichte in `berichte/F6-*.md`. Kern: Pfad Can mit Ahmets Gang zur Jacke, Stimmen der Kernrollen nur über Fassungsstreifen A/B, Hinweise ohne verräterische Namen, Herkunftsmatrix, Texte.
+- **Läuft (Hintergrund):**
+  - E2E-Matrix auf `f26f2de` (`build/web` aus `wt-build` auf dem Hash gebaut). Log: `scratchpad/e2e_f6.log`, Bericht `tool/e2e/fotos/e2e/bericht.md`. Danach Beleg `belege/E2E-f26f2de.md` anlegen und Fotos zeigen (neu: `dossier_taeter`, `wahl_taeter_r*`).
+  - Workflow `f6-nachpruefung` (F6-GEGEN-04 Logik, F6-GEGEN-05 Druck, je mit Gegenprobe), Skript `scratchpad/f6-nachpruefung.js`, Aufträge aus `scratchpad/f6_nachpruef.py` (COMMIT=f26f2de).
+  - Workflow `f7-doku` (F7-DOKU-01 schreibt `docs/partykrimi/ANLEITUNG.md`), Auftrag aus `scratchpad/f7_auftraege.py`.
+  - Verloren nach einem Neustart: Matrix neu starten (`cd tool/e2e && node e2e.mjs --parallel 2`), Workflows über ihre Skripte neu starten.
+- **Danach:** Nachprüfung abnehmen, Restbefunde einarbeiten; `tool/pruefen.sh alles`; ABNAHME F-16 und Neubeleg F-01..F-15; F7: `scratchpad/abschluss.py <commit> merge` erzeugt den Abschlussbericht.
+
