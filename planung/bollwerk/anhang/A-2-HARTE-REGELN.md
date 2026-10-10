@@ -9,7 +9,7 @@ Quelle: Anhang A4 des Meta-Laufs, mit der Vorrangtabelle V-1…V-24 angewandt. W
 - **Abgelehnter Push:** „Lehnt origin einen Push ab, weil jemand anderes gepusht hat: holen, zusammenführen, alles neu testen, erneut pushen. Höchstens drei Anläufe.“ Für `bollwerk` heißt „alles neu testen“: das Tor der laufenden Phase (`bollwerk.dart schnell` bzw. `phase`).
 - **Schutzregel:** Lehnt origin den Push auf `bollwerk` wegen einer Schutzregel ab, notierst du das in FUER-DEN-NUTZER.md und setzt `ZUSTAND: NACHT-ENDE`. Pull Requests öffnet der Nachtlauf nie.
 - **Staging** nur mit `git add -- <pfade>`. Nie `-A`, `.`, `-u`, `-f`, `commit -a`.
-- **Commits:** „Jeder Commit baut und testet grün.“ Commits laufen über `tool/bollwerk/commit.sh` (Muster `tool/hd_commit.sh`): Branch-Prüfung, Pfadliste, Schutzpfade, Schnelltor im sauberen Worktree, Secret-Scan, Push mit ausdrücklichem Ziel. `tool/commit_gruen.sh` (`git add -A`, fest auf `nachtlauf/burgstadt`) wird nie benutzt.
+- **Commits:** „Jeder Commit baut und testet grün.“ Commits laufen über `tool/bollwerk/commit.sh` (Muster `tool/hd_commit.sh`): Branch-Prüfung, Pfadliste, Schutzpfade, Schnelltor im sauberen Worktree, Secret-Scan, Push mit ausdrücklichem Ziel. Einzige Ausnahme: Code, dessen Tor `phase` oder `nacht` ist, committest du im Tor-Worktree auf `bw-tor` mit `commit.sh --tor <modus>` (gleiche Prüfungen außer Push; `bw-tor` wird nie gepusht); er erreicht `bollwerk` nur per Merge nach grünem Tor an genau diesem SHA. Vor dem Merge holst du `bollwerk` in `bw-tor` (`git merge`, nie Rebase); Konflikte in Zustandsdateien (LAUF, PRUEFPUNKT, FLUG, QUITTUNGEN, NACHTPROTOKOLL, belege) löst du mit der Seite von `bollwerk`, Konflikte in Code-Pfaden heißen TOR-ROT. Pool-Patches für solchen Code wendest du im Tor-Worktree an, nie direkt in `$BW`. `tool/commit_gruen.sh` (`git add -A`, fest auf `nachtlauf/burgstadt`) wird nie benutzt.
 - **Fremde Linien** werden nur in `bollwerk` hereingeholt, nie umgekehrt. Den Merge-Commit MC für main baut der Merge-Bau des Leitstands.
 - **Arbeitsorte:** nur `$BW` (der Sitzungs-Checkout auf `bollwerk`) und die Worktrees, die dieser Lauf angelegt hat. Nur lesbar sind jeder andere Checkout und jeder andere Worktree.
 - **Lokaler `main`** wird nie benutzt. Maßgeblich ist immer `origin/main` nach `git fetch`.
@@ -145,6 +145,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 - `content/runden/**`
 - `packages/mordakte_core/lib/src/runden/**`, `packages/mordakte_core/test/runden/**`
 - `lib/runden/**`
+- `packages/pixel_engine/lib/feinkorn_leben.dart` (neu, nur Exporte) und die Dateien aus den Vorlauf-Merges von `1145cb9` (bzw. `caf1d61` nach A-2 Definitionen), deren Blob gleich dem der Linie ist
 
 **Nach B-02** gehen an BOLLWERK über:
 - `content/party/**`: Die Kanon-1.0-Wahrheit bleibt Byte für Byte; das prüft L0.3.
@@ -203,7 +204,7 @@ Wortlaut aus `origin/finalisierung-schlosskeller:planung/finalisierung-schlosske
 
 
 ### Zusatz Erlaubnisprüfung (L0.2)
-Jede Datei aus `git diff --name-status $B HEAD` außerhalb der Schreib-Erlaubnis ist rot: vor B-02 nur `planung/bollwerk/**` (ohne MASTER-PROMPT, anhang, STARTPAKET), `tool/bollwerk/**`, `content/runden/**`, `packages/mordakte_core/lib/src/runden/**`, `packages/mordakte_core/test/runden/**`, `lib/runden/**`, `assets/runden/**`, `test/runden/**`, `docs/bollwerk/**` sowie Dateien aus den Vorlauf-Merges von `1145cb9` und (nur nach A-2 Definitionen) `caf1d61`, deren Blob gleich dem der Linie ist; nach B-02 zusätzlich die übergegangenen Pfade aus A4.8 und Merges zugelassener Linien.
+Jede Datei aus `git diff --name-status $B HEAD` außerhalb der Schreib-Erlaubnis ist rot: vor B-02 nur `planung/bollwerk/**` (ohne MASTER-PROMPT, anhang, STARTPAKET), `tool/bollwerk/**`, `content/runden/**`, `packages/mordakte_core/lib/src/runden/**`, `packages/mordakte_core/test/runden/**`, `lib/runden/**`, `assets/runden/**`, `test/runden/**`, `docs/bollwerk/**`, die neue Datei `packages/pixel_engine/lib/feinkorn_leben.dart` (nur Exporte nach A-2 Definitionen) sowie Dateien aus den Vorlauf-Merges von `1145cb9` und (nur nach A-2 Definitionen) `caf1d61`, deren Blob gleich dem der Linie ist; nach B-02 zusätzlich die übergegangenen Pfade aus A4.8 und Merges zugelassener Linien.
 
 ### Definitionen
 - **Stolperdraht-Umfang:** verglichen werden nur Branch- und Tag-Refs (nie Pull-Refs); erwartete neue Refs siehe V-13 oben. Eine andere neue Ref ist nicht rot; sie kommt ins NACHTPROTOKOLL und nach FUER-DEN-NUTZER.

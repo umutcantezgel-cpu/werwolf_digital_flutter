@@ -97,3 +97,22 @@ Weitere Änderungen nach der Rubrik:
 **Offen benannte Schwäche:** Die Freigabe-Schwelle der Rubrik (≥ 23/26) ist an einer bewerteten Fassung nicht erreicht. Die gelieferte Fassung ist nicht unabhängig bewertet.
 
 **Empfehlung:** Vor START BOLLWERK bewertet ein frischer Opus-5.5-Agent die gelieferte Fassung einmal mit der Rubrik (≈ 20 min); der Leitstand kann das im Vorlauf tun.
+
+## 7. Runde 4 (Nachbesserung nach Leitstand-Befund F-1)
+- **F-1** (unabhängige Leitstand-Rubrik an `3460ca7`): 21/26 ohne Null. Pflicht-Mängel 1–5, empfohlene 6–12 und Kleinpunkte sind wörtlich nach Befund eingearbeitet. Längere Teile sind nach A-6 §5, A-8 §1.6–§1.8 und A-9 §3 Nr. 26, §4a, §10 verschoben.
+- **Nachprüfung A** (Haiku, Linse Widerspruch und Vollständigkeit): 9/12 behoben, 3 teilweise, 3 neue MAJOR, 4 MINOR. Die Lücken sind geschlossen:
+  - `gremium.mjs vorbereiten` ist definiert.
+  - SCHWELLEN-NACHTRAG hat eine Vorlage und eine L0-Prüfung.
+  - Der Tor-Worktree ist in A-2 geregelt.
+  - Die Begriffe S1–S6 und F1–F6 sind angeglichen.
+- **Nachprüfung B** (Haiku, Linse Ausführbarkeit, 5 Szenarien): 2 BLOCKER und 8 MAJOR. Die Lücken sind geschlossen:
+  - bw-tor-Commits als einzige Ausnahme zu `commit.sh`, mit Merge- und Konfliktregel.
+  - `feinkorn_leben.dart` in der Vorlauf-Schreibliste.
+  - Pool-Patches für Phase-Code nur im Tor-Worktree.
+  - Fester Ort der D2/D3-Lösung.
+  - Neuauflage verlorener Gremiumswellen.
+  - Begriffe „berühren“, „Befund-Stopp“ und „VORLAUF FERTIG“ (A-9 §11).
+  - Schlüssel der Schwellen `Z-<nn>#<k>`.
+  - `ziel` startet spätestens E − 6,5 h.
+- **Nicht neu geprüft:** die Korrekturen aus beiden Nachprüfungen selbst. Die abschließende Rubrik macht der Leitstand.
+- **Werkzeug-Audit:** neue Rot-Proben bestanden. `git -C … push`, `gh pr` und Zugriffe auf `$BW` sind rot, Schreiben nach `/home/user/bw-varianten/` ist grün. Gegen die Meta-Agenten meldet die strengere `$BW`-Regel jetzt 11 Treffer; die zusätzlichen sind Lesezugriffe auf das Repo, die im Meta-Lauf erlaubt waren.

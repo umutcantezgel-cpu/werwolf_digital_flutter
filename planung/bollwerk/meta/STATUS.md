@@ -25,3 +25,7 @@
 
 - 23:19–00:10 UTC M6 drei Prüfrunden: Rubrik 17 → 21/26, 10 Linsen, 3 Skeptiker (25 BLOCKER: 15 behoben, 8 teilweise, 2 bestätigt offen → danach behoben bzw. A-26), Kaltstart 3b grün, Verdichtung bestanden, D2-Blindprobe.
 - M7 Worktrees entfernt, Secret-Scan, Push `bollwerk-plan`.
+
+## Quittung F-1 (Leitstand, Rubrik L2 an 3460ca7: 21/26, NACHBESSERN)
+- QUITTUNG F-1 · 2026-10-10 ≈ 01:05 UTC · umgesetzt: Mängel 1–12 und Kleinpunkte (Commit 97855eb), danach zwei Haiku-Nachprüfungen nach §9 (M7-F1-A: 9/12 behoben, 3 teilweise + 3 MAJOR; M7-F1-B: 2 BLOCKER + 8 MAJOR); deren Befunde eingearbeitet (a7a2d2e und Folgecommit). Abweichung: A-1:41 „OFFENE FRAGE“ unverändert (betrifft Haiku → Opus, kein Widerspruch zu MP:54).
+- Runde 4 · Master-Prompt 54822 Byte · sha256 6eb7a606433d0abf524992e2dc329272510bff2e98eeac93632ebafc25298a40 · Bewertung durch den Leitstand ausstehend.

@@ -13,7 +13,7 @@ QUITTIERT S=0 F=0
 ```
 Jede Zeile genau einmal; Änderungen ersetzen die Zeile. `K=<sha40>` erst nach `B-02 ERFÜLLT · K=<sha40>` in STEUERUNG.md.
 
-**SCHWELLEN-NACHTRAG.tsv:** Kopfzeile `Z-Nr\tSchwelle\tneuer Wert\tS-<n>`; nur anhängen, nie ändern oder löschen; nur Verschärfungen aus STEUERUNG.md (Master-Prompt Abschnitt 0, A-5).
+**SCHWELLEN-NACHTRAG.tsv:** TAB-getrennt, Kopfzeile `Schlüssel\tRichtung\tneuer Wert\tS-<n>`; Schlüssel `Z-<nn>#<k>` (k = laufende Nummer der Schwelle in der Zeile, wie in `messbasis/schwellen.json`, das je Schwelle Schlüssel, Richtung ≥/≤ und Wert führt, auch S1–S6 und Z-14 aus A-8 §1.7/§1.8); BW0 legt die Datei mit Kopfzeile an; nur anhängen, nie ändern oder löschen; nur Verschärfungen aus STEUERUNG.md (Master-Prompt Abschnitt 0, A-5).
 
 **PRUEFPUNKT.md:** Zeit (UTC und Berlin), Generation, Phase, nächster Schritt, `boot_id` (`cat /proc/sys/kernel/random/boot_id`), `SPERREN gen=<n> folge=<a> gesamt=<b>`, Startbild der Refs (`git ls-remote origin`, gekürzt), Weckruf-ID (`send_later`), eigene Worktrees und Pool-Plätze, Token-Zähler, „B-02 vermutlich“ oder „B-02 offen“, BW0-SHA.
 
@@ -74,7 +74,7 @@ Kontaktbögen (JPEG ≤ 2.400 px, ≤ 1,5 MB; Vorher/Nachher höchstens 6 Paare;
 - Echte Merges mit `--no-ff`; nie `-s ours`, Squash, Rebase oder Cherry-pick ganzer Linien.
 
 ## 6. Prüfrunde des Nachtlaufs (Pflicht vor MAIN-REIFE)
-10 Haiku-Gegenprüfer mit je einer Linse (Ausführbarkeit, Sicherheit und Hoheit, Spiel und Würfel, Durchhalten, Messbarkeit, Look, Umfang und Füllstoff, main-Reife und Archiv, Widerspruch, Loop-Schnittstelle) auf den Diff seit K und die Abnahmetabelle; je BLOCKER und MAJOR 3 Skeptiker (`model: "haiku"`, `effort: "max"`), ein Befund gilt bei 2 von 3; Ergebnis in `planung/bollwerk/belege/pruefrunde/<n>.json` mit HEAD über `bollwerk.dart pruefrunde --schreibe <n>`. Höchstens 4 Runden; ab E − 6 h keine neue (Abschnitt 8, BW8 startet `ziel` spätestens E − 5,5 h).
+10 Haiku-Gegenprüfer mit je einer Linse (Ausführbarkeit, Sicherheit und Hoheit, Spiel und Würfel, Durchhalten, Messbarkeit, Look, Umfang und Füllstoff, main-Reife und Archiv, Widerspruch, Loop-Schnittstelle) auf den Diff seit K und die Abnahmetabelle; je BLOCKER und MAJOR 3 Skeptiker (`model: "haiku"`, `effort: "max"`), ein Befund gilt bei 2 von 3; Ergebnis in `planung/bollwerk/belege/pruefrunde/<n>.json` mit HEAD über `bollwerk.dart pruefrunde --schreibe <n>`. Höchstens 4 Runden; ab E − 6 h keine neue (Abschnitt 8, BW8 startet `ziel` spätestens E − 6,5 h).
 
 Vor jeder Runde schreibt Opus `git diff K HEAD -- . ':!planung/bollwerk' > /home/user/bw-varianten/pruefrunde-<n>.diff` und nennt den Pfad in jedem Prüfauftrag; jede Befunddatei `belege/pruefrunde/<n>.json` (über `pruefrunde --schreibe`) trägt `head` und je Befund `bestaetigt` (2 von 3). Z-34 prüft beides mit `jq`.
 
@@ -92,3 +92,10 @@ B-02 Startbedingung (Finalisierung fertig) · K der B-02-Commit · R Release-SHA
 
 ## 10. Lichtungsaufgaben (erste Arbeit der ersten Generation, Ergebnis ins ENTSCHEIDUNGSLOG)
 L-1 voller Testlauf `tool/alle_tests.sh` auf dieser Maschine messen; L-2 Zeitmodell des Abends in L4 (Gesprächs-, Wahl-, Weitergabezeiten) und Abend-Invariante belegen; L-3 Gegenstände/Orte-Koordinaten für X3 am Raumgraph prüfen (Teilorte nur innerhalb der Räume); L-4 Weißliste am Kanon prüfen (Kandidat `spur_stirnlampe`, Herausnahme neutraler Bonus-Sätze und des Lachers 20:15; jede herausgenommene Zeile ersetzt ein neuer pfadgleicher Zusatzfund, Z-11 bleibt ≥ 14); L-5 Karte im Querformat verdeckt die Szene (Design-Aufgabe); L-6 Web-Gast im WLAN über den vorhandenen Client; L-7 Fortsetzen nach Nutzungslimit in Kindsitzungen beobachten und ins NACHTPROTOKOLL; L-8 Weg der Sitzungskennung (Abschnitt 0) festhalten.
+
+## 11. Begriffe zu Regelkreisen
+- **Befund-Stopp:** ein offener Eintrag in BEFUNDE.md mit „Vorrang“ (Weißliste 2.5); bis zur Quittung keine neuen Aufträge, die seinen Bereich berühren.
+- **Berühren (Tor rot):** ein Auftrag berührt ein rotes Tor, wenn eine seiner Zielpfade unter den Pfaden der roten Schichten liegt (A-5 Teil 1, Spalte Befehl/Pfade) oder er Code im Tor-Worktree ändert. Nach 4 h TOR-ROT ohne Grün: `ZUSTAND: NACHT-ENDE` mit Grund TOR-ROT im Morgenbericht.
+- **VORLAUF FERTIG:** gesetzt, sobald `vorrat.dart naechste` für den Vorlauf nichts mehr liefert und alle Vorlauf-Belege grün sind (Abschnitt 8); die Regel „zwei Generationen ohne neuen Beleg“ ist nur die Sicherung dafür.
+- **Gremiumswellen:** starten nur, wenn ihre geschätzte Wandzeit vor E − 30 min endet; Auszüge nach jeder Welle über `gremium-import` committen. Endet eine Welle ohne Auszug (Generationsende), darf sie unter demselben Inhalts-Hash einmal neu laufen, mit Eintrag im ENTSCHEIDUNGSLOG.
+- **D3-/D2-Lösung:** `gremium.mjs vorbereiten` schreibt sie nach `/home/user/bw-logs/gremium-<sha>/loesung.json` und ihren sha256 in den PRUEFPUNKT; nach dem Import der Welle wird sie als `belege/gremium/<sha>/loesung.json` committet (nie vorher, nie im Stapel).

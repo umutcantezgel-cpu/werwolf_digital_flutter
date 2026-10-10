@@ -65,3 +65,8 @@ Jede folgenreiche Entscheidung nach dem Denkprotokoll (Ziel · Wege · Bewertung
 - ROT-2 „Leitstand baut keinen MC“ → verworfen: widerspricht V-16 und PLAN (der MC-Bau gehört dem Leitstand).
 - „Kürzungsleiter streichen“ → ersetzt durch „gekürzt = rot bis A<n>: ja“; die Leiter bleibt als Notweg.
 - Werkzeug-Audit meldete grep-Muster als Befehle → Audit entfernt zitierte Teile vor dem Abgleich. Die 2 echten Verstöße aus M0 (vor dem ToolSearch-Verbot) bleiben gemeldet.
+
+## E-M7-01 · Runde 4 nach Leitstand-Befund F-1 (≈ 01:05 UTC)
+- **Befund:** Leitstand-Rubrik 21/26 mit 12 Mängeln, darunter unerfüllbare Tor-Budgets und Herzschlagsperre (Ablösung mitten im Tor), Design ohne Regelkreis und mehrdeutiges Z-14.
+- **Wahl:** alle Ersatztexte aus F-1 übernehmen; Tore im Worktree `bw-tor` als einzige Ausnahme zu `commit.sh`; Wandzeit-Budgets aus der Schichtensumme; D2-Zwischenziele 50/65/85 %.
+- **Umkehrprobe:** Falsch, wenn L-1 in G1 deutlich kürzere Schichtzeiten misst. Dann werden die Budgets über SCHWELLEN-NACHTRAG strenger.
