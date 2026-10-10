@@ -138,4 +138,27 @@ void main() {
     expect(() => texte.baustein('intro.gibt_es_nicht'), throwsArgumentError);
     expect(() => texte.baustein('hinweis.gibt_es_nicht'), throwsArgumentError);
   });
+
+  test('Handlung am Knopf folgt dem Verb der Option (E-038)', () {
+    final opt = {
+      for (final e in kanon.entscheidungenJson['entscheidungen'] as List)
+        for (final o in (e as Map)['optionen'] as List) (o as Map)['id'] as String: o['text'] as String,
+    };
+    for (final z in karte.ziele.values) {
+      final t = opt[z.option]!.toLowerCase();
+      final soll = t.endsWith('untersuchen') || t.endsWith('durchsuchen')
+          ? ZielArt.gegenstand
+          : t.endsWith('fragen') || t.endsWith('befragen')
+              ? ZielArt.person
+              : t.endsWith('suchen')
+                  ? ZielArt.raum
+                  : z.art;
+      expect(z.aktion, soll, reason: '${z.option}: ${opt[z.option]}');
+    }
+    // Personen, die untersucht werden, gibt es wirklich (sonst prüft der Test nichts).
+    expect(karte.ziele.values.where((z) => z.person != null && z.aktion == ZielArt.gegenstand), isNotEmpty);
+    expect(aktionAus('Olli und seine Weste untersuchen', ZielArt.person), ZielArt.gegenstand);
+    expect(aktionAus('Emine befragen', ZielArt.person), ZielArt.person);
+    expect(aktionAus('Im Turmgang suchen', ZielArt.raum), ZielArt.raum);
+  });
 }

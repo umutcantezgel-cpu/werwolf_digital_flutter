@@ -1067,3 +1067,38 @@ Behzads Zusatzindizien werden ersetzt, wo sie nicht nur im eigenen Pfad entstehe
   - Unter ΔE 10 liegen über Raumgrenzen hinweg: Meryem/Serkan 5,2, Olli/Serkan 7,7, Ahmet/Baran 7,9, Murat/Hakan 8,2, Olli/Meryem 8,8, Serkan/Kaan 9,4.
   - Im selben Startraum bleibt F-13 erfüllt (≥ 10).
   - Die Paare unterscheiden sich durch Silhouette, Kopf und Haar. Die Sichtprüfer haben sie nicht gemeldet. Steht unter FÜR DEN NUTZER.
+
+## E-038 · Nachprüfung der Fotos nach E-037 (F4-SPIEL-03, F4-SICHT-03)
+- **Grundlage:** dritte E2E-Matrix 84/84 auf `17173e2` (Beleg `belege/E2E-17173e2.md`). Abnahme SPIEL-03 10/10, SICHT-03 10/10.
+- **E-037 hält im Bild:**
+  - Ring auf der Täterfigur, keine Überdeckung, Uhr hh:mm:ss.
+  - Platzhalter vollständig.
+  - Fundkarte unter ihrer Entscheidung.
+  - Rundenkopf ohne Designsatz.
+  - Knöpfe mit Rahmen, Farbpunkte mit Rand, Rollenliste ohne Doppelnamen.
+  - Ende mit „Zurück ins Hauptmenü“.
+  - Tugba rostorange, Fatmas Kopftuch erkennbar.
+- **Behoben:**
+  - **Verb am Aktionsknopf:**
+    - Problem: Bei Personen-Zielen stand „Befragen“, obwohl die Option „Olli und seine Weste untersuchen“ oder „Fatmas Hände und ihren Ring untersuchen“ lautet.
+    - Lösung: `KartenZiel.aktion` leitet die Handlung aus dem Verb am Ende des Optionstexts ab (`aktionAus`): befragen/fragen → Befragen, untersuchen/durchsuchen → Untersuchen, suchen → Absuchen.
+    - Wird eine Person untersucht, zeigt der Knopf die Lupe (`SzenenErweiterung.npcUntersuchen`). Das Namensschild bleibt über dem Kopf (`ActionTarget.figur`).
+    - Test in `karte_test`.
+  - **Rundenuhr in Runde 3:** Sie rutschte durch das Gästewissen unter die Fußleiste. Die Uhr steht jetzt oben in der Rundenzentrale, der Erzähler darunter.
+  - **Rückblende:** Uhrzeit und Wiederholen-Knopf stehen über dem Bild statt darauf. Sie verdeckten Herrn Schneider samt Ring (SICHT-03 #1, #2).
+  - **Scroll-Hinweis:** Ein kleines Abzeichen mit Pfeil rechts außen und ein flacher Verlauf ersetzen den Pfeil, der über der letzten Textzeile lag.
+- **Kein Befund, mit Begründung:**
+  - **„Acht Minuten vor zwölf sagte Olli …“ (SPIEL-03 #1, „neuer Grund“: steht auch im Täterwissen Ollis):**
+    - Die Beobachtung `b_wojtek_olli_satz` ist im Kanon `art: pfadneutral`, `pfade: alle`, und der Satz steht in der gemeinsamen Zeitleiste (`zeitleiste.json`).
+    - Olli sagt ihn in jedem Pfad. Die Täterfassung zitiert ihn nur als Ausgangslage.
+    - Der Bildschirm ist in allen Pfaden gleich (`erzaehler_test`).
+  - **Kopftücher von Emine und Tugba im dunklen Buffetsaal (SICHT-03 #3):**
+    - Master 7.13 verlangt 23 % Grundlicht. Abseits von Kerzen und Taschenlampe zeigen Figuren dort Umriss und Helligkeit, keine Farben.
+    - Im Licht sind die Kopftücher klar erkennbar, etwa Emine im Durchgang mit Y ≈ 103–144.
+    - Die Helligkeit ist unter FÜR DEN NUTZER als Stellschraube vermerkt.
+  - **Zwei Vorhängeschlösser im Windfang (SICHT-03 #5):** Das sind die zwei Flügel des verschlossenen Außentors, laut Kanon zwei Kacheln, „verschlossen ab 18:50“.
+  - **Weitere:**
+    - Joystick über einer Figur im Raumfoto (SICHT-03 #6): Das Bedienfeld gehört zum Spiel.
+    - Schild unter der Entscheidungskarte (SPIEL-03 #6): situativ, die Kamera folgt dem Detektiv.
+    - Verschobene Fotostelle (SPIEL-03 #7): Fotozeitpunkt des Gerüsts unter Last, kein Spielfehler.
+    - `fall.json` Kern Runde 3 „zwei Restverdächtige“: Er beschreibt den Stand zu Beginn der Runde und wird nicht mehr angezeigt (E-037).

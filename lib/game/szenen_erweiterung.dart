@@ -10,6 +10,10 @@ abstract interface class SzenenErweiterung {
   /// ansprechbar (die Figur bleibt sichtbar).
   String? npcAktion(String npcId);
 
+  /// Wird eine Figur untersucht statt befragt? Dann zeigt der Aktionsknopf die
+  /// Lupe statt der Sprechblase (E-038).
+  bool npcUntersuchen(String npcId);
+
   /// Beschriftung der Aktion an einem Hotspot; `null` heißt: Vorgabe nach Art.
   String? hotspotAktion(String hotspotId);
 

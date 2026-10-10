@@ -15,6 +15,12 @@ class KartenZiel {
   final String entscheidung;
   final ZielArt art;
 
+  /// Handlung am Ziel, wie der Optionstext sie nennt (E-038): „… befragen“ und
+  /// „… fragen“ heißen Befragen, „… untersuchen“ Untersuchen, „… suchen“ Absuchen.
+  /// So steht am Knopf dasselbe Verb wie in der Bestätigung, auch wenn das Ziel
+  /// eine Person ist („Olli und seine Weste untersuchen“).
+  final ZielArt aktion;
+
   /// Kanon-Kennung des Ziels (Person, Gegenstand oder Raum).
   final String kanonId;
 
@@ -35,6 +41,7 @@ class KartenZiel {
     required this.option,
     required this.entscheidung,
     required this.art,
+    required this.aktion,
     required this.kanonId,
     required this.person,
     required this.x,
@@ -45,6 +52,15 @@ class KartenZiel {
 
   /// Kennung des Hotspots im Renderer-Szenario.
   String get hotspot => 'ziel_$option';
+}
+
+/// Handlung aus dem Verb am Ende eines Optionstexts; sonst die Art des Ziels.
+ZielArt aktionAus(String text, ZielArt art) {
+  final t = text.trim().toLowerCase();
+  if (t.endsWith('untersuchen') || t.endsWith('durchsuchen')) return ZielArt.gegenstand;
+  if (t.endsWith('befragen') || t.endsWith('fragen') || t.endsWith('sprechen')) return ZielArt.person;
+  if (t.endsWith('suchen')) return ZielArt.raum;
+  return art;
 }
 
 /// Was die Karte zu einem Spielstand zeigt. Vor dem Finale hängt das nur an
@@ -198,7 +214,7 @@ class PartyKarte {
     } else {
       throw StateError('Option ${o.id}: Ziel ohne Person, Gegenstand oder Raum');
     }
-    return KartenZiel(option: o.id, entscheidung: e.id, art: art, kanonId: kanonId, person: person, x: x, y: y, raum: raum, name: name);
+    return KartenZiel(option: o.id, entscheidung: e.id, art: art, aktion: aktionAus(o.text, art), kanonId: kanonId, person: person, x: x, y: y, raum: raum, name: name);
   }
 
   /// Hotspots für das Renderer-Szenario: jedes Ziel ohne Person, in allen
@@ -239,9 +255,9 @@ class PartyKarte {
     if (e != null) {
       for (final z in zieleVon(e)) {
         if (z.person == null) {
-          offen[z.hotspot] = z.art;
+          offen[z.hotspot] = z.aktion;
         } else {
-          ansprechbar[z.person!] = z.art;
+          ansprechbar[z.person!] = z.aktion;
         }
       }
     }

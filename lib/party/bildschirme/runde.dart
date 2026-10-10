@@ -85,10 +85,12 @@ class _RundeBildschirmState extends State<RundeBildschirm> {
         aktionen: [PartyKnopf(text: s.ui('ui.runde.weiter'), onPressed: s.kannWeiter ? s.weiter : null)],
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
+          // Die Uhr steht oben: Sie läuft die ganze Runde und bleibt sichtbar, auch wenn
+          // der Erzähler zum Rundenstart länger spricht (Gästewissen, E-038).
           children: [
-            ErzaehlerFeld(sitzung: s, kennungen: s.erzaehler),
-            const SizedBox(height: 12),
             _uhr(),
+            const SizedBox(height: 16),
+            ErzaehlerFeld(sitzung: s, kennungen: s.erzaehler),
             const SizedBox(height: 28),
             _gespraeche(),
           ],

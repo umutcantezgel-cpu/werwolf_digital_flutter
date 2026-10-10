@@ -43,35 +43,39 @@ class _RueckblendeAnsichtState extends State<RueckblendeAnsicht> {
     super.dispose();
   }
 
+  /// Uhr und Wiederholen stehen über dem Bild, nicht darauf: Sie verdecken so
+  /// keine Figur und keinen Ring (E-038, B9).
   @override
-  Widget build(BuildContext context) => Stack(
-        children: [
-          Positioned.fill(child: GameView(session: _session, steuerung: false)),
-          Positioned(
-            left: 12,
-            top: 12,
-            child: ValueListenableBuilder<Uhrzeit?>(
-              valueListenable: _session.zeit,
-              builder: (context, t, _) => t == null
-                  ? const SizedBox.shrink()
-                  : DecoratedBox(
-                      decoration: BoxDecoration(color: const Color(0xCC0B0A0E), borderRadius: BorderRadius.circular(8), border: Border.all(color: Keller.linie)),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                        child: Text(widget.sitzung.ui('ui.allgemein.uhrzeit', {'uhrzeit': t.mitSekunden}), style: Keller.text.copyWith(fontFeatures: const [FontFeature.tabularFigures()])),
-                      ),
-                    ),
-            ),
+  Widget build(BuildContext context) => ColoredBox(
+    color: const Color(0xFF0B0A0E),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 8, 8, 8),
+          child: Row(
+            children: [
+              Expanded(
+                child: ValueListenableBuilder<Uhrzeit?>(
+                  valueListenable: _session.zeit,
+                  builder: (context, t, _) => t == null
+                      ? const SizedBox.shrink()
+                      : Text(
+                          widget.sitzung.ui('ui.allgemein.uhrzeit', {'uhrzeit': t.mitSekunden}),
+                          style: Keller.text.copyWith(fontFeatures: const [FontFeature.tabularFigures()]),
+                        ),
+                ),
+              ),
+              IconButton.filledTonal(
+                tooltip: widget.sitzung.ui('ui.rueckblende.nochmal'),
+                onPressed: _session.neuStarten,
+                icon: const Icon(Icons.replay),
+              ),
+            ],
           ),
-          Positioned(
-            right: 12,
-            top: 12,
-            child: IconButton.filledTonal(
-              tooltip: widget.sitzung.ui('ui.rueckblende.nochmal'),
-              onPressed: _session.neuStarten,
-              icon: const Icon(Icons.replay),
-            ),
-          ),
-        ],
-      );
+        ),
+        Expanded(child: GameView(session: _session, steuerung: false)),
+      ],
+    ),
+  );
 }

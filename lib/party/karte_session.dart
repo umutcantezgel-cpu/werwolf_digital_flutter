@@ -241,6 +241,9 @@ class PartyKartenSession implements GameSession, SzenenErweiterung {
   }
 
   @override
+  bool npcUntersuchen(String npcId) => _zustand.ansprechbar[sitzung.daten.kanonKennung[npcId]] == ZielArt.gegenstand;
+
+  @override
   String? hotspotAktion(String hotspotId) {
     final art = _zustand.offen[hotspotId];
     return art == null ? null : sitzung.ui('ui.karte.aktion.${art.name}');

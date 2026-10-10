@@ -30,6 +30,10 @@ class ActionTarget {
   final double x, y, z;
   final String name;
 
+  /// Ziel ist eine Figur (Namensschild über dem Kopf), auch wenn [kind] die
+  /// Lupe zeigt, weil die Figur untersucht wird (Partymodus, E-038).
+  final bool figur;
+
   const ActionTarget({
     required this.id,
     required this.label,
@@ -38,6 +42,7 @@ class ActionTarget {
     required this.y,
     this.z = 0,
     this.name = '',
+    this.figur = false,
   });
 
   bool get isCancel => kind == 'cancel';
@@ -732,7 +737,9 @@ class MordakteGame extends Game with KeyboardEvents {
           ActionTarget(
             id: n.id,
             label: aktion,
-            kind: 'npc',
+            // Eine Figur, die untersucht wird, bekommt die Lupe statt der Sprechblase (E-038).
+            kind: ext != null && ext.npcUntersuchen(n.id) ? HotspotKind.search : 'npc',
+            figur: true,
             x: nx,
             y: ny,
             z: 1.5,
@@ -1597,9 +1604,10 @@ class MordakteGame extends Game with KeyboardEvents {
     final tp = _targetPos;
     Offset? targetAnchor;
     if (tg != null && tp != null && !tg.isCancel && tg.kind != 'revive' && tg.name.isNotEmpty) {
-      final z = tg.kind == 'npc' ? 0.0 : tg.z;
+      final figur = tg.kind == 'npc' || tg.figur;
+      final z = figur ? 0.0 : tg.z;
       final a = _toView(Iso.toScreen(tp.dx, tp.dy, z));
-      targetAnchor = a.translate(0, tg.kind == 'npc' ? -headPx - 10 : -18 * _zoom - 10);
+      targetAnchor = a.translate(0, figur ? -headPx - 10 : -18 * _zoom - 10);
       placed.add(m.targetLabelRect(targetAnchor, tg.name).inflate(1));
     }
     for (final d in w?.detectives ?? const <DetectiveView>[]) {

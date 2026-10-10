@@ -133,7 +133,7 @@ Autoren schreiben nur in `content/party/schlosskeller/texte/<datei>.json` mit de
 | F4-ORCH-05 | ORCH | Spielleitung: Täter für Testläufe festlegen; Pfeife mit Seifenblasen; Gags an Rüstung und Kamin | `lib/party/spiel/*` | F4-ORCH-01 | teilweise (E-031: Seifenblasen, Gags an Rüstung und Kamin; Täter für Testläufe über Entwickler-Einstieg pfad=; Spielleitungscodes je Pfad in F5) |
 | F4-ORCH-03 | ORCH | Rückblende (Zeitraffer der Tatmatrix), Ruhe-Animationen, Integration; Rückblende-Schnittstelle schon mit F4-ORCH-01 festgelegt | `lib/party/spiel/rueckblende.dart` | F4-BAUMEISTER-* | offen |
 | F4-TEST-02 | TEST | Karte vor dem Finale pfadgleich (Objektliste, Marker, Licht) und Widget-Tests je Bildschirm | `test/party_widgets/karte_pfadgleich_test.dart`, `test/party_widgets/*` | F4-ORCH-01 | abgenommen (10/10, 10 Tests mit Gegenprobe; Widget-Tests je Bildschirm von den Baumeistern, 126 gesamt) |
-| F4-SPIEL-01..03 | SPIEL | Durchläufe Pfade × Enden × {4, 7, 12, 16, 20}, Fotos, Befunde | – (Bericht) | F4-ORCH-03 | 01/02 erledigt (E-037); 03 als Nachprüfung nach der dritten Matrix |
+| F4-SPIEL-01..03 | SPIEL | Durchläufe Pfade × Enden × {4, 7, 12, 16, 20}, Fotos, Befunde | – (Bericht) | F4-ORCH-03 | 01–03 erledigt (E-037, E-038) |
 | F4-SICHT-01..02 | SICHT | Fotos gegen Bild-Checkliste (Erkennbarkeit, Fog, Licht, Indizien-Orte) | – (Bericht) | F4-SPIEL | erledigt (E-037) |
 | F4-TEST-01 | TEST | Figurenkonsistenz Spiel/Dossier/Bildprompt (F-13) | `test/party/figuren_konsistenz_test.dart` | F1 | abgenommen (10/10, 15 Tests, Rot-Proben A–E) |
 | F4-ORCH-04 | ORCH | Befunde einarbeiten, Tor, Commit, Push | – | alle F4 | offen |

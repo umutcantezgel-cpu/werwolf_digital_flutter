@@ -80,22 +80,37 @@ class _RollFlaecheState extends State<RollFlaeche> {
           thumbVisibility: true,
           child: SingleChildScrollView(controller: _rolle, padding: widget.padding, child: widget.child),
         ),
-        if (_mehr)
-          Positioned(
+        // Ein flacher Verlauf am Rand und ein kleiner Pfeil rechts außen: Er zeigt,
+        // dass unten mehr folgt, ohne Buchstaben zu verdecken (E-038).
+        if (_mehr) ...[
+          const Positioned(
             left: 0,
             right: 0,
             bottom: 0,
             child: IgnorePointer(
-              child: Container(
-                height: 40,
-                alignment: Alignment.bottomCenter,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0x000B0A0E), Keller.nacht]),
+              child: SizedBox(
+                height: 18,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0x000B0A0E), Color(0xCC0B0A0E)]),
+                  ),
                 ),
-                child: const Icon(Icons.keyboard_arrow_down_rounded, color: Keller.kerze, size: 26),
               ),
             ),
           ),
+          Positioned(
+            right: 0,
+            bottom: 2,
+            child: IgnorePointer(
+              child: Container(
+                width: 20,
+                height: 20,
+                decoration: BoxDecoration(color: Keller.nacht, shape: BoxShape.circle, border: Border.all(color: Keller.kerze)),
+                child: const Icon(Icons.keyboard_arrow_down_rounded, color: Keller.kerze, size: 16),
+              ),
+            ),
+          ),
+        ],
       ],
     );
   }
