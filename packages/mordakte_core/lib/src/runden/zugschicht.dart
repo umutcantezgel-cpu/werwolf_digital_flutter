@@ -29,7 +29,7 @@ class ZugParameter {
   });
 
   /// Schlechteste Kosten eines Pflichtzugs: 6 + 2 + 3 + 3 = 14 (K-11).
-  int get schlechtesterPflichtzug => pflicht + gruendlich + 2 * umweg;
+  int get schlechtesterPflichtzug => pflicht + gruendlich + (zweit > umweg ? zweit : umweg) + (dritt > umweg ? dritt : umweg);
 
   /// Budget-Ungleichung je Runde (C2): 3 × 14 ≤ 45.
   bool budgetUngleichung(int pflichtzuegeJeRunde) => pflichtzuegeJeRunde * schlechtesterPflichtzug <= rundenzeit;
@@ -115,6 +115,8 @@ class Zugschicht {
 
   void beginneRunde(int r) {
     if (_lauf != null) throw StateError('Untersuchung ${_lauf!.id} läuft noch');
+    if (offen.isNotEmpty) throw StateError('Runde $runde hat offene Pflichtzüge: $offen');
+    if (r != runde + 1) throw StateError('Runde $r folgt nicht auf Runde $runde');
     runde = r;
     rest = p.rundenzeit;
     offen = [for (final e in ermittlung.runde(r)) e.id];
@@ -123,6 +125,7 @@ class Zugschicht {
 
   /// Auftakt-Suche in Runde 1 (nichtwertend, 0 Nachtminuten, K-03): ein Wurf ohne Modifikator.
   Wurf auftakt() {
+    if (runde != 1 || wuerfe.any((w) => w.id == 'auftakt')) throw StateError('Auftakt nur einmal in Runde 1');
     final w = Wurf.werfen(quelle, 'auftakt', 1, 0, garantie: false);
     wuerfe.add(w);
     if (w.stufe == Stufe.pech) {
@@ -175,13 +178,18 @@ class Zugschicht {
   /// wählt endgültig [option] (Wahl vor Wurf). Gibt zurück, ob gewürfelt wird.
   bool waehle(String option, {bool gruendlich = false}) {
     if (_lauf != null) throw StateError('Untersuchung ${_lauf!.id} läuft noch');
-    final id = offen.removeAt(0);
+    if (offen.isEmpty) throw StateError('keine Pflichtentscheidung offen');
+    final id = offen.first;
     final e = _e(id);
-    e.option(option); // wirft bei fremder Option
-    standBeimOeffnen[id] = Set.of(fakten);
-    for (final v in kettensperre[id] ?? const <String>[]) {
-      if (!aufgedeckt.contains(v)) kettenverletzungen++;
+    e.option(option); // wirft bei fremder Option, bevor sich etwas ändert
+    // Kettensperre (K-13): erst prüfen, dann ändern; eine verletzte Kette öffnet nie.
+    final fehlt = [for (final v in kettensperre[id] ?? const <String>[]) if (!aufgedeckt.contains(v)) v];
+    if (fehlt.isNotEmpty) {
+      kettenverletzungen++;
+      throw StateError('Kettensperre $id: $fehlt nicht abgeschlossen');
     }
+    offen.removeAt(0);
+    standBeimOeffnen[id] = Set.of(fakten);
     gewaehlt[id] = option;
     rest -= p.pflicht + (gruendlich ? p.gruendlich : 0);
     if (!istSuche(e)) {

@@ -50,9 +50,16 @@ void main() {
       final r = Rng(Rng.hashString('L2:stand:$i'));
       final pfad = kanon.pfade[r.nextInt(4)];
       final wahl = zufallsWahl(erm, r);
-      final neutral = spiele(erm, pfad, wahl, const FesterWuerfel.neutral(), Rng(1));
+      // Referenz ohne Würfel: Fakten der Wahlen in Kanon-Reihenfolge
+      final ref = <String, Set<String>>{};
+      final f = <String>{};
+      for (final e in erm.entscheidungen) {
+        ref[e.id] = Set.of(f);
+        f.addAll(erm.faktenVon(wahl[e.id]!, pfad));
+      }
       final mit = spiele(erm, pfad, wahl, SalzWuerfel('s$i'), r);
-      for (final e in neutral.standBeimOeffnen.entries) {
+      expect(mit.standBeimOeffnen, hasLength(9), reason: 'Seed L2:stand:$i');
+      for (final e in ref.entries) {
         expect(mit.standBeimOeffnen[e.key], e.value, reason: 'Seed L2:stand:$i ${e.key}');
       }
     }

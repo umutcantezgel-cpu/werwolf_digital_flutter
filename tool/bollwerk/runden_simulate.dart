@@ -216,8 +216,15 @@ Map<String, Object> erschoepfend(Welt w) {
   final folgen = alleFolgen(w).toList();
   for (final pfad in pfadeMeta) {
     for (final wahl in folgen) {
-      int? neutralPunkte;
-      Map<String, Set<String>>? neutralStand;
+      // Referenz ohne Würfel (K-14): Faktenstand beim Öffnen in Kanon-Reihenfolge, nur aus den Wahlen.
+      final neutralStand = <String, Set<String>>{};
+      final f = <String>{};
+      for (final e in w.ermittlung.entscheidungen) {
+        neutralStand[e.id] = Set.of(f);
+        f.addAll(w.ermittlung.faktenVon(wahl[e.id]!, pfad));
+      }
+      final ohne = w.sim.verlauf(pfad, [for (final e in w.ermittlung.entscheidungen) wahl[e.id]!]);
+      final neutralWertung = _wertungsSchluessel(w, ohne, pfad);
       final best = wahl.entries.every((e) => w.ermittlung.entscheidung(e.key).richtig[pfad] == e.value);
       for (var n = 4; n <= 20; n++) {
         for (final art in ['pech', 'erfolg', 'neutral']) {
@@ -232,10 +239,8 @@ Map<String, Object> erschoepfend(Welt w) {
             if (lg.sackgasse) sack++;
             kette += lg.z.kettenverletzungen;
             budget += lg.z.budgetUeber;
-            neutralPunkte ??= lg.punkte;
-            neutralStand ??= lg.z.standBeimOeffnen;
-            if (lg.punkte != neutralPunkte) wertAbw++;
-            if (!_standGleich(lg.z.standBeimOeffnen, neutralStand)) standAbw++;
+            if (_wertungsSchluessel(w, lg.z.wertung(w.sim, pfad), pfad) != neutralWertung) wertAbw++;
+            if (lg.z.standBeimOeffnen.length != 9 || !_standGleich(lg.z.standBeimOeffnen, neutralStand)) standAbw++;
             if (best) {
               for (final e in lg.z.standBeimOeffnen.entries) {
                 final b = w.ermittlung.entscheidung(e.key).begruendungFuer(pfad);
@@ -259,6 +264,14 @@ Map<String, Object> erschoepfend(Welt w) {
     'bestes_spiel_fehlende_kettenglieder': bestLuecke,
   };
 }
+
+/// Wertung WÜ-4: Punkte, Restverdächtige je Runde, Fakten und das Ende für jede mögliche Anklage.
+String _wertungsSchluessel(Welt w, Verlauf v, String pfad) => [
+      v.punkte,
+      [for (final r in v.restNachRunde) ([...r]..sort()).join(',')].join('/'),
+      ([...v.fakten]..sort()).join(','),
+      [for (final a in w.kanon.kernverdaechtige) w.sim.enden.ende(v.punkte, a == pfad).id].join(','),
+    ].join('|');
 
 bool _standGleich(Map<String, Set<String>> a, Map<String, Set<String>> b) {
   if (a.length != b.length) return false;
@@ -424,7 +437,7 @@ void main(List<String> args) {
   }
 
   final modus = arg('--modus') ?? 'meta-gleich';
-  final seeds = int.parse(arg('--seeds') ?? '200');
+  final seeds = int.parse(arg('--seeds') ?? '10000');
   final ordner = arg('--kanon') ?? '${_wurzel()}/content/party/schlosskeller';
   final kanon = Kanon.lade((p) => jsonDecode(File('$ordner/$p').readAsStringSync()) as Map<String, Object?>);
   final w = Welt(kanon);
@@ -467,6 +480,8 @@ void main(List<String> args) {
         if (d('max_pech_folge') > 2) rot.add('${e.key}:pechfolge');
         if (d('pech_szenen_median') < 2 || d('erfolge_zusatz_median') < 2) rot.add('${e.key}:spuerbar');
         if (d('abstecher_minus') < 0.25 || d('zusatz_minus') < 0.25) rot.add('${e.key}:quartil');
+        if (d('anteil_jede_runde_mit_wurf') < 1) rot.add('${e.key}:runde_ohne_wurf');
+        if (d('sackgassen') > 0) rot.add('${e.key}:sackgasse');
       }
     case 'ueberschneidung':
       final b = baender(w, seeds);
