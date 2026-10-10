@@ -16,3 +16,19 @@
 7. **main freigeben:** Bei MAIN-REIFE meldet der Leitstand einen Release-SHA R. Der Merge auf main geschieht nur nach menschlicher Freigabe.
 8. **Branch `bollwerk` (§1):** Nichts zu tun, wenn der Leitstand ihn per Fast-Forward übernimmt. Wer ihn lieber löschen will, kann das nur von Hand tun.
 9. **Kosten und Kontingent:** Die Nachtläufe nutzen Agenten im Umfang aus PLAN.md (Wellen zu 12, rund 61k Tokens je Einheit). Grenzen setzt nur der Mensch.
+
+## G1 · Nachtlauf, Generation 1 (10.10.2026)
+
+### G1-1 · Rohchat fehlt in der Cloud (zur Kenntnis)
+`quellen/schlosskeller-teamchat.txt` liegt auf dieser Maschine nicht vor. Der Secret-Scan endet „sauber“, prüft aber die Passagen aus dem Rohchat nicht („Passagenprüfung übersprungen“). Übernommen wird nur, was die BOLLWERK-Läufe selbst geschrieben haben. Vor main braucht es einmal den Rohchat-Abgleich durch dich (Z-35).
+
+### G1-2 · Frage: Weißlisten-Zusatzfunde (Z-11 verlangt ≥ 14)
+- **Befund (L-4):** Der Kanon trägt sicher nur 10 pfadgleiche Zusatzfunde, mit `spur_handykorb` 11. Zwei Kandidaten des Meta-Laufs (Schneiders Erinnerung, Tims Gesicht) belasten nach dem Bericht den Täter Can.
+- **Frage:** Dürfen Zusatzfunde auch **neue, pfadgleiche Kleinigkeiten der Schicht** sein (z. B. „Der Teekocher ist noch warm“), die nur Wahres über Dinge sagen, die in allen vier Fassungen gleich sind, und nie zur Lösung beitragen?
+- **Standardwahl:** Ja, mit Kanonwächter-Prüfung je Fund; vorher prüft Opus die zwei Täter-Befunde nach.
+- **Folge beim Kippen:** Ohne neue Funde bleibt Z-11 rot, bis „A<n>: ja“ das Pflichtziel auf 10 oder 11 senkt.
+
+### G1-3 · Frage: Seifenblasen-Marken und „gründlich“ im Abstecher (Kern 1.1)
+- **Befund (Prüfbericht PRUEF-KERN-1):** Der Meta-Simulator, nach dem die Würfelbänder gemessen wurden, vergibt eine Marke nur bei Pech in der Auftakt-Suche und lässt „gründlich“ im Abstecher nichts kosten. Der Spielkern (A-4 K-07, K-10) verlangt: jedes Pech bringt eine Marke, „gründlich“ kostet 2 Nachtminuten.
+- **Standardwahl:** Der Spielkern gilt (Kern 1.1 in G2), die Bänder werden neu gemessen; liegen sie danach außerhalb, werden die Parameter nur innerhalb der Bänder nachgestellt (A-17).
+- **Folge beim Kippen:** Nichts zu tun; das Spiel würde dann seltener Marken verteilen als beschrieben.
