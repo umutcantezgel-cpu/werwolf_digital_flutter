@@ -225,7 +225,7 @@ List<String> ring2(Map<String, Object?> v, Textpruefer tp) {
     if (alle.contains(x)) f.add('hinaus:$x');
   }
   final roh = ts.join(' ');
-  if (RegExp(r'\b(Sie|Ihnen|Ihr(e|en|er|em)?)\b').hasMatch(roh.replaceAll(RegExp(r'(^|[.!?…]\s+)(Sie|Ihr\w*)\b'), ' '))) {
+  if (RegExp(r'\b(Sie|Ihnen|Ihr(e|en|er|em)?)\b').hasMatch(roh.replaceAll(RegExp(r'(^|[.!?…:]\s+|[„"]\s*)(Sie|Ihr\w*)\b'), ' '))) {
     f.add('siezen');
   }
   if (alle.contains('pfeife') && !alle.contains('seifenblase')) f.add('pfeife_ohne_seifenblasen');

@@ -1,0 +1,6 @@
+# Kennung	Schablone	Typ	Parameter (nur anhängen)
+ABST-thekensaal-1	ABST	T	raum=thekensaal,runde=1,varianten=15
+ABST-west_saal-2	ABST	T	raum=west_saal,runde=2,varianten=15
+ABST-turmgang-3	ABST	T	raum=turmgang,runde=3,varianten=15
+GAG-ost_saal	GAG	T	raum=ost_saal,stapel=1,varianten=15
+FOLGE-e1_1	FOLGE	T	nach=e1_1,varianten=12
