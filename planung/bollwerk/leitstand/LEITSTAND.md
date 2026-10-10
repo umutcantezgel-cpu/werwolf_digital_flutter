@@ -45,7 +45,7 @@ Wahr nur, wenn alles zutrifft:
 4. PR #43 ist gemergt oder geschlossen (lesend prüfen).
 Sonst nur „FREIGABE BOLLWERK“ des Nutzers (nachdem er die Finalisierung angehalten hat).
 
-Letzte Prüfung: 2026-10-10 02:39 UTC · Finalisierung F5 von F7, Abnahme 9/17, letzter Commit ea8d765 (09.10. 23:09 UTC), kein ZIEL ERREICHT · **offen**
+Letzte Prüfung: 2026-10-10 03:39 UTC · Finalisierung F5 von F7, letzter Commit ea8d765 (09.10. 23:09 UTC), kein ZIEL ERREICHT · **offen**
 
 ## Gezeigte Bilder
 - 22:39 UTC · `bilder/meta/m1-bildverfahren-fin-5c83242.jpg` (bollwerk-plan e2b27da)
@@ -124,4 +124,5 @@ Meta-Sitzung: `=== BOLLWERK-META-ZUG · M<n> · <sha> ===` = Zwischenstand; `===
 - 2026-10-10 01:55 UTC · Rubrik Runde 4: 23/26 → L2 abgenommen; `bollwerk` → 2094a67; F-2 (zwei MAJOR für BW1) eingetragen; G1 wird gestartet.
 - 2026-10-10 01:54 UTC · G1 gestartet (Vorlauf, Fenster bis M = 06:30 Berlin + 30 min).
 - 2026-10-10 02:39 UTC · Herzschlag 7: G1 LÄUFT (LEASE gen=1, Herzschlag 02:34Z, FENSTER M=04:30Z), Tor `schnell --vorlauf` grün, FEINKORN 1145cb9 gemergt mit `feinkorn_leben.dart`, QUITTIERT S=3 F=1; B-02 offen. Tagesprüfung + Morgenbericht per send_later 04:45 UTC (nach Morgenbericht-Datei um 04:30Z).
+- 2026-10-10 03:39 UTC · Herzschlag 8: G1 LÄUFT, 25 Commits seit 2094a67, LEASE-Herzschlag 03:13Z, QUITTIERT S=3 F=2, Kosten G1 ≈ 26 $; B-02 offen.
 - Prüfpunkt für L2-Abnahme: Die Meta-Fassung schreibt in FUER-DEN-NUTZER „Merge auf main nur nach menschlicher Freigabe“ – der Plan hat diese Freigabe (Leitstand, nach allen Toren); bei der Abnahme angleichen.
